@@ -6,6 +6,11 @@
   <title>FKOM</title>
 </head>
 <body>
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+var nama = prompt("Siapa nama Anda?","Masukkan nama anda");
+document.write("Hai, " + nama);
+//-->
 
   <?php
   include "latihan2.php";

@@ -4,12 +4,7 @@ body{
   margin: 0;
 }
 
-header{
- background-color: rgb(106, 165, 112);
- padding: 2cm;
- color: #033803;
- margin-bottom: 4px;
-}
+
 
 article{
   border: 1px solid #111;
