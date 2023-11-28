@@ -1,0 +1,27 @@
+Contoh Trigger
+Ketika data pada tabel hapus_pesanan dihapus, maka data yang berada di dalamnya akan masuk ke history di mana di sana menyimpan data yang telah dihapus dari pesanan beserta tanggal hapus dan user yang menghapusnya.
+
+CREATE TRIGGER hapus_pesanan AFTER DELETE ON pesanan FOR EACH ROW BEGIN INSERT INTO history (id_pesanan, id_user, tamu, tipe, cek_in, cek_out, status, tgl_perubahan, nama_user) VALUES (OLD.id_pesanan, OLD.id_user, OLD.tamu, OLD.tipe, OLD.cek_in, OLD.cek_out, OLD.status, SYSDATE(), CURRENT_USER); END $$
+
+
+Contoh Trigger Kurangi Kamar
+Trigger ini aktif jika
+CREATE TRIGGER kurang_kamar AFTER INSERT ON pesanan BEGIN UPDATE kamar SET jlh = jlh - NEW.jlh WHERE tipe = NEW.tipe; END
+
+Contoh Trigger Tambah Kamar
+Trigger ini aktif jika pesanan dihapus
+CREATE TRIGGER tambah_kamar AFTER DELETE ON pesanan BEGIN UPDATE kamar SET jlh = jlh + OLD.jlh WHERE tipe = OLD.tipe; END
+
+Contoh Stored Procedure
+Ketika prosedur ini dipanggil dan diberi nilai (contoh : superior), maka entitas dari tabel yang memiliki nilai yang sama dengan nilai prosedur tersebut akan dihapus.
+
+CREATE PROCEDURE hapus_tipe (IN tipe VARCHAR(25)) BEGIN DELETE FROM kamar WHERE tipe = tipekamar; DELETE FROM faskamar WHERE tipe = tipe; END $$
+
+
+
+CREATE PROCEDURE hapus
+
+Contoh View
+Ketika view ini dipanggil, maka akan menampilkan sebuah tabel yang hanya berisi nilai yang ada ditentukan di view. Dapat juga digunakan untuk INNER JOIN
+
+CREATE VIEW daftartamu AS SELECT pesanan.tamu, cek_in, cek_out, status FROM pesanan $$

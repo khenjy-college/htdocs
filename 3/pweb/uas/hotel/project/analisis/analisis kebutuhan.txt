@@ -1,0 +1,34 @@
+Analisis kebutuhan
+Berdasarkan gambaran umum sistem yang telah diberikan, dapat disimpulkan bahwa website ini merupakan website yang digunakan untuk melakukan reservasi kamar kepada pengguna tanpa mencakup fitur pembayaran. Pengguna yang dapat menggunakan website adalah tamu, administrator, dan resepsionis. Media yang akan digunakan adalah website yang dapat diakses baik melalui laptop, komputer, maupun handphone. Melalui perangkat tersebut, pengguna baik tamu, administrator ataupun resepsionis dapat berinteraksi satu sama lain dalam bidang reservasi hotel sesuai dengan bagiannya masing-masing dalam satu website yang sama.
+
+Hal-hal yang dibutuhkan dalam user interface website antara lain :
+Antarmuka yang responsif dan ramah pengguna
+Desain yang konsisten sesuai dengan aturan desain grafis
+Sistem akun yang dapat membedakan satu akun dengan akun yang lainnya dengan perannya masing-masing.
+
+Entitas data yang dibutuhkan dalam website ini antara lain : 
+
+Cara membuat erd
+langkah pertama dalam membuat erd adalah mengidentifikasi semua entitas yang akan kamu gunakan. tulislah dalam sebuah persegi panjang dengan deskripsi singkat tentang informasi apa yang akan disimpan. gambarlah sebuah persegi untuk sebtiap entitas yang terpikirkan olehmu, jangan lupa berikan space di sekitar kotak untuk informasi lainnya nanti.
+
+Daftar entitas :
+Tamu
+Administrator
+Resepsionis
+Kamar
+Fasilitas Kamar
+Fasilitas Hotel
+Pesanan
+
+cari dua entitas yang sekiranya mempunyai hubungan. jika sdah ditemukan buatlah garis yang menghubungkan keduanya. selanjutnya, bagaimanakah kedua entitas tersebut berhubungan? kamu bisa membuat simbol diamond untuk mendeskripsikan hubungan kedua entitas tersebut
+
+jangan lupa tambahkan atribut kunci untuk setiap entitas dengan menggunakan simbol ovel. ingat beberapa perbedaan atribut yang sudah disebutkan di atas
+
+setelah kamu sudah membuat beberapa contoh entitas yang terhubungkan oleh garis dan membuat diamond di antara kedua entitas tersbeut, berarti semua hubungan telah mempunyai deskripsi masing-masing. mungkin tidak setiap entitas mempunyai hubungan, atau beberapa di antaranya malah memiliki relasi yang banyak tapi itu tidak masalah, tetap lanjutkan erd-mu
+
+setelah diagrammu sudah penuh, pastikan kembali hal-hal yang tadinya kamu ragukan, apakah entitas dan atribut yang belum mempunyai hubungan memang perlu ditulis? jika tidak, kamu bisa menghapus atau mengubah nama entitas tersebut. berikut ini ada beberapa tips agar erdmu efektif dan mudah dihapahmi : 
+
+pastikan nama entitas hanya muncul sekali dalanm setiap diagram
+namai setiap entitas, relasi dan atribut pada program
+uji kembali dengan teliti relasi antarentitas. apakah mereka dibutuhkan? atau adakah hubungan-hubungan ang terlewatkan? buanglah relasi yang berulang. jangan gabungkan relasi dengan satu sama lain
+gunakan warna terang yang berbeda untuk menandari protsi penting erd-mu

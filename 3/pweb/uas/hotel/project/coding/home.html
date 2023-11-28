@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Halaman</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">
+            <h2>HOTEL HEBAT</h2><span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link text-decoration-none font-weight-bold" href="#">
+            Login
+          </a></li>
+        <li class="nav-item active"><a class="nav-link text-decoration-none" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-decoration-none" href="#">Kamar</a></li>
+        <li class="nav-item"><a class="nav-link text-decoration-none" href="#">Fasilitas</a></li>
+      </ul>
+    </nav>
+
+    <img src="img/hotel.jpg" class="img-fluid rounded" alt="...">
+
+    <form action="pemesanan.html">
+      <div class="row align-items-end justify-content-md-center my-4">
+        <div class="col-md-auto px-lg-5">
+          <label for="inputCekIn">Tanggal Cek In</label>
+          <input type="date" class="form-control" id="inputCekIn">
+        </div>
+        <div class="col-md-auto px-lg-5">
+          <label for="inputCekOut">Tanggal Cek Out</label>
+          <input type="date" class="form-control" id="inputCekOut">
+        </div>
+        <div class="col-md-3 px-lg-5">
+          <label for="inputJlh">Jumlah Kamar</label>
+          <input type="number" class="form-control" id="inputJlh" min="0" max="10">
+        </div>
+        <div class="col-md-auto px-lg-5">
+          <button type="submit" class="btn btn-secondary">Pesan</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <h1>Tentang Kami</h1>
+
+      </div>
+      <div class="col flex-fill d-flex justify-content-center">
+        <p>Lepaskan diri Anda ke Hotel Hebat, dikelilingi oleh keindahan pegunungan yang indah, danau, dan sawah
+          menghijau. Nikmati sore yang hangat dengan berenang di kolam renang dengan pemandangan matahari terbenam yang
+          memukau; Kid's Club yang luas - menawarkan beragam fasilitas dan kegiatan anak-anak yang akan melengkapi
+          kenyamanan keluarga. Convention Center kami, dilengkapi pelayanan lengkap dengan ruang konvensi terbesar di
+          Bandung, mampu mengakomodasi hingga 3000 delegasi. Manfaatkan ruang penyelenggaraan konvensi M.I.C.E ataupun
+          mewujudkan acara pernikahan adat yang mewah.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

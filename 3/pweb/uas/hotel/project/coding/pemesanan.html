@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"><h2>HOTEL HEBAT</h2><span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item active"><a class="nav-link text-decoration-none" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-decoration-none" href="#">Kamar</a></li>
+          <li class="nav-item"><a class="nav-link text-decoration-none" href="#">Fasilitas</a></li>
+        </ul>
+      </div>
+    </nav>
+    <img src="img/hotel.jpg" class="img-fluid img-thumbnail" alt="...">
+    <form>
+      <div class="row align-items-end justify-content-md-center">
+        <div class="col-md-auto px-lg-5">
+          <label for="inputEmail4">Tanggal Cek In</label>
+          <input type="date" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-auto px-lg-5">
+          <label for="inputEmail5">Tanggal Cek Out</label>
+          <input type="date" class="form-control" id="inputEmail5">
+        </div>
+        <div class="col-md-3 px-lg-5">
+          <label for="inputEmail5">Jumlah Kamar</label>
+          <input type="text" class="form-control" id="inputEmail5">
+        </div>
+        <div class="col-md-auto px-lg-5">
+          <button type="submit" class="btn btn-secondary">Pesan</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-left">
+      <div class="col-md-8">
+        <h1 class="mt-4">Form Pemesanan</h1>
+        <form>
+          <div class="form-group row">
+            <label for="inputPemesan" class="col-sm-3 col-form-label">Nama Pemesan</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputPemesan">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputEmail">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputHp" class="col-sm-3 col-form-label">No handphone</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputHp">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputTamu" class="col-sm-3 col-form-label">Nama Tamu</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputTamu">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputTipe" class="col-sm-3 col-form-label">Tipe Kamar</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="inputTipe">
+                <option selected hidden>Superior</option>
+                <option>Superior</option>
+                <option>Deluxe</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group d-flex justify-content-center">
+            <div class="col-md-auto">
+            <button type="submit" class="btn btn-secondary">Konfirmasi Pesanan</button>
+          </div>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+    
+    
+  </div>
+
+</body>
+
+</html>

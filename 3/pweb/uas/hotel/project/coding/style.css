@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: cursive;
+}
+
+.img-fluid {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.container.login {
+  width: 30%;
+  margin-top: 10%;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+}
+
+button .btn-primary{
+  width: 48%;
+}

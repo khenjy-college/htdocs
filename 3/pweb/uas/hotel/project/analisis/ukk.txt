@@ -1,0 +1,125 @@
+I
+1.1
+Menggunakan tools sesuai kebutuhan pembuatan program
+
+- tahu dan pandai pakai aplikasi
+
+1.2
+Melakukan konfigurasi tools untuk pemrograman
+
+- konfigurasi program
+
+1.3
+Mempersiapkan perangkat lunak aplikasi data deskripsi/SQL
+
+- pasang aplikasi sql dan jalankan
+
+II
+2.1
+Mengidentifikasi rancangan user interface
+
+- analisis user interface
+
+2.2
+Melakukan implementasi rancangan user interface
+
+- implementasi user interface dan stylenya
+
+2.3
+Mengidentifikasi entitas yang terkait dengan lingkup program yang akan dibuat beserta hubungannya
+
+- menentukan entitas
+
+2.4
+Membuat query informasi dasar terhadap model data yang telah dikembangkan
+
+- membuat diagram erd utk aplikasi
+
+2.5
+Menggunakan diagram program dan deskripsi program
+
+- implementasi metode permodelan dan diagram (diagram objek dan diagram komponen)
+
+2.6
+Menerapkan hasil permodelan ke dalam pengembangan program
+
+- menerapkan permodelan ke program
+
+2.7
+Menggunakan fitur aplikasi sql
+
+- gunakan fitur dml
+
+2.8
+Mengisi tabel
+
+- isi data pakai dml
+
+2.9
+Melakukan operasi relasional
+
+- olah data pakai dml
+
+2.10
+Membuat stored procedure
+
+-buat stored procedure utk program
+
+
+2.11
+Membuat trigger
+
+2.12
+Menerapkan struktur data dan akses terhadap struktur data tersebut
+
+- membuat struktur data
+
+2.13
+Menggunakan tipe data dan kontrol program
+
+- menggunakan tipe data yang benar
+
+2.14
+Membuat program sederhana
+
+-membuat program crud
+
+2.15
+Membuat program menggunakan prosedur dan fungsi
+
+- coding sesuai dengan aturan penulisan program dan beri keterangan buat setiap prosedurnya
+
+2.16
+Membuat program menggunakan array
+
+- membuat array
+
+III
+3.1
+Mockup aplikasi
+
+- membuat mockup aplikasi
+
+3.2
+User Interface/Layout
+
+- user interface sesuai dengan aturan desain grafis (kesatuan, keseimbangan, proporsi, irama, kontras, harmoni, penekanan)
+
+3.3
+ERD
+
+- entitas, relasi, dan atribut sesuai dengan kebutuhan
+
+3.4
+Database
+
+- tabel, data, view, dan stored procedure dibuat
+
+3.5
+Aplikasi Berjalan sesuai rancangan
+
+- aplikasi dapat bekerja sesuai alur dan rancangan
+
+
+baca dokumentasi
+tahu tahapan

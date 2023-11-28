@@ -1,0 +1,60 @@
+Alat
+	Komputer berupa PC atau Laptop
+Software pendukung
+	Sistem operasi
+	Aplikasi Code Editor
+	Aplikasi Web Designer
+	Aplikasi Web Server
+	Aplikasi Wireframe/mockup
+Bahan
+	File Gambar Penunjang
+	Data Dummy
+
+Langkah Kerja
+Siapkan peralatan dan aplikasi pendukung yang akan digunakan
+
+
+Lakukan proses install aplikasi pendukung yang dibbutuhkan sesuai dengan jenis aplikasi yang akan dibuat jika belum diinstall
+
+
+Lakukan pengaturan konfigurasi aplikasi pendukung yang akan digunakan
+
+
+Siapkan file gambar dan file data dummy yang akan digunakan
+
+
+Identifikasi kebutuhan user interface berdasarkan gambaran umum aplikasi
+
+
+Buatlah mockup aplikasi sesuai dengan rancangan yang disiapkan, komponen lain dapat ditambahkan jika diperlukan
+
+
+Implementasikan mockup ke dalam layout user interface, pastikan memenuhi unsur estetika dan kaidah dasar desain grafis.
+
+
+Lakukan analisis entitas data yang diperlukan untuk membuat aplikasi pemesanan hotel
+
+
+Buatlah diagram ERD berdasarkan analisis yang anda lakukan
+
+
+Buatlah basis data berdasarkan permodelan data yang anda lakukan
+	Buatlah tabel berdasarkan permodelan yang anda lakukan
+	Isilah setiap tabel yang anda buat
+	Tentukan query yang mungkin anda perlukan
+	Buatlah view dari query yang anda perlukan
+	Buatlah stored procedure yang anda perlukan
+	Buatlah trigger yang mungkin anda perlukan
+
+
+Lakukan identifikasi alur pemrograman daan algoritma yang akan digunakan
+
+
+Lakukan pemrograman menggunakan bahasa pemrograman yang anda pilih dengan ketentuan sebagai berikut
+	gunakan tipe data dan kontrol program yang sesuai
+	gunakan prosedur dan fungsi pada kode program yang dibuat
+	gunakan array untuk membantu melakukan pengolahan data dari database
+
+
+Lakukan pengujian/ debug setiap kode program, pastikan hasil aplikasi sesuai dengan yang diharapkan
+
