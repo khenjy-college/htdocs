@@ -141,5 +141,6 @@ $autoload['model'] = array(
   'M_tipe_kamar' => 'tpk',
   'M_pengaturan' => 'ptn',
   'M_pesanan' => 'psn',
-  'M_user' => 'usr'
+  'M_user' => 'usr',
+  'M_transaksi' => 'trs'
 );

@@ -12,7 +12,7 @@ class M_spesifikasi_laptop extends CI_Model {
 
 	public function ambil($where)
 	{
-    $this->db->where('no_spesifikasi_laptop', $where);
+    $this->db->where('id_spek', $where);
 		return $this->db->get($this->tabel);
 	}
 
@@ -23,13 +23,13 @@ class M_spesifikasi_laptop extends CI_Model {
 
 	public function update($data, $where)
 	{
-    $this->db->where('no_spesifikasi_laptop', $where);
+    $this->db->where('id_spek', $where);
 		return $this->db->update($this->tabel, $data);
 	}
 
 	public function hapus($where)
 	{
-    $this->db->where('no_spesifikasi_laptop', $where);
+    $this->db->where('id_spek', $where);
 		return $this->db->delete($this->tabel);
 	}
 }

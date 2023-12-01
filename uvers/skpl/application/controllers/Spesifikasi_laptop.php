@@ -11,7 +11,6 @@ class Kamar extends CI_Controller
 			'konten' => 'v_admin-spesifikasi_laptop',
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 			'spesifikasi_laptop' => $this->spk->ambildata()->result(),
-			'spesifikasi_laptop' => $this->spk->ambildata()->result()
 		);
 
 		$this->load->view('template', $data);
@@ -30,7 +29,7 @@ class Kamar extends CI_Controller
 		}
 
 		$data = array(
-			'no_spesifikasi_laptop' => '',
+			'id_spek' => '',
 			'tipe' => $this->input->post('tipe'),
 			'nama' => $this->input->post('nama'),
 			'img' => $gambar,
@@ -63,7 +62,7 @@ class Kamar extends CI_Controller
 			$gambar = $this->input->post('txtimg');
 		}
 
-		$where = $this->input->post('no_spesifikasi_laptop');
+		$where = $this->input->post('id_spek');
 		$data = array(
 			'tipe' => $this->input->post('tipe'),
 			'nama' => $this->input->post('nama'),
@@ -83,13 +82,13 @@ class Kamar extends CI_Controller
 		redirect(site_url('spesifikasi_laptop'));
 	}
 
-	public function hapus($no_spesifikasi_laptop = null)
+	public function hapus($id_spek = null)
 	{
-		$spesifikasi_laptop = $this->spk->ambil($no_spesifikasi_laptop)->result();
+		$spesifikasi_laptop = $this->spk->ambil($id_spek)->result();
 		$img = $spesifikasi_laptop[0]->img;
 
 		unlink('./assets/img/spesifikasi_laptop/' . $img);
-		$hapus = $this->spk->hapus($no_spesifikasi_laptop);
+		$hapus = $this->spk->hapus($id_spek);
 
 		if ($hapus) {
 			$this->session->set_flashdata('pesan', 'Kamar berhasil dihapus!');

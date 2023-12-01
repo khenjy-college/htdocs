@@ -12,6 +12,7 @@
       <th>Id Kamar</th>
       <th>Tipe Kamar</th>
       <th>Stok Kamar</th>
+      <th>Harga Kamar</th>
       <th>Image</th>
       <th>Aksi</th>
     </tr>
@@ -22,6 +23,7 @@
         <td><?= $tp->id_tipe; ?></td>
         <td><?= $tp->tipe ?></td>
         <td><?= $tp->stok ?></td>
+        <td><?= $tp->harga ?></td>
         <td><img src="img/tipe_kamar/<?= $tp->img ?>" width="100"></td>
         <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tp->id_tipe; ?>">
             <i class="fas fa-eye"></i></a>
@@ -38,6 +40,7 @@
       <th>Id Kamar</th>
       <th>Tipe Kamar</th>
       <th>Stok Kamar</th>
+      <th>Harga Kamar</th>
       <th>Image</th>
       <th>Aksi</th>
     </tr>
@@ -69,6 +72,12 @@
             <input class="form-control" type="number" required name="stok" min="0" value="1">
           </div>
 
+          <!-- Harga kamar masih menggunakan satuan per kamar, untuk per hari masih belum -->
+          <div class="form-group">
+            <label>Harga Kamar (Per Kamar, untuk satuan waktu masih belum)</label>
+            <input class="form-control" type="number" required name="harga" min="0" value="50000">
+          </div>
+
           <div class="form-group">
             <label>Tambah Gambar</label>
             <input class="form-control-file" required type="file" name="img">
@@ -94,7 +103,7 @@
             <span>&times;</span>
           </button>
         </div>
-        
+
         <form action="<?= site_url('tipe_kamar/update') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="form-group">
@@ -106,6 +115,11 @@
             <div class="form-group">
               <label>Stok Kamar</label>
               <input class="form-control" type="text" required name="stok" value="<?= $tp->stok; ?>">
+            </div>
+
+            <div class="form-group">
+              <label>Harga Kamar</label>
+              <input class="form-control" type="number" required name="harga" value="<?= $tp->harga; ?>">
             </div>
 
             <img src="img/tipe_kamar/<?= $tp->img; ?>" width="300">
@@ -149,6 +163,11 @@
             <div class="form-group">
               <label>Stok Kamar : </label>
               <p><?= $tp->stok; ?></p>
+            </div>
+
+            <div class="form-group">
+              <label>Harga Kamar : </label>
+              <p><?= $tp->harga; ?></p>
             </div>
 
             <img src="img/tipe_kamar/<?= $tp->img; ?>" width="450">

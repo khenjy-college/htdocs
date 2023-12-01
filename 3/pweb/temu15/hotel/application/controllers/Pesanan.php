@@ -81,6 +81,11 @@ class Pesanan extends CI_Controller
 	public function tambah()
 	{
 		$email = $this->input->post('email');
+		$jlh = $this->input->post('jlh');
+		$harga = $this->tpk->get('harga');
+
+		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
+		$harga_total = $jlh * $harga;
 
 		$data = array(
 			'id_pesanan' => '',
@@ -90,10 +95,11 @@ class Pesanan extends CI_Controller
 			'hp' => $this->input->post('hp'),
 			'tamu' => $this->input->post('tamu'),
 			'tipe' => $this->input->post('tipe'),
-			'jlh' => $this->input->post('jlh'),
+			'jlh' => $jlh,
+			'harga_total' => $harga_total,
 			'cek_in' => $this->input->post('cek_in'),
 			'cek_out' => $this->input->post('cek_out'),
-			'status' => "menunggu"
+			'status' => "belum bayar"
 		);
 
 		// membuat session supaya nilainya dapat digunakan selama waktu yang ditentukan dalam detik

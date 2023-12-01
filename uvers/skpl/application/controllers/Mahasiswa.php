@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller
+class Mahasiswa extends CI_Controller
 {
 
 	public function index($id = 1)
 	{
 		$data = array(
-			'title' => 'Data User',  
+			'title' => 'Data Mahasiswa',  
 			'head' => '_partials/head',
 			'konten' => 'v_admin-mahasiswa',
 			'pengaturan' => $this->ptn->ambil($id)->result(),
@@ -55,10 +55,10 @@ class User extends CI_Controller
 
 	public function tambah()
 	{
-		$nama = $this->input->post('nama');
+		$nama_mahasiswa = $this->input->post('nama_mahasiswa');
 		$password = $this->input->post('password');
 
-		$ceknama = $this->usr->ceknama($nama);
+		$ceknama = $this->usr->ceknama($nama_mahasiswa);
 
 		// mencari apakah jumlah data kurang dari 1
 		if ($ceknama->num_rows() < 1) {
@@ -68,14 +68,14 @@ class User extends CI_Controller
 				$this->load->library('encryption');
 
 				$data = array(
-					'nama' => $this->input->post('nama'),
+					'nama_mahasiswa' => $this->input->post('nama_mahasiswa'),
 					'email' => $email,
 
 					// mengubah password menjadi password berenkripsi
 					'password' => password_hash($password, PASSWORD_DEFAULT),
 
-					'hp' => $this->input->post('hp'),
-					'level' => $this->input->post('level'),
+					'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+					'tgl_lahir' => $this->input->post('tgl_lahir'),
 				);
 
 				$simpan = $this->usr->simpan($data);
@@ -110,20 +110,20 @@ class User extends CI_Controller
 	{
 		$where = $this->input->post('id_mahasiswa');
 		$data = array(
-			'nama' => $this->input->post('nama'),
+			'nama_mahasiswa' => $this->input->post('nama_mahasiswa'),
 			'email' => $this->input->post('email'),
-			'hp' => $this->input->post('hp'),
+			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 		);
 
 		$update = $this->usr->update($data, $where);
 
 		if ($update) {
 
-			$this->session->set_flashdata('pesan', 'User berhasil diubah!');
+			$this->session->set_flashdata('pesan', 'Mahasiswa berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
 
-			$this->session->set_flashdata('pesan', 'User gagal diubah!');
+			$this->session->set_flashdata('pesan', 'Mahasiswa gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
@@ -135,9 +135,9 @@ class User extends CI_Controller
 	{
 		$where = $this->input->post('id_mahasiswa');
 		$data = array(
-			'nama' => $this->input->post('nama'),
+			'nama_mahasiswa' => $this->input->post('nama_mahasiswa'),
 			'email' => $this->input->post('email'),
-			'hp' => $this->input->post('hp'),
+			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 		);
 
 		$update = $this->usr->update($data, $where);
@@ -154,14 +154,14 @@ class User extends CI_Controller
 
 		// mengambil data profil yang baru dirubah
 		$mahasiswa = $this->usr->ambil($where)->result();
-		$nama = $mahasiswa[0]->nama;
+		$nama_mahasiswa = $mahasiswa[0]->nama_mahasiswa;
 		$email = $mahasiswa[0]->email;
-		$hp = $mahasiswa[0]->hp;
+		$jenis_kelamin = $mahasiswa[0]->jenis_kelamin;
 
 		// membuat session baru berdasarkan data yang telah diupdate
-		$this->session->set_userdata('nama', $nama);
+		$this->session->set_userdata('nama_mahasiswa', $nama_mahasiswa);
 		$this->session->set_userdata('email', $email);
-		$this->session->set_userdata('hp', $hp);
+		$this->session->set_userdata('jenis_kelamin', $jenis_kelamin);
 
 		// kembali ke halaman sebelumnya sesuai dengan masing-masing mahasiswa dengan akses yang berbeda
 		redirect($_SERVER['HTTP_REFERER']);
@@ -227,11 +227,11 @@ class User extends CI_Controller
 
 		if ($hapus) {
 
-			$this->session->set_flashdata('pesan', 'User berhasil dihapus!');
+			$this->session->set_flashdata('pesan', 'Mahasiswa berhasil dihapus!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
 
-			$this->session->set_flashdata('pesan', 'User gagal dihapus!');
+			$this->session->set_flashdata('pesan', 'Mahasiswa gagal dihapus!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
@@ -241,10 +241,10 @@ class User extends CI_Controller
 
 	public function ceklogin()
 	{
-		$nama = $this->input->post('nama');
+		$nama_mahasiswa = $this->input->post('nama_mahasiswa');
 		$password = $this->input->post('password');
 
-		$ceknama = $this->usr->ceknama($nama, $password);
+		$ceknama = $this->usr->ceknama($nama_mahasiswa, $password);
 
 		// mencari apakah jumlah data kurang dari 0
 		if ($ceknama->num_rows() > 0) {
@@ -254,16 +254,16 @@ class User extends CI_Controller
 			// memverifikasi password dengan password di database
 			if (password_verify($password, $cekpass)) {
 				$id_mahasiswa = $mahasiswa[0]->id_mahasiswa;
-				$nama = $mahasiswa[0]->nama;
+				$nama_mahasiswa = $mahasiswa[0]->nama_mahasiswa;
 				$email = $mahasiswa[0]->email;
-				$hp = $mahasiswa[0]->hp;
-				$level = $mahasiswa[0]->level;
+				$jenis_kelamin = $mahasiswa[0]->jenis_kelamin;
+				$tgl_lahir = $mahasiswa[0]->tgl_lahir;
 
 				$this->session->set_userdata('id_mahasiswa', $id_mahasiswa);
-				$this->session->set_userdata('nama', $nama);
+				$this->session->set_userdata('nama_mahasiswa', $nama_mahasiswa);
 				$this->session->set_userdata('email', $email);
-				$this->session->set_userdata('hp', $hp);
-				$this->session->set_userdata('akses', $level);
+				$this->session->set_userdata('jenis_kelamin', $jenis_kelamin);
+				$this->session->set_userdata('akses', $tgl_lahir);
 
 				redirect(site_url('welcome'));
 
@@ -289,16 +289,16 @@ class User extends CI_Controller
 		// 	// memverifikasi password dengan password di database
 		// 	if (password_verify($password, $cekpass)) {
 		// 		$id_mahasiswa = $mahasiswa[0]->id_mahasiswa;
-		// 		$nama = $mahasiswa[0]->nama;
+		// 		$nama_mahasiswa = $mahasiswa[0]->nama_mahasiswa;
 		// 		$email = $mahasiswa[0]->email;
-		// 		$hp = $mahasiswa[0]->hp;
-		// 		$level = $mahasiswa[0]->level;
+		// 		$jenis_kelamin = $mahasiswa[0]->jenis_kelamin;
+		// 		$tgl_lahir = $mahasiswa[0]->tgl_lahir;
 
 		// 		$this->session->set_userdata('id_mahasiswa', $id_mahasiswa);
-		// 		$this->session->set_userdata('nama', $nama);
+		// 		$this->session->set_userdata('nama_mahasiswa', $nama_mahasiswa);
 		// 		$this->session->set_userdata('email', $email);
-		// 		$this->session->set_userdata('hp', $hp);
-		// 		$this->session->set_userdata('akses', $level);
+		// 		$this->session->set_userdata('jenis_kelamin', $jenis_kelamin);
+		// 		$this->session->set_userdata('akses', $tgl_lahir);
 
 		// 		redirect(site_url('welcome'));
 

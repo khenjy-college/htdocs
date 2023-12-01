@@ -61,6 +61,17 @@
       </div>
     </div>
 
+    <?php } elseif (($this->session->userdata('akses') == 'accounting')) { ?>
+    <div class="col-lg-2 mt-2">
+      <div class="card text-white bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Transaksi</h5>
+          <p class="card-text" style="font-size: 32;"><?= $transaksi ?></p>
+          <a class="text-white" href="<?= site_url('transaksi') ?>">Lihat Detail >></a>
+        </div>
+      </div>
+    </div>
+
   <?php } ?>
 
 </div>

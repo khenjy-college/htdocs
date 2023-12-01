@@ -33,6 +33,7 @@ class Tipe_kamar extends CI_Controller
 			'id_tipe' => '',
 			'tipe' => $this->input->post('tipe'),
 			'stok' => $this->input->post('stok'),
+			'harga' => $this->input->post('harga'),
 			'img' => $gambar,
 		);
 
@@ -70,6 +71,7 @@ class Tipe_kamar extends CI_Controller
 		$data = array(
 			'tipe' => $this->input->post('tipe'),
 			'stok' => $this->input->post('stok'),
+			'harga' => $this->input->post('harga'),
 			'img' => $gambar,
 		);
 

@@ -109,7 +109,6 @@
               <option value="" selected hidden>Pilih Level User</option>
               <option value="tamu">Tamu</option>
               <option value="resepsionis">Resepsionis</option>
-              <option value="accounting">Accounting</option>
               <option value="administrator">Administrator</option>
             </select>
           </div>
@@ -169,7 +168,6 @@
                 <option selected hidden><?= $u->level; ?></option>
                 <option value="tamu">Tamu</option>
                 <option value="resepsionis">Resepsionis</option>
-                <option value="accounting">Accounting</option>
                 <option value="administrator">Administrator</option>
               </select>
             </div>

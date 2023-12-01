@@ -7,20 +7,21 @@ class Welcome extends CI_Controller
 	public function index($id = 1)
 	{
 		// mengarahkan pengguna ke halaman masing-masing sesuai akses
-		if ($this->session->userdata('akses') === "administrator") {
+		if (
+			$this->session->userdata('akses') === 'resepsionis'
+			|| $this->session->userdata('akses') === 'accounting'
+			|| $this->session->userdata('akses') === 'administrator'
+		) {
 
-			$this->session->set_flashdata('pesan', 'Selamat datang admin ' . $this->session->userdata('nama') . '!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
-
-			redirect(site_url('welcome/dashboard'));
-		} elseif ($this->session->userdata('akses') === 'resepsionis') {
-
-			$this->session->set_flashdata('pesan', 'Selamat datang resepsionis ' . $this->session->userdata('nama') . '!');
+			$this->session->set_flashdata('pesan', 'Selamat datang ' . $this->session->userdata('akses') . ' ' . $this->session->userdata('nama') . '!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 
 			redirect(site_url('welcome/dashboard'));
 		} else {
+			$this->session->set_flashdata('pesan', 'Selamat datang ' . $this->session->userdata('akses') . ' ' . $this->session->userdata('nama') . '!');
+			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 			$data = array(
+
 				'title' => 'Selamat Datang Di Hotel Hebat',
 				'konten' => 'v_home',
 				'head' => '_partials/head',
@@ -31,39 +32,33 @@ class Welcome extends CI_Controller
 		}
 	}
 
-	// public function pemesanan($id = 1)
-	// {
-	// 	$data = array(
-	// 		'title' => 'Pesan Kamar Anda',
-	// 		'konten' => 'v_pemesanan',
-	// 		'head' => '_partials/head',
-	// 		'pengaturan' => $this->ptn->ambil($id)->result(),
-	// 		'tipe_kamar' => $this->tpk->ambildata()->result(),
-	// 		'cek_in' => $this->input->get('cek_in'),
-	// 		'cek_out' => $this->input->get('cek_out'),
-	// 		'jlh' => $this->input->get('jlh'),
-	// 	);
+	public function pemesanan($id = 1)
+	{
+		if ($this->session->userdata('akses') === "tamu") {
+			$data = array(
+				'title' => 'Halaman Pemesanan',
+				'head' => '_partials/head',
+				'konten' => 'v_pemesanan',
+				'pengaturan' => $this->ptn->ambil($id)->result(),
+				'tipe_kamar' => $this->tpk->ambildata()->result(),
+				'cek_in' => $this->input->get('cek_in'),
+				'cek_out' => $this->input->get('cek_out'),
+				'jlh' => $this->input->get('jlh'),
+				'halaman' => 'template'
+			);
 
-	// 	if ($this->session->userdata('akses') === "tamu") {
-	// 		$data = array(
-	// 			'title' => 'Halaman Pemesanan',
-	// 			'head' => '_partials/head',
-	// 			'konten' => 'v_pemesanan',
-	// 			'halaman' => 'template'
-	// 		);
+			$halaman = "template";
+		} else {
+			$data = array(
+				'title' => 'Login',
+				'head' => '_partials/head',
+				'pengaturan' => $this->ptn->ambil($id)->result()
 
-	// 		$halaman = "template";
-	// 	} else {
-	// 		$data = array(
-	// 			'title' => 'Login',
-	// 			'head' => '_partials/head',
-	// 			'pengaturan' => $this->ptn->ambil($id)->result()
-
-	// 		);
-	// 		$halaman = "login";
-	// 	}
-	// 	$this->load->view($halaman, $data);
-	// }
+			);
+			$halaman = "login";
+		}
+		$this->load->view($halaman, $data);
+	}
 
 	public function tipe_kamar($id = 1)
 	{
@@ -103,6 +98,7 @@ class Welcome extends CI_Controller
 			'faskamar' => $this->fsk->ambildata()->num_rows(),
 			'tipe_kamar' => $this->tpk->ambildata()->num_rows(),
 			'pesanan' => $this->psn->ambildata()->num_rows(),
+			'transaksi' => $this->trs->ambildata()->num_rows(),
 			'user' => $this->usr->ambildata()->num_rows(),
 			'cek_in' => $this->input->get('cek_in'),
 			'cek_out' => $this->input->get('cek_out'),

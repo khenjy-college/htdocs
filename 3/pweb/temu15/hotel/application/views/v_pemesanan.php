@@ -77,8 +77,8 @@
       </div>
 
       <!-- keterangan * -->
-      <small>*Email perlu diingat untuk melakukan reservasi</small>
-      
+      <small>*Email dibutuhkan untuk melakukan reservasi dan transaksi</small>
+
     </div>
 
     <div class="col-md-6">

@@ -68,8 +68,8 @@ class User extends CI_Controller
 				$this->load->library('encryption');
 
 				$data = array(
-					'nama' => $this->input->post('nama'),
-					'email' => $email,
+					'email' => $this->input->post('email'),
+					'nama' => $nama,
 
 					// mengubah password menjadi password berenkripsi
 					'password' => password_hash($password, PASSWORD_DEFAULT),

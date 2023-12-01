@@ -100,7 +100,7 @@
       <div class="container">
 
         <!-- menampilkan footer untuk umum  -->
-        <?php if ($this->session->userdata('akses') <> 'administrator' && $this->session->userdata('akses') <> 'resepsionis') { ?>
+        <?php if ($this->session->userdata('akses') <> 'administrator' && $this->session->userdata('akses') <> 'resepsionis' && $this->session->userdata('akses') <> 'accounting') { ?>
           <div class="row justify-content-center">
             <div class="col-lg-4 pt-3">
               <img src="img/<?= $p->logo; ?>" height="50">
@@ -147,7 +147,7 @@
             </div>
           </div>
 
-          <!-- menampilkan footer khusus jika akses adalah resepsionis dan admin  -->
+          <!-- menampilkan footer khusus jika akses adalah resepsionis, admin, dan sebagainya  -->
         <?php } else { ?>
 
           <div class="row justify-content-center align-content-center">
@@ -175,6 +175,10 @@
 
         <?= $this->session->flashdata('panggil') ?>
       });
+
+      var table = $('#daterange_table').DataTable( {
+        
+      })
     </script>
 
   <?php endforeach; ?>

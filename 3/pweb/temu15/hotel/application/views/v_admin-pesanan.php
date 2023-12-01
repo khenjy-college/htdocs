@@ -111,7 +111,12 @@
                   <input type="hidden" name="tipe" value="<?= $ps->tipe; ?>">
 
                   <!-- input status berdasarkan nilai status -->
-                  <?php if ($ps->status == 'menunggu') { ?>
+                  <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
+                  <?php if ($ps->status == 'belum bayar') { ?>
+                    <input type="hidden" name="status" value="menunggu">
+
+
+                  <?php } elseif ($ps->status == 'menunggu') { ?>
                     <input type="hidden" name="status" value="cek in">
                   <?php } elseif ($ps->status == 'cek in') { ?>
                     <input type="hidden" name="status" value="cek out">
@@ -162,13 +167,16 @@
           <div class="modal-footer">
 
             <!-- pesan yg muncul berdasarkan nilai status -->
-            <?php if ($ps->status == 'menunggu') { ?>
+            <?php if ($ps->status == 'belum bayar') { ?>
+              <p>Selesaikan Dulu Transaksi</p>
+            <?php } elseif ($ps->status == 'menunggu') { ?>
               <p>Ubah Status Menjadi Cek In?</p>
+              <button class="btn btn-success" type="submit">Ya</button>
             <?php } elseif ($ps->status == 'cek in') { ?>
               <p>Ubah Status Menjadi Cek Out?</p>
+              <button class="btn btn-success" type="submit">Ya</button>
             <?php } ?>
 
-            <button class="btn btn-success" type="submit">Ya</button>
           </div>
         </form>
 

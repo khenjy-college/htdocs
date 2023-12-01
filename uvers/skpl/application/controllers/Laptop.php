@@ -11,7 +11,6 @@ class Laptop extends CI_Controller
 			'konten' => 'v_admin-laptop',
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 			'laptop' => $this->lpt->ambildata()->result(),
-			'laptop' => $this->lpt->ambildata()->result()
 		);
 
 		$this->load->view('template', $data);
@@ -19,21 +18,11 @@ class Laptop extends CI_Controller
 
 	public function tambah()
 	{
-		$config['upload_path'] = './assets/img/laptop/';
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
-
-		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
-
-		if ($gambar) {
-			$this->upload->do_upload('img');
-		}
-
 		$data = array(
 			'no_laptop' => '',
-			'tipe' => $this->input->post('tipe'),
-			'nama' => $this->input->post('nama'),
-			'img' => $gambar,
+			'merk' => $this->input->post('merk'),
+			'model' => $this->input->post('model'),
+			'ukuran_layar' => $this->input->post('ukuran_layar'),
 		);
 
 		$simpan = $this->lpt->simpan($data);
@@ -51,23 +40,11 @@ class Laptop extends CI_Controller
 
 	public function update()
 	{
-		$config['upload_path'] = './assets/img/laptop/';
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
-
-		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
-
-		if ($gambar) {
-			$this->upload->do_upload('img');
-		} else {
-			$gambar = $this->input->post('txtimg');
-		}
-
 		$where = $this->input->post('no_laptop');
 		$data = array(
-			'tipe' => $this->input->post('tipe'),
-			'nama' => $this->input->post('nama'),
-			'img' => $gambar,
+			'merk' => $this->input->post('merk'),
+			'model' => $this->input->post('model'),
+			'ukuran_layar' => $this->input->post('ukuran_layar'),
 		);
 
 		$update = $this->lpt->update($data, $where);
@@ -85,10 +62,6 @@ class Laptop extends CI_Controller
 
 	public function hapus($no_laptop = null)
 	{
-		$laptop = $this->lpt->ambil($no_laptop)->result();
-		$img = $laptop[0]->img;
-
-		unlink('./assets/img/laptop/' . $img);
 		$hapus = $this->lpt->hapus($no_laptop);
 
 		if ($hapus) {

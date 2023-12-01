@@ -7,6 +7,8 @@
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= site_url('pesanan/daftar') ?>">Daftar Reservasi</a>
+        <a class="dropdown-item" href="<?= site_url('history/daftar') ?>">History Reservasi</a>
+        <a class="dropdown-item" href="<?= site_url('transaksi/daftar') ?>">Daftar Transaksi</a>
         <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>
         <a class="dropdown-item" href="<?= site_url('user/logout') ?>">Logout</a>
       </div>
@@ -28,5 +30,3 @@
 
   </li>
 </ul>
-
-

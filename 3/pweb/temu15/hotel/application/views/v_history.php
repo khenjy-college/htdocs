@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('akses') <> 'resepsionis') {
+<?php if ($this->session->userdata('akses') <> 'tamu') {
   redirect(site_url('welcome/no_akses'));
 } ?>
 
@@ -10,12 +10,12 @@
 
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
   <!-- Mengecek data menggunakan tanggal cek in -->
-  <form action="<?= site_url('history/filter_cek_in') ?>" method="get">
+  <form action="<?= site_url('history/filter_cek_in_tamu') ?>" method="get">
     <tr>
 
       <td class="pr-2">Cek In</td>
       <td class="pr-2">
-        <div class="input-group">
+        <div class="input-group input-group-sm">
           <div class="input-group-prepend">
             <span class="input-group-text">Dari</span>
           </div>
@@ -23,7 +23,7 @@
         </div>
       </td>
       <td class="pr-2">
-        <div class="input-group">
+        <div class="input-group input-group-sm">
           <div class="input-group-prepend">
             <span class="input-group-text">Ke</span>
           </div>
@@ -32,10 +32,10 @@
       </td>
 
       <td>
-        <button class="btn btn-light text-info" type="submit">
+        <button class="btn btn-success text-light" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-light text-info" type="button" href="<?= site_url('history') ?>">
+        <a class="btn btn-danger text-light" type="button" href="<?= site_url('history/daftar') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
 
@@ -44,12 +44,12 @@
 
   <!-- Mengecek data menggunakan tanggal cek out -->
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
-  <form action="<?= site_url('history/filter_cek_out') ?>" method="get">
+  <form action="<?= site_url('history/filter_cek_out_tamu') ?>" method="get">
     <tr>
 
       <td class="pr-2">Cek Out</td>
       <td class="pr-2">
-        <div class="input-group">
+        <div class="input-group input-group-sm">
           <div class="input-group-prepend">
             <span class="input-group-text">Dari</span>
           </div>
@@ -58,7 +58,7 @@
         </div>
       </td>
       <td class="pr-2">
-        <div class="input-group">
+        <div class="input-group input-group-sm">
           <div class="input-group-prepend">
             <span class="input-group-text">Ke</span>
           </div>
@@ -68,10 +68,10 @@
       </td>
 
       <td>
-        <button class="btn btn-light text-info" type="submit">
+        <button class="btn btn-success text-light" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-light text-info" type="button" href="<?= site_url('history') ?>">
+        <a class="btn btn-danger text-light" type="button" href="<?= site_url('history/daftar') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
     </tr>
@@ -86,7 +86,6 @@
       <th>Tipe</th>
       <th>Cek In</th>
       <th>Cek Out</th>
-      <th>Tanggal Perubahan</th>
       <th>Resepsionis</th>
       <th>Aksi</th>
     </tr>
@@ -99,12 +98,9 @@
         <td><?= $h->tipe ?></td>
         <td><?= $h->cek_in ?></td>
         <td><?= $h->cek_out ?></td>
-        <td><?= $h->tgl_perubahan ?></td>
         <td><?= $h->user_aktif ?></td>
         <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $h->id_history; ?>">
             <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $h->id_history) ?>">
-            <i class="fas fa-trash"></i></a>
         </td>
       </tr>
     <?php endforeach; ?>
@@ -116,9 +112,8 @@
       <th>Tipe</th>
       <th>Cek In</th>
       <th>Cek Out</th>
-      <th>Tanggal Perubahan</th>
-      <th>Aksi</th>
       <th>Resepsionis</th>
+      <th>Aksi</th>
     </tr>
   </tfoot>
 
