@@ -4,7 +4,10 @@
 
 <h1>Daftar Kamar</h1>
 <hr>
+
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
+<a class="btn btn-info mb-4" href="<?= site_url('tipe_kamar/laporan') ?>" target="_blank">
+  <i class="fas fa-print"></i> Cetak Laporan</a>
 
 <table class="table table-light" id="data">
   <thead class="thead-light">

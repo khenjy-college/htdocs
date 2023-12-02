@@ -108,7 +108,7 @@ class Fashotel extends CI_Controller
 		// menghapus data dan gambar
 		unlink('./assets/img/fashotel/' . $img);
 		$hapus = $this->fsh->hapus($id_fashotel);
-		
+
 		// menampilkan toast jika operasi berhasil
 		if ($hapus) {
 			$this->session->set_flashdata('pesan', 'Fasilitas berhasil dihapus!');
@@ -119,5 +119,17 @@ class Fashotel extends CI_Controller
 		}
 
 		redirect(site_url('fashotel'));
+	}
+
+	public function laporan($id = 1)
+	{
+		$data = array(
+			'title' => 'Laporan Fasilitas Hotel',
+			'head' => '_partials/head',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'fashotel' => $this->fsh->ambildata()->result()
+		);
+
+		$this->load->view('_laporan/laporan_fashotel', $data);
 	}
 }

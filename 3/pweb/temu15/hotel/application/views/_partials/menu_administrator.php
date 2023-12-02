@@ -31,6 +31,9 @@
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('user') ?>">User</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('petugas') ?>">Petugas</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('pengaturan') ?>">Pengaturan</a>
   </li>
 </ul>

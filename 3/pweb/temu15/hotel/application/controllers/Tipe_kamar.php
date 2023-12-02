@@ -106,4 +106,16 @@ class Tipe_kamar extends CI_Controller
 
 		redirect(site_url('tipe_kamar'));
 	}
+
+	public function laporan($id = 1)
+	{
+		$data = array(
+			'title' => 'Laporan Tipe Kamar',
+			'head' => '_partials/head',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'tipe_kamar' => $this->tpk->ambildata()->result()
+		);
+
+		$this->load->view('_laporan/laporan_tipe_kamar', $data);
+	}
 }

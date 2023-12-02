@@ -325,4 +325,16 @@ class User extends CI_Controller
 		session_destroy();
 		redirect(site_url('welcome'));
 	}
+
+	public function laporan($id = 1)
+	{
+		$data = array(
+			'title' => 'Laporan User',
+			'head' => '_partials/head',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'user' => $this->usr->ambildata()->result()
+		);
+
+		$this->load->view('_laporan/laporan_user', $data);
+	}
 }

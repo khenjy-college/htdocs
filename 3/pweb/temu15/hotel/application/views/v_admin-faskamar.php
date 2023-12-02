@@ -4,7 +4,11 @@
 
 <h1>Daftar Fasilitas Kamar</h1>
 <hr>
+
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
+<a class="btn btn-info mb-4" href="<?= site_url('faskamar/laporan') ?>" target="_blank">
+  <i class="fas fa-print"></i> Cetak Laporan</a>
+
 
 <table class="table table-light" id="data">
   <thead class="thead-light">
@@ -161,7 +165,7 @@
             <span>&times;</span>
           </button>
         </div>
-        
+
         <form>
           <div class="modal-body">
             <div class="form-group">

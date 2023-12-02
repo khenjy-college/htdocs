@@ -18,6 +18,9 @@
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('pesanan') ?>">Daftar Tamu</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('kamar') ?>">Pesanan Masuk</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('history') ?>">History</a>
   </li>
 </ul>

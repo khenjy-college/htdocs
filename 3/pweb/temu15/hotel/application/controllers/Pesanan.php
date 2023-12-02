@@ -7,8 +7,10 @@ class Pesanan extends CI_Controller
 	public function index($id = 1)
 	{
 		// nilai min dan max di sini belum ada
-		$min = $this->input->get('min');
-		$max = $this->input->get('max');
+		$cek_in_min = $this->input->get('cek_in_min');
+		$cek_in_max = $this->input->get('cek_in_max');
+		$cek_out_min = $this->input->get('cek_out_min');
+		$cek_out_max = $this->input->get('cek_out_max');
 
 		$data = array(
 			'title' => 'Data Pesanan',
@@ -18,8 +20,10 @@ class Pesanan extends CI_Controller
 			'pesanan' => $this->psn->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'min' => $min,
-			'max' => $max,
+			'cek_in_min' => $cek_in_min,
+			'cek_in_max' => $cek_in_max,
+			'cek_out_min' => $cek_out_min,
+			'cek_out_max' => $cek_out_max,
 		);
 
 		$this->load->view('template', $data);
@@ -57,22 +61,101 @@ class Pesanan extends CI_Controller
 		$this->load->view('template', $data);
 	}
 
-	public function filter($id = 1)
+	public function filter_cek_in($id = 1)
 	{
 		// nilai min dan max sudah diinput sebelumnya
-		$min = $this->input->get('min');
-		$max = $this->input->get('max');
+		$cek_in_min = $this->input->get('cek_in_min');
+		$cek_in_max = $this->input->get('cek_in_max');
+		$cek_out_min = $this->input->get('cek_out_min');
+		$cek_out_max = $this->input->get('cek_out_max');
 
 		$data = array(
 			'title' => 'Data Pesanan',
 			'head' => '_partials/head',
 			'konten' => 'v_admin-pesanan',
 			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'pesanan' => $this->psn->filter($min, $max)->result(),
+			'pesanan' => $this->psn->filter_cek_in($cek_in_min, $cek_in_max)->result(),
 
-			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'min' => $min,
-			'max' => $max,
+			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
+			'cek_in_min' => $cek_in_min,
+			'cek_in_max' => $cek_in_max,
+			'cek_out_min' => $cek_out_min,
+			'cek_out_max' => $cek_out_max,
+		);
+
+		$this->load->view('template', $data);
+	}
+	public function filter_cek_out($id = 1)
+	{
+		// nilai min dan max sudah diinput sebelumnya
+		$cek_in_min = $this->input->get('cek_in_min');
+		$cek_in_max = $this->input->get('cek_in_max');
+		$cek_out_min = $this->input->get('cek_out_min');
+		$cek_out_max = $this->input->get('cek_out_max');
+
+		$data = array(
+			'title' => 'Data Pesanan',
+			'head' => '_partials/head',
+			'konten' => 'v_admin-pesanan',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'pesanan' => $this->psn->filter_cek_out($cek_out_min, $cek_out_max)->result(),
+
+			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
+			'cek_in_min' => $cek_in_min,
+			'cek_in_max' => $cek_in_max,
+			'cek_out_min' => $cek_out_min,
+			'cek_out_max' => $cek_out_max,
+		);
+
+		$this->load->view('template', $data);
+	}
+
+	public function filter_cek_in_tamu($id = 1)
+	{
+		$where = $this->session->userdata('id_user');
+		// nilai min dan max sudah diinput sebelumnya
+		$cek_in_min = $this->input->get('cek_in_min');
+		$cek_in_max = $this->input->get('cek_in_max');
+		$cek_out_min = $this->input->get('cek_out_min');
+		$cek_out_max = $this->input->get('cek_out_max');
+
+		$data = array(
+			'title' => 'Data Pesanan',
+			'head' => '_partials/head',
+			'konten' => 'v_history',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'pesanan' => $this->psn->filter_cek_in_tamu($cek_in_min, $cek_in_max, $where)->result(),
+
+			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
+			'cek_in_min' => $cek_in_min,
+			'cek_in_max' => $cek_in_max,
+			'cek_out_min' => $cek_out_min,
+			'cek_out_max' => $cek_out_max,
+		);
+
+		$this->load->view('template', $data);
+	}
+	public function filter_cek_out_tamu($id = 1)
+	{
+		$where = $this->session->userdata('id_user');
+		// nilai min dan max sudah diinput sebelumnya
+		$cek_in_min = $this->input->get('cek_in_min');
+		$cek_in_max = $this->input->get('cek_in_max');
+		$cek_out_min = $this->input->get('cek_out_min');
+		$cek_out_max = $this->input->get('cek_out_max');
+
+		$data = array(
+			'title' => 'Data Pesanan',
+			'head' => '_partials/head',
+			'konten' => 'v_history',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'pesanan' => $this->psn->filter_cek_out_tamu($cek_out_min, $cek_out_max, $where)->result(),
+
+			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
+			'cek_in_min' => $cek_in_min,
+			'cek_in_max' => $cek_in_max,
+			'cek_out_min' => $cek_out_min,
+			'cek_out_max' => $cek_out_max,
 		);
 
 		$this->load->view('template', $data);
@@ -160,7 +243,7 @@ class Pesanan extends CI_Controller
 			);
 
 			// mengupdate pesanan dengan nama user yang aktif
-			$update = $this->htr->update_pesanan($data, $where);
+			$update = $this->psn->update_pesanan($data, $where);
 		}
 
 		if ($update) {
@@ -203,5 +286,17 @@ class Pesanan extends CI_Controller
 		);
 
 		$this->load->view('print', $data);
+	}
+
+	public function laporan($id = 1)
+	{
+		$data = array(
+			'title' => 'Laporan Pesanan',
+			'head' => '_partials/head',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'pesanan' => $this->psn->ambildata()->result()
+		);
+
+		$this->load->view('_laporan/laporan_pesanan', $data);
 	}
 }

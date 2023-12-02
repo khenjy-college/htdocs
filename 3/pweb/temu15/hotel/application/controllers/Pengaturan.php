@@ -30,7 +30,7 @@ class Pengaturan extends CI_Controller
 		);
 
 		$update = $this->ptn->update($data, $where);
-							
+
 		if ($update) {
 			$this->session->set_flashdata('pesan', 'Data website berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
@@ -38,7 +38,7 @@ class Pengaturan extends CI_Controller
 			$this->session->set_flashdata('pesan', 'Data website gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
-		
+
 		redirect(site_url('pengaturan'));
 	}
 
@@ -68,7 +68,7 @@ class Pengaturan extends CI_Controller
 		);
 
 		$update = $this->ptn->update($data, $where);
-					
+
 		if ($update) {
 			$this->session->set_flashdata('pesan', 'Favicon berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
@@ -76,7 +76,7 @@ class Pengaturan extends CI_Controller
 			$this->session->set_flashdata('pesan', 'Favicon gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
-		
+
 		redirect(site_url('pengaturan'));
 	}
 
@@ -106,7 +106,7 @@ class Pengaturan extends CI_Controller
 		);
 
 		$update = $this->ptn->update($data, $where);
-				
+
 		if ($update) {
 			$this->session->set_flashdata('pesan', 'Logo berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
@@ -114,14 +114,14 @@ class Pengaturan extends CI_Controller
 			$this->session->set_flashdata('pesan', 'Logo gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
-		
+
 		redirect(site_url('pengaturan'));
 	}
 
 	public function update_foto()
 	{
 		$config['upload_path'] = './assets/img/';
-		
+
 		// nama file telah ditetapkan dan hanya berekstensi jpg dan dapat diganti dengan file bernama sama
 		$config['allowed_types'] = 'jpg';
 		$config['file_name'] = 'foto';
@@ -144,7 +144,7 @@ class Pengaturan extends CI_Controller
 		);
 
 		$update = $this->ptn->update($data, $where);
-							
+
 		if ($update) {
 			$this->session->set_flashdata('pesan', 'Foto berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
@@ -152,7 +152,7 @@ class Pengaturan extends CI_Controller
 			$this->session->set_flashdata('pesan', 'Foto gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
-		
+
 		redirect(site_url('pengaturan'));
 	}
 }

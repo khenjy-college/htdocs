@@ -32,10 +32,10 @@
       </td>
 
       <td>
-        <button class="btn btn-light text-info" type="submit">
+        <button class="btn btn-success" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-light text-info" type="button" href="<?= site_url('history') ?>">
+        <a class="btn btn-danger" type="button" href="<?= site_url('history') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
 
@@ -68,10 +68,10 @@
       </td>
 
       <td>
-        <button class="btn btn-light text-info" type="submit">
+        <button class="btn btn-success" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-light text-info" type="button" href="<?= site_url('history') ?>">
+        <a class="btn btn-danger" type="button" href="<?= site_url('history') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
     </tr>

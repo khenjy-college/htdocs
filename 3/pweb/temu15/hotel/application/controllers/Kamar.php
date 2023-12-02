@@ -11,7 +11,7 @@ class Kamar extends CI_Controller
 			'konten' => 'v_admin-kamar',
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 			'kamar' => $this->kmr->ambildata()->result(),
-			'kamar' => $this->kmr->ambildata()->result()
+			'tipe_kamar' => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view('template', $data);
@@ -100,5 +100,17 @@ class Kamar extends CI_Controller
 		}
 
 		redirect(site_url('kamar'));
+	}
+
+	public function laporan($id = 1)
+	{
+		$data = array(
+			'title' => 'Laporan Kamar',
+			'head' => '_partials/head',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'kamar' => $this->kmr->ambildata()->result()
+		);
+
+		$this->load->view('_laporan/laporan_kamar', $data);
 	}
 }

@@ -196,4 +196,16 @@ class Transaksi extends CI_Controller
 
 		$this->load->view('receipt', $data);
 	}
+
+	public function laporan($id = 1)
+	{
+		$data = array(
+			'title' => 'Laporan Transaksi',
+			'head' => '_partials/head',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'transaksi' => $this->trs->ambildata()->result()
+		);
+
+		$this->load->view('_laporan/laporan_transaksi', $data);
+	}
 }

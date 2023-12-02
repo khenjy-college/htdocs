@@ -9,22 +9,71 @@
 <table class="mb-4">
 
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
-  <form action="<?= site_url('pesanan/filter') ?>" method="get">
+  <form action="<?= site_url('pesanan/filter_cek_in') ?>" method="get">
     <tr>
-      <td>Filter Tanggal Cek In</td>
-    </tr>
-    <tr>
-      <td class="pr-2">Dari</td>
-      <td class="pr-2">Ke</td>
-    </tr>
-    <tr>
+
+      <td class="pr-2">Cek In</td>
       <td class="pr-2">
-        <input type="date" class="form-control" required name="min">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Dari</span>
+          </div>
+          <input type="date" class="form-control" name="cek_in_min" value="<?= $cek_in_min ?>">
+        </div>
       </td>
       <td class="pr-2">
-        <input type="date" class="form-control" required name="max">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Ke</span>
+          </div>
+          <input type="date" class="form-control" name="cek_in_max" value="<?= $cek_in_max ?>">
+        </div>
       </td>
-      <td><button type="submit" class="btn btn-primary">Cari</button></td>
+
+      <td>
+        <button class="btn btn-success" type="submit">
+          <a type="submit"><i class="fas fa-search"></i></a>
+        </button>
+        <a class="btn btn-danger" type="button" href="<?= site_url('pesanan') ?>">
+          <i class="fas fa-redo"></i></a>
+      </td>
+
+    </tr>
+  </form>
+
+
+  <!-- Mengecek data menggunakan tanggal cek out -->
+  <!-- method get supaya nilai dari filter bisa tampil nanti -->
+  <form action="<?= site_url('pesanan/filter_cek_out') ?>" method="get">
+    <tr>
+
+      <td class="pr-2">Cek Out</td>
+      <td class="pr-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Dari</span>
+          </div>
+          <input type="date" class="form-control" name="cek_out_min" value="<?= $cek_out_min ?>">
+
+        </div>
+      </td>
+      <td class="pr-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Ke</span>
+          </div>
+          <input type="date" class="form-control" name="cek_out_max" value="<?= $cek_out_max ?>">
+        </div>
+
+      </td>
+
+      <td>
+        <button class="btn btn-success" type="submit">
+          <a type="submit"><i class="fas fa-search"></i></a>
+        </button>
+        <a class="btn btn-danger" type="button" href="<?= site_url('pesanan') ?>">
+          <i class="fas fa-redo"></i></a>
+      </td>
     </tr>
   </form>
 </table>

@@ -161,4 +161,16 @@ class History extends CI_Controller
 		$hapus = $this->htr->hapus($id_history);
 		redirect(site_url('history'));
 	}
+
+	public function laporan($id = 1)
+	{
+		$data = array(
+			'title' => 'Laporan History',
+			'head' => '_partials/head',
+			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'history' => $this->htr->ambildata()->result()
+		);
+
+		$this->load->view('_laporan/laporan_history', $data);
+	}
 }
