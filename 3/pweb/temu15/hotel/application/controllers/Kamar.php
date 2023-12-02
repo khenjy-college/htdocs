@@ -11,7 +11,8 @@ class Kamar extends CI_Controller
 			'konten' => 'v_admin-kamar',
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 			'kamar' => $this->kmr->ambildata()->result(),
-			'tipe_kamar' => $this->tpk->ambildata()->result()
+			'tipe_kamar' => $this->tpk->ambildata()->result(),
+			'petugas' => $this->pts->ambildata()->result()
 		);
 
 		$this->load->view('template', $data);
@@ -19,21 +20,11 @@ class Kamar extends CI_Controller
 
 	public function tambah()
 	{
-		$config['upload_path'] = './assets/img/kamar/';
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
-
-		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
-
-		if ($gambar) {
-			$this->upload->do_upload('img');
-		}
-
 		$data = array(
 			'no_kamar' => '',
-			'tipe' => $this->input->post('tipe'),
-			'nama' => $this->input->post('nama'),
-			'img' => $gambar,
+			'id_tipe' => $this->input->post('id_tipe'),
+			'status' => $this->input->post('status'),
+			'keterangan' => $this->input->post('keterangan'),
 		);
 
 		$simpan = $this->kmr->simpan($data);
@@ -51,23 +42,11 @@ class Kamar extends CI_Controller
 
 	public function update()
 	{
-		$config['upload_path'] = './assets/img/kamar/';
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
-
-		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
-
-		if ($gambar) {
-			$this->upload->do_upload('img');
-		} else {
-			$gambar = $this->input->post('txtimg');
-		}
-
 		$where = $this->input->post('no_kamar');
 		$data = array(
-			'tipe' => $this->input->post('tipe'),
-			'nama' => $this->input->post('nama'),
-			'img' => $gambar,
+			'id_tipe' => $this->input->post('id_tipe'),
+			'status' => $this->input->post('status'),
+			'keterangan' => $this->input->post('keterangan'),
 		);
 
 		$update = $this->kmr->update($data, $where);
@@ -85,10 +64,6 @@ class Kamar extends CI_Controller
 
 	public function hapus($no_kamar = null)
 	{
-		$kamar = $this->kmr->ambil($no_kamar)->result();
-		$img = $kamar[0]->img;
-
-		unlink('./assets/img/kamar/' . $img);
 		$hapus = $this->kmr->hapus($no_kamar);
 
 		if ($hapus) {

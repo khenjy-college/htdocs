@@ -70,11 +70,6 @@
             <input class="form-control" type="text" required name="tipe" placeholder="Masukkan tipe kamar">
           </div>
 
-          <div class="form-group">
-            <label>Stok Kamar</label>
-            <input class="form-control" type="number" required name="stok" min="0" value="1">
-          </div>
-
           <!-- Harga kamar masih menggunakan satuan per kamar, untuk per hari masih belum -->
           <div class="form-group">
             <label>Harga Kamar (Per Kamar, untuk satuan waktu masih belum)</label>
@@ -113,11 +108,6 @@
               <label>Tipe Kamar</label>
               <input class="form-control" type="text" required name="tipe" value="<?= $tp->tipe; ?>">
               <input type="hidden" name="id_tipe" value="<?= $tp->id_tipe; ?>">
-            </div>
-
-            <div class="form-group">
-              <label>Stok Kamar</label>
-              <input class="form-control" type="text" required name="stok" value="<?= $tp->stok; ?>">
             </div>
 
             <div class="form-group">

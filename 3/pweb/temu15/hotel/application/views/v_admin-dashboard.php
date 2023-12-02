@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-lg-3 mt-2">
       <div class="card text-white bg-secondary">
         <div class="card-body">
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-lg-3 mt-2">
       <div class="card text-white bg-success">
         <div class="card-body">
@@ -49,6 +49,16 @@
       </div>
     </div>
 
+    <div class="col-lg-3 mt-2">
+      <div class="card text-white bg-danger">
+        <div class="card-body">
+          <h5 class="card-title">Petugas</h5>
+          <p class="card-text" style="font-size: 32;"><?= $petugas ?></p>
+          <a class="text-white" href="<?= site_url('petugas') ?>">Lihat Detail >></a>
+        </div>
+      </div>
+    </div>
+
     <!-- menampilkan data untuk resepsionis -->
   <?php } elseif (($this->session->userdata('akses') == 'resepsionis')) { ?>
     <div class="col-lg-2 mt-2">
@@ -61,7 +71,7 @@
       </div>
     </div>
 
-    <?php } elseif (($this->session->userdata('akses') == 'accounting')) { ?>
+  <?php } elseif (($this->session->userdata('akses') == 'accounting')) { ?>
     <div class="col-lg-2 mt-2">
       <div class="card text-white bg-success">
         <div class="card-body">

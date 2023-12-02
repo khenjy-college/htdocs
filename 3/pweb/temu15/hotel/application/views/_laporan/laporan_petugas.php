@@ -21,7 +21,7 @@
 
       <!-- menampilkan data pemesan -->
       <table class="table">
-        <thead class="thead-">
+        <thead class="thead">
           <tr>
             <th>Id Petugas</th>
             <th>Nama Petugas</th>

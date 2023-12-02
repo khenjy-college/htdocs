@@ -99,6 +99,7 @@ class Welcome extends CI_Controller
 			'tipe_kamar' => $this->tpk->ambildata()->num_rows(),
 			'pesanan' => $this->psn->ambildata()->num_rows(),
 			'transaksi' => $this->trs->ambildata()->num_rows(),
+			'petugas' => $this->pts->ambildata()->num_rows(),
 			'user' => $this->usr->ambildata()->num_rows(),
 			'cek_in' => $this->input->get('cek_in'),
 			'cek_out' => $this->input->get('cek_out'),

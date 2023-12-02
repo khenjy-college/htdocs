@@ -30,11 +30,15 @@ class Petugas extends CI_Controller
 		}
 
 		$data = array(
+			'id_petugas' => '',
 			'nama' => $this->input->post('nama'),
 			'email' => $this->input->post('email'),
 			'hp' => $this->input->post('hp'),
 			'img' => $gambar,
 			'role' => $this->input->post('role'),
+
+			// poin awal-awal adalah 0, bukan NULL
+			'poin' => 0,
 		);
 
 		$simpan = $this->pts->simpan($data);
@@ -72,6 +76,10 @@ class Petugas extends CI_Controller
 			'email' => $this->input->post('email'),
 			'hp' => $this->input->post('hp'),
 			'img' => $gambar,
+			'role' => $this->input->post('role'),
+
+			// poin di sini saya simpan dlu, karena mungkin ada beberapa yang mau saya tambahkan ke depannya
+			'poin' => $this->input->post('poin'),
 		);
 
 		$update = $this->pts->update($data, $where);

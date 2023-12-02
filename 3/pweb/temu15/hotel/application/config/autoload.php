@@ -142,5 +142,6 @@ $autoload['model'] = array(
   'M_pengaturan' => 'ptn',
   'M_pesanan' => 'psn',
   'M_user' => 'usr',
-  'M_transaksi' => 'trs'
+  'M_transaksi' => 'trs',
+  'M_operations' => 'ops'
 );

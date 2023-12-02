@@ -21,7 +21,7 @@
 
       <!-- menampilkan data pemesan -->
       <table class="table">
-        <thead class="thead-">
+        <thead class="thead">
           <tr>
             <th>Id Fasilitas Kamar</th>
             <th>Tipe Kamar</th>

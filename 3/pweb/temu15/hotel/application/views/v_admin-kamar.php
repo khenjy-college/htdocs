@@ -22,32 +22,38 @@
 
   <tbody>
     <?php foreach ($kamar as $km) : ?>
-      <tr>
-        <td><?= $km->no_kamar; ?></td>
-        <td><?= $km->tipe ?></td>
-        <td><?= $km->status ?></td>
-        <td><?= $km->keterangan ?></td>
-        <td>
-          <?php if ($km->status == 'Available') { ?>
-            <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $km->no_kamar; ?>">
-              <i class="fas fa-eye"></i></a>
-          <?php } elseif ($km->status == 'Unavailable') { ?>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
-              <i class="fas fa-edit"></i></a>
-          <?php } elseif ($km->status == 'Dirty') { ?>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#assign<?= $km->no_kamar; ?>">
-              <i class="fas fa-edit"></i></a>
-          <?php } elseif ($km->status == 'Damaged') { ?>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#assign<?= $km->no_kamar; ?>">
-              <i class="fas fa-edit"></i></a>
+      <?php foreach ($tipe_kamar as $tp) : ?>
+        <?php if ($tp->id_tipe == $km->id_tipe) { ?>
+          <tr>
+            <td><?= $km->no_kamar; ?></td>
+            <td><?= $tp->tipe ?></td>
+            <td><?= $km->status ?></td>
+            <td><?= $km->keterangan ?></td>
+            <td>
+              <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $km->no_kamar; ?>">
+                <i class="fas fa-eye"></i></a>
+              <?php if ($km->status == 'Available') { ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
+                  <i class="fas fa-edit"></i></a>
+              <?php } elseif ($km->status == 'Unavailable') { ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
+                  <i class="fas fa-edit"></i></a>
+              <?php } elseif ($km->status == 'Dirty') { ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#assign<?= $km->no_kamar; ?>">
+                  <i class="fas fa-broom"></i></a>
+              <?php } elseif ($km->status == 'Damaged') { ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#assign<?= $km->no_kamar; ?>">
+                  <i class="fas fa-hammer"></i></a>
 
-          <?php } ?>
+              <?php } ?>
 
-          <!-- Saat ini tidak masuk akal untuk menambahkan fitur untuk menghapus kamar -->
-          <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('kamar/hapus/' . $km->no_kamar) ?>">
+              <!-- Saat ini tidak masuk akal untuk menambahkan fitur untuk menghapus kamar -->
+              <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('kamar/hapus/' . $km->no_kamar) ?>">
             <i class="fas fa-trash"></i></a> -->
-        </td>
-      </tr>
+            </td>
+          </tr>
+        <?php } ?>
+      <?php endforeach; ?>
     <?php endforeach; ?>
   </tbody>
 
@@ -61,6 +67,8 @@
     </tr>
   </tfoot>
 </table>
+
+
 
 <!-- modal tambah -->
 <div id="tambah" class="modal fade">
@@ -80,7 +88,7 @@
           <!-- memilih salah satu tipe kamar yang ada -->
           <div class="form-group">
             <label>Tipe Kamar</label>
-            <select class="form-control" required name="tipe">
+            <select class="form-control" required name="id_tipe">
               <option selected hidden value="">Pilih Tipe Kamar...</option>
               <?php foreach ($tipe_kamar as $tp) : ?>
 
@@ -99,7 +107,6 @@
 
               <!-- memilih nilai status -->
               <option value="Available">Available</option>
-              <option value="Unavailable>">Unavailable</option>
               <option value="Dirty">Dirty</option>
               <option value="Damaged">Damaged</option>
 
@@ -108,7 +115,7 @@
 
           <div class="form-group">
             <label>Keterangan</label>
-            <textarea class="form-control" required name="keterangan" placeholder="Masukkan keterangan"></textarea>
+            <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"></textarea>
           </div>
 
         </div>
@@ -122,180 +129,172 @@
 
 <!-- modal edit -->
 <?php foreach ($kamar as $km) : ?>
-  <div id="ubah<?= $km->no_kamar; ?>" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Edit Kamar <?= $km->no_kamar; ?></h5>
+  <?php foreach ($tipe_kamar as $tp) : ?>
+    <?php if ($tp->id_tipe == $km->id_tipe) { ?>
+      <div id="ubah<?= $km->no_kamar; ?>" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Kamar <?= $km->no_kamar; ?></h5>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+
+            <form action="<?= site_url('kamar/update') ?>" method="post" enctype="multipart/form-data">
+              <div class="modal-body">
+                <div class="form-group">
+
+                  <!-- memilih salah satu tipe kamar yang ada -->
+                  <label>Tipe Kamar</label>
+                  <select class="form-control" required name="id_tipe">
+
+                    <!-- menampilkan nilai tipe kamar yang aktif -->
+                    <option selected hidden value="<?= $tp->id_tipe ?>"><?= $tp->tipe; ?></option>
+
+                    <?php foreach ($tipe_kamar as $tp) : ?>
+                      <option value value="<?= $tp->id_tipe ?>"><?= $tp->tipe; ?></option>
+                    <?php endforeach ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Status</label>
+                  <select class="form-control" required name="status">
+                    <option selected hidden value=""><?= $km->status; ?></option>
+
+                    <!-- memilih nilai status -->
+                    <option value="Dirty">Dirty</option>
+                    <option value="Damaged">Damaged</option>
+
+                  </select>
+                  <input type="hidden" name="no_kamar" value="<?= $km->no_kamar; ?>">
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-success" type="submit">Simpan Perubahan</button>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <form action="<?= site_url('kamar/update') ?>" method="post" enctype="multipart/form-data">
-          <div class="modal-body">
-            <div class="form-group">
-
-              <!-- memilih salah satu tipe kamar yang ada -->
-              <label>Tipe Kamar</label>
-              <select class="form-control" required name="tipe">
-
-                <!-- menampilkan nilai tipe kamar yang aktif -->
-                <option selected hidden><?= $km->tipe; ?></option>
-
-                <?php foreach ($tipe_kamar as $tp) : ?>
-                  <option><?= $tp->tipe; ?></option>
-                <?php endforeach ?>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control" required name="status">
-                <option selected hidden value=""><?= $km->status; ?></option>
-
-                <!-- memilih nilai status -->
-                <option value="Available">Available</option>
-                <option value="Unavailable>">Unavailable</option>
-                <option value="Dirty">Dirty</option>
-                <option value="Damaged">Damaged</option>
-
-              </select>
-              <input type="hidden" name="no_kamar" value="<?= $km->no_kamar; ?>">
-            </div>
-
-
-            
-
-          </div>
-
-          <div class="modal-footer">
-            <button class="btn btn-success" type="submit">Simpan Perubahan</button>
-          </div>
-        </form>
       </div>
-    </div>
-  </div>
+    <?php } ?>
+  <?php endforeach; ?>
 <?php endforeach; ?>
 
 <!-- Modal Lihat -->
 <?php foreach ($kamar as $km) : ?>
-  <div id="lihat<?= $km->no_kamar; ?>" class="modal fade" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Kamar <?= $km->no_kamar; ?></h5>
+  <?php foreach ($tipe_kamar as $tp) : ?>
+    <?php if ($tp->id_tipe == $km->id_tipe) { ?>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
+      <div id="lihat<?= $km->no_kamar; ?>" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Kamar <?= $km->no_kamar; ?></h5>
+
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+
+            <form>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label>Tipe Kamar : </label>
+                  <p><?= $tp->tipe; ?></p>
+                </div>
+
+                <div class="form-group">
+                  <label>Status : </label>
+                  <p><?= $km->status; ?></p>
+                </div>
+                <div class="form-group">
+                  <label>Keterangan : </label>
+                  <p><?= $km->keterangan; ?></p>
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <form>
-          <div class="modal-body">
-            <div class="form-group">
-              <label>Tipe Kamar : </label>
-              <p><?= $km->tipe; ?></p>
-            </div>
-
-            <div class="form-group">
-              <label>Nama Kamar : </label>
-              <p><?= $km->nama; ?></p>
-            </div>
-
-            <img src="img/kamar/<?= $km->img; ?>" width="450">
-          </div>
-
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-          </div>
-        </form>
       </div>
-    </div>
-  </div>
+    <?php } ?>
+  <?php endforeach; ?>
 <?php endforeach; ?>
 
 
 <!-- modal assign -->
 <?php foreach ($kamar as $km) : ?>
-  <div id="assign<?= $km->id_kamar ?>" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Kamar <?= $km->id_kamar ?></h5>
+  <?php foreach ($tipe_kamar as $tp) : ?>
+    <?php if ($tp->id_tipe == $km->id_tipe) { ?>
+      <div id="assign<?= $km->no_kamar ?>" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Assign Petugas untuk Kamar <?= $km->no_kamar ?></h5>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
 
-        <!-- form untuk mengubah nilai status sebuah kamar -->
-        <form action="<?= site_url('kamar/update_status') ?>" method="post">
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Id Kamar</label>
-                  <p><?= $km->id_kamar ?></p>
-                  <input type="hidden" name="id_kamar" value="<?= $km->id_kamar; ?>">
-                  <input type="hidden" name="tipe" value="<?= $km->tipe; ?>">
+            <!-- form untuk mengubah nilai status sebuah kamar -->
+            <form action="<?= site_url('operations/tambah') ?>" method="post">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Id Kamar</label>
+                      <p><?= $km->no_kamar ?></p>
+                      <input type="hidden" name="no_kamar" value="<?= $km->no_kamar; ?>">
+                      <input type="hidden" name="id_user" value="<?= $this->session->userdata('id_user') ?>">
+                    </div>
 
+                    <!-- mengubah status kamar secara instan berdasarkan id_pesanan -->
+                    <!-- jika id pesanan itu kosong, berarti belum ada yang pesan dan kamar menjadi Available
+                jika sebaliknya, maka kamar akan menjadi Unavailable -->
+                    <?php if ($km->id_pesanan <> 0) { ?>
+                      <input name="status" value="Unavailable">
+                    <?php } else { ?>
+                      <input name="status" value="Available">
+                    <?php } ?>
+
+
+                    <!-- ini adalah fitur untuk assign petugas -->
+                    <div class="form-group">
+                      <label>Petugas</label>
+                      <select class="form-control" required name="id_petugas">
+
+                        <!-- menampilkan petugas buat assign -->
+                        <option selected hidden>Pilih petugas...</option>
+                        <?php foreach ($petugas as $pt) : ?>
+                          <option value="<?= $pt->id_petugas; ?>"><?= $pt->nama; ?> - <?= $pt->role; ?></option>
+                        <?php endforeach ?>
+                      </select>
+                    </div>
+
+                  </div>
                 </div>
+              </div>
 
-                <div class="form-group">
-
-                  <!-- memilih salah satu tipe kamar yang ada -->
-                  <label>Assign Orang</label>
-                  <select class="form-control" required name="tipe">
-
-                    <!-- menampilkan nilai tipe kamar yang aktif -->
-                    <option selected hidden><?= $km->tipe; ?></option>
-
-                    <?php foreach ($petugas as $pt) : ?>
-                      <option><?= $tp->tipe; ?></option>
-                    <?php endforeach ?>
-                  </select>
-                </div>
-
-
-                <!-- input status berdasarkan nilai status -->
-                <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap kamar -->
-                <?php if ($km->status == 'Dirty') { ?>
-
-
-                  <input type="hidden" name="status" value="menunggu">
-
-
-                <?php } elseif ($km->status == 'Damages') { ?>
-
-                  <input type="hidden" name="status" value="cek in">
-                <?php } elseif ($km->status == 'Damages') { ?>
-                  <input type="hidden" name="status" value="cek out">
-                <?php } ?>
-
+              <div class="modal-footer">
+                <p>Proses kamar <?= $km->no_kamar; ?>?</p>
+                <button class="btn btn-success" type="submit">Ya</button>
 
               </div>
-            </div>
-          </div>
-
-          <div class="modal-footer">
-
-            <!-- pesan yg muncul berdasarkan nilai status -->
-            <?php if ($km->status == 'belum bayar') { ?>
-              <p>Selesaikan Dulu Transaksi</p>
-            <?php } elseif ($km->status == 'menunggu') { ?>
-              <p>Ubah Status Menjadi Cek In?</p>
-              <button class="btn btn-success" type="submit">Ya</button>
-            <?php } elseif ($km->status == 'cek in') { ?>
-              <p>Ubah Status Menjadi Cek Out?</p>
-              <button class="btn btn-success" type="submit">Ya</button>
-            <?php } ?>
+            </form>
 
           </div>
-        </form>
-
+        </div>
       </div>
-    </div>
-  </div>
+    <?php } ?>
+  <?php endforeach ?>
 <?php endforeach ?>

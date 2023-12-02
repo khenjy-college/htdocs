@@ -15,10 +15,13 @@
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/dashboard') ?>">Dashboard</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('pesanan') ?>">Daftar Tamu</a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('pesanan') ?>">Daftar Pesanan</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('kamar') ?>">Pesanan Masuk</a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('kamar') ?>">Daftar Kamar</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('operations') ?>">Operations</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('history') ?>">History</a>

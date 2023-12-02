@@ -32,7 +32,6 @@ class Tipe_kamar extends CI_Controller
 		$data = array(
 			'id_tipe' => '',
 			'tipe' => $this->input->post('tipe'),
-			'stok' => $this->input->post('stok'),
 			'harga' => $this->input->post('harga'),
 			'img' => $gambar,
 		);
@@ -70,7 +69,6 @@ class Tipe_kamar extends CI_Controller
 		$where = $this->input->post('id_tipe');
 		$data = array(
 			'tipe' => $this->input->post('tipe'),
-			'stok' => $this->input->post('stok'),
 			'harga' => $this->input->post('harga'),
 			'img' => $gambar,
 		);

@@ -30,11 +30,11 @@
         <td><?= $u->hp ?></td>
         <td><?= $u->level ?></td>
         <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $u->id_user; ?>">
-        <i class="fas fa-eye"></i></a>
+            <i class="fas fa-eye"></i></a>
           <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $u->id_user; ?>">
-        <i class="fas fa-edit"></i></a>
+            <i class="fas fa-edit"></i></a>
           <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="<?= site_url('user/hapus/' . $u->id_user) ?>">
-        <i class="fas fa-trash"></i></a>
+            <i class="fas fa-trash"></i></a>
         </td>
       </tr>
     <?php endforeach; ?>
@@ -75,7 +75,7 @@
 
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
             <input class="form-control" type="email" required name="email" placeholder="Masukkan email">
           </div>
