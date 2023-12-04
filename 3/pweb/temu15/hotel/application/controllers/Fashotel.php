@@ -1,3 +1,5 @@
+
+
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 include 'Welcome.php';
@@ -37,26 +39,14 @@ class Fashotel extends Welcome
 	private $tabel3_c3;
 	private $tabel3_c4;
 	private $tabel3_c5;
-	private $tabel3_c6;
-	private $tabel3_c7;
-	private $tabel3_c8;
-	private $tabel3_c9;
-	private $tabel3_c10;
-	private $tabel3_c11;
-	private $tabel3_c12;
-	private $tabel3_v_input1;
+	private $tabel3_v_input1_post;
 	private $tabel3_v_input1_alt;
-	private $tabel3_v_input2;
-	private $tabel3_v_input3;
+	private $tabel3_v_input2_post;
+	private $tabel3_v_input3_post;
 	private $tabel3_v_input4;
-	private $tabel3_v_input5;
-	private $tabel3_v_input6;
-	private $tabel3_v_input7;
-	private $tabel3_v_input8;
-	private $tabel3_v_input9;
-	private $tabel3_v_input10;
-	private $tabel3_v_input11;
-	private $tabel3_v_input12;
+	private $tabel3_v_input4_upload_path;
+	private $tabel3_v_input4_post;
+	private $tabel3_v_input4_alt;
 	private $tabel3_v_flashdata1_msg_1;
 	private $tabel3_v_flashdata1_msg_2;
 	private $tabel3_v_flashdata1_msg_3;
@@ -75,8 +65,11 @@ class Fashotel extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel3_v1 = 'v_' . $this->tabel3;
+		$this->tabel3_v2_title = 'Daftar ' . $this->tabel3;
 		$this->tabel3_v2 = 'v_admin-' . $this->tabel3;
+		$this->tabel3_v2_title = 'Data ' . $this->tabel3;
 		$this->tabel3_v3 = '_laporan/laporan_' . $this->tabel3;
+		$this->tabel3_v3_title = 'Laporan ' . $this->tabel3;
 
 		// deklarasi variabel controller
 		$this->tabel3_c1 = $this->tabel3;
@@ -85,17 +78,16 @@ class Fashotel extends Welcome
 		$this->tabel3_c4 = $this->tabel3 . '/hapus';
 		$this->tabel3_c5 = $this->tabel3 . '/laporan';
 
-		// deklarasi variabel konten website
-		// deklarasi variabel title
-		$this->tabel3_v2_title = 'Data ' . $this->tabel3;
-		$this->tabel3_v3_title = 'Laporan ' . $this->tabel3;
-
 		// tabel bagian input
-		$this->tabel3_v_input1 = $this->tabel3_field1;
+		$this->tabel3_v_input1_post = $this->input->post($this->tabel3_field1);
 		$this->tabel3_v_input1_alt = '';
-		$this->tabel3_v_input2 = $this->tabel3_field2;
-		$this->tabel3_v_input3 = $this->tabel3_field3;
+		$this->tabel3_v_input2_post = $this->input->post($this->tabel3_field2);
+		$this->tabel3_v_input3_post = $this->input->post($this->tabel3_field3);
+
 		$this->tabel3_v_input4 = $this->tabel3_field4;
+		$this->tabel3_v_input4_upload_path = './assets/' . $this->tabel3_field4 . '/' . $this->tabel3 . '/';
+		$this->tabel3_v_input4_post = $this->input->post($this->tabel3_v_input4);
+		$this->tabel3_v_input4_alt = 'txt' . $this->tabel3_v_input4;
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel3_v_flashdata1_msg_1 = $this->tabel3 . ' berhasil disimpan!';
@@ -131,7 +123,7 @@ class Fashotel extends Welcome
 		// https://stackoverflow.com/questions/18705639/how-to-rename-uploaded-file-before-saving-it-into-a-directory
 		// rencananya nama gambar akan unik
 		// semoga berhasil
-		$config['upload_path'] = './assets/img/fashotel/';
+		$config['upload_path'] = $this->tabel3_v_input4_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
 
 		// supaya fungsi upload berjalan
@@ -170,7 +162,7 @@ class Fashotel extends Welcome
 	{
 		$this->declare();
 		// konfigurasi upload
-		$config['upload_path'] = './assets/img/fashotel/';
+		$config['upload_path'] = $this->tabel3_v_input4_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
 
 		// supaya fungsi upload berjalan
@@ -183,7 +175,7 @@ class Fashotel extends Welcome
 		if ($gambar) {
 			$this->upload->do_upload('img');
 		} else {
-			$gambar = $this->input->post('txtimg');
+			$gambar = $this->input->post($this->tabel3_v_input4_alt);
 		}
 
 		$where = $this->input->post('id_fashotel');
@@ -216,7 +208,7 @@ class Fashotel extends Welcome
 		$img = $fashotel[0]->img;
 
 		// menghapus data dan gambar
-		unlink('./assets/img/fashotel/' . $img);
+		unlink($this->tabel3_v_input4_upload_path . $img);
 		$hapus = $this->fsh->hapus($id_fashotel);
 
 		// menampilkan toast jika operasi berhasil
@@ -231,7 +223,7 @@ class Fashotel extends Welcome
 		redirect(site_url($this->tabel3_c1));
 	}
 
-	public function laporan($tabel7_field1)
+	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
 		$data = array(
@@ -241,6 +233,6 @@ class Fashotel extends Welcome
 			$this->tabel3 => $this->fsh->ambildata()->result()
 		);
 
-		$this->load->view($this->tabel3_v3_title, $data);
+		$this->load->view($this->tabel3_v3, $data);
 	}
 }

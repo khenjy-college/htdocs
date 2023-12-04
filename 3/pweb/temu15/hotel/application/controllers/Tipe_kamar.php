@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -35,26 +23,16 @@ class Tipe_kamar extends Welcome
 	private $tabel6_c3;
 	private $tabel6_c4;
 	private $tabel6_c5;
-	private $tabel6_c6;
-	private $tabel6_c7;
-	private $tabel6_c8;
-	private $tabel6_c9;
-	private $tabel6_c10;
-	private $tabel6_c11;
-	private $tabel6_c12;
-	private $tabel6_v_input1;
+	private $tabel6_v_input1_post;
 	private $tabel6_v_input1_alt;
-	private $tabel6_v_input2;
+	private $tabel6_v_input2_post;
 	private $tabel6_v_input3;
-	private $tabel6_v_input4;
-	private $tabel6_v_input5;
-	private $tabel6_v_input6;
-	private $tabel6_v_input7;
-	private $tabel6_v_input8;
-	private $tabel6_v_input9;
-	private $tabel6_v_input10;
-	private $tabel6_v_input11;
-	private $tabel6_v_input12;
+	private $tabel6_v_input3_upload_path;
+	private $tabel6_v_input3_post;
+	private $tabel6_v_input3_alt;
+
+	private $tabel6_v_input4_post;
+	private $tabel6_v_input5_post;
 	private $tabel6_v_flashdata1_msg_1;
 	private $tabel6_v_flashdata1_msg_2;
 	private $tabel6_v_flashdata1_msg_3;
@@ -73,8 +51,11 @@ class Tipe_kamar extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel6_v1 = 'v-' . $this->tabel6;
+		$this->tabel6_v1_title = 'Daftar ' . $this->tabel6;
 		$this->tabel6_v2 = 'v_admin-' . $this->tabel6;
+		$this->tabel6_v2_title = 'Data ' . $this->tabel6;
 		$this->tabel6_v3 = '_laporan/laporan_' . $this->tabel6;
+		$this->tabel6_v3_title = 'Laporan ' . $this->tabel6;
 
 		// deklarasi variabel controller
 		$this->tabel6_c1 = $this->tabel6;
@@ -84,22 +65,17 @@ class Tipe_kamar extends Welcome
 		$this->tabel6_c5 = $this->tabel6 . '/laporan';
 
 
-		// deklarasi variabel konten website
-		// deklarasi variabel title
-		$this->tabel6_v2_title = 'Data ' . $this->tabel6;
-		$this->tabel6_v3_title = 'Laporan ' . $this->tabel6;
-
-		// deklarasi variabel bagian konten
-		$this->tabel6_konten1 = 'v_admin-' . $this->tabel6;
-		$this->tabel6_konten2 = 'konfirmasi';
-
 		// tabel bagian input
-		$this->tabel6_v_input1 = $this->tabel6_field1;
+		$this->tabel6_v_input1_post = $this->input->post($this->tabel6_field1);
 		$this->tabel6_v_input1_alt = '';
-		$this->tabel6_v_input2 = $this->tabel6_field2;
+		$this->tabel6_v_input2_post = $this->input->post($this->tabel6_field2);
 		$this->tabel6_v_input3 = $this->tabel6_field3;
-		$this->tabel6_v_input4 = $this->tabel6_field4;
-		$this->tabel6_v_input5 = $this->tabel6_field5;
+		$this->tabel6_v_input3_upload_path = './assets/' . $this->tabel6_field3 . '/' . $this->tabel6 . '/';
+		$this->tabel6_v_input3_post = $this->input->post($this->tabel6_v_input3_post);
+		$this->tabel6_v_input3_alt = 'txt' . $this->tabel6_v_input3;
+
+		$this->tabel6_v_input4_post = $this->input->post($this->tabel6_field4);
+		$this->tabel6_v_input5_post = $this->input->post($this->tabel6_field5);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel6_v_flashdata1_msg_1 = $this->tabel6 . ' berhasil disimpan!';
@@ -120,7 +96,7 @@ class Tipe_kamar extends Welcome
 			'head' => $this->head,
 			'konten' => 'v_admin-tipe_kamar',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			'tipe_kamar' => $this->tpk->ambildata()->result()
+			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view($this->v7, $data);
@@ -129,7 +105,7 @@ class Tipe_kamar extends Welcome
 	public function tambah()
 	{
 		$this->declare();
-		$config['upload_path'] = './assets/img/tipe_kamar/';
+		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
 
 		$this->load->library('upload', $config);
@@ -152,20 +128,20 @@ class Tipe_kamar extends Welcome
 		// $simpan = $this->tpk->simpan($query);
 
 		if ($simpan) {
-			$this->session->set_flashdata($this->v_flashdata1, 'Tipe Kamar berhasil disimpan!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_1);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Tipe Kamar gagal disimpan!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_2);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('tipe_kamar'));
+		redirect(site_url($this->tabel6_c1));
 	}
 
 	public function update()
 	{
 		$this->declare();
-		$config['upload_path'] = './assets/img/tipe_kamar/';
+		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
 
 		$this->load->library('upload', $config);
@@ -174,7 +150,7 @@ class Tipe_kamar extends Welcome
 		if ($gambar) {
 			$this->upload->do_upload('img');
 		} else {
-			$gambar = $this->input->post('txtimg');
+			$gambar = $this->input->post($this->tabel6_v_input3_alt);
 		}
 
 		$where = $this->input->post('id_tipe');
@@ -187,14 +163,14 @@ class Tipe_kamar extends Welcome
 		$update = $this->tpk->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata($this->v_flashdata1, 'Tipe Kamar berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_3);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Tipe Kamar gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_4);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('tipe_kamar'));
+		redirect(site_url($this->tabel6_c1));
 	}
 
 	public function hapus($id_tipe = null)
@@ -203,18 +179,18 @@ class Tipe_kamar extends Welcome
 		$tipe_kamar = $this->tpk->ambil($id_tipe)->result();
 		$img = $tipe_kamar[0]->img;
 
-		unlink('./assets/img/tipe_kamar/' . $img);
+		unlink($this->tabel6_v_input3_upload_path . $img);
 		$hapus = $this->tpk->hapus($id_tipe);
 
 		if ($hapus) {
-			$this->session->set_flashdata($this->v_flashdata1, 'Tipe Kamar berhasil dihapus!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_5);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Tipe Kamar gagal dihapus!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_6);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('tipe_kamar'));
+		redirect(site_url($this->tabel6_c1));
 	}
 
 	public function laporan($tabel7_field1 = 1)
@@ -224,7 +200,7 @@ class Tipe_kamar extends Welcome
 			'title' => 'Laporan Tipe Kamar',
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			'tipe_kamar' => $this->tpk->ambildata()->result()
+			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view('_laporan/laporan_tipe_kamar', $data);

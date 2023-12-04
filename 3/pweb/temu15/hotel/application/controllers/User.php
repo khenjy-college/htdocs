@@ -34,13 +34,13 @@ class User extends Welcome
 	private $tabel9_v_menu3;
 	private $tabel9_v_menu4;
 	private $tabel9_v_menu5;
-	private $tabel9_v_input1;
+	private $tabel9_v_input1_post;
 	private $tabel9_v_input1_alt;
-	private $tabel9_v_input2;
-	private $tabel9_v_input3;
-	private $tabel9_v_input4;
-	private $tabel9_v_input5;
-	private $tabel9_v_input6;
+	private $tabel9_v_input2_post;
+	private $tabel9_v_input3_post;
+	private $tabel9_v_input4_post;
+	private $tabel9_v_input5_post;
+	private $tabel9_v_input6_post;
 	private $tabel9_v_flashdata1_msg_1;
 	private $tabel9_v_flashdata1_msg_2;
 	private $tabel9_v_flashdata1_msg_3;
@@ -101,13 +101,13 @@ class User extends Welcome
 		$this->tabel9_v_menu5 = 'menu_' . $this->tabel9_field6_value5;
 
 		// tabel bagian input
-		$this->tabel9_v_input1 = $this->input->post($this->tabel9_field1);
+		$this->tabel9_v_input1_post = $this->input->post($this->tabel9_field1);
 		$this->tabel9_v_input1_alt = '';
-		$this->tabel9_v_input2 = $this->input->post($this->tabel9_field2);
-		$this->tabel9_v_input3 = $this->input->post($this->tabel9_field3);
-		$this->tabel9_v_input4 = $this->input->post($this->tabel9_field4);
-		$this->tabel9_v_input5 = $this->input->post($this->tabel9_field5);
-		$this->tabel9_v_input6 = $this->input->post($this->tabel9_field6);
+		$this->tabel9_v_input2_post = $this->input->post($this->tabel9_field2);
+		$this->tabel9_v_input3_post = $this->input->post($this->tabel9_field3);
+		$this->tabel9_v_input4_post = $this->input->post($this->tabel9_field4);
+		$this->tabel9_v_input5_post = $this->input->post($this->tabel9_field5);
+		$this->tabel9_v_input6_post = $this->input->post($this->tabel9_field6);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel9_v_flashdata1_msg_1 = $this->tabel9 . ' berhasil disimpan!';
@@ -145,6 +145,124 @@ class User extends Welcome
 
 		$this->load->view($this->v7, $data);
 	}
+
+		public function tambah()
+	{
+		$this->declare();
+		$param2 = $this->tabel9_v_input2_post;
+		$param4 = $this->tabel9_v_input4_post;
+
+		$method2 = $this->usr->ceknama($param2);
+
+		// mencari apakah jumlah data kurang dari 1
+		if ($method2->num_rows() < 1) {
+
+			// jika input konfirm sama dengan input password
+			if ($this->input->post('konfirm') === $param4) {
+				$this->load->library('encryption');
+
+				$data = array(
+					$this->tabel9_field2 => $param2,
+					$this->tabel9_field3 => $this->tabel9_v_input3,
+
+					// mengubah password menjadi password berenkripsi
+					$this->tabel9_field4 => password_hash($param4, PASSWORD_DEFAULT),
+
+					$this->tabel9_field5 => $this->tabel9_v_input5,
+					$this->tabel9_field6 => $this->tabel9_v_input6,
+				);
+
+				$simpan = $this->usr->simpan($data);
+
+				// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
+				if ($this->session->userdata($this->tabel9_field3)) {
+
+					redirect(site_url($this->tabel9_c1));
+				} else {
+
+					redirect(site_url($this->tabel9_c7));
+				}
+
+				// jika input konfirm tidak sama dengan input password
+			} else {
+
+				// menampilkan flashdata dalam bentuk teks
+				$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi '. $this->tabel9_field4 .' salah!');
+
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+
+			// jika jumlah data lebih dari 0
+		} else {
+
+			$this->session->set_flashdata($this->v_flashdata1,  $this->tabel9_field3 . 'telah digunakan!');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+	}
+
+public function update()
+	{
+		$this->declare();
+		$where = $this->tabel9_v_input1;
+		$data = array(
+			$this->tabel9_field2 => $this->tabel9_v_input2,
+			$this->tabel9_field3 => $this->tabel9_v_input3,
+			$this->tabel9_field5 => $this->tabel9_v_input5,
+		);
+
+		$update = $this->usr->update($data, $where);
+
+		if ($update) {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_3);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		} else {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		}
+
+		// kembali ke halaman sebelumnya
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+
+public function hapus($id_user = null)
+	{
+		$this->declare();
+		$hapus = $this->usr->hapus($id_user);
+
+
+		if ($hapus) {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_5);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		} else {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_6);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		}
+
+
+		redirect(site_url($this->tabel9_v1));
+	}
+
+
+	public function laporan($id = 1)
+	{
+		$this->declare();
+
+		$data = array(
+			'title' => $this->tabel9_v3_title,
+			'head' => $this->head,
+			$this->tabel7 => $this->ptn->ambil($id)->result(),
+			$this->tabel9 => $this->usr->ambildata()->result()
+		);
+
+		$this->load->view($this->tabel9_v3, $data);
+	}
+
+
+
 
 	public function profil($tabel7_field1 = 1)
 	{
@@ -189,85 +307,9 @@ class User extends Welcome
 		$this->load->view($this->v6, $data);
 	}
 
-	public function tambah()
-	{
-		$this->declare();
-		$param2 = $this->tabel9_v_input2;
-		$param4 = $this->tabel9_v_input4;
 
-		$method2 = $this->usr->ceknama($param2);
 
-		// mencari apakah jumlah data kurang dari 1
-		if ($method2->num_rows() < 1) {
-
-			// jika input konfirm sama dengan input password
-			if ($this->input->post('konfirm') === $param4) {
-				$this->load->library('encryption');
-
-				$data = array(
-					$this->tabel9_field2 => $param2,
-					$this->tabel9_field3 => $this->tabel9_v_input3,
-
-					// mengubah password menjadi password berenkripsi
-					$this->tabel9_field4 => password_hash($param4, PASSWORD_DEFAULT),
-
-					$this->tabel9_field5 => $this->tabel9_v_input5,
-					$this->tabel9_field6 => $this->tabel9_v_input6,
-				);
-
-				$simpan = $this->usr->simpan($data);
-
-				// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
-				if ($this->session->userdata($this->tabel9_field3)) {
-
-					redirect(site_url($this->tabel9_c1));
-				} else {
-
-					redirect(site_url($this->tabel9_c7));
-				}
-
-				// jika input konfirm tidak sama dengan input password
-			} else {
-
-				// menampilkan flashdata dalam bentuk teks
-				$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi password salah!');
-
-				redirect($_SERVER['HTTP_REFERER']);
-			}
-
-			// jika jumlah data lebih dari 0
-		} else {
-
-			$this->session->set_flashdata($this->v_flashdata1, 'Email telah digunakan!');
-			redirect($_SERVER['HTTP_REFERER']);
-		}
-	}
-
-	public function update()
-	{
-		$this->declare();
-		$where = $this->tabel9_v_input1;
-		$data = array(
-			$this->tabel9_field2 => $this->tabel9_v_input2,
-			$this->tabel9_field3 => $this->tabel9_v_input3,
-			$this->tabel9_field5 => $this->tabel9_v_input5,
-		);
-
-		$update = $this->usr->update($data, $where);
-
-		if ($update) {
-
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		} else {
-
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		}
-
-		// kembali ke halaman sebelumnya
-		redirect($_SERVER['HTTP_REFERER']);
-	}
+	
 
 	public function update_profil()
 	{
@@ -341,14 +383,14 @@ class User extends Welcome
 					// jika konfirmasi password tidak sama dengan password baru
 				} else {
 
-					$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi password tidak sesuai!');
+					$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi '. $this->tabel9_field4 . ' tidak sesuai!');
 					redirect($_SERVER['HTTP_REFERER']);
 				}
 
 				// jika password lama salah
 			} else {
 
-				$this->session->set_flashdata($this->v_flashdata1, 'Password lama salah!');
+				$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_field4 . 'lama salah!');
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 
@@ -360,31 +402,13 @@ class User extends Welcome
 		}
 	}
 
-	public function hapus($id_user = null)
-	{
-		$this->declare();
-		$hapus = $this->usr->hapus($id_user);
-
-
-		if ($hapus) {
-
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_5);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		} else {
-
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_6);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		}
-
-
-		redirect(site_url($this->tabel9_v1));
-	}
+	
 
 	public function ceklogin()
 	{
 		$this->declare();
-		$param2 = $this->tabel9_v_input2;
-		$param4 = $this->tabel9_v_input4;
+		$param2 = $this->tabel9_v_input2_post;
+		$param4 = $this->tabel9_v_input4_post;
 
 		$method2 = $this->usr->ceknama($param2);
 
@@ -470,17 +494,5 @@ class User extends Welcome
 		redirect(site_url($this->c1));
 	}
 
-	public function laporan($id = 1)
-	{
-		$this->declare();
 
-		$data = array(
-			'title' => $this->tabel9_v3_title,
-			'head' => $this->head,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
-			$this->tabel9 => $this->usr->ambildata()->result()
-		);
-
-		$this->load->view($this->tabel9_v3, $data);
-	}
 }

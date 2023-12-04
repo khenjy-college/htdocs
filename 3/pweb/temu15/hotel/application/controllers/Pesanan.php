@@ -283,13 +283,13 @@ class Pesanan extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->title4,
+			'title' => $this->tabel8_v3_title,
 			'head' => $this->head,
 			$this->v7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambildata()->result()
 		);
 
-		$this->load->view($this->page4, $data);
+		$this->load->view($this->tabel8_v3, $data);
 	}
 
 
@@ -385,9 +385,9 @@ class Pesanan extends Welcome
 	public function konfirmasi($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$where = $this->session->tempdata($this->tempdata1);
+		$where = $this->session->tempdata($this->tabel9_tempdata1);
 		$data = array(
-			'title' => $this->title2,
+			'title' => $this->v1_title1,
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
@@ -403,7 +403,7 @@ class Pesanan extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->title3,
+			'title' => $this->v4_title1,
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambil($id_pesanan)->result()

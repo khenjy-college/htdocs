@@ -1,5 +1,3 @@
-
-
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -28,23 +26,13 @@ class Operations extends Welcome
 	private $tabel11_c6;
 	private $tabel11_c7;
 	private $tabel11_c8;
-	private $tabel11_c9;
-	private $tabel11_c10;
-	private $tabel11_c11;
-	private $tabel11_c12;
-	private $tabel11_v_input1;
+	private $tabel11_v_input1_post;
 	private $tabel11_v_input1_alt;
-	private $tabel11_v_input2;
-	private $tabel11_v_input3;
-	private $tabel11_v_input4;
-	private $tabel11_v_input5;
-	private $tabel11_v_input6;
-	private $tabel11_v_input7;
-	private $tabel11_v_input8;
-	private $tabel11_v_input9;
-	private $tabel11_v_input10;
-	private $tabel11_v_input11;
-	private $tabel11_v_input12;
+	private $tabel11_v_input2_post;
+	private $tabel11_v_input3_post;
+	private $tabel11_v_input4_post;
+	private $tabel11_v_input5_post;
+	private $tabel11_v_input6_post;
 	private $tabel11_v_flashdata1_msg_1;
 	private $tabel11_v_flashdata1_msg_2;
 	private $tabel11_v_flashdata1_msg_3;
@@ -75,19 +63,14 @@ class Operations extends Welcome
 		$this->tabel11_c4 = $this->tabel11 . '/hapus';
 		$this->tabel11_c5 = $this->tabel11 . '/laporan';
 
-
-		// deklarasi variabel konten website
-		// deklarasi variabel title
-
-
 		// tabel bagian input
-		$this->tabel11_v_input1 = $this->tabel11_field1;
+		$this->tabel11_v_input1_post = $this->input->post($this->tabel11_field1);
 		$this->tabel11_v_input1_alt = '';
-		$this->tabel11_v_input2 = $this->tabel11_field2;
-		$this->tabel11_v_input3 = $this->tabel11_field3;
-		$this->tabel11_v_input4 = $this->tabel11_field4;
-		$this->tabel11_v_input5 = $this->tabel11_field5;
-		$this->tabel11_v_input6 = $this->tabel11_field6;
+		$this->tabel11_v_input2_post = $this->input->post($this->tabel11_field2);
+		$this->tabel11_v_input3_post = $this->input->post($this->tabel11_field3);
+		$this->tabel11_v_input4_post = $this->input->post($this->tabel11_field4);
+		$this->tabel11_v_input5_post = $this->input->post($this->tabel11_field5);
+		$this->tabel11_v_input6_post = $this->input->post($this->tabel11_field6);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel11_v_flashdata1_msg_1 = $this->tabel11 . ' berhasil disimpan!';
@@ -110,10 +93,80 @@ class Operations extends Welcome
 			'konten' => 'v_admin-operations',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel11 => $this->ops->ambildata()->result(),
-			'petugas' => $this->pts->ambildata()->result(),
+			$this->tabel4 => $this->pts->ambildata()->result(),
 		);
 
 		$this->load->view($this->v7, $data);
+	}
+
+	public function tambah()
+	{
+		$this->declare();
+		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
+		$tgl = date("Y-m-d") . " " . date("h:m:s", time());
+
+		$where = $this->input->post('no_kamar');
+		$data = array(
+			'id_operations' => '',
+			'no_kamar' => $where,
+			'id_user' => $this->input->post('id_user'),
+			'id_petugas' => $this->input->post('id_petugas'),
+			'keterangan' => $this->input->post('keterangan'),
+			'tgl_perubahan' => $tgl
+		);
+
+		$status = array(
+			'status' => $this->input->post('status')
+		);
+		$update_status = $this->kmr->update($status, $where);
+
+		$simpan = $this->ops->simpan($data);
+
+		if ($simpan) {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel11_v_flashdata1_msg_1);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		} else {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel11_v_flashdata1_msg_2);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		}
+
+		redirect(site_url($this->tabel5_c1));
+	}
+
+	public function update()
+	{
+	}
+
+	public function hapus($id_operations = null)
+	{
+		$this->declare();
+		$hapus = $this->ops->hapus($id_operations);
+
+		if ($hapus) {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel11_v_flashdata1_msg_3);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		} else {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel11_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		}
+
+		redirect(site_url($this->tabel11_c1));
+	}
+
+	public function laporan($tabel7_field1 = 1)
+	{
+		$data = array(
+			'title' => $this->tabel11_v3_title,
+			'head' => $this->head,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel11 => $this->ops->ambildata()->result()
+		);
+
+		$this->load->view($this->tabel11_v3, $data);
 	}
 
 	public function daftar($tabel7_field1 = 1)
@@ -150,46 +203,10 @@ class Operations extends Welcome
 		$this->load->view($this->v7, $data);
 	}
 
-	public function tambah()
-	{
-		$this->declare();
-		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
-		$tgl = date("Y-m-d") . " " . date("h:m:s", time());
-
-		$where = $this->input->post('no_kamar');
-		$data = array(
-			'id_operations' => '',
-			'no_kamar' => $where,
-			'id_user' => $this->input->post('id_user'),
-			'id_petugas' => $this->input->post('id_petugas'),
-			'keterangan' => $this->input->post('keterangan'),
-			'tgl_perubahan' => $tgl
-		);
-
-		$status = array(
-			'status' => $this->input->post('status')
-		);
-		$update_status = $this->kmr->update($status, $where);
-
-		$simpan = $this->ops->simpan($data);
-
-		if ($simpan) {
-
-			$this->session->set_flashdata($this->v_flashdata1, 'Operations berhasil disimpan!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		} else {
-
-			$this->session->set_flashdata($this->v_flashdata1, 'Operations gagal disimpan!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		}
-
-		redirect(site_url($this->tabel5));
-	}
-
 	public function update_status($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$where = $this->input->post('id_operations');
+		$where = $this->tabel11_v_input1_post;
 		$data = array(
 			'status' => $this->input->post('status')
 		);
@@ -225,36 +242,6 @@ class Operations extends Welcome
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('pesanan'));
-	}
-
-	public function hapus($id_operations = null)
-	{
-		$this->declare();
-		$hapus = $this->ops->hapus($id_operations);
-
-		if ($hapus) {
-
-			$this->session->set_flashdata($this->v_flashdata1, 'Operations berhasil dihapus!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		} else {
-
-			$this->session->set_flashdata($this->v_flashdata1, 'Operations gagal dihapus!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		}
-
-		redirect(site_url($this->tabel11));
-	}
-
-	public function laporan($tabel7_field1 = 1)
-	{
-		$data = array(
-			'title' => 'Laporan Operations',
-			'head' => $this->head,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel11 => $this->ops->ambildata()->result()
-		);
-
-		$this->load->view('_laporan/laporan_operations', $data);
+		redirect(site_url($this->tabel11_c1));
 	}
 }

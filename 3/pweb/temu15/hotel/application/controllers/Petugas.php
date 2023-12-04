@@ -24,23 +24,17 @@ class Petugas extends Welcome
 	private $tabel4_c3;
 	private $tabel4_c4;
 	private $tabel4_c5;
-	private $tabel4_c6;
-	private $tabel4_c7;
-	private $tabel4_c8;
-	private $tabel4_c9;
-	private $tabel4_c10;
-	private $tabel4_c11;
-	private $tabel4_c12;
-	private $tabel4_v_input1;
+	private $tabel4_v_input1_post;
 	private $tabel4_v_input1_alt;
-	private $tabel4_v_input2;
-	private $tabel4_v_input3;
-	private $tabel4_v_input4;
+	private $tabel4_v_input2_post;
+	private $tabel4_v_input3_post;
+	private $tabel4_v_input4_post;
 	private $tabel4_v_input5;
 	private $tabel4_v_input5_upload_path;
+	private $tabel4_v_input5_post;
 	private $tabel4_v_input5_alt;
-	private $tabel4_v_input6;
-	private $tabel4_v_input7;
+	private $tabel4_v_input6_post;
+	private $tabel4_v_input7_post;
 	private $tabel4_v_flashdata1_msg_1;
 	private $tabel4_v_flashdata1_msg_2;
 	private $tabel4_v_flashdata1_msg_3;
@@ -79,17 +73,18 @@ class Petugas extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel4_v_input1 = $this->tabel4_field1;
+		$this->tabel4_v_input1_post = $this->input->post($this->tabel4_field1);
 		$this->tabel4_v_input1_alt = '';
-		$this->tabel4_v_input2 = $this->tabel4_field2;
-		$this->tabel4_v_input3 = $this->tabel4_field3;
-		$this->tabel4_v_input4 = $this->tabel4_field4;
+		$this->tabel4_v_input2_post = $this->input->post($this->tabel4_field2);
+		$this->tabel4_v_input3_post = $this->input->post($this->tabel4_field3);
+		$this->tabel4_v_input4_post = $this->input->post($this->tabel4_field4);
 		$this->tabel4_v_input5 = $this->tabel4_field5;
-		$this->tabel4_v_input5_upload_path = './assets/' . $this->tabel4_v_input5 . '/' . $this->tabel4 . '/';
+		$this->tabel4_v_input5_upload_path = './assets/' . $this->tabel4_field5. '/' . $this->tabel4 . '/';
+		$this->tabel4_v_input5_post = $this->input->post($this->tabel4_v_input5);
 		$this->tabel4_v_input5_alt = 'txt' . $this->tabel4_v_input5;
 
-		$this->tabel4_v_input6 = $this->tabel4_field6;
-		$this->tabel4_v_input7 = $this->tabel4_field7;
+		$this->tabel4_v_input6_post = $this->input->post($this->tabel4_field6);
+		$this->tabel4_v_input7_post = $this->input->post($this->tabel4_field7);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel4_v_flashdata1_msg_1 = $this->tabel4 . ' berhasil disimpan!';
@@ -111,7 +106,7 @@ class Petugas extends Welcome
 			'head' => $this->head,
 			'konten' => 'v_admin-petugas',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			'petugas' => $this->pts->ambildata()->result()
+			$this->tabel4 => $this->pts->ambildata()->result()
 		);
 
 		$this->load->view($this->v7, $data);
@@ -131,7 +126,7 @@ class Petugas extends Welcome
 		}
 
 		$data = array(
-			'id_petugas' => '',
+			'id_petugas' => $this->$tabel4_v_input1_alt,
 			'nama' => $this->input->post('nama'),
 			'email' => $this->input->post('email'),
 			'hp' => $this->input->post('hp'),
@@ -146,15 +141,15 @@ class Petugas extends Welcome
 
 		if ($simpan) {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Petugas berhasil ditambah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_1);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Petugas gagal ditambah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_2);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('petugas'));
+		redirect(site_url($this->tabel4_c1));
 	}
 
 	public function update()
@@ -169,7 +164,7 @@ class Petugas extends Welcome
 		if ($gambar) {
 			$this->upload->do_upload('img');
 		} else {
-			$gambar = $this->input->post('txtimg');
+			$gambar = $this->input->post($this->tabel4_v_input5_alt);
 		}
 
 		$where = $this->input->post('id_petugas');
@@ -188,15 +183,15 @@ class Petugas extends Welcome
 
 		if ($update) {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Petugas berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_3);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Petugas gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_4);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('petugas'));
+		redirect(site_url($this->tabel4_c1));
 	}
 
 	public function hapus($id_petugas = null)
@@ -213,16 +208,16 @@ class Petugas extends Welcome
 
 		if ($hapus) {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Petugas berhasil dihapus!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_5);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Petugas gagal dihapus!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_6);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
 
-		redirect(site_url('petugas'));
+		redirect(site_url($this->tabel4_c1));
 	}
 	public function laporan($tabel7_field1 = 1)
 	{
@@ -231,7 +226,7 @@ class Petugas extends Welcome
 			'title' => 'Laporan Petugas',
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			'petugas' => $this->pts->ambildata()->result()
+			$this->tabel4 => $this->pts->ambildata()->result()
 		);
 
 		$this->load->view('_laporan/laporan_petugas', $data);

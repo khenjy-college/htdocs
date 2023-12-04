@@ -31,25 +31,49 @@ class History extends Welcome
 	private $tabel2_c10;
 	private $tabel2_c11;
 	private $tabel2_c12;
-	private $tabel2_v_input1;
+	private $tabel2_v_input1_post;
 	private $tabel2_v_input1_alt;
-	private $tabel2_v_input2;
-	private $tabel2_v_input3;
-	private $tabel2_v_input4;
-	private $tabel2_v_input5;
-	private $tabel2_v_input6;
-	private $tabel2_v_input7;
-	private $tabel2_v_input8;
-	private $tabel2_v_input9;
-	private $tabel2_v_input10;
-	private $tabel2_v_input11;
-	private $tabel2_v_input12;
+	private $tabel2_v_input2_post;
+	private $tabel2_v_input3_post;
+	private $tabel2_v_input4_post;
+	private $tabel2_v_input5_post;
+	private $tabel2_v_input6_post;
+	private $tabel2_v_input7_post;
+	private $tabel2_v_input8_post;
+	private $tabel2_v_input9_post;
+	private $tabel2_v_input10_post;
+	private $tabel2_v_input10_filter1;
+	private $tabel2_v_input10_filter1_get;
+	private $tabel2_v_input10_filter2;
+	private $tabel2_v_input10_filter2_get;
+	private $tabel2_v_input11_post;
+	private $tabel2_v_input11_filter1;
+	private $tabel2_v_input11_filter1_get;
+	private $tabel2_v_input11_filter2;
+	private $tabel2_v_input11_filter2_get;
+	private $tabel2_v_input12_post;
+	private $tabel2_v_input13_post;
 	private $tabel2_v_flashdata1_msg_1;
 	private $tabel2_v_flashdata1_msg_2;
 	private $tabel2_v_flashdata1_msg_3;
 	private $tabel2_v_flashdata1_msg_4;
 	private $tabel2_v_flashdata1_msg_5;
 	private $tabel2_v_flashdata1_msg_6;
+
+	// deklrasi session
+	private $tabel9_userdata1;
+	private $tabel9_tempdata1;
+	private $tabel9_userdata2;
+	private $tabel9_tempdata2;
+	private $tabel9_userdata3;
+	private $tabel9_tempdata3;
+	private $tabel9_userdata4;
+	private $tabel9_tempdata4;
+	private $tabel9_userdata5;
+	private $tabel9_tempdata5;
+	private $tabel9_userdata6;
+	private $tabel9_tempdata6;
+
 	public function
 
 	declare()
@@ -78,26 +102,30 @@ class History extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel2_v_input1 = $this->tabel2_field1;
+		$this->tabel2_v_input1_post = $this->input->post($this->tabel2_field1);
 		$this->tabel2_v_input1_alt = '';
-		$this->tabel2_v_input2 = $this->tabel2_field2;
-		$this->tabel2_v_input3 = $this->tabel2_field3;
-		$this->tabel2_v_input4 = $this->tabel2_field4;
-		$this->tabel2_v_input5 = $this->tabel2_field5;
-		$this->tabel2_v_input6 = $this->tabel2_field6;
-		$this->tabel2_v_input7 = $this->tabel2_field7;
-		$this->tabel2_v_input8 = $this->tabel2_field8;
-		$this->tabel2_v_input9 = $this->tabel2_field9;
-		$this->tabel2_v_input10 = $this->tabel2_field10;
+		$this->tabel2_v_input2_post = $this->input->post($this->tabel2_field2);
+		$this->tabel2_v_input3_post = $this->input->post($this->tabel2_field3);
+		$this->tabel2_v_input4_post = $this->input->post($this->tabel2_field4);
+		$this->tabel2_v_input5_post = $this->input->post($this->tabel2_field5);
+		$this->tabel2_v_input6_post = $this->input->post($this->tabel2_field6);
+		$this->tabel2_v_input7_post = $this->input->post($this->tabel2_field7);
+		$this->tabel2_v_input8_post = $this->input->post($this->tabel2_field8);
+		$this->tabel2_v_input9_post = $this->input->post($this->tabel2_field9);
+		$this->tabel2_v_input10_post = $this->input->post($this->tabel2_field10);
 		// ini adalah filter
-		$this->tabel2_v_input10_value1 = $tabel2_v_input10 . '_min';
-		$this->tabel2_v_input10_value2 = $tabel2_v_input10 . '_max';
-		$this->tabel2_v_input11 = $this->tabel2_field11;
+		$this->tabel2_v_input10_filter1 = $this->tabel2_v_input10_post . '_min';
+		$this->tabel2_v_input10_filter1_get = $this->input->get($this->tabel2_v_input10_post . '_min');
+		$this->tabel2_v_input10_filter2 = $this->tabel2_v_input10_post . '_max';
+		$this->tabel2_v_input10_filter2_get = $this->input->get($this->tabel2_v_input10_post . '_max');
+		$this->tabel2_v_input11_post = $this->input->post($this->tabel2_field11);
 		//ini adalah filter
-		$this->tabel2_v_input11_value1 = $tabel2_v_input11 . '_min';
-		$this->tabel2_v_input11_value2 = $tabel2_v_input11 . '_max';
-		$this->tabel2_v_input12 = $this->tabel2_field12;
-		$this->tabel2_v_input13 = $this->tabel2_field13;
+		$this->tabel2_v_input11_filter1 = $this->tabel2_v_input11_post . '_min';
+		$this->tabel2_v_input11_filter1_get = $this->input->get($this->tabel2_v_input11_post . '_min');
+		$this->tabel2_v_input11_filter2 = $this->tabel2_v_input11_post . '_max';
+		$this->tabel2_v_input11_filter2_get = $this->input->get($this->tabel2_v_input11_post . '_max');
+		$this->tabel2_v_input12_post = $this->input->post($this->tabel2_field12);
+		$this->tabel2_v_input13_post = $this->input->post($this->tabel2_field13);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel2_v_flashdata1_msg_1 = $this->tabel2 . ' berhasil disimpan!';
@@ -106,176 +134,200 @@ class History extends Welcome
 		$this->tabel2_v_flashdata1_msg_4 = 'Status ' . $this->tabel2 . ' gagal diubah!';
 		$this->tabel2_v_flashdata1_msg_5 = $this->tabel2 . ' gagal dihapus!';
 		$this->tabel2_v_flashdata1_msg_6 = $this->tabel2 . ' gagal dihapus!';
+
+
+		// deklarasi session
+		$this->tabel9_userdata1 = $this->tabel9_field1;
+		$this->tabel9_tempdata1 = $this->tabel9_field1;
+		$this->tabel9_userdata2 = $this->tabel9_field2;
+		$this->tabel9_tempdata2 = $this->tabel9_field2;
+		$this->tabel9_userdata3 = $this->tabel9_field3;
+		$this->tabel9_tempdata3 = $this->tabel9_field3;
+		$this->tabel9_userdata4 = $this->tabel9_field4;
+		$this->tabel9_tempdata4 = $this->tabel9_field4;
+		$this->tabel9_userdata5 = $this->tabel9_field5;
+		$this->tabel9_tempdata5 = $this->tabel9_field5;
+		$this->tabel9_userdata6 = $this->tabel9_field6;
+		$this->tabel9_tempdata6 = $this->tabel9_field6;
 	}
 
 
 
 
-	public function index($id = 1)
+	public function index($tabel7_field1 = 1)
 	{
+		$this->declare();
 		// nilai min dan max di sini belum ada
-		$cek_in_min = $this->input->get('cek_in_min');
-		$cek_in_max = $this->input->get('cek_in_max');
-		$cek_out_min = $this->input->get('cek_out_min');
-		$cek_out_max = $this->input->get('cek_out_max');
+		$param1 = $this->tabel2_v_input10_filter1_get;
+		$param2 = $this->tabel2_v_input10_filter2_get;
+		$param3 = $this->tabel2_v_input11_filter1_get;
+		$param4 = $this->tabel2_v_input11_filter2_get;
 
 		$data = array(
 			'title' => 'Data History',
 			'head' => '_partials/head',
 			'konten' => 'v_admin-history',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'history' => $this->htr->ambildata()->result(),
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->htr->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'cek_in_min' => $cek_in_min,
-			'cek_in_max' => $cek_in_max,
-			'cek_out_min' => $cek_out_min,
-			'cek_out_max' => $cek_out_max,
+			$this->tabel2_v_input10_filter1 => $param1,
+			$this->tabel2_v_input10_filter2 => $param2,
+			$this->tabel2_v_input11_filter1 => $param3,
+			$this->tabel2_v_input11_filter2 => $param4
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
 
-	public function daftar($id = 1)
+	public function daftar($tabel7_field1 = 1)
 	{
-		$where = $this->session->userdata('id_user');
+		$this->declare();
+		$where = $this->session->userdata($this->tabel9_userdata1);
 
 		// nilai min dan max di sini belum ada
-		$cek_in_min = $this->input->get('cek_in_min');
-		$cek_in_max = $this->input->get('cek_in_max');
-		$cek_out_min = $this->input->get('cek_out_min');
-		$cek_out_max = $this->input->get('cek_out_max');
+		$param1 = $this->tabel2_v_input10_filter1_get;
+		$param2 = $this->tabel2_v_input10_filter2_get;
+		$param3 = $this->tabel2_v_input11_filter1_get;
+		$param4 = $this->tabel2_v_input11_filter2_get;
 
 		$data = array(
 			'title' => 'History Pesanan',
 			'head' => '_partials/head',
 			'konten' => 'v_history',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'history' => $this->htr->ambil_id_user($where)->result(),
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->htr->ambil_id_user($where)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $cek_in_min,
-			'cek_in_max' => $cek_in_max,
-			'cek_out_min' => $cek_out_min,
-			'cek_out_max' => $cek_out_max,
+			$this->tabel2_v_input10_filter1 => $param1,
+			$this->tabel2_v_input10_filter2 => $param2,
+			$this->tabel2_v_input11_filter1 => $param3,
+			$this->tabel2_v_input11_filter2 => $param4
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
 
-	public function filter_cek_in($id = 1)
+	public function filter_cek_in($tabel7_field1 = 1)
 	{
+		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
-		$cek_in_min = $this->input->get('cek_in_min');
-		$cek_in_max = $this->input->get('cek_in_max');
-		$cek_out_min = $this->input->get('cek_out_min');
-		$cek_out_max = $this->input->get('cek_out_max');
+		$param1 = $this->tabel2_v_input10_filter1_get;
+		$param2 = $this->tabel2_v_input10_filter2_get;
+		$param3 = $this->tabel2_v_input11_filter1_get;
+		$param4 = $this->tabel2_v_input11_filter2_get;
+
 
 		$data = array(
 			'title' => 'Data History',
 			'head' => '_partials/head',
 			'konten' => 'v_admin-history',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'history' => $this->htr->filter_cek_in($cek_in_min, $cek_in_max)->result(),
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->htr->filter_cek_in($param1, $param2)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $cek_in_min,
-			'cek_in_max' => $cek_in_max,
-			'cek_out_min' => $cek_out_min,
-			'cek_out_max' => $cek_out_max,
+			$this->tabel2_v_input10_filter1 => $param1,
+			$this->tabel2_v_input10_filter2 => $param2,
+			$this->tabel2_v_input11_filter1 => $param3,
+			$this->tabel2_v_input11_filter2 => $param4
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
-	public function filter_cek_out($id = 1)
+	public function filter_cek_out($tabel7_field1 = 1)
 	{
+		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
-		$cek_in_min = $this->input->get('cek_in_min');
-		$cek_in_max = $this->input->get('cek_in_max');
-		$cek_out_min = $this->input->get('cek_out_min');
-		$cek_out_max = $this->input->get('cek_out_max');
+		$param1 = $this->tabel2_v_input10_filter1_get;
+		$param2 = $this->tabel2_v_input10_filter2_get;
+		$param3 = $this->tabel2_v_input11_filter1_get;
+		$param4 = $this->tabel2_v_input11_filter2_get;
 
 		$data = array(
 			'title' => 'Data History',
 			'head' => '_partials/head',
 			'konten' => 'v_admin-history',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'history' => $this->htr->filter_cek_out($cek_out_min, $cek_out_max)->result(),
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->htr->filter_cek_out($param3, $param4)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $cek_in_min,
-			'cek_in_max' => $cek_in_max,
-			'cek_out_min' => $cek_out_min,
-			'cek_out_max' => $cek_out_max,
+			$this->tabel2_v_input10_filter1 => $param1,
+			$this->tabel2_v_input10_filter2 => $param2,
+			$this->tabel2_v_input11_filter1 => $param3,
+			$this->tabel2_v_input11_filter2 => $param4
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
 
-	public function filter_cek_in_tamu($id = 1)
+	public function filter_cek_in_tamu($tabel7_field1 = 1)
 	{
-		$where = $this->session->userdata('id_user');
+		$this->declare();
+		$where = $this->session->userdata($this->tabel9_userdata1);
 		// nilai min dan max sudah diinput sebelumnya
-		$cek_in_min = $this->input->get('cek_in_min');
-		$cek_in_max = $this->input->get('cek_in_max');
-		$cek_out_min = $this->input->get('cek_out_min');
-		$cek_out_max = $this->input->get('cek_out_max');
+		$param1 = $this->tabel2_v_input10_filter1_get;
+		$param2 = $this->tabel2_v_input10_filter2_get;
+		$param3 = $this->tabel2_v_input11_filter1_get;
+		$param4 = $this->tabel2_v_input11_filter2_get;
 
 		$data = array(
 			'title' => 'Data History',
 			'head' => '_partials/head',
 			'konten' => 'v_history',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'history' => $this->htr->filter_cek_in_tamu($cek_in_min, $cek_in_max, $where)->result(),
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->htr->filter_cek_in_tamu($param1, $param2, $where)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $cek_in_min,
-			'cek_in_max' => $cek_in_max,
-			'cek_out_min' => $cek_out_min,
-			'cek_out_max' => $cek_out_max,
+			$this->tabel2_v_input10_filter1 => $param1,
+			$this->tabel2_v_input10_filter2 => $param2,
+			$this->tabel2_v_input11_filter1 => $param3,
+			$this->tabel2_v_input11_filter2 => $param4
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
-	public function filter_cek_out_tamu($id = 1)
+	public function filter_cek_out_tamu($tabel7_field1 = 1)
 	{
-		$where = $this->session->userdata('id_user');
+		$this->declare();
+		$where = $this->session->userdata($this->tabel9_userdata1);
 		// nilai min dan max sudah diinput sebelumnya
-		$cek_in_min = $this->input->get('cek_in_min');
-		$cek_in_max = $this->input->get('cek_in_max');
-		$cek_out_min = $this->input->get('cek_out_min');
-		$cek_out_max = $this->input->get('cek_out_max');
-
+		$param1 = $this->tabel2_v_input10_filter1_get;
+		$param2 = $this->tabel2_v_input10_filter2_get;
+		$param3 = $this->tabel2_v_input11_filter1_get;
+		$param4 = $this->tabel2_v_input11_filter2_get;
+		
 		$data = array(
 			'title' => 'Data History',
 			'head' => '_partials/head',
 			'konten' => 'v_history',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'history' => $this->htr->filter_cek_out_tamu($cek_out_min, $cek_out_max, $where)->result(),
-
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->htr->filter_cek_out_tamu($param3, $param4, $where)->result(),
+			
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $cek_in_min,
-			'cek_in_max' => $cek_in_max,
-			'cek_out_min' => $cek_out_min,
-			'cek_out_max' => $cek_out_max,
+			$this->tabel2_v_input10_filter1 => $param1,
+			$this->tabel2_v_input10_filter2 => $param2,
+			$this->tabel2_v_input11_filter1 => $param3,
+			$this->tabel2_v_input11_filter2 => $param4
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
 
 	public function hapus($id_history = null)
 	{
+		$this->declare();
 		$hapus = $this->htr->hapus($id_history);
-		redirect(site_url('history'));
+		redirect(site_url($this->tabel2));
 	}
 
-	public function laporan($id = 1)
+	public function laporan($tabel7_field1 = 1)
 	{
+		$this->declare();
 		$data = array(
 			'title' => 'Laporan History',
 			'head' => '_partials/head',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'history' => $this->htr->ambildata()->result()
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->htr->ambildata()->result()
 		);
 
 		$this->load->view('_laporan/laporan_history', $data);
