@@ -1,5 +1,5 @@
-<?php if ($this->session->userdata('akses') <> 'tamu') {
-  redirect(site_url('welcome/no_akses'));
+<?php if ($this->session->userdata('level') <> 'tamu') {
+  redirect(site_url('welcome/no_level'));
 } ?>
 
 <h1>Pilih Kamar Reservasi</h1>

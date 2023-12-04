@@ -1,6 +1,6 @@
-<!-- mengarahkan ke no_akses jika akses user bukan administrator -->
-<?php if ($this->session->userdata('akses') <> 'administrator') {
-  redirect(site_url('welcome/no_akses'));
+<!-- mengarahkan ke no_level jika level user bukan administrator -->
+<?php if ($this->session->userdata('level') <> 'administrator') {
+  redirect(site_url('welcome/no_level'));
 } ?>
 
 <h1>Daftar Fasilitas Hotel</h1>

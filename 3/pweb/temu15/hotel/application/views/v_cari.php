@@ -2,58 +2,6 @@
 Fitur sedang tahap pengembangan
 <hr>
 
-
-  <table class="table table-light" id="data">
-    <thead class="thead-light">
-      <tr>
-        <th>Tamu</th>
-        <th>Tanggal Cek In</th>
-        <th>Tanggal Cek Out</th>
-        <th>Status</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <?php foreach ($pesanan as $ps) : ?>
-        <tr>
-          <td><?= $ps->tamu ?></td>
-          <td><?= $ps->cek_in ?></td>
-          <td><?= $ps->cek_out ?></td>
-          <td><?= $ps->status ?></td>
-          <td>
-            <?php if ($ps->status == 'belum bayar') { ?>
-              <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $ps->id_pesanan ?>" href="#">
-                <i class="fas fa-shopping-cart"></i></a>
-            <?php } elseif (
-              $ps->status == 'menunggu'
-              || $ps->status == 'cek in'
-            ) { ?>
-              <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $ps->id_pesanan ?>" href="#">
-                <i class="fas fa-eye"></i></a>
-
-              <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $ps->id_pesanan) ?>" target="_blank">
-                <i class="fas fa-print"></i></a>
-
-            <?php } ?>
-
-          </td>
-        </tr>
-      <?php endforeach ?>
-    </tbody>
-
-    <tfoot>
-      <tr>
-        <th>Tamu</th>
-        <th>Tanggal Cek In</th>
-        <th>Tanggal Cek Out</th>
-        <th>Status</th>
-        <th>Aksi</th>
-      </tr>
-    </tfoot>
-  </table>
-
-
 <!-- modal bayar -->
 <?php foreach ($pesanan as $ps) : ?>
   <div id="bayar<?= $ps->id_pesanan ?>" class="modal fade">

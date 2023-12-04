@@ -1,5 +1,5 @@
-<?php if ($this->session->userdata('akses') <> 'accounting') {
-  redirect(site_url('welcome/no_akses'));
+<?php if ($this->session->userdata('level') <> 'accounting') {
+  redirect(site_url('welcome/no_level'));
 } ?>
 
 <h1>Daftar Transaksi</h1>

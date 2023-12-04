@@ -1,5 +1,5 @@
-<?php if ($this->session->userdata('akses') <> 'resepsionis') {
-  redirect(site_url('welcome/no_akses'));
+<?php if ($this->session->userdata('level') <> 'resepsionis') {
+  redirect(site_url('welcome/no_level'));
 } ?>
 
 <h1>Daftar Pesanan</h1>
@@ -100,7 +100,10 @@
         <td>
 
           <!-- tombol yang akan muncul berdasarkan nilai dari status -->
-          <?php if ($ps->status == 'menunggu') { ?>
+          <?php if ($ps->status == 'pending') { ?>
+            <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $ps->id_pesanan ?>">
+              <i class="fas fa-bell-concierge"></i></a>
+          <?php } elseif ($ps->status == 'menunggu') { ?>
             <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
               <i class="fas fa-edit"></i></a>
           <?php } elseif ($ps->status == 'cek in') { ?>
@@ -163,8 +166,6 @@
                   <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
                   <?php if ($ps->status == 'belum bayar') { ?>
                     <input type="hidden" name="status" value="menunggu">
-
-
                   <?php } elseif ($ps->status == 'menunggu') { ?>
                     <input type="hidden" name="status" value="cek in">
                   <?php } elseif ($ps->status == 'cek in') { ?>
@@ -225,6 +226,95 @@
               <p>Ubah Status Menjadi Cek Out?</p>
               <button class="btn btn-success" type="submit">Ya</button>
             <?php } ?>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+<?php endforeach ?>
+
+<!-- modal book -->
+<?php foreach ($pesanan as $ps) : ?>
+  <div id="book<?= $ps->id_pesanan ?>" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <!-- form untuk mengubah nilai status sebuah pesanan -->
+        <form action="<?= site_url('pesanan/update_status') ?>" method="post">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Id Pesanan</label>
+                  <p><?= $ps->id_pesanan ?></p>
+                  <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
+                  <input type="hidden" name="tipe" value="<?= $ps->tipe; ?>">
+
+                  <!-- input status berdasarkan nilai status -->
+                  <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
+                  <?php if ($ps->status == 'belum bayar') { ?>
+                    <input type="hidden" name="status" value="menunggu">
+                  <?php } elseif ($ps->status == 'menunggu') { ?>
+                    <input type="hidden" name="status" value="cek in">
+                  <?php } elseif ($ps->status == 'cek in') { ?>
+                    <input type="hidden" name="status" value="cek out">
+                  <?php } ?>
+
+                </div>
+
+                <div class="form-group">
+                  <label>Pemesan</label>
+                  <p><?= $ps->pemesan ?></p>
+                </div>
+
+                <div class="form-group">
+                  <label>Email</label>
+                  <p><?= $ps->email ?></p>
+                </div>
+
+                <div class="form-group">
+                  <label>Nomor Telepon</label>
+                  <p><?= $ps->hp ?></p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Nama Tamu</label>
+                  <p><?= $ps->tamu ?></p>
+                </div>
+
+                <div class="form-group">
+                  <label>Tipe Kamar</label>
+                  <p><?= $ps->tipe ?></p>
+                </div>
+
+                <div class="form-group">
+                  <label>Tanggal Cek In</label>
+                  <p><?= $ps->cek_in ?></p>
+                </div>
+
+                <div class="form-group">
+                  <label>Tanggal Cek Out</label>
+                  <p><?= $ps->cek_out ?></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+
+            <p>Pesan kamar?</p>
+            <button class="btn btn-success" type="submit">Ya</button>
 
           </div>
         </form>

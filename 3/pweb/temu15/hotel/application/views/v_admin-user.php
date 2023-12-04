@@ -1,5 +1,5 @@
-<?php if ($this->session->userdata('akses') <> 'administrator') {
-  redirect(site_url('welcome/no_akses'));
+<?php if ($this->session->userdata('level') <> 'administrator') {
+  redirect(site_url('welcome/no_level'));
 } ?>
 
 <h1>Daftar User Hotel</h1>

@@ -1,11 +1,115 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pengaturan extends CI_Controller
+include 'Welcome.php';
+
+class Pengaturan extends Welcome
 {
+	// deklarasi variabel mvc
+	// deklarasi variabel model
+	private $tabel7_m = 'ptn';
+
+	// deklarasi variabel views
+	private $tabel7_v1;
+	private $tabel7_v1_title;
+	private $tabel7_v2;
+	private $tabel7_v2_title;
+	private $tabel7_v3;
+	private $tabel7_v3_title;
+
+	// deklarasi variabel controller
+	private $tabel7_c1;
+	private $tabel7_c2;
+	private $tabel7_c3;
+	private $tabel7_c4;
+	private $tabel7_c5;
+	private $tabel7_c6;
+	private $tabel7_c7;
+	private $tabel7_c8;
+	private $tabel7_c9;
+	private $tabel7_c10;
+	private $tabel7_c11;
+	private $tabel7_c12;
+	private $tabel7_v_input1;
+	private $tabel7_v_input1_alt;
+	private $tabel7_v_input2;
+	private $tabel7_v_input3;
+	private $tabel7_v_input4;
+	private $tabel7_v_input5;
+	private $tabel7_v_input6;
+	private $tabel7_v_input7;
+	private $tabel7_v_input8;
+	private $tabel7_v_input9;
+	private $tabel7_v_input10;
+	private $tabel7_v_input11;
+	private $tabel7_v_input12;
+	private $tabel7_v_flashdata1_msg_1;
+	private $tabel7_v_flashdata1_msg_2;
+	private $tabel7_v_flashdata1_msg_3;
+	private $tabel7_v_flashdata1_msg_4;
+	private $tabel7_v_flashdata1_msg_5;
+	private $tabel7_v_flashdata1_msg_6;
+	public function
+
+	declare()
+	{
+
+
+		// deklarasi variabel mvc
+		// deklarasi variabel model
+		// public $this->tabel7_m = 'ptn';
+
+		// deklarasi variabel views
+		$this->tabel7_v1 = 'v-' . $this->tabel7;
+		$this->tabel7_v2 = 'v_admin-' . $this->tabel7;
+		$this->tabel7_v3 = '_laporan/laporan_' . $this->tabel7;
+
+		// deklarasi variabel controller
+		$this->tabel7_c1 = $this->tabel7;
+		$this->tabel7_c2 = $this->tabel7 . '/tambah';
+		$this->tabel7_c3 = $this->tabel7 . '/update';
+		$this->tabel7_c4 = $this->tabel7 . '/hapus';
+		$this->tabel7_c5 = $this->tabel7 . '/laporan';
+
+
+		// deklarasi variabel konten website
+		// deklarasi variabel title
+		$this->tabel7_v2_title = 'Data ' . $this->tabel7;
+		$this->tabel7_v3_title = 'Laporan ' . $this->tabel7;
+
+		// deklarasi variabel bagian konten
+		$this->tabel7_konten1 = 'v_admin-' . $this->tabel7;
+		$this->tabel7_konten2 = 'konfirmasi';
+
+		// tabel bagian input
+		$this->tabel7_v_input1 = $this->tabel7_field1;
+		$this->tabel7_v_input1_alt = '';
+		$this->tabel7_v_input2 = $this->tabel7_field2;
+		$this->tabel7_v_input3 = $this->tabel7_field3;
+		$this->tabel7_v_input4 = $this->tabel7_field4;
+		$this->tabel7_v_input5 = $this->tabel7_field5;
+		$this->tabel7_v_input6 = $this->tabel7_field6;
+		$this->tabel7_v_input7 = $this->tabel7_field7;
+		$this->tabel7_v_input8 = $this->tabel7_field8;
+		$this->tabel7_v_input9 = $this->tabel7_field9;
+		$this->tabel7_v_input10 = $this->tabel7_field10;
+		$this->tabel7_v_input11 = $this->tabel7_field11;
+
+		// deklarasi variabel bagian v_flashdata
+		$this->tabel7_v_flashdata1_msg_1 = $this->tabel7 . ' berhasil disimpan!';
+		$this->tabel7_v_flashdata1_msg_2 = $this->tabel7 . ' gagal disimpan!';
+		$this->tabel7_v_flashdata1_msg_3 = 'Status ' . $this->tabel7 . ' gagal diubah!';
+		$this->tabel7_v_flashdata1_msg_4 = 'Status ' . $this->tabel7 . ' gagal diubah!';
+		$this->tabel7_v_flashdata1_msg_5 = $this->tabel7 . ' gagal dihapus!';
+		$this->tabel7_v_flashdata1_msg_6 = $this->tabel7 . ' gagal dihapus!';
+	}
+
+
+
 
 	public function index($id = 1)
 	{
+		$this->declare();
 		$data = array(
 			'title' => 'Data Pengaturan',
 			'head' => '_partials/head',
@@ -18,6 +122,7 @@ class Pengaturan extends CI_Controller
 
 	public function update()
 	{
+		$this->declare();
 		$where = $this->input->post('id');
 		$data = array(
 			'nama' => $this->input->post('nama'),
@@ -44,6 +149,7 @@ class Pengaturan extends CI_Controller
 
 	public function update_favicon()
 	{
+		$this->declare();
 		$config['upload_path'] = './assets/img/';
 
 		// nama file telah ditetapkan dan hanya berekstensi png dan dapat diganti dengan file bernama sama
@@ -82,6 +188,7 @@ class Pengaturan extends CI_Controller
 
 	public function update_logo()
 	{
+		$this->declare();
 		$config['upload_path'] = './assets/img/';
 
 		// nama file telah ditetapkan dan hanya berekstensi png dan dapat diganti dengan file bernama sama
@@ -120,6 +227,7 @@ class Pengaturan extends CI_Controller
 
 	public function update_foto()
 	{
+		$this->declare();
 		$config['upload_path'] = './assets/img/';
 
 		// nama file telah ditetapkan dan hanya berekstensi jpg dan dapat diganti dengan file bernama sama

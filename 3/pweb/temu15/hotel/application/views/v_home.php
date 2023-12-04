@@ -3,7 +3,7 @@
 <?php endforeach; ?>
 
 <!-- menampilkan footer untuk umum  -->
-<?php if ($this->session->userdata('akses') == 'tamu') { ?>
+<?php if ($this->session->userdata('level') == 'tamu') { ?>
           <!-- method get supaya nilai dari form bisa tampil nanti (tidak langsung masuk ke database) -->
 <form action="<?= site_url('welcome/pemesanan') ?>" method="get">
 <div class="row justify-content-center align-items-end mt-2">
@@ -36,7 +36,7 @@
   </div>
 </form>
 
-          <!-- menampilkan footer khusus jika akses adalah resepsionis dan admin  -->
+          <!-- menampilkan footer khusus jika level adalah resepsionis dan admin  -->
         <?php } else { ?>
 
           

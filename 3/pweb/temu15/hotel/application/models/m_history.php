@@ -64,7 +64,7 @@ class M_history extends CI_Model
 		return $this->db->update($this->tabel, $data);
 	}
 
-	public function update_pesanan($data, $where)
+	public function update_history($data, $where)
 	{
 		$this->db->where('id_pesanan', $where);
 		return $this->db->update($this->tabel, $data);

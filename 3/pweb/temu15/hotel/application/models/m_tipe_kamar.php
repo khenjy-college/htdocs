@@ -1,9 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_tipe_kamar extends CI_Model {
+class M_tipe_kamar extends CI_Model
+{
 
-  private $tabel = 'tipe_kamar';
+	private $tabel = 'tipe_kamar';
 
 	public function ambildata()
 	{
@@ -12,7 +13,13 @@ class M_tipe_kamar extends CI_Model {
 
 	public function ambil($where)
 	{
-    $this->db->where('id_tipe', $where);
+		$this->db->where('id_tipe', $where);
+		return $this->db->get($this->tabel);
+	}
+
+	public function ambil_harga($where)
+	{
+		$this->db->where('tipe', $where);
 		return $this->db->get($this->tabel);
 	}
 
@@ -26,13 +33,13 @@ class M_tipe_kamar extends CI_Model {
 
 	public function update($data, $where)
 	{
-    $this->db->where('id_tipe', $where);
+		$this->db->where('id_tipe', $where);
 		return $this->db->update($this->tabel, $data);
 	}
 
 	public function hapus($where)
 	{
-    $this->db->where('id_tipe', $where);
+		$this->db->where('id_tipe', $where);
 		return $this->db->delete($this->tabel);
 	}
 }

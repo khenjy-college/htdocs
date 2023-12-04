@@ -1,23 +1,131 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+include 'Welcome.php';
 
-class Fashotel extends CI_Controller
+// mencoba menerapkan fitur oop menggunakan construct()
+// class Input_Fashotel extends MY_Controller
+// {
+// 	public function __construct()
+// 	{
+// 		parent::Controller();
+// 		// tabel bagian input
+// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
+// 		$this->tabel1_v_input1_alt = '';
+// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
+// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
+// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
+// 	}
+// }
+
+class Fashotel extends Welcome
 {
-	public function index($id = 1)
+	// deklarasi variabel mvc
+	// deklarasi variabel model
+	private $tabel3_m = 'fsh';
+
+	// deklarasi variabel views
+	private $tabel3_v1;
+	private $tabel3_v1_title;
+	private $tabel3_v2;
+	private $tabel3_v2_title;
+	private $tabel3_v3;
+	private $tabel3_v3_title;
+
+	// deklarasi variabel controller
+	private $tabel3_c1;
+	private $tabel3_c2;
+	private $tabel3_c3;
+	private $tabel3_c4;
+	private $tabel3_c5;
+	private $tabel3_c6;
+	private $tabel3_c7;
+	private $tabel3_c8;
+	private $tabel3_c9;
+	private $tabel3_c10;
+	private $tabel3_c11;
+	private $tabel3_c12;
+	private $tabel3_v_input1;
+	private $tabel3_v_input1_alt;
+	private $tabel3_v_input2;
+	private $tabel3_v_input3;
+	private $tabel3_v_input4;
+	private $tabel3_v_input5;
+	private $tabel3_v_input6;
+	private $tabel3_v_input7;
+	private $tabel3_v_input8;
+	private $tabel3_v_input9;
+	private $tabel3_v_input10;
+	private $tabel3_v_input11;
+	private $tabel3_v_input12;
+	private $tabel3_v_flashdata1_msg_1;
+	private $tabel3_v_flashdata1_msg_2;
+	private $tabel3_v_flashdata1_msg_3;
+	private $tabel3_v_flashdata1_msg_4;
+	private $tabel3_v_flashdata1_msg_5;
+	private $tabel3_v_flashdata1_msg_6;
+
+	public function
+
+	declare()
 	{
+
+		// deklarasi variabel mvc
+		// deklarasi variabel model
+		$this->tabel3_m = 'fsh';
+
+		// deklarasi variabel views
+		$this->tabel3_v1 = 'v_' . $this->tabel3;
+		$this->tabel3_v2 = 'v_admin-' . $this->tabel3;
+		$this->tabel3_v3 = '_laporan/laporan_' . $this->tabel3;
+
+		// deklarasi variabel controller
+		$this->tabel3_c1 = $this->tabel3;
+		$this->tabel3_c2 = $this->tabel3 . '/tambah';
+		$this->tabel3_c3 = $this->tabel3 . '/update';
+		$this->tabel3_c4 = $this->tabel3 . '/hapus';
+		$this->tabel3_c5 = $this->tabel3 . '/laporan';
+
+		// deklarasi variabel konten website
+		// deklarasi variabel title
+		$this->tabel3_v2_title = 'Data ' . $this->tabel3;
+		$this->tabel3_v3_title = 'Laporan ' . $this->tabel3;
+
+		// tabel bagian input
+		$this->tabel3_v_input1 = $this->tabel3_field1;
+		$this->tabel3_v_input1_alt = '';
+		$this->tabel3_v_input2 = $this->tabel3_field2;
+		$this->tabel3_v_input3 = $this->tabel3_field3;
+		$this->tabel3_v_input4 = $this->tabel3_field4;
+
+		// deklarasi variabel bagian v_flashdata
+		$this->tabel3_v_flashdata1_msg_1 = $this->tabel3 . ' berhasil disimpan!';
+		$this->tabel3_v_flashdata1_msg_2 = $this->tabel3 . ' gagal disimpan!';
+		$this->tabel3_v_flashdata1_msg_3 = 'Status ' . $this->tabel3 . ' gagal diubah!';
+		$this->tabel3_v_flashdata1_msg_4 = 'Status ' . $this->tabel3 . ' gagal diubah!';
+		$this->tabel3_v_flashdata1_msg_5 = $this->tabel3 . ' gagal dihapus!';
+		$this->tabel3_v_flashdata1_msg_6 = $this->tabel3 . ' gagal dihapus!';
+	}
+
+
+
+
+	public function index($tabel7_field1 = 1)
+	{
+		$this->declare();
 		$data = array(
-			'title' => 'Data Fashotel',
-			'head' => '_partials/head',
-			'konten' => 'v_admin-fashotel',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'fashotel' => $this->fsh->ambildata()->result()
+			'title' => $this->tabel3_v2_title,
+			'head' => $this->head,
+			'konten' => $this->tabel3_v2,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel3 => $this->fsh->ambildata()->result()
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
 
 	public function tambah()
 	{
+		$this->declare();
 		// konfigurasi upload,
 		// sedang berencara menerapkan koding ini
 		// https://stackoverflow.com/questions/18705639/how-to-rename-uploaded-file-before-saving-it-into-a-directory
@@ -48,18 +156,19 @@ class Fashotel extends CI_Controller
 
 		// menampilkan toast jika operasi berhasil
 		if ($simpan) {
-			$this->session->set_flashdata('pesan', 'Fasilitas berhasil disimpan!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_1);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
-			$this->session->set_flashdata('pesan', 'Fasilitas gagal disimpan!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_2);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('fashotel'));
+		redirect(site_url($this->tabel3_c1));
 	}
 
 	public function update()
 	{
+		$this->declare();
 		// konfigurasi upload
 		$config['upload_path'] = './assets/img/fashotel/';
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
@@ -88,19 +197,20 @@ class Fashotel extends CI_Controller
 
 		// menampilkan toast jika operasi berhasil
 		if ($update) {
-			$this->session->set_flashdata('pesan', 'Fasilitas berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_3);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
-			$this->session->set_flashdata('pesan', 'Fasilitas gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('fashotel'));
+		redirect(site_url($this->tabel3_c1));
 	}
 
 	// $id_fashotel akan menjadi $where di model
 	public function hapus($id_fashotel = null)
 	{
+		$this->declare();
 		// mengambil data gambar di database
 		$fashotel = $this->fsh->ambil($id_fashotel)->result();
 		$img = $fashotel[0]->img;
@@ -111,25 +221,26 @@ class Fashotel extends CI_Controller
 
 		// menampilkan toast jika operasi berhasil
 		if ($hapus) {
-			$this->session->set_flashdata('pesan', 'Fasilitas berhasil dihapus!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_5);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
-			$this->session->set_flashdata('pesan', 'Fasilitas gagal dihapus!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_6);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url('fashotel'));
+		redirect(site_url($this->tabel3_c1));
 	}
 
-	public function laporan($id = 1)
+	public function laporan($tabel7_field1)
 	{
+		$this->declare();
 		$data = array(
-			'title' => 'Laporan Fasilitas Hotel',
-			'head' => '_partials/head',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'fashotel' => $this->fsh->ambildata()->result()
+			'title' => $this->tabel3_v3_title,
+			'head' => $this->head,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel3 => $this->fsh->ambildata()->result()
 		);
 
-		$this->load->view('_laporan/laporan_fashotel', $data);
+		$this->load->view($this->tabel3_v3_title, $data);
 	}
 }

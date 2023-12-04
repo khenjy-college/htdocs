@@ -1,4 +1,4 @@
-<!-- menu navigasi untuk pengguna dgn akses resepsionis -->
+<!-- menu navigasi untuk pengguna dgn level resepsionis -->
 <ul class="navbar-nav ml-auto">
   <li class="nav-item">
     <div class="dropdown">

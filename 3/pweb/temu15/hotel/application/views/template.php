@@ -42,9 +42,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- menu navbar berdasarkan akses user -->
+      <!-- menu navbar berdasarkan level user -->
       <div class="collapse navbar-collapse" id="navbarku">
-        <?php $this->load->view('_partials/menu_' . $this->session->userdata('akses')); ?>
+        <?php $this->load->view('_partials/menu_' . $this->session->userdata('level')); ?>
       </div>
 
     </nav>
@@ -100,7 +100,7 @@
       <div class="container">
 
         <!-- menampilkan footer untuk umum  -->
-        <?php if ($this->session->userdata('akses') <> 'administrator' && $this->session->userdata('akses') <> 'resepsionis' && $this->session->userdata('akses') <> 'accounting') { ?>
+        <?php if ($this->session->userdata('level') <> 'administrator' && $this->session->userdata('level') <> 'resepsionis' && $this->session->userdata('level') <> 'accounting') { ?>
           <div class="row justify-content-center">
             <div class="col-lg-4 pt-3">
               <img src="img/<?= $p->logo; ?>" height="50">
@@ -111,7 +111,7 @@
               <h3>Jelajahi</h3>
               <ul class="list-unstyled">
                 <li>
-                  <a class="text-decoration-none text-dark" href="<?= site_url('welcome/kamar') ?>">Kamar</a><br>
+                  <a class="text-decoration-none text-dark" href="<?= site_url('welcome/tipe_kamar') ?>">Kamar</a><br>
                 </li>
                 <li>
                   <a class="text-decoration-none text-dark" href="<?= site_url('welcome/fasilitas') ?>">Fasilitas</a>
@@ -147,7 +147,7 @@
             </div>
           </div>
 
-          <!-- menampilkan footer khusus jika akses adalah resepsionis, admin, dan sebagainya  -->
+          <!-- menampilkan footer khusus jika level adalah resepsionis, admin, dan sebagainya  -->
         <?php } else { ?>
 
           <div class="row justify-content-center align-content-center">
@@ -176,8 +176,8 @@
         <?= $this->session->flashdata('panggil') ?>
       });
 
-      var table = $('#daterange_table').DataTable( {
-        
+      var table = $('#daterange_table').DataTable({
+
       })
     </script>
 

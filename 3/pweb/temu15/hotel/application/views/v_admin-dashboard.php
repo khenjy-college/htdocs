@@ -1,6 +1,6 @@
-<!-- mengarahkan ke no_akses jika user tidak memiliki akses -->
-<?php if (!$this->session->userdata('akses')) {
-  redirect(site_url('welcome/no_akses'));
+<!-- mengarahkan ke no_level jika user tidak memiliki level -->
+<?php if (!$this->session->userdata('level')) {
+  redirect(site_url('welcome/no_level'));
 } ?>
 
 <h1>Dashboard</h1>
@@ -8,7 +8,7 @@
 <div class="row">
 
   <!-- menampilkan data untuk administrator -->
-  <?php if ($this->session->userdata('akses') == 'administrator') { ?>
+  <?php if ($this->session->userdata('level') == 'administrator') { ?>
     <div class="col-lg-3 mt-2">
       <div class="card text-white bg-primary">
         <div class="card-body">
@@ -60,7 +60,7 @@
     </div>
 
     <!-- menampilkan data untuk resepsionis -->
-  <?php } elseif (($this->session->userdata('akses') == 'resepsionis')) { ?>
+  <?php } elseif (($this->session->userdata('level') == 'resepsionis')) { ?>
     <div class="col-lg-2 mt-2">
       <div class="card text-white bg-primary">
         <div class="card-body">
@@ -71,7 +71,7 @@
       </div>
     </div>
 
-  <?php } elseif (($this->session->userdata('akses') == 'accounting')) { ?>
+  <?php } elseif (($this->session->userdata('level') == 'accounting')) { ?>
     <div class="col-lg-2 mt-2">
       <div class="card text-white bg-success">
         <div class="card-body">

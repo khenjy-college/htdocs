@@ -1,4 +1,4 @@
-<!-- menu navigasi untuk pengguna dgn akses administrator -->
+<!-- menu navigasi untuk pengguna dgn level administrator -->
 <ul class="navbar-nav ml-auto">
   <li class="nav-item">
     <div class="dropdown">
