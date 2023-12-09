@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2023 at 05:21 PM
+-- Generation Time: Dec 09, 2023 at 08:55 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.30
 
@@ -87,10 +87,12 @@ CREATE TABLE `history` (
   `email` varchar(50) NOT NULL,
   `hp` varchar(13) NOT NULL,
   `tamu` varchar(50) NOT NULL,
-  `tipe` varchar(25) NOT NULL,
+  `id_tipe` int(11) NOT NULL,
   `jlh` int(3) NOT NULL,
+  `harga_total` int(11) NOT NULL,
   `cek_in` date NOT NULL,
   `cek_out` date NOT NULL,
+  `no_kamar` int(11) DEFAULT NULL,
   `tgl_perubahan` datetime DEFAULT NULL,
   `user_aktif` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -99,18 +101,12 @@ CREATE TABLE `history` (
 -- Dumping data for table `history`
 --
 
-INSERT INTO `history` (`id_history`, `id_pesanan`, `id_user`, `pemesan`, `email`, `hp`, `tamu`, `tipe`, `jlh`, `cek_in`, `cek_out`, `tgl_perubahan`, `user_aktif`) VALUES
-(2, 3, 0, 'Khen', 'khen@yahoo.com', '08123456777', 'Jo', 'Superior', 6, '2022-05-19', '2022-05-21', '2022-05-15 21:43:42', 'Eren'),
-(3, 4, 0, 'Bill', 'bill@gmail.com', '08123456999', 'Ken', 'Superior', 6, '2022-05-11', '2022-05-18', '2022-05-15 21:43:42', 'Eren'),
-(4, 6, 0, 'Steve', 'steve@gmail.com', '08123456888', 'Mark', 'Deluxe', 4, '2022-05-19', '2022-05-27', '2022-05-15 21:51:42', 'Eren'),
-(5, 9, 3, 'Bill', 'bill@hotmail.com', ' 08123456000', 'Rem', 'Superior', 2, '2022-05-12', '2022-05-19', '2022-05-16 16:10:14', 'Eren'),
-(6, 7, 0, 'Ngga', 'Ngga@gmail.com', '08123456111', 'Mark', 'Superior', 4, '2022-05-11', '2022-05-20', '2022-05-16 16:10:24', 'Eren'),
-(7, 8, 3, 'Bill', 'bill@gmail.com', ' 08123456555', 'Ju', 'Deluxe', 4, '2022-05-11', '2022-05-19', '2022-05-16 22:17:21', 'Eren'),
-(8, 5, 0, 'Eren', 'eren@gmail.com', '08123456222', 'Khen', 'Superior', 7, '2022-05-12', '2022-05-18', '2022-05-16 22:19:26', 'Eren'),
-(9, 11, 0, 'Steve', 'steve@gmail.com', '081234567123', 'Lex', 'Deluxe', 3, '2022-05-12', '2022-05-28', '2022-05-16 22:27:11', 'Eren'),
-(10, 13, 3, 'Bill', 'bill@gmail.com', ' 081234567890', 'Juan', 'Superior', 2, '2022-05-17', '2022-05-20', '2023-11-19 16:44:10', 'Eren'),
-(11, 15, 0, 'John', 'john@gmail.com', '0812345', 'Khen', 'Superior', 2, '2023-11-19', '2023-11-21', '2023-11-23 17:15:19', 'Eren'),
-(12, 14, 0, 'Bill', 'aboy@mail.com', '08123456789', 'Aboy', 'Superior', 3, '2022-06-21', '2022-06-22', '2023-11-25 00:03:16', 'Eren');
+INSERT INTO `history` (`id_history`, `id_pesanan`, `id_user`, `pemesan`, `email`, `hp`, `tamu`, `id_tipe`, `jlh`, `harga_total`, `cek_in`, `cek_out`, `no_kamar`, `tgl_perubahan`, `user_aktif`) VALUES
+(30, 9, 3, 'Bill', 'bill@gmail.com', '81234567890', 'Mark', 0, 3, 200000, '2022-05-01', '2022-05-11', NULL, '2023-12-09 14:28:32', NULL),
+(31, 30, 3, 'Bill', 'bill@gmail.com', '081234567890', 'Khen', 0, 1, 400000, '2023-12-18', '2023-12-18', NULL, '2023-12-09 14:28:32', NULL),
+(32, 31, 3, 'Bill', 'bill@gmail.com', '081234567890', 'Khenjy', 0, 1, 1050000, '2023-12-04', '2023-12-04', NULL, '2023-12-09 14:28:33', NULL),
+(33, 32, 3, 'Bill', 'bill@gmail.com', '081234567890', 'Khen', 0, 1, 320000, '2023-12-03', '2023-12-03', NULL, '2023-12-09 14:28:33', NULL),
+(34, 33, 3, 'Bill', 'bill@gmail.com', '081234567890', 'Khenjy', 1, 1, 20000, '2023-12-04', '2023-12-05', 1, '2023-12-09 15:20:50', 'Eren');
 
 -- --------------------------------------------------------
 
@@ -121,7 +117,7 @@ INSERT INTO `history` (`id_history`, `id_pesanan`, `id_user`, `pemesan`, `email`
 CREATE TABLE `kamar` (
   `no_kamar` int(3) NOT NULL,
   `id_tipe` int(11) NOT NULL,
-  `id_pesanan` int(11) NOT NULL,
+  `id_pesanan` int(11) DEFAULT NULL,
   `status` enum('Available','Unavailable','Dirty','Damaged') NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -131,7 +127,28 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`no_kamar`, `id_tipe`, `id_pesanan`, `status`, `keterangan`) VALUES
-(1, 1, 0, 'Available', '');
+(1, 1, NULL, 'Available', 'Baru'),
+(2, 1, NULL, 'Available', ''),
+(3, 2, NULL, 'Available', ''),
+(4, 2, NULL, 'Available', ''),
+(5, 1, NULL, 'Available', ''),
+(6, 3, NULL, 'Available', '');
+
+--
+-- Triggers `kamar`
+--
+DELIMITER $$
+CREATE TRIGGER `kurang_stok` AFTER DELETE ON `kamar` FOR EACH ROW BEGIN
+UPDATE tipe_kamar SET stok = stok - 1 WHERE id_tipe = OLD.id_tipe;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tambah_stok` AFTER INSERT ON `kamar` FOR EACH ROW BEGIN
+UPDATE tipe_kamar SET stok = stok + 1 WHERE id_tipe = NEW.id_tipe;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -153,7 +170,14 @@ CREATE TABLE `operations` (
 --
 
 INSERT INTO `operations` (`id_operations`, `no_kamar`, `id_user`, `id_petugas`, `keterangan`, `tgl_perubahan`) VALUES
-(1, 1, 2, 1, NULL, '2023-12-02 05:12:42');
+(1, 1, 2, 1, NULL, '2023-12-02 05:12:42'),
+(2, 1, 2, 1, NULL, '2023-12-09 08:12:17'),
+(3, 1, 2, 1, NULL, '2023-12-09 08:12:02'),
+(4, 1, 2, 1, NULL, '2023-12-09 08:12:08'),
+(5, 1, 2, 2, NULL, '2023-12-09 08:12:47'),
+(6, 3, 2, 1, 'Semua sudah bersih', '2023-12-09 08:12:57'),
+(7, 5, 2, 1, 'sudah diperbaiki', '2023-12-09 08:12:06'),
+(8, 4, 2, 2, 'Semua sudah diperbaiki', '2023-12-09 08:12:14');
 
 --
 -- Triggers `operations`
@@ -205,37 +229,57 @@ CREATE TABLE `pesanan` (
   `email` varchar(50) NOT NULL,
   `hp` varchar(13) NOT NULL,
   `tamu` varchar(50) NOT NULL,
-  `tipe` varchar(25) NOT NULL,
+  `id_tipe` int(11) NOT NULL,
   `jlh` int(3) NOT NULL,
   `harga_total` int(11) NOT NULL,
   `cek_in` date NOT NULL,
   `cek_out` date NOT NULL,
-  `status` enum('belum bayar','menunggu','cek in','cek out') NOT NULL
+  `status` enum('pending','belum bayar','menunggu','cek in','cek out') NOT NULL,
+  `no_kamar` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `pesanan`
---
-
-INSERT INTO `pesanan` (`id_pesanan`, `id_user`, `pemesan`, `email`, `hp`, `tamu`, `tipe`, `jlh`, `harga_total`, `cek_in`, `cek_out`, `status`) VALUES
-(9, 3, 'Bill', 'bill@gmail.com', ' 081234567890', 'Mark', 'Superior', 3, 200000, '2022-05-01', '2022-05-11', 'menunggu'),
-(10, 0, 'Dit', 'dit@gmail.com', '0123456789', 'Ril', 'Superior', 3, 0, '2022-05-13', '2022-05-20', 'belum bayar'),
-(12, 3, 'Bill', 'bill@gmail.com', ' 081234567890', 'KhunKhen', 'Superior', 2, 0, '2022-05-20', '2022-05-21', 'menunggu'),
-(16, 3, 'Bill', 'bill@gmail.com', ' 081234567890', 'Khenjy', 'Deluxe', 4, 0, '2023-11-20', '2023-11-24', 'cek in'),
-(17, 5, 'Alexia', 'alexia@gmail.com', '081234567890', 'Khen', 'Deluxe', 3, 100000, '2023-11-21', '2023-12-01', 'menunggu');
 
 --
 -- Triggers `pesanan`
 --
 DELIMITER $$
-CREATE TRIGGER `kurang_kamar` AFTER INSERT ON `pesanan` FOR EACH ROW BEGIN UPDATE tipe_kamar SET stok = stok - NEW.jlh WHERE tipe = NEW.tipe; END
+CREATE TRIGGER `kurang_kamar` AFTER INSERT ON `pesanan` FOR EACH ROW BEGIN UPDATE tipe_kamar SET stok = stok - NEW.jlh WHERE id_tipe = NEW.id_tipe; END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `tambah_kamar` AFTER DELETE ON `pesanan` FOR EACH ROW BEGIN 
-UPDATE tipe_kamar SET stok = stok + OLD.jlh WHERE tipe = OLD.tipe;
+UPDATE tipe_kamar SET stok = stok + OLD.jlh WHERE id_tipe = OLD.id_tipe;
 
-INSERT INTO history (id_pesanan, id_user, pemesan, email, hp, tamu, tipe, jlh, cek_in, cek_out, tgl_perubahan) VALUES (OLD.id_pesanan, OLD.id_user, OLD.pemesan, OLD.email, OLD.hp, OLD.tamu, OLD.tipe, OLD.jlh, OLD.cek_in, OLD.cek_out, SYSDATE()); END
+UPDATE kamar SET status = 'Available', id_pesanan = NULL WHERE no_kamar = OLD.no_kamar;
+
+INSERT INTO history ( 
+    id_pesanan, 
+    id_user, 
+    pemesan, 
+    email, 
+    hp, 
+    tamu, 
+    id_tipe, 
+    jlh, 
+    harga_total,
+    cek_in, 
+    cek_out, 
+    no_kamar,
+    tgl_perubahan) 
+    VALUES (
+        OLD.id_pesanan, 
+        OLD.id_user, 
+        OLD.pemesan, 
+        OLD.email, 
+        OLD.hp, 
+        OLD.tamu, 
+        OLD.id_tipe, 
+        OLD.jlh, 
+        OLD.harga_total, 
+        OLD.cek_in, 
+        OLD.cek_out, 
+        OLD.no_kamar, 
+        SYSDATE());
+END
 $$
 DELIMITER ;
 
@@ -260,8 +304,8 @@ CREATE TABLE `petugas` (
 --
 
 INSERT INTO `petugas` (`id_petugas`, `nama`, `email`, `hp`, `img`, `role`, `poin`) VALUES
-(1, 'Gusion', 'gusion@gmail.com', '081234567890', 'ff6.png', 'cleaning', 0),
-(2, 'Clint', 'clint@gmail.com', '081234567890', 'ff6.png', 'maintenance', 0);
+(1, 'Gusion', 'gusion@gmail.com', '081234567890', 'ff6.png', 'cleaning', 5),
+(2, 'Clint', 'clint@gmail.com', '081234567890', 'ff6.png', 'maintenance', 2);
 
 -- --------------------------------------------------------
 
@@ -282,9 +326,9 @@ CREATE TABLE `tipe_kamar` (
 --
 
 INSERT INTO `tipe_kamar` (`id_tipe`, `tipe`, `img`, `stok`, `harga`) VALUES
-(1, 'Superior', 'superior.jpg', 44, 20000),
-(2, 'Deluxe', 'deluxe.jpg', 37, 40000),
-(3, 'Fantasy', '2021428161854.jpg', 19, 50000);
+(1, 'Superior', 'superior.jpg', 3, 20000),
+(2, 'Deluxe', 'deluxe.jpg', 2, 40000),
+(3, 'Fantasy', '2021428161854.jpg', 1, 50000);
 
 -- --------------------------------------------------------
 
@@ -307,8 +351,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `email`, `id_pesanan`, `metode`, `bayar`, `tgl_transaksi`) VALUES
-(2, 5, 'alexia@gmail.com', 17, 'debit', 100000, '2023-12-07 00:15:58'),
-(3, 3, 'bill@gmail.com', 9, 'debit', 200000, '2023-12-02 05:12:03');
+(7, 3, 'bill@gmail.com', 33, 'debit', 20000, '2023-12-09 08:12:58');
 
 -- --------------------------------------------------------
 
@@ -330,9 +373,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `hp`, `level`) VALUES
-(1, 'Khen', 'khen@gmail.com', '$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', ' 081234567890', 'administrator'),
-(2, 'Eren', 'eren@gmail.com', '$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', ' 081234567890', 'resepsionis'),
-(3, 'Bill', 'bill@gmail.com', '$2y$10$wXzeuLpHKMQ21yyLRK6XbuSedhj0CoNv2hPW01odxSnXBAt1ezUa.', ' 081234567890', 'tamu'),
+(1, 'Khen', 'khen@gmail.com', '$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', '081234567890', 'administrator'),
+(2, 'Eren', 'eren@gmail.com', '$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', '081234567890', 'resepsionis'),
+(3, 'Bill', 'bill@gmail.com', '$2y$10$wXzeuLpHKMQ21yyLRK6XbuSedhj0CoNv2hPW01odxSnXBAt1ezUa.', '081234567890', 'tamu'),
 (4, 'Alex', 'alex@gmail.com', '$2y$10$Opzmu//emEAt23TFZMNv4.50sOfZKrlm5A9tTajJICdfDHYx0spiu', '08123456789', 'accounting'),
 (5, 'Alexia', 'alexia@gmail.com', '$2y$10$em34jM46K4dvWlDl.oyu.eAuE6KYh7phUVcvKP8XDDfHkeRafrGWG', '081234567890', 'tamu');
 
@@ -427,19 +470,19 @@ ALTER TABLE `faskamar`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `no_kamar` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `no_kamar` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `operations`
 --
 ALTER TABLE `operations`
-  MODIFY `id_operations` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_operations` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pengaturan`
@@ -451,7 +494,7 @@ ALTER TABLE `pengaturan`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `petugas`
@@ -469,23 +512,13 @@ ALTER TABLE `tipe_kamar`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD CONSTRAINT `id_pesanan_fk` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
