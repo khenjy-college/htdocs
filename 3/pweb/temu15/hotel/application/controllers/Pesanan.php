@@ -32,6 +32,7 @@ class Pesanan extends Welcome
 	private $tabel8_c13;
 	private $tabel8_c14;
 	private $tabel8_c15;
+	// deklarasi variabel views
 	private $tabel8_v_input1_post;
 	private $tabel8_v_input1_alt;
 	private $tabel8_v_input1_get;
@@ -44,17 +45,22 @@ class Pesanan extends Welcome
 	private $tabel8_v_input7_post;
 	private $tabel8_v_input8_post;
 	private $tabel8_v_input9_post;
+	private $tabel8_v_input10;
 	private $tabel8_v_input10_post;
+	private $tabel8_v_input10_get;
 	private $tabel8_v_input10_filter1;
 	private $tabel8_v_input10_filter1_get;
 	private $tabel8_v_input10_filter2;
 	private $tabel8_v_input10_filter2_get;
+	private $tabel8_v_input11;
 	private $tabel8_v_input11_post;
+	private $tabel8_v_input11_get;
 	private $tabel8_v_input11_filter1;
 	private $tabel8_v_input11_filter1_get;
 	private $tabel8_v_input11_filter2;
 	private $tabel8_v_input11_filter2_get;
 	private $tabel8_v_input12_post;
+	private $tabel8_v_input13_post;
 	private $tabel8_v_flashdata1_msg_1;
 	private $tabel8_v_flashdata1_msg_2;
 	private $tabel8_v_flashdata1_msg_3;
@@ -95,7 +101,7 @@ class Pesanan extends Welcome
 		$this->tabel8_m = 'psn';
 
 		// deklarasi variabel views
-		$this->tabel8_v1 = 'v-' . $this->tabel8;
+		$this->tabel8_v1 = 'v_' . $this->tabel8;
 		$this->tabel8_v1_title = 'Daftar ' . $this->tabel8;
 		$this->tabel8_v2 = 'v_admin-' . $this->tabel8;
 		$this->tabel8_v2_title = 'Data ' . $this->tabel8;
@@ -113,15 +119,13 @@ class Pesanan extends Welcome
 		$this->tabel8_c8 = $this->tabel8 . '/update_status';
 		$this->tabel8_c9 = $this->tabel8 . '/konfirmasi';
 		$this->tabel8_c10 = $this->tabel8 . '/print';
-		$this->tabel8_c11 = $this->tabel8 . '/filter_cek_in';
-		$this->tabel8_c12 = $this->tabel8 . '/filter_cek_out';
-		$this->tabel8_c13 = $this->tabel8 . '/filter_cek_in_tamu';
-		$this->tabel8_c14 = $this->tabel8 . '/filter_cek_out_tamu';
-		$this->tabel8_c15 = $this->tabel8 . '/book';
+		$this->tabel8_c11 = $this->tabel8 . '/filter';
+		$this->tabel8_c12 = $this->tabel8 . '/filter_tamu';
+		$this->tabel8_c13 = $this->tabel8 . '/book';
 
 
 		// tabel bagian input
-		$this->tabel8_v_input1_post = $this->input->post($this->tabel8_field1);
+		$this->tabel8_v_input1_post = intval($this->input->post($this->tabel8_field1));
 		$this->tabel8_v_input1_get = $this->input->get($this->tabel8_field1);
 		$this->tabel8_v_input1_alt = '';
 		$this->tabel8_v_input2_post = $this->input->post($this->tabel8_field2);
@@ -133,25 +137,30 @@ class Pesanan extends Welcome
 		$this->tabel8_v_input7_post = $this->input->post($this->tabel8_field7);
 		$this->tabel8_v_input8_post = $this->input->post($this->tabel8_field8);
 		$this->tabel8_v_input9_post = $this->input->post($this->tabel8_field9);
-		$this->tabel8_v_input10_post = $this->input->post($this->tabel8_field10);
-		$this->tabel8_v_input10_filter1 = $this->tabel8_field10 . '_min';
-		$this->tabel8_v_input10_filter1_get = $this->input->get($this->tabel8_field10 . '_min');
-		$this->tabel8_v_input10_filter2 = $this->tabel8_field10 . '_max';
-		$this->tabel8_v_input10_filter2_get = $this->input->get($this->tabel8_field10 . '_max');
-		$this->tabel8_v_input11_post = $this->input->post($this->tabel8_field11);
-		$this->tabel8_v_input11_filter1 = $this->tabel8_field11 . '_min';
-		$this->tabel8_v_input11_filter1_get = $this->input->get($this->tabel8_field11 . '_min');
-		$this->tabel8_v_input11_filter2 = $this->tabel8_field11 . '_max';
-		$this->tabel8_v_input11_filter2_get = $this->input->get($this->tabel8_field11 . '_max');
+		$this->tabel8_v_input10 = $this->tabel8_field10;
+		$this->tabel8_v_input10_get = $this->input->get($this->tabel8_v_input10);
+		$this->tabel8_v_input10_post = $this->input->post($this->tabel8_v_input10);
+		$this->tabel8_v_input10_filter1 = $this->tabel8_v_input10 . '_min';
+		$this->tabel8_v_input10_filter1_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input10_filter2 = $this->tabel8_v_input10 . '_max';
+		$this->tabel8_v_input10_filter2_get = $this->input->get($this->tabel8_v_input10_filter2);
+		$this->tabel8_v_input11 = $this->tabel8_field11;
+		$this->tabel8_v_input11_get = $this->input->get($this->tabel8_v_input11);
+		$this->tabel8_v_input11_post = $this->input->post($this->tabel8_v_input11);
+		$this->tabel8_v_input11_filter1 = $this->tabel8_v_input11 . '_min';
+		$this->tabel8_v_input11_filter1_get = $this->input->get($this->tabel8_v_input11_filter1);
+		$this->tabel8_v_input11_filter2 = $this->tabel8_v_input11 . '_max';
+		$this->tabel8_v_input11_filter2_get = $this->input->get($this->tabel8_v_input11_filter2);
 		$this->tabel8_v_input12_post = $this->input->post($this->tabel8_field12);
+		$this->tabel8_v_input13_post = $this->input->post($this->tabel8_field13);
 
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel8_v_flashdata1_msg_1 = $this->tabel8 . ' berhasil disimpan!';
 		$this->tabel8_v_flashdata1_msg_2 = $this->tabel8 . ' gagal disimpan!';
-		$this->tabel8_v_flashdata1_msg_3 = 'Status ' . $this->tabel8 . ' gagal diubah!';
+		$this->tabel8_v_flashdata1_msg_3 = 'Status ' . $this->tabel8 . ' berhasil diubah!';
 		$this->tabel8_v_flashdata1_msg_4 = 'Status ' . $this->tabel8 . ' gagal diubah!';
-		$this->tabel8_v_flashdata1_msg_5 = $this->tabel8 . ' gagal dihapus!';
+		$this->tabel8_v_flashdata1_msg_5 = $this->tabel8 . ' berhasil dihapus!';
 		$this->tabel8_v_flashdata1_msg_6 = $this->tabel8 . ' gagal dihapus!';
 
 
@@ -166,7 +175,7 @@ class Pesanan extends Welcome
 		$this->tabel9_userdata2 = $this->tabel9_field2;
 		$this->tabel9_tempdata2 = $this->tabel9_field2;
 		$this->tabel9_userdata3 = $this->tabel9_field3;
-		$this->tabel9_tempdata3 = $this->tabel9_field3;
+		$this->tabel9_tempdata3 = $this->tabel9_field3 . '_' . $this->tabel8;
 		$this->tabel9_userdata4 = $this->tabel9_field4;
 		$this->tabel9_tempdata4 = $this->tabel9_field4;
 		$this->tabel9_userdata5 = $this->tabel9_field5;
@@ -191,14 +200,16 @@ class Pesanan extends Welcome
 			'title' => $this->tabel8_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel8_v2,
-			$this->v7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel5 => $this->kmr->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4,
+			'cek_in_min' => $param1,
+			'cek_in_max' => $param2,
+			'cek_out_min' => $param3,
+			'cek_out_max' => $param4
 		);
 
 		$this->load->view($this->v7, $data);
@@ -210,13 +221,34 @@ class Pesanan extends Welcome
 		$param4 = $this->tabel8_v_input4_post;
 		$param8 = $this->tabel8_v_input8_post;
 
-		$where = $this->tabel8_v_input8_post;
+		$param10 = $this->tabel8_v_input10_post;
+		$param11 = $this->tabel8_v_input11_post;
+
+		// di bawah ini adalah fungsi untuk memesan kamar hotel
+		$startTimeStamp = strtotime($param10);
+		$endTimeStamp = strtotime($param11);
+
+		$timedif = $endTimeStamp - $startTimeStamp;
+		$numberdays = $timedif / 60 / 60 / 24; // 86400 seconds in one day
+
+		$where = $this->tabel8_v_input7_post;
 		$tipe_kamar = $this->tpk->ambil_harga($where)->result();
 
 		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
-		foreach ($tipe_kamar as $tp) :
-			$harga_total = ($param8 * $tp->harga);
-		endforeach;
+		$harga_total = ($numberdays * $tipe_kamar[0]->harga);
+		//mengecek apakah ada pesanan yang telah dilakukan -->
+		//Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pesanan yang telah dilakukan. -->
+		//Dengan fitur ini, tamu dapat memesan lebih dari satu kamar  -->
+		//dan mendapatkan pesanan yang terpisah masing-masing -->
+		//Sebenarnya lebih baik jika menggunakan tabel pesanan dan tabel detail pesanan -->
+		//Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
+		//Fitur ini akan diselesaikan ketika sudah ada pemahaman mengenai cara kerja array -->
+
+		// if (isset($this->tabel8_v_input1_post) and is_array($this->tabel8_v_input1_post)) {
+		// 	foreach($this->tabel8_v_input1_post as $tp) {
+
+		// 	}
+		// }
 
 		$data = array(
 			$this->tabel8_field1 => $this->tabel8_v_input1_alt,
@@ -229,7 +261,7 @@ class Pesanan extends Welcome
 			$this->tabel8_field8 => $param8,
 			$this->tabel8_field9 => $harga_total,
 			$this->tabel8_field10 => $this->tabel8_v_input10_post,
-			$this->tabel8_field11 => $this->tabel8_v_input10_post,
+			$this->tabel8_field11 => $this->tabel8_v_input11_post,
 
 			// status akan kuubah menjadi pending karena resepsionis wajib memilihkan kamar untuk user
 			$this->tabel8_field12 => $this->tabel8_field12_value1,
@@ -251,7 +283,7 @@ class Pesanan extends Welcome
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url($this->tabel8_c1));
+		redirect(site_url($this->tabel8_c9));
 	}
 
 	public function update()
@@ -263,19 +295,30 @@ class Pesanan extends Welcome
 	public function hapus($id_pesanan = null)
 	{
 		$this->declare();
+		$where = $this->tabel8_v_input1_post;
+		$status = $this->tabel8_v_input12_post;
+
 		$hapus = $this->psn->hapus($id_pesanan);
 
-		if ($hapus) {
+		// memasukkan nama resepsionis yang melakukan operasi
+		$data = array(
+			$this->tabel2_field14 => $this->session->userdata($this->tabel9_userdata2)
+		);
 
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_5);
+		// mengupdate history dengan nama user yang aktif
+		$update_history = $this->htr->update_history($data, $where);
+
+		if ($hapus && $update_history) {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_3);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_6);
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_4);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 		}
 
-		redirect(site_url($this->site_url1));
+		redirect(site_url($this->tabel8_c1));
 	}
 
 
@@ -285,8 +328,9 @@ class Pesanan extends Welcome
 		$data = array(
 			'title' => $this->tabel8_v3_title,
 			'head' => $this->head,
-			$this->v7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result()
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view($this->tabel8_v3, $data);
@@ -302,7 +346,9 @@ class Pesanan extends Welcome
 			'head' => $this->head,
 			'konten' => 'v_reservasi',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->ambil_id_user($where)->result()
+			$this->tabel8 => $this->psn->ambil_id_user($where)->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
+
 		);
 
 		$this->load->view($this->v7, $data);
@@ -340,52 +386,53 @@ class Pesanan extends Welcome
 	}
 
 
+	// bagian update status untuk sementara kubiarkan tidak menggunakan variabel untuk sementara waktu
+	// hal ini ditujukan untuk keperluan penelitian penggunaan array
 	public function update_status()
 	{
-		$this->declare();
-		$where = $this->tabel8_v_input1_post;
+		$where = $this->input->post('id_pesanan');
 		$data = array(
-			$this->tabel8_field12 => $this->tabel8_v_input12_post
+			'status' => $this->input->post('status')
 		);
 
 		// jika status pesanan cek in
-		if ($this->tabel8_v_input12_post == $this->tabel8_field12_value4) {
+		if ($this->input->post('status') == 'cek in') {
 
 			// hanya merubah status pesanan
 			$update = $this->psn->update($data, $where);
 
 			// jika status pesanan cek out
-		} elseif ($this->tabel8_v_input12_post == $this->tabel8_field12_value5) {
+		} elseif ($this->input->post('status') == 'cek out') {
 
 			// menghapus data pesanan supaya trigger tambah_kamar dapat berjalan
 			$hapus = $this->psn->hapus($where);
 
 			// memasukkan nama resepsionis yang melakukan operasi
 			$data = array(
-				$this->tabel2_field13 => $this->session->userdata($this->tabel9_userdata1)
+				'user_aktif' => $this->session->userdata('nama')
 			);
 
-			// mengupdate history dengan nama user yang aktif
+			// mengupdate pesanan dengan nama user yang aktif
 			$update = $this->htr->update_history($data, $where);
 		}
 
 		if ($update) {
 
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata('pesan', 'Status pesanan berhasil diubah!');
+			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata('pesan', 'Status pesanan gagal diubah!');
+			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
-		redirect(site_url($this->tabel8_v1));
+		redirect(site_url('pesanan'));
 	}
 
 	public function konfirmasi($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$where = $this->session->tempdata($this->tabel9_tempdata1);
+		$where = $this->session->tempdata($this->tabel9_tempdata3);
 		$data = array(
 			'title' => $this->v1_title1,
 			'head' => $this->head,
@@ -406,13 +453,14 @@ class Pesanan extends Welcome
 			'title' => $this->v4_title1,
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->ambil($id_pesanan)->result()
+			$this->tabel8 => $this->psn->ambil($id_pesanan)->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view($this->v4, $data);
 	}
 
-	public function filter_cek_in($tabel7_field1 = 1)
+	public function filter($tabel7_field1 = 1)
 	{
 		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
@@ -426,44 +474,20 @@ class Pesanan extends Welcome
 			'head' => $this->head,
 			'konten' => $this->tabel8_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->filter_cek_in($param1, $param2)->result(),
+			$this->tabel8 => $this->psn->filter($param1, $param2, $param3, $param4)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4,
-		);
-
-		$this->load->view($this->v7, $data);
-	}
-	public function filter_cek_out($tabel7_field1 = 1)
-	{
-		$this->declare();
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel8_v_input10_filter1_get;
-		$param2 = $this->tabel8_v_input10_filter2_get;
-		$param3 = $this->tabel8_v_input11_filter1_get;
-		$param4 = $this->tabel8_v_input11_filter2_get;
-
-		$data = array(
-			'title' => $this->tabel8_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel8_v2,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->filter_cek_out($param3, $param4)->result(),
-
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4,
+			'cek_in_min' => $param1,
+			'cek_in_max' => $param2,
+			'cek_out_min' => $param3,
+			'cek_out_max' => $param4
 		);
 
 		$this->load->view($this->v7, $data);
 	}
 
-	public function filter_cek_in_tamu($tabel7_field1 = 1)
+
+	public function filter_tamu($tabel7_field1 = 1)
 	{
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
@@ -478,39 +502,13 @@ class Pesanan extends Welcome
 			'head' => $this->head,
 			'konten' => 'v_history',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->filter_cek_in_tamu($param1, $param2, $where)->result(),
+			$this->tabel8 => $this->psn->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4,
-		);
-
-		$this->load->view($this->v7, $data);
-	}
-	public function filter_cek_out_tamu($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->session->userdata($this->tabel9_userdata1);
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel8_v_input10_filter1_get;
-		$param2 = $this->tabel8_v_input10_filter2_get;
-		$param3 = $this->tabel8_v_input11_filter1_get;
-		$param4 = $this->tabel8_v_input11_filter2_get;
-
-		$data = array(
-			'title' => $this->v11_title,
-			'head' => $this->head,
-			'konten' => 'v_history',
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->filter_cek_out_tamu($param3, $param4, $where)->result(),
-
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4,
+			'cek_in_min' => $param1,
+			'cek_in_max' => $param2,
+			'cek_out_min' => $param3,
+			'cek_out_max' => $param4
 		);
 
 		$this->load->view($this->v7, $data);
@@ -523,8 +521,35 @@ class Pesanan extends Welcome
 	public function book($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$where = $this->tabel8_v_input8_post;
-		// $kamar = $this->psn->ambildata
-		// for($i = 0; $i <)
+		// hanya merubah status pesanan berdasarkan id pesanan
+		$where = $this->tabel8_v_input1_post;
+		$data = array(
+			$this->tabel8_field12 => 'belum bayar',
+			$this->tabel8_field13 => $this->tabel8_v_input13_post
+
+		);
+
+		$update = $this->psn->update($data, $where);
+
+		// hanya merubah id pesanan di tabel kamar berdasarkan no kamar
+		$param = $this->tabel8_v_input13_post;
+		$no_kamar = array(
+			'id_pesanan' => $this->tabel8_v_input1_post,
+			'status' => 'Unavailable',
+		);
+		$update_kamar = $this->kmr->update($no_kamar, $param);
+
+
+		if ($update_kamar) {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_3);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		} else {
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		}
+
+		redirect(site_url($this->tabel8_c1));
 	}
 }

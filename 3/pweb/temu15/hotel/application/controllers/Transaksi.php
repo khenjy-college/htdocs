@@ -77,7 +77,7 @@ class Transaksi extends Welcome
 		$this->tabel10_m = 'trs';
 
 		// deklara		$this->tabeli variabel views
-		$this->tabel10_v1 = 'v-' . $this->tabel10;
+		$this->tabel10_v1 = 'v_' . $this->tabel10;
 		$this->tabel10_v1_title = 'Daftar ' . $this->tabel10;
 		$this->tabel10_v2 = 'v_admin-' . $this->tabel10;
 		$this->tabel10_v2_title = 'Data ' . $this->tabel10;
@@ -101,17 +101,17 @@ class Transaksi extends Welcome
 		$this->tabel10_v_input5_post = $this->input->post($this->tabel10_field5);
 		$this->tabel10_v_input6_post = $this->input->post($this->tabel10_field6);
 		$this->tabel10_v_input7_post = $this->input->post($this->tabel10_field7);
-		$this->tabel10_v_input7_filter1 = $this->input->post($this->tabel10_field7 . '_min');
-		$this->tabel10_v_input7_filter1_get = $this->tabel10_field7 . '_min';
-		$this->tabel10_v_input7_filter2 = $this->input->post($this->tabel10_field7 . '_max');
-		$this->tabel10_v_input7_filter2_get = $this->tabel10_field7 . '_max';
+		$this->tabel10_v_input7_filter1 = $this->tabel10_field7 . '_min';
+		$this->tabel10_v_input7_filter1_get = $this->input->get($this->tabel10_v_input7_filter1);
+		$this->tabel10_v_input7_filter2 = $this->tabel10_field7 . '_max';
+		$this->tabel10_v_input7_filter2_get = $this->input->get($this->tabel10_v_input7_filter2);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel10_v_flashdata1_msg_1 = $this->tabel10 . ' berhasil disimpan!';
 		$this->tabel10_v_flashdata1_msg_2 = $this->tabel10 . ' gagal disimpan!';
-		$this->tabel10_v_flashdata1_msg_3 = 'Status ' . $this->tabel10 . ' gagal diubah!';
+		$this->tabel10_v_flashdata1_msg_3 = 'Status ' . $this->tabel10 . ' berhasil diubah!';
 		$this->tabel10_v_flashdata1_msg_4 = 'Status ' . $this->tabel10 . ' gagal diubah!';
-		$this->tabel10_v_flashdata1_msg_5 = $this->tabel10 . ' gagal dihapus!';
+		$this->tabel10_v_flashdata1_msg_5 = $this->tabel10 . ' berhasil dihapus!';
 		$this->tabel10_v_flashdata1_msg_6 = $this->tabel10 . ' gagal dihapus!';
 
 
@@ -148,51 +148,14 @@ class Transaksi extends Welcome
 			$this->tabel8 => $this->psn->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel10_v_input7_filter1 => $param1,
-			$this->tabel10_v_input7_filter2 => $param2,
+			'tgl_transaksi_min' => $param1,
+			'tgl_transaksi_max' => $param2,
 		);
 
 		$this->load->view($this->v7, $data);
 	}
 
-	public function daftar($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->session->userdata($this->tabel9_userdata1);
-		$data = array(
-			'title' => $this->tabel10_v1_title,
-			'head' => $this->head,
-			'konten' => $this->tabel10_v1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->ambil_id_user($where)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result()
-		);
-
-		$this->load->view($this->v7, $data);
-	}
-
-	public function filter($tabel7_field1 = 1)
-	{
-		$this->declare();
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel10_v_input7_filter1_get;
-		$param2 = $this->tabel10_v_input7_filter2_get;
-
-		$data = array(
-			'title' => $this->tabel10_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel10_v2,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->filter($param1, $param2)->result(),
-
-			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel10_v_input7_filter1 => $param1,
-			$this->tabel10_v_input7_filter2 => $param2,
-		);
-
-		$this->load->view($this->v7, $data);
-	}
-
+	
 	public function tambah()
 	{
 		$this->declare();
@@ -259,22 +222,7 @@ class Transaksi extends Welcome
 		redirect(site_url('transaksi/konfirmasi'));
 	}
 
-	public function konfirmasi($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->session->tempdata('email_transaksi');
-		$data = array(
-			'title' => 'Transaksi Berhasil',
-			'head' => $this->head,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-
-			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
-			$this->tabel10 => $this->trs->ambil_email($where)->last_row(),
-		);
-
-		$this->load->view('konfirmasi', $data);
-	}
-
+	
 	public function update()
 	{
 		$this->declare();
@@ -319,6 +267,77 @@ class Transaksi extends Welcome
 		redirect(site_url($this->tabel10));
 	}
 
+	public function laporan($tabel7_field1 = 1)
+	{
+		$this->declare();
+		$data = array(
+			'title' => $this->tabel10_v3_title,
+			'head' => $this->head,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->trs->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result()
+		);
+
+		$this->load->view($this->tabel10_v3, $data);
+	}
+
+	public function daftar($tabel7_field1 = 1)
+	{
+		$this->declare();
+		$where = $this->session->userdata($this->tabel9_userdata1);
+		$data = array(
+			'title' => $this->tabel10_v1_title,
+			'head' => $this->head,
+			'konten' => $this->tabel10_v1,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->trs->ambil_id_user($where)->result(),
+			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result()
+		);
+
+		$this->load->view($this->v7, $data);
+	}
+
+	public function filter($tabel7_field1 = 1)
+	{
+		$this->declare();
+		// nilai min dan max sudah diinput sebelumnya
+		$param1 = $this->tabel10_v_input7_filter1_get;
+		$param2 = $this->tabel10_v_input7_filter2_get;
+
+		$data = array(
+			'title' => $this->tabel10_v2_title,
+			'head' => $this->head,
+			'konten' => $this->tabel10_v2,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->trs->filter($param1, $param2)->result(),
+
+			// menggunakan nilai $min dan $max sebagai bagian dari $data
+			'tgl_transaksi_min' => $param1,
+			'tgl_transaksi_max' => $param2,
+		);
+
+		$this->load->view($this->v7, $data);
+	}
+
+
+	public function konfirmasi($tabel7_field1 = 1)
+	{
+		$this->declare();
+		$where = $this->session->tempdata('email_transaksi');
+		$data = array(
+			'title' => 'Transaksi Berhasil',
+			'head' => $this->head,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+
+			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
+			$this->tabel10 => $this->trs->ambil_email($where)->last_row(),
+		);
+
+		$this->load->view('konfirmasi', $data);
+	}
+
+
 	public function receipt($id_transaksi = null, $tabel7_field1 = 1)
 	{
 		$this->declare();
@@ -327,22 +346,12 @@ class Transaksi extends Welcome
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambil($id_transaksi)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result()
+			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view('receipt', $data);
 	}
 
-	public function laporan($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$data = array(
-			'title' => $this->tabel10_v3_title,
-			'head' => $this->head,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->ambildata()->result()
-		);
 
-		$this->load->view($this->tabel10_v3, $data);
-	}
 }

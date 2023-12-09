@@ -42,17 +42,21 @@ class History extends Welcome
 	private $tabel2_v_input8_post;
 	private $tabel2_v_input9_post;
 	private $tabel2_v_input10_post;
-	private $tabel2_v_input10_filter1;
-	private $tabel2_v_input10_filter1_get;
-	private $tabel2_v_input10_filter2;
-	private $tabel2_v_input10_filter2_get;
+	private $tabel2_v_input11;
 	private $tabel2_v_input11_post;
 	private $tabel2_v_input11_filter1;
 	private $tabel2_v_input11_filter1_get;
 	private $tabel2_v_input11_filter2;
 	private $tabel2_v_input11_filter2_get;
+	private $tabel2_v_input12;
 	private $tabel2_v_input12_post;
+	private $tabel2_v_input12_filter1;
+	private $tabel2_v_input12_filter1_get;
+	private $tabel2_v_input12_filter2;
+	private $tabel2_v_input12_filter2_get;
 	private $tabel2_v_input13_post;
+	private $tabel2_v_input14_post;
+	private $tabel2_v_input15_post;
 	private $tabel2_v_flashdata1_msg_1;
 	private $tabel2_v_flashdata1_msg_2;
 	private $tabel2_v_flashdata1_msg_3;
@@ -114,25 +118,29 @@ class History extends Welcome
 		$this->tabel2_v_input9_post = $this->input->post($this->tabel2_field9);
 		$this->tabel2_v_input10_post = $this->input->post($this->tabel2_field10);
 		// ini adalah filter
-		$this->tabel2_v_input10_filter1 = $this->tabel2_v_input10_post . '_min';
-		$this->tabel2_v_input10_filter1_get = $this->input->get($this->tabel2_v_input10_post . '_min');
-		$this->tabel2_v_input10_filter2 = $this->tabel2_v_input10_post . '_max';
-		$this->tabel2_v_input10_filter2_get = $this->input->get($this->tabel2_v_input10_post . '_max');
+		$this->tabel2_v_input11 = $this->tabel2_field11;
 		$this->tabel2_v_input11_post = $this->input->post($this->tabel2_field11);
+		$this->tabel2_v_input11_filter1 = $this->tabel2_v_input11 . '_min';
+		$this->tabel2_v_input11_filter1_get = $this->input->get($this->tabel2_v_input11_filter1);
+		$this->tabel2_v_input11_filter2 = $this->tabel2_v_input11 . '_max';
+		$this->tabel2_v_input11_filter2_get = $this->input->get($this->tabel2_v_input11_filter2);
 		//ini adalah filter
-		$this->tabel2_v_input11_filter1 = $this->tabel2_v_input11_post . '_min';
-		$this->tabel2_v_input11_filter1_get = $this->input->get($this->tabel2_v_input11_post . '_min');
-		$this->tabel2_v_input11_filter2 = $this->tabel2_v_input11_post . '_max';
-		$this->tabel2_v_input11_filter2_get = $this->input->get($this->tabel2_v_input11_post . '_max');
+		$this->tabel2_v_input12 = $this->tabel2_field12;
 		$this->tabel2_v_input12_post = $this->input->post($this->tabel2_field12);
+		$this->tabel2_v_input12_filter1 = $this->tabel2_v_input12 . '_min';
+		$this->tabel2_v_input12_filter1_get = $this->input->get($this->tabel2_v_input12_filter1);
+		$this->tabel2_v_input12_filter2 = $this->tabel2_v_input12 . '_max';
+		$this->tabel2_v_input12_filter2_get = $this->input->get($this->tabel2_v_input12_filter2);
 		$this->tabel2_v_input13_post = $this->input->post($this->tabel2_field13);
+		$this->tabel2_v_input14_post = $this->input->post($this->tabel2_field14);
+		$this->tabel2_v_input15_post = $this->input->post($this->tabel2_field15);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel2_v_flashdata1_msg_1 = $this->tabel2 . ' berhasil disimpan!';
 		$this->tabel2_v_flashdata1_msg_2 = $this->tabel2 . ' gagal disimpan!';
-		$this->tabel2_v_flashdata1_msg_3 = 'Status ' . $this->tabel2 . ' gagal diubah!';
+		$this->tabel2_v_flashdata1_msg_3 = 'Status ' . $this->tabel2 . ' berhasil diubah!';
 		$this->tabel2_v_flashdata1_msg_4 = 'Status ' . $this->tabel2 . ' gagal diubah!';
-		$this->tabel2_v_flashdata1_msg_5 = $this->tabel2 . ' gagal dihapus!';
+		$this->tabel2_v_flashdata1_msg_5 = $this->tabel2 . ' berhasil dihapus!';
 		$this->tabel2_v_flashdata1_msg_6 = $this->tabel2 . ' gagal dihapus!';
 
 
@@ -158,10 +166,10 @@ class History extends Welcome
 	{
 		$this->declare();
 		// nilai min dan max di sini belum ada
-		$param1 = $this->tabel2_v_input10_filter1_get;
-		$param2 = $this->tabel2_v_input10_filter2_get;
-		$param3 = $this->tabel2_v_input11_filter1_get;
-		$param4 = $this->tabel2_v_input11_filter2_get;
+		$param1 = $this->tabel2_v_input11_filter1_get;
+		$param2 = $this->tabel2_v_input11_filter2_get;
+		$param3 = $this->tabel2_v_input12_filter1_get;
+		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
 			'title' => 'Data History',
@@ -169,12 +177,13 @@ class History extends Welcome
 			'konten' => 'v_admin-history',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel2_v_input10_filter1 => $param1,
-			$this->tabel2_v_input10_filter2 => $param2,
-			$this->tabel2_v_input11_filter1 => $param3,
-			$this->tabel2_v_input11_filter2 => $param4
+			'cek_in_min' => $param1,
+			'cek_in_max' => $param2,
+			'cek_out_min' => $param3,
+			'cek_out_max' => $param4
 		);
 
 		$this->load->view($this->v7, $data);
@@ -186,10 +195,10 @@ class History extends Welcome
 		$where = $this->session->userdata($this->tabel9_userdata1);
 
 		// nilai min dan max di sini belum ada
-		$param1 = $this->tabel2_v_input10_filter1_get;
-		$param2 = $this->tabel2_v_input10_filter2_get;
-		$param3 = $this->tabel2_v_input11_filter1_get;
-		$param4 = $this->tabel2_v_input11_filter2_get;
+		$param1 = $this->tabel2_v_input11_filter1_get;
+		$param2 = $this->tabel2_v_input11_filter2_get;
+		$param3 = $this->tabel2_v_input12_filter1_get;
+		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
 			'title' => 'History Pesanan',
@@ -197,117 +206,69 @@ class History extends Welcome
 			'konten' => 'v_history',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambil_id_user($where)->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input10_filter1 => $param1,
-			$this->tabel2_v_input10_filter2 => $param2,
-			$this->tabel2_v_input11_filter1 => $param3,
-			$this->tabel2_v_input11_filter2 => $param4
+			'cek_in_min' => $param1,
+			'cek_in_max' => $param2,
+			'cek_out_min' => $param3,
+			'cek_out_max' => $param4
 		);
 
 		$this->load->view($this->v7, $data);
 	}
 
-	public function filter_cek_in($tabel7_field1 = 1)
+	public function filter($tabel7_field1 = 1)
 	{
 		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input10_filter1_get;
-		$param2 = $this->tabel2_v_input10_filter2_get;
-		$param3 = $this->tabel2_v_input11_filter1_get;
-		$param4 = $this->tabel2_v_input11_filter2_get;
-
-
-		$data = array(
-			'title' => 'Data History',
-			'head' => '_partials/head',
-			'konten' => 'v_admin-history',
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->filter_cek_in($param1, $param2)->result(),
-
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input10_filter1 => $param1,
-			$this->tabel2_v_input10_filter2 => $param2,
-			$this->tabel2_v_input11_filter1 => $param3,
-			$this->tabel2_v_input11_filter2 => $param4
-		);
-
-		$this->load->view($this->v7, $data);
-	}
-	public function filter_cek_out($tabel7_field1 = 1)
-	{
-		$this->declare();
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input10_filter1_get;
-		$param2 = $this->tabel2_v_input10_filter2_get;
-		$param3 = $this->tabel2_v_input11_filter1_get;
-		$param4 = $this->tabel2_v_input11_filter2_get;
+		$param1 = $this->tabel2_v_input12_filter1_get;
+		$param2 = $this->tabel2_v_input11_filter2_get;
+		$param3 = $this->tabel2_v_input12_filter1_get;
+		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => 'Data History',
-			'head' => '_partials/head',
-			'konten' => 'v_admin-history',
+			'title' => $this->tabel2_v2_title,
+			'head' => $this->head,
+			'konten' => $this->tabel2_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->filter_cek_out($param3, $param4)->result(),
+			$this->tabel2 => $this->htr->filter($param1, $param2, $param3, $param4)->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input10_filter1 => $param1,
-			$this->tabel2_v_input10_filter2 => $param2,
-			$this->tabel2_v_input11_filter1 => $param3,
-			$this->tabel2_v_input11_filter2 => $param4
+			'cek_in_min' => $param1,
+			'cek_in_max' => $param2,
+			'cek_out_min' => $param3,
+			'cek_out_max' => $param4
 		);
 
 		$this->load->view($this->v7, $data);
 	}
 
-	public function filter_cek_in_tamu($tabel7_field1 = 1)
+
+	public function filter_tamu($tabel7_field1 = 1)
 	{
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
 		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input10_filter1_get;
-		$param2 = $this->tabel2_v_input10_filter2_get;
-		$param3 = $this->tabel2_v_input11_filter1_get;
-		$param4 = $this->tabel2_v_input11_filter2_get;
+		$param1 = $this->tabel2_v_input11_filter1_get;
+		$param2 = $this->tabel2_v_input11_filter2_get;
+		$param3 = $this->tabel2_v_input12_filter1_get;
+		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => 'Data History',
-			'head' => '_partials/head',
+			'title' => $this->v11_title,
+			'head' => $this->head,
 			'konten' => 'v_history',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->filter_cek_in_tamu($param1, $param2, $where)->result(),
+			$this->tabel2 => $this->htr->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input10_filter1 => $param1,
-			$this->tabel2_v_input10_filter2 => $param2,
-			$this->tabel2_v_input11_filter1 => $param3,
-			$this->tabel2_v_input11_filter2 => $param4
-		);
-
-		$this->load->view($this->v7, $data);
-	}
-	public function filter_cek_out_tamu($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->session->userdata($this->tabel9_userdata1);
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input10_filter1_get;
-		$param2 = $this->tabel2_v_input10_filter2_get;
-		$param3 = $this->tabel2_v_input11_filter1_get;
-		$param4 = $this->tabel2_v_input11_filter2_get;
-		
-		$data = array(
-			'title' => 'Data History',
-			'head' => '_partials/head',
-			'konten' => 'v_history',
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->filter_cek_out_tamu($param3, $param4, $where)->result(),
-			
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input10_filter1 => $param1,
-			$this->tabel2_v_input10_filter2 => $param2,
-			$this->tabel2_v_input11_filter1 => $param3,
-			$this->tabel2_v_input11_filter2 => $param4
+			'cek_in_min' => $param1,
+			'cek_in_max' => $param2,
+			'cek_out_min' => $param3,
+			'cek_out_max' => $param4
 		);
 
 		$this->load->view($this->v7, $data);
@@ -327,7 +288,8 @@ class History extends Welcome
 			'title' => 'Laporan History',
 			'head' => '_partials/head',
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->ambildata()->result()
+			$this->tabel2 => $this->htr->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view('_laporan/laporan_history', $data);

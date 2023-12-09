@@ -35,34 +35,27 @@ class M_pesanan extends CI_Model
 		return $this->db->get($this->tabel);
 	}
 
-	public function filter_cek_in($cek_in_min, $cek_in_max)
+	public function filter($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max)
 	{
-		$sql = "SELECT * FROM pesanan WHERE cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'";
-		return $this->db->query($sql);
-	}
-
-	public function filter_cek_out($cek_out_min, $cek_out_max)
-	{
-		$sql = "SELECT * FROM pesanan WHERE cek_in BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'";
-		return $this->db->query($sql);
-	}
-
-	public function filter_cek_in_tamu($cek_in_min, $cek_in_max, $where)
-	{
-		$sql = "SELECT * FROM pesanan WHERE 
-		id_user IN ('" . $where . "') AND
+		$filter = "SELECT * FROM pesanan WHERE 
+		
 		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
-		";
-		return $this->db->query($sql);
-	}
-
-	public function filter_cek_out_tamu($cek_out_min, $cek_out_max, $where)
-	{
-		$sql = "SELECT * FROM pesanan WHERE 
-		id_user IN ('" . $where . "') AND
+		 AND 
+		
 		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
 		";
-		return $this->db->query($sql);
+		return $this->db->query($filter);
+	}
+
+	public function filter_tamu($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max, $where)
+	{
+		$filter = "SELECT * FROM pesanan WHERE 
+		id_user IN ('" . $where . "') AND
+		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
+		AND
+		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
+		";
+		return $this->db->query($filter);
 	}
 
 	public function simpan($data)
@@ -78,7 +71,14 @@ class M_pesanan extends CI_Model
 
 	public function hapus($where)
 	{
-		$this->db->where('id_pesanan', $where);
+		$sql = "DELETE FROM " . $this->tabel . " WHERE id_pesanan =  " . $where . ";";
+		return $this->db->query($sql);
+	}
+
+	public function hapus_status($where)
+	{
+
+		$this->db->where('status', $where);
 		return $this->db->delete($this->tabel);
 	}
 }

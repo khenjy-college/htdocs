@@ -17,51 +17,54 @@
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
-    <?php foreach ($pesanan as $ps) : ?>
+    <?php foreach ($pesanan as $ps) :
+      foreach ($tipe_kamar as $tk) :
+        if ($tk->id_tipe == $ps->id_tipe) { ?>
 
-      <!-- menampilkan data pemesan -->
-      <table class="table">
-        <thead class="thead-">
-          <tr>
-            <th>Id Pesanan</th>
-            <th>Pemesan</th>
-            <th>Email</th>
-            <th>Nomor Telepon</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td width="25%"><?= $ps->id_pesanan ?></td>
-            <td width="25%"><?= $ps->pemesan ?></a>
-            <td width="25%"><?= $ps->email ?></td>
-            <td width="25%"><?= $ps->hp ?></td>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <!-- menampilkan data tamu -->
-    <table class="table">
-        <thead class="thead">
-          <tr>
-            <th>Tamu</th>
-            <th>Tipe Kamar</th>
-            <th>Tanggal Cek In</th>
-            <th>Tanggal Cek Out</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td width="25%"><?= $ps->tamu ?></td>
-            <td width="25%"><?= $ps->tipe ?></a>
-            <td width="25%"><?= $ps->cek_in ?></td>
-            <td width="25%"><?= $ps->cek_out ?></td>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      
-    <?php endforeach ?>
+          <!-- menampilkan data pemesan -->
+          <table class="table">
+            <thead class="thead-">
+              <tr>
+                <th>Id Pesanan</th>
+                <th>Pemesan</th>
+                <th>Email</th>
+                <th>Nomor Telepon</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="25%"><?= $ps->id_pesanan ?></td>
+                <td width="25%"><?= $ps->pemesan ?></a>
+                <td width="25%"><?= $ps->email ?></td>
+                <td width="25%"><?= $ps->hp ?></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- menampilkan data tamu -->
+          <table class="table">
+            <thead class="thead">
+              <tr>
+                <th>Tamu</th>
+                <th>Tipe Kamar</th>
+                <th>Tanggal Cek In</th>
+                <th>Tanggal Cek Out</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="25%"><?= $ps->tamu ?></td>
+                <td width="25%"><?= $tk->tipe ?></a>
+                <td width="25%"><?= $ps->cek_in ?></td>
+                <td width="25%"><?= $ps->cek_out ?></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    <?php }
+      endforeach;
+    endforeach ?>
   </div>
 
   <p class="text-center">Kirimkan bukti ini ke resepsionis untuk diproses</p>

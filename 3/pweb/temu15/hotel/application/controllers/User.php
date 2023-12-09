@@ -71,7 +71,7 @@ class User extends Welcome
 		$this->tabel9_m = 'usr';
 
 		// deklarasi variabel views
-		$this->tabel9_v1 = 'v-' . $this->tabel9;
+		$this->tabel9_v1 = 'v_' . $this->tabel9;
 		$this->tabel9_v1_title = 'Daftar ' . $this->tabel9;
 		$this->tabel9_v2 = 'v_admin-' . $this->tabel9;
 		$this->tabel9_v2_title = 'Data ' . $this->tabel9;
@@ -112,9 +112,9 @@ class User extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel9_v_flashdata1_msg_1 = $this->tabel9 . ' berhasil disimpan!';
 		$this->tabel9_v_flashdata1_msg_2 = $this->tabel9 . ' gagal disimpan!';
-		$this->tabel9_v_flashdata1_msg_3 = 'Status ' . $this->tabel9 . ' gagal diubah!';
+		$this->tabel9_v_flashdata1_msg_3 = 'Status ' . $this->tabel9 . ' berhasil diubah!';
 		$this->tabel9_v_flashdata1_msg_4 = 'Status ' . $this->tabel9 . ' gagal diubah!';
-		$this->tabel9_v_flashdata1_msg_5 = $this->tabel9 . ' gagal dihapus!';
+		$this->tabel9_v_flashdata1_msg_5 = $this->tabel9 . ' berhasil dihapus!';
 		$this->tabel9_v_flashdata1_msg_6 = $this->tabel9 . ' gagal dihapus!';
 
 		// deklarasi session
@@ -146,7 +146,7 @@ class User extends Welcome
 		$this->load->view($this->v7, $data);
 	}
 
-		public function tambah()
+	public function tambah()
 	{
 		$this->declare();
 		$param2 = $this->tabel9_v_input2_post;
@@ -163,13 +163,13 @@ class User extends Welcome
 
 				$data = array(
 					$this->tabel9_field2 => $param2,
-					$this->tabel9_field3 => $this->tabel9_v_input3,
+					$this->tabel9_field3 => $this->tabel9_v_input3_post,
 
 					// mengubah password menjadi password berenkripsi
 					$this->tabel9_field4 => password_hash($param4, PASSWORD_DEFAULT),
 
-					$this->tabel9_field5 => $this->tabel9_v_input5,
-					$this->tabel9_field6 => $this->tabel9_v_input6,
+					$this->tabel9_field5 => $this->tabel9_v_input5_post,
+					$this->tabel9_field6 => $this->tabel9_v_input6_post,
 				);
 
 				$simpan = $this->usr->simpan($data);
@@ -187,7 +187,7 @@ class User extends Welcome
 			} else {
 
 				// menampilkan flashdata dalam bentuk teks
-				$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi '. $this->tabel9_field4 .' salah!');
+				$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi ' . $this->tabel9_field4 . ' salah!');
 
 				redirect($_SERVER['HTTP_REFERER']);
 			}
@@ -200,14 +200,14 @@ class User extends Welcome
 		}
 	}
 
-public function update()
+	public function update()
 	{
 		$this->declare();
-		$where = $this->tabel9_v_input1;
+		$where = $this->tabel9_v_input1_post;
 		$data = array(
-			$this->tabel9_field2 => $this->tabel9_v_input2,
-			$this->tabel9_field3 => $this->tabel9_v_input3,
-			$this->tabel9_field5 => $this->tabel9_v_input5,
+			$this->tabel9_field2 => $this->tabel9_v_input2_post,
+			$this->tabel9_field3 => $this->tabel9_v_input3_post,
+			$this->tabel9_field5 => $this->tabel9_v_input5_post,
 		);
 
 		$update = $this->usr->update($data, $where);
@@ -226,7 +226,7 @@ public function update()
 		redirect($_SERVER['HTTP_REFERER']);
 	}
 
-public function hapus($id_user = null)
+	public function hapus($id_user = null)
 	{
 		$this->declare();
 		$hapus = $this->usr->hapus($id_user);
@@ -309,16 +309,16 @@ public function hapus($id_user = null)
 
 
 
-	
+
 
 	public function update_profil()
 	{
 		$this->declare();
 		$where = $this->tabel9_field1;
 		$data = array(
-			$this->tabel9_field2 => $this->tabel9_v_input2,
-			$this->tabel9_field3 => $this->tabel9_v_input3,
-			$this->tabel9_field5 => $this->tabel9_v_input5,
+			$this->tabel9_field2 => $this->tabel9_v_input2_post,
+			$this->tabel9_field3 => $this->tabel9_v_input3_post,
+			$this->tabel9_field5 => $this->tabel9_v_input5_post,
 		);
 
 		$update = $this->usr->update($data, $where);
@@ -351,7 +351,7 @@ public function hapus($id_user = null)
 	public function update_password()
 	{
 		$this->declare();
-		$where = $this->tabel9_v_input1;
+		$where = $this->tabel9_v_input1_post;
 
 		$cek_id = $this->usr->ambil($where);
 
@@ -364,7 +364,7 @@ public function hapus($id_user = null)
 
 			// memverifikasi password lama dengan password di database
 			if (password_verify($old_password, $cekpass)) {
-				$param4 = $this->tabel9_v_input4;
+				$param4 = $this->tabel9_v_input4_post;
 
 				// jika konfirmasi password sama dengan password baru
 				if ($this->input->post('konfirm') === $param4) {
@@ -383,7 +383,7 @@ public function hapus($id_user = null)
 					// jika konfirmasi password tidak sama dengan password baru
 				} else {
 
-					$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi '. $this->tabel9_field4 . ' tidak sesuai!');
+					$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi ' . $this->tabel9_field4 . ' tidak sesuai!');
 					redirect($_SERVER['HTTP_REFERER']);
 				}
 
@@ -402,7 +402,7 @@ public function hapus($id_user = null)
 		}
 	}
 
-	
+
 
 	public function ceklogin()
 	{
@@ -493,6 +493,4 @@ public function hapus($id_user = null)
 		session_destroy();
 		redirect(site_url($this->c1));
 	}
-
-
 }

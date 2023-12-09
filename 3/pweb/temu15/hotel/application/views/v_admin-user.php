@@ -207,16 +207,19 @@
               <label>Nama User : </label>
               <p><?= $u->nama; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Email : </label>
               <p><?= $u->email; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Hp : </label>
               <p><?= $u->hp; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Level User : </label>

@@ -72,11 +72,13 @@
                 <label>Id Operasi</label>
                 <p><?= $o->id_operations ?></p>
               </div>
+              <hr>
 
               <div class="form-group">
                 <label>No Kamar</label>
                 <p><?= $o->no_kamar ?></p>
               </div>
+              <hr>
 
               <div class="form-group">
                 <label>Id User</label>
@@ -90,11 +92,13 @@
                 <label>Id Petugas</label>
                 <p><?= $o->id_petugas ?></p>
               </div>
+              <hr>
 
               <div class="form-group">
                 <label>Keterangan</label>
                 <p><?= $o->keterangan ?></p>
               </div>
+              <hr>
 
               <div class="form-group">
                 <label>Tanggal Perubahan</label>

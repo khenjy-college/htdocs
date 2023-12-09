@@ -26,15 +26,17 @@
             <th>Id Tipe Kamar</th>
             <th>Tipe Kamar</th>
             <th>Stok</th>
+            <th>Harga</th>
             <th>Gambar</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td width="25%"><?= $tk->id_tipe ?></td>
-            <td width="25%"><?= $tk->tipe ?></a>
-            <td width="25%"><?= $tk->stok ?></td>
-            <td width="25%"><img src="img/tipe_kamar/<?= $tk->img ?>" width="100"></td>
+            <td width="20%"><?= $tk->id_tipe ?></td>
+            <td width="20%"><?= $tk->tipe ?></a>
+            <td width="20%"><?= $tk->stok ?></td>
+            <td width="20%">Rp <?= number_format($tk->harga, '2', ',', '.') ?></td>
+            <td width="20%"><img src="img/tipe_kamar/<?= $tk->img ?>" width="100"></td>
             </td>
           </tr>
         </tbody>

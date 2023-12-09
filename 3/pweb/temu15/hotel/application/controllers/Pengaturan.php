@@ -60,7 +60,7 @@ class Pengaturan extends Welcome
 		// public $this->tabel7_m = 'ptn';
 
 		// deklarasi variabel views
-		$this->tabel7_v1 = 'v-' . $this->tabel7;
+		$this->tabel7_v1 = 'v_' . $this->tabel7;
 		$this->tabel7_v2_title = 'Daftar ' . $this->tabel7;
 		$this->tabel7_v2 = 'v_admin-' . $this->tabel7;
 		$this->tabel7_v2_title = 'Data ' . $this->tabel7;
@@ -91,9 +91,9 @@ class Pengaturan extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel7_v_flashdata1_msg_1 = $this->tabel7 . ' berhasil disimpan!';
 		$this->tabel7_v_flashdata1_msg_2 = $this->tabel7 . ' gagal disimpan!';
-		$this->tabel7_v_flashdata1_msg_3 = 'Status ' . $this->tabel7 . ' gagal diubah!';
+		$this->tabel7_v_flashdata1_msg_3 = 'Status ' . $this->tabel7 . ' berhasil diubah!';
 		$this->tabel7_v_flashdata1_msg_4 = 'Status ' . $this->tabel7 . ' gagal diubah!';
-		$this->tabel7_v_flashdata1_msg_5 = $this->tabel7 . ' gagal dihapus!';
+		$this->tabel7_v_flashdata1_msg_5 = $this->tabel7 . ' berhasil dihapus!';
 		$this->tabel7_v_flashdata1_msg_6 = $this->tabel7 . ' gagal dihapus!';
 	}
 

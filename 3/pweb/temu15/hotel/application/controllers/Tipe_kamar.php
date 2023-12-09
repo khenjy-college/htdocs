@@ -50,7 +50,7 @@ class Tipe_kamar extends Welcome
 		$this->tabel6_m = 'tpk';
 
 		// deklarasi variabel views
-		$this->tabel6_v1 = 'v-' . $this->tabel6;
+		$this->tabel6_v1 = 'v_' . $this->tabel6;
 		$this->tabel6_v1_title = 'Daftar ' . $this->tabel6;
 		$this->tabel6_v2 = 'v_admin-' . $this->tabel6;
 		$this->tabel6_v2_title = 'Data ' . $this->tabel6;
@@ -80,9 +80,9 @@ class Tipe_kamar extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel6_v_flashdata1_msg_1 = $this->tabel6 . ' berhasil disimpan!';
 		$this->tabel6_v_flashdata1_msg_2 = $this->tabel6 . ' gagal disimpan!';
-		$this->tabel6_v_flashdata1_msg_3 = 'Status ' . $this->tabel6 . ' gagal diubah!';
+		$this->tabel6_v_flashdata1_msg_3 = 'Status ' . $this->tabel6 . ' berhasil diubah!';
 		$this->tabel6_v_flashdata1_msg_4 = 'Status ' . $this->tabel6 . ' gagal diubah!';
-		$this->tabel6_v_flashdata1_msg_5 = $this->tabel6 . ' gagal dihapus!';
+		$this->tabel6_v_flashdata1_msg_5 = $this->tabel6 . ' berhasil dihapus!';
 		$this->tabel6_v_flashdata1_msg_6 = $this->tabel6 . ' gagal dihapus!';
 	}
 

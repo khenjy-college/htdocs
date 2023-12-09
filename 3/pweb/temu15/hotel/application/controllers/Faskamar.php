@@ -77,9 +77,9 @@ class Faskamar extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel1_v_flashdata1_msg_1 = $this->tabel1 . ' berhasil disimpan!';
 		$this->tabel1_v_flashdata1_msg_2 = $this->tabel1 . ' gagal disimpan!';
-		$this->tabel1_v_flashdata1_msg_3 = 'Status ' . $this->tabel1 . ' gagal diubah!';
+		$this->tabel1_v_flashdata1_msg_3 = 'Status ' . $this->tabel1 . ' berhasil diubah!';
 		$this->tabel1_v_flashdata1_msg_4 = 'Status ' . $this->tabel1 . ' gagal diubah!';
-		$this->tabel1_v_flashdata1_msg_5 = $this->tabel1 . ' gagal dihapus!';
+		$this->tabel1_v_flashdata1_msg_5 = $this->tabel1 . ' berhasil dihapus!';
 		$this->tabel1_v_flashdata1_msg_6 = $this->tabel1 . ' gagal dihapus!';
 	}
 

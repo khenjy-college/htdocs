@@ -39,6 +39,9 @@ class Operations extends Welcome
 	private $tabel11_v_flashdata1_msg_4;
 	private $tabel11_v_flashdata1_msg_5;
 	private $tabel11_v_flashdata1_msg_6;
+	private $tabel5_c1;
+
+
 	public function
 
 	declare()
@@ -75,10 +78,12 @@ class Operations extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel11_v_flashdata1_msg_1 = $this->tabel11 . ' berhasil disimpan!';
 		$this->tabel11_v_flashdata1_msg_2 = $this->tabel11 . ' gagal disimpan!';
-		$this->tabel11_v_flashdata1_msg_3 = 'Status ' . $this->tabel11 . ' gagal diubah!';
+		$this->tabel11_v_flashdata1_msg_3 = 'Status ' . $this->tabel11 . ' berhasil diubah!';
 		$this->tabel11_v_flashdata1_msg_4 = 'Status ' . $this->tabel11 . ' gagal diubah!';
-		$this->tabel11_v_flashdata1_msg_5 = $this->tabel11 . ' gagal dihapus!';
+		$this->tabel11_v_flashdata1_msg_5 = $this->tabel11 . ' berhasil dihapus!';
 		$this->tabel11_v_flashdata1_msg_6 = $this->tabel11 . ' gagal dihapus!';
+
+		$this->tabel5_c1 = $this->tabel5;
 	}
 
 
@@ -166,7 +171,7 @@ class Operations extends Welcome
 			$this->tabel11 => $this->ops->ambildata()->result()
 		);
 
-		$this->load->view($this->tabel11_v3, $data);
+		$this->load->view('_laporan/laporan_operations', $data);
 	}
 
 	public function daftar($tabel7_field1 = 1)

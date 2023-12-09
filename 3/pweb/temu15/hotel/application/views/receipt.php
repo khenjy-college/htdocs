@@ -56,7 +56,7 @@
             <tbody>
               <tr>
                 <td width="25%"><?= $ps->tamu ?></td>
-                <td width="25%"><?= $ps->tipe ?></a>
+                <td width="25%"><?= $ps->id_tipe ?></a>
                 <td width="25%"><?= $ps->cek_in ?></td>
                 <td width="25%"><?= $ps->cek_out ?></td>
                 </td>
@@ -73,7 +73,7 @@
             </thead>
             <tbody>
               <tr>
-                <td width="25%"><?= $ps->harga_total ?></td>
+                <td width="25%">Rp <?= number_format($ps->harga_total, '2', ',', '.') ?></td>
                 </td>
               </tr>
             </tbody>
@@ -95,7 +95,7 @@
               <tr>
                 <td width="25%"><?= $tr->id_transaksi ?></td>
                 <td width="25%"><?= $tr->metode ?></a>
-                <td width="25%"><?= $tr->bayar ?></td>
+                <td width="25%">Rp <?= number_format($tr->bayar, '2', ',', '.') ?></td>
                 <td width="25%"><?= $tr->tgl_transaksi ?></td>
                 </td>
               </tr>

@@ -5,56 +5,6 @@ class Welcome extends CI_Controller
 {
 	// Menggunakan variabel sebagai alat pembantu, persyaratan
 	// Semua yang ada di sini bakal diubah nantinya dari private menjadi antara private atau protected
-
-	// sebenarnya yang bagian input pengen dibikin pakai multiple views (bukan cman _v_ saja) cman fitur itu mending dipending dulu
-
-	//dekrlarasi variabel bagian umum
-	// deklarasi konten
-	public $head = '_partials/head';
-
-	// deklarasi variabel yang merupakan mvc namun tidak mengandung unsur tabel pada penamaan
-
-	// deklarasi model yang tidak memiliki nama tabel pada nama file atau function
-
-	// deklarasi views yang tidak memiliki nama tabel pada nama file atau function
-	public $v1 = 'konfirmasi';
-	public $v1_title1 = 'Reservasi Berhasil';
-	public $v1_title2 = 'Transaksi Berhasil';
-	public $v2 = 'login';
-	public $v2_title = 'Login';
-	public $v3 = 'no-level';
-	public $v3_title = 'Anda tidak memiliki level';
-	public $v4 = 'print';
-	public $v4_title1 = 'Bukti Reservasi';
-	public $v4_title2 = 'Bukti Transaksi';
-	public $v5 = 'receipt';
-	public $v5_title = 'Bukti Transaksi';
-	public $v6 = 'signup';
-	public $v6_title = 'Sign Up';
-	public $v7 = 'template';
-	public $v8 = 'v_home';
-	public $v8_title = 'Selamat Datang!';
-	public $v9 = 'v_pemesanan';
-	public $v9_title = 'Halaman Pemesanan';
-	public $v10 = 'v_profil';
-	public $v10_title = 'Profil';
-	public $v11 = 'v_reservasi';
-	public $v11_title = 'Data Pemesanan';
-
-	// deklarasi controller yang tidak memiliki nama tabel pada nama file atau function
-	public $c1 = 'welcome';
-	public $c2 = 'welcome/pemesanan';
-	public $c3 = 'welcome/tipe_kamar';
-	public $c4 = 'welcome/fasilitas';
-	public $c5 = 'welcome/dashboard';
-	public $c6 = 'welcome/no_level';
-
-	// deklarasi flashdata
-	public $v_flashdata1 = 'pesan';
-	public $v_flashdata1_msg1 = 'pesan';
-	public $v_flashdata2 = 'panggil';
-	public $v_flashdata2_func = '$("#element").toast("show")';
-
 	// deklarasi variabel per tabel
 	// deklarasi tabel 1
 	public $tabel1 = 'faskamar';
@@ -78,10 +28,12 @@ class Welcome extends CI_Controller
 	public $tabel2_field7 = 'tamu';
 	public $tabel2_field8 = 'tipe';
 	public $tabel2_field9 = 'jlh';
-	public $tabel2_field10 = 'cek_in';
-	public $tabel2_field11 = 'cek_out';
-	public $tabel2_field12 = 'tgl_perubahan';
-	public $tabel2_field13 = 'user_aktif';
+	public $tabel2_field10 = 'harga_total';
+	public $tabel2_field11 = 'cek_in';
+	public $tabel2_field12 = 'cek_out';
+	public $tabel2_field13 = 'no_kamar';
+	public $tabel2_field14 = 'tgl_perubahan';
+	public $tabel2_field15 = 'user_aktif';
 
 
 	// deklarasi tabel 3
@@ -110,7 +62,7 @@ class Welcome extends CI_Controller
 	// deklarasi variabel bagian field
 	public $tabel5_field1 = 'no_kamar';
 	public $tabel5_field2 = 'id_tipe';
-	public $tabel5_field3 = 'id_pemesan';
+	public $tabel5_field3 = 'id_pesanan';
 	public $tabel5_field4 = 'status';
 	public $tabel5_field5 = 'keterangan';
 
@@ -150,21 +102,18 @@ class Welcome extends CI_Controller
 	public $tabel8_field4 = 'email';
 	public $tabel8_field5 = 'hp';
 	public $tabel8_field6 = 'tamu';
-	public $tabel8_field7 = 'tipe';
+	public $tabel8_field7 = 'id_tipe';
 	public $tabel8_field8 = 'jlh';
 	public $tabel8_field9 = 'harga_total';
 	public $tabel8_field10 = 'cek_in';
-	public $tabel8_field10_filter1 = 'cek_in_min';
-	public $tabel8_field10_filter2 = 'cek_in_max';
 	public $tabel8_field11 = 'cek_out';
-	public $tabel8_field11_filter1 = 'cek_out_min';
-	public $tabel8_field11_filter2 = 'cek_out_max';
 	public $tabel8_field12 = 'status';
 	public $tabel8_field12_value1 = 'pending';
 	public $tabel8_field12_value2 = 'belum bayar';
 	public $tabel8_field12_value3 = 'menunggu';
 	public $tabel8_field12_value4 = 'cek in';
 	public $tabel8_field12_value5 = 'cek out';
+	public $tabel8_field13 = 'no_kamar';
 
 
 	// deklarasi tabel 9
@@ -200,7 +149,8 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 11
 	// deklarasi variabel per tabel
-	// deklarasi tabel 1
+
+
 	public $tabel11 = 'operations';
 	// deklarasi variabel bagian field
 	public $tabel11_field1 = 'id_operations';
@@ -211,8 +161,40 @@ class Welcome extends CI_Controller
 	public $tabel11_field6 = 'tgl_perubahan';
 
 
-	// deklarasi session
+	// deklarasi mvc
+	// deklarasi model
 
+
+	// deklarasi model yang tidak memiliki nama tabel pada nama file atau function
+
+	// deklarasi controller yang tidak memiliki nama tabel pada nama file atau function
+	public $c1 = 'welcome';
+	public $c2 = 'welcome/pemesanan';
+	public $c3 = 'welcome/tipe_kamar';
+	public $c4 = 'welcome/fasilitas';
+	public $c5 = 'welcome/dashboard';
+	public $c6 = 'welcome/no_level';
+
+	// deklarasi views yang tidak memiliki nama tabel pada nama file atau function
+	// deklarasi views
+	private $tabel8_v_input8;
+	private $tabel8_v_input8_get;
+	private $tabel8_v_input10;
+	private $tabel8_v_input10_post;
+	private $tabel8_v_input10_get;
+	private $tabel8_v_input10_filter1;
+	private $tabel8_v_input10_filter1_get;
+	private $tabel8_v_input10_filter2;
+	private $tabel8_v_input10_filter2_get;
+	private $tabel8_v_input11;
+	private $tabel8_v_input11_post;
+	private $tabel8_v_input11_get;
+	private $tabel8_v_input11_filter1;
+	private $tabel8_v_input11_filter1_get;
+	private $tabel8_v_input11_filter2;
+	private $tabel8_v_input11_filter2_get;
+
+	// deklarasi session
 	private $tabel9_userdata1;
 	private $tabel9_tempdata1;
 	private $tabel9_userdata2;
@@ -227,10 +209,66 @@ class Welcome extends CI_Controller
 	private $tabel9_tempdata6;
 
 
+
+
+	// deklarasi views yang tidak terhubung ke basis data
+	public $head = '_partials/head';
+
+	public $v1 = 'konfirmasi';
+	public $v1_title1 = 'Reservasi Berhasil';
+	public $v1_title2 = 'Transaksi Berhasil';
+	public $v2 = 'login';
+	public $v2_title = 'Login';
+	public $v3 = 'no-level';
+	public $v3_title = 'Anda tidak memiliki level';
+	public $v4 = 'print';
+	public $v4_title1 = 'Bukti Reservasi';
+	public $v4_title2 = 'Bukti Transaksi';
+	public $v5 = 'receipt';
+	public $v5_title = 'Bukti Transaksi';
+	public $v6 = 'signup';
+	public $v6_title = 'Sign Up';
+	public $v7 = 'template';
+	public $v8 = 'v_home';
+	public $v8_title = 'Selamat Datang!';
+	public $v9 = 'v_pemesanan';
+	public $v9_title = 'Halaman Pemesanan';
+	public $v10 = 'v_profil';
+	public $v10_title = 'Profil';
+	public $v11 = 'v_reservasi';
+	public $v11_title = 'Data Pemesanan';
+
+
+	// deklarasi flashdata
+	public $v_flashdata1 = 'pesan';
+	public $v_flashdata1_msg1 = 'pesan';
+	public $v_flashdata2 = 'panggil';
+	public $v_flashdata2_func = '$("#element").toast("show")';
+
+
 	public function
 
 	declare()
 	{
+		// deklarasi input pada halaman publik
+		$this->tabel8_v_input8 = $this->tabel8_field8;
+		$this->tabel8_v_input8_get = $this->input->get($this->tabel8_v_input8);
+		$this->tabel8_v_input10 = $this->tabel8_field10;
+		$this->tabel8_v_input10_get = $this->input->get($this->tabel8_v_input10);
+		$this->tabel8_v_input10_post = $this->input->post($this->tabel8_v_input10);
+		$this->tabel8_v_input10_filter1 = $this->tabel8_v_input10 . '_min';
+		$this->tabel8_v_input10_filter1_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input10_filter2 = $this->tabel8_v_input10 . '_max';
+		$this->tabel8_v_input10_filter2_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input11 = $this->tabel8_field11;
+		$this->tabel8_v_input11_get = $this->input->get($this->tabel8_v_input11);
+		$this->tabel8_v_input11_post = $this->input->post($this->tabel8_v_input11);
+		$this->tabel8_v_input11_filter1 = $this->tabel8_v_input11 . '_min';
+		$this->tabel8_v_input11_filter1_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input11_filter2 = $this->tabel8_v_input11 . '_max';
+		$this->tabel8_v_input11_filter2_get = $this->input->get($this->tabel8_v_input10_filter1);
+
+
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->tabel9_field1;
 		$this->tabel9_tempdata1 = $this->tabel9_field1;
@@ -281,16 +319,16 @@ class Welcome extends CI_Controller
 	public function pemesanan($id = 1)
 	{
 		$this->declare();
-		if ($this->session->userdata(site_url($this->tabel9_field6)) === $this->tabel9_field6_value5) {
+		if ($this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value5) {
 			$data = array(
 				'title' => $this->v9_title,
 				'head' => $this->head,
 				'konten' => $this->v9,
 				$this->tabel7 => $this->ptn->ambil($id)->result(),
 				'tipe_kamar' => $this->tpk->ambildata()->result(),
-				'cek_in' => $this->input->get('cek_in'),
-				'cek_out' => $this->input->get('cek_out'),
-				'jlh' => $this->input->get('jlh'),
+				'cek_in' => $this->tabel8_v_input10_get,
+				'cek_out' => $this->tabel8_v_input11_get,
+				'jlh' => $this->tabel8_v_input8_get,
 				'halaman' => $this->v7
 			);
 

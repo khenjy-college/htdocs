@@ -19,7 +19,7 @@ class M_tipe_kamar extends CI_Model
 
 	public function ambil_harga($where)
 	{
-		$this->db->where('tipe', $where);
+		$this->db->where('id_tipe', $where);
 		return $this->db->get($this->tabel);
 	}
 

@@ -81,31 +81,34 @@ Fitur sedang tahap pengembangan
             <!-- Di sini adalah bagian menampilkan data pesanan -->
 
             <?php foreach ($pesanan as $ps) : ?>
-              <?php if ($tr->id_pesanan === $ps->id_pesanan) { ?>
+              <?php foreach ($tipe_kamar as $tk) : ?>
+                <?php if ($tr->id_pesanan === $ps->id_pesanan) { ?>
+                  <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
 
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Nama Tamu</label>
-                    <p><?= $ps->tamu ?></p>
-                  </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Nama Tamu</label>
+                        <p><?= $ps->tamu ?></p>
+                      </div>
 
-                  <div class="form-group">
-                    <label>Tipe Kamar</label>
-                    <p><?= $ps->tipe ?></p>
-                  </div>
+                      <div class="form-group">
+                        <label>Tipe Kamar</label>
+                        <p><?= $tk->tipe ?></p>
+                      </div>
 
-                  <div class="form-group">
-                    <label>Tanggal Cek In</label>
-                    <p><?= $ps->cek_in ?></p>
-                  </div>
+                      <div class="form-group">
+                        <label>Tanggal Cek In</label>
+                        <p><?= $ps->cek_in ?></p>
+                      </div>
 
-                  <div class="form-group">
-                    <label>Tanggal Cek Out</label>
-                    <p><?= $ps->cek_out ?></p>
-                  </div>
-                </div>
-              <?php } ?>
-
+                      <div class="form-group">
+                        <label>Tanggal Cek Out</label>
+                        <p><?= $ps->cek_out ?></p>
+                      </div>
+                    </div>
+                  <?php } ?>
+                <?php } ?>
+              <?php endforeach ?>
             <?php endforeach ?>
           </div>
         </div>

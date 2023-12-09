@@ -172,13 +172,20 @@
               <label>Tipe Kamar : </label>
               <p><?= $fk->tipe; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Nama Fasilitas : </label>
               <p><?= $fk->nama; ?></p>
             </div>
+            <hr>
 
-            <img src="img/faskamar/<?= $fk->img; ?>" width="450">
+            <div class="form-group">
+              <img src="img/faskamar/<?= $fk->img; ?>" width="450">
+
+            </div>
+            <hr>
+
           </div>
 
           <div class="modal-footer">

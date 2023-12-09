@@ -92,9 +92,9 @@ class Fashotel extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel3_v_flashdata1_msg_1 = $this->tabel3 . ' berhasil disimpan!';
 		$this->tabel3_v_flashdata1_msg_2 = $this->tabel3 . ' gagal disimpan!';
-		$this->tabel3_v_flashdata1_msg_3 = 'Status ' . $this->tabel3 . ' gagal diubah!';
+		$this->tabel3_v_flashdata1_msg_3 = 'Status ' . $this->tabel3 . ' berhasil diubah!';
 		$this->tabel3_v_flashdata1_msg_4 = 'Status ' . $this->tabel3 . ' gagal diubah!';
-		$this->tabel3_v_flashdata1_msg_5 = $this->tabel3 . ' gagal dihapus!';
+		$this->tabel3_v_flashdata1_msg_5 = $this->tabel3 . ' berhasil dihapus!';
 		$this->tabel3_v_flashdata1_msg_6 = $this->tabel3 . ' gagal dihapus!';
 	}
 

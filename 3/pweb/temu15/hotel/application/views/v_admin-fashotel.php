@@ -9,7 +9,7 @@
 <!-- menampilkan modal tambah -->
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
 <a class="btn btn-info mb-4" href="<?= site_url('fashotel/laporan') ?>" target="_blank">
-<i class="fas fa-print"></i> Cetak Laporan</a>
+  <i class="fas fa-print"></i> Cetak Laporan</a>
 
 <!-- tabel data fasilitas -->
 <table class="table table-light" id="data">
@@ -206,13 +206,18 @@
               <label>Nama Fasilitas : </label>
               <p><?= $fh->nama; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
-              <label>Keterangan</label>
+              <label>Keterangan : </label>
               <p><?= $fh->keterangan; ?></p>
             </div>
+            <hr>
 
-            <img src="img/fashotel/<?= $fh->img; ?>" width="450">
+            <div class="form-group">
+              <img src="img/fashotel/<?= $fh->img; ?>" width="450">
+            </div>
+            <hr>
 
           </div>
 

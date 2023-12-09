@@ -218,21 +218,26 @@
               <label>Nama Petugas : </label>
               <p><?= $p->nama; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Email : </label>
               <p><?= $p->email; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Hp : </label>
               <p><?= $p->hp; ?></p>
             </div>
-
-
-            <img src="img/petugas/<?= $p->img; ?>" width="300">
             <hr>
 
+            <div class="form-group">
+              <img src="img/petugas/<?= $p->img; ?>" width="300">
+
+            </div>
+            <hr>
+            
             <div class="form-group">
               <label>Role Petugas : </label>
               <p><?= $p->role; ?></p>

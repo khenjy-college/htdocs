@@ -44,7 +44,7 @@ class Kamar extends Welcome
 		$this->tabel5_m = 'kmr';
 
 		// deklarasi variabel views
-		$this->tabel5_v1 = 'v-' . $this->tabel5;
+		$this->tabel5_v1 = 'v_' . $this->tabel5;
 		$this->tabel5_v1_title = 'Daftar ' . $this->tabel5;
 		$this->tabel5_v2 = 'v_admin-' . $this->tabel5;
 		$this->tabel5_v2_title = 'Data ' . $this->tabel5;
@@ -70,9 +70,9 @@ class Kamar extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel5_v_flashdata1_msg_1 = $this->tabel5 . ' berhasil disimpan!';
 		$this->tabel5_v_flashdata1_msg_2 = $this->tabel5 . ' gagal disimpan!';
-		$this->tabel5_v_flashdata1_msg_3 = 'Status ' . $this->tabel5 . ' gagal diubah!';
+		$this->tabel5_v_flashdata1_msg_3 = 'Status ' . $this->tabel5 . ' berhasil diubah!';
 		$this->tabel5_v_flashdata1_msg_4 = 'Status ' . $this->tabel5 . ' gagal diubah!';
-		$this->tabel5_v_flashdata1_msg_5 = $this->tabel5 . ' gagal dihapus!';
+		$this->tabel5_v_flashdata1_msg_5 = $this->tabel5 . ' berhasil dihapus!';
 		$this->tabel5_v_flashdata1_msg_6 = $this->tabel5 . ' gagal dihapus!';
 	}
 

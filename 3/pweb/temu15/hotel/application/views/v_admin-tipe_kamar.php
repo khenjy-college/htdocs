@@ -26,7 +26,7 @@
         <td><?= $tp->id_tipe; ?></td>
         <td><?= $tp->tipe ?></td>
         <td><?= $tp->stok ?></td>
-        <td><?= $tp->harga ?></td>
+        <td>Rp <?= number_format($tp->harga, '2', ',', '.') ?></td>
         <td><img src="img/tipe_kamar/<?= $tp->img ?>" width="100"></td>
         <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tp->id_tipe; ?>">
             <i class="fas fa-eye"></i></a>
@@ -73,7 +73,7 @@
           <!-- Harga kamar masih menggunakan satuan per kamar, untuk per hari masih belum -->
           <div class="form-group">
             <label>Harga Kamar (Per Kamar, untuk satuan waktu masih belum)</label>
-            <input class="form-control" type="number" required name="harga" min="0" value="50000">
+            <input class="form-control" type="number" required name="harga" min="0">
           </div>
 
           <div class="form-group">
@@ -152,16 +152,19 @@
               <label>Tipe Kamar : </label>
               <p><?= $tp->tipe; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Stok Kamar : </label>
               <p><?= $tp->stok; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
               <label>Harga Kamar : </label>
-              <p><?= $tp->harga; ?></p>
+              <p>Rp <?= number_format($tp->harga, '2', ',', '.') ?></p>
             </div>
+            <hr>
 
             <img src="img/tipe_kamar/<?= $tp->img; ?>" width="450">
 
