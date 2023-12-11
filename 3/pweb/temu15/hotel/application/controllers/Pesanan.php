@@ -9,6 +9,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 // Hal ini akan diperbaiki pada waktu-waktu mendatang. 
 
 include 'Welcome.php';
+session_write_close();
 class Pesanan extends Welcome
 {
 	// deklarasi variabel mvc
@@ -47,6 +48,7 @@ class Pesanan extends Welcome
 	private $tabel8_v_input3_post;
 	private $tabel8_v_input3_get;
 	private $tabel8_v_input4_post;
+	private $tabel8_v_input4_get;
 	private $tabel8_v_input5_post;
 	private $tabel8_v_input6_post;
 	private $tabel8_v_input7_post;
@@ -139,6 +141,7 @@ class Pesanan extends Welcome
 		$this->tabel8_v_input3_post = $this->input->post($this->tabel8_field3);
 		$this->tabel8_v_input3_get = $this->input->get($this->tabel8_field3);
 		$this->tabel8_v_input4_post = $this->input->post($this->tabel8_field4);
+		$this->tabel8_v_input4_get = $this->input->get($this->tabel8_field4);
 		$this->tabel8_v_input5_post = $this->input->post($this->tabel8_field5);
 		$this->tabel8_v_input6_post = $this->input->post($this->tabel8_field6);
 		$this->tabel8_v_input7_post = $this->input->post($this->tabel8_field7);
@@ -399,7 +402,7 @@ class Pesanan extends Welcome
 	{
 		$this->declare();
 		$param1 = $this->tabel8_v_input1_get;
-		$param3 = $this->tabel8_v_input3_post;
+		$param4 = $this->tabel8_v_input4_get;
 
 		$data = array(
 			'title' => $this->tabel8_v1_title,
@@ -408,10 +411,10 @@ class Pesanan extends Welcome
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
 			// mencari dan menampilkan id pesanan berdasarkan id_pesanan yang telah diinput
-			$this->tabel8 => $this->psn->cari($param1, $param3)->result()
+			$this->tabel8 => $this->psn->cari($param1, $param4)->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 		);
-		$this->session->set_userdata($this->tabel8_userdata1, $param1);
 
 		$this->load->view($this->v7, $data);
 	}

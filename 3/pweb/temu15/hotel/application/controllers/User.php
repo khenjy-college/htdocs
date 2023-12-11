@@ -314,7 +314,7 @@ class User extends Welcome
 	public function update_profil()
 	{
 		$this->declare();
-		$where = $this->tabel9_field1;
+		$where = $this->tabel9_v_input1_post;
 		$data = array(
 			$this->tabel9_field2 => $this->tabel9_v_input2_post,
 			$this->tabel9_field3 => $this->tabel9_v_input3_post,
@@ -390,7 +390,7 @@ class User extends Welcome
 				// jika password lama salah
 			} else {
 
-				$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_field4 . 'lama salah!');
+				$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_field4 . ' lama salah!');
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 
@@ -435,6 +435,19 @@ class User extends Welcome
 
 				// jika password salah
 			} else {
+
+				// Selama ini hal yang menampilkan pesan hanyalah toast
+				// Di sini aku akan mencoba menerapkan menampilkan modal secara otomatis ketika password salah
+				// Namun nanti hanya ketika password salah saja, melainkan semua proses yang melibatkan elemen modal
+				// Kemungkinan ke depannya bakal ada yang lain juga selain modal dan toast 
+				// Hal ini tentunya akan menggunakan beberapa file diantara lain
+				// Welcome.php, halaman template bagian javascript, dan masing-masing halaman tujuan
+				// Selain itu aku ingin mencoba menerapkannya juga pada button notifikasi jika ada nanti
+				// Supaya bisa menyimpan proses apa saja yang telah selesai dilakukan
+
+				// Dan terakhir, aku perlu menambahkan fungsi flashdata baru selain 'panggil'
+				// Alasannya karena ada banyak sekali jenis pesan yang tidak boleh digunakan dalam satu tempat
+				// Kalau tidak bisa merusak experience dari user
 
 				$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_field4 . ' salah!');
 				redirect(site_url($this->tabel9_c7));

@@ -8,7 +8,7 @@
     <div class="col-md-2">
       <div class="form-group">
         <label>Tanggal Cek In</label>
-        <input class="form-control" type="date" required name="cek_in" value="<?= $cek_in ?>">
+        <input class="form-control" type="date" required name="cek_in" value="<?= $cek_in ?>" min="<?= date('Y-m-d'); ?>">
       </div>
     </div>
 
@@ -23,7 +23,7 @@
     <div class="col-md-2">
       <div class="form-group">
         <label>Tanggal Cek Out</label>
-        <input class="form-control" type="date" required name="cek_out" value="<?= $cek_out ?>">
+        <input class="form-control" type="date" required name="cek_out" value="<?= $cek_out ?>" min="<?= date('Y-m-d', strtotime("+1 day")); ?>">
       </div>
     </div>
 

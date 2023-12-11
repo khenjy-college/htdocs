@@ -330,7 +330,7 @@
                           if ($km->id_tipe == $tk->id_tipe) {
                             if ($km->status == 'Available') { ?>
 
-                              <option value="<?= $km->id_tipe ?>"><?= $km->no_kamar; ?> - <?= $tk->tipe ?></option>
+                              <option value="<?= $km->no_kamar ?>"><?= $km->no_kamar; ?> - <?= $tk->tipe ?></option>
 
                     <?php }
                           }

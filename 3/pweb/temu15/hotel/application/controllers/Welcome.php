@@ -1,6 +1,23 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+// Ke depannya aku akan menerapkan lebih banyak fitur lagi ke website hotel ini supaya terlihat lebih hidup
+// Tentunya hal ini akan lebih possible dan mudah jika aku sudah mulai menggunakan fitur api dan container
+// Dan masih ada banyak lagi yang ingin kuterapkan supaya website ini sudah layak untuk menjadi template
+// Template yang bisa digunakan untuk membuat website yang lainnya
+// Masih ada banyak projek yang perlu dikembangkan di bagian backend, dan tentunya hal itu perlu kontrol yang jelas
+// Tidak hanya asal mengikuti tutorial saja
+
+// Masing-masing ide website memiliki kebutuhan yang berbeda-beda, namun aku akan mencoba menerapkan hal itu di website ini
+// terlebih dahulu, karena jika kedepannya ingin mengembangkan lagi, tinggal menggunakan template ini dan mengubah
+// variabel-variabel dan fungsnya sesuai dengan kebutuhan saja.
+
+// Aku juga benar-benar ingin menerapkan seluruh fungsi yang ada di Codeigniter ini supaya aku lebih dapat banyak
+// wawasan mengenai web development, masih ada banyak yang belum kuterapkan seperti helpers, libraries, hooks, languages,
+// dan lain-lain.
+
+// Dengan mempelajari hal tersebut, maka mempelajari framework lain yang lebih terkenal seperti react js tentu lebih mudah
+
 class Welcome extends CI_Controller
 {
 	// Menggunakan variabel sebagai alat pembantu, persyaratan
@@ -274,16 +291,28 @@ class Welcome extends CI_Controller
 
 
 	// deklarasi flashdata
+	// Flashdata di sini bertugas untuk menemani pengguna dalam perselancarannya di website ini
+	// Elemen yang digunakan adalah toast atau popup di sudut kanan atas
 	public $v_flashdata1 = 'pesan';
-	public $v_flashdata1_msg1 = 'pesan';
+	public $v_flashdata1_msg1;
+	public $v9_flashdata1_msg2;
 	public $v_flashdata2 = 'panggil';
 	public $v_flashdata2_func = '$("#element").toast("show")';
+
+	// Flashdata di bawah ini bertugas untuk memberitahu pengguna mengenai hal yang berhubungan dengan data pribadi
+	// Elemen yang digunakan adalah modal yang digunakan oleh pengguna
+	public $v_flashdata3 = 'notifikasi';
+	public $v_flashdata3_msg1;
+	public $v_flashdata3_msg2;
+	public $v_flashdata4 = 'modal';
+	public $v_flashdata4_func = '$("#element").modal("show")';
 
 
 	public function
 
 	declare()
 	{
+
 		// deklarasi input pada halaman publik
 		$this->tabel8_v_input8 = $this->tabel8_field8;
 		$this->tabel8_v_input8_get = $this->input->get($this->tabel8_v_input8);
@@ -316,6 +345,10 @@ class Welcome extends CI_Controller
 		$this->tabel9_tempdata5 = $this->tabel9_field5;
 		$this->tabel9_userdata6 = $this->tabel9_field6;
 		$this->tabel9_tempdata6 = $this->tabel9_field6;
+
+		$this->v_flashdata1_msg1 = 'Selamat datang ' . $this->session->userdata($this->tabel9_userdata6) . ' ' . $this->session->userdata($this->tabel9_userdata2) . '!';
+
+		$this->v9_flashdata1_msg2 = 'Ayo kita lanjutkan ke pemesanan, ' . $this->session->userdata($this->tabel9_userdata6) . ' ' . $this->session->userdata($this->tabel9_userdata2) . '!';
 	}
 
 
@@ -331,12 +364,12 @@ class Welcome extends CI_Controller
 			|| $this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value4
 		) {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Selamat datang ' . $this->session->userdata($this->tabel9_userdata6) . ' ' . $this->session->userdata($this->tabel9_userdata2) . '!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 
 			redirect(site_url($this->c5));
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Selamat datang ' . $this->session->userdata($this->tabel9_userdata6) . ' ' . $this->session->userdata($this->tabel9_userdata2) . '!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
 			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
 			$data = array(
 
@@ -376,6 +409,9 @@ class Welcome extends CI_Controller
 			);
 			$halaman = $this->v2;
 		}
+		$this->session->set_flashdata($this->v_flashdata1, $this->v9_flashdata1_msg2);
+		$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+
 		$this->load->view($halaman, $data);
 	}
 

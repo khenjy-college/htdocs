@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 include 'Welcome.php';
 
 // Jujurly masih banyak bagian di controller ini yang masih menggunakan variabel biasa dan bukan menggunakan declare
+// Aku juga ingin membuat sebuah fitur history transaksi dimana pesanan yang sudah masuk history bakal masuk ke sana
 
 class Transaksi extends Welcome
 {
@@ -343,16 +344,31 @@ class Transaksi extends Welcome
 	public function receipt($id_transaksi = null, $tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			'title' => 'Bukti Reservasi',
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambil($id_transaksi)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result(),
-			$this->tabel2 => $this->htr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
-		$this->load->view('receipt', $data);
+		$param1 = $this->trs->ambil($id_transaksi)->result();
+		$param2 = $param1[0]->id_pesanan;
+
+		$method = $this->htr->ambil_id_pesanan($param2);
+
+		if ($method->num_rows() > 0) {
+			$data2 = array(
+				$this->tabel2 => $this->htr->ambildata()->result(),
+			);
+			$data = array_merge($data1, $data2);
+			$this->load->view('receipt_history', $data);
+		} else {
+			$data2 = array(
+				$this->tabel8 => $this->psn->ambildata()->result(),
+			);
+			$data = array_merge($data1, $data2);
+			$this->load->view('receipt', $data);
+		}
 	}
 }

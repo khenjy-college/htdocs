@@ -23,8 +23,11 @@ Fitur sedang tahap pengembangan
         <td><?= $tr->tgl_transaksi ?></td>
         <td><a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>" href="#">
             <i class="fas fa-eye"></i></a>
+
           <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
             <i class="fas fa-receipt"></i></a>
+
+
         </td>
       </tr>
     <?php endforeach ?>

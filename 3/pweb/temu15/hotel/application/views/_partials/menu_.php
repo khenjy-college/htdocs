@@ -17,11 +17,4 @@ semoga suatu saat akan berhasil :) -->
   <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/fasilitas') ?>">Fasilitas</a>
   </li>
-
-  <li class="nav-item">
-
-    <!-- tombol untuk memunculkan modal cari -->
-    <a class="nav-link text-decoration-none font-weight-bold" data-toggle="modal" data-target="#cari" href="#">Cari</a>
-
-  </li>
 </ul>

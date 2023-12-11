@@ -19,9 +19,9 @@
     <!-- menampilkan data pesanan sebagai ps -->
     <?php foreach ($transaksi as $tr) : ?>
       <?php foreach ($pesanan as $ps) : ?>
-        <?php foreach ($history as $h) : ?>
+        <?php foreach ($tipe_kamar as $tk) : ?>
 
-          <?php if ($tr->id_pesanan === $ps->id_pesanan || $tr->id_pesanan === $h->id_pesanan) { ?>
+          <?php if ($tr->id_pesanan === $ps->id_pesanan && $ps->id_tipe === $tk->id_tipe) { ?>
 
             <!-- menampilkan data pemesan -->
             <table class="table">
@@ -57,7 +57,7 @@
               <tbody>
                 <tr>
                   <td width="25%"><?= $ps->tamu ?></td>
-                  <td width="25%"><?= $ps->id_tipe ?></a>
+                  <td width="25%"><?= $tk->tipe ?></a>
                   <td width="25%"><?= $ps->cek_in ?></td>
                   <td width="25%"><?= $ps->cek_out ?></td>
                   </td>

@@ -23,6 +23,12 @@ class M_history extends CI_Model
 		return $this->db->get($this->tabel);
 	}
 
+	public function ambil_id_pesanan($where)
+	{
+		$this->db->where('id_pesanan', $where);
+		return $this->db->get($this->tabel);
+	}
+
 	public function filter($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max)
 	{
 		$filter = "SELECT * FROM history WHERE 

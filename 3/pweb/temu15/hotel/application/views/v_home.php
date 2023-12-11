@@ -10,14 +10,14 @@
       <div class="col-md-2">
         <div class="form-group">
           <label>Tanggal Cek In</label>
-          <input class="form-control" type="date" required name="cek_in">
+          <input id="cek_in_date" class="form-control" type="date" required oninput="myFunction()" name="cek_in" min="<?= date('Y-m-d'); ?>">
         </div>
       </div>
 
       <div class="col-md-2">
         <div class="form-group">
           <label>Tanggal Cek Out</label>
-          <input class="form-control" type="date" required name="cek_out">
+          <input id="cek_out_date" class="form-control" type="date" required name="cek_out" min="<?= date('Y-m-d', strtotime("+1 day")); ?>">
         </div>
       </div>
 
@@ -60,3 +60,23 @@
 
 <!-- Ide baru : menambahkan fitur pesan hotel
 Tapi ketika user sudah login saja, jika tidak, maka menampilkan tombol login -->
+
+<script>
+  function myFunction() {
+    let x = document.getElementById("cek_in_date").value;
+
+    // Create a Date object with the value from cek_in_date
+    let startDate = new Date(x);
+
+    // Add one day to the date
+    startDate.setDate(startDate.getDate() + 1);
+
+    // Format the date to YYYY-MM-DD (same as input type date)
+    let formattedDate = startDate.toISOString().split('T')[0];
+
+
+    document.getElementById("cek_out_date").min = formattedDate;
+    document.getElementById("cek_out_date").value = formattedDate;
+
+  }
+</script>

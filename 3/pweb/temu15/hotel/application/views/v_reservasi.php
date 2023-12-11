@@ -1,6 +1,4 @@
 <h1>Daftar Reservasi</h1>
-Fitur sedang tahap pengembangan
-*Jika input sudah benar tetapi data tidak muncul, maka Anda harus login terlebih dahulu
 <hr>
 
 
@@ -153,7 +151,7 @@ Fitur sedang tahap pengembangan
 
                 <div class="form-group">
                   <label>Jumlah Bayar</label>
-                  <input class="form-control" type="number" required name="bayar" placeholder="Masukkan jumlah bayar" value="<?= $ps->harga_total ?>">
+                  <input class="form-control" readonly type="number" required name="bayar" placeholder="Masukkan jumlah bayar" value="<?= $ps->harga_total ?>">
                   <input type="hidden" name="status" value="menunggu">
 
                 </div>
