@@ -51,11 +51,11 @@ class Tipe_kamar extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel6_v1 = 'v_' . $this->tabel6;
-		$this->tabel6_v1_title = 'Daftar ' . $this->tabel6;
+		$this->tabel6_v1_title = 'Daftar ' . $this->tabel6_alias;
 		$this->tabel6_v2 = 'v_admin-' . $this->tabel6;
-		$this->tabel6_v2_title = 'Data ' . $this->tabel6;
+		$this->tabel6_v2_title = 'Data ' . $this->tabel6_alias;
 		$this->tabel6_v3 = '_laporan/laporan_' . $this->tabel6;
-		$this->tabel6_v3_title = 'Laporan ' . $this->tabel6;
+		$this->tabel6_v3_title = 'Laporan ' . $this->tabel6_alias;
 
 		// deklarasi variabel controller
 		$this->tabel6_c1 = $this->tabel6;
@@ -78,12 +78,12 @@ class Tipe_kamar extends Welcome
 		$this->tabel6_v_input5_post = $this->input->post($this->tabel6_field5);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel6_v_flashdata1_msg_1 = $this->tabel6 . ' berhasil disimpan!';
-		$this->tabel6_v_flashdata1_msg_2 = $this->tabel6 . ' gagal disimpan!';
-		$this->tabel6_v_flashdata1_msg_3 = 'Status ' . $this->tabel6 . ' berhasil diubah!';
-		$this->tabel6_v_flashdata1_msg_4 = 'Status ' . $this->tabel6 . ' gagal diubah!';
-		$this->tabel6_v_flashdata1_msg_5 = $this->tabel6 . ' berhasil dihapus!';
-		$this->tabel6_v_flashdata1_msg_6 = $this->tabel6 . ' gagal dihapus!';
+		$this->tabel6_v_flashdata1_msg_1 = $this->tabel6_alias . ' berhasil disimpan!';
+		$this->tabel6_v_flashdata1_msg_2 = $this->tabel6_alias . ' gagal disimpan!';
+		$this->tabel6_v_flashdata1_msg_3 = 'Status ' . $this->tabel6_alias . ' berhasil diubah!';
+		$this->tabel6_v_flashdata1_msg_4 = 'Status ' . $this->tabel6_alias . ' gagal diubah!';
+		$this->tabel6_v_flashdata1_msg_5 = $this->tabel6_alias . ' berhasil dihapus!';
+		$this->tabel6_v_flashdata1_msg_6 = $this->tabel6_alias . ' gagal dihapus!';
 	}
 
 
@@ -197,12 +197,12 @@ class Tipe_kamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Laporan Tipe Kamar',
+			'title' => $this->tabel6_v3_title,
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
-		$this->load->view('_laporan/laporan_tipe_kamar', $data);
+		$this->load->view($this->tabel6_v3, $data);
 	}
 }

@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 include 'Welcome.php';
 
+// Jujurly masih banyak bagian di controller ini yang masih menggunakan variabel biasa dan bukan menggunakan declare
 
 class Transaksi extends Welcome
 {
@@ -78,11 +79,11 @@ class Transaksi extends Welcome
 
 		// deklara		$this->tabeli variabel views
 		$this->tabel10_v1 = 'v_' . $this->tabel10;
-		$this->tabel10_v1_title = 'Daftar ' . $this->tabel10;
+		$this->tabel10_v1_title = 'Daftar ' . $this->tabel10_alias;
 		$this->tabel10_v2 = 'v_admin-' . $this->tabel10;
-		$this->tabel10_v2_title = 'Data ' . $this->tabel10;
+		$this->tabel10_v2_title = 'Data ' . $this->tabel10_alias;
 		$this->tabel10_v3 = '_laporan/laporan_' . $this->tabel10;
-		$this->tabel10_v3_title = 'Laporan ' . $this->tabel10;
+		$this->tabel10_v3_title = 'Laporan ' . $this->tabel10_alias;
 
 		// deklarasi variabel controller
 		$this->tabel10_c1 = $this->tabel10;
@@ -107,12 +108,12 @@ class Transaksi extends Welcome
 		$this->tabel10_v_input7_filter2_get = $this->input->get($this->tabel10_v_input7_filter2);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel10_v_flashdata1_msg_1 = $this->tabel10 . ' berhasil disimpan!';
-		$this->tabel10_v_flashdata1_msg_2 = $this->tabel10 . ' gagal disimpan!';
-		$this->tabel10_v_flashdata1_msg_3 = 'Status ' . $this->tabel10 . ' berhasil diubah!';
-		$this->tabel10_v_flashdata1_msg_4 = 'Status ' . $this->tabel10 . ' gagal diubah!';
-		$this->tabel10_v_flashdata1_msg_5 = $this->tabel10 . ' berhasil dihapus!';
-		$this->tabel10_v_flashdata1_msg_6 = $this->tabel10 . ' gagal dihapus!';
+		$this->tabel10_v_flashdata1_msg_1 = $this->tabel10_alias . ' berhasil disimpan!';
+		$this->tabel10_v_flashdata1_msg_2 = $this->tabel10_alias . ' gagal disimpan!';
+		$this->tabel10_v_flashdata1_msg_3 = 'Status ' . $this->tabel10_alias . ' berhasil diubah!';
+		$this->tabel10_v_flashdata1_msg_4 = 'Status ' . $this->tabel10_alias . ' gagal diubah!';
+		$this->tabel10_v_flashdata1_msg_5 = $this->tabel10_alias . ' berhasil dihapus!';
+		$this->tabel10_v_flashdata1_msg_6 = $this->tabel10_alias . ' gagal dihapus!';
 
 
 		// deklarasi session
@@ -146,6 +147,7 @@ class Transaksi extends Welcome
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambildata()->result(),
 			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			'tgl_transaksi_min' => $param1,
@@ -155,7 +157,7 @@ class Transaksi extends Welcome
 		$this->load->view($this->v7, $data);
 	}
 
-	
+
 	public function tambah()
 	{
 		$this->declare();
@@ -222,7 +224,7 @@ class Transaksi extends Welcome
 		redirect(site_url('transaksi/konfirmasi'));
 	}
 
-	
+
 	public function update()
 	{
 		$this->declare();
@@ -347,11 +349,10 @@ class Transaksi extends Welcome
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambil($id_transaksi)->result(),
 			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel2 => $this->htr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view('receipt', $data);
 	}
-
-
 }

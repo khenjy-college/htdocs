@@ -1,5 +1,6 @@
 <h1>Daftar Reservasi</h1>
 Fitur sedang tahap pengembangan
+*Jika input sudah benar tetapi data tidak muncul, maka Anda harus login terlebih dahulu
 <hr>
 
 

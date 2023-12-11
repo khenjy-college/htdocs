@@ -72,11 +72,11 @@ class User extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel9_v1 = 'v_' . $this->tabel9;
-		$this->tabel9_v1_title = 'Daftar ' . $this->tabel9;
+		$this->tabel9_v1_title = 'Daftar ' . $this->tabel9_alias;
 		$this->tabel9_v2 = 'v_admin-' . $this->tabel9;
-		$this->tabel9_v2_title = 'Data ' . $this->tabel9;
+		$this->tabel9_v2_title = 'Data ' . $this->tabel9_alias;
 		$this->tabel9_v3 = '_laporan/laporan_' . $this->tabel9;
-		$this->tabel9_v3_title = 'Laporan ' . $this->tabel9;
+		$this->tabel9_v3_title = 'Laporan ' . $this->tabel9_alias;
 
 		// deklarasi variabel controller
 		$this->tabel9_c1 = $this->tabel9;

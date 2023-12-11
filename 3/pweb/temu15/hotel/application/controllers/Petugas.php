@@ -58,11 +58,11 @@ class Petugas extends Welcome
 		// deklarasi variabel views
 
 		$this->tabel4_v1 = 'v_' . $this->tabel4;
-		$this->tabel4_v1_title = 'Daftar ' . $this->tabel4;
+		$this->tabel4_v1_title = 'Daftar ' . $this->tabel4_alias;
 		$this->tabel4_v2 = 'v_admin-' . $this->tabel4;
-		$this->tabel4_v2_title = 'Data ' . $this->tabel4;
+		$this->tabel4_v2_title = 'Data ' . $this->tabel4_alias;
 		$this->tabel4_v3 = '_laporan/laporan_' . $this->tabel4;
-		$this->tabel4_v3_title = 'Laporan ' . $this->tabel4;
+		$this->tabel4_v3_title = 'Laporan ' . $this->tabel4_alias;
 
 		// deklarasi variabel controller
 		$this->tabel4_c1 = $this->tabel4;
@@ -79,7 +79,7 @@ class Petugas extends Welcome
 		$this->tabel4_v_input3_post = $this->input->post($this->tabel4_field3);
 		$this->tabel4_v_input4_post = $this->input->post($this->tabel4_field4);
 		$this->tabel4_v_input5 = $this->tabel4_field5;
-		$this->tabel4_v_input5_upload_path = './assets/' . $this->tabel4_field5. '/' . $this->tabel4 . '/';
+		$this->tabel4_v_input5_upload_path = './assets/' . $this->tabel4_field5 . '/' . $this->tabel4 . '/';
 		$this->tabel4_v_input5_post = $this->input->post($this->tabel4_v_input5);
 		$this->tabel4_v_input5_alt = 'txt' . $this->tabel4_v_input5;
 
@@ -102,9 +102,9 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Data Petugas',
+			'title' => $this->tabel4_v2_title,
 			'head' => $this->head,
-			'konten' => 'v_admin-petugas',
+			'konten' => $this->tabel4_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()
 		);
@@ -223,12 +223,12 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Laporan Petugas',
+			'title' => $this->tabel4_v3_title,
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()
 		);
 
-		$this->load->view('_laporan/laporan_petugas', $data);
+		$this->load->view($this->tabel4_v3, $data);
 	}
 }

@@ -61,11 +61,11 @@ class Pengaturan extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel7_v1 = 'v_' . $this->tabel7;
-		$this->tabel7_v2_title = 'Daftar ' . $this->tabel7;
+		$this->tabel7_v2_title = 'Daftar ' . $this->tabel7_alias;
 		$this->tabel7_v2 = 'v_admin-' . $this->tabel7;
-		$this->tabel7_v2_title = 'Data ' . $this->tabel7;
+		$this->tabel7_v2_title = 'Data ' . $this->tabel7_alias;
 		$this->tabel7_v3 = '_laporan/laporan_' . $this->tabel7;
-		$this->tabel7_v3_title = 'Laporan ' . $this->tabel7;
+		$this->tabel7_v3_title = 'Laporan ' . $this->tabel7_alias;
 
 		// deklarasi variabel controller
 		$this->tabel7_c1 = $this->tabel7;
@@ -104,13 +104,13 @@ class Pengaturan extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Data Pengaturan',
-			'head' => '_partials/head',
-			'konten' => 'v_admin-pengaturan',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
+			'title' => $this->tabel7_v2_title,
+			'head' => $this->head,
+			'konten' => $this->tabel7_v2,
+			$this->tabel7 => $this->ptn->ambil($id)->result(),
 		);
 
-		$this->load->view('template', $data);
+		$this->load->view($this->v7, $data);
 	}
 
 	public function update()

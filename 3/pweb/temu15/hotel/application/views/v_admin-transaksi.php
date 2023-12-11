@@ -60,7 +60,8 @@
         <td><?= $tr->metode ?></td>
         <td>Rp <?= number_format($tr->bayar, '2', ',', '.') ?></td>
         <td><?= $tr->tgl_transaksi ?></td>
-        <td><a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>" href="#">
+        <td>
+          <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
             <i class="fas fa-eye"></i></a>
           <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
             <i class="fas fa-receipt"></i></a>
@@ -84,10 +85,10 @@
 
 <!-- modal lihat -->
 <?php foreach ($transaksi as $tr) : ?>
-  <?php foreach ($tipe_kamar as $tk) : ?>
-    <?php if ($tr->id_pesanan === $ps->id_pesanan) { ?>
-      <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
-        <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade">
+  <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade" role="dialog">
+    <?php foreach ($pesanan as $ps) : ?>
+      <?php foreach ($tipe_kamar as $tk) : ?>
+        <?php if ($tr->id_pesanan === $ps->id_pesanan || $tk->id_tipe === $ps->id_tipe) { ?>
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -156,8 +157,8 @@
               </div>
             </div>
           </div>
-        </div>
-      <?php } ?>
-    <?php } ?>
-  <?php endforeach ?>
+        <?php } ?>
+      <?php endforeach ?>
+    <?php endforeach ?>
+  </div>
 <?php endforeach ?>

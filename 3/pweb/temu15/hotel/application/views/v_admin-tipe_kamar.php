@@ -72,7 +72,7 @@
 
           <!-- Harga kamar masih menggunakan satuan per kamar, untuk per hari masih belum -->
           <div class="form-group">
-            <label>Harga Kamar (Per Kamar, untuk satuan waktu masih belum)</label>
+            <label>Harga Kamar (Per hari & Per jumlah)</label>
             <input class="form-control" type="number" required name="harga" min="0">
           </div>
 
@@ -111,7 +111,7 @@
             </div>
 
             <div class="form-group">
-              <label>Harga Kamar</label>
+              <label>Harga Kamar (Per hari & Per jumlah)</label>
               <input class="form-control" type="number" required name="harga" value="<?= $tp->harga; ?>">
             </div>
 
@@ -161,7 +161,7 @@
             <hr>
 
             <div class="form-group">
-              <label>Harga Kamar : </label>
+              <label>Harga Kamar (Per hari & Per jumlah) : </label>
               <p>Rp <?= number_format($tp->harga, '2', ',', '.') ?></p>
             </div>
             <hr>

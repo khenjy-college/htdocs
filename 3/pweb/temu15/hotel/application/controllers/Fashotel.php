@@ -65,11 +65,11 @@ class Fashotel extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel3_v1 = 'v_' . $this->tabel3;
-		$this->tabel3_v2_title = 'Daftar ' . $this->tabel3;
+		$this->tabel3_v2_title = 'Daftar ' . $this->tabel3_alias;
 		$this->tabel3_v2 = 'v_admin-' . $this->tabel3;
-		$this->tabel3_v2_title = 'Data ' . $this->tabel3;
+		$this->tabel3_v2_title = 'Data ' . $this->tabel3_alias;
 		$this->tabel3_v3 = '_laporan/laporan_' . $this->tabel3;
-		$this->tabel3_v3_title = 'Laporan ' . $this->tabel3;
+		$this->tabel3_v3_title = 'Laporan ' . $this->tabel3_alias;
 
 		// deklarasi variabel controller
 		$this->tabel3_c1 = $this->tabel3;

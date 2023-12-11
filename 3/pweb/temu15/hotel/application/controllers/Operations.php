@@ -54,10 +54,11 @@ class Operations extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel11_v1 = 'v_-' . $this->tabel11;
+		$this->tabel11_v1_title = 'Daftar ' . $this->tabel11_alias;
 		$this->tabel11_v2 = 'v_admin-' . $this->tabel11;
-		$this->tabel11_v2_title = 'Data ' . $this->tabel11;
+		$this->tabel11_v2_title = 'Data ' . $this->tabel11_alias;
 		$this->tabel11_v3 = '_laporan/laporan_' . $this->tabel11;
-		$this->tabel11_v3_title = 'Laporan ' . $this->tabel11;
+		$this->tabel11_v3_title = 'Laporan ' . $this->tabel11_alias;
 
 		// deklarasi variabel controller
 		$this->tabel11_c1 = $this->tabel11;
@@ -93,9 +94,9 @@ class Operations extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Data Operations',
+			'title' => $this->tabel11_v2_title,
 			'head' => $this->head,
-			'konten' => 'v_admin-operations',
+			'konten' => $this->tabel11_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel11 => $this->ops->ambildata()->result(),
 			$this->tabel4 => $this->pts->ambildata()->result(),
@@ -140,6 +141,9 @@ class Operations extends Welcome
 		redirect(site_url($this->tabel5_c1));
 	}
 
+	// Fungsi update saat ini belum dibutuhkan karena operations saat ini pada dasarnya adalah
+	// Data untuk menyimpan history dari operasi yang dilakukan oleh hotel 
+	// Namun tidak menutup kemungkinan bahwa fitur ini akan digunakan nantinya
 	public function update()
 	{
 	}
@@ -171,82 +175,69 @@ class Operations extends Welcome
 			$this->tabel11 => $this->ops->ambildata()->result()
 		);
 
-		$this->load->view('_laporan/laporan_operations', $data);
+		$this->load->view($this->tabel11_v3, $data);
 	}
 
-	public function daftar($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->session->userdata($this->tabel9_userdata1);
-		$data = array(
-			'title' => 'Data Operations',
-			'head' => $this->head,
-			'konten' => 'v_reservasi',
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel11 => $this->ops->ambil_id_user($where)->result()
-		);
+	// Fitur ini masih perencanaan
+	// Rencananya petugas bisa login sebagai akun juga dan bisa melihat daftar operasi yang telah dilakukannya
+	// Namun mengingat use case dan kebutuhan yang sepertinya minim 
+	// Untuk sementara ini disimpan untuk kepentingan ke depan
+	// public function daftar($tabel7_field1 = 1)
+	// {
+	// 	$this->declare();
+	// 	$where = $this->session->userdata($this->tabel9_userdata1);
+	// 	$data = array(
+	// 		'title' => $this->tabel11_v1_title,
+	// 		'head' => $this->head,
+	// 		'konten' => $this->tabel11_v1,
+	// 		$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+	// 		$this->tabel11 => $this->ops->ambil_id_user($where)->result()
+	// 	);
 
-		$this->load->view($this->v7, $data);
-	}
+	// 	$this->load->view($this->v7, $data);
+	// }
 
-	public function cari($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$id_operations = $this->input->get('id_operations');
-		$email = $this->input->get('email');
+	// Kemungkinan bakal ada fitur status dalam pengelolaan operasi yang dilakukan oleh petugas
+	// Namun mengingat kebutuhan yang sangat minim, saat ini fitur ini disimpan dulu
+	// public function update_status($tabel7_field1 = 1)
+	// {
+	// 	$this->declare();
+	// 	$where = $this->tabel11_v_input1_post;
+	// 	$data = array(
+	// 		'status' => $this->input->post('status')
+	// 	);
 
-		$data = array(
-			'title' => 'Data Operations',
-			'head' => $this->head,
-			'konten' => 'v_reservasi',
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+	// 	// jika status pesanan cek in
+	// 	if ($this->input->post('status') == 'cek in') {
 
-			// mencari dan menampilkan id operations berdasarkan id_operations yang telah diinput
-			$this->tabel11 => $this->ops->cari($id_operations, $email)->result()
-		);
+	// 		// hanya merubah status pesanan
+	// 		$update = $this->ops->update($data, $where);
 
-		$this->load->view($this->v7, $data);
-	}
+	// 		// jika status pesanan cek out
+	// 	} elseif ($this->input->post('status') == 'cek out') {
 
-	public function update_status($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->tabel11_v_input1_post;
-		$data = array(
-			'status' => $this->input->post('status')
-		);
+	// 		// menghapus data pesanan supaya trigger tambah_kamar dapat berjalan
+	// 		$hapus = $this->ops->hapus($where);
 
-		// jika status pesanan cek in
-		if ($this->input->post('status') == 'cek in') {
+	// 		// memasukkan nama resepsionis yang melakukan operasi
+	// 		$data = array(
+	// 			'user_aktif' => $this->session->userdata('nama')
+	// 		);
 
-			// hanya merubah status pesanan
-			$update = $this->ops->update($data, $where);
+	// 		// mengupdate pesanan dengan nama user yang aktif
+	// 		$update = $this->ops->update_pesanan($data, $where);
+	// 	}
 
-			// jika status pesanan cek out
-		} elseif ($this->input->post('status') == 'cek out') {
+	// 	if ($update) {
 
-			// menghapus data pesanan supaya trigger tambah_kamar dapat berjalan
-			$hapus = $this->ops->hapus($where);
+	// 		$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan berhasil diubah!');
+	// 		$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+	// 	} else {
 
-			// memasukkan nama resepsionis yang melakukan operasi
-			$data = array(
-				'user_aktif' => $this->session->userdata('nama')
-			);
+	// 		$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan gagal diubah!');
+	// 		$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+	// 	}
 
-			// mengupdate pesanan dengan nama user yang aktif
-			$update = $this->ops->update_pesanan($data, $where);
-		}
-
-		if ($update) {
-
-			$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan berhasil diubah!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		} else {
-
-			$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan gagal diubah!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		}
-
-		redirect(site_url($this->tabel11_c1));
-	}
+	// 	redirect(site_url($this->tabel11_c1));
+	// }
 }

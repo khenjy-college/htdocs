@@ -45,11 +45,11 @@ class Kamar extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel5_v1 = 'v_' . $this->tabel5;
-		$this->tabel5_v1_title = 'Daftar ' . $this->tabel5;
+		$this->tabel5_v1_title = 'Daftar ' . $this->tabel5_alias;
 		$this->tabel5_v2 = 'v_admin-' . $this->tabel5;
-		$this->tabel5_v2_title = 'Data ' . $this->tabel5;
+		$this->tabel5_v2_title = 'Data ' . $this->tabel5_alias;
 		$this->tabel5_v3 = '_laporan/laporan_' . $this->tabel5;
-		$this->tabel5_v3_title = 'Laporan ' . $this->tabel5;
+		$this->tabel5_v3_title = 'Laporan ' . $this->tabel5_alias;
 
 		// deklarasi variabel controller
 		$this->tabel5_c1 = $this->tabel5;
@@ -82,9 +82,9 @@ class Kamar extends Welcome
 		$this->declare();
 
 		$data = array(
-			'title' => 'Data Kamar',
+			'title' => $this->tabel5_v2_title,
 			'head' => $this->head,
-			'konten' => 'v_admin-kamar',
+			'konten' => $this->tabel5_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel5 => $this->kmr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -160,12 +160,12 @@ class Kamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Laporan Kamar',
+			'title' => $this->tabel5_v3_title,
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel5 => $this->kmr->ambildata()->result()
 		);
 
-		$this->load->view('_laporan/laporan_kamar', $data);
+		$this->load->view($this->tabel5_v3, $data);
 	}
 }

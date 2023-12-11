@@ -50,12 +50,12 @@ class Faskamar extends Welcome
 		// seperti di atas bentuknya jika ingin mengambil variabel di luar controller
 
 		$this->tabel1_v1 = 'v_' . $this->tabel1;
-		$this->tabel1_v1_title = 'Daftar ' . $this->tabel1;
+		$this->tabel1_v1_title = 'Daftar ' . $this->tabel1_alias;
 		$this->tabel1_v2 = 'v_admin-' . $this->tabel1;
-		$this->tabel1_v2_title = 'Data ' . $this->tabel1;
+		$this->tabel1_v2_title = 'Data ' . $this->tabel1_alias;
 		$this->tabel1_v3 = '_laporan/laporan_' . $this->tabel1;
+		$this->tabel1_v3_title = 'Laporan ' . $this->tabel1_alias;
 
-		$this->tabel1_v3_title = 'Laporan ' . $this->tabel1;
 		// deklarasi variabel controller
 		$this->tabel1_c1 = $this->tabel1;
 		$this->tabel1_c2 = $this->tabel1 . '/tambah';
@@ -89,9 +89,9 @@ class Faskamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Data Faskamar',
+			'title' => $this->tabel1_v2_title,
 			'head' => $this->head,
-			'konten' => 'v_admin-faskamar',
+			'konten' => $this->tabel1_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel1 => $this->fsk->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -194,7 +194,7 @@ class Faskamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Laporan Fasilitas Kamar',
+			'title' => $this->tabel1_v3_title,
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel1 => $this->fsk->ambildata()->result()

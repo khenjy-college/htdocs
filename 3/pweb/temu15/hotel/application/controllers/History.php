@@ -172,9 +172,9 @@ class History extends Welcome
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => 'Data History',
-			'head' => '_partials/head',
-			'konten' => 'v_admin-history',
+			'title' => $this->tabel2_v2_title,
+			'head' => $this->head,
+			'konten' => $this->tabel2_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -201,9 +201,9 @@ class History extends Welcome
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => 'History Pesanan',
-			'head' => '_partials/head',
-			'konten' => 'v_history',
+			'title' => $this->tabel2_v1_title,
+			'head' => $this->head,
+			'konten' => $this->tabel2_v1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambil_id_user($where)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -285,13 +285,13 @@ class History extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Laporan History',
-			'head' => '_partials/head',
+			'title' => $this->tabel2_v3_title,
+			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
-		$this->load->view('_laporan/laporan_history', $data);
+		$this->load->view($this->tabel2_v3, $data);
 	}
 }

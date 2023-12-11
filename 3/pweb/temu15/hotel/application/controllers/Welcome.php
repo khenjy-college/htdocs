@@ -8,6 +8,7 @@ class Welcome extends CI_Controller
 	// deklarasi variabel per tabel
 	// deklarasi tabel 1
 	public $tabel1 = 'faskamar';
+	public $tabel1_alias = 'Fasilitas Kamar';
 	// deklarasi variabel bagian field
 	public $tabel1_field1 = 'id_faskamar';
 	public $tabel1_field2 = 'tipe';
@@ -18,6 +19,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 2
 	public $tabel2 = 'history';
+	public $tabel2_alias = 'History Pemesanan';
 	// deklarasi variabel bagian field
 	public $tabel2_field1 = 'id_history';
 	public $tabel2_field2 = 'id_pesanan';
@@ -38,6 +40,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 3
 	public $tabel3 = 'fashotel';
+	public $tabel3_alias = 'Fasilitas Hotel';
 	// deklarasi variabel bagian field
 	public $tabel3_field1 = 'id_fashotel';
 	public $tabel3_field2 = 'nama';
@@ -47,6 +50,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 4
 	public $tabel4 = 'petugas';
+	public $tabel4_alias = 'Petugas';
 	// deklarasi variabel bagian field
 	public $tabel4_field1 = 'id_petugas';
 	public $tabel4_field2 = 'nama';
@@ -59,6 +63,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 5
 	public $tabel5 = 'kamar';
+	public $tabel5_alias = 'Kamar';
 	// deklarasi variabel bagian field
 	public $tabel5_field1 = 'no_kamar';
 	public $tabel5_field2 = 'id_tipe';
@@ -68,6 +73,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 6
 	public $tabel6 = 'tipe_kamar';
+	public $tabel6_alias = 'Tipe Kamar';
 	// deklarasi variabel bagian field
 	public $tabel6_field1 = 'id_tipe';
 	public $tabel6_field2 = 'tipe';
@@ -79,6 +85,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 7
 	public $tabel7 = 'pengaturan';
+	public $tabel7_alias = 'Pengaturan Website';
 	// deklarasi variabel bagian field
 	public $tabel7_field1 = 'id';
 	public $tabel7_field2 = 'nama';
@@ -95,6 +102,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 8
 	public $tabel8 = 'pesanan';
+	public $tabel8_alias = 'Pesanan';
 	// deklarasi variabel bagian field
 	public $tabel8_field1 = 'id_pesanan';
 	public $tabel8_field2 = 'id_user';
@@ -118,6 +126,7 @@ class Welcome extends CI_Controller
 
 	// deklarasi tabel 9
 	public $tabel9 = 'user';
+	public $tabel9_alias = 'User';
 	// deklarasi variabel bagian field
 	public $tabel9_field1 = 'id_user';
 	public $tabel9_field2 = 'nama';
@@ -136,6 +145,7 @@ class Welcome extends CI_Controller
 	// deklarasi variabel per tabel
 	// deklarasi tabel 1
 	public $tabel10 = 'transaksi';
+	public $tabel10_alias = 'Transaksi';
 	// deklarasi variabel bagian field
 	public $tabel10_field1 = 'id_transaksi';
 	public $tabel10_field2 = 'id_user';
@@ -152,6 +162,7 @@ class Welcome extends CI_Controller
 
 
 	public $tabel11 = 'operations';
+	public $tabel11_alias = 'Operasi Hotel';
 	// deklarasi variabel bagian field
 	public $tabel11_field1 = 'id_operations';
 	public $tabel11_field2 = 'no_kamar';
@@ -211,7 +222,9 @@ class Welcome extends CI_Controller
 
 
 
-	// deklarasi views yang tidak terhubung ke basis data
+	// deklarasi views yang saat ini belum terhubung ke basis data
+	// Ada rencana untuk menggunakan _alias dari untuk membuat title kamar semakin cantik dan interaktif
+	// Namun hal itu saat ini digunakan di halaman admin saja untuk konsistensi
 	public $head = '_partials/head';
 
 	public $v1 = 'konfirmasi';
@@ -237,6 +250,27 @@ class Welcome extends CI_Controller
 	public $v10_title = 'Profil';
 	public $v11 = 'v_reservasi';
 	public $v11_title = 'Data Pemesanan';
+
+	// Di bawah ini adalah deklarasi field tabel yang akan menggunakan alias dari masing2, dua atau lebih alias field tabel
+	// Dengan adanya variabel ini, perencanaan tampilan tabel bisa menjadi lebih fleksibel dan lebih terorganisir karena
+	// hanya memerlukan satu kali deklarasi saja
+	// Jumlah variabel yang digunakan dapat disesuaikan dengan kebutuhan tiap-tiap function atau halaman
+	// Hal ini bisa dikembangkan dengan membuat sebuah variabel view tabel supaya semuanya dapat diplanning di satu tempat
+	public $v_field1;
+	public $v_field2;
+	public $v_field3;
+	public $v_field4;
+	public $v_field5;
+	public $v_field6;
+	public $v_field7;
+	public $v_field8;
+	public $v_field9;
+	public $v_field10;
+	public $v_field11;
+	public $v_field12;
+	public $v_field13;
+	public $v_field14;
+	public $v_field15;
 
 
 	// deklarasi flashdata
@@ -292,7 +326,7 @@ class Welcome extends CI_Controller
 		$this->declare();
 		// mengarahkan pengguna ke halaman masing-masing sesuai level
 		if (
-			$this->session->userdata($this->tabel9_userdata6) === site_url($this->tabel9_field6_value2)
+			$this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value2
 			|| $this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value3
 			|| $this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value4
 		) {

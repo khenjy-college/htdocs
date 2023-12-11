@@ -1,6 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+// Masih banyak fitur-fitur yang kurang pada fitur pesanan seperti fitur cancel pesanan.
+// Dan juga seharusnya ketika user melakukan pesanan seharusnya stok kamar tidak langsung berkurang
+// // Melainkan harus menunggu resepsionis membooking kamar untuk customer terlebih dulu
+// Saya baru berpikir untuk mengubah juga query sql pada trigger tambah kamar
+// Yaitu untuk menambah stok kamar dan input ke history jika status pesannanya NOT IN (pending)
+// Hal ini akan diperbaiki pada waktu-waktu mendatang. 
+
 include 'Welcome.php';
 class Pesanan extends Welcome
 {
@@ -102,11 +109,11 @@ class Pesanan extends Welcome
 
 		// deklarasi variabel views
 		$this->tabel8_v1 = 'v_' . $this->tabel8;
-		$this->tabel8_v1_title = 'Daftar ' . $this->tabel8;
+		$this->tabel8_v1_title = 'Daftar ' . $this->tabel8_alias;
 		$this->tabel8_v2 = 'v_admin-' . $this->tabel8;
-		$this->tabel8_v2_title = 'Data ' . $this->tabel8;
+		$this->tabel8_v2_title = 'Data ' . $this->tabel8_alias;
 		$this->tabel8_v3 = '_laporan/laporan_' . $this->tabel8;
-		$this->tabel8_v3_title = 'Laporan ' . $this->tabel8;
+		$this->tabel8_v3_title = 'Laporan ' . $this->tabel8_alias;
 
 		// deklarasi variabel controller
 		$this->tabel8_c1 = $this->tabel8;
@@ -156,12 +163,12 @@ class Pesanan extends Welcome
 
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel8_v_flashdata1_msg_1 = $this->tabel8 . ' berhasil disimpan!';
-		$this->tabel8_v_flashdata1_msg_2 = $this->tabel8 . ' gagal disimpan!';
-		$this->tabel8_v_flashdata1_msg_3 = 'Status ' . $this->tabel8 . ' berhasil diubah!';
-		$this->tabel8_v_flashdata1_msg_4 = 'Status ' . $this->tabel8 . ' gagal diubah!';
-		$this->tabel8_v_flashdata1_msg_5 = $this->tabel8 . ' berhasil dihapus!';
-		$this->tabel8_v_flashdata1_msg_6 = $this->tabel8 . ' gagal dihapus!';
+		$this->tabel8_v_flashdata1_msg_1 = $this->tabel8_alias . ' berhasil disimpan!';
+		$this->tabel8_v_flashdata1_msg_2 = $this->tabel8_alias . ' gagal disimpan!';
+		$this->tabel8_v_flashdata1_msg_3 = 'Status ' . $this->tabel8_alias . ' berhasil diubah!';
+		$this->tabel8_v_flashdata1_msg_4 = 'Status ' . $this->tabel8_alias . ' gagal diubah!';
+		$this->tabel8_v_flashdata1_msg_5 = $this->tabel8_alias . ' berhasil dihapus!';
+		$this->tabel8_v_flashdata1_msg_6 = $this->tabel8_alias . ' gagal dihapus!';
 
 
 		// deklarasi menggunakan nilai tabel lain
@@ -236,6 +243,7 @@ class Pesanan extends Welcome
 
 		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
 		$harga_total = ($numberdays * $tipe_kamar[0]->harga);
+
 		//mengecek apakah ada pesanan yang telah dilakukan -->
 		//Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pesanan yang telah dilakukan. -->
 		//Dengan fitur ini, tamu dapat memesan lebih dari satu kamar  -->
@@ -249,6 +257,29 @@ class Pesanan extends Welcome
 
 		// 	}
 		// }
+
+		// $da = array(
+		// 	for($i = 0; $i < $this->tabel8_v_input8_post; $i++) {
+		// 		array(
+		// 			$this->tabel8_field1 => $this->tabel8_v_input1_alt,
+		// 			$this->tabel8_field2 => $this->tabel8_v_input2_post,
+		// 			$this->tabel8_field3 => $this->tabel8_v_input3_post,
+		// 		$this->tabel8_field4 => $param4,
+		// 		$this->tabel8_field5 => $this->tabel8_v_input5_post,
+		// 		$this->tabel8_field6 => $this->tabel8_v_input6_post,
+		// 		$this->tabel8_field7 => $this->tabel8_v_input7_post,
+		// 		$this->tabel8_field8 => $param8,
+		// 		$this->tabel8_field9 => $harga_total,
+		// 		$this->tabel8_field10 => $this->tabel8_v_input10_post,
+		// 		$this->tabel8_field11 => $this->tabel8_v_input11_post,
+
+
+
+		// 		// status akan kuubah menjadi pending karena resepsionis wajib memilihkan kamar untuk user
+		// 		$this->tabel8_field12 => $this->tabel8_field12_value1,
+		// 		// 'status' => "belum bayar"
+		// 	} 	
+		// 	);
 
 		$data = array(
 			$this->tabel8_field1 => $this->tabel8_v_input1_alt,
