@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Kamar</h1>
+<h1><?= $title ?></h1>
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
@@ -32,8 +32,17 @@
             <i class="fas fa-eye"></i></a>
           <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tp->id_tipe; ?>">
             <i class="fas fa-edit"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kamar?')" href="<?= site_url('tipe_kamar/hapus/' . $tp->id_tipe) ?>">
-            <i class="fas fa-trash"></i></a>
+
+
+          <!-- Ini adalah fitur yang akan kupending terlebih dahulu
+            Rencananya ini akan kubuka lagi setelah kupelajari cascade
+            Rencanannya jika user menghapus data tipe kamar, maka ada use case yang terjadi
+            Namun use case tersebut saat ini masih belum bisa ditentukan
+            Entah itu mau menghapus data yang berada di tabel child, atau meng-NULL kan data di child table
+            Hal itu perlu didiskusikan lebih lanjut supaya tidak ada bug yang tidak diinginkan -->
+          <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kamar?')" href="<?= site_url('tipe_kamar/hapus/' . $tp->id_tipe) ?>">
+            <i class="fas fa-trash"></i></a> -->
+
         </td>
       </tr>
     <?php endforeach; ?>
@@ -115,7 +124,9 @@
               <input class="form-control" type="number" required name="harga" value="<?= $tp->harga; ?>">
             </div>
 
-            <img src="img/tipe_kamar/<?= $tp->img; ?>" width="300">
+            <div class="form-group">
+              <img src="img/tipe_kamar/<?= $tp->img; ?>" width="300">
+            </div>
             <hr>
 
             <div class="form-group">
@@ -166,7 +177,10 @@
             </div>
             <hr>
 
-            <img src="img/tipe_kamar/<?= $tp->img; ?>" width="450">
+            <div class="form-group">
+              <img src="img/tipe_kamar/<?= $tp->img; ?>" width="450">
+
+            </div>
 
           </div>
 

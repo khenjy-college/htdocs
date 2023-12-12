@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-md-6">
 
-  <!-- form edit favicon, logo, dan foto -->
+    <!-- form edit favicon, logo, dan foto -->
     <?php foreach ($pengaturan as $p) : ?>
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon<?= $p->id; ?>">
         <i class="fas fa-edit"></i> Favicon</a>
@@ -80,7 +80,10 @@
 
         <form action="<?= site_url('pengaturan/update_favicon') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <img src="img/<?= $p->favicon; ?>" width="300">
+
+            <div class="form-group">
+              <img src="img/<?= $p->favicon; ?>" width="300">
+            </div>
             <hr>
 
             <div class="form-group">
@@ -115,8 +118,12 @@
 
         <form action="<?= site_url('pengaturan/update_logo') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <img src="img/<?= $p->logo; ?>" width="300">
+
+            <div class="form-group">
+              <img src="img/<?= $p->logo; ?>" width="300">
+            </div>
             <hr>
+
 
             <div class="form-group">
               <label>Ubah Logo</label>
@@ -150,7 +157,10 @@
 
         <form action="<?= site_url('pengaturan/update_foto') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <img src="img/<?= $p->foto; ?>" width="300">
+
+            <div class="form-group">
+              <img src="img/<?= $p->foto; ?>" width="300">
+            </div>
             <hr>
 
             <div class="form-group">
@@ -160,7 +170,7 @@
               <input type="hidden" name="txtfoto" value="<?= $p->foto; ?>">
             </div>
           </div>
-          
+
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah foto website?')" type="submit">Simpan Perubahan</button>
           </div>

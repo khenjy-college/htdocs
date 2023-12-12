@@ -8,7 +8,6 @@
       <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= site_url('pesanan/daftar') ?>">Daftar Reservasi</a>
         <a class="dropdown-item" href="<?= site_url('history/daftar') ?>">History Reservasi</a>
-        <a class="dropdown-item" href="<?= site_url('transaksi/daftar') ?>">Daftar Transaksi</a>
         <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>
         <a class="dropdown-item" href="<?= site_url('user/logout') ?>">Logout</a>
       </div>
@@ -23,6 +22,17 @@
   <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/fasilitas') ?>">Fasilitas</a>
   </li>
+  <li class="nav-item">
+    <div class="dropdown">
+      <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">Daftar Transaksi</a>
+
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="<?= site_url('transaksi/daftar') ?>">Transaksi Aktif</a>
+        <a class="dropdown-item" href="<?= site_url('transaksi/daftar_history') ?>">Transaksi History</a>
+      </div>
+    </div>
+  </li>
+
   <li class="nav-item">
 
     <!-- tombol untuk memunculkan modal cari -->

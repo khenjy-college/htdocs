@@ -33,8 +33,12 @@
             <i class="fas fa-eye"></i></a>
           <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $u->id_user; ?>">
             <i class="fas fa-edit"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="<?= site_url('user/hapus/' . $u->id_user) ?>">
-            <i class="fas fa-trash"></i></a>
+
+          <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
+          Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
+          <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('user/hapus/' . $u->id_user) ?>">
+            <i class="fas fa-trash"></i></a> -->
+
         </td>
       </tr>
     <?php endforeach; ?>
@@ -110,10 +114,10 @@
             <!-- hanya admin yang bisa menentukan level user -->
             <select class="form-control" required name="level">
               <option value="" selected hidden>Pilih Level User</option>
-              <option value="tamu">Tamu</option>
-              <option value="resepsionis">Resepsionis</option>
-              <option value="accounting">Accounting</option>
-              <option value="administrator">Administrator</option>
+              <option value="tamu">tamu</option>
+              <option value="resepsionis">resepsionis</option>
+              <option value="accounting">accounting</option>
+              <option value="administrator">administrator</option>
             </select>
           </div>
         </div>
@@ -152,7 +156,7 @@
 
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
               </div>
               <input class="form-control" type="email" required name="email" value="<?= $u->email; ?>">
             </div>
@@ -170,10 +174,10 @@
               </div>
               <select class="form-control" required name="level">
                 <option selected hidden><?= $u->level; ?></option>
-                <option value="tamu">Tamu</option>
-                <option value="resepsionis">Resepsionis</option>
-                <option value="accounting">Accounting</option>
-                <option value="administrator">Administrator</option>
+                <option value="tamu">tamu</option>
+                <option value="resepsionis">resepsionis</option>
+                <option value="accounting">accounting</option>
+                <option value="administrator">administrator</option>
               </select>
             </div>
           </div>

@@ -384,6 +384,7 @@ class User extends Welcome
 				} else {
 
 					$this->session->set_flashdata($this->v_flashdata1, 'Konfirmasi ' . $this->tabel9_field4 . ' tidak sesuai!');
+					$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func);
 					redirect($_SERVER['HTTP_REFERER']);
 				}
 
@@ -391,6 +392,7 @@ class User extends Welcome
 			} else {
 
 				$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_field4 . ' lama salah!');
+				$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 
@@ -398,6 +400,7 @@ class User extends Welcome
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, 'Akun tidak tersedia!');
+			$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}

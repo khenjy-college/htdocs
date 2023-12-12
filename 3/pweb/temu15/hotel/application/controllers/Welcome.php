@@ -18,6 +18,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 // Dengan mempelajari hal tersebut, maka mempelajari framework lain yang lebih terkenal seperti react js tentu lebih mudah
 
+// Aku juga harus sering menerapkan fitur html yang diperlihatkan oleh pak ilwan melalui excel
+// Pak Ilwan bisa membuat sebuah receipt melalui excel yang diexport ke html, dan diubah menjadi php 
+// Masih banyak lagi yang bisa diexport ke html selain excel, dan aku tidak ingin menyia2kan kesempatan itu tentunya
+
+// Selain itu aku juga perlu menerapkan github lebih sering, karena banyak tools2 yang berguna dan bisa kugunakan di sana
+
 class Welcome extends CI_Controller
 {
 	// Menggunakan variabel sebagai alat pembantu, persyaratan
@@ -305,7 +311,7 @@ class Welcome extends CI_Controller
 	public $v_flashdata3_msg1;
 	public $v_flashdata3_msg2;
 	public $v_flashdata4 = 'modal';
-	public $v_flashdata4_func = '$("#element").modal("show")';
+	public $v_flashdata4_func = '$("#password").modal("show")';
 
 
 	public function

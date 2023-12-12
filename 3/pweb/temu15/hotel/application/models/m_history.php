@@ -34,7 +34,7 @@ class M_history extends CI_Model
 		$filter = "SELECT * FROM history WHERE 
 		
 		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
-		 AND 
+		 OR 
 		
 		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
 		";
@@ -43,10 +43,10 @@ class M_history extends CI_Model
 
 	public function filter_tamu($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max, $where)
 	{
-		$filter = "SELECT * FROM pesanan WHERE 
+		$filter = "SELECT * FROM history WHERE 
 		id_user IN ('" . $where . "') AND
 		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
-		AND
+		OR
 		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
 		";
 		return $this->db->query($filter);

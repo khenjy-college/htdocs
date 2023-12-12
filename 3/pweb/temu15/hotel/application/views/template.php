@@ -174,6 +174,7 @@
         $('#data').DataTable();
 
         <?= $this->session->flashdata('panggil') ?>
+        <?= $this->session->flashdata('modal') ?>
       });
 
       var table = $('#daterange_table').DataTable({

@@ -30,15 +30,18 @@
         <td><?= $p->nama ?></td>
         <td><?= $p->email ?></td>
         <td><?= $p->hp ?></td>
-        <td><img src="img/petugas/<?= $p->img ?>" width="100"></td>
+        <td><img src="img/petugas/<?= $p->img ?>" width="50"></td>
         <td><?= $p->role ?></td>
         <td><?= $p->poin ?></td>
         <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $p->id_petugas; ?>">
             <i class="fas fa-eye"></i></a>
           <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $p->id_petugas; ?>">
             <i class="fas fa-edit"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus petugas?')" href="<?= site_url('petugas/hapus/' . $p->id_petugas) ?>">
-            <i class="fas fa-trash"></i></a>
+
+          <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
+          Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
+          <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus petugas?')" href="<?= site_url('petugas/hapus/' . $p->id_petugas) ?>">
+            <i class="fas fa-trash"></i></a> -->
         </td>
       </tr>
     <?php endforeach; ?>
@@ -162,7 +165,9 @@
               <input class="form-control" type="text" required name="hp" value="<?= $p->hp; ?>">
             </div>
 
-            <img src="img/petugas/<?= $p->img; ?>" width="300">
+            <div class="form-group">
+              <img src="img/petugas/<?= $p->img; ?>" width="300">
+            </div>
             <hr>
 
             <div class="input-group">
@@ -234,10 +239,9 @@
 
             <div class="form-group">
               <img src="img/petugas/<?= $p->img; ?>" width="300">
-
             </div>
             <hr>
-            
+
             <div class="form-group">
               <label>Role Petugas : </label>
               <p><?= $p->role; ?></p>

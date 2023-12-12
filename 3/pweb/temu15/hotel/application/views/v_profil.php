@@ -5,7 +5,7 @@
     <?php foreach ($user as $u) : ?>
 
       <!-- tombol untuk memunculkan modal memperbaiki password -->
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $u->id_user; ?>">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password">
         <i class="fas fa-edit"></i> Ubah Password</a>
 
       <!-- form ini terpisah dengan form ubah password untuk keamanan sesama :) -->
@@ -42,7 +42,7 @@
 
 <!-- modal edit password-->
 <?php foreach ($user as $u) : ?>
-  <div id="password<?= $u->id_user; ?>" class="modal fade">
+  <div id="password" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

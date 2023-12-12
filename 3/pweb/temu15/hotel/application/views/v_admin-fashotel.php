@@ -152,7 +152,11 @@
               <textarea class="form-control" required name="keterangan" rows="3"><?= $fh->keterangan; ?></textarea>
             </div>
 
-            <img src="img/fashotel/<?= $fh->img; ?>" width="300">
+            <div class="form-group">
+
+              <img src="img/fashotel/<?= $fh->img; ?>" width="300">
+            </div>
+
             <hr>
 
             <!-- jika img tidak diinput, maka txtimg akan diinput -->

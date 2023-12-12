@@ -84,7 +84,7 @@
   <tbody>
     <?php foreach ($history as $h) : ?>
       <?php foreach ($tipe_kamar as $tk) : ?>
-        <?php if ($tk->id_tipe == $h->id_tipe) { ?>
+        <?php if ($tk->id_tipe === $h->id_tipe) { ?>
           <tr>
             <td><?= $h->id_pesanan ?></td>
             <td><?= $h->tamu ?></td>
@@ -137,16 +137,19 @@
                     <label>Id Pesanan</label>
                     <p><?= $h->id_pesanan ?></p>
                   </div>
+                  <hr>
 
                   <div class="form-group">
                     <label>Pemesan</label>
                     <p><?= $h->pemesan ?></p>
                   </div>
+                  <hr>
 
                   <div class="form-group">
                     <label>Email</label>
                     <p><?= $h->email ?></p>
                   </div>
+                  <hr>
 
                   <div class="form-group">
                     <label>Nomor Telepon</label>
@@ -159,6 +162,7 @@
                     <label>Nama Tamu</label>
                     <p><?= $h->tamu ?></p>
                   </div>
+                  <hr>
 
                   <div class="form-group">
                     <label>Tipe Kamar</label>
@@ -166,11 +170,13 @@
                     <p><?= $tk->tipe ?></p>
 
                   </div>
+                  <hr>
 
                   <div class="form-group">
                     <label>Tanggal Cek In</label>
                     <p><?= $h->cek_in ?></p>
                   </div>
+                  <hr>
 
                   <div class="form-group">
                     <label>Tanggal Cek Out</label>

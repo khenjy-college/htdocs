@@ -134,7 +134,10 @@
               <input type="hidden" name="id_faskamar" value="<?= $fk->id_faskamar; ?>">
             </div>
 
-            <img src="img/faskamar/<?= $fk->img; ?>" width="300">
+            <div class="form-group">
+              <img src="img/faskamar/<?= $fk->img; ?>" width="300">
+            </div>
+
             <hr>
 
             <div class="form-group">

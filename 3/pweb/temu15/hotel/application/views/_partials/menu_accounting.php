@@ -15,7 +15,14 @@
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/dashboard') ?>">Dashboard</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('transaksi') ?>">Daftar Transaksi</a>
+    <div class="dropdown">
+      <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">Daftar Transaksi</a>
+
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="<?= site_url('transaksi') ?>">Transaksi Aktif</a>
+        <a class="dropdown-item" href="<?= site_url('transaksi/history') ?>">Transaksi History</a>
+      </div>
+    </div>
   </li>
 
 </ul>

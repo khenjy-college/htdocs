@@ -1,6 +1,45 @@
+<?php if ($this->session->userdata('level') <> 'accounting') {
+  redirect(site_url('welcome/no_level'));
+} ?>
+
 <h1><?= $title ?></h1>
-Fitur sedang tahap pengembangan
 <hr>
+
+<!-- Tabel filter tanggal transaksi -->
+<!-- <table class="mb-4">
+   method get supaya nilai dari filter bisa tampil nanti 
+   Mengecek data menggunakan tanggal cek in 
+  <form action="<?= site_url('transaksi/filter') ?>" method="get">
+    <tr>
+      <td class="pr-2">Tanggal Transaksi</td>
+      <td class="pr-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Dari</span>
+          </div>
+          <input type="date" class="form-control" name="tgl_transaksi_min" value="<?= $tgl_transaksi_min ?>">
+        </div>
+      </td>
+      <td class="pr-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Ke</span>
+          </div>
+          <input type="date" class="form-control" name="tgl_transaksi_max" value="<?= $tgl_transaksi_max ?>">
+        </div>
+      </td>
+
+      <td>
+        <button class="btn btn-light text-info" type="submit">
+          <a type="submit"><i class="fas fa-search"></i></a>
+        </button>
+        <a class="btn btn-light text-info" type="button" href="<?= site_url('transaksi') ?>">
+          <i class="fas fa-redo"></i></a>
+      </td>
+    </tr>
+  </form>
+</table> -->
+
 <table class="table table-light" id="data">
   <thead class="thead-light">
     <tr>
@@ -19,39 +58,38 @@ Fitur sedang tahap pengembangan
         <td><?= $tr->id_transaksi ?></td>
         <td><?= $tr->id_pesanan ?></td>
         <td><?= $tr->metode ?></td>
-        <td><?= $tr->bayar ?></td>
+        <td>Rp <?= number_format($tr->bayar, '2', ',', '.') ?></td>
         <td><?= $tr->tgl_transaksi ?></td>
-        <td><a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
+        <td>
+          <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
             <i class="fas fa-eye"></i></a>
-
           <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
             <i class="fas fa-receipt"></i></a>
-
-
         </td>
       </tr>
     <?php endforeach ?>
   </tbody>
-
   <tfoot>
     <tr>
       <th>Id Transaksi</th>
-      <th>Id Pemesan</th>
+      <th>Id Pesanan</th>
       <th>Metode</th>
       <th>Bayar</th>
       <th>Tanggal Transaksi</th>
       <th>Aksi</th>
     </tr>
   </tfoot>
+
+
 </table>
 
 <!-- modal lihat -->
-<!-- Tabel transaksi dan tabel pesanan literally sudah bergabung
-Jadi tidak perlu menambahkan foreach pesanan lagi -->
+<!-- Tabel transaksi dan tabel history literally sudah bergabung
+Jadi tidak perlu menambahkan foreach hitory lagi -->
 <?php foreach ($transaksi as $tr) : ?>
-    <?php foreach ($tipe_kamar as $tk) : ?>
-      <?php if ($tk->id_tipe === $tr->id_tipe) { ?>
-        <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade">
+  <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade" role="dialog">
+      <?php foreach ($tipe_kamar as $tk) : ?>
+        <?php if ($tk->id_tipe === $tr->id_tipe) { ?>
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -85,11 +123,11 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 
                     <div class="form-group">
                       <label>Bayar</label>
-                      <p><?= $tr->bayar ?></p>
+                      <p>Rp <?= number_format($tr->bayar, '2', ',', '.') ?></p>
                     </div>
                   </div>
 
-                  <!-- Di sini adalah bagian menampilkan data pesanan -->
+                  <!-- Di sini adalah bagian menampilkan data history -->
 
 
 
@@ -122,12 +160,11 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
               </div>
 
               <div class="modal-footer">
-
                 <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
               </div>
             </div>
           </div>
-        </div>
-      <?php } ?>
-    <?php endforeach ?>
-  <?php endforeach ?>
+        <?php } ?>
+      <?php endforeach ?>
+  </div>
+<?php endforeach ?>

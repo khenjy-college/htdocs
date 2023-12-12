@@ -14,11 +14,20 @@ class Transaksi extends Welcome
 
 	// deklarasi variabel views
 	private $tabel10_v1;
+	private $tabel10_v1_alt;
 	private $tabel10_v1_title;
+	private $tabel10_v1_alt_title;
 	private $tabel10_v2;
+	private $tabel10_v2_alt;
 	private $tabel10_v2_title;
+	private $tabel10_v2_alt_title;
 	private $tabel10_v3;
+	// aku rasa $tabel10_v3_alt dan $tabel10_v3_title tidak dibutuhkan 
+	// karena fungsi receipt sudah bisa memilah
+	// mana yang menggunakan tabel pesanan dan mana yang menggunakan tabel history 
+	private $tabel10_v3_alt;
 	private $tabel10_v3_title;
+	private $tabel10_v3_alt_title;
 
 	// deklarasi variabel controller
 	private $tabel10_c1;
@@ -80,11 +89,18 @@ class Transaksi extends Welcome
 
 		// deklara		$this->tabeli variabel views
 		$this->tabel10_v1 = 'v_' . $this->tabel10;
-		$this->tabel10_v1_title = 'Daftar ' . $this->tabel10_alias;
+		$this->tabel10_v1_alt = 'v_' . $this->tabel10 . '_' . $this->tabel2;
+		$this->tabel10_v1_title = 'Daftar ' . $this->tabel10_alias . " Aktif";
+		$this->tabel10_v1_alt_title = 'Daftar History ' .  $this->tabel10_alias;
+
 		$this->tabel10_v2 = 'v_admin-' . $this->tabel10;
-		$this->tabel10_v2_title = 'Data ' . $this->tabel10_alias;
+		$this->tabel10_v2_alt = 'v_admin-' . $this->tabel10 . '_' . $this->tabel2;
+		$this->tabel10_v2_title = 'Data ' . $this->tabel10_alias . " Aktif";
+		$this->tabel10_v2_alt_title = 'Daftar History ' .  $this->tabel10_alias;
+
 		$this->tabel10_v3 = '_laporan/laporan_' . $this->tabel10;
 		$this->tabel10_v3_title = 'Laporan ' . $this->tabel10_alias;
+		$this->tabel10_v3_alt_title = 'Daftar ' . $this->tabel10_alias;
 
 		// deklarasi variabel controller
 		$this->tabel10_c1 = $this->tabel10;
@@ -138,21 +154,44 @@ class Transaksi extends Welcome
 	{
 		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel10_v_input7_filter1_get;
-		$param2 = $this->tabel10_v_input7_filter2_get;
+		// $param1 = $this->tabel10_v_input7_filter1_get;
+		// $param2 = $this->tabel10_v_input7_filter2_get;
 
 		$data = array(
 			'title' => $this->tabel10_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel10_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->ambildata()->result(),
-			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel10 => $this->trs->join_pesanan()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'tgl_transaksi_min' => $param1,
-			'tgl_transaksi_max' => $param2,
+			// 'tgl_transaksi_min' => $param1,
+			// 'tgl_transaksi_max' => $param2,
+		);
+
+		$this->load->view($this->v7, $data);
+	}
+
+	// Fungsi di bawah ini sebaiknya menggunakan fungsi join untuk menampilkan data yang sesuai kebutuhan yang telah ditentukan
+	public function history($tabel7_field1 = 1)
+	{
+		$this->declare();
+		// nilai min dan max sudah diinput sebelumnya
+		// $param1 = $this->tabel10_v_input7_filter1_get;
+		// $param2 = $this->tabel10_v_input7_filter2_get;
+
+		$data = array(
+			'title' => $this->tabel10_v2_title,
+			'head' => $this->head,
+			'konten' => $this->tabel10_v2_alt,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->trs->join_history()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
+
+			// menggunakan nilai $min dan $max sebagai bagian dari $data
+			// 'tgl_transaksi_min' => $param1,
+			// 'tgl_transaksi_max' => $param2,
 		);
 
 		$this->load->view($this->v7, $data);
@@ -278,7 +317,8 @@ class Transaksi extends Welcome
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel8 => $this->psn->ambildata()->result()
 		);
 
 		$this->load->view($this->tabel10_v3, $data);
@@ -293,14 +333,30 @@ class Transaksi extends Welcome
 			'head' => $this->head,
 			'konten' => $this->tabel10_v1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->ambil_id_user($where)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel10 => $this->trs->join_pesanan_tamu($where)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
 		$this->load->view($this->v7, $data);
 	}
 
+	public function daftar_history($tabel7_field1 = 1)
+	{
+		$this->declare();
+		$where = $this->session->userdata($this->tabel9_userdata1);
+		$data = array(
+			'title' => $this->tabel10_v1_alt_title,
+			'head' => $this->head,
+			'konten' => $this->tabel10_v1_alt,
+			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->trs->join_history_tamu($where)->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result()
+		);
+
+		$this->load->view($this->v7, $data);
+	}
+
+	// Fitur filter untuk saat ini akan tidak digunakan terlebih dahulu
 	public function filter($tabel7_field1 = 1)
 	{
 		$this->declare();
@@ -313,7 +369,10 @@ class Transaksi extends Welcome
 			'head' => $this->head,
 			'konten' => $this->tabel10_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->trs->join_pesanan($where)->result(),
 			$this->tabel10 => $this->trs->filter($param1, $param2)->result(),
+			$this->tabel8 => $this->psn->ambildata()->result(),
+			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			'tgl_transaksi_min' => $param1,
@@ -341,16 +400,22 @@ class Transaksi extends Welcome
 	}
 
 
+	// Fitur receipt menurutku tidak memerlukan fitur join sama sekali 
+	// karena sudah menggunakan parameter yang memilki nilai
 	public function receipt($id_transaksi = null, $tabel7_field1 = 1)
 	{
 		$this->declare();
 		$data1 = array(
-			'title' => 'Bukti Reservasi',
+			'title' => 'Bukti Transaksi',
 			'head' => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambil($id_transaksi)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+
+		// Di bawah ini adalah kode untuk memisahkan antara transaksi yang id pesanannya masih berada di tabel pesanann
+		// Dan transaksi yang id pesanananya sudah berada di tabel history
 
 		$param1 = $this->trs->ambil($id_transaksi)->result();
 		$param2 = $param1[0]->id_pesanan;

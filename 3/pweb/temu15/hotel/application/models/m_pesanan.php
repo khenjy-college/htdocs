@@ -40,7 +40,7 @@ class M_pesanan extends CI_Model
 		$filter = "SELECT * FROM pesanan WHERE 
 		
 		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
-		 AND 
+		 OR 
 		
 		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
 		";
@@ -52,7 +52,7 @@ class M_pesanan extends CI_Model
 		$filter = "SELECT * FROM pesanan WHERE 
 		id_user IN ('" . $where . "') AND
 		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
-		AND
+		OR
 		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
 		";
 		return $this->db->query($filter);
