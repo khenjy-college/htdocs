@@ -1,9 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_kamar extends CI_Model {
+class M_kamar extends CI_Model
+{
 
-  private $tabel = 'kamar';
+	private $tabel = 'kamar';
 
 	public function ambildata()
 	{
@@ -12,7 +13,7 @@ class M_kamar extends CI_Model {
 
 	public function ambil($where)
 	{
-    $this->db->where('no_kamar', $where);
+		$this->db->where('no_kamar', $where);
 		return $this->db->get($this->tabel);
 	}
 
@@ -23,13 +24,13 @@ class M_kamar extends CI_Model {
 
 	public function update($data, $where)
 	{
-    $this->db->where('no_kamar', $where);
+		$this->db->where('no_kamar', $where);
 		return $this->db->update($this->tabel, $data);
 	}
 
 	public function hapus($where)
 	{
-    $this->db->where('no_kamar', $where);
+		$this->db->where('no_kamar', $where);
 		return $this->db->delete($this->tabel);
 	}
 }

@@ -171,7 +171,12 @@
     <!-- fungsi datatables (wajib ada) -->
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#data').DataTable();
+        $('#data').DataTable({
+          "order": [
+            [0, "desc"]
+          ]
+        });
+
 
         <?= $this->session->flashdata('panggil') ?>
         <?= $this->session->flashdata('modal') ?>

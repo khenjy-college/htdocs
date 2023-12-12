@@ -61,7 +61,7 @@ class M_operations extends CI_Model
 		$sql = "SELECT * FROM operations WHERE 
 		id_user IN ('" . $where . "') AND
 		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
-		";
+		ORDER BY id_operations DESC";
 		return $this->db->query($sql);
 	}
 

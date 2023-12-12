@@ -191,7 +191,7 @@
             </div>
 
             <!-- Poin tidak bisa diubah maupun dikurangi, hanya bisa didapat melalui hasil operasional hotel -->
-            <input type="hidden" name="poin" value="<?= $p->img; ?>">
+            <input type="hidden" name="poin" value="<?= $p->poin; ?>">
           </div>
 
           <div class="modal-footer">
