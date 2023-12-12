@@ -79,7 +79,7 @@
           </div>
 
           <!-- pesan untuk pengguna yang sedang merubah password -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah password?')" type="submit">Simpan Perubahan</button>
