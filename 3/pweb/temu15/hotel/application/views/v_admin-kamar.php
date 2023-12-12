@@ -148,15 +148,24 @@
 
                   <!-- memilih salah satu tipe kamar yang ada -->
                   <label>Tipe Kamar</label>
-                  <select class="form-control" required name="id_tipe">
+                  <input class="form-control" type="text" readonly name="tipe" value="<?= $tp->tipe ?>">
+                  <input type="hidden" name="id_tipe" value="<?= $tp->id_tipe ?>">
 
-                    <!-- menampilkan nilai tipe kamar yang aktif -->
-                    <option selected hidden value="<?= $tp->id_tipe ?>"><?= $tp->tipe; ?></option>
 
-                    <?php foreach ($tipe_kamar as $tp) : ?>
-                      <option value value="<?= $tp->id_tipe ?>"><?= $tp->tipe; ?></option>
-                    <?php endforeach ?>
-                  </select>
+                  <!-- Fitur di bawah ini masuk harus dibahas kembali
+                  Apakah bisa mengubah id_tipe tipe kamar atau tidak
+                  Mengingat pengalaman kerja di PT LSI dulu
+                  Jika mengubah parent table, maka child tabel tidak akan terlalu berpengaruh  -->
+                  <!-- <select class="form-control" required name="id_tipe">
+
+                     menampilkan nilai tipe kamar yang aktif
+                    <option selected hidden value="< $tp->id_tipe ?>">< $tp->tipe; ?></option>
+
+                    < foreach ($tipe_kamar as $tp) : ?>
+                      <option value value="<$tp->id_tipe ?>">< $tp->tipe; ?></option>
+                    < endforeach ?>
+                  </select> -->
+
                 </div>
 
                 <div class="form-group">
@@ -265,6 +274,29 @@
                       <input type="hidden" name="no_kamar" value="<?= $km->no_kamar; ?>">
                       <input type="hidden" name="id_user" value="<?= $this->session->userdata('id_user') ?>">
                     </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Tipe Kamar : </label>
+                      <p><?= $tp->tipe; ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Status : </label>
+                      <p><?= $km->status; ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <img src="img/tipe_kamar/<?= $tp->img; ?>" width="200">
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Keterangan : </label>
+                      <p><?= $km->keterangan; ?></p>
+                    </div>
 
                     <!-- mengubah status kamar secara instan berdasarkan id_pesanan -->
                     <!-- jika id pesanan itu kosong, berarti belum ada yang pesan dan kamar menjadi Available
@@ -274,8 +306,9 @@
                     <?php } else { ?>
                       <input type="hidden" name="status" value="Available">
                     <?php } ?>
+                  </div>
 
-
+                  <div class="col-md-6">
                     <!-- ini adalah fitur untuk assign petugas -->
                     <div class="form-group">
                       <label>Petugas</label>
@@ -292,11 +325,13 @@
                       </select>
                     </div>
 
+                    <!-- Aku masih ada rencana untuk mengubah textbox keterangan ini dengan dropbox 
+                  karena menurutku textarea masih kurang cukup
+                dan aku juga membutuhkan bantuan ahli UI UX untuk menentukan keputusan terbaik -->
                     <div class="form-group">
                       <label>Keterangan</label>
                       <textarea class="form-control" required name="keterangan" rows="3" placeholder="Masukkan keterangan"></textarea>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -343,7 +378,29 @@
                       <input type="hidden" name="no_kamar" value="<?= $km->no_kamar; ?>">
                       <input type="hidden" name="id_user" value="<?= $this->session->userdata('id_user') ?>">
                     </div>
+                    <hr>
 
+                    <div class="form-group">
+                      <label>Tipe Kamar : </label>
+                      <p><?= $tp->tipe; ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Status : </label>
+                      <p><?= $km->status; ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <img src="img/tipe_kamar/<?= $tp->img; ?>" width="200">
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Keterangan : </label>
+                      <p><?= $km->keterangan; ?></p>
+                    </div>
                     <!-- mengubah status kamar secara instan berdasarkan id_pesanan -->
                     <!-- jika id pesanan itu kosong, berarti belum ada yang pesan dan kamar menjadi Available
                 jika sebaliknya, maka kamar akan menjadi Unavailable -->
@@ -354,6 +411,10 @@
                     <?php } ?>
 
 
+
+                  </div>
+
+                  <div class="col-md-6">
                     <!-- ini adalah fitur untuk assign petugas -->
                     <div class="form-group">
                       <label>Petugas</label>
@@ -374,7 +435,6 @@
                       <label>Keterangan</label>
                       <textarea class="form-control" required name="keterangan" rows="3" placeholder="Masukkan keterangan"></textarea>
                     </div>
-
                   </div>
                 </div>
               </div>
