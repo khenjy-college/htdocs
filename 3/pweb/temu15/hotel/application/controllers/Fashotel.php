@@ -125,16 +125,15 @@ class Fashotel extends Welcome
 		// semoga berhasil
 		$config['upload_path'] = $this->tabel3_v_input4_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['remove_spaces'] = TRUE;
 
-		// supaya fungsi upload berjalan
 		$this->load->library('upload', $config);
 
-		// mengambil nama file dari hasil upload
-		$gambar = $_FILES['img']['name'];
-
-		// dieksekusi jika nama gambar ada
-		if ($gambar) {
-			$this->upload->do_upload('img');
+		if (!$this->upload->do_upload($this->tabel3_v_input4)) {
+			$gambar  = '';
+		} else {
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$data = array(
@@ -164,18 +163,21 @@ class Fashotel extends Welcome
 		// konfigurasi upload
 		$config['upload_path'] = $this->tabel3_v_input4_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
-		// supaya fungsi upload berjalan
 		$this->load->library('upload', $config);
 
-		// mengambil nama file dari hasil upload
-		$gambar = $_FILES['img']['name'];
-
-		// dieksekusi jika nama gambar ada
-		if ($gambar) {
-			$this->upload->do_upload('img');
-		} else {
+		if (!$this->upload->do_upload($this->tabel3_v_input4)) {
 			$gambar = $this->input->post($this->tabel3_v_input4_alt);
+		} else {
+			$table = $this->fsh->ambil($this->tabel3_v_input1_post)->result();
+			$img = $table[0]->img;
+			unlink($this->tabel3_v_input4_upload_path . $img);
+
+			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$where = $this->input->post('id_fashotel');

@@ -117,12 +117,15 @@ class Petugas extends Welcome
 		$this->declare();
 		$config['upload_path'] = $this->tabel4_v_input5_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
 
-		if ($gambar) {
-			$this->upload->do_upload('img');
+		if (!$this->upload->do_upload($this->tabel4_v_input5)) {
+			$gambar  = '';
+		} else {
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$data = array(
@@ -157,14 +160,21 @@ class Petugas extends Welcome
 		$this->declare();
 		$config['upload_path'] = $this->tabel4_v_input5_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
 
-		if ($gambar) {
-			$this->upload->do_upload('img');
-		} else {
+		if (!$this->upload->do_upload($this->tabel4_v_input5)) {
 			$gambar = $this->input->post($this->tabel4_v_input5_alt);
+		} else {
+			$table = $this->pts->ambil($this->tabel4_v_input1_post)->result();
+			$img = $table[0]->img;
+			unlink($this->tabel4_v_input5_upload_path . $img);
+
+			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$where = $this->input->post('id_petugas');

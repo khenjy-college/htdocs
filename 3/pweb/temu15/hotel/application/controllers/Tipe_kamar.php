@@ -25,6 +25,7 @@ class Tipe_kamar extends Welcome
 	private $tabel6_c5;
 	private $tabel6_v_input1_post;
 	private $tabel6_v_input1_alt;
+	private $tabel6_v_input2;
 	private $tabel6_v_input2_post;
 	private $tabel6_v_input3;
 	private $tabel6_v_input3_upload_path;
@@ -107,12 +108,18 @@ class Tipe_kamar extends Welcome
 		$this->declare();
 		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
 
-		if ($gambar) {
-			$this->upload->do_upload('img');
+		if (!$this->upload->do_upload($this->tabel6_v_input3)) {
+			// Di sini seharusnya ada notifikasi modal kalau upload tidak berhasil
+			// Tapi karena formnya sudah required saya rasa tidak perlu
+			$gambar  = '';
+		} else {
+			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$data = array(
@@ -140,24 +147,41 @@ class Tipe_kamar extends Welcome
 
 	public function update()
 	{
+		// Di sini aku masih ada perdebatan apakah akan menggunakan gambar dengan nama file yang sama atau tidak
+		// Atau menggunakan menggunakan data dari field lain sebagai nama gambar
+		// Hal itu tentunya tergantung preferensi user
+		// Fitur update gambar di bawah sudah selesai
+		// Bisa mengupload gambar dengan tulisan yang dihapus, tentunya dengan minim data double
+
 		$this->declare();
 		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		// $config['file_name'] = $this->tabel6_v_input2_post . '.jpg';
+		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
 
-		if ($gambar) {
-			$this->upload->do_upload('img');
-		} else {
+		if (!$this->upload->do_upload($this->tabel6_v_input3)) {
 			$gambar = $this->input->post($this->tabel6_v_input3_alt);
+		} else {
+
+			// Di bawah ini adalah fitur untuk menghapus file lama
+			// Dipakai atau tidaknya fitur ini masih tergantung dari kebutuhan
+			$table = $this->tpk->ambil($this->tabel6_v_input1_post)->result();
+			$img = $table[0]->img;
+			unlink($this->tabel6_v_input3_upload_path . $img);
+
+			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$where = $this->input->post('id_tipe');
 		$data = array(
 			'tipe' => $this->input->post('tipe'),
 			'harga' => $this->input->post('harga'),
-			'img' => $gambar,
+			'img' => $gambar
 		);
 
 		$update = $this->tpk->update($data, $where);

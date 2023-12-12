@@ -105,12 +105,15 @@ class Faskamar extends Welcome
 		$this->declare();
 		$config['upload_path'] = $this->tabel1_v_input4_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
 
-		if ($gambar) {
-			$this->upload->do_upload('img');
+		if (!$this->upload->do_upload($this->tabel1_v_input4)) {
+			$gambar  = '';
+		} else {
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$data = array(
@@ -139,14 +142,21 @@ class Faskamar extends Welcome
 		$this->declare();
 		$config['upload_path'] = $this->tabel1_v_input4_upload_path;
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
 
-		if ($gambar) {
-			$this->upload->do_upload('img');
+		if (!$this->upload->do_upload($this->tabel1_v_input4)) {
+			$gambar = $this->input->post($this->tabel1_v_input4_alt);
 		} else {
-			$gambar = $this->input->post('txtimg');
+			$table = $this->fsk->ambil($this->tabel1_v_input1_post)->result();
+			$img = $table[0]->img;
+			unlink($this->tabel1_v_input4_upload_path . $img);
+
+			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
 		$where = $this->input->post('id_faskamar');

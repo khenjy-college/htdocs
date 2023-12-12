@@ -28,9 +28,9 @@ class M_petugas extends CI_Model
 		return $this->db->update($this->tabel, $data);
 	}
 
-	public function hapus($where)
-	{
-		$this->db->where('id_petugas', $where);
-		return $this->db->delete($this->tabel);
-	}
+	// public function hapus($where)
+	// {
+	// 	$this->db->where('id_petugas', $where);
+	// 	return $this->db->delete($this->tabel);
+	// }
 }

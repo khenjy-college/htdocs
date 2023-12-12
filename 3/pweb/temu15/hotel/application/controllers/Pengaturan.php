@@ -146,7 +146,7 @@ class Pengaturan extends Welcome
 		$config['upload_path'] = './assets/img/';
 
 		// nama file telah ditetapkan dan hanya berekstensi png dan dapat diganti dengan file bernama sama
-		$config['allowed_types'] = 'png';
+		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
 		$config['file_name'] = 'favicon';
 		$config['overwrite'] = TRUE;
 

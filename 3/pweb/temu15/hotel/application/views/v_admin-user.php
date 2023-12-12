@@ -9,52 +9,54 @@
 <a class="btn btn-info mb-4" href="<?= site_url('user/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id User</th>
-      <th>Nama User</th>
-      <th>Email</th>
-      <th>Hp</th>
-      <th>Level</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($user as $u) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $u->id_user; ?></td>
-        <td><?= $u->nama ?></td>
-        <td><?= $u->email ?></td>
-        <td><?= $u->hp ?></td>
-        <td><?= $u->level ?></td>
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $u->id_user; ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $u->id_user; ?>">
-            <i class="fas fa-edit"></i></a>
+        <th>Id User</th>
+        <th>Nama User</th>
+        <th>Email</th>
+        <th>Hp</th>
+        <th>Level</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
 
-          <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
+    <tbody>
+      <?php foreach ($user as $u) : ?>
+        <tr>
+          <td><?= $u->id_user; ?></td>
+          <td><?= $u->nama ?></td>
+          <td><?= $u->email ?></td>
+          <td><?= $u->hp ?></td>
+          <td><?= $u->level ?></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $u->id_user; ?>">
+              <i class="fas fa-eye"></i></a>
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $u->id_user; ?>">
+              <i class="fas fa-edit"></i></a>
+
+            <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
           Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
-          <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('user/hapus/' . $u->id_user) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('user/hapus/' . $u->id_user) ?>">
             <i class="fas fa-trash"></i></a> -->
 
-        </td>
-      </tr>
-    <?php endforeach; ?>
-  </tbody>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
 
-  <tfoot>
-    <tr>
-      <th>Id User</th>
-      <th>Nama User</th>
-      <th>Email</th>
-      <th>Hp</th>
-      <th>Level</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    <tfoot>
+      <tr>
+        <th>Id User</th>
+        <th>Nama User</th>
+        <th>Email</th>
+        <th>Hp</th>
+        <th>Level</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
 <!-- modal tambah -->
 <div id="tambah" class="modal fade">
