@@ -136,228 +136,235 @@
 <!-- modal ubah -->
 <?php foreach ($pesanan as $ps) : ?>
   <div id="ubah<?= $ps->id_pesanan ?>" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+    <?php foreach ($tipe_kamar as $tk) : ?>
+      <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-
-        <!-- form untuk mengubah nilai status sebuah pesanan -->
-        <form action="<?= site_url('pesanan/update_status') ?>" method="post">
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Id Pesanan</label>
-                  <p><?= $ps->id_pesanan ?></p>
-                  <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
-                  <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
-
-                  <!-- input status berdasarkan nilai status -->
-                  <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
-                  <?php if ($ps->status == 'belum bayar') { ?>
-                    <input type="hidden" name="status" value="menunggu">
-                  <?php } elseif ($ps->status == 'menunggu') { ?>
-                    <input type="hidden" name="status" value="cek in">
-                  <?php } elseif ($ps->status == 'cek in') { ?>
-                    <input type="hidden" name="status" value="cek out">
-                  <?php } ?>
-
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Pemesan</label>
-                  <p><?= $ps->pemesan ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Email</label>
-                  <p><?= $ps->email ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Nomor Telepon</label>
-                  <p><?= $ps->hp ?></p>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Nama Tamu</label>
-                  <p><?= $ps->tamu ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Tipe Kamar</label>
-                  <p><?= $ps->id_tipe ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Tanggal Cek In</label>
-                  <p><?= $ps->cek_in ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Tanggal Cek Out</label>
-                  <p><?= $ps->cek_out ?></p>
-                </div>
-              </div>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
             </div>
+
+            <!-- form untuk mengubah nilai status sebuah pesanan -->
+            <form action="<?= site_url('pesanan/update_status') ?>" method="post">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Id Pesanan</label>
+                      <p><?= $ps->id_pesanan ?></p>
+                      <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
+                      <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
+
+                      <!-- input status berdasarkan nilai status -->
+                      <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
+                      <?php if ($ps->status == 'belum bayar') { ?>
+                        <input type="hidden" name="status" value="menunggu">
+                      <?php } elseif ($ps->status == 'menunggu') { ?>
+                        <input type="hidden" name="status" value="cek in">
+                      <?php } elseif ($ps->status == 'cek in') { ?>
+                        <input type="hidden" name="status" value="cek out">
+                      <?php } ?>
+
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Pemesan</label>
+                      <p><?= $ps->pemesan ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Email</label>
+                      <p><?= $ps->email ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Nomor Telepon</label>
+                      <p><?= $ps->hp ?></p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Nama Tamu</label>
+                      <p><?= $ps->tamu ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Tipe Kamar</label>
+                      <p><?= $tk->tipe ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Tanggal Cek In</label>
+                      <p><?= $ps->cek_in ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Tanggal Cek Out</label>
+                      <p><?= $ps->cek_out ?></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+
+                <!-- pesan yg muncul berdasarkan nilai status -->
+                <?php if ($ps->status == 'belum bayar') { ?>
+                  <p>Selesaikan Dulu Transaksi</p>
+                <?php } elseif ($ps->status == 'menunggu') { ?>
+                  <p>Ubah Status Menjadi Cek In?</p>
+                  <button class="btn btn-success" type="submit">Ya</button>
+                <?php } elseif ($ps->status == 'cek in') { ?>
+                  <p>Ubah Status Menjadi Cek Out?</p>
+                  <button class="btn btn-success" type="submit">Ya</button>
+                <?php } ?>
+
+              </div>
+            </form>
+
           </div>
-
-          <div class="modal-footer">
-
-            <!-- pesan yg muncul berdasarkan nilai status -->
-            <?php if ($ps->status == 'belum bayar') { ?>
-              <p>Selesaikan Dulu Transaksi</p>
-            <?php } elseif ($ps->status == 'menunggu') { ?>
-              <p>Ubah Status Menjadi Cek In?</p>
-              <button class="btn btn-success" type="submit">Ya</button>
-            <?php } elseif ($ps->status == 'cek in') { ?>
-              <p>Ubah Status Menjadi Cek Out?</p>
-              <button class="btn btn-success" type="submit">Ya</button>
-            <?php } ?>
-
-          </div>
-        </form>
-
-      </div>
-    </div>
+        </div>
+    <?php }
+    endforeach; ?>
   </div>
 <?php endforeach ?>
 
 <!-- modal book -->
 <?php foreach ($pesanan as $ps) : ?>
   <div id="book<?= $ps->id_pesanan ?>" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+    <?php foreach ($tipe_kamar as $tk) : ?>
+      <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+
+            <!-- form untuk mengubah nilai status sebuah pesanan -->
+            <form action="<?= site_url('pesanan/book') ?>" method="post">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Id Pesanan</label>
+                      <p><?= $ps->id_pesanan ?></p>
+                      <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
+                      <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
+
+                      <!-- input status berdasarkan nilai status -->
+                      <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
+                      <?php if ($ps->status == 'belum bayar') { ?>
+                        <input type="hidden" name="status" value="menunggu">
+                      <?php } elseif ($ps->status == 'menunggu') { ?>
+                        <input type="hidden" name="status" value="cek in">
+                      <?php } elseif ($ps->status == 'cek in') { ?>
+                        <input type="hidden" name="status" value="cek out">
+                      <?php } ?>
+
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Pemesan</label>
+                      <p><?= $ps->pemesan ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Email</label>
+                      <p><?= $ps->email ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Nomor Telepon</label>
+                      <p><?= $ps->hp ?></p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Nama Tamu</label>
+                      <p><?= $ps->tamu ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Tipe Kamar</label>
+                      <p><?= $tk->tipe ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Tanggal Cek In</label>
+                      <p><?= $ps->cek_in ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label>Tanggal Cek Out</label>
+                      <p><?= $ps->cek_out ?></p>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Pilih kamar</label>
+                      <select class="form-control" required name="no_kamar">
+
+                        <!-- menampilkan nilai id_tipe kamar yang aktif -->
+                        <option selected hidden value="">Pilih no kamar:</option>
+
+                        <?php foreach ($kamar as $km) :
+                          if ($ps->id_tipe == $km->id_tipe) {
+                            if ($km->id_tipe == $tk->id_tipe) {
+                              if ($km->status == 'Available') { ?>
+
+                                <option value="<?= $km->no_kamar ?>"><?= $km->no_kamar; ?> - <?= $tk->tipe ?></option>
+
+                        <?php }
+                            }
+                          }
+                        endforeach; ?>
+
+                      </select>
+                      <p>*Jika tidak ada, berarti semua kamar full</p>
+                      <input type="hidden" name="status" value="belum bayar">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+
+                <p>Pesan kamar?</p>
+                <button class="btn btn-success" type="submit">Ya</button>
+
+              </div>
+            </form>
+
+          </div>
         </div>
 
-        <!-- form untuk mengubah nilai status sebuah pesanan -->
-        <form action="<?= site_url('pesanan/book') ?>" method="post">
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Id Pesanan</label>
-                  <p><?= $ps->id_pesanan ?></p>
-                  <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
-                  <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
-
-                  <!-- input status berdasarkan nilai status -->
-                  <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
-                  <?php if ($ps->status == 'belum bayar') { ?>
-                    <input type="hidden" name="status" value="menunggu">
-                  <?php } elseif ($ps->status == 'menunggu') { ?>
-                    <input type="hidden" name="status" value="cek in">
-                  <?php } elseif ($ps->status == 'cek in') { ?>
-                    <input type="hidden" name="status" value="cek out">
-                  <?php } ?>
-
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Pemesan</label>
-                  <p><?= $ps->pemesan ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Email</label>
-                  <p><?= $ps->email ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Nomor Telepon</label>
-                  <p><?= $ps->hp ?></p>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Nama Tamu</label>
-                  <p><?= $ps->tamu ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Tipe Kamar</label>
-                  <p><?= $ps->id_tipe ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Tanggal Cek In</label>
-                  <p><?= $ps->cek_in ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label>Tanggal Cek Out</label>
-                  <p><?= $ps->cek_out ?></p>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Pilih kamar</label>
-                  <select class="form-control" required name="no_kamar">
-
-                    <!-- menampilkan nilai id_tipe kamar yang aktif -->
-                    <option selected hidden value="">Pilih no kamar:</option>
-
-                    <?php foreach ($kamar as $km) :
-                      foreach ($tipe_kamar as $tk) :
-                        if ($ps->id_tipe == $km->id_tipe) {
-                          if ($km->id_tipe == $tk->id_tipe) {
-                            if ($km->status == 'Available') { ?>
-
-                              <option value="<?= $km->no_kamar ?>"><?= $km->no_kamar; ?> - <?= $tk->tipe ?></option>
-
-                    <?php }
-                          }
-                        }
-                      endforeach;
-                    endforeach ?>
-
-                  </select>
-                  <p>*Jika tidak ada, berarti semua kamar full</p>
-                  <input type="hidden" name="status" value="belum bayar">
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="modal-footer">
-
-            <p>Pesan kamar?</p>
-            <button class="btn btn-success" type="submit">Ya</button>
-
-          </div>
-        </form>
-
-      </div>
-    </div>
+    <?php }
+    endforeach ?>
   </div>
 <?php endforeach ?>

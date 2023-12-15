@@ -21,6 +21,11 @@ include 'Welcome.php';
 
 class Fashotel extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel3_m = 'fsh';
@@ -46,6 +51,7 @@ class Fashotel extends Welcome
 	private $tabel3_v_input4;
 	private $tabel3_v_input4_upload_path;
 	private $tabel3_v_input4_post;
+	private $tabel3_v_input4_upload;
 	private $tabel3_v_input4_alt;
 	private $tabel3_v_flashdata1_msg_1;
 	private $tabel3_v_flashdata1_msg_2;
@@ -87,7 +93,8 @@ class Fashotel extends Welcome
 		$this->tabel3_v_input4 = $this->tabel3_field4;
 		$this->tabel3_v_input4_upload_path = './assets/' . $this->tabel3_field4 . '/' . $this->tabel3 . '/';
 		$this->tabel3_v_input4_post = $this->input->post($this->tabel3_v_input4);
-		$this->tabel3_v_input4_alt = 'txt' . $this->tabel3_v_input4;
+		$this->tabel3_v_input4_alt = $this->input->post('txt' . $this->tabel3_v_input4);
+		$this->tabel3_v_input4_upload = $this->tabel3_v_input4;
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel3_v_flashdata1_msg_1 = $this->tabel3 . ' berhasil disimpan!';
@@ -105,9 +112,9 @@ class Fashotel extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel3_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel3_v2,
+			$this->v_part1 => $this->tabel3_v2_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel3_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel3 => $this->fsh->ambildata()->result()
 		);
@@ -124,12 +131,12 @@ class Fashotel extends Welcome
 		// rencananya nama gambar akan unik
 		// semoga berhasil
 		$config['upload_path'] = $this->tabel3_v_input4_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload($this->tabel3_v_input4)) {
+		if (!$this->tabel3_v_input4_upload) {
 			$gambar  = '';
 		} else {
 			$upload = $this->upload->data();
@@ -137,10 +144,10 @@ class Fashotel extends Welcome
 		}
 
 		$data = array(
-			'id_fashotel' => '',
-			'nama' => $this->input->post('nama'),
-			'keterangan' => $this->input->post('keterangan'),
-			'img' => $gambar,
+			$this->tabel3_field1 => '',
+			$this->tabel3_field2 => $this->tabel3_v_input2_post,
+			$this->tabel3_field3 => $this->tabel3_v_input3_post,
+			$this->tabel3_field4 => $gambar,
 		);
 
 		$simpan = $this->fsh->simpan($data);
@@ -162,14 +169,14 @@ class Fashotel extends Welcome
 		$this->declare();
 		// konfigurasi upload
 		$config['upload_path'] = $this->tabel3_v_input4_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		$config['overwrite'] = TRUE;
 		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload($this->tabel3_v_input4)) {
-			$gambar = $this->input->post($this->tabel3_v_input4_alt);
+		if (!$this->tabel3_v_input4_upload) {
+			$gambar = $this->tabel3_v_input4_alt;
 		} else {
 			$table = $this->fsh->ambil($this->tabel3_v_input1_post)->result();
 			$img = $table[0]->img;
@@ -180,11 +187,11 @@ class Fashotel extends Welcome
 			$gambar = $upload['file_name'];
 		}
 
-		$where = $this->input->post('id_fashotel');
+		$where = $this->tabel3_v_input1_post;
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'keterangan' => $this->input->post('keterangan'),
-			'img' => $gambar,
+			$this->tabel3_field2 => $this->tabel3_v_input2_post,
+			$this->tabel3_field3 => $this->tabel3_v_input3_post,
+			$this->tabel3_field4 => $gambar,
 		);
 
 		$update = $this->fsh->update($data, $where);
@@ -229,8 +236,8 @@ class Fashotel extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel3_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel3_v3_title,
+			$this->v_part2 => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel3 => $this->fsh->ambildata()->result()
 		);

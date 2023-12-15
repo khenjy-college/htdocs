@@ -5,6 +5,11 @@ include 'Welcome.php';
 
 class Tipe_kamar extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel6_m = 'tpk';

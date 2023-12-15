@@ -5,6 +5,11 @@ include 'Welcome.php';
 
 class Operations extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel11_m = 'ops';
@@ -168,9 +173,10 @@ class Operations extends Welcome
 
 	public function laporan($tabel7_field1 = 1)
 	{
+		$this->declare();
 		$data = array(
-			'title' => $this->tabel11_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel11_v3_title,
+			$this->v_part2 => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel11 => $this->ops->ambildata()->result()
 		);

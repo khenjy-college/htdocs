@@ -26,6 +26,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Welcome extends CI_Controller
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// Menggunakan variabel sebagai alat pembantu, persyaratan
 	// Semua yang ada di sini bakal diubah nantinya dari private menjadi antara private atau protected
 	// deklarasi variabel per tabel
@@ -35,7 +40,7 @@ class Welcome extends CI_Controller
 	// Dan aku akan membuat array itu merge dengan array yang akan diload ke halaman view pada setiap
 	// Controller yang ada di aplikasi ini, dengan begitu, aku tidak perlu khawatir jika ingin memulai projek baru
 	// Dan ingin mengubah konten di dalamnya dalam waktu yang singkat
-	 
+
 	public $tabel1 = 'faskamar';
 	public $tabel1_alias = 'Fasilitas Kamar';
 	// deklarasi variabel bagian field
@@ -91,13 +96,13 @@ class Welcome extends CI_Controller
 	public $tabel3_alias = 'Fasilitas Hotel';
 	// deklarasi variabel bagian field
 	public $tabel3_field1 = 'id_fashotel';
-	public $tabel3_field1_alias = 'id_fashotel';
+	public $tabel3_field1_alias = 'ID Fasilitas';
 	public $tabel3_field2 = 'nama';
-	public $tabel3_field2_alias = 'nama';
+	public $tabel3_field2_alias = 'Nama';
 	public $tabel3_field3 = 'keterangan';
-	public $tabel3_field3_alias = 'keterangan';
+	public $tabel3_field3_alias = 'Keterangan';
 	public $tabel3_field4 = 'img';
-	public $tabel3_field4_alias = 'img';
+	public $tabel3_field4_alias = 'Gambar';
 
 
 	// deklarasi tabel 4
@@ -338,6 +343,15 @@ class Welcome extends CI_Controller
 	// Ada rencana untuk menggunakan _alias dari untuk membuat title kamar semakin cantik dan interaktif
 	// Namun hal itu saat ini digunakan di halaman admin saja untuk konsistensi
 	public $head = '_partials/head';
+
+	// Di bawah ini adalah fungsi config
+	public $file_type1 = 'jpg|png|jpeg|gif|svg|webp';
+	public $file_type2 = 'pdf';
+
+	// Di bawah ini adalah bagian part dari views
+	public $v_part1 = 'title';
+	public $v_part2 = 'head';
+	public $v_part3 = 'konten';
 
 	public $v1 = 'konfirmasi';
 	public $v1_title1 = 'Reservasi Berhasil';

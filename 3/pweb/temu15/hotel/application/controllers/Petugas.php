@@ -6,6 +6,11 @@ include 'Welcome.php';
 
 class Petugas extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel4_m = 'pts';

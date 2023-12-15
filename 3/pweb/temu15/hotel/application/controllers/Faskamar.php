@@ -4,6 +4,12 @@ include 'Welcome.php';
 
 class Faskamar extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
+
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel1_m = 'fsk';
@@ -29,6 +35,7 @@ class Faskamar extends Welcome
 	private $tabel1_v_input4;
 	private $tabel1_v_input4_upload_path;
 	private $tabel1_v_input4_post;
+	private $tabel1_v_input4_upload;
 	private $tabel1_v_input4_alt;
 	private $tabel1_v_flashdata1_msg_1;
 	private $tabel1_v_flashdata1_msg_2;
@@ -71,8 +78,9 @@ class Faskamar extends Welcome
 		$this->tabel1_v_input3_post = $this->input->post($this->tabel1_field3);
 		$this->tabel1_v_input4 = $this->tabel1_field4;
 		$this->tabel1_v_input4_upload_path = './assets/' . $this->tabel1_field4 . '/' . $this->tabel1 . '/';
+		$this->tabel1_v_input4_upload = $this->upload->do_upload($this->tabel1_v_input4);
 		$this->tabel1_v_input4_post = $this->input->post($this->tabel1_v_input4);
-		$this->tabel1_v_input4_alt = 'txt' . $this->tabel1_v_input4;
+		$this->tabel1_v_input4_alt = $this->input->post('txt' . $this->tabel1_v_input4);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel1_v_flashdata1_msg_1 = $this->tabel1 . ' berhasil disimpan!';
@@ -89,9 +97,9 @@ class Faskamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel1_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel1_v2,
+			$this->v_part1 => $this->tabel1_v2_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel1_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel1 => $this->fsk->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -104,12 +112,12 @@ class Faskamar extends Welcome
 	{
 		$this->declare();
 		$config['upload_path'] = $this->tabel1_v_input4_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload($this->tabel1_v_input4)) {
+		if (!$this->tabel1_v_input4_upload) {
 			$gambar  = '';
 		} else {
 			$upload = $this->upload->data();
@@ -117,10 +125,10 @@ class Faskamar extends Welcome
 		}
 
 		$data = array(
-			'id_faskamar' => '',
-			'tipe' => $this->input->post('tipe'),
-			'nama' => $this->input->post('nama'),
-			'img' => $gambar,
+			$this->tabel1_field1 => '',
+			$this->tabel1_field2 => $this->tabel1_v_input2_post,
+			$this->tabel1_field3 => $this->tabel1_v_input3_post,
+			$this->tabel1_field4 => $gambar,
 		);
 
 		$simpan = $this->fsk->simpan($data);
@@ -141,14 +149,14 @@ class Faskamar extends Welcome
 	{
 		$this->declare();
 		$config['upload_path'] = $this->tabel1_v_input4_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		$config['overwrite'] = TRUE;
 		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload($this->tabel1_v_input4)) {
-			$gambar = $this->input->post($this->tabel1_v_input4_alt);
+		if (!$this->tabel1_v_input4_upload) {
+			$gambar = $this->tabel1_v_input4_alt;
 		} else {
 			$table = $this->fsk->ambil($this->tabel1_v_input1_post)->result();
 			$img = $table[0]->img;
@@ -159,11 +167,11 @@ class Faskamar extends Welcome
 			$gambar = $upload['file_name'];
 		}
 
-		$where = $this->input->post('id_faskamar');
+		$where = $this->tabel1_v_input1_post;
 		$data = array(
-			'tipe' => $this->input->post('tipe'),
-			'nama' => $this->input->post('nama'),
-			'img' => $gambar,
+			$this->tabel1_field2 => $this->tabel1_v_input2_post,
+			$this->tabel1_field3 => $this->tabel1_v_input3_post,
+			$this->tabel1_field4 => $gambar,
 		);
 
 		$update = $this->fsk->update($data, $where);
@@ -204,12 +212,12 @@ class Faskamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel1_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel1_v3_title,
+			$this->v_part2 => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel1 => $this->fsk->ambildata()->result()
 		);
 
-		$this->load->view('_laporan/laporan_faskamar', $data);
+		$this->load->view($this->tabel1_v3, $data);
 	}
 }

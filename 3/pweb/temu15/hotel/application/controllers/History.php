@@ -6,6 +6,11 @@ include 'Welcome.php';
 
 class History extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel2_m = 'htr';
@@ -145,7 +150,7 @@ class History extends Welcome
 
 
 		// deklarasi session
-		$this->tabel9_userdata1 = $this->tabel9_field1;
+		$this->tabel9_userdata1 = $this->session->userdata($this->tabel9_field1);
 		$this->tabel9_tempdata1 = $this->tabel9_field1;
 		$this->tabel9_userdata2 = $this->tabel9_field2;
 		$this->tabel9_tempdata2 = $this->tabel9_field2;
@@ -172,18 +177,18 @@ class History extends Welcome
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel2_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel2_v2,
+			$this->v_part1 => $this->tabel2_v2_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel2_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'cek_in_min' => $param1,
-			'cek_in_max' => $param2,
-			'cek_out_min' => $param3,
-			'cek_out_max' => $param4
+			$this->tabel2_v_input11_filter1 => $param1,
+			$this->tabel2_v_input11_filter2 => $param2,
+			$this->tabel2_v_input12_filter1 => $param3,
+			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
 		$this->load->view($this->v7, $data);
@@ -192,7 +197,7 @@ class History extends Welcome
 	public function daftar($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$where = $this->session->userdata($this->tabel9_userdata1);
+		$where = $this->tabel9_userdata1;
 
 		// nilai min dan max di sini belum ada
 		$param1 = $this->tabel2_v_input11_filter1_get;
@@ -209,10 +214,10 @@ class History extends Welcome
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $param1,
-			'cek_in_max' => $param2,
-			'cek_out_min' => $param3,
-			'cek_out_max' => $param4
+			$this->tabel2_v_input11_filter1 => $param1,
+			$this->tabel2_v_input11_filter2 => $param2,
+			$this->tabel2_v_input12_filter1 => $param3,
+			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
 		$this->load->view($this->v7, $data);
@@ -222,24 +227,24 @@ class History extends Welcome
 	{
 		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input12_filter1_get;
+		$param1 = $this->tabel2_v_input11_filter1_get;
 		$param2 = $this->tabel2_v_input11_filter2_get;
 		$param3 = $this->tabel2_v_input12_filter1_get;
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel2_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel2_v2,
+			$this->v_part1 => $this->tabel2_v2_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel2_v2,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->filter($param1, $param2, $param3, $param4)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $param1,
-			'cek_in_max' => $param2,
-			'cek_out_min' => $param3,
-			'cek_out_max' => $param4
+			$this->tabel2_v_input11_filter1 => $param1,
+			$this->tabel2_v_input11_filter2 => $param2,
+			$this->tabel2_v_input12_filter1 => $param3,
+			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
 		$this->load->view($this->v7, $data);
@@ -249,7 +254,7 @@ class History extends Welcome
 	public function filter_tamu($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$where = $this->session->userdata($this->tabel9_userdata1);
+		$where = $this->tabel9_userdata1;
 		// nilai min dan max sudah diinput sebelumnya
 		$param1 = $this->tabel2_v_input11_filter1_get;
 		$param2 = $this->tabel2_v_input11_filter2_get;
@@ -257,18 +262,18 @@ class History extends Welcome
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => $this->v11_title,
-			'head' => $this->head,
-			'konten' => 'v_history',
+			$this->v_part1 => $this->v11_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel2_v1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $param1,
-			'cek_in_max' => $param2,
-			'cek_out_min' => $param3,
-			'cek_out_max' => $param4
+			$this->tabel2_v_input11_filter1 => $param1,
+			$this->tabel2_v_input11_filter2 => $param2,
+			$this->tabel2_v_input12_filter1 => $param3,
+			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
 		$this->load->view($this->v7, $data);
@@ -285,8 +290,8 @@ class History extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel2_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel2_v3_title,
+			$this->v_part2 => $this->head,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()

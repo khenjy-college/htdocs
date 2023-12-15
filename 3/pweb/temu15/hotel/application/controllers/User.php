@@ -4,6 +4,11 @@ include 'Welcome.php';
 
 class User extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel9_m = 'usr';

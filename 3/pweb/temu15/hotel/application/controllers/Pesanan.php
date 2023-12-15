@@ -12,6 +12,11 @@ include 'Welcome.php';
 session_write_close();
 class Pesanan extends Welcome
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('upload');
+	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel8_m = 'psn';
