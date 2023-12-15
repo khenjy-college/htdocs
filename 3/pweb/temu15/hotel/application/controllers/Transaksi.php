@@ -6,6 +6,15 @@ include 'Welcome.php';
 // Jujurly masih banyak bagian di controller ini yang masih menggunakan variabel biasa dan bukan menggunakan declare
 // Aku juga ingin membuat sebuah fitur history transaksi dimana pesanan yang sudah masuk history bakal masuk ke sana
 
+
+// Saat ini ketika data yang ada di tabel transaksi dan history, data-data yang berada di tabel transaksi bakal hilang
+// Hal ini merupakan hal yang sedang aku coba teliti kepentingannya
+// Aku perlu meneliti lebih jauh, ini adalah kedua pilihan yang kumiliki :
+// 1. Menambahkan fitur untuk melihat data transksi saja, lalu diberi opsi apakah user ingin melihat data pesanan
+// atau data history yang terhubung dengan data transaksi, jika perlu maka akan dicek data pesanan atau history tersebut.
+// Jika data ada, maka akan ditampilkan, jika tidak akan muncul notifikasi data tidak ada
+// 2. Opsi kedua adalah untuk membiarkannya tidak menampilkan data 
+
 class Transaksi extends Welcome
 {
 	public function __construct()
@@ -132,8 +141,8 @@ class Transaksi extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel10_v_flashdata1_msg_1 = $this->tabel10_alias . ' berhasil disimpan!';
 		$this->tabel10_v_flashdata1_msg_2 = $this->tabel10_alias . ' gagal disimpan!';
-		$this->tabel10_v_flashdata1_msg_3 = 'Status ' . $this->tabel10_alias . ' berhasil diubah!';
-		$this->tabel10_v_flashdata1_msg_4 = 'Status ' . $this->tabel10_alias . ' gagal diubah!';
+		$this->tabel10_v_flashdata1_msg_3 = 'Data ' . $this->tabel10_alias . ' berhasil diubah!';
+		$this->tabel10_v_flashdata1_msg_4 = 'Data ' . $this->tabel10_alias . ' gagal diubah!';
 		$this->tabel10_v_flashdata1_msg_5 = $this->tabel10_alias . ' berhasil dihapus!';
 		$this->tabel10_v_flashdata1_msg_6 = $this->tabel10_alias . ' gagal dihapus!';
 

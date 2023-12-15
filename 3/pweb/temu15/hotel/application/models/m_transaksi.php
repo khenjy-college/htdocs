@@ -27,7 +27,7 @@ class M_transaksi extends CI_Model
 
 	public function join_history()
 	{
-		$sql = "SELECT * FROM $this->tabel 
+		$sql = "SELECT DISTINCT * FROM $this->tabel 
 		JOIN $this->tabel2 
 		ON $this->tabel.id_pesanan = $this->tabel2.id_pesanan";
 		return $this->db->query($sql);
@@ -35,7 +35,7 @@ class M_transaksi extends CI_Model
 
 	public function join_history_tamu($where)
 	{
-		$sql = "SELECT * FROM $this->tabel 
+		$sql = "SELECT DISTINCT * FROM $this->tabel 
 		JOIN $this->tabel2 
 		ON $this->tabel.id_pesanan = $this->tabel2.id_pesanan 
 		WHERE $this->tabel10.id_user = $where";

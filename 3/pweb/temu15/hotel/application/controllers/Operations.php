@@ -84,8 +84,8 @@ class Operations extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel11_v_flashdata1_msg_1 = $this->tabel11 . ' berhasil disimpan!';
 		$this->tabel11_v_flashdata1_msg_2 = $this->tabel11 . ' gagal disimpan!';
-		$this->tabel11_v_flashdata1_msg_3 = 'Status ' . $this->tabel11 . ' berhasil diubah!';
-		$this->tabel11_v_flashdata1_msg_4 = 'Status ' . $this->tabel11 . ' gagal diubah!';
+		$this->tabel11_v_flashdata1_msg_3 = 'Data ' . $this->tabel11 . ' berhasil diubah!';
+		$this->tabel11_v_flashdata1_msg_4 = 'Data ' . $this->tabel11 . ' gagal diubah!';
 		$this->tabel11_v_flashdata1_msg_5 = $this->tabel11 . ' berhasil dihapus!';
 		$this->tabel11_v_flashdata1_msg_6 = $this->tabel11 . ' gagal dihapus!';
 

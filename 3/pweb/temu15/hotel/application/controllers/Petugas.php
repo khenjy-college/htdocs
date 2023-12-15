@@ -94,8 +94,8 @@ class Petugas extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel4_v_flashdata1_msg_1 = $this->tabel4 . ' berhasil disimpan!';
 		$this->tabel4_v_flashdata1_msg_2 = $this->tabel4 . ' gagal disimpan!';
-		$this->tabel4_v_flashdata1_msg_3 = 'Status ' . $this->tabel4 . ' berhasil diubah!';
-		$this->tabel4_v_flashdata1_msg_4 = 'Status ' . $this->tabel4 . ' gagal diubah!';
+		$this->tabel4_v_flashdata1_msg_3 = 'Data ' . $this->tabel4 . ' berhasil diubah!';
+		$this->tabel4_v_flashdata1_msg_4 = 'Data ' . $this->tabel4 . ' gagal diubah!';
 		$this->tabel4_v_flashdata1_msg_5 = $this->tabel4 . ' berhasil dihapus!';
 		$this->tabel4_v_flashdata1_msg_6 = $this->tabel4 . ' gagal dihapus!';
 	}

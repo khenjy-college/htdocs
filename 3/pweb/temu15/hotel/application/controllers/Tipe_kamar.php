@@ -86,8 +86,8 @@ class Tipe_kamar extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel6_v_flashdata1_msg_1 = $this->tabel6_alias . ' berhasil disimpan!';
 		$this->tabel6_v_flashdata1_msg_2 = $this->tabel6_alias . ' gagal disimpan!';
-		$this->tabel6_v_flashdata1_msg_3 = 'Status ' . $this->tabel6_alias . ' berhasil diubah!';
-		$this->tabel6_v_flashdata1_msg_4 = 'Status ' . $this->tabel6_alias . ' gagal diubah!';
+		$this->tabel6_v_flashdata1_msg_3 = 'Data ' . $this->tabel6_alias . ' berhasil diubah!';
+		$this->tabel6_v_flashdata1_msg_4 = 'Data ' . $this->tabel6_alias . ' gagal diubah!';
 		$this->tabel6_v_flashdata1_msg_5 = $this->tabel6_alias . ' berhasil dihapus!';
 		$this->tabel6_v_flashdata1_msg_6 = $this->tabel6_alias . ' gagal dihapus!';
 	}

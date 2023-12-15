@@ -149,7 +149,7 @@ class Welcome extends CI_Controller
 	public $tabel6_field2 = 'tipe';
 	public $tabel6_field2_alias = 'tipe';
 	public $tabel6_field3 = 'img';
-	public $tabel6_field3_alias = 'img';
+	public $tabel6_field3_alias = 'Gambar';
 	public $tabel6_field4 = 'stok';
 	public $tabel6_field4_alias = 'stok';
 	public $tabel6_field5 = 'harga';
