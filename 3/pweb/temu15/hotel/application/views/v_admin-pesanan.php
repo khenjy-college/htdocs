@@ -70,66 +70,68 @@
   </form>
 </table>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Tamu</th>
-      <th>Tanggal Cek In</th>
-      <th>Tanggal Cek Out</th>
-      <th>Status</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($pesanan as $ps) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $ps->tamu ?></td>
-        <td><?= $ps->cek_in ?></td>
-        <td><?= $ps->cek_out ?></td>
-        <td><?= $ps->status ?></td>
+        <th>Tamu</th>
+        <th>Tanggal Cek In</th>
+        <th>Tanggal Cek Out</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
 
-        <td>
+    <tbody>
+      <?php foreach ($pesanan as $ps) : ?>
+        <tr>
+          <td><?= $ps->tamu ?></td>
+          <td><?= $ps->cek_in ?></td>
+          <td><?= $ps->cek_out ?></td>
+          <td><?= $ps->status ?></td>
 
-          <!-- tombol yang akan muncul berdasarkan nilai dari status -->
-          <?php if ($ps->status == 'pending') { ?>
-            <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $ps->id_pesanan ?>">
-              <i class="fas fa-bell-concierge"></i></a>
-          <?php } elseif ($ps->status == 'menunggu') { ?>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
-              <i class="fas fa-edit"></i></a>
-          <?php } elseif ($ps->status == 'cek in') { ?>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
-              <i class="fas fa-edit"></i></a>
+          <td>
 
-          <?php } elseif ($ps->status == 'cek out') { ?>
-            <a class="btn btn-light text-danger" onclick="return confirm('Hapus pesanan?')" href="<?= site_url('pesanan/hapus/' . $ps->id_pesanan) ?>">
-              <i class="fas fa-trash"></i></a>
-          <?php } ?>
+            <!-- tombol yang akan muncul berdasarkan nilai dari status -->
+            <?php if ($ps->status == 'pending') { ?>
+              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $ps->id_pesanan ?>">
+                <i class="fas fa-bell-concierge"></i></a>
+            <?php } elseif ($ps->status == 'menunggu') { ?>
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
+                <i class="fas fa-edit"></i></a>
+            <?php } elseif ($ps->status == 'cek in') { ?>
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
+                <i class="fas fa-edit"></i></a>
 
-          <!-- tombol print, hasil print akan muncul di tab baru 
+            <?php } elseif ($ps->status == 'cek out') { ?>
+              <a class="btn btn-light text-danger" onclick="return confirm('Hapus pesanan?')" href="<?= site_url('pesanan/hapus/' . $ps->id_pesanan) ?>">
+                <i class="fas fa-trash"></i></a>
+            <?php } ?>
+
+            <!-- tombol print, hasil print akan muncul di tab baru 
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-          <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $ps->id_pesanan) ?>" target="_blank">
-            <i class="fas fa-print"></i></a>
+            <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $ps->id_pesanan) ?>" target="_blank">
+              <i class="fas fa-print"></i></a>
 
-        </td>
+          </td>
 
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th>Tamu</th>
+        <th>Tanggal Cek In</th>
+        <th>Tanggal Cek Out</th>
+        <th>Status</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach ?>
-  </tbody>
-
-  <tfoot>
-    <tr>
-      <th>Tamu</th>
-      <th>Tanggal Cek In</th>
-      <th>Tanggal Cek Out</th>
-      <th>Status</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    </tfoot>
+  </table>
+</div>
 
 <!-- modal ubah -->
 <?php foreach ($pesanan as $ps) : ?>

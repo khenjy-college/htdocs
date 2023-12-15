@@ -9,57 +9,59 @@
 <a class="btn btn-info mb-4" href="<?= site_url('tipe_kamar/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id Kamar</th>
-      <th>Tipe Kamar</th>
-      <th>Stok Kamar</th>
-      <th>Harga Kamar</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($tipe_kamar as $tp) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $tp->id_tipe; ?></td>
-        <td><?= $tp->tipe ?></td>
-        <td><?= $tp->stok ?></td>
-        <td>Rp <?= number_format($tp->harga, '2', ',', '.') ?></td>
-        <td><img src="img/tipe_kamar/<?= $tp->img ?>" width="100"></td>
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tp->id_tipe; ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tp->id_tipe; ?>">
-            <i class="fas fa-edit"></i></a>
+        <th>Id Kamar</th>
+        <th>Tipe Kamar</th>
+        <th>Stok Kamar</th>
+        <th>Harga Kamar</th>
+        <th>Image</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($tipe_kamar as $tp) : ?>
+        <tr>
+          <td><?= $tp->id_tipe; ?></td>
+          <td><?= $tp->tipe ?></td>
+          <td><?= $tp->stok ?></td>
+          <td>Rp <?= number_format($tp->harga, '2', ',', '.') ?></td>
+          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/tipe_kamar/<?= $tp->img ?>"></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tp->id_tipe; ?>">
+              <i class="fas fa-eye"></i></a>
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tp->id_tipe; ?>">
+              <i class="fas fa-edit"></i></a>
 
 
-          <!-- Ini adalah fitur yang akan kupending terlebih dahulu
+            <!-- Ini adalah fitur yang akan kupending terlebih dahulu
             Rencananya ini akan kubuka lagi setelah kupelajari cascade
             Rencanannya jika user menghapus data tipe kamar, maka ada use case yang terjadi
             Namun use case tersebut saat ini masih belum bisa ditentukan
             Entah itu mau menghapus data yang berada di tabel child, atau meng-NULL kan data di child table
             Hal itu perlu didiskusikan lebih lanjut supaya tidak ada bug yang tidak diinginkan -->
-          <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kamar?')" href="<?= site_url('tipe_kamar/hapus/' . $tp->id_tipe) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kamar?')" href="<?= site_url('tipe_kamar/hapus/' . $tp->id_tipe) ?>">
             <i class="fas fa-trash"></i></a> -->
 
-        </td>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Id Kamar</th>
+        <th>Tipe Kamar</th>
+        <th>Stok Kamar</th>
+        <th>Harga Kamar</th>
+        <th>Image</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Id Kamar</th>
-      <th>Tipe Kamar</th>
-      <th>Stok Kamar</th>
-      <th>Harga Kamar</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
+    </tfoot>
 
 
-</table>
+  </table>
+</div>
 
 <!-- modal tambah -->
 <div id="tambah" class="modal fade">

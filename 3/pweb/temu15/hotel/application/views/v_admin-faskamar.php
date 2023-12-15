@@ -10,45 +10,47 @@
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id</th>
-      <th>Tipe Kamar</th>
-      <th>Nama Fasilitas</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($faskamar as $fk) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $fk->id_faskamar; ?></td>
-        <td><?= $fk->tipe ?></td>
-        <td><?= $fk->nama ?></td>
-        <td><img src="img/faskamar/<?= $fk->img ?>" width="100"></td>
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fk->id_faskamar; ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fk->id_faskamar; ?>">
-            <i class="fas fa-edit"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('faskamar/hapus/' . $fk->id_faskamar) ?>">
-            <i class="fas fa-trash"></i></a>
-        </td>
+        <th>Id</th>
+        <th>Tipe Kamar</th>
+        <th>Nama Fasilitas</th>
+        <th>Image</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
+    </thead>
 
-  <tfoot>
-    <tr>
-      <th>Id Fasilitas</th>
-      <th>Tipe Kamar</th>
-      <th>Nama Fasilitas</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    <tbody>
+      <?php foreach ($faskamar as $fk) : ?>
+        <tr>
+          <td><?= $fk->id_faskamar; ?></td>
+          <td><?= $fk->tipe ?></td>
+          <td><?= $fk->nama ?></td>
+          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/faskamar/<?= $fk->img ?>"></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fk->id_faskamar; ?>">
+              <i class="fas fa-eye"></i></a>
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fk->id_faskamar; ?>">
+              <i class="fas fa-edit"></i></a>
+            <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('faskamar/hapus/' . $fk->id_faskamar) ?>">
+              <i class="fas fa-trash"></i></a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th>Id Fasilitas</th>
+        <th>Tipe Kamar</th>
+        <th>Nama Fasilitas</th>
+        <th>Image</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
 <!-- modal tambah -->
 <div id="tambah" class="modal fade">

@@ -36,7 +36,7 @@
             <td width="20%"><?= $tk->tipe ?></a></td>
             <td width="20%"><?= $tk->stok ?></td>
             <td width="20%">Rp <?= number_format($tk->harga, '2', ',', '.') ?></td>
-            <td width="20%"><img src="img/tipe_kamar/<?= $tk->img ?>" width="100"></td>
+            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/tipe_kamar/<?= $tk->img ?>"></td>
           </tr>
         <?php endforeach ?>
       </tbody>

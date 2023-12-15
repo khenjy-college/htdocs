@@ -12,58 +12,60 @@
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
 <!-- tabel data fasilitas -->
-<table class="table table-light" id="data">
+<div class="table-responsive">
+  <table class="table table-light" id="data">
 
-  <!-- header tabel -->
-  <thead class="thead-light">
-    <tr>
-      <th>Id</th>
-      <th>Nama Fasilitas</th>
-      <th>Keterangan</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <!-- menampilkan setiap baris data fashotel sebagai fh dalam tabel -->
-    <?php foreach ($fashotel as $fh) : ?>
+    <!-- header tabel -->
+    <thead class="thead-light">
       <tr>
-        <td><?= $fh->id_fashotel; ?></td>
-        <td><?= $fh->nama ?></td>
-        <td><?= $fh->keterangan ?></td>
-        <td><img src="img/fashotel/<?= $fh->img ?>" width="100"></td>
-
-        <!-- menampilkan modal lihat data berdasarkan id -->
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fh->id_fashotel; ?>">
-            <i class="fas fa-eye"></i></a>
-
-          <!-- menampilkan modal ubah data berdasarkan id -->
-          <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fh->id_fashotel; ?>">
-            <i class="fas fa-edit"></i></a>
-
-          <!-- menghapus data berdasarkan id -->
-          <a class="btn btn-light text-danger" type="button" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('fashotel/hapus/' . $fh->id_fashotel) ?>">
-            <i class="fas fa-trash"></i></a>
-
-        </td>
+        <th>Id</th>
+        <th>Nama Fasilitas</th>
+        <th>Keterangan</th>
+        <th>Image</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach; ?>
+    </thead>
+    <tbody>
 
-  </tbody>
+      <!-- menampilkan setiap baris data fashotel sebagai fh dalam tabel -->
+      <?php foreach ($fashotel as $fh) : ?>
+        <tr>
+          <td><?= $fh->id_fashotel; ?></td>
+          <td><?= $fh->nama ?></td>
+          <td><?= $fh->keterangan ?></td>
+          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/fashotel/<?= $fh->img ?>"></td>
 
-  <!-- footer tabel -->
-  <tfoot>
-    <tr>
-      <th>Id Fasilitas</th>
-      <th>Nama Fasilitas</th>
-      <th>Keterangan</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
+          <!-- menampilkan modal lihat data berdasarkan id -->
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fh->id_fashotel; ?>">
+              <i class="fas fa-eye"></i></a>
 
-</table>
+            <!-- menampilkan modal ubah data berdasarkan id -->
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fh->id_fashotel; ?>">
+              <i class="fas fa-edit"></i></a>
+
+            <!-- menghapus data berdasarkan id -->
+            <a class="btn btn-light text-danger" type="button" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('fashotel/hapus/' . $fh->id_fashotel) ?>">
+              <i class="fas fa-trash"></i></a>
+
+          </td>
+        </tr>
+      <?php endforeach; ?>
+
+    </tbody>
+
+    <!-- footer tabel -->
+    <tfoot>
+      <tr>
+        <th>Id Fasilitas</th>
+        <th>Nama Fasilitas</th>
+        <th>Keterangan</th>
+        <th>Image</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+
+  </table>
+</div>
 
 <!-- modal tambah -->
 <div id="tambah" class="modal fade">

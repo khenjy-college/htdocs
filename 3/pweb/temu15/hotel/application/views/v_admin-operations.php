@@ -8,49 +8,51 @@
 <a class="btn btn-info mb-4" href="<?= site_url('operations/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id Operations</th>
-      <th>No Kamar</th>
-      <th>Id User</th>
-      <th>Id Petugas</th>
-      <th>Keterangan</th>
-      <th>Tanggal Perubahan</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($operations as $o) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $o->id_operations ?></td>
-        <td><?= $o->no_kamar ?></td>
-        <td><?= $o->id_user ?></td>
-        <td><?= $o->id_petugas ?></td>
-        <td><?= $o->keterangan ?></td>
-        <td><?= $o->tgl_perubahan ?></td>
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $o->id_operations; ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus data operations?')" href="<?= site_url('operations/hapus/' . $o->id_operations) ?>">
-            <i class="fas fa-trash"></i></a>
-        </td>
+        <th>Id Operations</th>
+        <th>No Kamar</th>
+        <th>Id User</th>
+        <th>Id Petugas</th>
+        <th>Keterangan</th>
+        <th>Tanggal Perubahan</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Id Operations</th>
-      <th>No Kamar</th>
-      <th>Id User</th>
-      <th>Id Petugas</th>
-      <th>Keterangan</th>
-      <th>Tanggal Perubahan</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
+    </thead>
+    <tbody>
+      <?php foreach ($operations as $o) : ?>
+        <tr>
+          <td><?= $o->id_operations ?></td>
+          <td><?= $o->no_kamar ?></td>
+          <td><?= $o->id_user ?></td>
+          <td><?= $o->id_petugas ?></td>
+          <td><?= $o->keterangan ?></td>
+          <td><?= $o->tgl_perubahan ?></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $o->id_operations; ?>">
+              <i class="fas fa-eye"></i></a>
+            <a class="btn btn-light text-danger" onclick="return confirm('Hapus data operations?')" href="<?= site_url('operations/hapus/' . $o->id_operations) ?>">
+              <i class="fas fa-trash"></i></a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Id Operations</th>
+        <th>No Kamar</th>
+        <th>Id User</th>
+        <th>Id Petugas</th>
+        <th>Keterangan</th>
+        <th>Tanggal Perubahan</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
 
 
-</table>
+  </table>
+</div>
 
 <!-- modal lihat -->
 <?php foreach ($operations as $o) : ?>

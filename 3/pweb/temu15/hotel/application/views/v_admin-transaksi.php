@@ -41,48 +41,50 @@
   </form>
 </table> -->
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id Transaksi</th>
-      <th>Id Pesanan</th>
-      <th>Metode</th>
-      <th>Bayar</th>
-      <th>Tanggal Transaksi</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($transaksi as $tr) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $tr->id_transaksi ?></td>
-        <td><?= $tr->id_pesanan ?></td>
-        <td><?= $tr->metode ?></td>
-        <td>Rp <?= number_format($tr->bayar, '2', ',', '.') ?></td>
-        <td><?= $tr->tgl_transaksi ?></td>
-        <td>
-          <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
-            <i class="fas fa-receipt"></i></a>
-        </td>
+        <th>Id Transaksi</th>
+        <th>Id Pesanan</th>
+        <th>Metode</th>
+        <th>Bayar</th>
+        <th>Tanggal Transaksi</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach ?>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Id Transaksi</th>
-      <th>Id Pesanan</th>
-      <th>Metode</th>
-      <th>Bayar</th>
-      <th>Tanggal Transaksi</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
+    </thead>
+
+    <tbody>
+      <?php foreach ($transaksi as $tr) : ?>
+        <tr>
+          <td><?= $tr->id_transaksi ?></td>
+          <td><?= $tr->id_pesanan ?></td>
+          <td><?= $tr->metode ?></td>
+          <td>Rp <?= number_format($tr->bayar, '2', ',', '.') ?></td>
+          <td><?= $tr->tgl_transaksi ?></td>
+          <td>
+            <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
+              <i class="fas fa-eye"></i></a>
+            <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
+              <i class="fas fa-receipt"></i></a>
+          </td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Id Transaksi</th>
+        <th>Id Pesanan</th>
+        <th>Metode</th>
+        <th>Bayar</th>
+        <th>Tanggal Transaksi</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
 
 
-</table>
+  </table>
+</div>
 
 <!-- modal lihat -->
 <!-- Tabel transaksi dan tabel pesanan literally sudah bergabung

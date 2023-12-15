@@ -33,7 +33,7 @@
             <td width="25%"><?= $fk->id_faskamar ?></td>
             <td width="25%"><?= $fk->tipe ?></a></td>
             <td width="25%"><?= $fk->nama ?></td>
-            <td width="25%"><img src="img/faskamar/<?= $fk->img ?>" width="100"></td>
+            <td width="25%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/faskamar/<?= $fk->img ?>"></td>
           </tr>
         <?php endforeach ?>
       </tbody>

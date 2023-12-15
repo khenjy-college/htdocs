@@ -9,64 +9,66 @@
 <a class="btn btn-info mb-4" href="<?= site_url('kamar/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>No Kamar</th>
-      <th>Tipe Kamar</th>
-      <th>Status</th>
-      <th>Keterangan</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
+      <tr>
+        <th>No Kamar</th>
+        <th>Tipe Kamar</th>
+        <th>Status</th>
+        <th>Keterangan</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <?php foreach ($kamar as $km) : ?>
-      <?php foreach ($tipe_kamar as $tp) : ?>
-        <?php if ($tp->id_tipe == $km->id_tipe) { ?>
-          <tr>
-            <td><?= $km->no_kamar; ?></td>
-            <td><?= $tp->tipe ?></td>
-            <td><?= $km->status ?></td>
-            <td><?= $km->keterangan ?></td>
-            <td>
-              <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $km->no_kamar; ?>">
-                <i class="fas fa-eye"></i></a>
-              <?php if ($km->status == 'Available') { ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
-                  <i class="fas fa-edit"></i></a>
-              <?php } elseif ($km->status == 'Unavailable') { ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
-                  <i class="fas fa-edit"></i></a>
-              <?php } elseif ($km->status == 'Dirty') { ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#clean<?= $km->no_kamar; ?>">
-                  <i class="fas fa-broom"></i></a>
-              <?php } elseif ($km->status == 'Damaged') { ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#maintenance<?= $km->no_kamar; ?>">
-                  <i class="fas fa-hammer"></i></a>
+    <tbody>
+      <?php foreach ($kamar as $km) : ?>
+        <?php foreach ($tipe_kamar as $tp) : ?>
+          <?php if ($tp->id_tipe == $km->id_tipe) { ?>
+            <tr>
+              <td><?= $km->no_kamar; ?></td>
+              <td><?= $tp->tipe ?></td>
+              <td><?= $km->status ?></td>
+              <td><?= $km->keterangan ?></td>
+              <td>
+                <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $km->no_kamar; ?>">
+                  <i class="fas fa-eye"></i></a>
+                <?php if ($km->status == 'Available') { ?>
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
+                    <i class="fas fa-edit"></i></a>
+                <?php } elseif ($km->status == 'Unavailable') { ?>
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
+                    <i class="fas fa-edit"></i></a>
+                <?php } elseif ($km->status == 'Dirty') { ?>
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#clean<?= $km->no_kamar; ?>">
+                    <i class="fas fa-broom"></i></a>
+                <?php } elseif ($km->status == 'Damaged') { ?>
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#maintenance<?= $km->no_kamar; ?>">
+                    <i class="fas fa-hammer"></i></a>
 
-              <?php } ?>
+                <?php } ?>
 
-              <!-- Saat ini tidak masuk akal untuk menambahkan fitur untuk menghapus kamar -->
-              <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('kamar/hapus/' . $km->no_kamar) ?>">
+                <!-- Saat ini tidak masuk akal untuk menambahkan fitur untuk menghapus kamar -->
+                <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('kamar/hapus/' . $km->no_kamar) ?>">
             <i class="fas fa-trash"></i></a> -->
-            </td>
-          </tr>
-        <?php } ?>
+              </td>
+            </tr>
+          <?php } ?>
+        <?php endforeach; ?>
       <?php endforeach; ?>
-    <?php endforeach; ?>
-  </tbody>
+    </tbody>
 
-  <tfoot>
-    <tr>
-      <th>No Kamar</th>
-      <th>Tipe Kamar</th>
-      <th>Status</th>
-      <th>Keterangan</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    <tfoot>
+      <tr>
+        <th>No Kamar</th>
+        <th>Tipe Kamar</th>
+        <th>Status</th>
+        <th>Keterangan</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
 
 

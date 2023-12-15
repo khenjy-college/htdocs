@@ -9,57 +9,59 @@
 <a class="btn btn-info mb-4" href="<?= site_url('petugas/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id Petugas</th>
-      <th>Nama Petugas</th>
-      <th>Email</th>
-      <th>Hp</th>
-      <th>Image</th>
-      <th>Role</th>
-      <th>Poin</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($petugas as $p) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $p->id_petugas; ?></td>
-        <td><?= $p->nama ?></td>
-        <td><?= $p->email ?></td>
-        <td><?= $p->hp ?></td>
-        <td><img src="img/petugas/<?= $p->img ?>" width="50"></td>
-        <td><?= $p->role ?></td>
-        <td><?= $p->poin ?></td>
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $p->id_petugas; ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $p->id_petugas; ?>">
-            <i class="fas fa-edit"></i></a>
-
-          <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
-          Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
-          <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus petugas?')" href="<?= site_url('petugas/hapus/' . $p->id_petugas) ?>">
-            <i class="fas fa-trash"></i></a> -->
-        </td>
+        <th>Id Petugas</th>
+        <th>Nama Petugas</th>
+        <th>Email</th>
+        <th>Hp</th>
+        <th>Image</th>
+        <th>Role</th>
+        <th>Poin</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
+    </thead>
 
-  <tfoot>
-    <tr>
-      <th>Id Petugas</th>
-      <th>Nama Petugas</th>
-      <th>Email</th>
-      <th>Hp</th>
-      <th>Image</th>
-      <th>Role</th>
-      <th>Poin</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    <tbody>
+      <?php foreach ($petugas as $p) : ?>
+        <tr>
+          <td><?= $p->id_petugas; ?></td>
+          <td><?= $p->nama ?></td>
+          <td><?= $p->email ?></td>
+          <td><?= $p->hp ?></td>
+          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/petugas/<?= $p->img ?>"></td>
+          <td><?= $p->role ?></td>
+          <td><?= $p->poin ?></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $p->id_petugas; ?>">
+              <i class="fas fa-eye"></i></a>
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $p->id_petugas; ?>">
+              <i class="fas fa-edit"></i></a>
+
+            <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
+          Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus petugas?')" href="<?= site_url('petugas/hapus/' . $p->id_petugas) ?>">
+            <i class="fas fa-trash"></i></a> -->
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th>Id Petugas</th>
+        <th>Nama Petugas</th>
+        <th>Email</th>
+        <th>Hp</th>
+        <th>Image</th>
+        <th>Role</th>
+        <th>Poin</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
 <!-- modal tambah -->
 <div id="tambah" class="modal fade">

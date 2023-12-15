@@ -69,56 +69,58 @@
   </form>
 </table>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id Pesanan</th>
-      <th>Tamu</th>
-      <th>Tipe</th>
-      <th>Cek In</th>
-      <th>Cek Out</th>
-      <th>Tanggal Perubahan</th>
-      <th>Resepsionis</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($history as $h) :
-      foreach ($tipe_kamar as $tk) :
-        if ($tk->id_tipe == $h->id_tipe) { ?>
-          <tr>
-            <td><?= $h->id_pesanan ?></td>
-            <td><?= $h->tamu ?></td>
-            <td><?= $tk->tipe ?></td>
-            <td><?= $h->cek_in ?></td>
-            <td><?= $h->cek_out ?></td>
-            <td><?= $h->tgl_perubahan ?></td>
-            <td><?= $h->user_aktif ?></td>
-            <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $h->id_history; ?>">
-                <i class="fas fa-eye"></i></a>
-              <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $h->id_history) ?>">
-                <i class="fas fa-trash"></i></a>
-            </td>
-          </tr>
-    <?php }
-      endforeach;
-    endforeach; ?>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Id Pesanan</th>
-      <th>Tamu</th>
-      <th>Tipe</th>
-      <th>Cek In</th>
-      <th>Cek Out</th>
-      <th>Tanggal Perubahan</th>
-      <th>Aksi</th>
-      <th>Resepsionis</th>
-    </tr>
-  </tfoot>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
+      <tr>
+        <th>Id Pesanan</th>
+        <th>Tamu</th>
+        <th>Tipe</th>
+        <th>Cek In</th>
+        <th>Cek Out</th>
+        <th>Tanggal Perubahan</th>
+        <th>Resepsionis</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($history as $h) :
+        foreach ($tipe_kamar as $tk) :
+          if ($tk->id_tipe == $h->id_tipe) { ?>
+            <tr>
+              <td><?= $h->id_pesanan ?></td>
+              <td><?= $h->tamu ?></td>
+              <td><?= $tk->tipe ?></td>
+              <td><?= $h->cek_in ?></td>
+              <td><?= $h->cek_out ?></td>
+              <td><?= $h->tgl_perubahan ?></td>
+              <td><?= $h->user_aktif ?></td>
+              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $h->id_history; ?>">
+                  <i class="fas fa-eye"></i></a>
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $h->id_history) ?>">
+                  <i class="fas fa-trash"></i></a>
+              </td>
+            </tr>
+      <?php }
+        endforeach;
+      endforeach; ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Id Pesanan</th>
+        <th>Tamu</th>
+        <th>Tipe</th>
+        <th>Cek In</th>
+        <th>Cek Out</th>
+        <th>Tanggal Perubahan</th>
+        <th>Aksi</th>
+        <th>Resepsionis</th>
+      </tr>
+    </tfoot>
 
 
-</table>
+  </table>
+</div>
 
 <!-- modal lihat -->
 <?php foreach ($history as $h) :

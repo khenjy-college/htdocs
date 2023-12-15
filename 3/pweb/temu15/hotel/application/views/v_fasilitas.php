@@ -7,10 +7,10 @@
 
 <div class="row">
   <?php foreach ($fashotel as $fh) : ?>
-    <div class="col-4 fashotel">
+    <div class="col-md-4 fashotel">
 
       <!-- gambar dapat ditekan untuk memunculkan modal -->
-      <img role="button" data-toggle="modal" data-target="#lihat<?= $fh->id_fashotel; ?>" class="img-thumbnail" src="img/fashotel/<?= $fh->img; ?>">
+      <img style="height: 200px;" role="button" data-toggle="modal" data-target="#lihat<?= $fh->id_fashotel; ?>" class="img-thumbnail img-fluid" src="img/fashotel/<?= $fh->img; ?>">
 
     </div>
   <?php endforeach; ?>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="modal-body">
-          <img class="img-fluid" src="img/fashotel/<?= $fh->img; ?>">
+          <img class="img-thumbnail" src="img/fashotel/<?= $fh->img; ?>">
         </div>
 
         <div class="modal-footer">

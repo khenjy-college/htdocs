@@ -1,49 +1,51 @@
 <h1><?= $title ?></h1>
 Fitur sedang tahap pengembangan
 <hr>
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id Transaksi</th>
-      <th>Id history</th>
-      <th>Metode</th>
-      <th>Bayar</th>
-      <th>Tanggal Transaksi</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($transaksi as $tr) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $tr->id_transaksi ?></td>
-        <td><?= $tr->id_history ?></td>
-        <td><?= $tr->metode ?></td>
-        <td><?= $tr->bayar ?></td>
-        <td><?= $tr->tgl_transaksi ?></td>
-        <td><a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
-            <i class="fas fa-eye"></i></a>
-
-          <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
-            <i class="fas fa-receipt"></i></a>
-
-
-        </td>
+        <th>Id Transaksi</th>
+        <th>Id history</th>
+        <th>Metode</th>
+        <th>Bayar</th>
+        <th>Tanggal Transaksi</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach ?>
-  </tbody>
+    </thead>
 
-  <tfoot>
-    <tr>
-      <th>Id Transaksi</th>
-      <th>Id Pemesan</th>
-      <th>Metode</th>
-      <th>Bayar</th>
-      <th>Tanggal Transaksi</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    <tbody>
+      <?php foreach ($transaksi as $tr) : ?>
+        <tr>
+          <td><?= $tr->id_transaksi ?></td>
+          <td><?= $tr->id_history ?></td>
+          <td><?= $tr->metode ?></td>
+          <td><?= $tr->bayar ?></td>
+          <td><?= $tr->tgl_transaksi ?></td>
+          <td><a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
+              <i class="fas fa-eye"></i></a>
+
+            <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
+              <i class="fas fa-receipt"></i></a>
+
+
+          </td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th>Id Transaksi</th>
+        <th>Id Pemesan</th>
+        <th>Metode</th>
+        <th>Bayar</th>
+        <th>Tanggal Transaksi</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
 <!-- modal lihat -->
 <!-- Tabel transaksi dan tabel history literally sudah bergabung
@@ -98,19 +100,19 @@ Jadi tidak perlu menambahkan foreach hitory lagi -->
                     <label>Nama Tamu</label>
                     <p><?= $tr->tamu ?></p>
                   </div>
-                    <hr>
+                  <hr>
 
                   <div class="form-group">
                     <label>Tipe Kamar</label>
                     <p><?= $tk->tipe ?></p>
                   </div>
-                    <hr>
+                  <hr>
 
                   <div class="form-group">
                     <label>Tanggal Cek In</label>
                     <p><?= $tr->cek_in ?></p>
                   </div>
-                    <hr>
+                  <hr>
 
                   <div class="form-group">
                     <label>Tanggal Cek Out</label>

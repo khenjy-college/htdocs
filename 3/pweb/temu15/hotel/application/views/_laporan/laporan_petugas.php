@@ -37,7 +37,7 @@
             <td width="20%"><?= $pt->nama ?></a></td>
             <td width="20%"><?= $pt->email ?></td>
             <td width="20%"><?= $pt->hp ?></td>
-            <td width="20%"><img src="img/petugas/<?= $pt->img ?>" width="100"></td>
+            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/petugas/<?= $pt->img ?>"></td>
             <td width="10%"><?= $pt->role ?></td>
           </tr>
         <?php endforeach ?>

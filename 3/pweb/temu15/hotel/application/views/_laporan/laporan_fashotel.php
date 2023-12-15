@@ -34,7 +34,7 @@
             <td width="25%"><?= $fh->id_fashotel ?></td>
             <td width="25%"><?= $fh->nama ?></a></td>
             <td width="25%"><?= $fh->keterangan ?></td>
-            <td width="25%"><img src="img/fashotel/<?= $fh->img ?>" width="100"></td>
+            <td width="25%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/fashotel/<?= $fh->img ?>"></td>
           </tr>
         <?php endforeach ?>
       </tbody>

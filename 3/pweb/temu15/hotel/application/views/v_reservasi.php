@@ -2,55 +2,56 @@
 <hr>
 
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Tamu</th>
-      <th>Tanggal Cek In</th>
-      <th>Tanggal Cek Out</th>
-      <th>Status</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($pesanan as $ps) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $ps->tamu ?></td>
-        <td><?= $ps->cek_in ?></td>
-        <td><?= $ps->cek_out ?></td>
-        <td><?= $ps->status ?></td>
-        <td>
-          <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $ps->id_pesanan ?>" href="#">
-            <i class="fas fa-eye"></i></a>
-          <?php if ($ps->status == 'belum bayar') { ?>
-            <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $ps->id_pesanan ?>" href="#">
-              <i class="fas fa-shopping-cart"></i></a>
-          <?php } elseif (
-            $ps->status == 'menunggu'
-            || $ps->status == 'cek in'
-          ) { ?>
-            <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $ps->id_pesanan) ?>" target="_blank">
-              <i class="fas fa-print"></i></a>
-
-          <?php } ?>
-
-        </td>
+        <th>Tamu</th>
+        <th>Tanggal Cek In</th>
+        <th>Tanggal Cek Out</th>
+        <th>Status</th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach ?>
-  </tbody>
+    </thead>
 
-  <tfoot>
-    <tr>
-      <th>Tamu</th>
-      <th>Tanggal Cek In</th>
-      <th>Tanggal Cek Out</th>
-      <th>Status</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    <tbody>
+      <?php foreach ($pesanan as $ps) : ?>
+        <tr>
+          <td><?= $ps->tamu ?></td>
+          <td><?= $ps->cek_in ?></td>
+          <td><?= $ps->cek_out ?></td>
+          <td><?= $ps->status ?></td>
+          <td>
+            <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $ps->id_pesanan ?>" href="#">
+              <i class="fas fa-eye"></i></a>
+            <?php if ($ps->status == 'belum bayar') { ?>
+              <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $ps->id_pesanan ?>" href="#">
+                <i class="fas fa-shopping-cart"></i></a>
+            <?php } elseif (
+              $ps->status == 'menunggu'
+              || $ps->status == 'cek in'
+            ) { ?>
+              <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $ps->id_pesanan) ?>" target="_blank">
+                <i class="fas fa-print"></i></a>
 
+            <?php } ?>
+
+          </td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th>Tamu</th>
+        <th>Tanggal Cek In</th>
+        <th>Tanggal Cek Out</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
 <!-- modal bayar -->
 <?php foreach ($pesanan as $ps) : ?>
