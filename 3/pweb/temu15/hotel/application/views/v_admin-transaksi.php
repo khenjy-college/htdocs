@@ -90,7 +90,7 @@
 <!-- Tabel transaksi dan tabel pesanan literally sudah bergabung
 Jadi tidak perlu menambahkan foreach pesanan lagi -->
 <?php foreach ($transaksi as $tr) : ?>
-  <div id="lihat" class="modal fade" role="dialog">
+  <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade" role="dialog">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $tr->id_tipe) { ?>
         <div class="modal-dialog">
@@ -161,9 +161,9 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 
               </div>
             </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+            <!-- memunculkan notifikasi modal -->
+            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

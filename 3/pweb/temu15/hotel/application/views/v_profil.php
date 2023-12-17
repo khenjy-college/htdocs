@@ -1,11 +1,11 @@
-<h1>Profil User<?= $phase ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 <div class="row">
   <div class="col-md-6">
     <?php foreach ($user as $u) : ?>
 
       <!-- tombol untuk memunculkan modal memperbaiki password -->
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $u->id_user ?>">
         <i class="fas fa-edit"></i> Ubah Password</a>
 
       <!-- form ini terpisah dengan form ubah password untuk keamanan sesama :) -->
@@ -42,7 +42,7 @@
 
 <!-- modal edit password-->
 <?php foreach ($user as $u) : ?>
-  <div id="password" class="modal fade">
+  <div id="password<?= $u->id_user ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -79,6 +79,7 @@
           </div>
 
           <!-- pesan untuk pengguna yang sedang merubah password -->
+          <!-- untuk bagian ini akan kuubah nanti -->
           <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">

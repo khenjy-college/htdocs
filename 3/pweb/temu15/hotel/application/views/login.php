@@ -15,7 +15,7 @@
         <!-- link kembali -->
         <a class="text-decoration-none" href="<?= site_url('welcome') ?>">Kembali ke beranda</a>
 
-        <h1 class="text-center">Login<?= $phase ?></h1>
+        <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
 
         <!-- form login -->
         <form action="<?= site_url('user/ceklogin') ?>" method="post">

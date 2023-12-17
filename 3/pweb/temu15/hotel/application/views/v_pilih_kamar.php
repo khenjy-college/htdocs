@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Pilih Kamar Reservasi<?= $phase ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <table class="table table-light" id="data">
@@ -49,7 +49,7 @@
 
 <!-- Modal Lihat -->
 <?php foreach ($kamar as $km) : ?>
-  <div id="lihat" class="modal fade" role="dialog">
+  <div id="lihat<?= $km->no_kamar; ?>" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -74,9 +74,9 @@
 
             <img src="img/kamar/<?= $km->img; ?>" width="450">
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

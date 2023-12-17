@@ -79,7 +79,7 @@
               </div>
 
               <!-- memunculkan notifikasi modal -->
-              <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+              <p id="p_cari" class="small text-center text-danger"><?= $this->session->flashdata('pesan_cari') ?></p>
 
               <div class="modal-footer">
                 <button class="btn btn-success" type="submit">Cari</button>
@@ -180,8 +180,18 @@
           ]
         });
 
-
+        // yg ini yang menggunakan toast
         <?= $this->session->flashdata('panggil') ?>
+        // ini sebenarnya utk ubah password cman aku malas buat ubah namanya
+        <?= $this->session->flashdata('modal') ?> 
+        // yg di bawah ini adalah semua yg berhubungan dgn modal
+        <?= $this->session->flashdata('tambah') ?>
+        <?= $this->session->flashdata('ubah') ?>
+        <?= $this->session->flashdata('lihat') ?>
+        <?= $this->session->flashdata('cari') ?>
+        <?= $this->session->flashdata('maintenance') ?>
+        <?= $this->session->flashdata('clean') ?>
+        <?= $this->session->flashdata('book') ?>
       });
 
       var table = $('#daterange_table').DataTable({

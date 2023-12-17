@@ -4,11 +4,6 @@ include 'Welcome.php';
 
 class Faskamar extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 
 	// deklarasi variabel mvc
 	// deklarasi variabel model
@@ -43,6 +38,10 @@ class Faskamar extends Welcome
 	private $tabel1_v_flashdata1_msg_4;
 	private $tabel1_v_flashdata1_msg_5;
 	private $tabel1_v_flashdata1_msg_6;
+
+	private $tabel1_v_flashdata3_msg_1;
+	private $tabel1_v_flashdata4_msg_1;
+	private $tabel1_v_flashdata5_msg_1;
 
 	public function
 
@@ -83,12 +82,16 @@ class Faskamar extends Welcome
 		$this->tabel1_v_input4_alt = $this->input->post('txt' . $this->tabel1_v_input4);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel1_v_flashdata1_msg_1 = $this->tabel1 . ' berhasil disimpan!';
-		$this->tabel1_v_flashdata1_msg_2 = $this->tabel1 . ' gagal disimpan!';
-		$this->tabel1_v_flashdata1_msg_3 = 'Data ' . $this->tabel1 . ' berhasil diubah!';
-		$this->tabel1_v_flashdata1_msg_4 = 'Data ' . $this->tabel1 . ' gagal diubah!';
-		$this->tabel1_v_flashdata1_msg_5 = $this->tabel1 . ' berhasil dihapus!';
-		$this->tabel1_v_flashdata1_msg_6 = $this->tabel1 . ' gagal dihapus!';
+		$this->tabel1_v_flashdata1_msg_1 = 'Data ' . $this->tabel1_alias . ' berhasil disimpan!';
+		$this->tabel1_v_flashdata1_msg_2 = 'Data ' . $this->tabel1_alias . ' gagal disimpan!';
+		$this->tabel1_v_flashdata1_msg_3 = 'Data ' . $this->tabel1_alias . ' berhasil diubah!';
+		$this->tabel1_v_flashdata1_msg_4 = 'Data ' . $this->tabel1_alias . ' gagal diubah!';
+		$this->tabel1_v_flashdata1_msg_5 = 'Data ' . $this->tabel1_alias . ' berhasil dihapus!';
+		$this->tabel1_v_flashdata1_msg_6 = 'Data ' . $this->tabel1_alias . ' gagal dihapus!';
+
+		$this->tabel1_v_flashdata3_msg_1 = 'Upload ' . $this->tabel1_field4_alias . ' gagal';
+		$this->tabel1_v_flashdata4_msg_1 = 'Upload ' . $this->tabel1_field4_alias . ' gagal';
+		$this->tabel1_v_flashdata5_msg_1 = 'Upload ' . $this->tabel1_field4_alias . ' gagal';
 	}
 
 
@@ -120,14 +123,13 @@ class Faskamar extends Welcome
 		$this->load->library('upload', $config);
 
 		if (!$this->tabel1_v_input4_upload) {
+
 			$this->session->set_flashdata($this->v_flashdata3, 'Gambar ' . $this->tabel1_field4 . ' tidak bisa diupload!');
-			$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func2);
+			$this->session->set_flashdata($this->v_flashdata_c, $this->v_flashdata_c_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		} else {
 			$upload = $this->upload->data();
 			$gambar = $upload['file_name'];
-
-
 
 			$data = array(
 				$this->tabel1_field1 => '',

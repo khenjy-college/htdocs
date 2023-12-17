@@ -1,10 +1,10 @@
-<h1>Daftar Reservasi<?= $phase ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 Fitur sedang tahap pengembangan
 <hr>
 
 <!-- modal bayar -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="bayar" class="modal fade">
+  <div id="bayar<?= $ps->id_pesanan ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -97,9 +97,9 @@ Fitur sedang tahap pengembangan
 
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Bayar</button>
@@ -113,7 +113,7 @@ Fitur sedang tahap pengembangan
 
 <!-- modal lihat -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="lihat" class="modal fade">
+  <div id="lihat<?= $ps->id_pesanan ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -171,9 +171,9 @@ Fitur sedang tahap pengembangan
             </div>
           </div>
         </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

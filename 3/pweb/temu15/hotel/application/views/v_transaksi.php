@@ -53,7 +53,7 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 <?php foreach ($transaksi as $tr) : ?>
   <?php foreach ($tipe_kamar as $tk) : ?>
     <?php if ($tk->id_tipe === $tr->id_tipe) { ?>
-      <div id="lihat" class="modal fade">
+      <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -122,9 +122,9 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 
               </div>
             </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+            <!-- memunculkan notifikasi modal -->
+            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
             <div class="modal-footer">
 

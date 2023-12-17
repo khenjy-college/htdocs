@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Pengaturan Website<?= $phase ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 <div class="row">
   <div class="col-md-6">
@@ -67,7 +67,7 @@
 
 <!-- modal edit favicon-->
 <?php foreach ($pengaturan as $p) : ?>
-  <div id="favicon" class="modal fade">
+  <div id="favicon<?= $p->id; ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -95,7 +95,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p id="p_favicon" class="small text-center text-danger"><?= $this->session->flashdata('pesan_favicon') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah favicon?')" type="submit">Simpan Perubahan</button>
@@ -108,7 +108,7 @@
 
 <!-- modal edit logo-->
 <?php foreach ($pengaturan as $p) : ?>
-  <div id="logo" class="modal fade">
+  <div id="logo<?= $p->id; ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -137,7 +137,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p id="p_logo" class="small text-center text-danger"><?= $this->session->flashdata('pesan_logo') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah logo website?')" type="submit">Simpan Perubahan</button>
@@ -150,7 +150,7 @@
 
 <!-- modal edit foto-->
 <?php foreach ($pengaturan as $p) : ?>
-  <div id="foto" class="modal fade">
+  <div id="foto<?= $p->id; ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -178,7 +178,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p id="p_foto" class="small text-center text-danger"><?= $this->session->flashdata('pesan_foto') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah foto website?')" type="submit">Simpan Perubahan</button>

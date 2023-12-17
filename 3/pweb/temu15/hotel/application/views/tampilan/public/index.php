@@ -114,6 +114,9 @@
                 <input class="form-control" type="email" required name="email" placeholder="Masukkan email Anda">
               </div>
             </div>
+            
+            <!-- memunculkan notifikasi modal -->
+            <p id="p_cari" class="small text-center text-danger"><?= $this->session->flashdata('pesan_cari') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-success" type="submit">Cari</button>

@@ -84,12 +84,12 @@ class Tipe_kamar extends Welcome
 		$this->tabel6_v_input5_post = $this->input->post($this->tabel6_field5);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel6_v_flashdata1_msg_1 = $this->tabel6_alias . ' berhasil disimpan!';
-		$this->tabel6_v_flashdata1_msg_2 = $this->tabel6_alias . ' gagal disimpan!';
+		$this->tabel6_v_flashdata1_msg_1 = 'Data ' . $this->tabel6_alias . ' berhasil disimpan!';
+		$this->tabel6_v_flashdata1_msg_2 = 'Data ' . $this->tabel6_alias . ' gagal disimpan!';
 		$this->tabel6_v_flashdata1_msg_3 = 'Data ' . $this->tabel6_alias . ' berhasil diubah!';
 		$this->tabel6_v_flashdata1_msg_4 = 'Data ' . $this->tabel6_alias . ' gagal diubah!';
-		$this->tabel6_v_flashdata1_msg_5 = $this->tabel6_alias . ' berhasil dihapus!';
-		$this->tabel6_v_flashdata1_msg_6 = $this->tabel6_alias . ' gagal dihapus!';
+		$this->tabel6_v_flashdata1_msg_5 = 'Data ' . $this->tabel6_alias . ' berhasil dihapus!';
+		$this->tabel6_v_flashdata1_msg_6 = 'Data ' . $this->tabel6_alias . ' gagal dihapus!';
 	}
 
 
@@ -98,8 +98,8 @@ class Tipe_kamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => 'Data Tipe Kamar',
-			'head' => $this->head,
+			$this->v_part1 => 'Data Tipe Kamar',
+			$this->v_part2 => $this->head,
 			'konten' => 'v_admin-tipe_kamar',
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -121,7 +121,10 @@ class Tipe_kamar extends Welcome
 		if (!$this->upload->do_upload($this->tabel6_v_input3)) {
 			// Di sini seharusnya ada notifikasi modal kalau upload tidak berhasil
 			// Tapi karena formnya sudah required saya rasa tidak perlu
-			$gambar  = '';
+
+			$this->session->set_flashdata($this->v_flashdata3, 'Gambar ' . $this->tabel1_field4 . ' tidak bisa diupload!');
+			$this->session->set_flashdata($this->v_flashdata_c, $this->v_flashdata_c_func1);
+			redirect($_SERVER['HTTP_REFERER']);
 		} else {
 			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
 			$upload = $this->upload->data();
@@ -227,8 +230,8 @@ class Tipe_kamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel6_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel6_v3_title,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()

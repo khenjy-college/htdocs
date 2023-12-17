@@ -127,7 +127,7 @@
   foreach ($tipe_kamar as $tk) :
     if ($tk->id_tipe == $h->id_tipe) { ?>
 
-      <div id="lihat" class="modal fade">
+      <div id="lihat<?= $h->id_history ?>" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -205,7 +205,7 @@
             </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

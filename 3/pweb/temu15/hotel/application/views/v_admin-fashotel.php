@@ -106,7 +106,7 @@
         </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+          <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <!-- footer modal -->
         <div class="modal-footer">
@@ -126,7 +126,7 @@
 <?php foreach ($fashotel as $fh) : ?>
 
   <!-- modal edit -->
-  <div id="ubah" class="modal fade">
+  <div id="ubah<?= $fh->id_fashotel; ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -173,7 +173,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
           <!-- footer modal -->
           <div class="modal-footer">
@@ -196,7 +196,7 @@
 <?php foreach ($fashotel as $fh) : ?>
 
   <!-- modal lihat -->
-  <div id="lihat" class="modal fade" role="dialog">
+  <div id="lihat<?= $fh->id_fashotel; ?>" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
@@ -236,7 +236,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
           <!-- footer modal -->
           <div class="modal-footer">

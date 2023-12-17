@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Pesanan<?= $phase ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <!-- tabel fiter pesanan -->
@@ -135,7 +135,7 @@
 
 <!-- modal ubah -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="ubah" class="modal fade">
+  <div id="ubah<?= $ps->id_pesanan ?>" class="modal fade">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
         <div class="modal-dialog">
@@ -218,7 +218,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
               <div class="modal-footer">
 
@@ -245,7 +245,7 @@
 
 <!-- modal book -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="book" class="modal fade">
+  <div id="book<?= $ps->id_pesanan ?>" class="modal fade">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
         <div class="modal-dialog">
@@ -357,7 +357,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_book') ?></p>
+          <p id="p_book" class="small text-center text-danger"><?= $this->session->flashdata('pesan_book') ?></p>
 
               <div class="modal-footer">
 

@@ -139,12 +139,12 @@ class Transaksi extends Welcome
 		$this->tabel10_v_input7_filter2_get = $this->input->get($this->tabel10_v_input7_filter2);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel10_v_flashdata1_msg_1 = $this->tabel10_alias . ' berhasil disimpan!';
-		$this->tabel10_v_flashdata1_msg_2 = $this->tabel10_alias . ' gagal disimpan!';
+		$this->tabel10_v_flashdata1_msg_1 = 'Data ' . $this->tabel10_alias . ' berhasil disimpan!';
+		$this->tabel10_v_flashdata1_msg_2 = 'Data ' . $this->tabel10_alias . ' gagal disimpan!';
 		$this->tabel10_v_flashdata1_msg_3 = 'Data ' . $this->tabel10_alias . ' berhasil diubah!';
 		$this->tabel10_v_flashdata1_msg_4 = 'Data ' . $this->tabel10_alias . ' gagal diubah!';
-		$this->tabel10_v_flashdata1_msg_5 = $this->tabel10_alias . ' berhasil dihapus!';
-		$this->tabel10_v_flashdata1_msg_6 = $this->tabel10_alias . ' gagal dihapus!';
+		$this->tabel10_v_flashdata1_msg_5 = 'Data ' . $this->tabel10_alias . ' berhasil dihapus!';
+		$this->tabel10_v_flashdata1_msg_6 = 'Data ' . $this->tabel10_alias . ' gagal dihapus!';
 
 
 		// deklarasi session
@@ -172,8 +172,8 @@ class Transaksi extends Welcome
 		// $param2 = $this->tabel10_v_input7_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel10_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel10_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -197,8 +197,8 @@ class Transaksi extends Welcome
 		// $param2 = $this->tabel10_v_input7_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel10_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel10_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel10_v2_alt,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -329,8 +329,8 @@ class Transaksi extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel10_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel10_v3_title,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambildata()->result(),
@@ -346,8 +346,8 @@ class Transaksi extends Welcome
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
 		$data = array(
-			'title' => $this->tabel10_v1_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel10_v1_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel10_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -363,8 +363,8 @@ class Transaksi extends Welcome
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
 		$data = array(
-			'title' => $this->tabel10_v1_alt_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel10_v1_alt_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel10_v1_alt,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -384,8 +384,8 @@ class Transaksi extends Welcome
 		$param2 = $this->tabel10_v_input7_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel10_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel10_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -408,8 +408,8 @@ class Transaksi extends Welcome
 		$this->declare();
 		$where = $this->session->tempdata('email_transaksi');
 		$data = array(
-			'title' => 'Transaksi Berhasil',
-			'head' => $this->head,
+			$this->v_part1 => 'Transaksi Berhasil',
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
@@ -427,8 +427,8 @@ class Transaksi extends Welcome
 	{
 		$this->declare();
 		$data1 = array(
-			'title' => 'Bukti Transaksi',
-			'head' => $this->head,
+			$this->v_part1 => 'Bukti Transaksi',
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambil($id_transaksi)->result(),

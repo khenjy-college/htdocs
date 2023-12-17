@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Operations<?= $phase ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <a class="btn btn-info mb-4" href="<?= site_url('operations/laporan') ?>" target="_blank">
@@ -56,7 +56,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($operations as $o) : ?>
-  <div id="lihat" class="modal fade">
+  <div id="lihat<?= $o->id_operations ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -111,7 +111,7 @@
         </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

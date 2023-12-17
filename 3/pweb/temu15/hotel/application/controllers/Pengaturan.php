@@ -94,12 +94,12 @@ class Pengaturan extends Welcome
 		$this->tabel7_v_input11_post = $this->input->post($this->tabel7_field11);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel7_v_flashdata1_msg_1 = $this->tabel7 . ' berhasil disimpan!';
-		$this->tabel7_v_flashdata1_msg_2 = $this->tabel7 . ' gagal disimpan!';
-		$this->tabel7_v_flashdata1_msg_3 = 'Status ' . $this->tabel7 . ' berhasil diubah!';
-		$this->tabel7_v_flashdata1_msg_4 = 'Status ' . $this->tabel7 . ' gagal diubah!';
-		$this->tabel7_v_flashdata1_msg_5 = $this->tabel7 . ' berhasil dihapus!';
-		$this->tabel7_v_flashdata1_msg_6 = $this->tabel7 . ' gagal dihapus!';
+		$this->tabel7_v_flashdata1_msg_1 = 'Data ' . $this->tabel7_alias . ' berhasil disimpan!';
+		$this->tabel7_v_flashdata1_msg_2 = 'Data ' . $this->tabel7_alias . ' gagal disimpan!';
+		$this->tabel7_v_flashdata1_msg_3 = 'Data ' . $this->tabel7_alias . ' berhasil diubah!';
+		$this->tabel7_v_flashdata1_msg_4 = 'Data ' . $this->tabel7_alias . ' gagal diubah!';
+		$this->tabel7_v_flashdata1_msg_5 = 'Data ' . $this->tabel7_alias . ' berhasil dihapus!';
+		$this->tabel7_v_flashdata1_msg_6 = 'Data ' . $this->tabel7_alias . ' gagal dihapus!';
 	}
 
 
@@ -109,8 +109,8 @@ class Pengaturan extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel7_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel7_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel7_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),

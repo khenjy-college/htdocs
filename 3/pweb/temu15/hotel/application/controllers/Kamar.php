@@ -73,12 +73,12 @@ class Kamar extends Welcome
 		$this->tabel5_v_input5_post = $this->input->post($this->tabel5_field5);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel5_v_flashdata1_msg_1 = $this->tabel5 . ' berhasil disimpan!';
-		$this->tabel5_v_flashdata1_msg_2 = $this->tabel5 . ' gagal disimpan!';
-		$this->tabel5_v_flashdata1_msg_3 = 'Data ' . $this->tabel5 . ' berhasil diubah!';
-		$this->tabel5_v_flashdata1_msg_4 = 'Data ' . $this->tabel5 . ' gagal diubah!';
-		$this->tabel5_v_flashdata1_msg_5 = $this->tabel5 . ' berhasil dihapus!';
-		$this->tabel5_v_flashdata1_msg_6 = $this->tabel5 . ' gagal dihapus!';
+		$this->tabel5_v_flashdata1_msg_1 = 'Data ' . $this->tabel5_alias . ' berhasil disimpan!';
+		$this->tabel5_v_flashdata1_msg_2 = 'Data ' . $this->tabel5_alias . ' gagal disimpan!';
+		$this->tabel5_v_flashdata1_msg_3 = 'Data ' . $this->tabel5_alias . ' berhasil diubah!';
+		$this->tabel5_v_flashdata1_msg_4 = 'Data ' . $this->tabel5_alias . ' gagal diubah!';
+		$this->tabel5_v_flashdata1_msg_5 = 'Data ' . $this->tabel5_alias . ' berhasil dihapus!';
+		$this->tabel5_v_flashdata1_msg_6 = 'Data ' . $this->tabel5_alias . ' gagal dihapus!';
 	}
 
 

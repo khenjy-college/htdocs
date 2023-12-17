@@ -1,4 +1,4 @@
-<h1>Daftar Reservasi<?= $phase ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 
@@ -56,7 +56,7 @@
 <!-- modal bayar -->
 <?php foreach ($pesanan as $ps) : ?>
 
-  <div id="bayar" class="modal fade">
+  <div id="bayar<?= $ps->id_pesanan ?>" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -160,9 +160,9 @@
 
             </div>
           </div>
-          
+
           <!-- pesan untuk pengguna yang sedang merubah password -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Bayar</button>
@@ -178,7 +178,7 @@
 <?php foreach ($pesanan as $ps) :
   foreach ($tipe_kamar as $tk) :
     if ($tk->id_tipe == $ps->id_tipe) { ?>
-      <div id="lihat" class="modal fade">
+      <div id="lihat<?= $ps->id_pesanan ?>" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -242,9 +242,9 @@
                 </div>
               </div>
             </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+            <!-- memunculkan notifikasi modal -->
+            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

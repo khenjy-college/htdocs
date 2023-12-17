@@ -92,12 +92,12 @@ class Petugas extends Welcome
 		$this->tabel4_v_input7_post = $this->input->post($this->tabel4_field7);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel4_v_flashdata1_msg_1 = $this->tabel4 . ' berhasil disimpan!';
-		$this->tabel4_v_flashdata1_msg_2 = $this->tabel4 . ' gagal disimpan!';
-		$this->tabel4_v_flashdata1_msg_3 = 'Data ' . $this->tabel4 . ' berhasil diubah!';
-		$this->tabel4_v_flashdata1_msg_4 = 'Data ' . $this->tabel4 . ' gagal diubah!';
-		$this->tabel4_v_flashdata1_msg_5 = $this->tabel4 . ' berhasil dihapus!';
-		$this->tabel4_v_flashdata1_msg_6 = $this->tabel4 . ' gagal dihapus!';
+		$this->tabel4_v_flashdata1_msg_1 = 'Data ' . $this->tabel4_alias . ' berhasil disimpan!';
+		$this->tabel4_v_flashdata1_msg_2 = 'Data ' . $this->tabel4_alias . ' gagal disimpan!';
+		$this->tabel4_v_flashdata1_msg_3 = 'Data ' . $this->tabel4_alias . ' berhasil diubah!';
+		$this->tabel4_v_flashdata1_msg_4 = 'Data ' . $this->tabel4_alias . ' gagal diubah!';
+		$this->tabel4_v_flashdata1_msg_5 = 'Data ' . $this->tabel4_alias . ' berhasil dihapus!';
+		$this->tabel4_v_flashdata1_msg_6 = 'Data ' . $this->tabel4_alias . ' gagal dihapus!';
 	}
 
 
@@ -107,8 +107,8 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel4_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel4_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel4_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -239,8 +239,8 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel4_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel4_v3_title,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()

@@ -95,11 +95,11 @@ class History extends Welcome
 		// deklarasi variabel views
 
 		$this->tabel2_v1 = 'v_' . $this->tabel2;
-		$this->tabel2_v1_title = 'Daftar ' . $this->tabel2;
+		$this->tabel2_v1_title = 'Daftar ' . $this->tabel2_alias;
 		$this->tabel2_v2 = 'v_admin-' . $this->tabel2;
-		$this->tabel2_v2_title = 'Data ' . $this->tabel2;
+		$this->tabel2_v2_title = 'Data ' . $this->tabel2_alias;
 		$this->tabel2_v3 = '_laporan/laporan_' . $this->tabel2;
-		$this->tabel2_v3_title = 'Laporan ' . $this->tabel2;
+		$this->tabel2_v3_title = 'Laporan ' . $this->tabel2_alias;
 
 		// deklarasi variabel controller
 		$this->tabel2_c1 = $this->tabel2;
@@ -141,12 +141,12 @@ class History extends Welcome
 		$this->tabel2_v_input15_post = $this->input->post($this->tabel2_field15);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel2_v_flashdata1_msg_1 = $this->tabel2 . ' berhasil disimpan!';
-		$this->tabel2_v_flashdata1_msg_2 = $this->tabel2 . ' gagal disimpan!';
-		$this->tabel2_v_flashdata1_msg_3 = 'Status ' . $this->tabel2 . ' berhasil diubah!';
-		$this->tabel2_v_flashdata1_msg_4 = 'Status ' . $this->tabel2 . ' gagal diubah!';
-		$this->tabel2_v_flashdata1_msg_5 = $this->tabel2 . ' berhasil dihapus!';
-		$this->tabel2_v_flashdata1_msg_6 = $this->tabel2 . ' gagal dihapus!';
+		$this->tabel2_v_flashdata1_msg_1 = 'Data ' . $this->tabel2_alias . ' berhasil disimpan!';
+		$this->tabel2_v_flashdata1_msg_2 = 'Data ' . $this->tabel2_alias . ' gagal disimpan!';
+		$this->tabel2_v_flashdata1_msg_3 = 'Status ' . $this->tabel2_alias . ' berhasil diubah!';
+		$this->tabel2_v_flashdata1_msg_4 = 'Status ' . $this->tabel2_alias . ' gagal diubah!';
+		$this->tabel2_v_flashdata1_msg_5 = 'Data ' . $this->tabel2_alias . ' berhasil dihapus!';
+		$this->tabel2_v_flashdata1_msg_6 = 'Data ' . $this->tabel2_alias . ' gagal dihapus!';
 
 
 		// deklarasi session
@@ -207,7 +207,7 @@ class History extends Welcome
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel2_v1_title,
+			$this->v_part1 => $this->tabel2_v1_title,
 			'head' => $this->head,
 			'konten' => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,

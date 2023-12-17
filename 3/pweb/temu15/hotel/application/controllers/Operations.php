@@ -82,12 +82,12 @@ class Operations extends Welcome
 		$this->tabel11_v_input6_post = $this->input->post($this->tabel11_field6);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel11_v_flashdata1_msg_1 = $this->tabel11 . ' berhasil disimpan!';
-		$this->tabel11_v_flashdata1_msg_2 = $this->tabel11 . ' gagal disimpan!';
-		$this->tabel11_v_flashdata1_msg_3 = 'Data ' . $this->tabel11 . ' berhasil diubah!';
-		$this->tabel11_v_flashdata1_msg_4 = 'Data ' . $this->tabel11 . ' gagal diubah!';
-		$this->tabel11_v_flashdata1_msg_5 = $this->tabel11 . ' berhasil dihapus!';
-		$this->tabel11_v_flashdata1_msg_6 = $this->tabel11 . ' gagal dihapus!';
+		$this->tabel11_v_flashdata1_msg_1 = 'Data ' . $this->tabe'Data ' . l11_alias . ' berhasil disimpan!';
+		$this->tabel11_v_flashdata1_msg_2 = 'Data ' . $this->tabel11_alias . ' gagal disimpan!';
+		$this->tabel11_v_flashdata1_msg_3 = 'Data ' . $this->tabel11_alias . ' berhasil diubah!';
+		$this->tabel11_v_flashdata1_msg_4 = 'Data ' . $this->tabel11_alias . ' gagal diubah!';
+		$this->tabel11_v_flashdata1_msg_5 = 'Data ' . $this->tabel11_alias . ' berhasil dihapus!';
+		$this->tabel11_v_flashdata1_msg_6 = 'Data ' . $this->tabel11_alias . ' gagal dihapus!';
 
 		$this->tabel5_c1 = $this->tabel5;
 	}
@@ -99,8 +99,8 @@ class Operations extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel11_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel11_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel11_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -195,8 +195,8 @@ class Operations extends Welcome
 	// 	$this->declare();
 	// 	$where = $this->session->userdata($this->tabel9_userdata1);
 	// 	$data = array(
-	// 		'title' => $this->tabel11_v1_title,
-	// 		'head' => $this->head,
+	// 		$this->v_part1 => $this->tabel11_v1_title,
+	// 		$this->v_part2 => $this->head,
 	// 		'konten' => $this->tabel11_v1,
 	// 		$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 	// 		$this->tabel11 => $this->ops->ambil_id_user($where)->result()

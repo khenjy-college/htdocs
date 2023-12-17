@@ -115,14 +115,12 @@ class User extends Welcome
 		$this->tabel9_v_input6_post = $this->input->post($this->tabel9_field6);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel9_v_flashdata1_msg_1 = $this->tabel9 . ' berhasil disimpan!';
-		$this->tabel9_v_flashdata1_msg_2 = $this->tabel9 . ' gagal disimpan!';
-		$this->tabel9_v_flashdata1_msg_3 = 'Data ' . $this->tabel9 . ' berhasil diubah!';
-		$this->tabel9_v_flashdata1_msg_4 = 'Data ' . $this->tabel9 . ' gagal diubah!';
-		$this->tabel9_v_flashdata1_msg_5 = $this->tabel9 . ' berhasil dihapus!';
-		$this->tabel9_v_flashdata1_msg_6 = $this->tabel9 . ' gagal dihapus!';
-
-		$this->tabel9_
+		$this->tabel9_v_flashdata1_msg_1 = 'Data ' . $this->tabel9_alias . ' berhasil disimpan!';
+		$this->tabel9_v_flashdata1_msg_2 = 'Data ' . $this->tabel9_alias . ' gagal disimpan!';
+		$this->tabel9_v_flashdata1_msg_3 = 'Data ' . $this->tabel9_alias . ' berhasil diubah!';
+		$this->tabel9_v_flashdata1_msg_4 = 'Data ' . $this->tabel9_alias . ' gagal diubah!';
+		$this->tabel9_v_flashdata1_msg_5 = 'Data ' . $this->tabel9_alias . ' berhasil dihapus!';
+		$this->tabel9_v_flashdata1_msg_6 = 'Data ' . $this->tabel9_alias . ' gagal dihapus!';
 
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->tabel9_field1;
@@ -260,8 +258,8 @@ class User extends Welcome
 		$this->declare();
 
 		$data = array(
-			'title' => $this->tabel9_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel9_v3_title,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel9 => $this->usr->ambildata()->result()
@@ -278,8 +276,8 @@ class User extends Welcome
 		$this->declare();
 		$id_user = $this->session->userdata($this->tabel9_field1);
 		$data = array(
-			'title' => $this->v10_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->v10_title,
+			$this->v_part2 => $this->head,
 
 			// Ini adalah showcase mengenai apa yang bisa dilakukan oleh oop
 			// 'konten' => $this->tabel9_c6,
@@ -297,8 +295,8 @@ class User extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->v2_title,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 		);
@@ -310,8 +308,8 @@ class User extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->v6_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->v6_title,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 		);
@@ -396,7 +394,7 @@ class User extends Welcome
 				} else {
 
 					$this->session->set_flashdata($this->v_flashdata3, 'Konfirmasi ' . $this->tabel9_field4 . ' tidak sesuai!');
-					$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func1);
+					$this->session->set_flashdata($this->v_flashdata_b, $this->v_flashdata_b_func1);
 					redirect($_SERVER['HTTP_REFERER']);
 				}
 
@@ -404,15 +402,15 @@ class User extends Welcome
 			} else {
 
 				$this->session->set_flashdata($this->v_flashdata3, $this->tabel9_field4 . ' lama salah!');
-				$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func1);
+				$this->session->set_flashdata($this->v_flashdata_b, $this->v_flashdata_b_func1);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 
 			// jika jumlah data kurang dari 0
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Akun tidak tersedia!');
-			$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func1);
+			$this->session->set_flashdata($this->v_flashdata3, 'Akun tidak tersedia!');
+			$this->session->set_flashdata($this->v_flashdata_b, $this->v_flashdata_b_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}

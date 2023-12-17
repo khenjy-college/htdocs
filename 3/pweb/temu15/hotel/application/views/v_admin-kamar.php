@@ -123,7 +123,7 @@
         </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+          <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
@@ -137,7 +137,7 @@
 <?php foreach ($kamar as $km) : ?>
   <?php foreach ($tipe_kamar as $tp) : ?>
     <?php if ($tp->id_tipe == $km->id_tipe) { ?>
-      <div id="ubah" class="modal fade">
+      <div id="ubah<?= $km->no_kamar; ?>" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -195,7 +195,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
               <div class="modal-footer">
                 <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -213,7 +213,7 @@
   <?php foreach ($tipe_kamar as $tp) : ?>
     <?php if ($tp->id_tipe == $km->id_tipe) { ?>
 
-      <div id="lihat" class="modal fade" role="dialog">
+      <div id="lihat<?= $km->no_kamar; ?>" class="modal fade" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -246,7 +246,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
               <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -264,7 +264,7 @@
 <?php foreach ($kamar as $km) : ?>
   <?php foreach ($tipe_kamar as $tp) : ?>
     <?php if ($tp->id_tipe == $km->id_tipe) { ?>
-      <div id="clean" class="modal fade">
+      <div id="clean<?= $km->no_kamar ?>" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -349,7 +349,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_clean') ?></p>
+          <p id="p_clean" class="small text-center text-danger"><?= $this->session->flashdata('pesan_clean') ?></p>
 
               <div class="modal-footer">
                 <p>Proses kamar <?= $km->no_kamar; ?>?</p>
@@ -371,7 +371,7 @@
 <?php foreach ($kamar as $km) : ?>
   <?php foreach ($tipe_kamar as $tp) : ?>
     <?php if ($tp->id_tipe == $km->id_tipe) { ?>
-      <div id="maintenance" class="modal fade">
+      <div id="maintenance<?= $km->no_kamar ?>" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -455,7 +455,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_maintenance') ?></p>
+          <p id="p_maintenance" class="small text-center text-danger"><?= $this->session->flashdata('pesan_maintenance') ?></p>
 
               <div class="modal-footer">
                 <p>Proses kamar <?= $km->no_kamar; ?>?</p>

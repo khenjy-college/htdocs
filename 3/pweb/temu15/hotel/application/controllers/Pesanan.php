@@ -171,12 +171,12 @@ class Pesanan extends Welcome
 
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel8_v_flashdata1_msg_1 = $this->tabel8_alias . ' berhasil disimpan!';
-		$this->tabel8_v_flashdata1_msg_2 = $this->tabel8_alias . ' gagal disimpan!';
+		$this->tabel8_v_flashdata1_msg_1 = 'Data ' . $this->tabel8_alias . ' berhasil disimpan!';
+		$this->tabel8_v_flashdata1_msg_2 = 'Data ' . $this->tabel8_alias . ' gagal disimpan!';
 		$this->tabel8_v_flashdata1_msg_3 = 'Status ' . $this->tabel8_alias . ' berhasil diubah!';
 		$this->tabel8_v_flashdata1_msg_4 = 'Status ' . $this->tabel8_alias . ' gagal diubah!';
-		$this->tabel8_v_flashdata1_msg_5 = $this->tabel8_alias . ' berhasil dihapus!';
-		$this->tabel8_v_flashdata1_msg_6 = $this->tabel8_alias . ' gagal dihapus!';
+		$this->tabel8_v_flashdata1_msg_5 = 'Data ' . $this->tabel8_alias . ' berhasil dihapus!';
+		$this->tabel8_v_flashdata1_msg_6 = 'Data ' . $this->tabel8_alias . ' gagal dihapus!';
 
 
 		// deklarasi menggunakan nilai tabel lain
@@ -212,8 +212,8 @@ class Pesanan extends Welcome
 		$param4 = $this->tabel8_v_input11_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel8_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel8_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -366,8 +366,8 @@ class Pesanan extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel8_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel8_v3_title,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambildata()->result(),
@@ -383,8 +383,8 @@ class Pesanan extends Welcome
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
 		$data = array(
-			'title' => $this->v11_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->v11_title,
+			$this->v_part2 => $this->head,
 			'konten' => 'v_reservasi',
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -413,8 +413,8 @@ class Pesanan extends Welcome
 		$param4 = $this->tabel8_v_input4_get;
 
 		$data = array(
-			'title' => $this->tabel8_v1_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel8_v1_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -477,8 +477,8 @@ class Pesanan extends Welcome
 		$this->declare();
 		$where = $this->session->tempdata($this->tabel9_tempdata3);
 		$data = array(
-			'title' => $this->v1_title1,
-			'head' => $this->head,
+			$this->v_part1 => $this->v1_title1,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
@@ -494,8 +494,8 @@ class Pesanan extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->v4_title1,
-			'head' => $this->head,
+			$this->v_part1 => $this->v4_title1,
+			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambil($id_pesanan)->result(),
@@ -515,8 +515,8 @@ class Pesanan extends Welcome
 		$param4 = $this->tabel8_v_input11_filter2_get;
 
 		$data = array(
-			'title' => $this->tabel8_v2_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel8_v2_title,
+			$this->v_part2 => $this->head,
 			'konten' => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -544,8 +544,8 @@ class Pesanan extends Welcome
 		$param4 = $this->tabel8_v_input11_filter2_get;
 
 		$data = array(
-			'title' => $this->v11_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->v11_title,
+			$this->v_part2 => $this->head,
 			'konten' => 'v_history',
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
