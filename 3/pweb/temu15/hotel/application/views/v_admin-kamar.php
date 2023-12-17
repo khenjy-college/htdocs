@@ -31,19 +31,19 @@
               <td><?= $km->status ?></td>
               <td><?= $km->keterangan ?></td>
               <td>
-                <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+                <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $km->no_kamar; ?>">
                   <i class="fas fa-eye"></i></a>
                 <?php if ($km->status == 'Available') { ?>
-                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
                     <i class="fas fa-edit"></i></a>
                 <?php } elseif ($km->status == 'Unavailable') { ?>
-                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $km->no_kamar; ?>">
                     <i class="fas fa-edit"></i></a>
                 <?php } elseif ($km->status == 'Dirty') { ?>
-                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#clean">
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#clean<?= $km->no_kamar; ?>">
                     <i class="fas fa-broom"></i></a>
                 <?php } elseif ($km->status == 'Damaged') { ?>
-                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#maintenance">
+                  <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#maintenance<?= $km->no_kamar; ?>">
                     <i class="fas fa-hammer"></i></a>
 
                 <?php } ?>
@@ -73,7 +73,7 @@
 
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade">
+<div id="tambah" class="modal fade tambah">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -137,7 +137,7 @@
 <?php foreach ($kamar as $km) : ?>
   <?php foreach ($tipe_kamar as $tp) : ?>
     <?php if ($tp->id_tipe == $km->id_tipe) { ?>
-      <div id="ubah<?= $km->no_kamar; ?>" class="modal fade">
+      <div id="ubah<?= $km->no_kamar; ?>" class="modal fade ubah">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -213,7 +213,7 @@
   <?php foreach ($tipe_kamar as $tp) : ?>
     <?php if ($tp->id_tipe == $km->id_tipe) { ?>
 
-      <div id="lihat<?= $km->no_kamar; ?>" class="modal fade" role="dialog">
+      <div id="lihat<?= $km->no_kamar; ?>" class="modal fade lihat" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -264,7 +264,7 @@
 <?php foreach ($kamar as $km) : ?>
   <?php foreach ($tipe_kamar as $tp) : ?>
     <?php if ($tp->id_tipe == $km->id_tipe) { ?>
-      <div id="clean<?= $km->no_kamar ?>" class="modal fade">
+      <div id="clean<?= $km->no_kamar ?>" class=" clean">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

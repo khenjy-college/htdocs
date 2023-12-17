@@ -178,6 +178,10 @@ class Pesanan extends Welcome
 		$this->tabel8_v_flashdata1_msg_5 = 'Data ' . $this->tabel8_alias . ' berhasil dihapus!';
 		$this->tabel8_v_flashdata1_msg_6 = 'Data ' . $this->tabel8_alias . ' gagal dihapus!';
 
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+
 
 		// deklarasi menggunakan nilai tabel lain
 		// deklarasi session
@@ -214,7 +218,7 @@ class Pesanan extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel8_v2_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel8_v2,
+			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambildata()->result(),
@@ -385,7 +389,7 @@ class Pesanan extends Welcome
 		$data = array(
 			$this->v_part1 => $this->v11_title,
 			$this->v_part2 => $this->head,
-			'konten' => 'v_reservasi',
+			$this->v_part3 => 'v_reservasi',
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambil_id_user($where)->result(),
@@ -415,7 +419,7 @@ class Pesanan extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel8_v1_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->v11,
+			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
@@ -469,7 +473,7 @@ class Pesanan extends Welcome
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
-		redirect(site_url('pesanan'));
+		redirect(site_url($this->tabel8));
 	}
 
 	public function konfirmasi($tabel7_field1 = 1)
@@ -517,7 +521,7 @@ class Pesanan extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel8_v2_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel8_v2,
+			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->filter($param1, $param2, $param3, $param4)->result(),
@@ -546,7 +550,7 @@ class Pesanan extends Welcome
 		$data = array(
 			$this->v_part1 => $this->v11_title,
 			$this->v_part2 => $this->head,
-			'konten' => 'v_history',
+			$this->v_part3 => 'v_history',
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),

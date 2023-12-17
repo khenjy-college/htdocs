@@ -69,6 +69,9 @@ class History extends Welcome
 	private $tabel2_v_flashdata1_msg_5;
 	private $tabel2_v_flashdata1_msg_6;
 
+	private $tabel2_v_flashdata3_msg_1;
+	private $tabel2_v_flashdata4_msg_1;
+
 	// deklrasi session
 	private $tabel9_userdata1;
 	private $tabel9_tempdata1;
@@ -148,6 +151,10 @@ class History extends Welcome
 		$this->tabel2_v_flashdata1_msg_5 = 'Data ' . $this->tabel2_alias . ' berhasil dihapus!';
 		$this->tabel2_v_flashdata1_msg_6 = 'Data ' . $this->tabel2_alias . ' gagal dihapus!';
 
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel2_v_flashdata3_msg_1 = '';
+		$this->tabel2_v_flashdata4_msg_1 = '';
+
 
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->session->userdata($this->tabel9_field1);
@@ -209,7 +216,7 @@ class History extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel2_v1_title,
 			'head' => $this->head,
-			'konten' => $this->tabel2_v1,
+			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel2 => $this->htr->ambil_id_user($where)->result(),

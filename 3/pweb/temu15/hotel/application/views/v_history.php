@@ -92,7 +92,7 @@
             <td><?= $h->cek_in ?></td>
             <td><?= $h->cek_out ?></td>
             <td><?= $h->user_aktif ?></td>
-            <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+            <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $h->id_history ?>">
                 <i class="fas fa-eye"></i></a>
             </td>
           </tr>
@@ -119,7 +119,7 @@
 <?php foreach ($history as $h) : ?>
   <?php foreach ($tipe_kamar as $tk) : ?>
     <?php if ($tk->id_tipe == $h->id_tipe) { ?>
-      <div id="lihat<?= $h->id_history ?>" class="modal fade">
+      <div id="lihat<?= $h->id_history ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

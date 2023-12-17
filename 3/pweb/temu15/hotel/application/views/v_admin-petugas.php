@@ -34,9 +34,9 @@
           <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/petugas/<?= $p->img ?>"></td>
           <td><?= $p->role ?></td>
           <td><?= $p->poin ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $p->id_petugas; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $p->id_petugas; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
@@ -64,7 +64,7 @@
 </div>
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade">
+<div id="tambah" class="modal fade tambah">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -134,7 +134,7 @@
 
 <!-- modal edit -->
 <?php foreach ($petugas as $p) : ?>
-  <div id="ubah<?= $p->id_petugas; ?>" class="modal fade">
+  <div id="ubah<?= $p->id_petugas; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -213,7 +213,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($petugas as $p) : ?>
-  <div id="lihat<?= $p->id_petugas; ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $p->id_petugas; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

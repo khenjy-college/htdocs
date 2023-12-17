@@ -60,6 +60,9 @@ class Fashotel extends Welcome
 	private $tabel3_v_flashdata1_msg_5;
 	private $tabel3_v_flashdata1_msg_6;
 
+	private $tabel3_v_flashdata3_msg_1;
+	private $tabel3_v_flashdata4_msg_1;
+
 	public function
 
 	declare()
@@ -103,6 +106,10 @@ class Fashotel extends Welcome
 		$this->tabel3_v_flashdata1_msg_4 = 'Data ' . $this->tabel3_alias . ' gagal diubah!';
 		$this->tabel3_v_flashdata1_msg_5 = 'Data ' . $this->tabel3_alias . ' berhasil dihapus!';
 		$this->tabel3_v_flashdata1_msg_6 = 'Data ' . $this->tabel3_alias . ' gagal dihapus!';
+
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 	}
 
 
@@ -139,11 +146,10 @@ class Fashotel extends Welcome
 		$this->load->library('upload', $config);
 
 		if (!$this->tabel3_v_input4_upload) {
-			
-			$this->session->set_flashdata($this->v_flashdata3, 'Gambar ' . $this->tabel3_field4 . ' tidak bisa diupload!');
+
+			$this->session->set_flashdata($this->v_flashdata3, $this->tabel3_v_flashdata3_msg_1);
 			$this->session->set_flashdata($this->v_flashdata_c, $this->v_flashdata_c_func1);
 			redirect($_SERVER['HTTP_REFERER']);
-
 		} else {
 			$upload = $this->upload->data();
 			$gambar = $upload['file_name'];

@@ -40,6 +40,9 @@ class Kamar extends Welcome
 	private $tabel5_v_flashdata1_msg_4;
 	private $tabel5_v_flashdata1_msg_5;
 	private $tabel5_v_flashdata1_msg_6;
+
+	private $tabel5_v_flashdata3_msg_1;
+	private $tabel5_v_flashdata4_msg_1;
 	public function
 
 	declare()
@@ -79,6 +82,10 @@ class Kamar extends Welcome
 		$this->tabel5_v_flashdata1_msg_4 = 'Data ' . $this->tabel5_alias . ' gagal diubah!';
 		$this->tabel5_v_flashdata1_msg_5 = 'Data ' . $this->tabel5_alias . ' berhasil dihapus!';
 		$this->tabel5_v_flashdata1_msg_6 = 'Data ' . $this->tabel5_alias . ' gagal dihapus!';
+
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel5_v_flashdata3_msg_1 =  $this->tabel5_field4_alias . ' ' . $this->tabel5_alias . ' tidak bisa diupload';
+		$this->tabel5_v_flashdata4_msg_1 = $this->tabel5_field4_alias . ' ' . $this->tabel5_alias . ' tidak bisa diupload';
 	}
 
 

@@ -42,7 +42,7 @@
 
 <!-- modal edit password-->
 <?php foreach ($user as $u) : ?>
-  <div id="password<?= $u->id_user ?>" class="modal fade">
+  <div id="password<?= $u->id_user ?>" class="modal fade password">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

@@ -22,7 +22,7 @@
           <td><?= $tr->metode ?></td>
           <td><?= $tr->bayar ?></td>
           <td><?= $tr->tgl_transaksi ?></td>
-          <td><a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat">
+          <td><a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
               <i class="fas fa-eye"></i></a>
 
             <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
@@ -53,7 +53,7 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 <?php foreach ($transaksi as $tr) : ?>
   <?php foreach ($tipe_kamar as $tk) : ?>
     <?php if ($tk->id_tipe === $tr->id_tipe) { ?>
-      <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade">
+      <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

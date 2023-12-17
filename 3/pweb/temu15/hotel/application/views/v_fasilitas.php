@@ -19,7 +19,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($fashotel as $fh) : ?>
-  <div id="lihat<?= $fh->id_fashotel ?>" class="modal fade">
+  <div id="lihat<?= $fh->id_fashotel ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

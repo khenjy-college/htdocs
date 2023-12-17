@@ -29,9 +29,9 @@
           <td><?= $fk->tipe ?></td>
           <td><?= $fk->nama ?></td>
           <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/faskamar/<?= $fk->img ?>"></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fk->id_faskamar; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fk->id_faskamar; ?>">
               <i class="fas fa-edit"></i></a>
             <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('faskamar/hapus/' . $fk->id_faskamar) ?>">
               <i class="fas fa-trash"></i></a>
@@ -53,7 +53,7 @@
 </div>
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade">
+<div id="tambah" class="modal fade tambah">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -106,7 +106,7 @@
 
 <!-- modal edit -->
 <?php foreach ($faskamar as $fk) : ?>
-  <div id="ubah<?= $fk->id_faskamar; ?>" class="modal fade">
+  <div id="ubah<?= $fk->id_faskamar; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -167,7 +167,7 @@
 
 <!-- Modal Lihat -->
 <?php foreach ($faskamar as $fk) : ?>
-  <div id="lihat<?= $fk->id_faskamar; ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $fk->id_faskamar; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

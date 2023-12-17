@@ -88,10 +88,10 @@ class Faskamar extends Welcome
 		$this->tabel1_v_flashdata1_msg_4 = 'Data ' . $this->tabel1_alias . ' gagal diubah!';
 		$this->tabel1_v_flashdata1_msg_5 = 'Data ' . $this->tabel1_alias . ' berhasil dihapus!';
 		$this->tabel1_v_flashdata1_msg_6 = 'Data ' . $this->tabel1_alias . ' gagal dihapus!';
-
-		$this->tabel1_v_flashdata3_msg_1 = 'Upload ' . $this->tabel1_field4_alias . ' gagal';
-		$this->tabel1_v_flashdata4_msg_1 = 'Upload ' . $this->tabel1_field4_alias . ' gagal';
-		$this->tabel1_v_flashdata5_msg_1 = 'Upload ' . $this->tabel1_field4_alias . ' gagal';
+		
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel1_v_flashdata3_msg_1 =  $this->tabel1_field4_alias . ' ' . $this->tabel1_alias . ' tidak bisa diupload';
+		$this->tabel1_v_flashdata4_msg_1 = $this->tabel1_field4_alias . ' ' . $this->tabel1_alias . ' tidak bisa diupload';
 	}
 
 
@@ -124,7 +124,7 @@ class Faskamar extends Welcome
 
 		if (!$this->tabel1_v_input4_upload) {
 
-			$this->session->set_flashdata($this->v_flashdata3, 'Gambar ' . $this->tabel1_field4 . ' tidak bisa diupload!');
+			$this->session->set_flashdata($this->v_flashdata3, $this->tabel1_v_flashdata3_msg_1);
 			$this->session->set_flashdata($this->v_flashdata_c, $this->v_flashdata_c_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		} else {
@@ -188,7 +188,7 @@ class Faskamar extends Welcome
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_3);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata4_msg_1);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 

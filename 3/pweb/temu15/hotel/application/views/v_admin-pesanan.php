@@ -94,13 +94,13 @@
 
             <!-- tombol yang akan muncul berdasarkan nilai dari status -->
             <?php if ($ps->status == 'pending') { ?>
-              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book">
+              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $ps->id_pesanan ?>">
                 <i class="fas fa-bell-concierge"></i></a>
             <?php } elseif ($ps->status == 'menunggu') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
                 <i class="fas fa-edit"></i></a>
             <?php } elseif ($ps->status == 'cek in') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
                 <i class="fas fa-edit"></i></a>
 
             <?php } elseif ($ps->status == 'cek out') { ?>
@@ -135,7 +135,7 @@
 
 <!-- modal ubah -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="ubah<?= $ps->id_pesanan ?>" class="modal fade">
+  <div id="ubah<?= $ps->id_pesanan ?>" class="modal fade ubah">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
         <div class="modal-dialog">
@@ -245,7 +245,7 @@
 
 <!-- modal book -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="book<?= $ps->id_pesanan ?>" class="modal fade">
+  <div id="book<?= $ps->id_pesanan ?>" class="modal fade book">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
         <div class="modal-dialog">

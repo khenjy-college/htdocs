@@ -9,11 +9,11 @@
 
     <!-- form edit favicon, logo, dan foto -->
     <?php foreach ($pengaturan as $p) : ?>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon<?= $p->id ?>">
         <i class="fas fa-edit"></i> Favicon</a>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#logo">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#logo<?= $p->id ?>">
         <i class="fas fa-edit"></i> Logo</a>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#foto">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#foto<?= $p->id ?>">
         <i class="fas fa-edit"></i> Foto</a>
 
       <form action="<?= site_url('pengaturan/update') ?>" method="post" enctype="multipart/form-data">
@@ -67,7 +67,7 @@
 
 <!-- modal edit favicon-->
 <?php foreach ($pengaturan as $p) : ?>
-  <div id="favicon<?= $p->id; ?>" class="modal fade">
+  <div id="favicon<?= $p->id; ?>" class="modal fade favicon">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -108,7 +108,7 @@
 
 <!-- modal edit logo-->
 <?php foreach ($pengaturan as $p) : ?>
-  <div id="logo<?= $p->id; ?>" class="modal fade">
+  <div id="logo<?= $p->id; ?>" class="modal fade logo">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -150,7 +150,7 @@
 
 <!-- modal edit foto-->
 <?php foreach ($pengaturan as $p) : ?>
-  <div id="foto<?= $p->id; ?>" class="modal fade">
+  <div id="foto<?= $p->id; ?>" class="modal fade foto">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

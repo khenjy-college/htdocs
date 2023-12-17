@@ -122,6 +122,10 @@ class User extends Welcome
 		$this->tabel9_v_flashdata1_msg_5 = 'Data ' . $this->tabel9_alias . ' berhasil dihapus!';
 		$this->tabel9_v_flashdata1_msg_6 = 'Data ' . $this->tabel9_alias . ' gagal dihapus!';
 
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->tabel9_field1;
 		$this->tabel9_tempdata1 = $this->tabel9_field1;
@@ -280,9 +284,9 @@ class User extends Welcome
 			$this->v_part2 => $this->head,
 
 			// Ini adalah showcase mengenai apa yang bisa dilakukan oleh oop
-			// 'konten' => $this->tabel9_c6,
+			// $this->v_part3 => $this->tabel9_c6,
 
-			'konten' => $this->v10,
+			$this->v_part3 => $this->v10,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel9 => $this->usr->ambil($id_user)->result()
@@ -316,10 +320,6 @@ class User extends Welcome
 
 		$this->load->view($this->v6, $data);
 	}
-
-
-
-
 
 	public function update_profil()
 	{
@@ -393,7 +393,7 @@ class User extends Welcome
 					// jika konfirmasi password tidak sama dengan password baru
 				} else {
 
-					$this->session->set_flashdata($this->v_flashdata3, 'Konfirmasi ' . $this->tabel9_field4 . ' tidak sesuai!');
+					$this->session->set_flashdata($this->v_flashdata2, 'Konfirmasi ' . $this->tabel9_field4 . ' tidak sesuai!');
 					$this->session->set_flashdata($this->v_flashdata_b, $this->v_flashdata_b_func1);
 					redirect($_SERVER['HTTP_REFERER']);
 				}
@@ -401,7 +401,7 @@ class User extends Welcome
 				// jika password lama salah
 			} else {
 
-				$this->session->set_flashdata($this->v_flashdata3, $this->tabel9_field4 . ' lama salah!');
+				$this->session->set_flashdata($this->v_flashdata2, $this->tabel9_field4 . ' lama salah!');
 				$this->session->set_flashdata($this->v_flashdata_b, $this->v_flashdata_b_func1);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
@@ -409,7 +409,7 @@ class User extends Welcome
 			// jika jumlah data kurang dari 0
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata3, 'Akun tidak tersedia!');
+			$this->session->set_flashdata($this->v_flashdata2, 'Akun tidak tersedia!');
 			$this->session->set_flashdata($this->v_flashdata_b, $this->v_flashdata_b_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		}

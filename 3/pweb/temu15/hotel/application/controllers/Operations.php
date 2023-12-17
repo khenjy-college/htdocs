@@ -44,6 +44,9 @@ class Operations extends Welcome
 	private $tabel11_v_flashdata1_msg_4;
 	private $tabel11_v_flashdata1_msg_5;
 	private $tabel11_v_flashdata1_msg_6;
+
+	private $tabel11_v_flashdata3_msg_1;
+	private $tabel11_v_flashdata4_msg_1;
 	private $tabel5_c1;
 
 
@@ -82,12 +85,16 @@ class Operations extends Welcome
 		$this->tabel11_v_input6_post = $this->input->post($this->tabel11_field6);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel11_v_flashdata1_msg_1 = 'Data ' . $this->tabe'Data ' . l11_alias . ' berhasil disimpan!';
+		$this->tabel11_v_flashdata1_msg_1 = 'Data ' . $this->tabel11_alias . ' berhasil disimpan!';
 		$this->tabel11_v_flashdata1_msg_2 = 'Data ' . $this->tabel11_alias . ' gagal disimpan!';
 		$this->tabel11_v_flashdata1_msg_3 = 'Data ' . $this->tabel11_alias . ' berhasil diubah!';
 		$this->tabel11_v_flashdata1_msg_4 = 'Data ' . $this->tabel11_alias . ' gagal diubah!';
 		$this->tabel11_v_flashdata1_msg_5 = 'Data ' . $this->tabel11_alias . ' berhasil dihapus!';
 		$this->tabel11_v_flashdata1_msg_6 = 'Data ' . $this->tabel11_alias . ' gagal dihapus!';
+
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel11_v_flashdata3_msg_1 =  '';
+		$this->tabel11_v_flashdata4_msg_1 = '';
 
 		$this->tabel5_c1 = $this->tabel5;
 	}
@@ -101,7 +108,7 @@ class Operations extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel11_v2_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel11_v2,
+			$this->v_part3 => $this->tabel11_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel11 => $this->ops->ambildata()->result(),
@@ -197,7 +204,7 @@ class Operations extends Welcome
 	// 	$data = array(
 	// 		$this->v_part1 => $this->tabel11_v1_title,
 	// 		$this->v_part2 => $this->head,
-	// 		'konten' => $this->tabel11_v1,
+	// 		$this->v_part3 => $this->tabel11_v1,
 	// 		$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 	// 		$this->tabel11 => $this->ops->ambil_id_user($where)->result()
 	// 	);

@@ -138,7 +138,7 @@
 
 
 <!-- modal edit -->
-<div id="ubah" class="modal fade">
+<div id="ubah" class="modal fade ubah">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

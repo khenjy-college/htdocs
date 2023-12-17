@@ -62,7 +62,7 @@
           <td>Rp <?= number_format($tr->bayar, '2', ',', '.') ?></td>
           <td><?= $tr->tgl_transaksi ?></td>
           <td>
-            <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+            <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tr->id_transaksi ?>">
               <i class="fas fa-eye"></i></a>
             <a class="btn btn-light text-info" href="<?= site_url('transaksi/receipt/' . $tr->id_transaksi) ?>" target="_blank">
               <i class="fas fa-receipt"></i></a>
@@ -89,7 +89,7 @@
 <!-- Tabel transaksi dan tabel history literally sudah bergabung
 Jadi tidak perlu menambahkan foreach hitory lagi -->
 <?php foreach ($transaksi as $tr) : ?>
-  <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $tr->id_transaksi ?>" class="modal fade lihat" role="dialog">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $tr->id_tipe) { ?>
         <div class="modal-dialog">

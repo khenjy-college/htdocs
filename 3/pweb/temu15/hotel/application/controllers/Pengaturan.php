@@ -54,6 +54,10 @@ class Pengaturan extends Welcome
 	private $tabel7_v_flashdata1_msg_4;
 	private $tabel7_v_flashdata1_msg_5;
 	private $tabel7_v_flashdata1_msg_6;
+
+	private $tabel7_v_flashdata11_msg_1;
+	private $tabel7_v_flashdata12_msg_1;
+	private $tabel7_v_flashdata13_msg_1;
 	public function
 
 	declare()
@@ -100,6 +104,11 @@ class Pengaturan extends Welcome
 		$this->tabel7_v_flashdata1_msg_4 = 'Data ' . $this->tabel7_alias . ' gagal diubah!';
 		$this->tabel7_v_flashdata1_msg_5 = 'Data ' . $this->tabel7_alias . ' berhasil dihapus!';
 		$this->tabel7_v_flashdata1_msg_6 = 'Data ' . $this->tabel7_alias . ' gagal dihapus!';
+
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel11_v_flashdata11_msg_1 = $this->tabel11_field3_alias . ' ' . $this->tabel11_alias . ' tidak bisa diupload';
+		$this->tabel11_v_flashdata12_msg_1 = $this->tabel11_field4_alias . ' ' . $this->tabel11_alias . ' tidak bisa diupload';
+		$this->tabel11_v_flashdata13_msg_1 = $this->tabel11_field5_alias . ' ' . $this->tabel11_alias . ' tidak bisa diupload';
 	}
 
 
@@ -111,7 +120,7 @@ class Pengaturan extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel7_v2_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel7_v2,
+			$this->v_part3 => $this->tabel7_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 		);
@@ -122,15 +131,15 @@ class Pengaturan extends Welcome
 	public function update()
 	{
 		$this->declare();
-		$where = $this->input->post('id');
+		$where = $this->tabel7_v_input1_alt;
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'alamat' => $this->input->post('alamat'),
-			'email' => $this->input->post('email'),
-			'hp' => $this->input->post('hp'),
-			'metadesc' => $this->input->post('metadesc'),
-			'fb' => $this->input->post('fb'),
-			'ig' => $this->input->post('ig'),
+			$this->tabel7_field2 => $this->tabel7_v_input2_post,
+			$this->tabel7_field6 => $this->tabel7_v_input6_post,
+			$this->tabel7_field7 => $this->tabel7_v_input7_post,
+			$this->tabel7_field8 => $this->tabel7_v_input8_post,
+			$this->tabel7_field9 => $this->tabel7_v_input9_post,
+			$this->tabel7_field10 => $this->tabel7_v_input10_post,
+			$this->tabel7_field11 => $this->tabel7_v_input11_post,
 		);
 
 		$update = $this->ptn->update($data, $where);
@@ -143,7 +152,7 @@ class Pengaturan extends Welcome
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
-		redirect(site_url('pengaturan'));
+		redirect(site_url($this->tabel7));
 	}
 
 	public function update_favicon()
@@ -176,13 +185,14 @@ class Pengaturan extends Welcome
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, 'Favicon berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, 'Favicon gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata_k, $this->v_flashdata_k_func1);
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 
-		redirect(site_url('pengaturan'));
+		redirect(site_url($this->tabel7));
 	}
 
 	public function update_logo()
@@ -215,13 +225,14 @@ class Pengaturan extends Welcome
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, 'Logo berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, 'Logo gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata_l, $this->v_flashdata_l_func1);
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 
-		redirect(site_url('pengaturan'));
+		redirect(site_url($this->tabel7));
 	}
 
 	public function update_foto()
@@ -254,12 +265,13 @@ class Pengaturan extends Welcome
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, 'Foto berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, 'Foto gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata(($this->v_flashdata_m, $this->v_flashdata_m_func1);
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 
-		redirect(site_url('pengaturan'));
+		redirect(site_url($this->tabel7));
 	}
 }

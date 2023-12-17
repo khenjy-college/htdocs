@@ -146,6 +146,10 @@ class Transaksi extends Welcome
 		$this->tabel10_v_flashdata1_msg_5 = 'Data ' . $this->tabel10_alias . ' berhasil dihapus!';
 		$this->tabel10_v_flashdata1_msg_6 = 'Data ' . $this->tabel10_alias . ' gagal dihapus!';
 
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+
 
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->tabel9_field1;
@@ -174,7 +178,7 @@ class Transaksi extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel10_v2_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel10_v2,
+			$this->v_part3 => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_pesanan()->result(),
@@ -199,7 +203,7 @@ class Transaksi extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel10_v2_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel10_v2_alt,
+			$this->v_part3 => $this->tabel10_v2_alt,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_history()->result(),
@@ -348,7 +352,7 @@ class Transaksi extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel10_v1_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel10_v1,
+			$this->v_part3 => $this->tabel10_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_pesanan_tamu($where)->result(),
@@ -365,7 +369,7 @@ class Transaksi extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel10_v1_alt_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel10_v1_alt,
+			$this->v_part3 => $this->tabel10_v1_alt,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_history_tamu($where)->result(),
@@ -386,7 +390,7 @@ class Transaksi extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel10_v2_title,
 			$this->v_part2 => $this->head,
-			'konten' => $this->tabel10_v2,
+			$this->v_part3 => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_pesanan($where)->result(),

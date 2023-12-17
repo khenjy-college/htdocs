@@ -29,9 +29,9 @@
           <td><?= $tp->stok ?></td>
           <td>Rp <?= number_format($tp->harga, '2', ',', '.') ?></td>
           <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/tipe_kamar/<?= $tp->img ?>"></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tp->id_tipe; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tp->id_tipe; ?>">
               <i class="fas fa-edit"></i></a>
 
 
@@ -64,7 +64,7 @@
 </div>
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade">
+<div id="tambah" class="modal fade tambah">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -106,7 +106,7 @@
 
 <!-- modal edit -->
 <?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="ubah<?= $tp->id_tipe; ?>" class="modal fade">
+  <div id="ubah<?= $tp->id_tipe; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -156,7 +156,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="lihat<?= $tp->id_tipe; ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $tp->id_tipe; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

@@ -53,7 +53,7 @@
     <div class="container" id="konten">
 
       <!-- modal cari data reservasi -->
-      <div id="cari" class="modal fade">
+      <div id="cari" class="modal fade cari">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -192,6 +192,7 @@
         <?= $this->session->flashdata('maintenance') ?>
         <?= $this->session->flashdata('clean') ?>
         <?= $this->session->flashdata('book') ?>
+        <?= $this->session->flashdata('bayar') ?>
       });
 
       var table = $('#daterange_table').DataTable({

@@ -90,6 +90,10 @@ class Tipe_kamar extends Welcome
 		$this->tabel6_v_flashdata1_msg_4 = 'Data ' . $this->tabel6_alias . ' gagal diubah!';
 		$this->tabel6_v_flashdata1_msg_5 = 'Data ' . $this->tabel6_alias . ' berhasil dihapus!';
 		$this->tabel6_v_flashdata1_msg_6 = 'Data ' . $this->tabel6_alias . ' gagal dihapus!';
+
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 	}
 
 
@@ -100,7 +104,7 @@ class Tipe_kamar extends Welcome
 		$data = array(
 			$this->v_part1 => 'Data Tipe Kamar',
 			$this->v_part2 => $this->head,
-			'konten' => 'v_admin-tipe_kamar',
+			$this->v_part3 => 'v_admin-tipe_kamar',
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()

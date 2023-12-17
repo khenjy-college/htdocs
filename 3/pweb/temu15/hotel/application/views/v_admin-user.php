@@ -30,9 +30,9 @@
           <td><?= $u->email ?></td>
           <td><?= $u->hp ?></td>
           <td><?= $u->level ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $u->id_user; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $u->id_user; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
@@ -59,7 +59,7 @@
 </div>
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade">
+<div id="tambah" class="modal fade tambah">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -137,7 +137,7 @@
 
 <!-- modal edit -->
 <?php foreach ($user as $u) : ?>
-  <div id="ubah<?= $u->id_user; ?>" class="modal fade">
+  <div id="ubah<?= $u->id_user; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -201,7 +201,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($user as $u) : ?>
-  <div id="lihat<?= $u->id_user; ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $u->id_user; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

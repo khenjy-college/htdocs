@@ -4,7 +4,7 @@ Fitur sedang tahap pengembangan
 
 <!-- modal bayar -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="bayar<?= $ps->id_pesanan ?>" class="modal fade">
+  <div id="bayar<?= $ps->id_pesanan ?>" class="modal fade bayar">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -113,7 +113,7 @@ Fitur sedang tahap pengembangan
 
 <!-- modal lihat -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="lihat<?= $ps->id_pesanan ?>" class="modal fade">
+  <div id="lihat<?= $ps->id_pesanan ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

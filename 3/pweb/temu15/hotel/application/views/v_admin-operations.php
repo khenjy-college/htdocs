@@ -30,7 +30,7 @@
           <td><?= $o->id_petugas ?></td>
           <td><?= $o->keterangan ?></td>
           <td><?= $o->tgl_perubahan ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $o->id_operations ?>">
               <i class="fas fa-eye"></i></a>
             <a class="btn btn-light text-danger" onclick="return confirm('Hapus data operations?')" href="<?= site_url('operations/hapus/' . $o->id_operations) ?>">
               <i class="fas fa-trash"></i></a>
@@ -56,7 +56,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($operations as $o) : ?>
-  <div id="lihat<?= $o->id_operations ?>" class="modal fade">
+  <div id="lihat<?= $o->id_operations ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

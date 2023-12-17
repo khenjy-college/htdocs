@@ -36,11 +36,11 @@
           <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/fashotel/<?= $fh->img ?>"></td>
 
           <!-- menampilkan modal lihat data berdasarkan id -->
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fh->id_fashotel; ?>">
               <i class="fas fa-eye"></i></a>
 
             <!-- menampilkan modal ubah data berdasarkan id -->
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fh->id_fashotel; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- menghapus data berdasarkan id -->
@@ -68,7 +68,7 @@
 </div>
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade">
+<div id="tambah" class="modal fade tambah">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -126,7 +126,7 @@
 <?php foreach ($fashotel as $fh) : ?>
 
   <!-- modal edit -->
-  <div id="ubah<?= $fh->id_fashotel; ?>" class="modal fade">
+  <div id="ubah<?= $fh->id_fashotel; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -196,7 +196,7 @@
 <?php foreach ($fashotel as $fh) : ?>
 
   <!-- modal lihat -->
-  <div id="lihat<?= $fh->id_fashotel; ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $fh->id_fashotel; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 

@@ -49,7 +49,7 @@
 
 <!-- Modal Lihat -->
 <?php foreach ($kamar as $km) : ?>
-  <div id="lihat<?= $km->no_kamar; ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $km->no_kamar; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
