@@ -17,7 +17,7 @@
         <!-- link kembali -->
         <a class="text-decoration-none" href="<?= site_url('welcome') ?>">Kembali ke beranda</a>
 
-        <h1 class="text-center">Sign Up</h1>
+        <h1 class="text-center">Sign Up<?= $phase ?></h1>
 
         <!-- form signup -->
         <form action="<?= site_url('user/tambah') ?>" method="post">

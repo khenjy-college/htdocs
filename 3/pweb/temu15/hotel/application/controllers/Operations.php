@@ -102,6 +102,7 @@ class Operations extends Welcome
 			'title' => $this->tabel11_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel11_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel11 => $this->ops->ambildata()->result(),
 			$this->tabel4 => $this->pts->ambildata()->result(),
@@ -177,6 +178,7 @@ class Operations extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel11_v3_title,
 			$this->v_part2 => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel11 => $this->ops->ambildata()->result()
 		);

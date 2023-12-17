@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>History Reservasi Hotel</h1>
+<h1>History Reservasi Hotel<?= $phase ?></h1>
 <hr>
 
 <!-- tabel fiter history -->
@@ -185,6 +185,9 @@
                 </div>
               </div>
             </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

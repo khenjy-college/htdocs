@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Petugas</h1>
+<h1>Daftar Petugas<?= $phase ?></h1>
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
@@ -118,6 +118,9 @@
             </select>
           </div>
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
 
         <!-- saat ini tidak ada input poin, semua poin petugas dimulai dari 0 -->
@@ -195,6 +198,9 @@
             <!-- Poin tidak bisa diubah maupun dikurangi, hanya bisa didapat melalui hasil operasional hotel -->
             <input type="hidden" name="poin" value="<?= $p->poin; ?>">
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -249,6 +255,9 @@
               <p><?= $p->role; ?></p>
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

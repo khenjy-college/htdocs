@@ -3,7 +3,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Fasilitas Hotel</h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <!-- menampilkan modal tambah -->
@@ -104,6 +104,9 @@
             <input class="form-control-file" type="file" required name="img">
           </div>
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
         <!-- footer modal -->
         <div class="modal-footer">
@@ -168,6 +171,9 @@
               <input type="hidden" name="txtimg" value="<?= $fh->img; ?>">
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <!-- footer modal -->
           <div class="modal-footer">
@@ -180,6 +186,8 @@
         </form>
       </div>
     </div>
+
+    
   </div>
 
 <?php endforeach; ?>
@@ -226,6 +234,9 @@
             <hr>
 
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <!-- footer modal -->
           <div class="modal-footer">

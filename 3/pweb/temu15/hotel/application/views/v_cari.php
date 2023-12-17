@@ -1,4 +1,4 @@
-<h1>Daftar Reservasi</h1>
+<h1>Daftar Reservasi<?= $phase ?></h1>
 Fitur sedang tahap pengembangan
 <hr>
 
@@ -97,6 +97,9 @@ Fitur sedang tahap pengembangan
 
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Bayar</button>
@@ -168,6 +171,9 @@ Fitur sedang tahap pengembangan
             </div>
           </div>
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

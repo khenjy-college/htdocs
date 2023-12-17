@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Pesanan</h1>
+<h1>Daftar Pesanan<?= $phase ?></h1>
 <hr>
 
 <!-- tabel fiter pesanan -->
@@ -216,6 +216,9 @@
                   </div>
                 </div>
               </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
               <div class="modal-footer">
 
@@ -352,6 +355,9 @@
                 </div>
 
               </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
               <div class="modal-footer">
 

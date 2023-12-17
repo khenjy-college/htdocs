@@ -1,5 +1,4 @@
-<h1><?= $title ?></h1>
-Fitur sedang tahap pengembangan
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <div class="table-responsive">
@@ -123,6 +122,9 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 
               </div>
             </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
             <div class="modal-footer">
 

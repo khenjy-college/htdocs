@@ -87,9 +87,10 @@ class Kamar extends Welcome
 		$this->declare();
 
 		$data = array(
-			'title' => $this->tabel5_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel5_v2,
+			$this->v_part1 => $this->tabel5_v2_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel5_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel5 => $this->kmr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -165,8 +166,9 @@ class Kamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel5_v3_title,
-			'head' => $this->head,
+			$this->v_part1 => $this->tabel5_v3_title,
+			$this->v_part2 => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel5 => $this->kmr->ambildata()->result()
 		);

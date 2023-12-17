@@ -1,4 +1,4 @@
-<h1>Profil User</h1>
+<h1>Profil User<?= $phase ?></h1>
 <hr>
 <div class="row">
   <div class="col-md-6">

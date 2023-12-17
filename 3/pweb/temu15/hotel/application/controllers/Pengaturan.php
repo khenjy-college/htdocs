@@ -112,6 +112,7 @@ class Pengaturan extends Welcome
 			'title' => $this->tabel7_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel7_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 		);
 

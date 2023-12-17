@@ -77,6 +77,9 @@
                   <input class="form-control" type="email" required name="email" placeholder="Masukkan email Anda">
                 </div>
               </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
               <div class="modal-footer">
                 <button class="btn btn-success" type="submit">Cari</button>
@@ -179,7 +182,6 @@
 
 
         <?= $this->session->flashdata('panggil') ?>
-        <?= $this->session->flashdata('modal') ?>
       });
 
       var table = $('#daterange_table').DataTable({

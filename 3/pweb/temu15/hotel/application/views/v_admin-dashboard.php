@@ -3,7 +3,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Dashboard</h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 <div class="row">
 

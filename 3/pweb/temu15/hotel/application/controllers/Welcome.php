@@ -352,6 +352,11 @@ class Welcome extends CI_Controller
 	public $v_part1 = 'title';
 	public $v_part2 = 'head';
 	public $v_part3 = 'konten';
+	public $v_part4 = 'phase';
+	public $v_part4_msg1 = '<br><span class="h6"> (phase alpha feature)</span>';
+	public $v_part4_msg2 = '<br><span class="h6"> (phase beta feature)</span>';
+	public $v_part4_msg3 = '<br><span class="h6"> (release candidate feature)</span>';
+	public $v_part4_msg4 = '';  // feature released
 
 	public $v1 = 'konfirmasi';
 	public $v1_title1 = 'Reservasi Berhasil';
@@ -415,7 +420,21 @@ class Welcome extends CI_Controller
 	public $v_flashdata3_msg2;
 	public $v_flashdata4 = 'modal';
 	public $v_flashdata4_func = '$("#password").modal("show")';
-
+	public $v_flashdata5 = 'tambah';
+	public $v_flashdata5_func = '$("#tambah").modal("show")';
+	public $v_flashdata6 = 'ubah';
+	public $v_flashdata6_func = '$("#ubah").modal("show")';
+	public $v_flashdata7 = 'lihat';
+	public $v_flashdata7_func = '$("#lihat").modal("show")';
+	public $v_flashdata8 = 'cari';
+	public $v_flashdata8_func = '$("#cari").modal("show")';
+	public $v_flashdata9 = 'maintenance';
+	public $v_flashdata9_func = '$("#maintenance").modal("show")';
+	public $v_flashdata10 = 'cleaning';
+	public $v_flashdata10_func = '$("#cleaning").modal("show")';
+	public $v_flashdata11 = 'book';
+	public $v_flashdata11_func = '$("#book").modal("show")';
+	
 
 	public function
 
@@ -485,6 +504,7 @@ class Welcome extends CI_Controller
 				'title' => $this->v8_title,
 				'konten' => $this->v8,
 				'head' => $this->head,
+				$this->v_part4 => $this->v_part4_msg1,
 				$this->tabel7 => $this->ptn->ambil($id)->result(),
 			);
 
@@ -513,6 +533,7 @@ class Welcome extends CI_Controller
 			$data = array(
 				'title' => $this->v2_title,
 				'head' => $this->head,
+				$this->v_part4 => $this->v_part4_msg1,
 				$this->tabel7 => $this->ptn->ambil($id)->result()
 
 			);
@@ -531,6 +552,7 @@ class Welcome extends CI_Controller
 			'title' => 'Daftar Tipe Kamar',
 			'konten' => 'v_tipe_kamar',
 			'head' => '_partials/head',
+			$this->v_part4 => $this->v_part4_msg1,
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 			'tipe_kamar' => $this->tpk->ambildata()->result(),
 			'faskamar' => $this->fsk->ambildata()->result()
@@ -546,6 +568,7 @@ class Welcome extends CI_Controller
 			'title' => 'Daftar Fasilitas',
 			'konten' => 'v_fasilitas',
 			'head' => '_partials/head',
+			$this->v_part4 => $this->v_part4_msg1,
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 			'fashotel' => $this->fsh->ambildata()->result()
 		);
@@ -560,6 +583,7 @@ class Welcome extends CI_Controller
 			'title' => 'Dashboard',
 			'konten' => 'v_admin-dashboard',
 			'head' => '_partials/head',
+			$this->v_part4 => $this->v_part4_msg1,
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 			'fashotel' => $this->fsh->ambildata()->num_rows(),
 			'faskamar' => $this->fsk->ambildata()->num_rows(),
@@ -583,6 +607,7 @@ class Welcome extends CI_Controller
 		$data = array(
 			'title' => 'Anda tidak Memiliki level',
 			'head' => '_partials/head',
+			$this->v_part4 => $this->v_part4_msg1,
 			'pengaturan' => $this->ptn->ambil($id)->result(),
 		);
 

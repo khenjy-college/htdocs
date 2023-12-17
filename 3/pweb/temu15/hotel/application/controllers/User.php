@@ -117,8 +117,8 @@ class User extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel9_v_flashdata1_msg_1 = $this->tabel9 . ' berhasil disimpan!';
 		$this->tabel9_v_flashdata1_msg_2 = $this->tabel9 . ' gagal disimpan!';
-		$this->tabel9_v_flashdata1_msg_3 = 'Status ' . $this->tabel9 . ' berhasil diubah!';
-		$this->tabel9_v_flashdata1_msg_4 = 'Status ' . $this->tabel9 . ' gagal diubah!';
+		$this->tabel9_v_flashdata1_msg_3 = 'Data ' . $this->tabel9 . ' berhasil diubah!';
+		$this->tabel9_v_flashdata1_msg_4 = 'Data ' . $this->tabel9 . ' gagal diubah!';
 		$this->tabel9_v_flashdata1_msg_5 = $this->tabel9 . ' berhasil dihapus!';
 		$this->tabel9_v_flashdata1_msg_6 = $this->tabel9 . ' gagal dihapus!';
 
@@ -141,9 +141,10 @@ class User extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'title' => $this->tabel9_v2_title,
-			'head' => $this->head,
-			'konten' => $this->tabel9_v2,
+			$this->v_part1 => $this->tabel9_v2_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel9_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel9 => $this->usr->ambildata()->result()
 		);
@@ -259,6 +260,7 @@ class User extends Welcome
 		$data = array(
 			'title' => $this->tabel9_v3_title,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel9 => $this->usr->ambildata()->result()
 		);
@@ -281,6 +283,7 @@ class User extends Welcome
 			// 'konten' => $this->tabel9_c6,
 
 			'konten' => $this->v10,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel9 => $this->usr->ambil($id_user)->result()
 		);
@@ -294,6 +297,7 @@ class User extends Welcome
 		$data = array(
 			'title' => $this->v2_title,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 		);
 
@@ -306,6 +310,7 @@ class User extends Welcome
 		$data = array(
 			'title' => $this->v6_title,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 		);
 

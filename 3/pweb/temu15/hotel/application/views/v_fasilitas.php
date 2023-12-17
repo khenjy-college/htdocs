@@ -2,7 +2,7 @@
   <img src="img/<?= $p->foto ?>" class="img-fluid rounded">
 <?php endforeach; ?>
 
-<h2 class="pt-2">Fasilitas</h2>
+<h2 class="pt-2">Fasilitas<?= $phase ?></h2>
 <hr>
 
 <div class="row">
@@ -35,6 +35,9 @@
         <div class="modal-body">
           <img class="img-thumbnail" src="img/fashotel/<?= $fh->img; ?>">
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

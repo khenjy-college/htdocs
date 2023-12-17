@@ -100,6 +100,7 @@ class Faskamar extends Welcome
 			$this->v_part1 => $this->tabel1_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel1_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel1 => $this->fsk->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -111,6 +112,7 @@ class Faskamar extends Welcome
 	public function tambah()
 	{
 		$this->declare();
+
 		$config['upload_path'] = $this->tabel1_v_input4_upload_path;
 		$config['allowed_types'] = $this->file_type1;
 		$config['remove_spaces'] = TRUE;
@@ -118,31 +120,35 @@ class Faskamar extends Welcome
 		$this->load->library('upload', $config);
 
 		if (!$this->tabel1_v_input4_upload) {
-			$gambar  = '';
+			$this->session->set_flashdata($this->v_flashdata3, 'Gambar ' . $this->tabel1_field4 . ' tidak bisa diupload!');
+			$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func2);
+			redirect($_SERVER['HTTP_REFERER']);
 		} else {
 			$upload = $this->upload->data();
 			$gambar = $upload['file_name'];
+
+
+
+			$data = array(
+				$this->tabel1_field1 => '',
+				$this->tabel1_field2 => $this->tabel1_v_input2_post,
+				$this->tabel1_field3 => $this->tabel1_v_input3_post,
+				$this->tabel1_field4 => $gambar,
+			);
+
+			$simpan = $this->fsk->simpan($data);
+
+			if ($simpan) {
+				$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_1);
+				$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			} else {
+				$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_2);
+				$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			}
+
+			// redirect(site_url($this->tabel1_c1));
+			redirect($_SERVER['HTTP_REFERER']);
 		}
-
-		$data = array(
-			$this->tabel1_field1 => '',
-			$this->tabel1_field2 => $this->tabel1_v_input2_post,
-			$this->tabel1_field3 => $this->tabel1_v_input3_post,
-			$this->tabel1_field4 => $gambar,
-		);
-
-		$simpan = $this->fsk->simpan($data);
-
-		if ($simpan) {
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_1);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		} else {
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_2);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
-		}
-
-		// redirect(site_url($this->tabel1_c1));
-		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function update()
@@ -214,6 +220,7 @@ class Faskamar extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel1_v3_title,
 			$this->v_part2 => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel1 => $this->fsk->ambildata()->result()
 		);

@@ -175,6 +175,7 @@ class Transaksi extends Welcome
 			'title' => $this->tabel10_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel10_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_pesanan()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -199,6 +200,7 @@ class Transaksi extends Welcome
 			'title' => $this->tabel10_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel10_v2_alt,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_history()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -329,6 +331,7 @@ class Transaksi extends Welcome
 		$data = array(
 			'title' => $this->tabel10_v3_title,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -346,6 +349,7 @@ class Transaksi extends Welcome
 			'title' => $this->tabel10_v1_title,
 			'head' => $this->head,
 			'konten' => $this->tabel10_v1,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_pesanan_tamu($where)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -362,6 +366,7 @@ class Transaksi extends Welcome
 			'title' => $this->tabel10_v1_alt_title,
 			'head' => $this->head,
 			'konten' => $this->tabel10_v1_alt,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_history_tamu($where)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -382,6 +387,7 @@ class Transaksi extends Welcome
 			'title' => $this->tabel10_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel10_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->join_pesanan($where)->result(),
 			$this->tabel10 => $this->trs->filter($param1, $param2)->result(),
@@ -404,6 +410,7 @@ class Transaksi extends Welcome
 		$data = array(
 			'title' => 'Transaksi Berhasil',
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
@@ -422,6 +429,7 @@ class Transaksi extends Welcome
 		$data1 = array(
 			'title' => 'Bukti Transaksi',
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel10 => $this->trs->ambil($id_transaksi)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()

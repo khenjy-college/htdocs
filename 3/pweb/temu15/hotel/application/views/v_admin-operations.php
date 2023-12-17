@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Operations</h1>
+<h1>Daftar Operations<?= $phase ?></h1>
 <hr>
 
 <a class="btn btn-info mb-4" href="<?= site_url('operations/laporan') ?>" target="_blank">
@@ -109,6 +109,9 @@
             </div>
           </div>
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

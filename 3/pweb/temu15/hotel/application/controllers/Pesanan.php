@@ -215,6 +215,7 @@ class Pesanan extends Welcome
 			'title' => $this->tabel8_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel8_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambildata()->result(),
 			$this->tabel5 => $this->kmr->ambildata()->result(),
@@ -367,6 +368,7 @@ class Pesanan extends Welcome
 		$data = array(
 			'title' => $this->tabel8_v3_title,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -384,6 +386,7 @@ class Pesanan extends Welcome
 			'title' => $this->v11_title,
 			'head' => $this->head,
 			'konten' => 'v_reservasi',
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambil_id_user($where)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -413,6 +416,7 @@ class Pesanan extends Welcome
 			'title' => $this->tabel8_v1_title,
 			'head' => $this->head,
 			'konten' => $this->v11,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
 			// mencari dan menampilkan id pesanan berdasarkan id_pesanan yang telah diinput
@@ -475,6 +479,7 @@ class Pesanan extends Welcome
 		$data = array(
 			'title' => $this->v1_title1,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
@@ -491,6 +496,7 @@ class Pesanan extends Welcome
 		$data = array(
 			'title' => $this->v4_title1,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambil($id_pesanan)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -512,6 +518,7 @@ class Pesanan extends Welcome
 			'title' => $this->tabel8_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel8_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->filter($param1, $param2, $param3, $param4)->result(),
 
@@ -540,6 +547,7 @@ class Pesanan extends Welcome
 			'title' => $this->v11_title,
 			'head' => $this->head,
 			'konten' => 'v_history',
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
 

@@ -115,6 +115,7 @@ class Fashotel extends Welcome
 			$this->v_part1 => $this->tabel3_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel3_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel3 => $this->fsh->ambildata()->result()
 		);
@@ -125,6 +126,7 @@ class Fashotel extends Welcome
 	public function tambah()
 	{
 		$this->declare();
+
 		// konfigurasi upload,
 		// sedang berencara menerapkan koding ini
 		// https://stackoverflow.com/questions/18705639/how-to-rename-uploaded-file-before-saving-it-into-a-directory
@@ -238,6 +240,7 @@ class Fashotel extends Welcome
 		$data = array(
 			$this->v_part1 => $this->tabel3_v3_title,
 			$this->v_part2 => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel3 => $this->fsh->ambildata()->result()
 		);

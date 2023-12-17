@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1><?= $title ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <!-- Fitur filter di bawah saat ini akan kuhilangkan sementara -->
@@ -161,6 +161,9 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 
               </div>
             </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

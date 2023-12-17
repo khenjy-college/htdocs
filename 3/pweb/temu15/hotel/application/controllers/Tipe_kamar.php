@@ -101,6 +101,7 @@ class Tipe_kamar extends Welcome
 			'title' => 'Data Tipe Kamar',
 			'head' => $this->head,
 			'konten' => 'v_admin-tipe_kamar',
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
@@ -228,6 +229,7 @@ class Tipe_kamar extends Welcome
 		$data = array(
 			'title' => $this->tabel6_v3_title,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);

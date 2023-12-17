@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1><?= $title ?></h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
@@ -92,6 +92,10 @@
             <input class="form-control-file" required type="file" name="img">
           </div>
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
         </div>
@@ -102,7 +106,7 @@
 
 <!-- modal edit -->
 <?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="ubah<?= $tp->id_tipe; ?>" class="modal fade">
+  <div id="ubah<?= $tp->id_tipe; ?> modal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -137,6 +141,10 @@
               <input type="hidden" name="txtimg" value="<?= $tp->img; ?>">
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Simpan Perubahan</button>
           </div>
@@ -148,7 +156,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="lihat<?= $tp->id_tipe; ?>" class="modal fade" role="dialog">
+  <div id="lihat<?= $tp->id_tipe; ?> modal" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -185,6 +193,9 @@
             </div>
 
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

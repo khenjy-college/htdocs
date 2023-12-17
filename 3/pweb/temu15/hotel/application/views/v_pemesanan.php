@@ -161,6 +161,9 @@
 
 
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan Perubahan</button>

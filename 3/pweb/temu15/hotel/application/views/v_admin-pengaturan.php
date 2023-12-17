@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Pengaturan Website</h1>
+<h1>Pengaturan Website<?= $phase ?></h1>
 <hr>
 <div class="row">
   <div class="col-md-6">
@@ -93,6 +93,9 @@
               <input type="hidden" name="txtfavicon" value="<?= $p->favicon; ?>">
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah favicon?')" type="submit">Simpan Perubahan</button>
@@ -132,6 +135,9 @@
               <input type="hidden" name="txtlogo" value="<?= $p->logo; ?>">
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah logo website?')" type="submit">Simpan Perubahan</button>
@@ -170,6 +176,9 @@
               <input type="hidden" name="txtfoto" value="<?= $p->foto; ?>">
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" onclick="return confirm('Ubah foto website?')" type="submit">Simpan Perubahan</button>

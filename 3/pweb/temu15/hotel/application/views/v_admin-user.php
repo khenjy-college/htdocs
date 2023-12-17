@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar User Hotel</h1>
+<h1>Daftar User Hotel<?= $phase ?></h1>
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
@@ -123,6 +123,9 @@
             </select>
           </div>
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
@@ -183,6 +186,9 @@
               </select>
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -232,6 +238,9 @@
               <p><?= $u->level; ?></p>
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

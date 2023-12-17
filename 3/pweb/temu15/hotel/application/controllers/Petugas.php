@@ -110,6 +110,7 @@ class Petugas extends Welcome
 			'title' => $this->tabel4_v2_title,
 			'head' => $this->head,
 			'konten' => $this->tabel4_v2,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()
 		);
@@ -240,6 +241,7 @@ class Petugas extends Welcome
 		$data = array(
 			'title' => $this->tabel4_v3_title,
 			'head' => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()
 		);

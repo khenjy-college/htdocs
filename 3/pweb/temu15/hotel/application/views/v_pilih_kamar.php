@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Pilih Kamar Reservasi</h1>
+<h1>Pilih Kamar Reservasi<?= $phase ?></h1>
 <hr>
 
 <table class="table table-light" id="data">
@@ -74,6 +74,9 @@
 
             <img src="img/kamar/<?= $km->img; ?>" width="450">
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

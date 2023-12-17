@@ -2,7 +2,7 @@
   redirect(site_url('welcome/no_level'));
 } ?>
 
-<h1>Daftar Fasilitas Kamar</h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
@@ -92,6 +92,10 @@
             <input class="form-control-file" type="file" required name="img">
           </div>
         </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
         </div>
@@ -148,6 +152,9 @@
               <input type="hidden" name="txtimg" value="<?= $fk->img; ?>">
             </div>
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -192,6 +199,9 @@
             <hr>
 
           </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

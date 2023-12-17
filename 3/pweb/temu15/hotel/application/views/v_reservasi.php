@@ -1,4 +1,4 @@
-<h1>Daftar Reservasi</h1>
+<h1>Daftar Reservasi<?= $phase ?></h1>
 <hr>
 
 
@@ -160,6 +160,9 @@
 
             </div>
           </div>
+          
+          <!-- pesan untuk pengguna yang sedang merubah password -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Bayar</button>
@@ -239,6 +242,9 @@
                 </div>
               </div>
             </div>
+          
+          <!-- memunculkan notifikasi modal -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

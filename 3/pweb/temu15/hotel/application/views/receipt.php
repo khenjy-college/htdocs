@@ -11,7 +11,7 @@
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
     <?php foreach ($pengaturan as $p) : ?>
-      <h1 class="text-center">Bukti Transaksi</h1>
+      <h1 class="text-center">Bukti Transaksi<?= $phase ?></h1>
       <p class="text-center"><?= $p->nama; ?> | <?= $p->hp; ?> | <?= $p->email; ?></p>
       <p class="text-center"><?= $p->alamat; ?></p>
     <?php endforeach; ?>
