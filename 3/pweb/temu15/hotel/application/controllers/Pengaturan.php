@@ -38,8 +38,17 @@ class Pengaturan extends Welcome
 	private $tabel7_v_input1_post;
 	private $tabel7_v_input1_alt;
 	private $tabel7_v_input2_post;
+	private $tabel7_v_input3;
+	private $tabel7_v_input3_alt;
+	private $tabel7_v_input3_upload_path;
 	private $tabel7_v_input3_post;
+	private $tabel7_v_input4;
 	private $tabel7_v_input4_post;
+	private $tabel7_v_input4_upload_path;
+	private $tabel7_v_input4_alt;
+	private $tabel7_v_input5;
+	private $tabel7_v_input5_alt;
+	private $tabel7_v_input5_upload_path;
 	private $tabel7_v_input5_post;
 	private $tabel7_v_input6_post;
 	private $tabel7_v_input7_post;
@@ -87,9 +96,18 @@ class Pengaturan extends Welcome
 		$this->tabel7_v_input1_post = $this->input->post($this->tabel7_field1);
 		$this->tabel7_v_input1_alt = '';
 		$this->tabel7_v_input2_post = $this->input->post($this->tabel7_field2);
-		$this->tabel7_v_input3_post = $this->input->post($this->tabel7_field3);
-		$this->tabel7_v_input4_post = $this->input->post($this->tabel7_field4);
-		$this->tabel7_v_input5_post = $this->input->post($this->tabel7_field5);
+		$this->tabel7_v_input3 = $this->tabel7_field3;
+		$this->tabel7_v_input3_upload_path = './assets/img/';
+		$this->tabel7_v_input3_post = $this->input->post($this->tabel7_v_input3);
+		$this->tabel7_v_input3_alt = 'txt' . $this->input->post($this->tabel7_v_input3);
+		$this->tabel7_v_input4 =$this->tabel7_field4;
+		$this->tabel7_v_input4_upload_path = './assets/img/';
+		$this->tabel7_v_input4_post = $this->input->post($this->tabel7_v_input4);
+		$this->tabel7_v_input4_alt = 'txt' . $this->input->post($this->tabel7_v_input4);
+		$this->tabel7_v_input5 = $this->tabel7_field5;
+		$this->tabel7_v_input5_upload_path =  './assets/img/';
+		$this->tabel7_v_input5_post = $this->input->post($this->tabel7_v_input5);
+		$this->tabel7_v_input5_alt = 'txt' . $this->input->post($this->tabel7_v_input5);
 		$this->tabel7_v_input6_post = $this->input->post($this->tabel7_field6);
 		$this->tabel7_v_input7_post = $this->input->post($this->tabel7_field7);
 		$this->tabel7_v_input8_post = $this->input->post($this->tabel7_field8);
@@ -106,9 +124,9 @@ class Pengaturan extends Welcome
 		$this->tabel7_v_flashdata1_msg_6 = 'Data ' . $this->tabel7_alias . ' gagal dihapus!';
 
 		// deklarasi variabel menampilkan pesan modal
-		$this->tabel11_v_flashdata11_msg_1 = $this->tabel11_field3_alias . ' ' . $this->tabel11_alias . ' tidak bisa diupload';
-		$this->tabel11_v_flashdata12_msg_1 = $this->tabel11_field4_alias . ' ' . $this->tabel11_alias . ' tidak bisa diupload';
-		$this->tabel11_v_flashdata13_msg_1 = $this->tabel11_field5_alias . ' ' . $this->tabel11_alias . ' tidak bisa diupload';
+		$this->tabel7_v_flashdata11_msg_1 = $this->tabel7_field3_alias . ' ' . $this->tabel7_alias . ' tidak bisa diupload';
+		$this->tabel7_v_flashdata12_msg_1 = $this->tabel7_field4_alias . ' ' . $this->tabel7_alias . ' tidak bisa diupload';
+		$this->tabel7_v_flashdata13_msg_1 = $this->tabel7_field5_alias . ' ' . $this->tabel7_alias . ' tidak bisa diupload';
 	}
 
 
@@ -158,7 +176,7 @@ class Pengaturan extends Welcome
 	public function update_favicon()
 	{
 		$this->declare();
-		$config['upload_path'] = './assets/img/';
+		$config['upload_path'] = $this->tabel7_v_input3_upload_path;
 
 		// nama file telah ditetapkan dan hanya berekstensi png dan dapat diganti dengan file bernama sama
 		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
@@ -198,7 +216,7 @@ class Pengaturan extends Welcome
 	public function update_logo()
 	{
 		$this->declare();
-		$config['upload_path'] = './assets/img/';
+		$config['upload_path'] = $this->tabel7_v_input4_upload_path;
 
 		// nama file telah ditetapkan dan hanya berekstensi png dan dapat diganti dengan file bernama sama
 		$config['allowed_types'] = 'png';
@@ -238,7 +256,7 @@ class Pengaturan extends Welcome
 	public function update_foto()
 	{
 		$this->declare();
-		$config['upload_path'] = './assets/img/';
+		$config['upload_path'] = $this->tabel7_v_input5_upload_path;
 
 		// nama file telah ditetapkan dan hanya berekstensi jpg dan dapat diganti dengan file bernama sama
 		$config['allowed_types'] = 'jpg';
@@ -268,7 +286,7 @@ class Pengaturan extends Welcome
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, 'Foto gagal diubah!');
-			$this->session->set_flashdata(($this->v_flashdata_m, $this->v_flashdata_m_func1);
+			$this->session->set_flashdata($this->v_flashdata_m, $this->v_flashdata_m_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 
