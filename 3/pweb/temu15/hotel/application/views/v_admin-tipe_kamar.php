@@ -29,9 +29,9 @@
           <td><?= $tp->stok ?></td>
           <td>Rp <?= number_format($tp->harga, '2', ',', '.') ?></td>
           <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/tipe_kamar/<?= $tp->img ?>"></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tp->id_tipe; ?>">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tp->id_tipe; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
               <i class="fas fa-edit"></i></a>
 
 
@@ -94,7 +94,7 @@
         </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
@@ -106,7 +106,7 @@
 
 <!-- modal edit -->
 <?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="ubah<?= $tp->id_tipe; ?> modal" class="modal fade">
+  <div id="ubah" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -143,7 +143,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -156,7 +156,7 @@
 
 <!-- modal lihat -->
 <?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="lihat<?= $tp->id_tipe; ?> modal" class="modal fade" role="dialog">
+  <div id="lihat" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -195,7 +195,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

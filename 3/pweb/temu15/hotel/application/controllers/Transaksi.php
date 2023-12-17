@@ -248,10 +248,10 @@ class Transaksi extends Welcome
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_1);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_2);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		// fitur mengubah status ini seharusnya berada di bagian pesanan cman saya belum bisa menemukan algoritma yang pas jadi akan disimpan untuk pengembangan di kemudian hari
@@ -267,14 +267,14 @@ class Transaksi extends Welcome
 
 			if ($update) {
 				$this->session->set_flashdata($this->v_flashdata1, 'Selamat! Anda sudah bisa mengunjungi HotelHebat!');
-				$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 			} else {
 				$this->session->set_flashdata($this->v_flashdata1, 'Anda belum bisa mengunjungi HotelHebat!');
-				$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 			}
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, 'Transaksi tidak valid!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url('transaksi/konfirmasi'));
@@ -299,10 +299,10 @@ class Transaksi extends Welcome
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel10));
@@ -316,10 +316,10 @@ class Transaksi extends Welcome
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_5);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_6);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel10));

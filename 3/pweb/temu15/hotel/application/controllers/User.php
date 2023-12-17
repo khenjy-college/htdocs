@@ -122,6 +122,8 @@ class User extends Welcome
 		$this->tabel9_v_flashdata1_msg_5 = $this->tabel9 . ' berhasil dihapus!';
 		$this->tabel9_v_flashdata1_msg_6 = $this->tabel9 . ' gagal dihapus!';
 
+		$this->tabel9_
+
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->tabel9_field1;
 		$this->tabel9_tempdata1 = $this->tabel9_field1;
@@ -221,11 +223,11 @@ class User extends Welcome
 		if ($update) {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		// kembali ke halaman sebelumnya
@@ -241,11 +243,11 @@ class User extends Welcome
 		if ($hapus) {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_5);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel9_v_flashdata1_msg_6);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 
@@ -336,11 +338,11 @@ class User extends Welcome
 		if ($update) {
 
 			$this->session->set_flashdata($this->v_flashdata1, 'Profil berhasil diubah!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, 'Profil gagal diubah!');
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		// mengambil data profil yang baru dirubah
@@ -394,7 +396,7 @@ class User extends Welcome
 				} else {
 
 					$this->session->set_flashdata($this->v_flashdata3, 'Konfirmasi ' . $this->tabel9_field4 . ' tidak sesuai!');
-					$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func);
+					$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func1);
 					redirect($_SERVER['HTTP_REFERER']);
 				}
 
@@ -402,7 +404,7 @@ class User extends Welcome
 			} else {
 
 				$this->session->set_flashdata($this->v_flashdata3, $this->tabel9_field4 . ' lama salah!');
-				$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func);
+				$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func1);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 
@@ -410,7 +412,7 @@ class User extends Welcome
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, 'Akun tidak tersedia!');
-			$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func);
+			$this->session->set_flashdata($this->v_flashdata4, $this->v_flashdata4_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}

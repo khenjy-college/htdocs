@@ -29,9 +29,9 @@
           <td><?= $fk->tipe ?></td>
           <td><?= $fk->nama ?></td>
           <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/faskamar/<?= $fk->img ?>"></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fk->id_faskamar; ?>">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fk->id_faskamar; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
               <i class="fas fa-edit"></i></a>
             <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('faskamar/hapus/' . $fk->id_faskamar) ?>">
               <i class="fas fa-trash"></i></a>
@@ -94,7 +94,7 @@
         </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
@@ -106,7 +106,7 @@
 
 <!-- modal edit -->
 <?php foreach ($faskamar as $fk) : ?>
-  <div id="ubah<?= $fk->id_faskamar; ?>" class="modal fade">
+  <div id="ubah" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -154,7 +154,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -167,7 +167,7 @@
 
 <!-- Modal Lihat -->
 <?php foreach ($faskamar as $fk) : ?>
-  <div id="lihat<?= $fk->id_faskamar; ?>" class="modal fade" role="dialog">
+  <div id="lihat" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -201,7 +201,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

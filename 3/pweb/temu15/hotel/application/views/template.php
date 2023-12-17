@@ -28,7 +28,7 @@
       </div>
 
       <div class="toast-body">
-        <?= $this->session->flashdata('pesan') ?>
+        <?= $this->session->flashdata($this->v_flashdata1) ?>
       </div>
     </div>
 
@@ -77,9 +77,9 @@
                   <input class="form-control" type="email" required name="email" placeholder="Masukkan email Anda">
                 </div>
               </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+
+              <!-- memunculkan notifikasi modal -->
+              <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
               <div class="modal-footer">
                 <button class="btn btn-success" type="submit">Cari</button>

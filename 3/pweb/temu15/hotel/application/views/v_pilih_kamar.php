@@ -49,7 +49,7 @@
 
 <!-- Modal Lihat -->
 <?php foreach ($kamar as $km) : ?>
-  <div id="lihat<?= $km->no_kamar; ?>" class="modal fade" role="dialog">
+  <div id="lihat" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -76,7 +76,7 @@
           </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

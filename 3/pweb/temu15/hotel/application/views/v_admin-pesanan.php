@@ -94,13 +94,13 @@
 
             <!-- tombol yang akan muncul berdasarkan nilai dari status -->
             <?php if ($ps->status == 'pending') { ?>
-              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $ps->id_pesanan ?>">
+              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book">
                 <i class="fas fa-bell-concierge"></i></a>
             <?php } elseif ($ps->status == 'menunggu') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
                 <i class="fas fa-edit"></i></a>
             <?php } elseif ($ps->status == 'cek in') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah">
                 <i class="fas fa-edit"></i></a>
 
             <?php } elseif ($ps->status == 'cek out') { ?>
@@ -135,7 +135,7 @@
 
 <!-- modal ubah -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="ubah<?= $ps->id_pesanan ?>" class="modal fade">
+  <div id="ubah" class="modal fade">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
         <div class="modal-dialog">
@@ -218,7 +218,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
               <div class="modal-footer">
 
@@ -245,7 +245,7 @@
 
 <!-- modal book -->
 <?php foreach ($pesanan as $ps) : ?>
-  <div id="book<?= $ps->id_pesanan ?>" class="modal fade">
+  <div id="book" class="modal fade">
     <?php foreach ($tipe_kamar as $tk) : ?>
       <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
         <div class="modal-dialog">
@@ -357,7 +357,7 @@
               </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_book') ?></p>
 
               <div class="modal-footer">
 

@@ -114,10 +114,10 @@ class Kamar extends Welcome
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_1);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_2);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel5_c1));
@@ -137,10 +137,10 @@ class Kamar extends Welcome
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel5_c1));
@@ -153,10 +153,10 @@ class Kamar extends Welcome
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_5);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_6);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel5_c1));

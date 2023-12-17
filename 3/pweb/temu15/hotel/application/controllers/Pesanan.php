@@ -316,11 +316,11 @@ class Pesanan extends Welcome
 		if ($simpan) {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_1);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_2);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel8_c9));
@@ -351,11 +351,11 @@ class Pesanan extends Welcome
 		if ($hapus && $update_history) {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel8_c1));
@@ -461,11 +461,11 @@ class Pesanan extends Welcome
 
 		if ($update) {
 
-			$this->session->set_flashdata('pesan', 'Status pesanan berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
 
-			$this->session->set_flashdata('pesan', 'Status pesanan gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
@@ -590,11 +590,11 @@ class Pesanan extends Welcome
 		if ($update_kamar) {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel8_c1));

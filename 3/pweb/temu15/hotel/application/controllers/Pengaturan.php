@@ -136,10 +136,10 @@ class Pengaturan extends Welcome
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata('pesan', 'Data website berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Data website berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
-			$this->session->set_flashdata('pesan', 'Data website gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Data website gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
@@ -175,10 +175,10 @@ class Pengaturan extends Welcome
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata('pesan', 'Favicon berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Favicon berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
-			$this->session->set_flashdata('pesan', 'Favicon gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Favicon gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
@@ -214,10 +214,10 @@ class Pengaturan extends Welcome
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata('pesan', 'Logo berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Logo berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
-			$this->session->set_flashdata('pesan', 'Logo gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Logo gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
@@ -253,10 +253,10 @@ class Pengaturan extends Welcome
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata('pesan', 'Foto berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Foto berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
-			$this->session->set_flashdata('pesan', 'Foto gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, 'Foto gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 

@@ -95,7 +95,7 @@
               <td><?= $h->cek_out ?></td>
               <td><?= $h->tgl_perubahan ?></td>
               <td><?= $h->user_aktif ?></td>
-              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $h->id_history; ?>">
+              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat">
                   <i class="fas fa-eye"></i></a>
                 <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $h->id_history) ?>">
                   <i class="fas fa-trash"></i></a>
@@ -127,7 +127,7 @@
   foreach ($tipe_kamar as $tk) :
     if ($tk->id_tipe == $h->id_tipe) { ?>
 
-      <div id="lihat<?= $h->id_history ?>" class="modal fade">
+      <div id="lihat" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -205,7 +205,7 @@
             </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

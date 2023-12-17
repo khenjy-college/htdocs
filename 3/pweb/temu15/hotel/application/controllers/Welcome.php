@@ -336,7 +336,8 @@ class Welcome extends CI_Controller
 	private $tabel9_userdata6;
 	private $tabel9_tempdata6;
 
-
+	// Aku ada rencana untuk menggunakan Toastr untuk menampilkan notifikasi toast
+	// Ini adalah link : https://codeseven.github.io/toastr/demo.html
 
 
 	// deklarasi views yang saat ini belum terhubung ke basis data
@@ -407,34 +408,68 @@ class Welcome extends CI_Controller
 	// deklarasi flashdata
 	// Flashdata di sini bertugas untuk menemani pengguna dalam perselancarannya di website ini
 	// Elemen yang digunakan adalah toast atau popup di sudut kanan atas
+
+	// Masing-masing modal akan dibagi 2
+	// 2. Modal yang berhuungan dengan pesan akan diberi kode nomor (flashdata1, flashdata2, flasdata3, dan seterusnya)
+	// 1. Modal yang berhubungan dengan elemen akan diberi kode huruf (flashdata_a, flashdata_b, flasdata_c, dan seterusnya)
+
+	// Jika flashdata memiliki pesan atau fungsi, maka akan ditambahakan _msg1 atau _func1
+	// flashdata1_msg1, flashdata_a_func1
+
+	// Flashdata yang berhubungan dengan pesan
 	public $v_flashdata1 = 'pesan';
-	public $v_flashdata1_msg1;
+	public $v_flashdata1_msg1 = '';
 	public $v9_flashdata1_msg2;
-	public $v_flashdata2 = 'panggil';
-	public $v_flashdata2_func = '$("#element").toast("show")';
+	public $v_flashdata2 = 'notifikasi';
+	public $v_flashdata2_msg1;
+	public $v_flashdata2_msg2;
+	public $v_flashdata3 = 'pesan_tambah';
+	public $v_flashdata3_msg1 = 'Upload gambar gagal';
+	public $v_flashdata3_msg2;
+	public $v_flashdata4 = 'pesan_ubah';
+	public $v_flashdata4_msg1 = 'Upload gambar gagal';
+	public $v_flashdata4_msg2;
+	public $v_flashdata5 = 'pesan_lihat';
+	public $v_flashdata5_msg1;
+	public $v_flashdata5_msg2;
+	public $v_flashdata6 = 'pesan_cari';
+	public $v_flashdata6_msg1;
+	public $v_flashdata6_msg2;
+	public $v_flashdata7 = 'pesan_maintenance';
+	public $v_flashdata7_msg1;
+	public $v_flashdata7_msg2;
+	public $v_flashdata8 = 'pesan_cleaning';
+	public $v_flashdata8_msg1;
+	public $v_flashdata8_msg2;
+	public $v_flashdata9 = 'pesan_book';
+	public $v_flashdata9_msg1;
+	public $v_flashdata9_msg2;
 
 	// Flashdata di bawah ini bertugas untuk memberitahu pengguna mengenai hal yang berhubungan dengan data pribadi
 	// Elemen yang digunakan adalah modal yang digunakan oleh pengguna
-	public $v_flashdata3 = 'notifikasi';
-	public $v_flashdata3_msg1;
-	public $v_flashdata3_msg2;
-	public $v_flashdata4 = 'modal';
-	public $v_flashdata4_func = '$("#password").modal("show")';
-	public $v_flashdata5 = 'tambah';
-	public $v_flashdata5_func = '$("#tambah").modal("show")';
-	public $v_flashdata6 = 'ubah';
-	public $v_flashdata6_func = '$("#ubah").modal("show")';
-	public $v_flashdata7 = 'lihat';
-	public $v_flashdata7_func = '$("#lihat").modal("show")';
-	public $v_flashdata8 = 'cari';
-	public $v_flashdata8_func = '$("#cari").modal("show")';
-	public $v_flashdata9 = 'maintenance';
-	public $v_flashdata9_func = '$("#maintenance").modal("show")';
-	public $v_flashdata10 = 'cleaning';
-	public $v_flashdata10_func = '$("#cleaning").modal("show")';
-	public $v_flashdata11 = 'book';
-	public $v_flashdata11_func = '$("#book").modal("show")';
-	
+	// Untuk pesan2 tersebut sendiri akan diatur pada masing-masing halaman controller
+
+	public $v_flashdata_a = 'panggil';
+	public $v_flashdata_a_func1 = '$("#element").toast("show")';
+	// Flashdata untuk modal umum
+	public $v_flashdata_b = 'modal';
+	public $v_flashdata_b_func1 = '$("#password").modal("show")';
+	// Flashdata untuk modal khusus
+	public $v_flashdata_c = 'tambah';
+	public $v_flashdata_c_func1 = '$("#tambah").modal("show")';
+	public $v_flashdata_d = 'ubah';
+	public $v_flashdata_d_func1 = '$("#ubah").modal("show")';
+	public $v_flashdata_e = 'lihat';
+	public $v_flashdata_e_func1 = '$("#lihat").modal("show")';
+	public $v_flashdata_f = 'cari';
+	public $v_flashdata_f_func1 = '$("#cari").modal("show")';
+	public $v_flashdata_g = 'maintenance';
+	public $v_flashdata_g_func1 = '$("#maintenance").modal("show")';
+	public $v_flashdata_h = 'clean';
+	public $v_flashdata_h_func1 = '$("#clean").modal("show")';
+	public $v_flashdata_i = 'book';
+	public $v_flashdata_i_func1 = '$("#book").modal("show")';
+
 
 	public function
 
@@ -493,12 +528,12 @@ class Welcome extends CI_Controller
 		) {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 
 			redirect(site_url($this->c5));
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
-			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 			$data = array(
 
 				'title' => $this->v8_title,
@@ -540,7 +575,7 @@ class Welcome extends CI_Controller
 			$halaman = $this->v2;
 		}
 		$this->session->set_flashdata($this->v_flashdata1, $this->v9_flashdata1_msg2);
-		$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata2_func);
+		$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 
 		$this->load->view($halaman, $data);
 	}

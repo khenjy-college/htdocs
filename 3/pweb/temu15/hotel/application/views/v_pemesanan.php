@@ -37,7 +37,7 @@
 
     <div class="col-md-1">
       <div class="form-group">
-        <a class="btn btn-primary" type="button" data-toggle="modal" data-target="#ubah<?= $jlh; ?>">
+        <a class="btn btn-primary" type="button" data-toggle="modal" data-target="#ubah">
           Ubah</a>
       </div>
     </div>
@@ -138,7 +138,7 @@
 
 
 <!-- modal edit -->
-<div id="ubah<?= $jlh; ?>" class="modal fade">
+<div id="ubah" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -163,7 +163,7 @@
         </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan Perubahan</button>

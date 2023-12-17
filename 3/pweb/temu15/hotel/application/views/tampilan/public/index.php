@@ -13,10 +13,10 @@
 
   <!-- menampilkan data pengaturan sebagai p -->
   <!-- <?php foreach ($pengaturan as $p) : ?> -->
-    <!-- <title><?= $title ?> - <?= $p->nama ?></title> -->
+  <!-- <title><?= $title ?> - <?= $p->nama ?></title> -->
 
-    <!-- menampilkan favicon -->
-    <link rel="icon" href="img/<?= $p->favicon ?>" type="image/gif">
+  <!-- menampilkan favicon -->
+  <link rel="icon" href="img/<?= $p->favicon ?>" type="image/gif">
 
   <!-- <?php endforeach; ?> -->
 
@@ -44,7 +44,7 @@
     </div>
 
     <div class="toast-body">
-      <?= $this->session->flashdata('pesan') ?>
+      <?= $this->session->flashdata($this->v_flashdata1) ?>
     </div>
   </div>
 

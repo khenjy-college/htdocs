@@ -22,10 +22,10 @@
           <td><?= $ps->cek_out ?></td>
           <td><?= $ps->status ?></td>
           <td>
-            <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $ps->id_pesanan ?>" href="#">
+            <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat" href="#">
               <i class="fas fa-eye"></i></a>
             <?php if ($ps->status == 'belum bayar') { ?>
-              <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $ps->id_pesanan ?>" href="#">
+              <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar" href="#">
                 <i class="fas fa-shopping-cart"></i></a>
             <?php } elseif (
               $ps->status == 'menunggu'
@@ -56,7 +56,7 @@
 <!-- modal bayar -->
 <?php foreach ($pesanan as $ps) : ?>
 
-  <div id="bayar<?= $ps->id_pesanan ?>" class="modal fade">
+  <div id="bayar" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -178,7 +178,7 @@
 <?php foreach ($pesanan as $ps) :
   foreach ($tipe_kamar as $tk) :
     if ($tk->id_tipe == $ps->id_tipe) { ?>
-      <div id="lihat<?= $ps->id_pesanan ?>" class="modal fade">
+      <div id="lihat" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -244,7 +244,7 @@
             </div>
           
           <!-- memunculkan notifikasi modal -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
+          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
