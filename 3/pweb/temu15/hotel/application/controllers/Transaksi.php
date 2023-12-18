@@ -17,11 +17,6 @@ include 'Welcome.php';
 
 class Transaksi extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel10_m = 'trs';
@@ -74,6 +69,9 @@ class Transaksi extends Welcome
 	private $tabel10_v_flashdata1_msg_4;
 	private $tabel10_v_flashdata1_msg_5;
 	private $tabel10_v_flashdata1_msg_6;
+	private $tabel10_v_flashdata1_msg_7;
+	private $tabel10_v_flashdata1_msg_8;
+	private $tabel10_v_flashdata1_msg_9;
 
 
 	// deklarasi session tabel9
@@ -90,6 +88,13 @@ class Transaksi extends Welcome
 	private $tabel9_tempdata5;
 	private $tabel9_userdata6;
 	private $tabel9_tempdata6;
+
+	private $tabel10_v_flashdata3_msg_1;
+	private $tabel10_v_flashdata4_msg_1;
+
+	private $tabel8_input12_post;
+
+	private $tabel10_tempdata3;
 
 
 	public function
@@ -122,6 +127,11 @@ class Transaksi extends Welcome
 		$this->tabel10_c3 = $this->tabel10 . '/update';
 		$this->tabel10_c4 = $this->tabel10 . '/hapus';
 		$this->tabel10_c5 = $this->tabel10 . '/laporan';
+		$this->tabel10_c6 = $this->tabel10 . '/daftar';
+		$this->tabel10_c7 = $this->tabel10 . '/daftar_history';
+		$this->tabel10_c8 = $this->tabel10 . '/filter';
+		$this->tabel10_c9 = $this->tabel10 . '/konfirmasi';
+		$this->tabel10_c10 = $this->tabel10 . '/receipt';
 
 
 		// tabel bagian input
@@ -145,10 +155,13 @@ class Transaksi extends Welcome
 		$this->tabel10_v_flashdata1_msg_4 = 'Data ' . $this->tabel10_alias . ' gagal diubah!';
 		$this->tabel10_v_flashdata1_msg_5 = 'Data ' . $this->tabel10_alias . ' berhasil dihapus!';
 		$this->tabel10_v_flashdata1_msg_6 = 'Data ' . $this->tabel10_alias . ' gagal dihapus!';
+		$this->tabel10_v_flashdata1_msg_7 = 'Selamat! Anda sudah bisa mengunjungi Hotel!';
+		$this->tabel10_v_flashdata1_msg_8 = 'Anda belum bisa mengunjungi HotelHebat!';
+		$this->tabel10_v_flashdata1_msg_9 = 'Transaksi tidak valid!';
 
 		// deklarasi variabel menampilkan pesan modal
-		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
-		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel10_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel10_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 
 
 		// deklarasi session
@@ -164,6 +177,9 @@ class Transaksi extends Welcome
 		$this->tabel9_tempdata5 = $this->tabel9_field5;
 		$this->tabel9_userdata6 = $this->tabel9_field6;
 		$this->tabel9_tempdata6 = $this->tabel9_field6;
+
+		$this->tabel10_tempdata3 = $this->tabel9_field3 . '_' . $this->tabel10;
+		$this->tabel8_input12_post = $this->input->post($this->tabel8_field12);
 	}
 
 
@@ -221,8 +237,8 @@ class Transaksi extends Welcome
 	public function tambah()
 	{
 		$this->declare();
-		$email = $this->input->post('email');
-		$bayar = $this->input->post('bayar');
+		$email = $this->tabel10_v_input3_post;
+		$bayar = $this->tabel10_v_input6_post;
 
 		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
 		$tgl = date("Y-m-d") . " " . date("h:m:s", time());
@@ -230,16 +246,16 @@ class Transaksi extends Welcome
 		// $kembalian = $this->psn->get('harga_total') - $bayar;
 
 		$data = array(
-			'id_transaksi' => '',
-			'id_user' => $this->session->userdata($this->tabel9_userdata1),
-			'email' => $email,
-			'id_pesanan' => $this->input->post('id_pesanan'),
-			'metode' => $this->input->post('metode'),
-			'bayar' => $bayar,
-			'tgl_transaksi' => $tgl,
+			$this->tabel10_field1 => $this->tabel10_v_input1_alt,
+			$this->tabel10_field2 => $this->session->userdata($this->tabel9_userdata1),
+			$this->tabel10_field3 => $email,
+			$this->tabel10_field4 => $this->tabel10_v_input4_post,
+			$this->tabel10_field5 => $this->tabel10_v_input5_post,
+			$this->tabel10_field6 => $bayar,
+			$this->tabel10_field7 => $tgl,
 		);
 
-		$this->session->set_tempdata('email_transaksi', $email, 300);
+		$this->session->set_tempdata($this->tabel10_tempdata3, $email, 300);
 
 		// Session kembalian_transaksi sebenarnya digunakan ketika menggunakan cash, namun fungsi ini akan tetap disimpan untuk pengembangan lebih lanjut
 		// $this->session->set_tempdata('kembalian_transaksi', $kembalian, 300);
@@ -259,44 +275,44 @@ class Transaksi extends Welcome
 		}
 
 		// fitur mengubah status ini seharusnya berada di bagian pesanan cman saya belum bisa menemukan algoritma yang pas jadi akan disimpan untuk pengembangan di kemudian hari
-		$where = $this->input->post('id_pesanan');
+		$where = $this->tabel10_v_input4_post;
 		$status = array(
-			'status' => $this->input->post('status'),
+			$this->tabel8_field12 => $this->tabel8_input12_post,
 		);
 
-		if ($this->input->post('status') == 'menunggu') {
+		if ($this->tabel8_input12_post === $this->tabel8_field12_value3) {
 
 			// hanya merubah status pesanan
 			$update = $this->psn->update($status, $where);
 
 			if ($update) {
-				$this->session->set_flashdata($this->v_flashdata1, 'Selamat! Anda sudah bisa mengunjungi HotelHebat!');
+				$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_7);
 				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 			} else {
-				$this->session->set_flashdata($this->v_flashdata1, 'Anda belum bisa mengunjungi HotelHebat!');
+				$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_8);
 				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 			}
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Transaksi tidak valid!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_9);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
-		redirect(site_url('transaksi/konfirmasi'));
+		redirect(site_url($this->tabel10_c9));
 	}
 
 
 	public function update()
 	{
 		$this->declare();
-		$where = $this->input->post('id_transaksi');
+		$where = $this->tabel10_v_input1_post;
 
 		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
 		$tgl = date("Y-m-d") . " " . date("h:m:s", time());
 
 		$data = array(
-			'metode' => $this->input->post('metode'),
-			'bayar' => $this->input->post('bayar'),
-			'tgl_transaksi' => $tgl,
+			$this->tabel10_field5 => $this->tabel10_v_input5_post,
+			$this->tabel10_field6 => $this->tabel10_v_input6_post,
+			$this->tabel10_field7 => $tgl,
 		);
 
 		$update = $this->trs->update($data, $where);
@@ -399,8 +415,8 @@ class Transaksi extends Welcome
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'tgl_transaksi_min' => $param1,
-			'tgl_transaksi_max' => $param2,
+			$this->tabel10_v_input7_filter1 => $param1,
+			$this->tabel10_v_input7_filter2 => $param2,
 		);
 
 		$this->load->view($this->v7, $data);
@@ -410,9 +426,9 @@ class Transaksi extends Welcome
 	public function konfirmasi($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$where = $this->session->tempdata('email_transaksi');
+		$where = $this->session->tempdata($this->tabel10_tempdata3);
 		$data = array(
-			$this->v_part1 => 'Transaksi Berhasil',
+			$this->v_part1 => $this->v1_title2,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -421,7 +437,7 @@ class Transaksi extends Welcome
 			$this->tabel10 => $this->trs->ambil_email($where)->last_row(),
 		);
 
-		$this->load->view('konfirmasi', $data);
+		$this->load->view($this->v1, $data);
 	}
 
 
@@ -431,7 +447,7 @@ class Transaksi extends Welcome
 	{
 		$this->declare();
 		$data1 = array(
-			$this->v_part1 => 'Bukti Transaksi',
+			$this->v_part1 => $this->v5_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
@@ -453,13 +469,13 @@ class Transaksi extends Welcome
 				$this->tabel2 => $this->htr->ambildata()->result(),
 			);
 			$data = array_merge($data1, $data2);
-			$this->load->view('receipt_history', $data);
+			$this->load->view($this->v12, $data);
 		} else {
 			$data2 = array(
 				$this->tabel8 => $this->psn->ambildata()->result(),
 			);
 			$data = array_merge($data1, $data2);
-			$this->load->view('receipt', $data);
+			$this->load->view($this->v5, $data);
 		}
 	}
 }

@@ -26,11 +26,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Welcome extends CI_Controller
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// Menggunakan variabel sebagai alat pembantu, persyaratan
 	// Semua yang ada di sini bakal diubah nantinya dari private menjadi antara private atau protected
 	// deklarasi variabel per tabel
@@ -137,6 +132,11 @@ class Welcome extends CI_Controller
 	public $tabel5_field3_alias = 'ID Pesanan';
 	public $tabel5_field4 = 'status';
 	public $tabel5_field4_alias = 'Status';
+	public $tabel5_field4_value1 = 'Available';
+	public $tabel5_field4_value2 = 'Unavailable';
+	public $tabel5_field4_value3 = 'Dirty';
+	public $tabel5_field4_value4 = 'Damaged';
+
 	public $tabel5_field5 = 'keterangan';
 	public $tabel5_field5_alias = 'Keterangan';
 
@@ -366,7 +366,7 @@ class Welcome extends CI_Controller
 	public $v2 = 'login';
 	public $v2_title = 'Login';
 	public $v3 = 'no-level';
-	public $v3_title = 'Anda tidak memiliki level';
+	public $v3_title = 'Anda tidak memiliki akses ke halaman ini';
 	public $v4 = 'print';
 	public $v4_title1 = 'Bukti Reservasi';
 	public $v4_title2 = 'Bukti Transaksi';
@@ -383,6 +383,15 @@ class Welcome extends CI_Controller
 	public $v10_title = 'Profil';
 	public $v11 = 'v_reservasi';
 	public $v11_title = 'Data Pemesanan';
+	public $v12 = 'receipt_history';
+	public $v13 = 'v_history';
+	public $v13_title = 'History Pemesanan';
+	public $v14 = 'v_admin-dashboard';
+	public $v14_title = 'Dashboard';
+	public $v15 = 'v_fasilitas';
+	public $v15_title = 'Daftar Fasilitas';
+	public $v16 = 'v_tipe_kamar';
+	public $v16_title = 'Daftar Tipe Kamar';
 
 	// Di bawah ini adalah deklarasi field tabel yang akan menggunakan alias dari masing2, dua atau lebih alias field tabel
 	// Dengan adanya variabel ini, perencanaan tampilan tabel bisa menjadi lebih fleksibel dan lebih terorganisir karena
@@ -578,10 +587,9 @@ class Welcome extends CI_Controller
 				$this->v_part3 => $this->v9,
 				$this->tabel7 => $this->ptn->ambil($id)->result(),
 				$this->tabel6 => $this->tpk->ambildata()->result(),
-				'cek_in' => $this->tabel8_v_input10_get,
-				'cek_out' => $this->tabel8_v_input11_get,
-				'jlh' => $this->tabel8_v_input8_get,
-				'halaman' => $this->v7
+				$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
+				$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
+				$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
 			);
 
 			$halaman = $this->v7;
@@ -605,9 +613,9 @@ class Welcome extends CI_Controller
 	{
 		$this->declare();
 		$data = array(
-			$this->v_part1 => 'Daftar Tipe Kamar',
-			$this->v_part3 => 'v_tipe_kamar',
+			$this->v_part1 => $this->v16_title,
 			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->v16,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result(),
@@ -621,9 +629,9 @@ class Welcome extends CI_Controller
 	{
 		$this->declare();
 		$data = array(
-			$this->v_part1 => 'Daftar Fasilitas',
-			$this->v_part3 => 'v_fasilitas',
+			$this->v_part1 => $this->v15_title,
 			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->v15,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel3 => $this->fsh->ambildata()->result()
@@ -636,9 +644,9 @@ class Welcome extends CI_Controller
 	{
 		$this->declare();
 		$data = array(
-			$this->v_part1 => 'Dashboard',
-			$this->v_part3 => 'v_admin-dashboard',
+			$this->v_part1 => $this->v14_title,
 			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->v14,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel3 => $this->fsh->ambildata()->num_rows(),
@@ -648,9 +656,9 @@ class Welcome extends CI_Controller
 			$this->tabel10 => $this->trs->ambildata()->num_rows(),
 			$this->tabel4 => $this->pts->ambildata()->num_rows(),
 			$this->tabel9 => $this->usr->ambildata()->num_rows(),
-			'cek_in' => $this->input->get('cek_in'),
-			'cek_out' => $this->input->get('cek_out'),
-			'jlh' => $this->input->get('jlh'),
+			$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
+			$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
+			$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
 		);
 
 		$this->load->view($this->v7, $data);
@@ -661,12 +669,12 @@ class Welcome extends CI_Controller
 	{
 		$this->declare();
 		$data = array(
-			$this->v_part1 => 'Anda tidak memiliki akses ke halaman ini',
+			$this->v_part1 => $this->v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 		);
 
-		$this->load->view('no-level', $data);
+		$this->load->view($this->v3, $data);
 	}
 }

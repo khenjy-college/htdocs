@@ -5,11 +5,6 @@ include 'Welcome.php';
 
 class Kamar extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel5_m = 'kmr';
@@ -111,10 +106,11 @@ class Kamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			'no_kamar' => '',
-			'id_tipe' => $this->input->post('id_tipe'),
-			'status' => $this->input->post('status'),
-			'keterangan' => $this->input->post('keterangan'),
+			$this->tabel5_field1 => $this->tabel5_v_input1_alt,
+			$this->tabel5_field2 => $this->tabel5_v_input2_post,
+			// $this->tabel5_field3 => NULL,
+			$this->tabel5_field4 => $this->tabel5_v_input4_post,
+			$this->tabel5_field5 => $this->tabel5_v_input5_post
 		);
 
 		$simpan = $this->kmr->simpan($data);
@@ -133,11 +129,11 @@ class Kamar extends Welcome
 	public function update()
 	{
 		$this->declare();
-		$where = $this->input->post('no_kamar');
+		$where = $this->tabel5_v_input1_post;
 		$data = array(
-			'id_tipe' => $this->input->post('id_tipe'),
-			'status' => $this->input->post('status'),
-			'keterangan' => $this->input->post('keterangan'),
+			$this->tabel5_field2 => $this->tabel5_v_input2_post,
+			$this->tabel5_field4 => $this->tabel5_v_input4_post,
+			$this->tabel5_field5 => $this->tabel5_v_input5_post,
 		);
 
 		$update = $this->kmr->update($data, $where);

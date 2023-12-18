@@ -3,7 +3,7 @@
   <li class="nav-item">
     <div class="dropdown">
       <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
-        <h4><?= $this->session->userdata('nama') ?></h4>
+        <h4><?= $this->session->userdata('nama') ?> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= site_url('pesanan/daftar') ?>">Daftar Reservasi</a>
@@ -24,7 +24,7 @@
   </li>
   <li class="nav-item">
     <div class="dropdown">
-      <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">Daftar Transaksi</a>
+      <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">Daftar Transaksi <i class="fas fa-caret-down"></i></a>
 
       <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= site_url('transaksi/daftar') ?>">Transaksi Aktif</a>

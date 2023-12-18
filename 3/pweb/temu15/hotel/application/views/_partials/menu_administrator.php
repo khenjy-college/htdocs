@@ -7,7 +7,7 @@
     https://stackoverflow.com/questions/38576503/how-to-remove-the-arrow-in-dropdown-in-bootstrap-4
     terimakasih pada link di atas -->
       <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
-        <h4>Administrator</h4>
+        <h4>Administrator <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>

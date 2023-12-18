@@ -6,11 +6,6 @@ include 'Welcome.php';
 
 class Petugas extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel4_m = 'pts';
@@ -126,7 +121,7 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		$config['upload_path'] = $this->tabel4_v_input5_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
@@ -139,15 +134,15 @@ class Petugas extends Welcome
 		}
 
 		$data = array(
-			'id_petugas' => $this->$tabel4_v_input1_alt,
-			'nama' => $this->input->post('nama'),
-			'email' => $this->input->post('email'),
-			'hp' => $this->input->post('hp'),
-			'img' => $gambar,
-			'role' => $this->input->post('role'),
+			$this->tabel4_field1 => $this->tabel4_v_input1_alt,
+			$this->tabel4_field2 => $this->tabel4_v_input2_post,
+			$this->tabel4_field3 => $this->tabel4_v_input3_post,
+			$this->tabel4_field4 => $this->tabel4_v_input4_post,
+			$this->tabel4_field5 => $gambar,
+			$this->tabel4_field6 => $this->tabel4_v_input6_post,
 
 			// poin awal-awal adalah 0, bukan NULL
-			'poin' => 0,
+			$this->tabel4_field7 => 0,
 		);
 
 		$simpan = $this->pts->simpan($data);
@@ -169,7 +164,7 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		$config['upload_path'] = $this->tabel4_v_input5_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		$config['overwrite'] = TRUE;
 		$config['remove_spaces'] = TRUE;
 
@@ -187,16 +182,16 @@ class Petugas extends Welcome
 			$gambar = $upload['file_name'];
 		}
 
-		$where = $this->input->post('id_petugas');
+		$where = $this->tabel4_v_input1_post
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'email' => $this->input->post('email'),
-			'hp' => $this->input->post('hp'),
-			'img' => $gambar,
-			'role' => $this->input->post('role'),
+			$this->tabel4_field2 => $this->tabel4_v_input2_post,
+			$this->tabel4_field3 => $this->tabel4_v_input3_post,
+			$this->tabel4_field4 => $this->tabel4_v_input4_post,
+			$this->tabel4_field5 => $gambar,
+			$this->tabel4_field6 => $this->tabel4_v_input6_post,
 
 			// poin di sini saya simpan dlu, karena mungkin ada beberapa yang mau saya tambahkan ke depannya
-			'poin' => $this->input->post('poin'),
+			$this->tabel4_field7 => $this->tabel4_v_input7_post,
 		);
 
 		$update = $this->pts->update($data, $where);

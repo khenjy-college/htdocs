@@ -28,8 +28,8 @@ class Faskamar extends Welcome
 	private $tabel1_v_input3_post;
 	private $tabel1_v_input4;
 	private $tabel1_v_input4_upload_path;
-	private $tabel1_v_input4_post;
 	private $tabel1_v_input4_upload;
+	private $tabel1_v_input4_post;
 	private $tabel1_v_input4_alt;
 	private $tabel1_v_flashdata1_msg_1;
 	private $tabel1_v_flashdata1_msg_2;
@@ -37,11 +37,6 @@ class Faskamar extends Welcome
 	private $tabel1_v_flashdata1_msg_4;
 	private $tabel1_v_flashdata1_msg_5;
 	private $tabel1_v_flashdata1_msg_6;
-
-	private $tabel1_v_flashdata3_msg_1;
-	private $tabel1_v_flashdata4_msg_1;
-	private $tabel1_v_flashdata5_msg_1;
-	private $v_flashdata_d_func1_alt;
 
 	public function
 
@@ -77,24 +72,19 @@ class Faskamar extends Welcome
 		$this->tabel1_v_input3_post = $this->input->post($this->tabel1_field3);
 		$this->tabel1_v_input4 = $this->tabel1_field4;
 		$this->tabel1_v_input4_upload_path = './assets/' . $this->tabel1_field4 . '/' . $this->tabel1 . '/';
-		$this->tabel1_v_input4_upload = $this->upload->do_upload($this->tabel1_v_input4);
-		// $this->tabel1_v_input4_upload = $this->upload->do_upload($this->tabel1_v_input4);
 		$this->tabel1_v_input4_post = $this->input->post($this->tabel1_v_input4);
 		$this->tabel1_v_input4_alt = $this->input->post('txt' . $this->tabel1_v_input4);
 
+		// THe code below is unusable
+		// $this->tabel1_v_input4_upload = $this->upload->do_upload($this->tabel1_v_input4);
+
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel1_v_flashdata1_msg_1 = 'Data ' . $this->tabel1_alias . ' berhasil disimpan!';
-		$this->tabel1_v_flashdata1_msg_2 = 'Data ' . $this->tabel1_alias . ' gagal disimpan!';
-		$this->tabel1_v_flashdata1_msg_3 = 'Data ' . $this->tabel1_alias . ' berhasil diubah!';
-		$this->tabel1_v_flashdata1_msg_4 = 'Data ' . $this->tabel1_alias . ' gagal diubah!';
-		$this->tabel1_v_flashdata1_msg_5 = 'Data ' . $this->tabel1_alias . ' berhasil dihapus!';
-		$this->tabel1_v_flashdata1_msg_6 = 'Data ' . $this->tabel1_alias . ' gagal dihapus!';
-
-		// deklarasi variabel menampilkan pesan modal
-		$this->tabel1_v_flashdata3_msg_1 =  $this->tabel1_field4_alias . ' ' . $this->tabel1_alias . ' tidak bisa diupload';
-		$this->tabel1_v_flashdata4_msg_1 = $this->tabel1_field4_alias . ' ' . $this->tabel1_alias . ' tidak bisa diupload';
-
-		$this->v_flashdata_d_func1_alt = 	'$("#ubah ' . $this->tabel1_v_input1_post . '").modal("show")';
+		$this->tabel1_v_flashdata1_msg_1 = 'Data ' . $this->tabel1 . ' berhasil disimpan!';
+		$this->tabel1_v_flashdata1_msg_2 = 'Data ' . $this->tabel1 . ' gagal disimpan!';
+		$this->tabel1_v_flashdata1_msg_3 = 'Data ' . $this->tabel1 . ' berhasil diubah!';
+		$this->tabel1_v_flashdata1_msg_4 = 'Data ' . $this->tabel1 . ' gagal diubah!';
+		$this->tabel1_v_flashdata1_msg_5 = 'Data ' . $this->tabel1 . ' berhasil dihapus!';
+		$this->tabel1_v_flashdata1_msg_6 = 'Data ' . $this->tabel1 . ' gagal dihapus!';
 	}
 
 
@@ -118,134 +108,81 @@ class Faskamar extends Welcome
 	public function tambah()
 	{
 		$this->declare();
-
 		$config['upload_path'] = $this->tabel1_v_input4_upload_path;
-		$config['allowed_types'] = 'gif|jpg|jpeg|png';
-		$config['max_size']      = 2048; // 2MB
+		$config['allowed_types'] = $this->file_type1;
 		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
 
-		if (!$this->tabel1_v_input4_upload) {
-
-			$this->session->set_flashdata($this->v_flashdata3, $this->tabel1_v_flashdata3_msg_1);
-			$this->session->set_flashdata($this->v_flashdata_c, $this->v_flashdata_c_func1);
-			redirect($_SERVER['HTTP_REFERER']);
+		if (!$this->upload->do_upload($this->tabel1_v_input4)) {
+			$gambar  = '';
 		} else {
 			$upload = $this->upload->data();
 			$gambar = $upload['file_name'];
-
-			$data = array(
-				$this->tabel1_field1 => '',
-				$this->tabel1_field2 => $this->tabel1_v_input2_post,
-				$this->tabel1_field3 => $this->tabel1_v_input3_post,
-				$this->tabel1_field4 => $gambar,
-			);
-
-			$simpan = $this->fsk->simpan($data);
-
-			if ($simpan) {
-				$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_1);
-				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
-			} else {
-				$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_2);
-				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
-			}
-
-			// redirect(site_url($this->tabel1_c1));
-			redirect($_SERVER['HTTP_REFERER']);
 		}
+
+		$data = array(
+			$this->tabel1_field1 => $this->tabel1_v_input1_alt,
+			$this->tabel1_field2 => $this->tabel1_v_input2_post,
+			$this->tabel1_field3 => $this->tabel1_v_input3_post,
+			$this->tabel1_field4 => $gambar,
+		);
+
+		$simpan = $this->fsk->simpan($data);
+
+		if ($simpan) {
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_1);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
+		} else {
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_2);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
+		}
+
+		// redirect(site_url($this->tabel1_c1));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
-
-	// public function update1()
-	// {
-	// 	$this->declare();
-	// 	$config['upload_path'] = $this->tabel1_v_input4_upload_path;
-	// 	$config['allowed_types'] = 'gif|jpg|jpeg|png';
-	// 	$config['max_size']      = 2048; // 2MB
-	// 	$config['overwrite'] = TRUE;
-	// 	$config['remove_spaces'] = TRUE;
-	// 	$config['encrypt_name']  = TRUE;
-
-	// 	$this->load->library('upload', $config);
-
-	// 	if ($this->tabel1_v_input4_post) {
-	// 		$upload = $this->upload->do_upload($this->tabel1_v_input4);
-	// 		if ($upload) {
-	// 			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
-	// 			$gambar = $this->upload->data('file_name');
-
-	// 			$table = $this->fsk->ambil($this->tabel1_v_input1_post)->result();
-	// 			$img = $table[0]->img;
-	// 			unlink($this->tabel1_v_input4_upload_path . $img);
-	// 		} else {
-	// 			$this->session->set_flashdata($this->v_flashdata4, 'Upload anda gagal');
-	// 			$this->session->set_flashdata($this->v_flashdata_d, $this->v_flashdata_d_func1_alt);
-	// 			redirect($_SERVER['HTTP_REFERER']);
-	// 		}
-	// 	} else {
-	// 		// $gambar = $this->tabel1_v_input4_alt;
-	// 		$this->session->set_flashdata($this->v_flashdata4, 'Anda tidak mengupload gambar apapun');
-	// 		$this->session->set_flashdata($this->v_flashdata_d, $this->v_flashdata_d_func1_alt);
-	// 		redirect($_SERVER['HTTP_REFERER']);
-	// 	}
-
-	// 	$where = $this->tabel1_v_input1_post;
-	// 	$data = array(
-	// 		$this->tabel1_field2 => $this->tabel1_v_input2_post,
-	// 		$this->tabel1_field3 => $this->tabel1_v_input3_post,
-	// 		$this->tabel1_field4 => $gambar,
-	// 	);
-
-	// 	$update = $this->fsk->update($data, $where);
-
-	// 	if ($update) {
-	// 		$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_3);
-	// 		$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
-	// 	} else {
-	// 		$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata4_msg_1);
-	// 		$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
-	// 	}
-
-	// 	// redirect(site_url($this->tabel1_c1));
-	// 	redirect($_SERVER['HTTP_REFERER']);
-	// }
 
 	public function update()
 	{
-		$config['upload_path'] = './assets/img/faskamar/';
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
-		$config['remove_spaces'] = true;
+		$this->declare();
+		$config['upload_path'] = $this->tabel1_v_input4_upload_path;
+		$config['allowed_types'] = $this->file_type1;
+		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['img']['name'];
 
-		if ($gambar) {
-			$this->upload->do_upload('img');
-			$upload_data = $this->upload->data();
-			$gambar = $upload_data['file_name'];
+		if (!$this->upload->do_upload($this->tabel1_v_input4)) {
+			$gambar = $this->tabel1_v_input4_alt;
 		} else {
-			$gambar = $this->input->post('txtimg');
+			$table = $this->fsk->ambil($this->tabel1_v_input1_post)->result();
+			$img = $table[0]->img;
+			unlink($this->tabel1_v_input4_upload_path . $img);
+
+			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
 		}
 
-		$where = $this->input->post('id_faskamar');
+		$where = $this->tabel1_v_input1_post;
 		$data = array(
-			'tipe' => $this->input->post('tipe'),
-			'nama' => $this->input->post('nama'),
-			'img' => $gambar,
+			$this->tabel1_field2 => $this->tabel1_v_input2_post,
+			$this->tabel1_field3 => $this->tabel1_v_input3_post,
+			$this->tabel1_field4 => $gambar,
 		);
 
 		$update = $this->fsk->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata('pesan', 'Fasilitas berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_3);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
 		} else {
-			$this->session->set_flashdata('pesan', 'Fasilitas gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
 		}
 
-		redirect(site_url('faskamar'));
+		// redirect(site_url($this->tabel1_c1));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function hapus($id_faskamar = null)
@@ -259,10 +196,10 @@ class Faskamar extends Welcome
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_5);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_6);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel1_c1));

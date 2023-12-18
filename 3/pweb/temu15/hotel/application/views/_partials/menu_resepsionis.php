@@ -3,7 +3,7 @@
   <li class="nav-item">
     <div class="dropdown">
       <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
-        <h4>Resepsionis</h4>
+        <h4>Resepsionis <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>

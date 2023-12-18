@@ -1,5 +1,3 @@
-
-
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 include 'Welcome.php';
@@ -11,21 +9,16 @@ include 'Welcome.php';
 // 	{
 // 		parent::Controller();
 // 		// tabel bagian input
-// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
-// 		$this->tabel1_v_input1_alt = '';
-// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
-// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
-// 		$this->tabel1_v_input1 = $this->input->this->tabel1_field;
+// 		$this->tabel3_v_input1 = $this->input->this->tabel3_field;
+// 		$this->tabel3_v_input1_alt = '';
+// 		$this->tabel3_v_input1 = $this->input->this->tabel3_field;
+// 		$this->tabel3_v_input1 = $this->input->this->tabel3_field;
+// 		$this->tabel3_v_input1 = $this->input->this->tabel3_field;
 // 	}
 // }
 
 class Fashotel extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel3_m = 'fsh';
@@ -95,9 +88,9 @@ class Fashotel extends Welcome
 
 		$this->tabel3_v_input4 = $this->tabel3_field4;
 		$this->tabel3_v_input4_upload_path = './assets/' . $this->tabel3_field4 . '/' . $this->tabel3 . '/';
-		$this->tabel3_v_input4_post = $this->input->post($this->tabel3_v_input4);
+		// $this->tabel3_v_input4_post = $this->input->post($this->tabel3_v_input4);
 		$this->tabel3_v_input4_alt = $this->input->post('txt' . $this->tabel3_v_input4);
-		$this->tabel3_v_input4_upload = $this->tabel3_v_input4;
+		// $this->tabel3_v_input4_upload = $this->upload->do_upload($this->tabel3_v_input4);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel3_v_flashdata1_msg_1 = 'Data ' . $this->tabel3_alias . ' berhasil disimpan!';
@@ -156,7 +149,7 @@ class Fashotel extends Welcome
 		}
 
 		$data = array(
-			$this->tabel3_field1 => '',
+			$this->tabel3_field1 => $this->tabel3_v_input1_alt,
 			$this->tabel3_field2 => $this->tabel3_v_input2_post,
 			$this->tabel3_field3 => $this->tabel3_v_input3_post,
 			$this->tabel3_field4 => $gambar,
@@ -179,7 +172,6 @@ class Fashotel extends Welcome
 	public function update()
 	{
 		$this->declare();
-		// konfigurasi upload
 		$config['upload_path'] = $this->tabel3_v_input4_upload_path;
 		$config['allowed_types'] = $this->file_type1;
 		$config['overwrite'] = TRUE;
@@ -187,7 +179,7 @@ class Fashotel extends Welcome
 
 		$this->load->library('upload', $config);
 
-		if (!$this->tabel3_v_input4_upload) {
+		if (!$this->upload->do_upload($this->tabel3_v_input4)) {
 			$gambar = $this->tabel3_v_input4_alt;
 		} else {
 			$table = $this->fsh->ambil($this->tabel3_v_input1_post)->result();
@@ -208,16 +200,16 @@ class Fashotel extends Welcome
 
 		$update = $this->fsh->update($data, $where);
 
-		// menampilkan toast jika operasi berhasil
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
+			$this->session->set_flashdata($this->v_flashdata2, $this->v_flashdata_a_func1);
 		}
 
-		redirect(site_url($this->tabel3_c1));
+		// redirect(site_url($this->tabel3_c1));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	// $id_fashotel akan menjadi $where di model

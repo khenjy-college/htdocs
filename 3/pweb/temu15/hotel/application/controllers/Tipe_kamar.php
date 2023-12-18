@@ -5,11 +5,6 @@ include 'Welcome.php';
 
 class Tipe_kamar extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel6_m = 'tpk';
@@ -45,6 +40,8 @@ class Tipe_kamar extends Welcome
 	private $tabel6_v_flashdata1_msg_4;
 	private $tabel6_v_flashdata1_msg_5;
 	private $tabel6_v_flashdata1_msg_6;
+	private $tabel6_v_flashdata3_msg_1;
+	private $tabel6_v_flashdata4_msg_1;
 	public function
 
 	declare()
@@ -92,8 +89,8 @@ class Tipe_kamar extends Welcome
 		$this->tabel6_v_flashdata1_msg_6 = 'Data ' . $this->tabel6_alias . ' gagal dihapus!';
 
 		// deklarasi variabel menampilkan pesan modal
-		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
-		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel6_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel6_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 	}
 
 
@@ -102,9 +99,9 @@ class Tipe_kamar extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			$this->v_part1 => 'Data Tipe Kamar',
+			$this->v_part1 => $this->tabel6_v2_title,
 			$this->v_part2 => $this->head,
-			$this->v_part3 => 'v_admin-tipe_kamar',
+			$this->v_part3 => $this->tabel6_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
@@ -117,7 +114,7 @@ class Tipe_kamar extends Welcome
 	{
 		$this->declare();
 		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
@@ -126,7 +123,7 @@ class Tipe_kamar extends Welcome
 			// Di sini seharusnya ada notifikasi modal kalau upload tidak berhasil
 			// Tapi karena formnya sudah required saya rasa tidak perlu
 
-			$this->session->set_flashdata($this->v_flashdata3, 'Gambar ' . $this->tabel1_field4 . ' tidak bisa diupload!');
+			$this->session->set_flashdata($this->v_flashdata3, $this->tabel6_v_flashdata3_msg_1);
 			$this->session->set_flashdata($this->v_flashdata_c, $this->v_flashdata_c_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		} else {
@@ -136,10 +133,10 @@ class Tipe_kamar extends Welcome
 		}
 
 		$data = array(
-			'id_tipe' => '',
-			'tipe' => $this->input->post('tipe'),
-			'harga' => $this->input->post('harga'),
-			'img' => $gambar,
+			$this->tabel6_field1 => $this->tabel6_v_input1_alt,
+			$this->tabel6_field2 => $this->tabel6_v_input2_post,
+			$this->tabel6_field3 => $gambar,
+			$this->tabel6_field5 => $this->tabel6_v_input5_post,
 		);
 
 		// $query = 'INSERT INTO tipe_kamar VALUES('.$data.')';
@@ -168,7 +165,7 @@ class Tipe_kamar extends Welcome
 
 		$this->declare();
 		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
+		$config['allowed_types'] = $this->file_type1;
 		// $config['file_name'] = $this->tabel6_v_input2_post . '.jpg';
 		$config['overwrite'] = TRUE;
 		$config['remove_spaces'] = TRUE;
@@ -190,11 +187,11 @@ class Tipe_kamar extends Welcome
 			$gambar = $upload['file_name'];
 		}
 
-		$where = $this->input->post('id_tipe');
+		$where = $this->tabel6_v_input1_post;
 		$data = array(
-			'tipe' => $this->input->post('tipe'),
-			'harga' => $this->input->post('harga'),
-			'img' => $gambar
+			$this->tabel6_field2 => $this->tabel6_v_input2_post,
+			$this->tabel6_field3 => $gambar,
+			$this->tabel6_field5 => $this->tabel6_v_input5_post,
 		);
 
 		$update = $this->tpk->update($data, $where);

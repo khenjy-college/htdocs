@@ -215,7 +215,7 @@ class History extends Welcome
 
 		$data = array(
 			$this->v_part1 => $this->tabel2_v1_title,
-			'head' => $this->head,
+			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),

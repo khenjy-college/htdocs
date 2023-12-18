@@ -12,11 +12,6 @@ include 'Welcome.php';
 session_write_close();
 class Pesanan extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel8_m = 'psn';
@@ -81,6 +76,11 @@ class Pesanan extends Welcome
 	private $tabel8_v_flashdata1_msg_4;
 	private $tabel8_v_flashdata1_msg_5;
 	private $tabel8_v_flashdata1_msg_6;
+	private $tabel8_v_flashdata1_msg_7;
+	private $tabel8_v_flashdata1_msg_8;
+	private $tabel8_v_flashdata3_msg_1;
+	private $tabel8_v_flashdata4_msg_1;
+
 	private $tabel8_userdata1;
 	private $tabel8_userdata2;
 	private $tabel8_userdata3;
@@ -139,7 +139,7 @@ class Pesanan extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel8_v_input1_post = intval($this->input->post($this->tabel8_field1));
+		$this->tabel8_v_input1_post = $this->input->post($this->tabel8_field1);
 		$this->tabel8_v_input1_get = $this->input->get($this->tabel8_field1);
 		$this->tabel8_v_input1_alt = '';
 		$this->tabel8_v_input2_post = $this->input->post($this->tabel8_field2);
@@ -173,15 +173,12 @@ class Pesanan extends Welcome
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel8_v_flashdata1_msg_1 = 'Data ' . $this->tabel8_alias . ' berhasil disimpan!';
 		$this->tabel8_v_flashdata1_msg_2 = 'Data ' . $this->tabel8_alias . ' gagal disimpan!';
-		$this->tabel8_v_flashdata1_msg_3 = 'Status ' . $this->tabel8_alias . ' berhasil diubah!';
-		$this->tabel8_v_flashdata1_msg_4 = 'Status ' . $this->tabel8_alias . ' gagal diubah!';
+		$this->tabel8_v_flashdata1_msg_3 = 'Data ' . $this->tabel8_alias . ' berhasil diubah!';
+		$this->tabel8_v_flashdata1_msg_4 = 'Data ' . $this->tabel8_alias . ' gagal diubah!';
 		$this->tabel8_v_flashdata1_msg_5 = 'Data ' . $this->tabel8_alias . ' berhasil dihapus!';
 		$this->tabel8_v_flashdata1_msg_6 = 'Data ' . $this->tabel8_alias . ' gagal dihapus!';
-
-		// deklarasi variabel menampilkan pesan modal
-		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
-		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
-
+		$this->tabel8_v_flashdata1_msg_7 = 'Status ' . $this->tabel8_alias . ' berhasil diubah!';
+		$this->tabel8_v_flashdata1_msg_8 = 'Status ' . $this->tabel8_alias . ' gagal diubah!';
 
 		// deklarasi menggunakan nilai tabel lain
 		// deklarasi session
@@ -226,10 +223,10 @@ class Pesanan extends Welcome
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'cek_in_min' => $param1,
-			'cek_in_max' => $param2,
-			'cek_out_min' => $param3,
-			'cek_out_max' => $param4
+			$this->tabel8_v_input10_filter1 => $param1,
+			$this->tabel8_v_input10_filter2 => $param2,
+			$this->tabel8_v_input11_filter1 => $param3,
+			$this->tabel8_v_input11_filter2 => $param4
 		);
 
 		$this->load->view($this->v7, $data);
@@ -389,7 +386,7 @@ class Pesanan extends Welcome
 		$data = array(
 			$this->v_part1 => $this->v11_title,
 			$this->v_part2 => $this->head,
-			$this->v_part3 => 'v_reservasi',
+			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->ambil_id_user($where)->result(),
@@ -465,15 +462,15 @@ class Pesanan extends Welcome
 
 		if ($update) {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan berhasil diubah!');
+			$this->session->set_flashdata('pesan', 'Status pesanan berhasil diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		} else {
 
-			$this->session->set_flashdata($this->v_flashdata1, 'Status pesanan gagal diubah!');
+			$this->session->set_flashdata('pesan', 'Status pesanan gagal diubah!');
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
-		redirect(site_url($this->tabel8));
+		redirect(site_url('pesanan'));
 	}
 
 	public function konfirmasi($tabel7_field1 = 1)
@@ -527,10 +524,10 @@ class Pesanan extends Welcome
 			$this->tabel8 => $this->psn->filter($param1, $param2, $param3, $param4)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $param1,
-			'cek_in_max' => $param2,
-			'cek_out_min' => $param3,
-			'cek_out_max' => $param4
+			$this->tabel8_v_input10_filter1 => $param1,
+			$this->tabel8_v_input10_filter2 => $param2,
+			$this->tabel8_v_input11_filter1 => $param3,
+			$this->tabel8_v_input11_filter2 => $param4
 		);
 
 		$this->load->view($this->v7, $data);
@@ -548,18 +545,18 @@ class Pesanan extends Welcome
 		$param4 = $this->tabel8_v_input11_filter2_get;
 
 		$data = array(
-			$this->v_part1 => $this->v11_title,
+			$this->v_part1 => $this->v13_title,
 			$this->v_part2 => $this->head,
-			$this->v_part3 => 'v_history',
+			$this->v_part3 => $this->v13,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel8 => $this->psn->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			'cek_in_min' => $param1,
-			'cek_in_max' => $param2,
-			'cek_out_min' => $param3,
-			'cek_out_max' => $param4
+			$this->tabel8_v_input10_filter1 => $param1,
+			$this->tabel8_v_input10_filter2 => $param2,
+			$this->tabel8_v_input11_filter1 => $param3,
+			$this->tabel8_v_input11_filter2 => $param4
 		);
 
 		$this->load->view($this->v7, $data);
@@ -575,7 +572,7 @@ class Pesanan extends Welcome
 		// hanya merubah status pesanan berdasarkan id pesanan
 		$where = $this->tabel8_v_input1_post;
 		$data = array(
-			$this->tabel8_field12 => 'belum bayar',
+			$this->tabel8_field12 => $this->tabel8_field12_value2,
 			$this->tabel8_field13 => $this->tabel8_v_input13_post
 
 		);
@@ -585,8 +582,8 @@ class Pesanan extends Welcome
 		// hanya merubah id pesanan di tabel kamar berdasarkan no kamar
 		$param = $this->tabel8_v_input13_post;
 		$no_kamar = array(
-			'id_pesanan' => $this->tabel8_v_input1_post,
-			'status' => 'Unavailable',
+			$this->tabel5_field3 => $this->tabel8_v_input1_post,
+			$this->tabel5_field4 => $this->tabel5_field4_value2,
 		);
 		$update_kamar = $this->kmr->update($no_kamar, $param);
 

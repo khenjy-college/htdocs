@@ -5,11 +5,6 @@ include 'Welcome.php';
 
 class Pengaturan extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel7_m = 'ptn';
@@ -63,6 +58,12 @@ class Pengaturan extends Welcome
 	private $tabel7_v_flashdata1_msg_4;
 	private $tabel7_v_flashdata1_msg_5;
 	private $tabel7_v_flashdata1_msg_6;
+	private $tabel7_v_flashdata1_msg_7;
+	private $tabel7_v_flashdata1_msg_8;
+	private $tabel7_v_flashdata1_msg_9;
+	private $tabel7_v_flashdata1_msg_10;
+	private $tabel7_v_flashdata1_msg_11;
+	private $tabel7_v_flashdata1_msg_12;
 
 	private $tabel7_v_flashdata11_msg_1;
 	private $tabel7_v_flashdata12_msg_1;
@@ -99,15 +100,15 @@ class Pengaturan extends Welcome
 		$this->tabel7_v_input3 = $this->tabel7_field3;
 		$this->tabel7_v_input3_upload_path = './assets/img/';
 		$this->tabel7_v_input3_post = $this->input->post($this->tabel7_v_input3);
-		$this->tabel7_v_input3_alt = 'txt' . $this->input->post($this->tabel7_v_input3);
-		$this->tabel7_v_input4 =$this->tabel7_field4;
+		$this->tabel7_v_input3_alt = $this->input->post('txt' . $this->tabel7_v_input3);
+		$this->tabel7_v_input4 = $this->tabel7_field4;
 		$this->tabel7_v_input4_upload_path = './assets/img/';
 		$this->tabel7_v_input4_post = $this->input->post($this->tabel7_v_input4);
-		$this->tabel7_v_input4_alt = 'txt' . $this->input->post($this->tabel7_v_input4);
+		$this->tabel7_v_input4_alt = $this->input->post('txt' . $this->tabel7_v_input4);
 		$this->tabel7_v_input5 = $this->tabel7_field5;
 		$this->tabel7_v_input5_upload_path =  './assets/img/';
 		$this->tabel7_v_input5_post = $this->input->post($this->tabel7_v_input5);
-		$this->tabel7_v_input5_alt = 'txt' . $this->input->post($this->tabel7_v_input5);
+		$this->tabel7_v_input5_alt = $this->input->post('txt' . $this->tabel7_v_input5);
 		$this->tabel7_v_input6_post = $this->input->post($this->tabel7_field6);
 		$this->tabel7_v_input7_post = $this->input->post($this->tabel7_field7);
 		$this->tabel7_v_input8_post = $this->input->post($this->tabel7_field8);
@@ -122,6 +123,13 @@ class Pengaturan extends Welcome
 		$this->tabel7_v_flashdata1_msg_4 = 'Data ' . $this->tabel7_alias . ' gagal diubah!';
 		$this->tabel7_v_flashdata1_msg_5 = 'Data ' . $this->tabel7_alias . ' berhasil dihapus!';
 		$this->tabel7_v_flashdata1_msg_6 = 'Data ' . $this->tabel7_alias . ' gagal dihapus!';
+
+		$this->tabel7_v_flashdata1_msg_7 = $this->tabel7_field3_alias . ' ' . $this->tabel7_field2_alias . ' berhasil diubah!';
+		$this->tabel7_v_flashdata1_msg_8 = $this->tabel7_field3_alias . ' ' . $this->tabel7_field2_alias . ' gagal diubah!';
+		$this->tabel7_v_flashdata1_msg_9 = $this->tabel7_field4_alias . ' ' . $this->tabel7_field2_alias . ' berhasil diubah!';
+		$this->tabel7_v_flashdata1_msg_10 = $this->tabel7_field4_alias . ' ' . $this->tabel7_field2_alias . ' gagal diubah!';
+		$this->tabel7_v_flashdata1_msg_11 = $this->tabel7_field5_alias . ' ' . $this->tabel7_field2_alias . ' berhasil diubah!';
+		$this->tabel7_v_flashdata1_msg_12 = $this->tabel7_field5_alias . ' ' . $this->tabel7_field2_alias . ' gagal diubah!';
 
 		// deklarasi variabel menampilkan pesan modal
 		$this->tabel7_v_flashdata11_msg_1 = $this->tabel7_field3_alias . ' ' . $this->tabel7_alias . ' tidak bisa diupload';
@@ -163,11 +171,11 @@ class Pengaturan extends Welcome
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata($this->v_flashdata1, 'Data website berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_3);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Data website gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 		redirect(site_url($this->tabel7));
@@ -179,33 +187,34 @@ class Pengaturan extends Welcome
 		$config['upload_path'] = $this->tabel7_v_input3_upload_path;
 
 		// nama file telah ditetapkan dan hanya berekstensi png dan dapat diganti dengan file bernama sama
-		$config['allowed_types'] = 'jpg|png|jpeg|gif|svg|webp';
-		$config['file_name'] = 'favicon';
+		$config['allowed_types'] = $this->file_type1;
+		$config['file_name'] = $this->tabel7_field3;
 		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['favicon']['name'];
+		$gambar = $_FILES[$this->tabel7_v_input3]['name'];
 
 		if ($gambar) {
-			$this->upload->do_upload('favicon');
+			$this->upload->do_upload($this->tabel7_v_input3);
 		} else {
-			$gambar = $this->input->post('txtfavicon');
+			$gambar = $this->tabel7_v_input3_alt;
 		}
 
-		$where = $this->input->post('id');
+		$where = $this->tabel7_v_input1_post;
 
 		// menggunakan nama khusus sama dengan konfigurasi
 		$data = array(
-			'favicon' => 'favicon.png',
+			$this->tabel7_field3 => $this->tabel7_field3.'.png',
 		);
 
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata($this->v_flashdata1, 'Favicon berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_7);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Favicon gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_8);
 			$this->session->set_flashdata($this->v_flashdata_k, $this->v_flashdata_k_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
@@ -219,33 +228,34 @@ class Pengaturan extends Welcome
 		$config['upload_path'] = $this->tabel7_v_input4_upload_path;
 
 		// nama file telah ditetapkan dan hanya berekstensi png dan dapat diganti dengan file bernama sama
-		$config['allowed_types'] = 'png';
-		$config['file_name'] = 'logo';
+		$config['allowed_types'] = $this->file_type1;
+		$config['file_name'] = $this->tabel7_field4;
 		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['logo']['name'];
+		$gambar = $_FILES[$this->tabel7_v_input4]['name'];
 
 		if ($gambar) {
-			$this->upload->do_upload('logo');
+			$this->upload->do_upload($this->tabel7_v_input4);
 		} else {
-			$gambar = $this->input->post('txtlogo');
+			$gambar = $this->tabel7_v_input4_alt;
 		}
 
-		$where = $this->input->post('id');
+		$where = $this->tabel7_v_input1_post;
 
 		// menggunakan nama khusus sama dengan konfigurasi
 		$data = array(
-			'logo' => 'logo.png',
+			$this->tabel7_field4 => $this->tabel7_field4 . '.png',
 		);
 
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata($this->v_flashdata1, 'Logo berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_9);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Logo gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_10);
 			$this->session->set_flashdata($this->v_flashdata_l, $this->v_flashdata_l_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
@@ -259,33 +269,34 @@ class Pengaturan extends Welcome
 		$config['upload_path'] = $this->tabel7_v_input5_upload_path;
 
 		// nama file telah ditetapkan dan hanya berekstensi jpg dan dapat diganti dengan file bernama sama
-		$config['allowed_types'] = 'jpg';
-		$config['file_name'] = 'foto';
+		$config['allowed_types'] = $this->file_type1;
+		$config['file_name'] = $this->tabel7_field5;
 		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
 
 		$this->load->library('upload', $config);
-		$gambar = $_FILES['foto']['name'];
+		$gambar = $_FILES[$this->tabel7_v_input5]['name'];
 
 		if ($gambar) {
-			$this->upload->do_upload('foto');
+			$this->upload->do_upload($this->tabel7_v_input5);
 		} else {
-			$gambar = $this->input->post('txtfoto');
+			$gambar = $this->tabel7_v_input5_alt;
 		}
 
-		$where = $this->input->post('id');
+		$where = $this->tabel7_v_input1_post;
 
 		// menggunakan nama khusus sama dengan konfigurasi
 		$data = array(
-			'foto' => 'foto.jpg',
+			$this->tabel7_field5 => $this->tabel7_field5 . '.jpg',
 		);
 
 		$update = $this->ptn->update($data, $where);
 
 		if ($update) {
-			$this->session->set_flashdata($this->v_flashdata1, 'Foto berhasil diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_11);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
-			$this->session->set_flashdata($this->v_flashdata1, 'Foto gagal diubah!');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_12);
 			$this->session->set_flashdata($this->v_flashdata_m, $this->v_flashdata_m_func1);
 			redirect($_SERVER['HTTP_REFERER']);
 		}

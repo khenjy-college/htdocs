@@ -4,11 +4,6 @@ include 'Welcome.php';
 
 class User extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel9_m = 'usr';
@@ -64,6 +59,9 @@ class User extends Welcome
 	private $tabel9_tempdata5;
 	private $tabel9_userdata6;
 	private $tabel9_tempdata6;
+
+	private $tabel9_v_flashdata3_msg_1;
+	private $tabel9_v_flashdata4_msg_1;
 
 
 	public function
@@ -123,8 +121,8 @@ class User extends Welcome
 		$this->tabel9_v_flashdata1_msg_6 = 'Data ' . $this->tabel9_alias . ' gagal dihapus!';
 
 		// deklarasi variabel menampilkan pesan modal
-		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
-		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel9_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel9_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->tabel9_field1;

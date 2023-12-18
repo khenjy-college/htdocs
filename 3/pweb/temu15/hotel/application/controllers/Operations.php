@@ -5,11 +5,6 @@ include 'Welcome.php';
 
 class Operations extends Welcome
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('upload');
-	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
 	private $tabel11_m = 'ops';
@@ -48,6 +43,8 @@ class Operations extends Welcome
 	private $tabel11_v_flashdata3_msg_1;
 	private $tabel11_v_flashdata4_msg_1;
 	private $tabel5_c1;
+
+	private $tabel5_v_input5_post;
 
 
 	public function
@@ -97,6 +94,7 @@ class Operations extends Welcome
 		$this->tabel11_v_flashdata4_msg_1 = '';
 
 		$this->tabel5_c1 = $this->tabel5;
+		$this->tabel5_v_input5_post = $this->input->post($this->tabel5_field4);
 	}
 
 
@@ -124,18 +122,18 @@ class Operations extends Welcome
 		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
 		$tgl = date("Y-m-d") . " " . date("h:m:s", time());
 
-		$where = $this->input->post('no_kamar');
+		$where = $this->tabel11_v_input2_post;
 		$data = array(
-			'id_operations' => '',
-			'no_kamar' => $where,
-			'id_user' => $this->input->post('id_user'),
-			'id_petugas' => $this->input->post('id_petugas'),
-			'keterangan' => $this->input->post('keterangan'),
-			'tgl_perubahan' => $tgl
+			$this->tabel11_field1 => $this->tabel11_v_input1_alt,
+			$this->tabel11_field2 => $where,
+			$this->tabel11_field3 => $this->tabel11_v_input3_post,
+			$this->tabel11_field4 => $this->tabel11_v_input4_post,
+			$this->tabel11_field5 => $this->tabel11_v_input5_post,
+			$this->tabel11_field6 => $tgl
 		);
 
 		$status = array(
-			'status' => $this->input->post('status')
+			$this->tabel5_field4 => $this->tabel5_v_input5_post,
 		);
 		$update_status = $this->kmr->update($status, $where);
 
