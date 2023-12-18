@@ -182,7 +182,7 @@ class Petugas extends Welcome
 			$gambar = $upload['file_name'];
 		}
 
-		$where = $this->tabel4_v_input1_post
+		$where = $this->tabel4_v_input1_post;
 		$data = array(
 			$this->tabel4_field2 => $this->tabel4_v_input2_post,
 			$this->tabel4_field3 => $this->tabel4_v_input3_post,

@@ -5,7 +5,7 @@
 
   <!-- menampilkan data pengaturan sebagai p -->
   <?php foreach ($pengaturan as $p) : ?>
-    <title><?= $title ?> - <?= $p->nama ?></title>
+    <title><?= $title ?> - <?= $p->nama ?> <?= $this->session->userdata('level') ?></title>
 
     <!-- menampilkan favicon -->
     <link rel="icon" href="img/<?= $p->favicon ?>" type="image/gif">
