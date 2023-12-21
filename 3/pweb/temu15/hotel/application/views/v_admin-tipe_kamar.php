@@ -13,11 +13,11 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Id Kamar</th>
-        <th>Tipe Kamar</th>
-        <th>Stok Kamar</th>
-        <th>Harga Kamar</th>
-        <th>Image</th>
+        <th><?= $tabel6_field1_alias ?></th>
+        <th><?= $tabel6_field2_alias ?></th>
+        <th><?= $tabel6_field5_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel6_field3_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -50,11 +50,11 @@
     </tbody>
     <tfoot>
       <tr>
-        <th>Id Kamar</th>
-        <th>Tipe Kamar</th>
-        <th>Stok Kamar</th>
-        <th>Harga Kamar</th>
-        <th>Image</th>
+        <th><?= $tabel6_field1_alias ?></th>
+        <th><?= $tabel6_field2_alias ?></th>
+        <th><?= $tabel6_field5_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel6_field3_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -68,7 +68,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah Kamar</h5>
+        <h5 class="modal-title">Tambah <?= $tabel6_alias ?></h5>
 
         <button class="close" data-dismiss="modal">
           <span>&times;</span>
@@ -77,24 +77,24 @@
       <form action="<?= site_url('tipe_kamar/tambah') ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
           <div class="form-group">
-            <label>Tipe Kamar</label>
+            <label><?= $tabel6_field2_alias ?></label>
             <input class="form-control" type="text" required name="tipe" placeholder="Masukkan tipe kamar">
           </div>
 
           <!-- Harga kamar masih menggunakan satuan per kamar, untuk per hari masih belum -->
           <div class="form-group">
-            <label>Harga Kamar (Per hari & Per jumlah)</label>
+            <label><?= $tabel6_field5_alias ?> (Per hari & Per jumlah)</label>
             <input class="form-control" type="number" required name="harga" min="0">
           </div>
 
           <div class="form-group">
-            <label>Tambah Gambar</label>
+            <label>Tambah <?= $tabel6_field3_alias ?></label>
             <input class="form-control-file" required type="file" name="img">
           </div>
         </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
@@ -110,7 +110,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Kamar <?= $tp->id_tipe; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel6_alias ?> <?= $tp->id_tipe; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -120,13 +120,13 @@
         <form action="<?= site_url('tipe_kamar/update') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="form-group">
-              <label>Tipe Kamar</label>
+              <label><?= $tabel6_field2_alias ?></label>
               <input class="form-control" type="text" required name="tipe" value="<?= $tp->tipe; ?>">
               <input type="hidden" name="id_tipe" value="<?= $tp->id_tipe; ?>">
             </div>
 
             <div class="form-group">
-              <label>Harga Kamar (Per hari & Per jumlah)</label>
+              <label><?= $tabel6_field5_alias ?> (Per hari & Per jumlah)</label>
               <input class="form-control" type="number" required name="harga" value="<?= $tp->harga; ?>">
             </div>
 
@@ -136,12 +136,12 @@
             <hr>
 
             <div class="form-group">
-              <label>Ubah Gambar</label>
+              <label>Ubah <?= $tabel6_field3_alias ?></label>
               <input class="form-control-file" type="file" name="img">
               <input type="hidden" name="txtimg" value="<?= $tp->img; ?>">
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
@@ -160,7 +160,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Kamar <?= $tp->id_tipe; ?></h5>
+          <h5 class="modal-title"><?= $tabel6_alias ?> <?= $tp->id_tipe; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -170,19 +170,19 @@
         <form>
           <div class="modal-body">
             <div class="form-group">
-              <label>Tipe Kamar : </label>
+              <label><?= $tabel6_field2_alias ?> : </label>
               <p><?= $tp->tipe; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Stok Kamar : </label>
+              <label><?= $tabel6_field4_alias ?> : </label>
               <p><?= $tp->stok; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Harga Kamar (Per hari & Per jumlah) : </label>
+              <label><?= $tabel6_field3_alias ?> (Per hari & Per jumlah) : </label>
               <p>Rp <?= number_format($tp->harga, '2', ',', '.') ?></p>
             </div>
             <hr>
@@ -193,9 +193,9 @@
             </div>
 
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
-          <p id="p_lihat class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+          <p id="p_lihat class=" small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

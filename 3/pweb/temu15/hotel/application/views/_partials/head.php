@@ -18,6 +18,9 @@
   <!-- css untuk datatables bertema bootstrap -->
   <link rel="stylesheet" href="datatables/datatables/css/dataTables.bootstrap4.min.css">
 
+  <!-- Add Intro.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/introjs.min.css">
+
   <!-- css pribadi -->
   <link rel="stylesheet" href="css/style.css">
 </head>

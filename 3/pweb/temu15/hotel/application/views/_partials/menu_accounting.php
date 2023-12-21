@@ -21,7 +21,7 @@
       <!-- tombol ini akan memunculkan dropdown tanpa menggunakan button
     https://stackoverflow.com/questions/38576503/how-to-remove-the-arrow-in-dropdown-in-bootstrap-4
     terimakasih pada link di atas -->
-      <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
+      <a type="button" class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
         <h4><i class="fas fa-user-tie"></i> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu dropdown-menu-right">

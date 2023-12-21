@@ -212,7 +212,7 @@ class Pesanan extends Welcome
 		$param3 = $this->tabel8_v_input11_filter1_get;
 		$param4 = $this->tabel8_v_input11_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel8_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel8_v2,
@@ -228,6 +228,9 @@ class Pesanan extends Welcome
 			$this->tabel8_v_input11_filter1 => $param3,
 			$this->tabel8_v_input11_filter2 => $param4
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -366,7 +369,7 @@ class Pesanan extends Welcome
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel8_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
@@ -374,6 +377,9 @@ class Pesanan extends Welcome
 			$this->tabel8 => $this->psn->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->tabel8_v3, $data);
 	}
@@ -383,7 +389,7 @@ class Pesanan extends Welcome
 	{
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v11_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
@@ -393,6 +399,9 @@ class Pesanan extends Welcome
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -413,7 +422,7 @@ class Pesanan extends Welcome
 		$param1 = $this->tabel8_v_input1_get;
 		$param4 = $this->tabel8_v_input4_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel8_v1_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
@@ -425,6 +434,9 @@ class Pesanan extends Welcome
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -477,7 +489,7 @@ class Pesanan extends Welcome
 	{
 		$this->declare();
 		$where = $this->session->tempdata($this->tabel9_tempdata3);
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v1_title1,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
@@ -487,6 +499,9 @@ class Pesanan extends Welcome
 			$this->tabel8 => $this->psn->ambil_email($where)->last_row(),
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v1, $data);
 	}
 
@@ -494,7 +509,7 @@ class Pesanan extends Welcome
 	public function print($id_pesanan = null, $tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v4_title1,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
@@ -502,6 +517,9 @@ class Pesanan extends Welcome
 			$this->tabel8 => $this->psn->ambil($id_pesanan)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v4, $data);
 	}
@@ -515,7 +533,7 @@ class Pesanan extends Welcome
 		$param3 = $this->tabel8_v_input11_filter1_get;
 		$param4 = $this->tabel8_v_input11_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel8_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel8_v2,
@@ -529,6 +547,9 @@ class Pesanan extends Welcome
 			$this->tabel8_v_input11_filter1 => $param3,
 			$this->tabel8_v_input11_filter2 => $param4
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -544,7 +565,7 @@ class Pesanan extends Welcome
 		$param3 = $this->tabel8_v_input11_filter1_get;
 		$param4 = $this->tabel8_v_input11_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v13_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v13,
@@ -558,6 +579,9 @@ class Pesanan extends Welcome
 			$this->tabel8_v_input11_filter1 => $param3,
 			$this->tabel8_v_input11_filter2 => $param4
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}

@@ -100,7 +100,7 @@
           </div>
 
           <div class="form-group">
-            <label>Tambah Gambar</label>
+            <label>Tambah <?= $tabel3_field4_alias ?></label>
             <input class="form-control-file" type="file" required name="img">
           </div>
         </div>

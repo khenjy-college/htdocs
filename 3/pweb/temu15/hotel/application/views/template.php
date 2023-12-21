@@ -91,6 +91,7 @@
       </div>
 
       <div class="konten" style="margin-top: 100px;">
+
         <!-- konten sesuai controller -->
         <?php $this->load->view($konten) ?>
       </div>
@@ -114,7 +115,7 @@
               <h3>Jelajahi</h3>
               <ul class="list-unstyled">
                 <li>
-                  <a class="text-decoration-none text-dark" href="<?= site_url('welcome/tipe_kamar') ?>">Kamar</a><br>
+                  <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/tipe_kamar') ?>">Kamar</a><br>
                 </li>
                 <li>
                   <a class="text-decoration-none text-dark" href="<?= site_url('welcome/fasilitas') ?>">Fasilitas</a>
@@ -171,6 +172,9 @@
     <script src="datatables/datatables/js/jquery.dataTables.min.js"></script>
     <script src="datatables/datatables/js/dataTables.bootstrap4.min.js"></script>
 
+    <!-- Add Intro.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/intro.min.js"></script>
+
     <!-- fungsi datatables (wajib ada) -->
     <script type="text/javascript">
       $(document).ready(function() {
@@ -183,7 +187,7 @@
         // yg ini yang menggunakan toast
         <?= $this->session->flashdata('panggil') ?>
         // ini sebenarnya utk ubah password cman aku malas buat ubah namanya
-        <?= $this->session->flashdata('modal') ?> 
+        <?= $this->session->flashdata('modal') ?>
         // yg di bawah ini adalah semua yg berhubungan dgn modal
         <?= $this->session->flashdata('tambah') ?>
         <?= $this->session->flashdata('ubah') ?>
@@ -193,11 +197,80 @@
         <?= $this->session->flashdata('clean') ?>
         <?= $this->session->flashdata('book') ?>
         <?= $this->session->flashdata('bayar') ?>
+        <?= $this->session->flashdata('cari') ?>
+        //  $this->session->flashdata('quickTour') ?>
       });
 
       var table = $('#daterange_table').DataTable({
 
       })
+    </script>
+
+
+    <!-- Berikut ini adalah list projek2 mendatang yang ingin kubuat jika sudah mempunyai tim frontend
+    Bagiku cukup sulit dalam menentukan pilihan terbaik dalam membuat quick tour
+    1. Membuat guided tour yang bisa pergi ke halaman lain -->
+
+
+    <!-- Fitur di bawah ini adalah fitur oboarding yang berfungsi mengarahkan tamu untuk mengetahui fitur-fitur yang berhubungan dengan pesanan -->
+
+    <!-- Intro user publik -->
+    <script>
+      // Initialize Intro.js
+      // Wait for the DOM to be ready
+      $(document).ready(function() {
+        // Bind a click event to the button
+        $("#startTour").on("click", function() {
+          var intro = introJs();
+          intro.setOptions({
+            steps: [{
+                element: document.getElementById('tour1'),
+                intro: 'Ini adalah logo aplikasimu!',
+                position: 'bottom'
+              },
+              {
+                element: document.getElementById('tour2'),
+                intro: 'Ini adalah navigasi.',
+                position: 'bottom'
+              }
+            ]
+          });
+          intro.start();
+        });
+      });
+    </script>
+
+    Intro user tamu
+    <script>
+      // Initialize Intro.js
+      // Wait for the DOM to be ready
+
+      // Bind a click event to the button
+      $("#introTamu").on("click", function() {
+        var intro = introJs();
+        intro.setOptions({
+          steps: [
+            // I want to have this one but I think it doesn't really recessary anymore since it doesn't even work yet
+            // {
+            //   title: 'Quick Tour',
+            //   intro: 'Ayo ikuti tour ini'
+            // }, 
+            {
+              element: document.getElementById('tour1'),
+              intro: 'Anda sekarang sudah bisa mencari serta mengelola pesanan Anda!',
+              position: 'bottom'
+            },
+            {
+              element: document.getElementById('tour2'),
+              intro: 'Anda bisa memesan kamar di sini.',
+              position: 'top'
+            }
+
+          ],
+          // dontShowAgain: true,
+        })
+        intro.start();
+      });
     </script>
 
   <?php endforeach; ?>

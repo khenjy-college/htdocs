@@ -10,14 +10,14 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Data Hotel</h6>
-        <a class="dropdown-item" href="<?= site_url('tipe_kamar') ?>">Tipe Kamar</a>
-        <a class="dropdown-item" href="<?= site_url('faskamar') ?>">Fasilitas Kamar</a>
-        <a class="dropdown-item" href="<?= site_url('fashotel') ?>">Fasilitas Hotel</a>
+        <a class="dropdown-item" href="<?= site_url('tipe_kamar') ?>"><?= $tabel6_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('faskamar') ?>"><?= $tabel1_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('fashotel') ?>"><?= $tabel3_alias ?></a>
 
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Operasional Hotel</h6>
-        <a class="dropdown-item" href="<?= site_url('petugas') ?>">Petugas</a>
-        <a class="dropdown-item" href="<?= site_url('user') ?>">User</a>
+        <a class="dropdown-item" href="<?= site_url('petugas') ?>"><?= $tabel3_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('user') ?>"><?= $tabel9_alias ?></a>
       </div>
     </div>
   </li>
@@ -27,7 +27,7 @@
       <!-- tombol ini akan memunculkan dropdown tanpa menggunakan button
     https://stackoverflow.com/questions/38576503/how-to-remove-the-arrow-in-dropdown-in-bootstrap-4
     terimakasih pada link di atas -->
-      <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
+      <a type="button" class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
         <h4><i class="fas fa-user-tie"></i> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu dropdown-menu-right">

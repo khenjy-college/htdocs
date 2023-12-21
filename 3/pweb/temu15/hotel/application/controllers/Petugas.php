@@ -105,7 +105,7 @@ class Petugas extends Welcome
 	public function index($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel4_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel4_v2,
@@ -113,6 +113,9 @@ class Petugas extends Welcome
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -237,13 +240,16 @@ class Petugas extends Welcome
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel4_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->tabel4_v3, $data);
 	}

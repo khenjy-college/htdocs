@@ -142,7 +142,7 @@ class User extends Welcome
 	public function index($id = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel9_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel9_v2,
@@ -150,6 +150,9 @@ class User extends Welcome
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel9 => $this->usr->ambildata()->result()
 		);
+		
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -259,13 +262,16 @@ class User extends Welcome
 	{
 		$this->declare();
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel9_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 			$this->tabel9 => $this->usr->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->tabel9_v3, $data);
 	}
@@ -435,12 +441,16 @@ class User extends Welcome
 				$email = $tabel9[0]->email;
 				$hp = $tabel9[0]->hp;
 				$level = $tabel9[0]->level;
+				$login_count = $tabel9[0]->login_count;
+
+				$updateCount = $this->usr->updateCount($id_user); 
 
 				$this->session->set_userdata($this->tabel9_userdata1, $id_user);
 				$this->session->set_userdata($this->tabel9_userdata2, $nama);
 				$this->session->set_userdata($this->tabel9_userdata3, $email);
 				$this->session->set_userdata($this->tabel9_userdata5, $hp);
 				$this->session->set_userdata($this->tabel9_userdata6, $level);
+				$this->session->set_userdata($this->tabel9_userdata7, $login_count);
 
 				redirect(site_url($this->c1));
 

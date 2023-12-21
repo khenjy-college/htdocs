@@ -6,7 +6,7 @@
 <?php if ($this->session->userdata('level') == 'tamu') { ?>
   <!-- method get supaya nilai dari form bisa tampil nanti (tidak langsung masuk ke database) -->
   <form action="<?= site_url('welcome/pemesanan') ?>" method="get">
-    <div class="row justify-content-center align-items-end mt-2">
+    <div id="tour2" class="row justify-content-center align-items-end mt-2">
       <div class="col-md-2">
         <div class="form-group">
           <label>Tanggal Cek In</label>

@@ -2,7 +2,6 @@
 https://stackoverflow.com/questions/30531359/nested-foreach-in-codeigniter-view
 https://stackoverflow.com/questions/22354514/message-trying-to-get-property-of-non-object-in-codeigniter
 terima kasih pada link di atas -->
-
 <?php foreach ($tipe_kamar as $tp) : ?>
   <img src="img/tipe_kamar/<?= $tp->img ?>" class="img-fluid rounded">
   <h2 class="pt-2">Tipe <?= $tp->tipe; ?> (Rp <?= number_format($tp->harga, '2', ',', '.') ?> per hari)</h2>

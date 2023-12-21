@@ -88,7 +88,7 @@ class Kamar extends Welcome
 	{
 		$this->declare();
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel5_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel5_v2,
@@ -98,6 +98,9 @@ class Kamar extends Welcome
 			$this->tabel6 => $this->tpk->ambildata()->result(),
 			$this->tabel4 => $this->pts->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -168,13 +171,16 @@ class Kamar extends Welcome
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel5_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel5 => $this->kmr->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->tabel5_v3, $data);
 	}

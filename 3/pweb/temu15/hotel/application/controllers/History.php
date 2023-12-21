@@ -213,7 +213,7 @@ class History extends Welcome
 		$param3 = $this->tabel2_v_input12_filter1_get;
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel2_v1_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v1,
@@ -229,6 +229,9 @@ class History extends Welcome
 			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
@@ -241,7 +244,7 @@ class History extends Welcome
 		$param3 = $this->tabel2_v_input12_filter1_get;
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel2_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v2,
@@ -257,6 +260,9 @@ class History extends Welcome
 			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
@@ -271,7 +277,7 @@ class History extends Welcome
 		$param3 = $this->tabel2_v_input12_filter1_get;
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v11_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v1,
@@ -287,6 +293,9 @@ class History extends Welcome
 			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
@@ -300,7 +309,7 @@ class History extends Welcome
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel2_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
@@ -308,6 +317,9 @@ class History extends Welcome
 			$this->tabel2 => $this->htr->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->tabel2_v3, $data);
 	}

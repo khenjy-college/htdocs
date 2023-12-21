@@ -186,12 +186,13 @@ class Transaksi extends Welcome
 
 	public function index($tabel7_field1 = 1)
 	{
+		$this->declarew();
 		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
 		// $param1 = $this->tabel10_v_input7_filter1_get;
 		// $param2 = $this->tabel10_v_input7_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel10_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2,
@@ -205,18 +206,26 @@ class Transaksi extends Welcome
 			// 'tgl_transaksi_max' => $param2,
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
+
+		$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
+		$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
+
 		$this->load->view($this->v7, $data);
 	}
 
 	// Fungsi di bawah ini sebaiknya menggunakan fungsi join untuk menampilkan data yang sesuai kebutuhan yang telah ditentukan
 	public function history($tabel7_field1 = 1)
 	{
+		$this->declarew();
 		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
 		// $param1 = $this->tabel10_v_input7_filter1_get;
 		// $param2 = $this->tabel10_v_input7_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel10_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2_alt,
@@ -230,12 +239,16 @@ class Transaksi extends Welcome
 			// 'tgl_transaksi_max' => $param2,
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
 
 	public function tambah()
 	{
+		$this->declarew();
 		$this->declare();
 		$email = $this->tabel10_v_input3_post;
 		$bayar = $this->tabel10_v_input6_post;
@@ -348,7 +361,7 @@ class Transaksi extends Welcome
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel10_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
@@ -358,6 +371,9 @@ class Transaksi extends Welcome
 			$this->tabel8 => $this->psn->ambildata()->result()
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->tabel10_v3, $data);
 	}
 
@@ -365,7 +381,7 @@ class Transaksi extends Welcome
 	{
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel10_v1_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v1,
@@ -375,6 +391,9 @@ class Transaksi extends Welcome
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
@@ -382,7 +401,7 @@ class Transaksi extends Welcome
 	{
 		$this->declare();
 		$where = $this->session->userdata($this->tabel9_userdata1);
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel10_v1_alt_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v1_alt,
@@ -391,6 +410,9 @@ class Transaksi extends Welcome
 			$this->tabel10 => $this->trs->join_history_tamu($where)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -403,7 +425,7 @@ class Transaksi extends Welcome
 		$param1 = $this->tabel10_v_input7_filter1_get;
 		$param2 = $this->tabel10_v_input7_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel10_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2,
@@ -419,6 +441,9 @@ class Transaksi extends Welcome
 			$this->tabel10_v_input7_filter2 => $param2,
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
@@ -427,7 +452,7 @@ class Transaksi extends Welcome
 	{
 		$this->declare();
 		$where = $this->session->tempdata($this->tabel10_tempdata3);
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v1_title2,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
@@ -436,6 +461,9 @@ class Transaksi extends Welcome
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
 			$this->tabel10 => $this->trs->ambil_email($where)->last_row(),
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v1, $data);
 	}
@@ -464,17 +492,19 @@ class Transaksi extends Welcome
 
 		$method = $this->htr->ambil_id_pesanan($param2);
 
+		$this->declarew();
+
 		if ($method->num_rows() > 0) {
 			$data2 = array(
 				$this->tabel2 => $this->htr->ambildata()->result(),
 			);
-			$data = array_merge($data1, $data2);
+			$data = array_merge($data1, $data2, $this->aliases);
 			$this->load->view($this->v12, $data);
 		} else {
 			$data2 = array(
 				$this->tabel8 => $this->psn->ambildata()->result(),
 			);
-			$data = array_merge($data1, $data2);
+			$data = array_merge($data1, $data2, $this->aliases);
 			$this->load->view($this->v5, $data);
 		}
 	}

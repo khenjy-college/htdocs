@@ -92,7 +92,7 @@ class Faskamar extends Welcome
 	public function index($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel1_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel1_v2,
@@ -101,6 +101,9 @@ class Faskamar extends Welcome
 			$this->tabel1 => $this->fsk->ambildata()->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -170,7 +173,7 @@ class Faskamar extends Welcome
 			$this->tabel1_field3 => $this->tabel1_v_input3_post,
 			$this->tabel1_field4 => $gambar,
 		);
-
+	
 		$update = $this->fsk->update($data, $where);
 
 		if ($update) {
@@ -208,13 +211,16 @@ class Faskamar extends Welcome
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel1_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel1 => $this->fsk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->tabel1_v3, $data);
 	}

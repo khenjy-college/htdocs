@@ -143,13 +143,16 @@ class Pengaturan extends Welcome
 	public function index($id = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel7_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel7_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}

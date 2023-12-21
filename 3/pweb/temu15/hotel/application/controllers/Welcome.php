@@ -37,17 +37,17 @@ class Welcome extends CI_Controller
 	// Dan ingin mengubah konten di dalamnya dalam waktu yang singkat
 
 	public $tabel1 = 'faskamar';
-	public $tabel1_alias = 'Fasilitas Kamar';
 	// deklarasi variabel bagian field
 	public $tabel1_field1 = 'id_faskamar';
-	public $tabel1_field1_alias = 'ID Fasilitas';
 	public $tabel1_field2 = 'tipe';
-	public $tabel1_field2_alias = 'Tipe Kamar';
 	public $tabel1_field3 = 'nama';
-	public $tabel1_field3_alias = 'Nama Fasilitas';
 	public $tabel1_field4 = 'img';
-	public $tabel1_field4_alias = 'Gambar';
 
+	public $tabel1_alias = 'Fasilitas Kamar';
+	public $tabel1_field1_alias = 'ID Fasilitas';
+	public $tabel1_field2_alias = 'Tipe Kamar';
+	public $tabel1_field3_alias = 'Nama Fasilitas';
+	public $tabel1_field4_alias = 'Gambar';
 
 
 	// deklarasi tabel 2
@@ -75,9 +75,9 @@ class Welcome extends CI_Controller
 	public $tabel2_field10 = 'harga_total';
 	public $tabel2_field10_alias = 'Harga Total';
 	public $tabel2_field11 = 'cek_in';
-	public $tabel2_field11_alias = 'Cek Out';
+	public $tabel2_field11_alias = 'Cek In';
 	public $tabel2_field12 = 'cek_out';
-	public $tabel2_field12_alias = 'Cek In';
+	public $tabel2_field12_alias = 'Cek Out';
 	public $tabel2_field13 = 'no_kamar';
 	public $tabel2_field13_alias = 'No Kamar';
 	public $tabel2_field14 = 'tgl_perubahan';
@@ -198,7 +198,7 @@ class Welcome extends CI_Controller
 	public $tabel8_field4 = 'email';
 	public $tabel8_field4_alias = 'Email';
 	public $tabel8_field5 = 'hp';
-	public $tabel8_field5_alias = 'Hape';
+	public $tabel8_field5_alias = 'No Hp';
 	public $tabel8_field6 = 'tamu';
 	public $tabel8_field6_alias = 'Tamu';
 	public $tabel8_field7 = 'id_tipe';
@@ -243,6 +243,8 @@ class Welcome extends CI_Controller
 	public $tabel9_field6_value3 = 'administrator';
 	public $tabel9_field6_value4 = 'resepsionis';
 	public $tabel9_field6_value5 = 'tamu';
+	public $tabel9_field7 = 'login_count';
+	public $tabel9_field7_alias = 'Jumlah Login';
 
 
 	// deklarasi tabel 10
@@ -335,6 +337,8 @@ class Welcome extends CI_Controller
 	private $tabel9_tempdata5;
 	private $tabel9_userdata6;
 	private $tabel9_tempdata6;
+	private $tabel9_userdata7;
+	private $tabel9_tempdata7;
 
 	// Aku ada rencana untuk menggunakan Toastr untuk menampilkan notifikasi toast
 	// Ini adalah link : https://codeseven.github.io/toastr/demo.html
@@ -428,7 +432,7 @@ class Welcome extends CI_Controller
 
 	// Flashdata yang berhubungan dengan pesan
 	public $v_flashdata1 = 'pesan';
-	public $v_flashdata1_msg1 = '';
+	public $v_flashdata1_msg1;
 	public $v9_flashdata1_msg2;
 	public $v_flashdata2 = 'notifikasi';
 	public $v_flashdata2_msg1;
@@ -466,6 +470,8 @@ class Welcome extends CI_Controller
 	public $v_flashdata13 = 'pesan_foto';
 	public $v_flashdata13_msg1;
 	public $v_flashdata13_msg2;
+	public $v_flashdata14 = 'pesan_quickTour';
+	public $v_flashdata14_msg1 = "Anda hanya akan mendapatkan quick tour ini sebanyak 2 kali";
 
 	// Flashdata di bawah ini bertugas untuk memberitahu pengguna mengenai hal yang berhubungan dengan data pribadi
 	// Elemen yang digunakan adalah modal yang digunakan oleh pengguna
@@ -499,12 +505,122 @@ class Welcome extends CI_Controller
 	public $v_flashdata_l_func1 = '$(".logo").modal("show")';
 	public $v_flashdata_m = 'foto';
 	public $v_flashdata_m_func1 = '$(".foto").modal("show")';
+	public $v_flashdata_n = 'quickTour';
+	public $v_flashdata_n_func1 = '$("#quickTour").modal("show")';
+	public $aliases;
 
 
 	public function
 
-	declare()
+	declarew()
 	{
+		$this->aliases = array(
+			'tabel1_alias' => 'Fasilitas Kamar',
+			'tabel1_field1_alias' => 'ID Fasilitas',
+			'tabel1_field2_alias' => 'Tipe Kamar',
+			'tabel1_field3_alias' => 'Nama Fasilitas',
+			'tabel1_field4_alias' => 'Gambar',
+
+			'tabel2_alias' => 'History Pemesanan',
+			'tabel2_field1_alias' => 'ID History',
+			'tabel2_field2_alias' => 'ID Pesangan',
+			'tabel2_field3_alias' => 'ID User',
+			'tabel2_field4_alias' => 'Nama Pemesan',
+			'tabel2_field5_alias' => 'Email',
+			'tabel2_field6_alias' => 'No HP',
+			'tabel2_field7_alias' => 'Tamu',
+			'tabel2_field8_alias' => 'Tipe',
+			'tabel2_field9_alias' => 'Jumlah',
+			'tabel2_field10_alias' => 'Harga Total',
+			'tabel2_field11_alias' => 'Cek In',
+			'tabel2_field12_alias' => 'Cek Out',
+			'tabel2_field13_alias' => 'No Kamar',
+			'tabel2_field14_alias' => 'Tgl Perubahan',
+			'tabel2_field15_alias' => 'User Aktif',
+
+			'tabel3_alias' => 'Fasilitas Hotel',
+			'tabel3_field1_alias' => 'ID Fasilitas',
+			'tabel3_field2_alias' => 'Nama',
+			'tabel3_field3_alias' => 'Keterangan',
+			'tabel3_field4_alias' => 'Gambar',
+
+			'tabel4_alias' => 'Petugas',
+			'tabel4_field1_alias' => 'ID Petugas',
+			'tabel4_field2_alias' => 'Nama',
+			'tabel4_field3_alias' => 'Email',
+			'tabel4_field4_alias' => 'No HP',
+			'tabel4_field5_alias' => 'Gambar',
+			'tabel4_field6_alias' => 'Role Petugas',
+			'tabel4_field7_alias' => 'Poin',
+
+			'tabel5_alias' => 'Kamar',
+			'tabel5_field1_alias' => 'No Kamar',
+			'tabel5_field2_alias' => 'ID Tipe',
+			'tabel5_field3_alias' => 'ID Pesanan',
+			'tabel5_field4_alias' => 'Status',
+			'tabel5_field5_alias' => 'Keterangan',
+
+			'tabel6_alias' => 'Tipe Kamarku',
+			'tabel6_field1_alias' => 'ID Tipe Kamar',
+			'tabel6_field2_alias' => 'Tipe Kamar',
+			'tabel6_field3_alias' => 'Gambar',
+			'tabel6_field4_alias' => 'Stok',
+			'tabel6_field5_alias' => 'Harga',
+
+			'tabel7_alias' => 'Pengaturan Website',
+			'tabel7_field1_alias' => 'ID Website',
+			'tabel7_field2_alias' => 'Nama Website',
+			'tabel7_field3_alias' => 'Favicon',
+			'tabel7_field4_alias' => 'Logo',
+			'tabel7_field5_alias' => 'Foto',
+			'tabel7_field6_alias' => 'Alamat',
+			'tabel7_field7_alias' => 'Email',
+			'tabel7_field8_alias' => 'No HP',
+			'tabel7_field9_alias' => 'Metadesc',
+			'tabel7_field10_alias' => 'Akun Facebook',
+			'tabel7_field11_alias' => 'Akun Instagram',
+
+			'tabel8_alias' => 'Pesanan',
+			'tabel8_field1_alias' => 'ID Pesanan',
+			'tabel8_field2_alias' => 'ID User',
+			'tabel8_field3_alias' => 'Nama Pemesan',
+			'tabel8_field4_alias' => 'Email',
+			'tabel8_field5_alias' => 'No Hp',
+			'tabel8_field6_alias' => 'Tamu',
+			'tabel8_field7_alias' => 'ID Tipe Kamar',
+			'tabel8_field8_alias' => 'Jumlah',
+			'tabel8_field9_alias' => 'Harga Total',
+			'tabel8_field10_alias' => 'Cek In',
+			'tabel8_field11_alias' => 'Cek Out',
+			'tabel8_field12_alias' => 'Status',
+			'tabel8_field13_alias' => 'No Kamar',
+
+			'tabel9_alias' => 'User',
+			'tabel9_field1_alias' => 'ID User',
+			'tabel9_field2_alias' => 'Nama',
+			'tabel9_field3_alias' => 'Email',
+			'tabel9_field4_alias' => 'Password',
+			'tabel9_field5_alias' => 'No Hp',
+			'tabel9_field6_alias' => 'Level User',
+			'tabel9_field7_alias' => 'Jumlah Login',
+
+			'tabel10_alias' => 'Transaksi',
+			'tabel10_field1_alias' => 'ID Transaksi',
+			'tabel10_field2_alias' => 'ID Resepsionis',
+			'tabel10_field3_alias' => 'Email',
+			'tabel10_field4_alias' => 'ID Pesanan',
+			'tabel10_field5_alias' => 'Metode',
+			'tabel10_field6_alias' => 'Jumlah Bayar',
+			'tabel10_field7_alias' => 'Tgl Transaksi',
+
+			'tabel11_alias' => 'Operasional Hotel',
+			'tabel11_field1_alias' => 'ID Operasional',
+			'tabel11_field2_alias' => 'No Kamar',
+			'tabel11_field3_alias' => 'ID User',
+			'tabel11_field4_alias' => 'ID Petugas',
+			'tabel11_field5_alias' => 'Keterangan',
+			'tabel11_field6_alias' => 'Tgl Perubahan',
+		);
 
 		// deklarasi input pada halaman publik
 		$this->tabel8_v_input8 = $this->tabel8_field8;
@@ -538,6 +654,8 @@ class Welcome extends CI_Controller
 		$this->tabel9_tempdata5 = $this->tabel9_field5;
 		$this->tabel9_userdata6 = $this->tabel9_field6;
 		$this->tabel9_tempdata6 = $this->tabel9_field6;
+		$this->tabel9_userdata7 = $this->tabel9_field7;
+		$this->tabel9_tempdata7 = $this->tabel9_field7;
 
 		$this->v_flashdata1_msg1 = 'Selamat datang ' . $this->session->userdata($this->tabel9_userdata6) . ' ' . $this->session->userdata($this->tabel9_userdata2) . '!';
 
@@ -549,7 +667,7 @@ class Welcome extends CI_Controller
 	public function index($id = 1)
 	{
 
-		$this->declare();
+		$this->declarew();
 		// mengarahkan pengguna ke halaman masing-masing sesuai level
 		if (
 			$this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value2
@@ -564,7 +682,17 @@ class Welcome extends CI_Controller
 		} else {
 			$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
-			$data = array(
+
+			// When you're the one who's developing this app, it's quite annoying to see this message over and over again.\
+			// The feature below isn't working as expected
+			// if ($this->session->userdata($this->tabel9_userdata7) < 2) {
+			// 	$this->session->set_flashdata($this->v_flashdata14, $this->v_flashdata14_msg1);
+			// 	$this->session->set_flashdata($this->v_flashdata_n, $this->v_flashdata_n_func1);
+			// } else {
+			// }
+
+
+			$data1 = array(
 
 				$this->v_part1 => $this->v8_title,
 				$this->v_part3 => $this->v8,
@@ -573,15 +701,17 @@ class Welcome extends CI_Controller
 				$this->tabel7 => $this->ptn->ambil($id)->result(),
 			);
 
+			$data = array_merge($data1, $this->aliases);
+
 			$this->load->view($this->v7, $data);
 		}
 	}
 
 	public function pemesanan($id = 1)
 	{
-		$this->declare();
+		$this->declarew();
 		if ($this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value5) {
-			$data = array(
+			$data1 = array(
 				$this->v_part1 => $this->v9_title,
 				$this->v_part2 => $this->head,
 				$this->v_part3 => $this->v9,
@@ -594,7 +724,7 @@ class Welcome extends CI_Controller
 
 			$halaman = $this->v7;
 		} else {
-			$data = array(
+			$data1 = array(
 				$this->v_part1 => $this->v2_title,
 				$this->v_part2 => $this->head,
 				$this->v_part4 => $this->v_part4_msg1,
@@ -603,6 +733,10 @@ class Welcome extends CI_Controller
 			);
 			$halaman = $this->v2;
 		}
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->session->set_flashdata($this->v_flashdata1, $this->v9_flashdata1_msg2);
 		$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 
@@ -611,8 +745,8 @@ class Welcome extends CI_Controller
 
 	public function tipe_kamar($id = 1)
 	{
-		$this->declare();
-		$data = array(
+		$this->declarew();
+		$data1 = array(
 			$this->v_part1 => $this->v16_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v16,
@@ -622,13 +756,16 @@ class Welcome extends CI_Controller
 			$this->tabel1 => $this->fsk->ambildata()->result()
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
 	public function fasilitas($id = 1)
 	{
-		$this->declare();
-		$data = array(
+		$this->declarew();
+		$data1 = array(
 			$this->v_part1 => $this->v15_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v15,
@@ -637,13 +774,16 @@ class Welcome extends CI_Controller
 			$this->tabel3 => $this->fsh->ambildata()->result()
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
 	public function dashboard($id = 1)
 	{
-		$this->declare();
-		$data = array(
+		$this->declarew();
+		$data1 = array(
 			$this->v_part1 => $this->v14_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v14,
@@ -661,19 +801,25 @@ class Welcome extends CI_Controller
 			$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
 		);
 
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
+
 		$this->load->view($this->v7, $data);
 	}
 
 	// fungsi ketika pengguna mengunjungi halaman yang tidak sesuai dengan level
 	public function no_level($id = 1)
 	{
-		$this->declare();
-		$data = array(
+		$this->declarew();
+		$data1 = array(
 			$this->v_part1 => $this->v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($id)->result(),
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v3, $data);
 	}

@@ -98,7 +98,7 @@ class Tipe_kamar extends Welcome
 	public function index($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel6_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel6_v2,
@@ -106,6 +106,9 @@ class Tipe_kamar extends Welcome
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -230,13 +233,16 @@ class Tipe_kamar extends Welcome
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel6_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
 			$this->tabel6 => $this->tpk->ambildata()->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->tabel6_v3, $data);
 	}

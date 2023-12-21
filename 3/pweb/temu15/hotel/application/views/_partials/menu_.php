@@ -5,15 +5,15 @@ semoga suatu saat akan berhasil :) -->
 
 <!-- menu navigasi untuk pengguna tanpa akun/umum -->
 <ul class="navbar-nav ml-auto">
-  
+
   <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome') ?>">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/tipe_kamar') ?>">Tipe Kamar</a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/tipe_kamar') ?>"><?= $tabel6_alias ?></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/fasilitas') ?>">Fasilitas</a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/fasilitas') ?>"><?= $tabel3_alias ?></a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('user/login') ?>">Login</a>
