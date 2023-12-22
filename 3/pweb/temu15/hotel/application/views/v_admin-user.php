@@ -13,11 +13,11 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Id User</th>
-        <th>Nama User</th>
-        <th>Email</th>
-        <th>Hp</th>
-        <th>Level</th>
+        <th><?= $tabel9_field1_alias ?></th>
+        <th><?= $tabel9_field2_alias ?></th>
+        <th><?= $tabel9_field3_alias ?></th>
+        <th><?= $tabel9_field5_alias ?></th>
+        <th><?= $tabel9_field6_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -47,11 +47,11 @@
 
     <tfoot>
       <tr>
-        <th>Id User</th>
-        <th>Nama User</th>
-        <th>Email</th>
-        <th>Hp</th>
-        <th>Level</th>
+        <th><?= $tabel9_field1_alias ?></th>
+        <th><?= $tabel9_field2_alias ?></th>
+        <th><?= $tabel9_field3_alias ?></th>
+        <th><?= $tabel9_field5_alias ?></th>
+        <th><?= $tabel9_field6_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -63,7 +63,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah User</h5>
+        <h5 class="modal-title">Tambah <?= $tabel9_alias ?></h5>
 
         <button class="close" data-dismiss="modal">
           <span>&times;</span>
@@ -115,7 +115,7 @@
 
             <!-- hanya admin yang bisa menentukan level user -->
             <select class="form-control" required name="level">
-              <option value="" selected hidden>Pilih Level User</option>
+              <option value="" selected hidden>Pilih <?= $tabel9_field6_alias ?></option>
               <option value="tamu">tamu</option>
               <option value="resepsionis">resepsionis</option>
               <option value="accounting">accounting</option>
@@ -141,7 +141,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit User <?= $u->id_user; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel9_alias ?> <?= $u->id_user; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -205,7 +205,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">User <?= $u->id_user; ?></h5>
+          <h5 class="modal-title"><?= $tabel9_alias ?> <?= $u->id_user; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -216,25 +216,25 @@
         <form>
           <div class="modal-body">
             <div class="form-group">
-              <label>Nama User : </label>
+              <label><?= $tabel9_field2_alias ?> : </label>
               <p><?= $u->nama; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Email : </label>
+              <label><?= $tabel9_field3_alias ?> : </label>
               <p><?= $u->email; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Hp : </label>
+              <label><?= $tabel9_field5_alias ?> : </label>
               <p><?= $u->hp; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Level User : </label>
+              <label><?= $tabel9_field6_alias ?> : </label>
               <p><?= $u->level; ?></p>
             </div>
           </div>

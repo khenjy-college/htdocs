@@ -14,10 +14,10 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Id</th>
-        <th>Tipe Kamar</th>
-        <th>Nama Fasilitas</th>
-        <th>Image</th>
+        <th><?= $tabel1_field1_alias ?></th>
+        <th><?= $tabel1_field2_alias ?></th>
+        <th><?= $tabel1_field3_alias ?></th>
+        <th><?= $tabel1_field4_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -42,10 +42,10 @@
 
     <tfoot>
       <tr>
-        <th>Id Fasilitas</th>
-        <th>Tipe Kamar</th>
-        <th>Nama Fasilitas</th>
-        <th>Image</th>
+        <th><?= $tabel1_field1_alias ?></th>
+        <th><?= $tabel1_field2_alias ?></th>
+        <th><?= $tabel1_field3_alias ?></th>
+        <th><?= $tabel1_field4_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -57,7 +57,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah Fasilitas</h5>
+        <h5 class="modal-title">Tambah <?= $tabel1_alias ?></h5>
 
         <button class="close" data-dismiss="modal">
           <span>&times;</span>
@@ -69,7 +69,7 @@
 
           <!-- memilih salah satu tipe kamar yang ada -->
           <div class="form-group">
-            <label>Tipe Kamar</label>
+            <label><?= $tabel1_field2_alias ?></label>
             <select class="form-control" required name="tipe">
               <option selected hidden value="">Pilih Tipe Kamar...</option>
               <?php foreach ($tipe_kamar as $k) : ?>
@@ -83,18 +83,18 @@
           </div>
 
           <div class="form-group">
-            <label>Nama Fasilitas</label>
+            <label><?= $tabel1_field3_alias ?></label>
             <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama fasilitas">
           </div>
 
           <div class="form-group">
-            <label>Tambah Gambar</label>
+            <label>Tambah <?= $tabel3_field4_alias ?></label>
             <input class="form-control-file" type="file" required name="img">
           </div>
         </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
@@ -110,7 +110,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Fasilitas <?= $fk->id_faskamar; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel1_alias ?> <?= $fk->id_faskamar; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -122,7 +122,7 @@
             <div class="form-group">
 
               <!-- memilih salah satu tipe kamar yang ada -->
-              <label>Tipe Kamar</label>
+              <label><?= $tabel1_field2_alias ?></label>
               <select class="form-control" required name="tipe">
 
                 <!-- menampilkan nilai tipe kamar yang aktif -->
@@ -135,7 +135,7 @@
             </div>
 
             <div class="form-group">
-              <label>Nama Fasilitas</label>
+              <label><?= $tabel1_field3_alias ?></label>
               <input class="form-control" type="text" required name="nama" value="<?= $fk->nama; ?>">
               <input type="hidden" name="id_faskamar" value="<?= $fk->id_faskamar; ?>">
             </div>
@@ -147,12 +147,12 @@
             <hr>
 
             <div class="form-group">
-              <label>Ubah Gambar</label>
+              <label>Ubah <?= $tabel1_field4_alias ?></label>
               <input class="form-control-file" type="file" name="img">
               <input type="hidden" name="txtimg" value="<?= $fk->img; ?>">
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
@@ -181,13 +181,13 @@
         <form>
           <div class="modal-body">
             <div class="form-group">
-              <label>Tipe Kamar : </label>
+              <label><?= $tabel1_field2_alias ?> : </label>
               <p><?= $fk->tipe; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Nama Fasilitas : </label>
+              <label><?= $tabel1_field3_alias ?> : </label>
               <p><?= $fk->nama; ?></p>
             </div>
             <hr>
@@ -199,7 +199,7 @@
             <hr>
 
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 

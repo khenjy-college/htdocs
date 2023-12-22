@@ -25,10 +25,10 @@
           <table class="table">
             <thead class="thead-">
               <tr>
-                <th>Id Pesanan</th>
-                <th>Pemesan</th>
-                <th>Email</th>
-                <th>Nomor Telepon</th>
+                <th><?= $tabel8_field1_alias ?></th>
+                <th><?= $tabel8_field3_alias ?></th>
+                <th><?= $tabel8_field4_alias ?></th>
+                <th><?= $tabel8_field5_alias ?></th>
               </tr>
             </thead>
             <tbody>
@@ -46,10 +46,10 @@
           <table class="table">
             <thead class="thead">
               <tr>
-                <th>Tamu</th>
-                <th>Tipe Kamar</th>
-                <th>Tanggal Cek In</th>
-                <th>Tanggal Cek Out</th>
+                <th><?= $tabel8_field6_alias ?></th>
+                <th><?= $tabel6_field2_alias ?></th>
+                <th><?= $tabel8_field10_alias ?></th>
+                <th><?= $tabel8_field11_alias ?></th>
               </tr>
             </thead>
             <tbody>

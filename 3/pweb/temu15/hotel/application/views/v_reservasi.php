@@ -6,10 +6,10 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Tamu</th>
-        <th>Tanggal Cek In</th>
-        <th>Tanggal Cek Out</th>
-        <th>Status</th>
+        <th><?= $tabel8_field6_alias ?></th>
+        <th><?= $tabel8_field10_alias ?></th>
+        <th><?= $tabel8_field11_alias ?></th>
+        <th><?= $tabel8_field12_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -43,10 +43,10 @@
 
     <tfoot>
       <tr>
-        <th>Tamu</th>
-        <th>Tanggal Cek In</th>
-        <th>Tanggal Cek Out</th>
-        <th>Status</th>
+        <th><?= $tabel8_field6_alias ?></th>
+        <th><?= $tabel8_field10_alias ?></th>
+        <th><?= $tabel8_field11_alias ?></th>
+        <th><?= $tabel8_field12_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -73,19 +73,19 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Id Pesanan</label>
+                  <label><?= $tabel8_field1_alias ?></label>
                   <p><?= $ps->id_pesanan ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
-                  <label>Pemesan</label>
+                  <label><?= $tabel8_field3_alias ?></label>
                   <p><?= $ps->pemesan ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
-                  <label>Email</label>
+                  <label><?= $tabel8_field4_alias ?></label>
                   <p><?= $ps->email ?></p>
 
                   <!-- Email ini digunakan untuk menambahkan sesi temporer untuk konfirmasi transaksi -->
@@ -94,20 +94,20 @@
                 <hr>
 
                 <div class="form-group">
-                  <label>Nomor Telepon</label>
+                  <label><?= $tabel8_field5_alias ?></label>
                   <p><?= $ps->hp ?></p>
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Nama Tamu</label>
+                  <label><?= $tabel8_field6_alias ?></label>
                   <p><?= $ps->tamu ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
-                  <label>Tipe Kamar</label>
+                  <label><?= $tabel6_field2_alias ?></label>
                   <?php foreach ($tipe_kamar as $tk) :
                     if ($tk->id_tipe === $ps->id_tipe) { ?>
                       <p><?= $tk->tipe ?></p>
@@ -118,13 +118,13 @@
                 <hr>
 
                 <div class="form-group">
-                  <label>Tanggal Cek In</label>
+                  <label><?= $tabel8_field10_alias ?></label>
                   <p><?= $ps->cek_in ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
-                  <label>Tanggal Cek Out</label>
+                  <label><?= $tabel8_field11_alias ?></label>
                   <p><?= $ps->cek_out ?></p>
                 </div>
               </div>
@@ -136,7 +136,7 @@
 
 
                 <div class="form-group">
-                  <label>Harga Total</label>
+                  <label><?= $tabel8_field9_alias ?></label>
                   <p>Rp <?= number_format($ps->harga_total, '2', ',', '.') ?></p>
                   <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan ?>">
                 </div>
@@ -182,7 +182,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $ps->id_pesanan ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -193,50 +193,50 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Id Pesanan</label>
+                    <label><?= $tabel8_field1_alias ?></label>
                     <p><?= $ps->id_pesanan ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Pemesan</label>
+                    <label><?= $tabel8_field3_alias ?></label>
                     <p><?= $ps->pemesan ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Email</label>
+                    <label><?= $tabel8_field4_alias ?></label>
                     <p><?= $ps->email ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Nomor Telepon</label>
+                    <label><?= $tabel8_field5_alias ?></label>
                     <p><?= $ps->hp ?></p>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Nama Tamu</label>
+                    <label><?= $tabel8_field6_alias ?></label>
                     <p><?= $ps->tamu ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tipe Kamar</label>
+                    <label><?= $tabel6_field2_alias ?></label>
                     <p><?= $tk->tipe ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tanggal Cek In</label>
+                    <label><?= $tabel8_field10_alias ?></label>
                     <p><?= $ps->cek_in ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tanggal Cek Out</label>
+                    <label><?= $tabel8_field11_alias ?></label>
                     <p><?= $ps->cek_out ?></p>
                   </div>
                 </div>

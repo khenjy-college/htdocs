@@ -5,11 +5,11 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Id Transaksi</th>
-        <th>Id Pesanan</th>
-        <th>Metode</th>
-        <th>Bayar</th>
-        <th>Tanggal Transaksi</th>
+        <th><?= $tabel10_field1_alias ?></th>
+        <th><?= $tabel10_field4_alias ?></th>
+        <th><?= $tabel10_field5_alias ?></th>
+        <th><?= $tabel10_field6_alias ?></th>
+        <th><?= $tabel10_field7_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -36,11 +36,11 @@
 
     <tfoot>
       <tr>
-        <th>Id Transaksi</th>
-        <th>Id Pemesan</th>
-        <th>Metode</th>
-        <th>Bayar</th>
-        <th>Tanggal Transaksi</th>
+        <th><?= $tabel10_field1_alias ?></th>
+        <th><?= $tabel10_field4_alias ?></th>
+        <th><?= $tabel10_field5_alias ?></th>
+        <th><?= $tabel10_field6_alias ?></th>
+        <th><?= $tabel10_field7_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -68,25 +68,25 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Id Transaksi</label>
+                    <label><?= $tabel10_field1_alias ?></label>
                     <p><?= $tr->id_transaksi ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Id Pesanan</label>
+                    <label><?= $tabel10_field4_alias ?></label>
                     <p><?= $tr->id_pesanan ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Metode</label>
+                    <label><?= $tabel10_field5_alias ?></label>
                     <p><?= $tr->metode ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Bayar</label>
+                    <label><?= $tabel10_field6_alias ?></label>
                     <p><?= $tr->bayar ?></p>
                   </div>
                 </div>
@@ -97,25 +97,25 @@ Jadi tidak perlu menambahkan foreach pesanan lagi -->
 
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Nama Tamu</label>
+                    <label><?= $tabel8_field6_alias ?></label>
                     <p><?= $tr->tamu ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tipe Kamar</label>
+                    <label><?= $tabel6_field2_alias ?></label>
                     <p><?= $tk->tipe ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tanggal Cek In</label>
+                    <label><?= $tabel8_field10_alias ?></label>
                     <p><?= $tr->cek_in ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tanggal Cek Out</label>
+                    <label><?= $tabel8_field11_alias ?></label>
                     <p><?= $tr->cek_out ?></p>
                   </div>
                 </div>

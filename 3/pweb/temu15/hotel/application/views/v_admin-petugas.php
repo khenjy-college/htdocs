@@ -13,13 +13,13 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Id Petugas</th>
-        <th>Nama Petugas</th>
-        <th>Email</th>
-        <th>Hp</th>
-        <th>Image</th>
-        <th>Role</th>
-        <th>Poin</th>
+        <th><?= $tabel4_field1_alias ?></th>
+        <th><?= $tabel4_field2_alias ?></th>
+        <th><?= $tabel4_field3_alias ?></th>
+        <th><?= $tabel4_field4_alias ?></th>
+        <th><?= $tabel4_field5_alias ?></th>
+        <th><?= $tabel4_field6_alias ?></th>
+        <th><?= $tabel4_field7_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -50,13 +50,13 @@
 
     <tfoot>
       <tr>
-        <th>Id Petugas</th>
-        <th>Nama Petugas</th>
-        <th>Email</th>
-        <th>Hp</th>
-        <th>Image</th>
-        <th>Role</th>
-        <th>Poin</th>
+        <th><?= $tabel4_field1_alias ?></th>
+        <th><?= $tabel4_field2_alias ?></th>
+        <th><?= $tabel4_field3_alias ?></th>
+        <th><?= $tabel4_field4_alias ?></th>
+        <th><?= $tabel4_field5_alias ?></th>
+        <th><?= $tabel4_field6_alias ?></th>
+        <th><?= $tabel4_field7_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -68,7 +68,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah Petugas</h5>
+        <h5 class="modal-title">Tambah <?= $tabel4_alias ?></h5>
 
         <button class="close" data-dismiss="modal">
           <span>&times;</span>
@@ -118,9 +118,9 @@
             </select>
           </div>
         </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
 
         <!-- saat ini tidak ada input poin, semua poin petugas dimulai dari 0 -->
@@ -138,7 +138,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Petugas <?= $p->id_petugas; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel4_alias ?> <?= $p->id_petugas; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -198,7 +198,7 @@
             <!-- Poin tidak bisa diubah maupun dikurangi, hanya bisa didapat melalui hasil operasional hotel -->
             <input type="hidden" name="poin" value="<?= $p->poin; ?>">
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
@@ -217,7 +217,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Petugas <?= $p->id_petugas; ?></h5>
+          <h5 class="modal-title"><?= $tabel4_alias ?> <?= $p->id_petugas; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -228,19 +228,19 @@
         <form>
           <div class="modal-body">
             <div class="form-group">
-              <label>Nama Petugas : </label>
+              <label><?= $tabel4_field2_alias ?> : </label>
               <p><?= $p->nama; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Email : </label>
+              <label><?= $tabel4_field3_alias ?> : </label>
               <p><?= $p->email; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Hp : </label>
+              <label><?= $tabel4_field4_alias ?> : </label>
               <p><?= $p->hp; ?></p>
             </div>
             <hr>
@@ -251,11 +251,11 @@
             <hr>
 
             <div class="form-group">
-              <label>Role Petugas : </label>
+              <label><?= $tabel4_field6_alias ?> : </label>
               <p><?= $p->role; ?></p>
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 

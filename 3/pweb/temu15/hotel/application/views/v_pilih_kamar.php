@@ -8,10 +8,10 @@
 <table class="table table-light" id="data">
   <thead class="thead-light">
     <tr>
-      <th>No Kamar</th>
+      <th><?= $tabel5_field1_alias ?></th>
       <th>Tipe Kamar</th>
-      <th>Status</th>
-      <th>Keterangan</th>
+      <th><?= $tabel5_field4_alias ?></th>
+      <th><?= $tabel5_field5_alias ?></th>
       <th>Aksi</th>
     </tr>
   </thead>
@@ -36,10 +36,10 @@
   </tbody>
   <tfoot>
     <tr>
-      <th>No Kamar</th>
+      <th><?= $tabel5_field1_alias ?></th>
       <th>Tipe Kamar</th>
-      <th>Status</th>
-      <th>Keterangan</th>
+      <th><?= $tabel5_field4_alias ?></th>
+      <th><?= $tabel5_field5_alias ?></th>
       <th>Aksi</th>
     </tr>
   </tfoot>

@@ -6,23 +6,23 @@
 
       <!-- tombol untuk memunculkan modal memperbaiki password -->
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $u->id_user ?>">
-        <i class="fas fa-edit"></i> Ubah Password</a>
+        <i class="fas fa-edit"></i> Ubah <?= $tabel9_field4_alias ?></a>
 
       <!-- form ini terpisah dengan form ubah password untuk keamanan sesama :) -->
       <form action="<?= site_url('user/update_profil') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label>Nama</label>
+          <label><?= $tabel9_field2_alias ?></label>
           <input class="form-control pengaturan" type="text" name="nama" value="<?= $u->nama; ?>">
           <input type="hidden" name="id_user" value="<?= $u->id_user; ?>">
         </div>
 
         <div class="form-group">
-          <label>Email*</label>
+          <label><?= $tabel9_field3_alias ?>*</label>
           <input class="form-control pengaturan" type="text" name="email" value="<?= $u->email; ?>">
         </div>
 
         <div class="form-group">
-          <label>Nomor Telepon</label>
+          <label><?= $tabel9_field5_alias ?></label>
           <input class="form-control pengaturan" type="text" name="hp" value="<?= $u->hp; ?>">
         </div>
 
@@ -46,7 +46,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ubah Password Anda</h5>
+          <h5 class="modal-title">Ubah <?= $tabel9_field4_alias ?> Anda</h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>

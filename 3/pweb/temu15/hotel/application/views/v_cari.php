@@ -21,17 +21,17 @@ Fitur sedang tahap pengembangan
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Id Pesanan</label>
+                  <label><?= $tabel8_field1_alias ?></label>
                   <p><?= $ps->id_pesanan ?></p>
                 </div>
 
                 <div class="form-group">
-                  <label>Pemesan</label>
+                  <label><?= $tabel8_field3_alias ?></label>
                   <p><?= $ps->pemesan ?></p>
                 </div>
 
                 <div class="form-group">
-                  <label>Email</label>
+                  <label><?= $tabel8_field4_alias ?></label>
                   <p><?= $ps->email ?></p>
 
                   <!-- Email ini digunakan untuk menambahkan sesi temporer untuk konfirmasi transaksi -->
@@ -39,14 +39,14 @@ Fitur sedang tahap pengembangan
                 </div>
 
                 <div class="form-group">
-                  <label>Nomor Telepon</label>
+                  <label><?= $tabel8_field5_alias ?></label>
                   <p><?= $ps->hp ?></p>
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Nama Tamu</label>
+                  <label><?= $tabel8_field6_alias ?></label>
                   <p><?= $ps->tamu ?></p>
                 </div>
 
@@ -56,12 +56,12 @@ Fitur sedang tahap pengembangan
                 </div>
 
                 <div class="form-group">
-                  <label>Tanggal Cek In</label>
+                  <label><?= $tabel8_field10_alias ?></label>
                   <p><?= $ps->cek_in ?></p>
                 </div>
 
                 <div class="form-group">
-                  <label>Tanggal Cek Out</label>
+                  <label><?= $tabel8_field11_alias ?></label>
                   <p><?= $ps->cek_out ?></p>
                 </div>
               </div>
@@ -73,7 +73,7 @@ Fitur sedang tahap pengembangan
 
 
                 <div class="form-group">
-                  <label>Harga Total</label>
+                  <label><?= $tabel8_field9_alias ?></label>
                   <p><?= $ps->harga_total ?></p>
                   <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan ?>">
                 </div>
@@ -117,7 +117,7 @@ Fitur sedang tahap pengembangan
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+          <h5 class="modal-title"><?= $tabel8_alias ?> <?= $ps->id_pesanan ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -128,29 +128,29 @@ Fitur sedang tahap pengembangan
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Id Pesanan</label>
+                <label><?= $tabel8_field1_alias ?></label>
                 <p><?= $ps->id_pesanan ?></p>
               </div>
 
               <div class="form-group">
-                <label>Pemesan</label>
+                <label><?= $tabel8_field3_alias ?></label>
                 <p><?= $ps->pemesan ?></p>
               </div>
 
               <div class="form-group">
-                <label>Email</label>
+                <label><?= $tabel8_field4_alias ?></label>
                 <p><?= $ps->email ?></p>
               </div>
 
               <div class="form-group">
-                <label>Nomor Telepon</label>
+                <label><?= $tabel8_field5_alias ?></label>
                 <p><?= $ps->hp ?></p>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
-                <label>Nama Tamu</label>
+                <label><?= $tabel8_field6_alias ?></label>
                 <p><?= $ps->tamu ?></p>
               </div>
 
@@ -160,12 +160,12 @@ Fitur sedang tahap pengembangan
               </div>
 
               <div class="form-group">
-                <label>Tanggal Cek In</label>
+                <label><?= $tabel8_field10_alias ?></label>
                 <p><?= $ps->cek_in ?></p>
               </div>
 
               <div class="form-group">
-                <label>Tanggal Cek Out</label>
+                <label><?= $tabel8_field11_alias ?></label>
                 <p><?= $ps->cek_out ?></p>
               </div>
             </div>

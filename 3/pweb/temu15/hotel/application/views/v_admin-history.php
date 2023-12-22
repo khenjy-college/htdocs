@@ -73,13 +73,13 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Id Pesanan</th>
-        <th>Tamu</th>
-        <th>Tipe</th>
-        <th>Cek In</th>
-        <th>Cek Out</th>
-        <th>Tanggal Perubahan</th>
-        <th>Resepsionis</th>
+        <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field7_alias ?></th>
+        <th><?= $tabel6_field2_alias ?></th>
+        <th><?= $tabel2_field11_alias ?></th>
+        <th><?= $tabel2_field12_alias ?></th>
+        <th><?= $tabel2_field14_alias ?></th>
+        <th><?= $tabel2_field15_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -107,14 +107,13 @@
     </tbody>
     <tfoot>
       <tr>
-        <th>Id Pesanan</th>
-        <th>Tamu</th>
-        <th>Tipe</th>
-        <th>Cek In</th>
-        <th>Cek Out</th>
-        <th>Tanggal Perubahan</th>
-        <th>Aksi</th>
-        <th>Resepsionis</th>
+        <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field7_alias ?></th>
+        <th><?= $tabel2_field8_alias ?></th>
+        <th><?= $tabel2_field11_alias ?></th>
+        <th><?= $tabel2_field12_alias ?></th>
+        <th><?= $tabel2_field14_alias ?></th>
+        <th><?= $tabel2_field15_alias ?></th>
       </tr>
     </tfoot>
 
@@ -131,7 +130,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">History <?= $h->id_history ?></h5>
+              <h5 class="modal-title"><?= $tabel2_alias ?> <?= $h->id_history ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -142,70 +141,70 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Id Pesanan</label>
+                    <label><?= $tabel2_field2_alias ?></label>
                     <p><?= $h->id_pesanan ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Pemesan</label>
+                    <label><?= $tabel2_field4_alias ?></label>
                     <p><?= $h->pemesan ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Email</label>
+                    <label><?= $tabel2_field5_alias ?></label>
                     <p><?= $h->email ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Nomor Telepon</label>
+                    <label><?= $tabel2_field6_alias ?></label>
                     <p><?= $h->hp ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Jumlah</label>
+                    <label><?= $tabel2_field9_alias ?></label>
                     <p><?= $h->jlh ?></p>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Nama Tamu</label>
+                    <label><?= $tabel2_field7_alias ?></label>
                     <p><?= $h->tamu ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tipe Kamar</label>
+                    <label><?= $tabel6_field2_alias ?></label>
                     <p><?= $tk->tipe ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tanggal Cek In</label>
+                    <label><?= $tabel2_field11_alias ?></label>
                     <p><?= $h->cek_in ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Tanggal Cek Out</label>
+                    <label><?= $tabel2_field12_alias ?></label>
                     <p><?= $h->cek_out ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
-                    <label>Harga Total</label>
+                    <label><?= $tabel2_field10_alias ?></label>
                     <p>Rp <?= number_format($h->harga_total, '2', ',', '.') ?></p>
                   </div>
                 </div>
               </div>
             </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+            <!-- memunculkan notifikasi modal -->
+            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>

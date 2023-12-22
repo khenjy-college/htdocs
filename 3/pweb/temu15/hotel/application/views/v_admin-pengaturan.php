@@ -10,47 +10,47 @@
     <!-- form edit favicon, logo, dan foto -->
     <?php foreach ($pengaturan as $p) : ?>
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon<?= $p->id ?>">
-        <i class="fas fa-edit"></i> Favicon</a>
+        <i class="fas fa-edit"></i> <?= $tabel7_field3_alias ?></a>
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#logo<?= $p->id ?>">
-        <i class="fas fa-edit"></i> Logo</a>
+        <i class="fas fa-edit"></i> <?= $tabel7_field4_alias ?></a>
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#foto<?= $p->id ?>">
-        <i class="fas fa-edit"></i> Foto</a>
+        <i class="fas fa-edit"></i> <?= $tabel7_field5_alias ?></a>
 
       <form action="<?= site_url('pengaturan/update') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label>Nama</label>
+          <label><?= $tabel7_field2_alias ?></label>
           <input class="form-control pengaturan" required type="text" name="nama" value="<?= $p->nama; ?>">
           <input type="hidden" name="id" value="<?= $p->id; ?>">
         </div>
 
         <div class="form-group">
-          <label>Alamat</label>
+          <label><?= $tabel7_field6_alias ?></label>
           <textarea class="form-control pengaturan" required name="alamat" rows="3"><?= $p->alamat; ?></textarea>
         </div>
 
         <div class="form-group">
-          <label>Email</label>
+          <label><?= $tabel7_field7_alias ?></label>
           <input class="form-control pengaturan" required type="text" name="email" value="<?= $p->email; ?>">
         </div>
 
         <div class="form-group">
-          <label>Nomor Telepon</label>
+          <label><?= $tabel7_field8_alias ?></label>
           <input class="form-control pengaturan" required type="text" name="hp" value="<?= $p->hp; ?>">
         </div>
 
         <div class="form-group">
-          <label>Metadesc / Deskripsi Website</label>
+          <label><?= $tabel7_field9_alias ?></label>
           <textarea class="form-control pengaturan" required name="metadesc" rows="5"><?= $p->metadesc; ?></textarea>
         </div>
 
         <div class="form-group">
-          <label>Link Akun Facebook</label>
-          <input class="form-control pengaturan" required type="text" name="fb" value="<?= $p->fb; ?>">
+          <label><?= $tabel7_field10_alias ?></label>
+          <input class="form-control pengaturan" required type="text" name="fb" placeholder="Masukkan link" value="<?= $p->fb; ?>">
         </div>
 
         <div class="form-group">
-          <label>Link Akun Instagram</label>
-          <input class="form-control pengaturan" required type="text" name="ig" value="<?= $p->ig; ?>">
+          <label><?= $tabel7_field11_alias ?></label>
+          <input class="form-control pengaturan" required type="text" name="ig" placeholder="Masukkan link" value="<?= $p->ig; ?>">
         </div>
 
         <div class="form-group">
@@ -71,7 +71,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Favicon <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field3_alias ?> <?= $p->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -87,13 +87,13 @@
             <hr>
 
             <div class="form-group">
-              <label>Ubah Favicon</label>
+              <label>Ubah <?= $tabel7_field3_alias ?></label>
               <input class="form-control-file" required type="file" name="favicon">
               <input type="hidden" name="id" value="<?= $p->id; ?>">
               <input type="hidden" name="txtfavicon" value="<?= $p->favicon; ?>">
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_favicon" class="small text-center text-danger"><?= $this->session->flashdata('pesan_favicon') ?></p>
 
@@ -112,7 +112,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Logo <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field4_alias ?> <?= $p->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -129,13 +129,13 @@
 
 
             <div class="form-group">
-              <label>Ubah Logo</label>
+              <label>Ubah <?= $tabel7_field4_alias ?></label>
               <input class="form-control-file" required type="file" name="logo">
               <input type="hidden" name="id" value="<?= $p->id; ?>">
               <input type="hidden" name="txtlogo" value="<?= $p->logo; ?>">
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_logo" class="small text-center text-danger"><?= $this->session->flashdata('pesan_logo') ?></p>
 
@@ -154,7 +154,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Foto <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field5_alias ?> <?= $p->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -170,13 +170,13 @@
             <hr>
 
             <div class="form-group">
-              <label>Ubah Foto</label>
+              <label>Ubah <?= $tabel7_field5_alias ?></label>
               <input class="form-control-file" required type="file" name="foto">
               <input type="hidden" name="id" value="<?= $p->id; ?>">
               <input type="hidden" name="txtfoto" value="<?= $p->foto; ?>">
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_foto" class="small text-center text-danger"><?= $this->session->flashdata('pesan_foto') ?></p>
 

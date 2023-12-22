@@ -6,7 +6,7 @@ terima kasih pada link di atas -->
   <img src="img/tipe_kamar/<?= $tp->img ?>" class="img-fluid rounded">
   <h2 class="pt-2">Tipe <?= $tp->tipe; ?> (Rp <?= number_format($tp->harga, '2', ',', '.') ?> per hari)</h2>
   <ul class="list-unstyled ml-2">
-    <li>Fasilitas : </li>
+    <li><?= $tabel1_alias ?> : </li>
     <?php foreach ($faskamar as $fk) : ?>
       <?php if ($tp->tipe === $fk->tipe) { ?>
         <li><?= $fk->nama ?></li>

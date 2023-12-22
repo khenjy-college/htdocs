@@ -22,11 +22,11 @@
     <table class="table">
       <thead class="thead">
         <tr>
-          <th>Id User</th>
-          <th>Nama User</th>
-          <th>Email</th>
-          <th>Hp</th>
-          <th>Level</th>
+          <th><?= $tabel9_field1_alias ?></th>
+          <th><?= $tabel9_field2_alias ?></th>
+          <th><?= $tabel9_field3_alias ?></th>
+          <th><?= $tabel9_field5_alias ?></th>
+          <th><?= $tabel9_field6_alias ?></th>
         </tr>
       </thead>
       <tbody>

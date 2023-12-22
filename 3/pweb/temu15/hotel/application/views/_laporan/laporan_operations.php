@@ -22,12 +22,12 @@
     <table class="table">
       <thead class="thead-">
         <tr>
-          <th>Id Operations</th>
-          <th>No Kamar</th>
-          <th>Id User</th>
-          <th>Id Petugas</th>
-          <th>Keterangan</th>
-          <th>Tanggal Perubahan</th>
+          <th><?= $tabel11_field1_alias ?></th>
+          <th><?= $tabel11_field2_alias ?></th>
+          <th><?= $tabel11_field3_alias ?></th>
+          <th><?= $tabel11_field4_alias ?></th>
+          <th><?= $tabel11_field5_alias ?></th>
+          <th><?= $tabel11_field6_alias ?></th>
         </tr>
       </thead>
       <tbody>

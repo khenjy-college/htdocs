@@ -18,10 +18,10 @@
     <!-- header tabel -->
     <thead class="thead-light">
       <tr>
-        <th>Id</th>
-        <th>Nama Fasilitas</th>
-        <th>Keterangan</th>
-        <th>Image</th>
+        <th><?= $tabel3_field1_alias ?></th>
+        <th><?= $tabel3_field2_alias ?></th>
+        <th><?= $tabel3_field3_alias ?></th>
+        <th><?= $tabel3_field4_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -56,10 +56,10 @@
     <!-- footer tabel -->
     <tfoot>
       <tr>
-        <th>Id Fasilitas</th>
-        <th>Nama Fasilitas</th>
-        <th>Keterangan</th>
-        <th>Image</th>
+        <th><?= $tabel3_field1_alias ?></th>
+        <th><?= $tabel3_field2_alias ?></th>
+        <th><?= $tabel3_field3_alias ?></th>
+        <th><?= $tabel3_field4_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -75,7 +75,7 @@
       <!-- header modal -->
       <div class="modal-header">
 
-        <h5 class="modal-title">Tambah Fasilitas</h5>
+        <h5 class="modal-title">Tambah <?= $tabel3_alias ?></h5>
 
         <!-- tombol tutup modal -->
         <button class="close" data-dismiss="modal">
@@ -90,12 +90,12 @@
         <!-- isi modal -->
         <div class="modal-body">
           <div class="form-group">
-            <label>Nama Fasilitas</label>
+            <label><?= $tabel1_field3_alias ?></label>
             <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama fasilitas">
           </div>
 
           <div class="form-group">
-            <label>Keterangan</label>
+            <label><?= $tabel3_field3_alias ?></label>
             <textarea class="form-control" required name="keterangan" rows="3" placeholder="Masukkan keterangan fasilitas"></textarea>
           </div>
 
@@ -104,9 +104,9 @@
             <input class="form-control-file" type="file" required name="img">
           </div>
         </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <!-- footer modal -->
         <div class="modal-footer">
@@ -132,7 +132,7 @@
 
         <!-- header modal -->
         <div class="modal-header">
-          <h5 class="modal-title">Edit Fasilitas <?= $fh->id_fashotel; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel3_alias ?> <?= $fh->id_fashotel; ?></h5>
 
           <!-- tombol tutup modal -->
           <button class="close" data-dismiss="modal">
@@ -147,13 +147,13 @@
           <!-- isi modal -->
           <div class="modal-body">
             <div class="form-group">
-              <label>Nama Fasilitas</label>
+              <label><?= $tabel3_field1_alias ?></label>
               <input class="form-control" type="text" required name="nama" value="<?= $fh->nama; ?>">
               <input type="hidden" name="id_fashotel" value="<?= $fh->id_fashotel; ?>">
             </div>
 
             <div class="form-group">
-              <label>Keterangan</label>
+              <label><?= $tabel3_field3_alias ?></label>
               <textarea class="form-control" required name="keterangan" rows="3"><?= $fh->keterangan; ?></textarea>
             </div>
 
@@ -166,12 +166,12 @@
 
             <!-- jika img tidak diinput, maka txtimg akan diinput -->
             <div class="form-group">
-              <label>Ubah Gambar</label>
+              <label>Ubah <?= $tabel3_field4_alias ?></label>
               <input class="form-control-file" type="file" name="img">
               <input type="hidden" name="txtimg" value="<?= $fh->img; ?>">
             </div>
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
@@ -187,7 +187,7 @@
       </div>
     </div>
 
-    
+
   </div>
 
 <?php endforeach; ?>
@@ -202,7 +202,7 @@
 
         <!-- header modal -->
         <div class="modal-header">
-          <h5 class="modal-title">Fasilitas <?= $fh->id_fashotel; ?></h5>
+          <h5 class="modal-title"><?= $tabel3_alias ?> <?= $fh->id_fashotel; ?></h5>
 
           <!-- tombol tutup modal -->
           <button class="close" data-dismiss="modal">
@@ -217,13 +217,13 @@
           <!-- isi data -->
           <div class="modal-body">
             <div class="form-group">
-              <label>Nama Fasilitas : </label>
+              <label><?= $tabel1_field3_alias ?> : </label>
               <p><?= $fh->nama; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <label>Keterangan : </label>
+              <label><?= $tabel3_field3_alias ?> : </label>
               <p><?= $fh->keterangan; ?></p>
             </div>
             <hr>
@@ -234,7 +234,7 @@
             <hr>
 
           </div>
-          
+
           <!-- memunculkan notifikasi modal -->
           <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 

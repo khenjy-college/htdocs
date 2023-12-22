@@ -27,10 +27,10 @@
           <table class="table">
             <thead class="thead">
               <tr>
-                <th>Id Pesanan</th>
-                <th>Pemesan</th>
-                <th>Email</th>
-                <th>Nomor Telepon</th>
+                <th><?= $tabel2_field2_alias ?></th>
+                <th><?= $tabel2_field4_alias ?></th>
+                <th><?= $tabel2_field5_alias ?></th>
+                <th><?= $tabel2_field6_alias ?></th>
               </tr>
             </thead>
             <tbody>
@@ -48,10 +48,10 @@
           <table class="table">
             <thead class="thead">
               <tr>
-                <th>Tamu</th>
-                <th>Tipe Kamar</th>
-                <th>Tanggal Cek In</th>
-                <th>Tanggal Cek Out</th>
+                <th><?= $tabel2_field7_alias ?></th>
+                <th><?= $tabel6_field2_alias ?></th>
+                <th><?= $tabel2_field11_alias ?></th>
+                <th><?= $tabel2_field12_alias ?></th>
               </tr>
             </thead>
             <tbody>
@@ -69,7 +69,7 @@
           <table class="table">
             <thead class="thead">
               <tr>
-                <th>Harga Total</th>
+                <th><?= $tabel2_field10_alias ?></th>
               </tr>
             </thead>
             <tbody>
@@ -86,10 +86,10 @@
           <table class="table">
             <thead class="thead">
               <tr>
-                <th>Id Transaksi</th>
-                <th>Metode Pembayaran</th>
-                <th>Bayar</th>
-                <th>Tanggal Transaksi</th>
+                <th><?= $tabel10_field1_alias ?></th>
+                <th><?= $tabel10_field5_alias ?></th>
+                <th><?= $tabel10_field6_alias ?></th>
+                <th><?= $tabel10_field7_alias ?></th>
               </tr>
             </thead>
             <tbody>

@@ -13,10 +13,10 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>No Kamar</th>
-        <th>Tipe Kamar</th>
-        <th>Status</th>
-        <th>Keterangan</th>
+        <th><?= $tabel5_field1_alias ?></th>
+        <th><?= $tabel6_field2_alias ?></th>
+        <th><?= $tabel5_field4_alias ?></th>
+        <th><?= $tabel5_field5_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -60,10 +60,10 @@
 
     <tfoot>
       <tr>
-        <th>No Kamar</th>
-        <th>Tipe Kamar</th>
-        <th>Status</th>
-        <th>Keterangan</th>
+        <th><?= $tabel5_field1_alias ?></th>
+        <th><?= $tabel5_field2_alias ?></th>
+        <th><?= $tabel5_field4_alias ?></th>
+        <th><?= $tabel5_field5_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -77,7 +77,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah Kamar</h5>
+        <h5 class="modal-title">Tambah <?= $tabel5_alias ?></h5>
 
         <button class="close" data-dismiss="modal">
           <span>&times;</span>
@@ -89,7 +89,7 @@
 
           <!-- memilih salah satu tipe kamar yang ada -->
           <div class="form-group">
-            <label>Tipe Kamar</label>
+            <label><?= $tabel6_field2_alias ?></label>
             <select class="form-control" required name="id_tipe">
               <option selected hidden value="">Pilih Tipe Kamar...</option>
               <?php foreach ($tipe_kamar as $tp) : ?>
@@ -103,9 +103,9 @@
           </div>
 
           <div class="form-group">
-            <label>Status</label>
+            <label><?= $tabel5_field4_alias ?></label>
             <select class="form-control" required name="status">
-              <option selected hidden value="">Pilih Status Kamar...</option>
+              <option selected hidden value="">Pilih <?= $tabel5_field4_alias ?>...</option>
 
               <!-- memilih nilai status -->
               <option value="Available">Available</option>
@@ -116,14 +116,14 @@
           </div>
 
           <div class="form-group">
-            <label>Keterangan</label>
+            <label><?= $tabel5_field5_alias ?></label>
             <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"></textarea>
           </div>
 
         </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
@@ -141,7 +141,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Edit Kamar <?= $km->no_kamar; ?></h5>
+              <h5 class="modal-title">Edit <?= $tabel5_alias ?> <?= $km->no_kamar; ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -153,7 +153,7 @@
                 <div class="form-group">
 
                   <!-- memilih salah satu tipe kamar yang ada -->
-                  <label>Tipe Kamar</label>
+                  <label><?= $tabel6_field2_alias ?></label>
                   <input class="form-control" type="text" readonly name="tipe" value="<?= $tp->tipe ?>">
                   <input type="hidden" name="id_tipe" value="<?= $tp->id_tipe ?>">
 
@@ -175,7 +175,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Status</label>
+                  <label><?= $tabel5_field4_alias ?></label>
                   <select class="form-control" required name="status">
                     <option selected hidden value="<?= $km->status; ?>"><?= $km->status; ?></option>
 
@@ -188,14 +188,14 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Keterangan</label>
+                  <label><?= $tabel5_field5_alias ?></label>
                   <textarea class="form-control" name="keterangan" rows="3"><?= $km->keterangan; ?></textarea>
                 </div>
 
               </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+
+              <!-- memunculkan notifikasi modal -->
+              <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
               <div class="modal-footer">
                 <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -217,7 +217,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Kamar <?= $km->no_kamar; ?></h5>
+              <h5 class="modal-title"><?= $tabel5_alias ?> <?= $km->no_kamar; ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -227,26 +227,26 @@
             <form>
               <div class="modal-body">
                 <div class="form-group">
-                  <label>Tipe Kamar : </label>
+                  <label><?= $tabel6_field2_alias ?> : </label>
                   <p><?= $tp->tipe; ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
-                  <label>Status : </label>
+                  <label><?= $tabel5_field4_alias ?> : </label>
                   <p><?= $km->status; ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
-                  <label>Keterangan : </label>
+                  <label><?= $tabel5_field5_alias ?> : </label>
                   <p><?= $km->keterangan; ?></p>
                 </div>
 
               </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+              <!-- memunculkan notifikasi modal -->
+              <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
               <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -281,7 +281,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Id Kamar</label>
+                      <label><?= $tabel5_field1_alias ?></label>
                       <p><?= $km->no_kamar ?></p>
                       <input type="hidden" name="no_kamar" value="<?= $km->no_kamar; ?>">
                       <input type="hidden" name="id_user" value="<?= $this->session->userdata('id_user') ?>">
@@ -289,13 +289,13 @@
                     <hr>
 
                     <div class="form-group">
-                      <label>Tipe Kamar : </label>
+                      <label><?= $tabel6_field2_alias ?> : </label>
                       <p><?= $tp->tipe; ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Status : </label>
+                      <label><?= $tabel5_field4_alias ?> : </label>
                       <p><?= $km->status; ?></p>
                     </div>
                     <hr>
@@ -306,7 +306,7 @@
                     <hr>
 
                     <div class="form-group">
-                      <label>Keterangan : </label>
+                      <label><?= $tabel5_field5_alias ?> : </label>
                       <p><?= $km->keterangan; ?></p>
                     </div>
 
@@ -323,11 +323,11 @@
                   <div class="col-md-6">
                     <!-- ini adalah fitur untuk assign petugas -->
                     <div class="form-group">
-                      <label>Petugas</label>
+                      <label><?= $tabel4_field2_alias ?></label>
                       <select class="form-control" required name="id_petugas">
 
                         <!-- menampilkan petugas buat assign -->
-                        <option selected hidden>Pilih petugas...</option>
+                        <option selected hidden>Pilih <?= $tabel4_alias ?>...</option>
                         <?php
                         foreach ($petugas as $pt) :
                           if ($pt->role == 'cleaning') { ?>
@@ -347,12 +347,12 @@
                   </div>
                 </div>
               </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_clean" class="small text-center text-danger"><?= $this->session->flashdata('pesan_clean') ?></p>
+
+              <!-- memunculkan notifikasi modal -->
+              <p id="p_clean" class="small text-center text-danger"><?= $this->session->flashdata('pesan_clean') ?></p>
 
               <div class="modal-footer">
-                <p>Proses kamar <?= $km->no_kamar; ?>?</p>
+                <p>Proses <?= $tabel5_alias ?> <?= $km->no_kamar; ?>?</p>
                 <button class="btn btn-success" type="submit">Ya</button>
 
               </div>
@@ -388,7 +388,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Id Kamar</label>
+                      <label><?= $tabel5_field1_alias ?></label>
                       <p><?= $km->no_kamar ?></p>
                       <input type="hidden" name="no_kamar" value="<?= $km->no_kamar; ?>">
                       <input type="hidden" name="id_user" value="<?= $this->session->userdata('id_user') ?>">
@@ -396,13 +396,13 @@
                     <hr>
 
                     <div class="form-group">
-                      <label>Tipe Kamar : </label>
+                      <label><?= $tabel6_field2_alias ?> : </label>
                       <p><?= $tp->tipe; ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Status : </label>
+                      <label><?= $tabel5_field4_alias ?> : </label>
                       <p><?= $km->status; ?></p>
                     </div>
                     <hr>
@@ -413,7 +413,7 @@
                     <hr>
 
                     <div class="form-group">
-                      <label>Keterangan : </label>
+                      <label><?= $tabel5_field5_alias ?> : </label>
                       <p><?= $km->keterangan; ?></p>
                     </div>
                     <!-- mengubah status kamar secara instan berdasarkan id_pesanan -->
@@ -453,12 +453,12 @@
                   </div>
                 </div>
               </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_maintenance" class="small text-center text-danger"><?= $this->session->flashdata('pesan_maintenance') ?></p>
+
+              <!-- memunculkan notifikasi modal -->
+              <p id="p_maintenance" class="small text-center text-danger"><?= $this->session->flashdata('pesan_maintenance') ?></p>
 
               <div class="modal-footer">
-                <p>Proses kamar <?= $km->no_kamar; ?>?</p>
+                <p>Proses <?= $tabel5_alias ?> <?= $km->no_kamar; ?>?</p>
                 <button class="btn btn-success" type="submit">Ya</button>
 
               </div>

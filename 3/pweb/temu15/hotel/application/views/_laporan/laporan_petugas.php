@@ -22,12 +22,12 @@
     <table class="table">
       <thead class="thead">
         <tr>
-          <th>Id Petugas</th>
-          <th>Nama Petugas</th>
-          <th>Email</th>
-          <th>Hp</th>
-          <th>Img</th>
-          <th>Role</th>
+          <th><?= $tabel4_field1_alias ?></th>
+          <th><?= $tabel4_field2_alias ?></th>
+          <th><?= $tabel4_field3_alias ?></th>
+          <th><?= $tabel4_field4_alias ?></th>
+          <th><?= $tabel4_field5_alias ?></th>
+          <th><?= $tabel4_field6_alias ?></th>
         </tr>
       </thead>
       <tbody>

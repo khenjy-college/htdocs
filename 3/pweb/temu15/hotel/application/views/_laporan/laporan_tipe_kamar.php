@@ -22,11 +22,11 @@
     <table class="table">
       <thead class="thead">
         <tr>
-          <th>Id Tipe Kamar</th>
-          <th>Tipe Kamar</th>
-          <th>Stok</th>
-          <th>Harga</th>
-          <th>Gambar</th>
+          <th><?= $tabel6_field1_alias ?></th>
+          <th><?= $tabel6_field2_alias ?></th>
+          <th><?= $tabel6_field4_alias ?></th>
+          <th><?= $tabel6_field5_alias ?></th>
+          <th><?= $tabel6_field3_alias ?></th>
         </tr>
       </thead>
       <tbody>

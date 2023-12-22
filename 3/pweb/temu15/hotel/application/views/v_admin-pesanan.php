@@ -74,10 +74,10 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Tamu</th>
-        <th>Tanggal Cek In</th>
-        <th>Tanggal Cek Out</th>
-        <th>Status</th>
+        <th><?= $tabel8_field6_alias ?></th>
+        <th><?= $tabel8_field10_alias ?></th>
+        <th><?= $tabel8_field11_alias ?></th>
+        <th><?= $tabel8_field12_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -123,10 +123,10 @@
 
     <tfoot>
       <tr>
-        <th>Tamu</th>
-        <th>Tanggal Cek In</th>
-        <th>Tanggal Cek Out</th>
-        <th>Status</th>
+        <td><?= $ps->tamu ?></td>
+        <td><?= $ps->cek_in ?></td>
+        <td><?= $ps->cek_out ?></td>
+        <td><?= $ps->status ?></td>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -154,7 +154,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Id Pesanan</label>
+                      <label><?= $tabel8_field1_alias ?></label>
                       <p><?= $ps->id_pesanan ?></p>
                       <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
                       <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
@@ -173,52 +173,52 @@
                     <hr>
 
                     <div class="form-group">
-                      <label>Pemesan</label>
+                      <label><?= $tabel8_field3_alias ?></label>
                       <p><?= $ps->pemesan ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Email</label>
+                      <label><?= $tabel8_field4_alias ?></label>
                       <p><?= $ps->email ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Nomor Telepon</label>
+                      <label><?= $tabel8_field5_alias ?></label>
                       <p><?= $ps->hp ?></p>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Nama Tamu</label>
+                      <label><?= $tabel8_field6_alias ?></label>
                       <p><?= $ps->tamu ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Tipe Kamar</label>
+                      <label><?= $tabel6_field2_alias ?></label>
                       <p><?= $tk->tipe ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Tanggal Cek In</label>
+                      <label><?= $tabel8_field10_alias ?></label>
                       <p><?= $ps->cek_in ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Tanggal Cek Out</label>
+                      <label><?= $tabel8_field11_alias ?></label>
                       <p><?= $ps->cek_out ?></p>
                     </div>
                   </div>
                 </div>
               </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+
+              <!-- memunculkan notifikasi modal -->
+              <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
               <div class="modal-footer">
 
@@ -251,7 +251,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $ps->id_pesanan ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -264,7 +264,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Id Pesanan</label>
+                      <label><?= $tabel8_field1_alias ?></label>
                       <p><?= $ps->id_pesanan ?></p>
                       <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
                       <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
@@ -283,44 +283,44 @@
                     <hr>
 
                     <div class="form-group">
-                      <label>Pemesan</label>
+                      <label><?= $tabel8_field3_alias ?></label>
                       <p><?= $ps->pemesan ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Email</label>
+                      <label><?= $tabel8_field4_alias ?></label>
                       <p><?= $ps->email ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Nomor Telepon</label>
+                      <label><?= $tabel8_field5_alias ?></label>
                       <p><?= $ps->hp ?></p>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Nama Tamu</label>
+                      <label><?= $tabel8_field6_alias ?></label>
                       <p><?= $ps->tamu ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Tipe Kamar</label>
+                      <label><?= $tabel6_field2_alias ?></label>
                       <p><?= $tk->tipe ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Tanggal Cek In</label>
+                      <label><?= $tabel8_field10_alias ?></label>
                       <p><?= $ps->cek_in ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label>Tanggal Cek Out</label>
+                      <label><?= $tabel8_field11_alias ?></label>
                       <p><?= $ps->cek_out ?></p>
                     </div>
                   </div>
@@ -329,11 +329,11 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label>Pilih kamar</label>
+                      <label>Pilih <?= $tabel5_field1_alias ?></label>
                       <select class="form-control" required name="no_kamar">
 
                         <!-- menampilkan nilai id_tipe kamar yang aktif -->
-                        <option selected hidden value="">Pilih no kamar:</option>
+                        <option selected hidden value="">Pilih No Kamar:</option>
 
                         <?php foreach ($kamar as $km) :
                           if ($ps->id_tipe == $km->id_tipe) {
@@ -348,20 +348,20 @@
                         endforeach; ?>
 
                       </select>
-                      <p>*Jika tidak ada, berarti semua kamar full</p>
+                      <p>*Jika tidak ada, berarti semua <?= $tabel5_alias ?> full</p>
                       <input type="hidden" name="status" value="belum bayar">
                     </div>
                   </div>
                 </div>
 
               </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_book" class="small text-center text-danger"><?= $this->session->flashdata('pesan_book') ?></p>
+
+              <!-- memunculkan notifikasi modal -->
+              <p id="p_book" class="small text-center text-danger"><?= $this->session->flashdata('pesan_book') ?></p>
 
               <div class="modal-footer">
 
-                <p>Pesan kamar?</p>
+                <p>Pesan <?= $tabel5_alias ?>?</p>
                 <button class="btn btn-success" type="submit">Ya</button>
 
               </div>

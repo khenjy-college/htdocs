@@ -22,10 +22,10 @@
     <table class="table">
       <thead class="thead-">
         <tr>
-          <th>Id Fasilitas Kamar</th>
-          <th>Id Tipe kamar</th>
-          <th>Status</th>
-          <th>Keterangan</th>
+          <th><?= $tabel5_field1_alias ?></th>
+          <th><?= $tabel5_field2_alias ?></th>
+          <th><?= $tabel5_field4_alias ?></th>
+          <th><?= $tabel5_field5_alias ?></th>
         </tr>
       </thead>
       <tbody>

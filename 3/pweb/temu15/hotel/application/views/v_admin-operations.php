@@ -12,12 +12,12 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
-        <th>Id Operations</th>
-        <th>No Kamar</th>
-        <th>Id User</th>
-        <th>Id Petugas</th>
-        <th>Keterangan</th>
-        <th>Tanggal Perubahan</th>
+        <th><?= $tabel11_field1_alias ?></th>
+        <th><?= $tabel11_field2_alias ?></th>
+        <th><?= $tabel11_field3_alias ?></th>
+        <th><?= $tabel11_field4_alias ?></th>
+        <th><?= $tabel11_field5_alias ?></th>
+        <th><?= $tabel11_field6_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -40,12 +40,12 @@
     </tbody>
     <tfoot>
       <tr>
-        <th>Id Operations</th>
-        <th>No Kamar</th>
-        <th>Id User</th>
-        <th>Id Petugas</th>
-        <th>Keterangan</th>
-        <th>Tanggal Perubahan</th>
+        <th><?= $tabel11_field1_alias ?></th>
+        <th><?= $tabel11_field2_alias ?></th>
+        <th><?= $tabel11_field3_alias ?></th>
+        <th><?= $tabel11_field4_alias ?></th>
+        <th><?= $tabel11_field5_alias ?></th>
+        <th><?= $tabel11_field6_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -60,7 +60,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Operations <?= $o->id_operations ?></h5>
+          <h5 class="modal-title"><?= $tabel11_alias ?> <?= $o->id_operations ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -71,19 +71,19 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Id Operasi</label>
+                <label><?= $tabel11_field1_alias ?></label>
                 <p><?= $o->id_operations ?></p>
               </div>
               <hr>
 
               <div class="form-group">
-                <label>No Kamar</label>
+                <label><?= $tabel11_field2_alias ?></label>
                 <p><?= $o->no_kamar ?></p>
               </div>
               <hr>
 
               <div class="form-group">
-                <label>Id User</label>
+                <label><?= $tabel11_field3_alias ?></label>
                 <p><?= $o->id_user ?></p>
               </div>
 
@@ -91,27 +91,27 @@
 
             <div class="col-md-6">
               <div class="form-group">
-                <label>Id Petugas</label>
+                <label><?= $tabel11_field4_alias ?></label>
                 <p><?= $o->id_petugas ?></p>
               </div>
               <hr>
 
               <div class="form-group">
-                <label>Keterangan</label>
+                <label><?= $tabel11_field5_alias ?></label>
                 <p><?= $o->keterangan ?></p>
               </div>
               <hr>
 
               <div class="form-group">
-                <label>Tanggal Perubahan</label>
+                <label><?= $tabel11_field6_alias ?></label>
                 <p><?= $o->tgl_perubahan ?></p>
               </div>
             </div>
           </div>
         </div>
-          
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
         <div class="modal-footer">
           <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
