@@ -10,10 +10,10 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($pengaturan as $p) : ?>
+    <?php foreach ($pengaturan as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $p->nama; ?> | <?= $p->hp; ?> | <?= $p->email; ?></p>
-      <p class="text-center"><?= $p->alamat; ?></p>
+      <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
+      <p class="text-center"><?= $tl7->alamat; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
@@ -29,12 +29,12 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($kamar as $km) : ?>
+        <?php foreach ($kamar as $tl5) : ?>
           <tr>
-            <td width="25%"><?= $km->no_kamar ?></td>
-            <td width="25%"><?= $km->id_tipe ?></a></td>
-            <td width="25%"><?= $km->status ?></td>
-            <td width="25%"><?= $km->keterangan ?></td>
+            <td width="25%"><?= $tl5->no_kamar ?></td>
+            <td width="25%"><?= $tl5->id_tipe ?></a></td>
+            <td width="25%"><?= $tl5->status ?></td>
+            <td width="25%"><?= $tl5->keterangan ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

@@ -16,7 +16,7 @@
 
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Operasional Hotel</h6>
-        <a class="dropdown-item" href="<?= site_url('petugas') ?>"><?= $tabel3_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('petugas') ?>"><?= $tabel4_alias ?></a>
         <a class="dropdown-item" href="<?= site_url('user') ?>"><?= $tabel9_alias ?></a>
       </div>
     </div>

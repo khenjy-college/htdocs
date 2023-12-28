@@ -7,7 +7,7 @@ class Kamar extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel5_m = 'kmr';
+	private $tabel5_m = 'tl5';
 
 	// deklarasi variabel views
 	private $tabel5_v1;
@@ -44,7 +44,7 @@ class Kamar extends Welcome
 	{
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel5_m = 'kmr';
+		$this->tabel5_m = 'tl5';
 
 		// deklarasi variabel views
 		$this->tabel5_v1 = 'v_' . $this->tabel5;
@@ -93,10 +93,10 @@ class Kamar extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel5_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel5 => $this->kmr->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
-			$this->tabel4 => $this->pts->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel5 => $this->tl5->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
+			$this->tabel4 => $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -116,7 +116,7 @@ class Kamar extends Welcome
 			$this->tabel5_field5 => $this->tabel5_v_input5_post
 		);
 
-		$simpan = $this->kmr->simpan($data);
+		$simpan = $this->tl5->simpan($data);
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_1);
@@ -139,7 +139,7 @@ class Kamar extends Welcome
 			$this->tabel5_field5 => $this->tabel5_v_input5_post,
 		);
 
-		$update = $this->kmr->update($data, $where);
+		$update = $this->tl5->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_3);
@@ -155,7 +155,7 @@ class Kamar extends Welcome
 	public function hapus($no_kamar = null)
 	{
 		$this->declare();
-		$hapus = $this->kmr->hapus($no_kamar);
+		$hapus = $this->tl5->hapus($no_kamar);
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel5_v_flashdata1_msg_5);
@@ -175,8 +175,8 @@ class Kamar extends Welcome
 			$this->v_part1 => $this->tabel5_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel5 => $this->kmr->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel5 => $this->tl5->ambildata()->result()
 		);
 
 		$this->declarew();

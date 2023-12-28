@@ -7,7 +7,7 @@ class Operations extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel11_m = 'ops';
+	private $tabel11_m = 'tl11';
 
 	// deklarasi variabel views
 	private $tabel11_v1;
@@ -55,7 +55,7 @@ class Operations extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel11_m = 'ops';
+		$this->tabel11_m = 'tl11';
 
 		// deklarasi variabel views
 		$this->tabel11_v1 = 'v_-' . $this->tabel11;
@@ -108,9 +108,9 @@ class Operations extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel11_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel11 => $this->ops->ambildata()->result(),
-			$this->tabel4 => $this->pts->ambildata()->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel11 => $this->tl11->ambildata()->result(),
+			$this->tabel4 => $this->tl4->ambildata()->result(),
 		);
 
 		$this->declarew();
@@ -140,7 +140,7 @@ class Operations extends Welcome
 		);
 		$update_status = $this->kmr->update($status, $where);
 
-		$simpan = $this->ops->simpan($data);
+		$simpan = $this->tl11->simpan($data);
 
 		if ($simpan) {
 
@@ -165,7 +165,7 @@ class Operations extends Welcome
 	public function hapus($id_operations = null)
 	{
 		$this->declare();
-		$hapus = $this->ops->hapus($id_operations);
+		$hapus = $this->tl11->hapus($id_operations);
 
 		if ($hapus) {
 
@@ -187,8 +187,8 @@ class Operations extends Welcome
 			$this->v_part1 => $this->tabel11_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel11 => $this->ops->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel11 => $this->tl11->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -209,8 +209,8 @@ class Operations extends Welcome
 	// 		$this->v_part1 => $this->tabel11_v1_title,
 	// 		$this->v_part2 => $this->head,
 	// 		$this->v_part3 => $this->tabel11_v1,
-	// 		$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-	// 		$this->tabel11 => $this->ops->ambil_id_user($where)->result()
+	// 		$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+	// 		$this->tabel11 => $this->tl11->ambil_id_user($where)->result()
 	// 	);
 
 	// 	$this->load->view($this->v7, $data);
@@ -230,13 +230,13 @@ class Operations extends Welcome
 	// 	if ($this->input->post('status') == 'cek in') {
 
 	// 		// hanya merubah status pesanan
-	// 		$update = $this->ops->update($data, $where);
+	// 		$update = $this->tl11->update($data, $where);
 
 	// 		// jika status pesanan cek out
 	// 	} elseif ($this->input->post('status') == 'cek out') {
 
 	// 		// menghapus data pesanan supaya trigger tambah_kamar dapat berjalan
-	// 		$hapus = $this->ops->hapus($where);
+	// 		$hapus = $this->tl11->hapus($where);
 
 	// 		// memasukkan nama resepsionis yang melakukan operasi
 	// 		$data = array(
@@ -244,7 +244,7 @@ class Operations extends Welcome
 	// 		);
 
 	// 		// mengupdate pesanan dengan nama user yang aktif
-	// 		$update = $this->ops->update_pesanan($data, $where);
+	// 		$update = $this->tl11->update_pesanan($data, $where);
 	// 	}
 
 	// 	if ($update) {

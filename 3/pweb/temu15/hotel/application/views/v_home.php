@@ -1,5 +1,5 @@
-<?php foreach ($pengaturan as $p) : ?>
-  <img src="img/<?= $p->foto ?>" class="img-fluid rounded">
+<?php foreach ($pengaturan as $tl7) : ?>
+  <img src="img/<?= $tl7->foto ?>" class="img-fluid rounded">
 <?php endforeach; ?>
 
 <!-- menampilkan footer untuk umum  -->
@@ -9,21 +9,21 @@
     <div id="tour2" class="row justify-content-center align-items-end mt-2">
       <div class="col-md-2">
         <div class="form-group">
-          <label>Tanggal Cek In</label>
+          <label><?= $tabel8_field10_alias ?></label>
           <input id="cek_in_date" class="form-control" type="date" required oninput="myFunction()" name="cek_in" min="<?= date('Y-m-d'); ?>">
         </div>
       </div>
 
       <div class="col-md-2">
         <div class="form-group">
-          <label>Tanggal Cek Out</label>
+          <label><?= $tabel8_field11_alias ?></label>
           <input id="cek_out_date" class="form-control" type="date" required name="cek_out" min="<?= date('Y-m-d', strtotime("+1 day")); ?>">
         </div>
       </div>
 
       <div class="col-md-2">
         <div class="form-group">
-          <label>Jumlah Kamar</label>
+          <label><?= $tabel8_field8_alias ?></label>
           <input class="form-control" readonly type="number" required name="jlh" min="1" max="10" value="1">
         </div>
       </div>
@@ -44,12 +44,12 @@
 
 
 
-<?php foreach ($pengaturan as $p) : ?>
+<?php foreach ($pengaturan as $tl7) : ?>
   <h1 class="text-center">Tentang Kami</h1>
   <hr>
   <div class="row">
     <div class="col-md-6">
-      <p><?= $p->metadesc ?></p>
+      <p><?= $tl7->metadesc ?></p>
     </div>
 
     <div class="col-md-6">

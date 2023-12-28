@@ -19,7 +19,7 @@ class Transaksi extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel10_m = 'trs';
+	private $tabel10_m = 'tl10';
 
 	// deklarasi variabel views
 	private $tabel10_v1;
@@ -104,7 +104,7 @@ class Transaksi extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel10_m = 'trs';
+		$this->tabel10_m = 'tl10';
 
 		// deklara		$this->tabeli variabel views
 		$this->tabel10_v1 = 'v_' . $this->tabel10;
@@ -197,9 +197,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->join_pesanan()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->tl10->join_pesanan()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			// 'tgl_transaksi_min' => $param1,
@@ -230,9 +230,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2_alt,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->join_history()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->tl10->join_history()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			// 'tgl_transaksi_min' => $param1,
@@ -256,7 +256,7 @@ class Transaksi extends Welcome
 		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
 		$tgl = date("Y-m-d") . " " . date("h:m:s", time());
 
-		// $kembalian = $this->psn->get('harga_total') - $bayar;
+		// $kembalian = $this->tl8->get('harga_total') - $bayar;
 
 		$data = array(
 			$this->tabel10_field1 => $this->tabel10_v_input1_alt,
@@ -276,8 +276,8 @@ class Transaksi extends Welcome
 
 		// $query = 'INSERT INTO transaksi VALUES('.$data.')';
 
-		$simpan = $this->trs->simpan($data);
-		// $simpan = $this->trs->simpan($query);
+		$simpan = $this->tl10->simpan($data);
+		// $simpan = $this->tl10->simpan($query);
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_1);
@@ -296,7 +296,7 @@ class Transaksi extends Welcome
 		if ($this->tabel8_input12_post === $this->tabel8_field12_value3) {
 
 			// hanya merubah status pesanan
-			$update = $this->psn->update($status, $where);
+			$update = $this->tl8->update($status, $where);
 
 			if ($update) {
 				$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_7);
@@ -328,7 +328,7 @@ class Transaksi extends Welcome
 			$this->tabel10_field7 => $tgl,
 		);
 
-		$update = $this->trs->update($data, $where);
+		$update = $this->tl10->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_3);
@@ -344,8 +344,8 @@ class Transaksi extends Welcome
 	public function hapus($id_transaksi = null)
 	{
 		$this->declare();
-		$transaksi = $this->trs->ambil($id_transaksi)->result();
-		$hapus = $this->trs->hapus($id_transaksi);
+		$transaksi = $this->tl10->ambil($id_transaksi)->result();
+		$hapus = $this->tl10->hapus($id_transaksi);
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel10_v_flashdata1_msg_5);
@@ -365,10 +365,10 @@ class Transaksi extends Welcome
 			$this->v_part1 => $this->tabel10_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
-			$this->tabel8 => $this->psn->ambildata()->result()
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->tl10->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
+			$this->tabel8 => $this->tl8->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -386,9 +386,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v1,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->join_pesanan_tamu($where)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->tl10->join_pesanan_tamu($where)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -406,9 +406,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v1_alt,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->join_history_tamu($where)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->tl10->join_history_tamu($where)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -430,11 +430,11 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->join_pesanan($where)->result(),
-			$this->tabel10 => $this->trs->filter($param1, $param2)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->tl10->join_pesanan($where)->result(),
+			$this->tabel10 => $this->tl10->filter($param1, $param2)->result(),
+			$this->tabel8 => $this->tl8->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			$this->tabel10_v_input7_filter1 => $param1,
@@ -456,10 +456,10 @@ class Transaksi extends Welcome
 			$this->v_part1 => $this->v1_title2,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
-			$this->tabel10 => $this->trs->ambil_email($where)->last_row(),
+			$this->tabel10 => $this->tl10->ambil_email($where)->last_row(),
 		);
 
 		$this->declarew();
@@ -478,31 +478,31 @@ class Transaksi extends Welcome
 			$this->v_part1 => $this->v5_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->trs->ambil($id_transaksi)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel10 => $this->tl10->ambil($id_transaksi)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 
 		// Di bawah ini adalah kode untuk memisahkan antara transaksi yang id pesanannya masih berada di tabel pesanann
 		// Dan transaksi yang id pesanananya sudah berada di tabel history
 
-		$param1 = $this->trs->ambil($id_transaksi)->result();
+		$param1 = $this->tl10->ambil($id_transaksi)->result();
 		$param2 = $param1[0]->id_pesanan;
 
-		$method = $this->htr->ambil_id_pesanan($param2);
+		$method = $this->tl2->ambil_id_pesanan($param2);
 
 		$this->declarew();
 
 		if ($method->num_rows() > 0) {
 			$data2 = array(
-				$this->tabel2 => $this->htr->ambildata()->result(),
+				$this->tabel2 => $this->tl2->ambildata()->result(),
 			);
 			$data = array_merge($data1, $data2, $this->aliases);
 			$this->load->view($this->v12, $data);
 		} else {
 			$data2 = array(
-				$this->tabel8 => $this->psn->ambildata()->result(),
+				$this->tabel8 => $this->tl8->ambildata()->result(),
 			);
 			$data = array_merge($data1, $data2, $this->aliases);
 			$this->load->view($this->v5, $data);

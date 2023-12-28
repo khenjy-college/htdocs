@@ -557,10 +557,10 @@ class Welcome extends CI_Controller
 			'tabel5_field1_alias' => 'No Kamar',
 			'tabel5_field2_alias' => 'ID Tipe',
 			'tabel5_field3_alias' => 'ID Pesanan',
-			'tabel5_field4_alias' => 'Status',
+			'tabel5_field4_alias' => 'Status Kamar',
 			'tabel5_field5_alias' => 'Keterangan',
 
-			'tabel6_alias' => 'Tipe Kamarku',
+			'tabel6_alias' => 'Tipe Kamar',
 			'tabel6_field1_alias' => 'ID Tipe Kamar',
 			'tabel6_field2_alias' => 'Tipe Kamar',
 			'tabel6_field3_alias' => 'Gambar',
@@ -698,7 +698,7 @@ class Welcome extends CI_Controller
 				$this->v_part3 => $this->v8,
 				$this->v_part2 => $this->head,
 				$this->v_part4 => $this->v_part4_msg1,
-				$this->tabel7 => $this->ptn->ambil($id)->result(),
+				$this->tabel7 => $this->tl7->ambil($id)->result(),
 			);
 
 			$data = array_merge($data1, $this->aliases);
@@ -715,8 +715,8 @@ class Welcome extends CI_Controller
 				$this->v_part1 => $this->v9_title,
 				$this->v_part2 => $this->head,
 				$this->v_part3 => $this->v9,
-				$this->tabel7 => $this->ptn->ambil($id)->result(),
-				$this->tabel6 => $this->tpk->ambildata()->result(),
+				$this->tabel7 => $this->tl7->ambil($id)->result(),
+				$this->tabel6 => $this->tl6->ambildata()->result(),
 				$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
 				$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
 				$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
@@ -728,7 +728,7 @@ class Welcome extends CI_Controller
 				$this->v_part1 => $this->v2_title,
 				$this->v_part2 => $this->head,
 				$this->v_part4 => $this->v_part4_msg1,
-				$this->tabel7 => $this->ptn->ambil($id)->result()
+				$this->tabel7 => $this->tl7->ambil($id)->result()
 
 			);
 			$halaman = $this->v2;
@@ -751,9 +751,9 @@ class Welcome extends CI_Controller
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v16,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
-			$this->tabel1 => $this->fsk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($id)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
+			$this->tabel1 => $this->tl1->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -770,8 +770,8 @@ class Welcome extends CI_Controller
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v15,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
-			$this->tabel3 => $this->fsh->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($id)->result(),
+			$this->tabel3 => $this->tl3->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -788,14 +788,14 @@ class Welcome extends CI_Controller
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v14,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
-			$this->tabel3 => $this->fsh->ambildata()->num_rows(),
-			$this->tabel1 => $this->fsk->ambildata()->num_rows(),
-			$this->tabel6 => $this->tpk->ambildata()->num_rows(),
-			$this->tabel8 => $this->psn->ambildata()->num_rows(),
-			$this->tabel10 => $this->trs->ambildata()->num_rows(),
-			$this->tabel4 => $this->pts->ambildata()->num_rows(),
-			$this->tabel9 => $this->usr->ambildata()->num_rows(),
+			$this->tabel7 => $this->tl7->ambil($id)->result(),
+			$this->tabel3 => $this->tl3->ambildata()->num_rows(),
+			$this->tabel1 => $this->tl1->ambildata()->num_rows(),
+			$this->tabel6 => $this->tl6->ambildata()->num_rows(),
+			$this->tabel8 => $this->tl8->ambildata()->num_rows(),
+			$this->tabel10 => $this->tl10->ambildata()->num_rows(),
+			$this->tabel4 => $this->tl4->ambildata()->num_rows(),
+			$this->tabel9 => $this->tl9->ambildata()->num_rows(),
 			$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
 			$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
 			$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
@@ -815,7 +815,7 @@ class Welcome extends CI_Controller
 			$this->v_part1 => $this->v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
+			$this->tabel7 => $this->tl7->ambil($id)->result(),
 		);
 
 		$this->declarew();

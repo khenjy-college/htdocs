@@ -21,7 +21,7 @@ class Fashotel extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel3_m = 'fsh';
+	private $tabel3_m = 'tl3';
 
 	// deklarasi variabel views
 	private $tabel3_v1;
@@ -63,7 +63,7 @@ class Fashotel extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel3_m = 'fsh';
+		$this->tabel3_m = 'tl3';
 
 		// deklarasi variabel views
 		$this->tabel3_v1 = 'v_' . $this->tabel3;
@@ -117,8 +117,8 @@ class Fashotel extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel3_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel3 => $this->fsh->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel3 => $this->tl3->ambildata()->result()
 		);
 		
 		$this->declarew();
@@ -160,7 +160,7 @@ class Fashotel extends Welcome
 		);
 
 		
-		$simpan = $this->fsh->simpan($data);
+		$simpan = $this->tl3->simpan($data);
 
 		// menampilkan toast jika operasi berhasil
 		if ($simpan) {
@@ -187,7 +187,7 @@ class Fashotel extends Welcome
 		if (!$this->upload->do_upload($this->tabel3_v_input4)) {
 			$gambar = $this->tabel3_v_input4_alt;
 		} else {
-			$table = $this->fsh->ambil($this->tabel3_v_input1_post)->result();
+			$table = $this->tl3->ambil($this->tabel3_v_input1_post)->result();
 			$img = $table[0]->img;
 			unlink($this->tabel3_v_input4_upload_path . $img);
 
@@ -203,7 +203,7 @@ class Fashotel extends Welcome
 			$this->tabel3_field4 => $gambar,
 		);
 
-		$update = $this->fsh->update($data, $where);
+		$update = $this->tl3->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel3_v_flashdata1_msg_3);
@@ -222,12 +222,12 @@ class Fashotel extends Welcome
 	{
 		$this->declare();
 		// mengambil data gambar di database
-		$fashotel = $this->fsh->ambil($id_fashotel)->result();
+		$fashotel = $this->tl3->ambil($id_fashotel)->result();
 		$img = $fashotel[0]->img;
 
 		// menghapus data dan gambar
 		unlink($this->tabel3_v_input4_upload_path . $img);
-		$hapus = $this->fsh->hapus($id_fashotel);
+		$hapus = $this->tl3->hapus($id_fashotel);
 
 		// menampilkan toast jika operasi berhasil
 		if ($hapus) {
@@ -248,8 +248,8 @@ class Fashotel extends Welcome
 			$this->v_part1 => $this->tabel3_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel3 => $this->fsh->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel3 => $this->tl3->ambildata()->result()
 		);
 
 		$this->declarew();

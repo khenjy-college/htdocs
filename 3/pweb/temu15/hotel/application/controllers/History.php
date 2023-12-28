@@ -13,7 +13,7 @@ class History extends Welcome
 	}
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel2_m = 'htr';
+	private $tabel2_m = 'tl2';
 
 	// deklarasi variabel views
 	private $tabel2_v1;
@@ -93,7 +93,7 @@ class History extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel2_m = 'htr';
+		$this->tabel2_m = 'tl2';
 
 		// deklarasi variabel views
 
@@ -107,7 +107,7 @@ class History extends Welcome
 		// deklarasi variabel controller
 		$this->tabel2_c1 = $this->tabel2;
 		$this->tabel2_c2 = $this->tabel2 . '/tambah';
-		$this->tabel2_c3 = $this->tabel2 . '/update';
+			$this->tabel2_c3 = $this->tabel2 . '/update';
 		$this->tabel2_c4 = $this->tabel2 . '/hapus';
 		$this->tabel2_c5 = $this->tabel2 . '/laporan';
 
@@ -183,14 +183,14 @@ class History extends Welcome
 		$param3 = $this->tabel2_v_input12_filter1_get;
 		$param4 = $this->tabel2_v_input12_filter2_get;
 
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->tabel2_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->tl2->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			$this->tabel2_v_input11_filter1 => $param1,
@@ -198,6 +198,9 @@ class History extends Welcome
 			$this->tabel2_v_input12_filter1 => $param3,
 			$this->tabel2_v_input12_filter2 => $param4,
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -218,9 +221,9 @@ class History extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->ambil_id_user($where)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->tl2->ambil_id_user($where)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
 			$this->tabel2_v_input11_filter1 => $param1,
@@ -249,9 +252,9 @@ class History extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->filter($param1, $param2, $param3, $param4)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->tl2->filter($param1, $param2, $param3, $param4)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
 			$this->tabel2_v_input11_filter1 => $param1,
@@ -282,9 +285,9 @@ class History extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->tl2->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
 			$this->tabel2_v_input11_filter1 => $param1,
@@ -302,7 +305,7 @@ class History extends Welcome
 	public function hapus($id_history = null)
 	{
 		$this->declare();
-		$hapus = $this->htr->hapus($id_history);
+		$hapus = $this->tl2->hapus($id_history);
 		redirect(site_url($this->tabel2));
 	}
 
@@ -313,9 +316,9 @@ class History extends Welcome
 			$this->v_part1 => $this->tabel2_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel2 => $this->htr->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel2 => $this->tl2->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();

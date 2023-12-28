@@ -8,49 +8,49 @@
   <div class="col-md-6">
 
     <!-- form edit favicon, logo, dan foto -->
-    <?php foreach ($pengaturan as $p) : ?>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon<?= $p->id ?>">
+    <?php foreach ($pengaturan as $tl7) : ?>
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon<?= $tl7->id ?>">
         <i class="fas fa-edit"></i> <?= $tabel7_field3_alias ?></a>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#logo<?= $p->id ?>">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#logo<?= $tl7->id ?>">
         <i class="fas fa-edit"></i> <?= $tabel7_field4_alias ?></a>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#foto<?= $p->id ?>">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#foto<?= $tl7->id ?>">
         <i class="fas fa-edit"></i> <?= $tabel7_field5_alias ?></a>
 
       <form action="<?= site_url('pengaturan/update') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label><?= $tabel7_field2_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="nama" value="<?= $p->nama; ?>">
-          <input type="hidden" name="id" value="<?= $p->id; ?>">
+          <input class="form-control pengaturan" required type="text" name="nama" value="<?= $tl7->nama; ?>">
+          <input type="hidden" name="id" value="<?= $tl7->id; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field6_alias ?></label>
-          <textarea class="form-control pengaturan" required name="alamat" rows="3"><?= $p->alamat; ?></textarea>
+          <textarea class="form-control pengaturan" required name="alamat" rows="3"><?= $tl7->alamat; ?></textarea>
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field7_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="email" value="<?= $p->email; ?>">
+          <input class="form-control pengaturan" required type="text" name="email" value="<?= $tl7->email; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field8_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="hp" value="<?= $p->hp; ?>">
+          <input class="form-control pengaturan" required type="text" name="hp" value="<?= $tl7->hp; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field9_alias ?></label>
-          <textarea class="form-control pengaturan" required name="metadesc" rows="5"><?= $p->metadesc; ?></textarea>
+          <textarea class="form-control pengaturan" required name="metadesc" rows="5"><?= $tl7->metadesc; ?></textarea>
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field10_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="fb" placeholder="Masukkan link" value="<?= $p->fb; ?>">
+          <input class="form-control pengaturan" required type="text" name="fb" placeholder="Masukkan link" value="<?= $tl7->fb; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field11_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="ig" placeholder="Masukkan link" value="<?= $p->ig; ?>">
+          <input class="form-control pengaturan" required type="text" name="ig" placeholder="Masukkan link" value="<?= $tl7->ig; ?>">
         </div>
 
         <div class="form-group">
@@ -66,12 +66,12 @@
 
 
 <!-- modal edit favicon-->
-<?php foreach ($pengaturan as $p) : ?>
-  <div id="favicon<?= $p->id; ?>" class="modal fade favicon">
+<?php foreach ($pengaturan as $tl7) : ?>
+  <div id="favicon<?= $tl7->id; ?>" class="modal fade favicon">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel7_field3_alias ?> <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field3_alias ?> <?= $tl7->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -82,15 +82,15 @@
           <div class="modal-body">
 
             <div class="form-group">
-              <img src="img/<?= $p->favicon; ?>" width="300">
+              <img src="img/<?= $tl7->favicon; ?>" width="300">
             </div>
             <hr>
 
             <div class="form-group">
               <label>Ubah <?= $tabel7_field3_alias ?></label>
               <input class="form-control-file" required type="file" name="favicon">
-              <input type="hidden" name="id" value="<?= $p->id; ?>">
-              <input type="hidden" name="txtfavicon" value="<?= $p->favicon; ?>">
+              <input type="hidden" name="id" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txtfavicon" value="<?= $tl7->favicon; ?>">
             </div>
           </div>
 
@@ -107,12 +107,12 @@
 <?php endforeach; ?>
 
 <!-- modal edit logo-->
-<?php foreach ($pengaturan as $p) : ?>
-  <div id="logo<?= $p->id; ?>" class="modal fade logo">
+<?php foreach ($pengaturan as $tl7) : ?>
+  <div id="logo<?= $tl7->id; ?>" class="modal fade logo">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel7_field4_alias ?> <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field4_alias ?> <?= $tl7->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -123,7 +123,7 @@
           <div class="modal-body">
 
             <div class="form-group">
-              <img src="img/<?= $p->logo; ?>" width="300">
+              <img src="img/<?= $tl7->logo; ?>" width="300">
             </div>
             <hr>
 
@@ -131,8 +131,8 @@
             <div class="form-group">
               <label>Ubah <?= $tabel7_field4_alias ?></label>
               <input class="form-control-file" required type="file" name="logo">
-              <input type="hidden" name="id" value="<?= $p->id; ?>">
-              <input type="hidden" name="txtlogo" value="<?= $p->logo; ?>">
+              <input type="hidden" name="id" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txtlogo" value="<?= $tl7->logo; ?>">
             </div>
           </div>
 
@@ -149,12 +149,12 @@
 <?php endforeach; ?>
 
 <!-- modal edit foto-->
-<?php foreach ($pengaturan as $p) : ?>
-  <div id="foto<?= $p->id; ?>" class="modal fade foto">
+<?php foreach ($pengaturan as $tl7) : ?>
+  <div id="foto<?= $tl7->id; ?>" class="modal fade foto">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel7_field5_alias ?> <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field5_alias ?> <?= $tl7->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -165,15 +165,15 @@
           <div class="modal-body">
 
             <div class="form-group">
-              <img src="img/<?= $p->foto; ?>" width="300">
+              <img src="img/<?= $tl7->foto; ?>" width="300">
             </div>
             <hr>
 
             <div class="form-group">
               <label>Ubah <?= $tabel7_field5_alias ?></label>
               <input class="form-control-file" required type="file" name="foto">
-              <input type="hidden" name="id" value="<?= $p->id; ?>">
-              <input type="hidden" name="txtfoto" value="<?= $p->foto; ?>">
+              <input type="hidden" name="id" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txtfoto" value="<?= $tl7->foto; ?>">
             </div>
           </div>
 

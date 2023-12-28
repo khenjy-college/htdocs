@@ -100,8 +100,8 @@
         <label><?= $tabel6_field2_alias ?></label>
         <select class="form-control" required name="id_tipe">
           <option selected hidden value="">Pilih <?= $tabel6_field2_alias ?>...</option>
-          <?php foreach ($tipe_kamar as $tk) : ?>
-            <option value="<?= $tk->id_tipe; ?>"><?= $tk->tipe ?></option>
+          <?php foreach ($tipe_kamar as $tl6) : ?>
+            <option value="<?= $tl6->id_tipe; ?>"><?= $tl6->tipe ?></option>
           <?php endforeach ?>
         </select>
       </div>

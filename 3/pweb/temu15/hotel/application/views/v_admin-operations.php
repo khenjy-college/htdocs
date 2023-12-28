@@ -22,17 +22,17 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($operations as $o) : ?>
+      <?php foreach ($operations as $tl11) : ?>
         <tr>
-          <td><?= $o->id_operations ?></td>
-          <td><?= $o->no_kamar ?></td>
-          <td><?= $o->id_user ?></td>
-          <td><?= $o->id_petugas ?></td>
-          <td><?= $o->keterangan ?></td>
-          <td><?= $o->tgl_perubahan ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $o->id_operations ?>">
+          <td><?= $tl11->id_operations ?></td>
+          <td><?= $tl11->no_kamar ?></td>
+          <td><?= $tl11->id_user ?></td>
+          <td><?= $tl11->id_petugas ?></td>
+          <td><?= $tl11->keterangan ?></td>
+          <td><?= $tl11->tgl_perubahan ?></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl11->id_operations ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-danger" onclick="return confirm('Hapus data operations?')" href="<?= site_url('operations/hapus/' . $o->id_operations) ?>">
+            <a class="btn btn-light text-danger" onclick="return confirm('Hapus data operations?')" href="<?= site_url('operations/hapus/' . $tl11->id_operations) ?>">
               <i class="fas fa-trash"></i></a>
           </td>
         </tr>
@@ -55,12 +55,12 @@
 </div>
 
 <!-- modal lihat -->
-<?php foreach ($operations as $o) : ?>
-  <div id="lihat<?= $o->id_operations ?>" class="modal fade lihat">
+<?php foreach ($operations as $tl11) : ?>
+  <div id="lihat<?= $tl11->id_operations ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel11_alias ?> <?= $o->id_operations ?></h5>
+          <h5 class="modal-title"><?= $tabel11_alias ?> <?= $tl11->id_operations ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -72,19 +72,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label><?= $tabel11_field1_alias ?></label>
-                <p><?= $o->id_operations ?></p>
+                <p><?= $tl11->id_operations ?></p>
               </div>
               <hr>
 
               <div class="form-group">
                 <label><?= $tabel11_field2_alias ?></label>
-                <p><?= $o->no_kamar ?></p>
+                <p><?= $tl11->no_kamar ?></p>
               </div>
               <hr>
 
               <div class="form-group">
                 <label><?= $tabel11_field3_alias ?></label>
-                <p><?= $o->id_user ?></p>
+                <p><?= $tl11->id_user ?></p>
               </div>
 
             </div>
@@ -92,19 +92,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label><?= $tabel11_field4_alias ?></label>
-                <p><?= $o->id_petugas ?></p>
+                <p><?= $tl11->id_petugas ?></p>
               </div>
               <hr>
 
               <div class="form-group">
                 <label><?= $tabel11_field5_alias ?></label>
-                <p><?= $o->keterangan ?></p>
+                <p><?= $tl11->keterangan ?></p>
               </div>
               <hr>
 
               <div class="form-group">
                 <label><?= $tabel11_field6_alias ?></label>
-                <p><?= $o->tgl_perubahan ?></p>
+                <p><?= $tl11->tgl_perubahan ?></p>
               </div>
             </div>
           </div>

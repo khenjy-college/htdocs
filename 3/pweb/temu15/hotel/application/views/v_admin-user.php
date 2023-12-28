@@ -23,21 +23,21 @@
     </thead>
 
     <tbody>
-      <?php foreach ($user as $u) : ?>
+      <?php foreach ($user as $tl9) : ?>
         <tr>
-          <td><?= $u->id_user; ?></td>
-          <td><?= $u->nama ?></td>
-          <td><?= $u->email ?></td>
-          <td><?= $u->hp ?></td>
-          <td><?= $u->level ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $u->id_user; ?>">
+          <td><?= $tl9->id_user; ?></td>
+          <td><?= $tl9->nama ?></td>
+          <td><?= $tl9->email ?></td>
+          <td><?= $tl9->hp ?></td>
+          <td><?= $tl9->level ?></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl9->id_user; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $u->id_user; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl9->id_user; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
           Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
-            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('user/hapus/' . $u->id_user) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('user/hapus/' . $tl9->id_user) ?>">
             <i class="fas fa-trash"></i></a> -->
 
           </td>
@@ -136,12 +136,12 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($user as $u) : ?>
-  <div id="ubah<?= $u->id_user; ?>" class="modal fade ubah">
+<?php foreach ($user as $tl9) : ?>
+  <div id="ubah<?= $tl9->id_user; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel9_alias ?> <?= $u->id_user; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel9_alias ?> <?= $tl9->id_user; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -155,22 +155,22 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input class="form-control" type="text" required name="nama" value="<?= $u->nama; ?>">
-              <input type="hidden" name="id_user" value="<?= $u->id_user; ?>">
+              <input class="form-control" type="text" required name="nama" value="<?= $tl9->nama; ?>">
+              <input type="hidden" name="id_user" value="<?= $tl9->id_user; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
               </div>
-              <input class="form-control" type="email" required name="email" value="<?= $u->email; ?>">
+              <input class="form-control" type="email" required name="email" value="<?= $tl9->email; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
               </div>
-              <input class="form-control" type="text" required name="hp" value="<?= $u->hp; ?>">
+              <input class="form-control" type="text" required name="hp" value="<?= $tl9->hp; ?>">
             </div>
 
             <div class="input-group">
@@ -178,7 +178,7 @@
                 <span class="input-group-text"><i class="fas fa-users"></i></span>
               </div>
               <select class="form-control" required name="level">
-                <option selected hidden><?= $u->level; ?></option>
+                <option selected hidden><?= $tl9->level; ?></option>
                 <option value="tamu">tamu</option>
                 <option value="resepsionis">resepsionis</option>
                 <option value="accounting">accounting</option>
@@ -200,12 +200,12 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($user as $u) : ?>
-  <div id="lihat<?= $u->id_user; ?>" class="modal fade lihat" role="dialog">
+<?php foreach ($user as $tl9) : ?>
+  <div id="lihat<?= $tl9->id_user; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel9_alias ?> <?= $u->id_user; ?></h5>
+          <h5 class="modal-title"><?= $tabel9_alias ?> <?= $tl9->id_user; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -217,25 +217,25 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel9_field2_alias ?> : </label>
-              <p><?= $u->nama; ?></p>
+              <p><?= $tl9->nama; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel9_field3_alias ?> : </label>
-              <p><?= $u->email; ?></p>
+              <p><?= $tl9->email; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel9_field5_alias ?> : </label>
-              <p><?= $u->hp; ?></p>
+              <p><?= $tl9->hp; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel9_field6_alias ?> : </label>
-              <p><?= $u->level; ?></p>
+              <p><?= $tl9->level; ?></p>
             </div>
           </div>
 

@@ -22,16 +22,16 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($tipe_kamar as $tp) : ?>
+      <?php foreach ($tipe_kamar as $tl6) : ?>
         <tr>
-          <td><?= $tp->id_tipe; ?></td>
-          <td><?= $tp->tipe ?></td>
-          <td><?= $tp->stok ?></td>
-          <td>Rp <?= number_format($tp->harga, '2', ',', '.') ?></td>
-          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/tipe_kamar/<?= $tp->img ?>"></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tp->id_tipe; ?>">
+          <td><?= $tl6->id_tipe; ?></td>
+          <td><?= $tl6->tipe ?></td>
+          <td><?= $tl6->stok ?></td>
+          <td>Rp <?= number_format($tl6->harga, '2', ',', '.') ?></td>
+          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/tipe_kamar/<?= $tl6->img ?>"></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl6->id_tipe; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tp->id_tipe; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl6->id_tipe; ?>">
               <i class="fas fa-edit"></i></a>
 
 
@@ -41,7 +41,7 @@
             Namun use case tersebut saat ini masih belum bisa ditentukan
             Entah itu mau menghapus data yang berada di tabel child, atau meng-NULL kan data di child table
             Hal itu perlu didiskusikan lebih lanjut supaya tidak ada bug yang tidak diinginkan -->
-            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kamar?')" href="<?= site_url('tipe_kamar/hapus/' . $tp->id_tipe) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kamar?')" href="<?= site_url('tipe_kamar/hapus/' . $tl6->id_tipe) ?>">
             <i class="fas fa-trash"></i></a> -->
 
           </td>
@@ -105,12 +105,12 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="ubah<?= $tp->id_tipe; ?>" class="modal fade ubah">
+<?php foreach ($tipe_kamar as $tl6) : ?>
+  <div id="ubah<?= $tl6->id_tipe; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel6_alias ?> <?= $tp->id_tipe; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel6_alias ?> <?= $tl6->id_tipe; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -121,24 +121,24 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel6_field2_alias ?></label>
-              <input class="form-control" type="text" required name="tipe" value="<?= $tp->tipe; ?>">
-              <input type="hidden" name="id_tipe" value="<?= $tp->id_tipe; ?>">
+              <input class="form-control" type="text" required name="tipe" value="<?= $tl6->tipe; ?>">
+              <input type="hidden" name="id_tipe" value="<?= $tl6->id_tipe; ?>">
             </div>
 
             <div class="form-group">
               <label><?= $tabel6_field5_alias ?> (Per hari & Per jumlah)</label>
-              <input class="form-control" type="number" required name="harga" value="<?= $tp->harga; ?>">
+              <input class="form-control" type="number" required name="harga" value="<?= $tl6->harga; ?>">
             </div>
 
             <div class="form-group">
-              <img src="img/tipe_kamar/<?= $tp->img; ?>" width="300">
+              <img src="img/tipe_kamar/<?= $tl6->img; ?>" width="300">
             </div>
             <hr>
 
             <div class="form-group">
               <label>Ubah <?= $tabel6_field3_alias ?></label>
               <input class="form-control-file" type="file" name="img">
-              <input type="hidden" name="txtimg" value="<?= $tp->img; ?>">
+              <input type="hidden" name="txtimg" value="<?= $tl6->img; ?>">
             </div>
           </div>
 
@@ -155,12 +155,12 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($tipe_kamar as $tp) : ?>
-  <div id="lihat<?= $tp->id_tipe; ?>" class="modal fade lihat" role="dialog">
+<?php foreach ($tipe_kamar as $tl6) : ?>
+  <div id="lihat<?= $tl6->id_tipe; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel6_alias ?> <?= $tp->id_tipe; ?></h5>
+          <h5 class="modal-title"><?= $tabel6_alias ?> <?= $tl6->id_tipe; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -171,24 +171,24 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel6_field2_alias ?> : </label>
-              <p><?= $tp->tipe; ?></p>
+              <p><?= $tl6->tipe; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel6_field4_alias ?> : </label>
-              <p><?= $tp->stok; ?></p>
+              <p><?= $tl6->stok; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel6_field3_alias ?> (Per hari & Per jumlah) : </label>
-              <p>Rp <?= number_format($tp->harga, '2', ',', '.') ?></p>
+              <p>Rp <?= number_format($tl6->harga, '2', ',', '.') ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <img src="img/tipe_kamar/<?= $tp->img; ?>" width="450">
+              <img src="img/tipe_kamar/<?= $tl6->img; ?>" width="450">
 
             </div>
 

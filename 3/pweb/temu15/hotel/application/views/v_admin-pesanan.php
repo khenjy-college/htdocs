@@ -12,7 +12,7 @@
   <form action="<?= site_url('pesanan/filter') ?>" method="get">
     <tr>
 
-      <td class="pr-2">Cek In</td>
+      <td class="pr-2"><?= $tabel8_field10_alias ?></td>
       <td class="pr-2">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -45,7 +45,7 @@
     <!-- method get supaya nilai dari filter bisa tampil nanti -->
     <tr>
 
-      <td class="pr-2">Cek Out</td>
+      <td class="pr-2"><?= $tabel8_field11_alias ?></td>
       <td class="pr-2">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -83,28 +83,28 @@
     </thead>
 
     <tbody>
-      <?php foreach ($pesanan as $ps) : ?>
+      <?php foreach ($pesanan as $tl8) : ?>
         <tr>
-          <td><?= $ps->tamu ?></td>
-          <td><?= $ps->cek_in ?></td>
-          <td><?= $ps->cek_out ?></td>
-          <td><?= $ps->status ?></td>
+          <td><?= $tl8->tamu ?></td>
+          <td><?= $tl8->cek_in ?></td>
+          <td><?= $tl8->cek_out ?></td>
+          <td><?= $tl8->status ?></td>
 
           <td>
 
             <!-- tombol yang akan muncul berdasarkan nilai dari status -->
-            <?php if ($ps->status == 'pending') { ?>
-              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $ps->id_pesanan ?>">
+            <?php if ($tl8->status == 'pending') { ?>
+              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->id_pesanan ?>">
                 <i class="fas fa-bell-concierge"></i></a>
-            <?php } elseif ($ps->status == 'menunggu') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
+            <?php } elseif ($tl8->status == 'menunggu') { ?>
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pesanan ?>">
                 <i class="fas fa-edit"></i></a>
-            <?php } elseif ($ps->status == 'cek in') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
+            <?php } elseif ($tl8->status == 'cek in') { ?>
+              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pesanan ?>">
                 <i class="fas fa-edit"></i></a>
 
-            <?php } elseif ($ps->status == 'cek out') { ?>
-              <a class="btn btn-light text-danger" onclick="return confirm('Hapus pesanan?')" href="<?= site_url('pesanan/hapus/' . $ps->id_pesanan) ?>">
+            <?php } elseif ($tl8->status == 'cek out') { ?>
+              <a class="btn btn-light text-danger" onclick="return confirm('Hapus pesanan?')" href="<?= site_url('pesanan/hapus/' . $tl8->id_pesanan) ?>">
                 <i class="fas fa-trash"></i></a>
             <?php } ?>
 
@@ -112,7 +112,7 @@
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-            <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $ps->id_pesanan) ?>" target="_blank">
+            <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $tl8->id_pesanan) ?>" target="_blank">
               <i class="fas fa-print"></i></a>
 
           </td>
@@ -123,10 +123,10 @@
 
     <tfoot>
       <tr>
-        <td><?= $ps->tamu ?></td>
-        <td><?= $ps->cek_in ?></td>
-        <td><?= $ps->cek_out ?></td>
-        <td><?= $ps->status ?></td>
+        <th><?= $tabel8_field6_alias ?></th>
+        <th><?= $tabel8_field10_alias ?></th>
+        <th><?= $tabel8_field11_alias ?></th>
+        <th><?= $tabel8_field12_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -134,14 +134,14 @@
 </div>
 
 <!-- modal ubah -->
-<?php foreach ($pesanan as $ps) : ?>
-  <div id="ubah<?= $ps->id_pesanan ?>" class="modal fade ubah">
-    <?php foreach ($tipe_kamar as $tk) : ?>
-      <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
+<?php foreach ($pesanan as $tl8) : ?>
+  <div id="ubah<?= $tl8->id_pesanan ?>" class="modal fade ubah">
+    <?php foreach ($tipe_kamar as $tl6) : ?>
+      <?php if ($tl6->id_tipe === $tl8->id_tipe) { ?>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+              <h5 class="modal-title">Pesanan <?= $tl8->id_pesanan ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -155,17 +155,17 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel8_field1_alias ?></label>
-                      <p><?= $ps->id_pesanan ?></p>
-                      <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
-                      <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
+                      <p><?= $tl8->id_pesanan ?></p>
+                      <input type="hidden" name="id_pesanan" value="<?= $tl8->id_pesanan; ?>">
+                      <input type="hidden" name="id_tipe" value="<?= $tl8->id_tipe; ?>">
 
                       <!-- input status berdasarkan nilai status -->
                       <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
-                      <?php if ($ps->status == 'belum bayar') { ?>
+                      <?php if ($tl8->status == 'belum bayar') { ?>
                         <input type="hidden" name="status" value="menunggu">
-                      <?php } elseif ($ps->status == 'menunggu') { ?>
+                      <?php } elseif ($tl8->status == 'menunggu') { ?>
                         <input type="hidden" name="status" value="cek in">
-                      <?php } elseif ($ps->status == 'cek in') { ?>
+                      <?php } elseif ($tl8->status == 'cek in') { ?>
                         <input type="hidden" name="status" value="cek out">
                       <?php } ?>
 
@@ -174,44 +174,44 @@
 
                     <div class="form-group">
                       <label><?= $tabel8_field3_alias ?></label>
-                      <p><?= $ps->pemesan ?></p>
+                      <p><?= $tl8->pemesan ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field4_alias ?></label>
-                      <p><?= $ps->email ?></p>
+                      <p><?= $tl8->email ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field5_alias ?></label>
-                      <p><?= $ps->hp ?></p>
+                      <p><?= $tl8->hp ?></p>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel8_field6_alias ?></label>
-                      <p><?= $ps->tamu ?></p>
+                      <p><?= $tl8->tamu ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel6_field2_alias ?></label>
-                      <p><?= $tk->tipe ?></p>
+                      <p><?= $tl6->tipe ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field10_alias ?></label>
-                      <p><?= $ps->cek_in ?></p>
+                      <p><?= $tl8->cek_in ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field11_alias ?></label>
-                      <p><?= $ps->cek_out ?></p>
+                      <p><?= $tl8->cek_out ?></p>
                     </div>
                   </div>
                 </div>
@@ -223,12 +223,12 @@
               <div class="modal-footer">
 
                 <!-- pesan yg muncul berdasarkan nilai status -->
-                <?php if ($ps->status == 'belum bayar') { ?>
+                <?php if ($tl8->status == 'belum bayar') { ?>
                   <p>Selesaikan Dulu Transaksi</p>
-                <?php } elseif ($ps->status == 'menunggu') { ?>
+                <?php } elseif ($tl8->status == 'menunggu') { ?>
                   <p>Ubah Status Menjadi Cek In?</p>
                   <button class="btn btn-success" type="submit">Ya</button>
-                <?php } elseif ($ps->status == 'cek in') { ?>
+                <?php } elseif ($tl8->status == 'cek in') { ?>
                   <p>Ubah Status Menjadi Cek Out?</p>
                   <button class="btn btn-success" type="submit">Ya</button>
                 <?php } ?>
@@ -244,14 +244,14 @@
 <?php endforeach ?>
 
 <!-- modal book -->
-<?php foreach ($pesanan as $ps) : ?>
-  <div id="book<?= $ps->id_pesanan ?>" class="modal fade book">
-    <?php foreach ($tipe_kamar as $tk) : ?>
-      <?php if ($tk->id_tipe === $ps->id_tipe) { ?>
+<?php foreach ($pesanan as $tl8) : ?>
+  <div id="book<?= $tl8->id_pesanan ?>" class="modal fade book">
+    <?php foreach ($tipe_kamar as $tl6) : ?>
+      <?php if ($tl6->id_tipe === $tl8->id_tipe) { ?>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $ps->id_pesanan ?></h5>
+              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pesanan ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -265,17 +265,17 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel8_field1_alias ?></label>
-                      <p><?= $ps->id_pesanan ?></p>
-                      <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
-                      <input type="hidden" name="id_tipe" value="<?= $ps->id_tipe; ?>">
+                      <p><?= $tl8->id_pesanan ?></p>
+                      <input type="hidden" name="id_pesanan" value="<?= $tl8->id_pesanan; ?>">
+                      <input type="hidden" name="id_tipe" value="<?= $tl8->id_tipe; ?>">
 
                       <!-- input status berdasarkan nilai status -->
                       <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
-                      <?php if ($ps->status == 'belum bayar') { ?>
+                      <?php if ($tl8->status == 'belum bayar') { ?>
                         <input type="hidden" name="status" value="menunggu">
-                      <?php } elseif ($ps->status == 'menunggu') { ?>
+                      <?php } elseif ($tl8->status == 'menunggu') { ?>
                         <input type="hidden" name="status" value="cek in">
-                      <?php } elseif ($ps->status == 'cek in') { ?>
+                      <?php } elseif ($tl8->status == 'cek in') { ?>
                         <input type="hidden" name="status" value="cek out">
                       <?php } ?>
 
@@ -284,44 +284,44 @@
 
                     <div class="form-group">
                       <label><?= $tabel8_field3_alias ?></label>
-                      <p><?= $ps->pemesan ?></p>
+                      <p><?= $tl8->pemesan ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field4_alias ?></label>
-                      <p><?= $ps->email ?></p>
+                      <p><?= $tl8->email ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field5_alias ?></label>
-                      <p><?= $ps->hp ?></p>
+                      <p><?= $tl8->hp ?></p>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel8_field6_alias ?></label>
-                      <p><?= $ps->tamu ?></p>
+                      <p><?= $tl8->tamu ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel6_field2_alias ?></label>
-                      <p><?= $tk->tipe ?></p>
+                      <p><?= $tl6->tipe ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field10_alias ?></label>
-                      <p><?= $ps->cek_in ?></p>
+                      <p><?= $tl8->cek_in ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel8_field11_alias ?></label>
-                      <p><?= $ps->cek_out ?></p>
+                      <p><?= $tl8->cek_out ?></p>
                     </div>
                   </div>
                 </div>
@@ -330,24 +330,56 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Pilih <?= $tabel5_field1_alias ?></label>
-                      <select class="form-control" required name="no_kamar">
 
+                      <div class="row">
+
+                        <!-- <select class="form-control" required name="no_kamar"> -->
                         <!-- menampilkan nilai id_tipe kamar yang aktif -->
-                        <option selected hidden value="">Pilih No Kamar:</option>
+                        <!-- <option selected hidden value="">Pilih No Kamar:</option> -->
+                        <!-- <option value="<?= $tl5->no_kamar ?>"><?= $tl5->no_kamar; ?> - <?= $tl6->tipe ?></option> -->
+                        <!-- </select> -->
 
-                        <?php foreach ($kamar as $km) :
-                          if ($ps->id_tipe == $km->id_tipe) {
-                            if ($km->id_tipe == $tk->id_tipe) {
-                              if ($km->status == 'Available') { ?>
+                        <?php foreach ($kamar as $tl5) :
+                          if ($tl8->id_tipe == $tl5->id_tipe) {
+                            if ($tl5->id_tipe == $tl6->id_tipe) {
+                              if ($tl5->status == 'Available') { ?>
 
-                                <option value="<?= $km->no_kamar ?>"><?= $km->no_kamar; ?> - <?= $tk->tipe ?></option>
+                                <div class="col-md-3 mb-4">
+
+                                  <div class="card bg-light">
+                                    <div class="card-body text-center">
+
+                                      <div class="checkbox-group">
+                                        <p class="card-text"><?= $tl5->no_kamar; ?></p>
+
+                                        <div class="btn-group-toggle" data-toggle="buttons">
+                                          <label class="btn btn-primary">
+
+                                            <input type="checkbox" name="no_kamar" id="option1" class="checkbox-option" value="<?= $tl5->no_kamar ?>" required>
+
+
+                                          </label>
+                                        </div>
+                                      </div>
+
+                                      <!-- <div style="margin-bottom: 20px;" class="form-check d-flex justify-content-center">
+                                        <input class="custom-radio form-check-input" type="radio" id="radio_1" name="no_kamar" value="<?= $tl5->no_kamar ?>" required>
+                                      </div> -->
+
+                                    </div>
+                                  </div>
+
+                                </div>
+
 
                         <?php }
                             }
                           }
                         endforeach; ?>
 
-                      </select>
+                      </div>
+
+
                       <p>*Jika tidak ada, berarti semua <?= $tabel5_alias ?> full</p>
                       <input type="hidden" name="status" value="belum bayar">
                     </div>

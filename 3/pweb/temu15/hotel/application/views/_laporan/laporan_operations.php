@@ -10,10 +10,10 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($pengaturan as $p) : ?>
+    <?php foreach ($pengaturan as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $p->nama; ?> | <?= $p->hp; ?> | <?= $p->email; ?></p>
-      <p class="text-center"><?= $p->alamat; ?></p>
+      <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
+      <p class="text-center"><?= $tl7->alamat; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
@@ -31,14 +31,14 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($operations as $op) : ?>
+        <?php foreach ($operations as $tl11) : ?>
           <tr>
-            <td width="10%"><?= $op->id_operations ?></td>
-            <td width="15%"><?= $op->no_kamar ?></a></td>
-            <td width="10%"><?= $op->id_user ?></a></td>
-            <td width="25%"><?= $op->id_petugas ?></a></td>
-            <td width="20%"><?= $op->keterangan ?></a></td>
-            <td width="20%"><?= $op->tgl_perubahan ?></td>
+            <td width="10%"><?= $tl11->id_operations ?></td>
+            <td width="15%"><?= $tl11->no_kamar ?></a></td>
+            <td width="10%"><?= $tl11->id_user ?></a></td>
+            <td width="25%"><?= $tl11->id_petugas ?></a></td>
+            <td width="20%"><?= $tl11->keterangan ?></a></td>
+            <td width="20%"><?= $tl11->tgl_perubahan ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

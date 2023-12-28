@@ -28,23 +28,23 @@
     <tbody>
 
       <!-- menampilkan setiap baris data fashotel sebagai fh dalam tabel -->
-      <?php foreach ($fashotel as $fh) : ?>
+      <?php foreach ($fashotel as $tl3) : ?>
         <tr>
-          <td><?= $fh->id_fashotel; ?></td>
-          <td><?= $fh->nama ?></td>
-          <td><?= $fh->keterangan ?></td>
-          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/fashotel/<?= $fh->img ?>"></td>
+          <td><?= $tl3->id_fashotel; ?></td>
+          <td><?= $tl3->nama ?></td>
+          <td><?= $tl3->keterangan ?></td>
+          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/fashotel/<?= $tl3->img ?>"></td>
 
           <!-- menampilkan modal lihat data berdasarkan id -->
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fh->id_fashotel; ?>">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl3->id_fashotel; ?>">
               <i class="fas fa-eye"></i></a>
 
             <!-- menampilkan modal ubah data berdasarkan id -->
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fh->id_fashotel; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl3->id_fashotel; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- menghapus data berdasarkan id -->
-            <a class="btn btn-light text-danger" type="button" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('fashotel/hapus/' . $fh->id_fashotel) ?>">
+            <a class="btn btn-light text-danger" type="button" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('fashotel/hapus/' . $tl3->id_fashotel) ?>">
               <i class="fas fa-trash"></i></a>
 
           </td>
@@ -123,16 +123,16 @@
 </div>
 
 <!-- menampilkan data fashotel sebagai fh dalam modal -->
-<?php foreach ($fashotel as $fh) : ?>
+<?php foreach ($fashotel as $tl3) : ?>
 
   <!-- modal edit -->
-  <div id="ubah<?= $fh->id_fashotel; ?>" class="modal fade ubah">
+  <div id="ubah<?= $tl3->id_fashotel; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
 
         <!-- header modal -->
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel3_alias ?> <?= $fh->id_fashotel; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel3_alias ?> <?= $tl3->id_fashotel; ?></h5>
 
           <!-- tombol tutup modal -->
           <button class="close" data-dismiss="modal">
@@ -148,18 +148,18 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel3_field1_alias ?></label>
-              <input class="form-control" type="text" required name="nama" value="<?= $fh->nama; ?>">
-              <input type="hidden" name="id_fashotel" value="<?= $fh->id_fashotel; ?>">
+              <input class="form-control" type="text" required name="nama" value="<?= $tl3->nama; ?>">
+              <input type="hidden" name="id_fashotel" value="<?= $tl3->id_fashotel; ?>">
             </div>
 
             <div class="form-group">
               <label><?= $tabel3_field3_alias ?></label>
-              <textarea class="form-control" required name="keterangan" rows="3"><?= $fh->keterangan; ?></textarea>
+              <textarea class="form-control" required name="keterangan" rows="3"><?= $tl3->keterangan; ?></textarea>
             </div>
 
             <div class="form-group">
 
-              <img src="img/fashotel/<?= $fh->img; ?>" width="300">
+              <img src="img/fashotel/<?= $tl3->img; ?>" width="300">
             </div>
 
             <hr>
@@ -168,7 +168,7 @@
             <div class="form-group">
               <label>Ubah <?= $tabel3_field4_alias ?></label>
               <input class="form-control-file" type="file" name="img">
-              <input type="hidden" name="txtimg" value="<?= $fh->img; ?>">
+              <input type="hidden" name="txtimg" value="<?= $tl3->img; ?>">
             </div>
           </div>
 
@@ -193,16 +193,16 @@
 <?php endforeach; ?>
 
 <!-- menampilkan data fashotel sebagai fh dalam modal -->
-<?php foreach ($fashotel as $fh) : ?>
+<?php foreach ($fashotel as $tl3) : ?>
 
   <!-- modal lihat -->
-  <div id="lihat<?= $fh->id_fashotel; ?>" class="modal fade lihat" role="dialog">
+  <div id="lihat<?= $tl3->id_fashotel; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
         <!-- header modal -->
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel3_alias ?> <?= $fh->id_fashotel; ?></h5>
+          <h5 class="modal-title"><?= $tabel3_alias ?> <?= $tl3->id_fashotel; ?></h5>
 
           <!-- tombol tutup modal -->
           <button class="close" data-dismiss="modal">
@@ -218,18 +218,18 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel1_field3_alias ?> : </label>
-              <p><?= $fh->nama; ?></p>
+              <p><?= $tl3->nama; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel3_field3_alias ?> : </label>
-              <p><?= $fh->keterangan; ?></p>
+              <p><?= $tl3->keterangan; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <img src="img/fashotel/<?= $fh->img; ?>" width="450">
+              <img src="img/fashotel/<?= $tl3->img; ?>" width="450">
             </div>
             <hr>
 

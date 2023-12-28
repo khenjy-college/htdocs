@@ -58,3 +58,14 @@ div.fashotel {
 hr {
   margin-top: -2px;
 }
+
+.card.radio {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.form-check {
+  margin-bottom: 0px;
+}

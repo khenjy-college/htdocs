@@ -8,7 +8,7 @@ class Petugas extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel4_m = 'pts';
+	private $tabel4_m = 'tl4';
 
 	// deklarasi variabel views
 	private $tabel4_v1;
@@ -53,7 +53,7 @@ class Petugas extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel4_m = 'pts';
+		$this->tabel4_m = 'tl4';
 
 		// deklarasi variabel views
 
@@ -110,8 +110,8 @@ class Petugas extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel4_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel4 => $this->pts->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel4 => $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -148,7 +148,7 @@ class Petugas extends Welcome
 			$this->tabel4_field7 => 0,
 		);
 
-		$simpan = $this->pts->simpan($data);
+		$simpan = $this->tl4->simpan($data);
 
 		if ($simpan) {
 
@@ -176,7 +176,7 @@ class Petugas extends Welcome
 		if (!$this->upload->do_upload($this->tabel4_v_input5)) {
 			$gambar = $this->input->post($this->tabel4_v_input5_alt);
 		} else {
-			$table = $this->pts->ambil($this->tabel4_v_input1_post)->result();
+			$table = $this->tl4->ambil($this->tabel4_v_input1_post)->result();
 			$img = $table[0]->img;
 			unlink($this->tabel4_v_input5_upload_path . $img);
 
@@ -197,7 +197,7 @@ class Petugas extends Welcome
 			$this->tabel4_field7 => $this->tabel4_v_input7_post,
 		);
 
-		$update = $this->pts->update($data, $where);
+		$update = $this->tl4->update($data, $where);
 
 		if ($update) {
 
@@ -216,12 +216,12 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		// mengambil data gambar di database
-		$petugas = $this->pts->ambil($id_petugas)->result();
+		$petugas = $this->tl4->ambil($id_petugas)->result();
 		$img = $petugas[0]->img;
 
 		// menghapus data dan gambar
 		unlink($this->tabel4_v_input5_upload_path . $img);
-		$hapus = $this->pts->hapus($id_petugas);
+		$hapus = $this->tl4->hapus($id_petugas);
 
 
 		if ($hapus) {
@@ -244,8 +244,8 @@ class Petugas extends Welcome
 			$this->v_part1 => $this->tabel4_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel4 => $this->pts->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel4 => $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();

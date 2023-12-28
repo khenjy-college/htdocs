@@ -6,7 +6,7 @@ class User extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel9_m = 'usr';
+	private $tabel9_m = 'tl9';
 
 	// deklarasi variabel views
 	private $tabel9_v1;
@@ -71,7 +71,7 @@ class User extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel9_m = 'usr';
+		$this->tabel9_m = 'tl9';
 
 		// deklarasi variabel views
 		$this->tabel9_v1 = 'v_' . $this->tabel9;
@@ -147,10 +147,10 @@ class User extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel9_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
-			$this->tabel9 => $this->usr->ambildata()->result()
+			$this->tabel7 => $this->tl8->ambil($id)->result(),
+			$this->tabel9 => $this->tl9->ambildata()->result()
 		);
-		
+
 		$this->declarew();
 		$data = array_merge($data1, $this->aliases);
 
@@ -163,7 +163,7 @@ class User extends Welcome
 		$param2 = $this->tabel9_v_input2_post;
 		$param4 = $this->tabel9_v_input4_post;
 
-		$method2 = $this->usr->ceknama($param2);
+		$method2 = $this->tl9->ceknama($param2);
 
 		// mencari apakah jumlah data kurang dari 1
 		if ($method2->num_rows() < 1) {
@@ -183,7 +183,7 @@ class User extends Welcome
 					$this->tabel9_field6 => $this->tabel9_v_input6_post,
 				);
 
-				$simpan = $this->usr->simpan($data);
+				$simpan = $this->tl9->simpan($data);
 
 				// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
 				if ($this->session->userdata($this->tabel9_field3)) {
@@ -221,7 +221,7 @@ class User extends Welcome
 			$this->tabel9_field5 => $this->tabel9_v_input5_post,
 		);
 
-		$update = $this->usr->update($data, $where);
+		$update = $this->tl9->update($data, $where);
 
 		if ($update) {
 
@@ -240,7 +240,7 @@ class User extends Welcome
 	public function hapus($id_user = null)
 	{
 		$this->declare();
-		$hapus = $this->usr->hapus($id_user);
+		$hapus = $this->tl9->hapus($id_user);
 
 
 		if ($hapus) {
@@ -266,8 +266,8 @@ class User extends Welcome
 			$this->v_part1 => $this->tabel9_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
-			$this->tabel9 => $this->usr->ambildata()->result()
+			$this->tabel7 => $this->tl8->ambil($id)->result(),
+			$this->tabel9 => $this->tl9->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -283,7 +283,7 @@ class User extends Welcome
 	{
 		$this->declare();
 		$id_user = $this->session->userdata($this->tabel9_field1);
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v10_title,
 			$this->v_part2 => $this->head,
 
@@ -292,9 +292,12 @@ class User extends Welcome
 
 			$this->v_part3 => $this->v10,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel9 => $this->usr->ambil($id_user)->result()
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			$this->tabel9 => $this->tl9->ambil($id_user)->result()
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v7, $data);
 	}
@@ -302,12 +305,15 @@ class User extends Welcome
 	public function login($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v2, $data);
 	}
@@ -315,12 +321,15 @@ class User extends Welcome
 	public function signup($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$data = array(
+		$data1 = array(
 			$this->v_part1 => $this->v6_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
 		);
+
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v6, $data);
 	}
@@ -335,7 +344,7 @@ class User extends Welcome
 			$this->tabel9_field5 => $this->tabel9_v_input5_post,
 		);
 
-		$update = $this->usr->update($data, $where);
+		$update = $this->tl9->update($data, $where);
 
 		if ($update) {
 
@@ -348,7 +357,7 @@ class User extends Welcome
 		}
 
 		// mengambil data profil yang baru dirubah
-		$tabel9 = $this->usr->ambil($where)->result();
+		$tabel9 = $this->tl9->ambil($where)->result();
 		$nama = $tabel9[0]->nama;
 		$email = $tabel9[0]->email;
 		$hp = $tabel9[0]->hp;
@@ -367,7 +376,7 @@ class User extends Welcome
 		$this->declare();
 		$where = $this->tabel9_v_input1_post;
 
-		$cek_id = $this->usr->ambil($where);
+		$cek_id = $this->tl9->ambil($where);
 
 		// mencari apakah jumlah data lebih dari 0
 		if ($cek_id->num_rows() > 0) {
@@ -390,7 +399,7 @@ class User extends Welcome
 						$this->tabel9_field4 => password_hash($param4, PASSWORD_DEFAULT),
 					);
 
-					$update = $this->usr->update($data, $where);
+					$update = $this->tl9->update($data, $where);
 
 					redirect($_SERVER['HTTP_REFERER']);
 
@@ -427,7 +436,7 @@ class User extends Welcome
 		$param2 = $this->tabel9_v_input2_post;
 		$param4 = $this->tabel9_v_input4_post;
 
-		$method2 = $this->usr->ceknama($param2);
+		$method2 = $this->tl9->ceknama($param2);
 
 		// mencari apakah jumlah data kurang dari 0
 		if ($method2->num_rows() > 0) {
@@ -443,7 +452,7 @@ class User extends Welcome
 				$level = $tabel9[0]->level;
 				$login_count = $tabel9[0]->login_count;
 
-				$updateCount = $this->usr->updateCount($id_user); 
+				$updateCount = $this->tl9->updateCount($id_user);
 
 				$this->session->set_userdata($this->tabel9_userdata1, $id_user);
 				$this->session->set_userdata($this->tabel9_userdata2, $nama);

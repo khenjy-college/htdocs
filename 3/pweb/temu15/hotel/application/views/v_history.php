@@ -96,17 +96,17 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($history as $h) : ?>
-        <?php foreach ($tipe_kamar as $tk) : ?>
-          <?php if ($tk->id_tipe === $h->id_tipe) { ?>
+      <?php foreach ($history as $tl2) : ?>
+        <?php foreach ($tipe_kamar as $tl6) : ?>
+          <?php if ($tl6->id_tipe === $tl2->id_tipe) { ?>
             <tr>
-              <td><?= $h->id_pesanan ?></td>
-              <td><?= $h->tamu ?></td>
-              <td><?= $tk->tipe ?></td>
-              <td><?= $h->cek_in ?></td>
-              <td><?= $h->cek_out ?></td>
-              <td><?= $h->user_aktif ?></td>
-              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $h->id_history ?>">
+              <td><?= $tl2->id_pesanan ?></td>
+              <td><?= $tl2->tamu ?></td>
+              <td><?= $tl6->tipe ?></td>
+              <td><?= $tl2->cek_in ?></td>
+              <td><?= $tl2->cek_out ?></td>
+              <td><?= $tl2->user_aktif ?></td>
+              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl2->id_history ?>">
                   <i class="fas fa-eye"></i></a>
               </td>
             </tr>
@@ -129,14 +129,14 @@
 </div>
 
 <!-- modal lihat -->
-<?php foreach ($history as $h) : ?>
-  <?php foreach ($tipe_kamar as $tk) : ?>
-    <?php if ($tk->id_tipe == $h->id_tipe) { ?>
-      <div id="lihat<?= $h->id_history ?>" class="modal fade lihat">
+<?php foreach ($history as $tl2) : ?>
+  <?php foreach ($tipe_kamar as $tl6) : ?>
+    <?php if ($tl6->id_tipe == $tl2->id_tipe) { ?>
+      <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel2_alias ?> <?= $h->id_history ?></h5>
+              <h5 class="modal-title"><?= $tabel2_alias ?> <?= $tl2->id_history ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -148,51 +148,51 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel2_field2_alias ?></label>
-                    <p><?= $h->id_pesanan ?></p>
+                    <p><?= $tl2->id_pesanan ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
                     <label><?= $tabel2_field4_alias ?></label>
-                    <p><?= $h->pemesan ?></p>
+                    <p><?= $tl2->pemesan ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
                     <label><?= $tabel2_field5_alias ?></label>
-                    <p><?= $h->email ?></p>
+                    <p><?= $tl2->email ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
                     <label><?= $tabel2_field6_alias ?></label>
-                    <p><?= $h->hp ?></p>
+                    <p><?= $tl2->hp ?></p>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel2_field7_alias ?></label>
-                    <p><?= $h->tamu ?></p>
+                    <p><?= $tl2->tamu ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
                     <label><?= $tabel6_field2_alias ?></label>
-                    <p><?= $tk->tipe ?></p>
+                    <p><?= $tl6->tipe ?></p>
 
                   </div>
                   <hr>
 
                   <div class="form-group">
                     <label><?= $tabel2_field11_alias ?></label>
-                    <p><?= $h->cek_in ?></p>
+                    <p><?= $tl2->cek_in ?></p>
                   </div>
                   <hr>
 
                   <div class="form-group">
                     <label><?= $tabel2_field12_alias ?></label>
-                    <p><?= $h->cek_out ?></p>
+                    <p><?= $tl2->cek_out ?></p>
                   </div>
                 </div>
               </div>

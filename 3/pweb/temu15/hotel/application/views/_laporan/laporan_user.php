@@ -10,10 +10,10 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($pengaturan as $p) : ?>
+    <?php foreach ($pengaturan as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $p->nama; ?> | <?= $p->hp; ?> | <?= $p->email; ?></p>
-      <p class="text-center"><?= $p->alamat; ?></p>
+      <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
+      <p class="text-center"><?= $tl7->alamat; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
@@ -30,13 +30,13 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($user as $us) : ?>
+        <?php foreach ($user as $tl9) : ?>
           <tr>
-            <td width="20%"><?= $us->id_user ?></td>
-            <td width="20%"><?= $us->nama ?></a></td>
-            <td width="20%"><?= $us->email ?></td>
-            <td width="20%"><?= $us->hp ?></td>
-            <td width="20%"><?= $us->level ?></td>
+            <td width="20%"><?= $tl9->id_user ?></td>
+            <td width="20%"><?= $tl9->nama ?></a></td>
+            <td width="20%"><?= $tl9->email ?></td>
+            <td width="20%"><?= $tl9->hp ?></td>
+            <td width="20%"><?= $tl9->level ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

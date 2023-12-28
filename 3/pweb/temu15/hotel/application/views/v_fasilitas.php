@@ -1,16 +1,16 @@
-<?php foreach ($pengaturan as $p) : ?>
-  <img src="img/<?= $p->foto ?>" class="img-fluid rounded">
+<?php foreach ($pengaturan as $tl7) : ?>
+  <img src="img/<?= $tl7->foto ?>" class="img-fluid rounded">
 <?php endforeach; ?>
 
 <h2 class="pt-2"><?= $title ?><?= $phase ?></h2>
 <hr>
 
 <div class="row">
-  <?php foreach ($fashotel as $fh) : ?>
+  <?php foreach ($fashotel as $tl3) : ?>
     <div class="col-md-4 fashotel">
 
       <!-- gambar dapat ditekan untuk memunculkan modal -->
-      <img style="height: 200px;" role="button" data-toggle="modal" data-target="#lihat<?= $fh->id_fashotel ?>" class="img-thumbnail img-fluid" src="img/fashotel/<?= $fh->img; ?>">
+      <img style="height: 200px;" role="button" data-toggle="modal" data-target="#lihat<?= $tl3->id_fashotel ?>" class="img-thumbnail img-fluid" src="img/fashotel/<?= $tl3->img; ?>">
 
     </div>
   <?php endforeach; ?>
@@ -18,14 +18,14 @@
 
 
 <!-- modal lihat -->
-<?php foreach ($fashotel as $fh) : ?>
-  <div id="lihat<?= $fh->id_fashotel ?>" class="modal fade lihat">
+<?php foreach ($fashotel as $tl3) : ?>
+  <div id="lihat<?= $tl3->id_fashotel ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
 
           <!-- judul modal menggunakan nama fasilitas -->
-          <h5 class="modal-title"><?= $fh->nama; ?></h5>
+          <h5 class="modal-title"><?= $tl3->nama; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="modal-body">
-          <img class="img-thumbnail" src="img/fashotel/<?= $fh->img; ?>">
+          <img class="img-thumbnail" src="img/fashotel/<?= $tl3->img; ?>">
         </div>
 
         <!-- memunculkan notifikasi modal -->

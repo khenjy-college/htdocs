@@ -10,10 +10,10 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($pengaturan as $p) : ?>
+    <?php foreach ($pengaturan as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $p->nama; ?> | <?= $p->hp; ?> | <?= $p->email; ?></p>
-      <p class="text-center"><?= $p->alamat; ?></p>
+      <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
+      <p class="text-center"><?= $tl7->alamat; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
@@ -30,13 +30,13 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($tipe_kamar as $tk) : ?>
+        <?php foreach ($tipe_kamar as $tl6) : ?>
           <tr>
-            <td width="20%"><?= $tk->id_tipe ?></td>
-            <td width="20%"><?= $tk->tipe ?></a></td>
-            <td width="20%"><?= $tk->stok ?></td>
-            <td width="20%">Rp <?= number_format($tk->harga, '2', ',', '.') ?></td>
-            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/tipe_kamar/<?= $tk->img ?>"></td>
+            <td width="20%"><?= $tl6->id_tipe ?></td>
+            <td width="20%"><?= $tl6->tipe ?></a></td>
+            <td width="20%"><?= $tl6->stok ?></td>
+            <td width="20%">Rp <?= number_format($tl6->harga, '2', ',', '.') ?></td>
+            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/tipe_kamar/<?= $tl6->img ?>"></td>
           </tr>
         <?php endforeach ?>
       </tbody>

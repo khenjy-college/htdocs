@@ -7,7 +7,7 @@ class Pengaturan extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel7_m = 'ptn';
+	private $tabel7_m = 'tl7';
 
 	// deklarasi variabel views
 	private $tabel7_v1;
@@ -76,7 +76,7 @@ class Pengaturan extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		// public $this->tabel7_m = 'ptn';
+		// public $this->tabel7_m = 'tl7';
 
 		// deklarasi variabel views
 		$this->tabel7_v1 = 'v_' . $this->tabel7;
@@ -148,7 +148,7 @@ class Pengaturan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel7_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($id)->result(),
+			$this->tabel7 => $this->tl7->ambil($id)->result(),
 		);
 
 		$this->declarew();
@@ -171,7 +171,7 @@ class Pengaturan extends Welcome
 			$this->tabel7_field11 => $this->tabel7_v_input11_post,
 		);
 
-		$update = $this->ptn->update($data, $where);
+		$update = $this->tl7->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_3);
@@ -211,7 +211,7 @@ class Pengaturan extends Welcome
 			$this->tabel7_field3 => $this->tabel7_field3.'.png',
 		);
 
-		$update = $this->ptn->update($data, $where);
+		$update = $this->tl7->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_7);
@@ -252,7 +252,7 @@ class Pengaturan extends Welcome
 			$this->tabel7_field4 => $this->tabel7_field4 . '.png',
 		);
 
-		$update = $this->ptn->update($data, $where);
+		$update = $this->tl7->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_9);
@@ -293,7 +293,7 @@ class Pengaturan extends Welcome
 			$this->tabel7_field5 => $this->tabel7_field5 . '.jpg',
 		);
 
-		$update = $this->ptn->update($data, $where);
+		$update = $this->tl7->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel7_v_flashdata1_msg_11);

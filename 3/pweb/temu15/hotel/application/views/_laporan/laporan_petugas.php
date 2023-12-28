@@ -10,10 +10,10 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($pengaturan as $p) : ?>
+    <?php foreach ($pengaturan as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $p->nama; ?> | <?= $p->hp; ?> | <?= $p->email; ?></p>
-      <p class="text-center"><?= $p->alamat; ?></p>
+      <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
+      <p class="text-center"><?= $tl7->alamat; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
@@ -31,14 +31,14 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($petugas as $pt) : ?>
+        <?php foreach ($petugas as $tl4) : ?>
           <tr>
-            <td width="10%"><?= $pt->id_petugas ?></td>
-            <td width="20%"><?= $pt->nama ?></a></td>
-            <td width="20%"><?= $pt->email ?></td>
-            <td width="20%"><?= $pt->hp ?></td>
-            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/petugas/<?= $pt->img ?>"></td>
-            <td width="10%"><?= $pt->role ?></td>
+            <td width="10%"><?= $tl4->id_petugas ?></td>
+            <td width="20%"><?= $tl4->nama ?></a></td>
+            <td width="20%"><?= $tl4->email ?></td>
+            <td width="20%"><?= $tl4->hp ?></td>
+            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/petugas/<?= $tl4->img ?>"></td>
+            <td width="10%"><?= $tl4->role ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

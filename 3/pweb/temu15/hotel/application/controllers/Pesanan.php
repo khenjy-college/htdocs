@@ -14,7 +14,7 @@ class Pesanan extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel8_m = 'psn';
+	private $tabel8_m = 'tl8';
 
 	// deklarasi variabel views
 	private $tabel8_v1;
@@ -112,7 +112,7 @@ class Pesanan extends Welcome
 	{
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel8_m = 'psn';
+		$this->tabel8_m = 'tl8';
 
 		// deklarasi variabel views
 		$this->tabel8_v1 = 'v_' . $this->tabel8;
@@ -217,10 +217,10 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result(),
-			$this->tabel5 => $this->kmr->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel8 => $this->tl8->ambildata()->result(),
+			$this->tabel5 => $this->tl5->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			$this->tabel8_v_input10_filter1 => $param1,
@@ -238,11 +238,11 @@ class Pesanan extends Welcome
 	public function tambah()
 	{
 		$this->declare();
-		$param4 = $this->tabel8_v_input4_post;
-		$param8 = $this->tabel8_v_input8_post;
+		$param4 = $this->tabel8_v_input4_post; 
+		$param8 = $this->tabel8_v_input8_post; 
 
-		$param10 = $this->tabel8_v_input10_post;
-		$param11 = $this->tabel8_v_input11_post;
+		$param10 = $this->tabel8_v_input10_post;//cek in
+		$param11 = $this->tabel8_v_input11_post;//cek out
 
 		// di bawah ini adalah fungsi untuk memesan kamar hotel
 		$startTimeStamp = strtotime($param10);
@@ -252,7 +252,7 @@ class Pesanan extends Welcome
 		$numberdays = $timedif / 60 / 60 / 24; // 86400 seconds in one day
 
 		$where = $this->tabel8_v_input7_post;
-		$tipe_kamar = $this->tpk->ambil_harga($where)->result();
+		$tipe_kamar = $this->tl6->ambil_harga($where)->result();
 
 		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
 		$harga_total = ($numberdays * $tipe_kamar[0]->harga);
@@ -315,7 +315,7 @@ class Pesanan extends Welcome
 		// membuat session supaya nilainya dapat digunakan selama waktu yang ditentukan dalam detik
 		$this->session->set_tempdata($this->tabel9_tempdata3, $param4, 300);
 
-		$simpan = $this->psn->simpan($data);
+		$simpan = $this->tl8->simpan($data);
 
 		if ($simpan) {
 
@@ -342,7 +342,7 @@ class Pesanan extends Welcome
 		$where = $this->tabel8_v_input1_post;
 		$status = $this->tabel8_v_input12_post;
 
-		$hapus = $this->psn->hapus($id_pesanan);
+		$hapus = $this->tl8->hapus($id_pesanan);
 
 		// memasukkan nama resepsionis yang melakukan operasi
 		$data = array(
@@ -350,7 +350,7 @@ class Pesanan extends Welcome
 		);
 
 		// mengupdate history dengan nama user yang aktif
-		$update_history = $this->htr->update_history($data, $where);
+		$update_history = $this->tl2->update_history($data, $where);
 
 		if ($hapus && $update_history) {
 
@@ -373,9 +373,9 @@ class Pesanan extends Welcome
 			$this->v_part1 => $this->tabel8_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel8 => $this->tl8->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -394,9 +394,10 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->ambil_id_user($where)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel8 => $this->tl8->ambil_id_user($where)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
+			$this->tabel5 => $this->tl5->ambildata()->result(),
 
 		);
 
@@ -427,11 +428,11 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
 
 			// mencari dan menampilkan id pesanan berdasarkan id_pesanan yang telah diinput
-			$this->tabel8 => $this->psn->cari($param1, $param4)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result(),
+			$this->tabel8 => $this->tl8->cari($param1, $param4)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result(),
 
 		);
 
@@ -455,13 +456,13 @@ class Pesanan extends Welcome
 		if ($this->input->post('status') == 'cek in') {
 
 			// hanya merubah status pesanan
-			$update = $this->psn->update($data, $where);
+			$update = $this->tl8->update($data, $where);
 
 			// jika status pesanan cek out
 		} elseif ($this->input->post('status') == 'cek out') {
 
 			// menghapus data pesanan supaya trigger tambah_kamar dapat berjalan
-			$hapus = $this->psn->hapus($where);
+			$hapus = $this->tl8->hapus($where);
 
 			// memasukkan nama resepsionis yang melakukan operasi
 			$data = array(
@@ -469,7 +470,7 @@ class Pesanan extends Welcome
 			);
 
 			// mengupdate pesanan dengan nama user yang aktif
-			$update = $this->htr->update_history($data, $where);
+			$update = $this->tl2->update_history($data, $where);
 		}
 
 		if ($update) {
@@ -493,10 +494,10 @@ class Pesanan extends Welcome
 			$this->v_part1 => $this->v1_title1,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
-			$this->tabel8 => $this->psn->ambil_email($where)->last_row(),
+			$this->tabel8 => $this->tl8->ambil_email($where)->last_row(),
 		);
 
 		$this->declarew();
@@ -513,9 +514,9 @@ class Pesanan extends Welcome
 			$this->v_part1 => $this->v4_title1,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->ambil($id_pesanan)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel8 => $this->tl8->ambil($id_pesanan)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -538,8 +539,8 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->filter($param1, $param2, $param3, $param4)->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel8 => $this->tl8->filter($param1, $param2, $param3, $param4)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
 			$this->tabel8_v_input10_filter1 => $param1,
@@ -570,8 +571,8 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v13,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->psn->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel8 => $this->tl8->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
 			$this->tabel8_v_input10_filter1 => $param1,
@@ -601,7 +602,7 @@ class Pesanan extends Welcome
 
 		);
 
-		$update = $this->psn->update($data, $where);
+		$update = $this->tl8->update($data, $where);
 
 		// hanya merubah id pesanan di tabel kamar berdasarkan no kamar
 		$param = $this->tabel8_v_input13_post;
@@ -609,7 +610,7 @@ class Pesanan extends Welcome
 			$this->tabel5_field3 => $this->tabel8_v_input1_post,
 			$this->tabel5_field4 => $this->tabel5_field4_value2,
 		);
-		$update_kamar = $this->kmr->update($no_kamar, $param);
+		$update_kamar = $this->tl5->update($no_kamar, $param);
 
 
 		if ($update_kamar) {

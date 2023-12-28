@@ -4,11 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- menampilkan data pengaturan sebagai p -->
-  <?php foreach ($pengaturan as $p) : ?>
-    <title><?= $title ?> - <?= $p->nama ?> <?= $this->session->userdata('level') ?></title>
+  <?php foreach ($pengaturan as $tl7) : ?>
+    <title><?= $title ?> - <?= $tl7->nama ?> <?= $this->session->userdata('level') ?></title>
 
     <!-- menampilkan favicon -->
-    <link rel="icon" href="img/<?= $p->favicon ?>" type="image/gif">
+    <link rel="icon" href="img/<?= $tl7->favicon ?>" type="image/gif">
 
   <?php endforeach; ?>
 

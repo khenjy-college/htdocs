@@ -6,7 +6,7 @@ class Faskamar extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel1_m = 'fsk';
+	private $tabel1_m = 'tl1';
 
 	// deklarasi variabel views
 	private $tabel1_v1;
@@ -44,7 +44,7 @@ class Faskamar extends Welcome
 	{
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel1_m = 'fsk';
+		$this->tabel1_m = 'tl1';
 
 		// deklarasi variabel views
 		// $this->tabel_v1 = 'v_' . 	site_url('tabel1'); 
@@ -97,9 +97,9 @@ class Faskamar extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel1_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel1 => $this->fsk->ambildata()->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel1 => $this->tl1->ambildata()->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -131,7 +131,7 @@ class Faskamar extends Welcome
 			$this->tabel1_field4 => $gambar,
 		);
 
-		$simpan = $this->fsk->simpan($data);
+		$simpan = $this->tl1->simpan($data);
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_1);
@@ -158,7 +158,7 @@ class Faskamar extends Welcome
 		if (!$this->upload->do_upload($this->tabel1_v_input4)) {
 			$gambar = $this->tabel1_v_input4_alt;
 		} else {
-			$table = $this->fsk->ambil($this->tabel1_v_input1_post)->result();
+			$table = $this->tl1->ambil($this->tabel1_v_input1_post)->result();
 			$img = $table[0]->img;
 			unlink($this->tabel1_v_input4_upload_path . $img);
 
@@ -174,7 +174,7 @@ class Faskamar extends Welcome
 			$this->tabel1_field4 => $gambar,
 		);
 	
-		$update = $this->fsk->update($data, $where);
+		$update = $this->tl1->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_3);
@@ -191,11 +191,11 @@ class Faskamar extends Welcome
 	public function hapus($id_faskamar = null)
 	{
 		$this->declare();
-		$faskamar = $this->fsk->ambil($id_faskamar)->result();
+		$faskamar = $this->tl1->ambil($id_faskamar)->result();
 		$img = $faskamar[0]->img;
 
 		unlink($this->tabel1_v_input4_upload_path . $img);
-		$hapus = $this->fsk->hapus($id_faskamar);
+		$hapus = $this->tl1->hapus($id_faskamar);
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel1_v_flashdata1_msg_5);
@@ -215,8 +215,8 @@ class Faskamar extends Welcome
 			$this->v_part1 => $this->tabel1_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel1 => $this->fsk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel1 => $this->tl1->ambildata()->result()
 		);
 
 		$this->declarew();

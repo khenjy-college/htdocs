@@ -15,13 +15,13 @@
 <body>
 
   <!-- menampilkan data pengaturan sebagai p -->
-  <?php foreach ($pengaturan as $p) : ?>
+  <?php foreach ($pengaturan as $tl7) : ?>
 
     <!-- toast -->
     <div class="toast fade" id="element" style="position: absolute; top: 80; right: 15; z-index: 1000" data-delay="5000">
       <div class="toast-header">
-        <img class="rounded mr-2" src="img/<?= $p->favicon ?>" width="15px" draggable="false">
-        <strong class="mr-auto"><?= $p->nama ?></strong>
+        <img class="rounded mr-2" src="img/<?= $tl7->favicon ?>" width="15px" draggable="false">
+        <strong class="mr-auto"><?= $tl7->nama ?></strong>
         <button type="button" class="close" data-dismiss="toast">
           <span>&times;</span>
         </button>
@@ -35,7 +35,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
       <a class="navbar-brand font-weight-bold" href="<?= site_url('welcome') ?>">
-        <img src="img/<?= $p->logo; ?>" height="50">
+        <img src="img/<?= $tl7->logo; ?>" height="50">
       </a>
 
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarku">
@@ -68,12 +68,12 @@
             <form action="<?= site_url('pesanan/cari') ?>" method="get">
               <div class="modal-body">
                 <div class="form-group">
-                  <label>Id Pesanan</label>
+                  <label><?= $tabel8_field1_alias ?></label>
                   <input class="form-control" type="text" required name="id_pesanan" placeholder="Masukkan id pesanan">
                 </div>
 
                 <div class="form-group">
-                  <label>Email</label>
+                  <label><?= $tabel8_field4_alias ?></label>
                   <input class="form-control" type="email" required name="email" placeholder="Masukkan email Anda">
                 </div>
               </div>
@@ -107,18 +107,18 @@
         <?php if ($this->session->userdata('level') <> 'administrator' && $this->session->userdata('level') <> 'resepsionis' && $this->session->userdata('level') <> 'accounting') { ?>
           <div class="row justify-content-center">
             <div class="col-lg-4 pt-3">
-              <img src="img/<?= $p->logo; ?>" height="50">
-              <p class="small pt-2">@2017-2022 <?= $p->nama ?>. All Rights Reserved.</p>
+              <img src="img/<?= $tl7->logo; ?>" height="50">
+              <p class="small pt-2">@2017-2022 <?= $tl7->nama ?>. All Rights Reserved.</p>
             </div>
 
             <div class="col-lg-3 pt-3">
               <h3>Jelajahi</h3>
               <ul class="list-unstyled">
                 <li>
-                  <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/tipe_kamar') ?>">Kamar</a><br>
+                  <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/tipe_kamar') ?>"><?= $tabel6_alias ?></a><br>
                 </li>
                 <li>
-                  <a class="text-decoration-none text-dark" href="<?= site_url('welcome/fasilitas') ?>">Fasilitas</a>
+                  <a class="text-decoration-none text-dark" href="<?= site_url('welcome/fasilitas') ?>"><?= $tabel3_alias ?></a>
                 </li>
               </ul>
             </div>
@@ -127,13 +127,13 @@
               <h3>Alamat</h3>
               <ul class="list-unstyled">
                 <li>
-                  <?= $p->hp ?>
+                  <?= $tl7->hp ?>
                 </li>
                 <li>
-                  <?= $p->email ?>
+                  <?= $tl7->email ?>
                 </li>
                 <li>
-                  <?= $p->alamat ?>
+                  <?= $tl7->alamat ?>
                 </li>
               </ul>
             </div>
@@ -142,10 +142,10 @@
               <h3>Ikuti</h3>
               <ul class="list-unstyled">
                 <li>
-                  <a class="text-decoration-none text-primary" href="<?= $p->fb ?>" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                  <a class="text-decoration-none text-primary" href="<?= $tl7->fb ?>" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
                 </li>
                 <li>
-                  <a class="text-decoration-none text-danger" href="<?= $p->ig ?>" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                  <a class="text-decoration-none text-danger" href="<?= $tl7->ig ?>" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
                 </li>
               </ul>
             </div>
@@ -155,7 +155,7 @@
         <?php } else { ?>
 
           <div class="row justify-content-center align-content-center">
-            <p class="pt-2">@2017-2022 | <?= $p->nama ?></p>
+            <p class="pt-2">@2017-2022 | <?= $tl7->nama ?></p>
           </div>
         <?php } ?>
 
@@ -240,7 +240,7 @@
       });
     </script>
 
-    Intro user tamu
+    <!-- Intro user tamu -->
     <script>
       // Initialize Intro.js
       // Wait for the DOM to be ready
@@ -270,6 +270,53 @@
           // dontShowAgain: true,
         })
         intro.start();
+      });
+    </script>
+
+    <!-- Script below is for radio button -->
+    <script>
+      // JavaScript to make radio buttons required and stop validation once one option is picked
+      document.addEventListener('DOMContentLoaded', function() {
+        var radioGroup = document.querySelectorAll('input[type="radio"].custom-radio');
+
+        radioGroup.forEach(function(radio) {
+          radio.addEventListener('change', function() {
+            // Set "required" attribute to false for all radio buttons
+            radioGroup.forEach(function(r) {
+              r.required = false;
+            });
+
+            // Find the checked radio button and set "required" attribute to true
+            var checkedRadio = document.querySelector('input[type="radio"].custom-radio:checked');
+            if (checkedRadio) {
+              checkedRadio.required = true;
+            }
+          });
+        });
+      });
+    </script>
+
+    <!-- Script below is for checkboxes -->
+    <script>
+      // JavaScript to disable all primary buttons once one is chosen
+      $(document).ready(function() {
+        $('.checkbox-group input[type="checkbox"]').change(function() {
+          var checkboxes = $('.checkbox-group input[type="checkbox"]');
+          var cards = $('.card-body');
+          var checkedCheckbox = $(this);
+
+          if (checkedCheckbox.prop('checked')) {
+            checkboxes.parent().removeClass('btn-primary').addClass('btn-secondary');
+            cards.parent().removeClass('bg-light').addClass('bg-light');
+            checkedCheckbox.parent().addClass('active').addClass('btn-success');
+            checkboxes.not(checkedCheckbox).prop('disabled', true).prop('required', false);
+          } else {
+            checkboxes.parent().removeClass('btn-secondary').addClass('btn-primary');
+            cards.parent().removeClass('bg-secondary').addClass('bg-light');
+            checkboxes.prop('disabled', false).prop('required', true);
+            checkedCheckbox.parent().removeClass('active').removeClass('btn-success');
+          }
+        });
       });
     </script>
 

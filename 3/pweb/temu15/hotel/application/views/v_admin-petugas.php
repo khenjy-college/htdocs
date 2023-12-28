@@ -25,23 +25,23 @@
     </thead>
 
     <tbody>
-      <?php foreach ($petugas as $p) : ?>
+      <?php foreach ($petugas as $tl4) : ?>
         <tr>
-          <td><?= $p->id_petugas; ?></td>
-          <td><?= $p->nama ?></td>
-          <td><?= $p->email ?></td>
-          <td><?= $p->hp ?></td>
-          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/petugas/<?= $p->img ?>"></td>
-          <td><?= $p->role ?></td>
-          <td><?= $p->poin ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $p->id_petugas; ?>">
+          <td><?= $tl4->id_petugas; ?></td>
+          <td><?= $tl4->nama ?></td>
+          <td><?= $tl4->email ?></td>
+          <td><?= $tl4->hp ?></td>
+          <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/petugas/<?= $tl4->img ?>"></td>
+          <td><?= $tl4->role ?></td>
+          <td><?= $tl4->poin ?></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl4->id_petugas; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $p->id_petugas; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl4->id_petugas; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- Sebelumnya saya sudah membahas ini di v_admin_tipe_kamar
           Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
-            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus petugas?')" href="<?= site_url('petugas/hapus/' . $p->id_petugas) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus petugas?')" href="<?= site_url('petugas/hapus/' . $tl4->id_petugas) ?>">
             <i class="fas fa-trash"></i></a> -->
           </td>
         </tr>
@@ -133,12 +133,12 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($petugas as $p) : ?>
-  <div id="ubah<?= $p->id_petugas; ?>" class="modal fade ubah">
+<?php foreach ($petugas as $tl4) : ?>
+  <div id="ubah<?= $tl4->id_petugas; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel4_alias ?> <?= $p->id_petugas; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel4_alias ?> <?= $tl4->id_petugas; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -152,26 +152,26 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input class="form-control" type="text" required name="nama" value="<?= $p->nama; ?>">
-              <input type="hidden" name="id_petugas" value="<?= $p->id_petugas; ?>">
+              <input class="form-control" type="text" required name="nama" value="<?= $tl4->nama; ?>">
+              <input type="hidden" name="id_petugas" value="<?= $tl4->id_petugas; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
               </div>
-              <input class="form-control" type="email" required name="email" value="<?= $p->email; ?>">
+              <input class="form-control" type="email" required name="email" value="<?= $tl4->email; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
               </div>
-              <input class="form-control" type="text" required name="hp" value="<?= $p->hp; ?>">
+              <input class="form-control" type="text" required name="hp" value="<?= $tl4->hp; ?>">
             </div>
 
             <div class="form-group">
-              <img src="img/petugas/<?= $p->img; ?>" width="300">
+              <img src="img/petugas/<?= $tl4->img; ?>" width="300">
             </div>
             <hr>
 
@@ -180,7 +180,7 @@
                 <span class="input-group-text"><i class="fas fa-users"></i></span>
               </div>
               <input class="form-control form-control-file" type="file" name="img">
-              <input type="hidden" name="txtimg" value="<?= $p->img; ?>">
+              <input type="hidden" name="txtimg" value="<?= $tl4->img; ?>">
             </div>
 
             <div class="input-group">
@@ -189,14 +189,14 @@
               </div>
               <!-- hanya admin yang bisa menentukan role petugas -->
               <select class="form-control" required name="role">
-                <option value="<?= $p->role ?>" selected hidden><?= $p->role ?></option>
+                <option value="<?= $tl4->role ?>" selected hidden><?= $tl4->role ?></option>
                 <option value="cleaning">cleaning</option>
                 <option value="maintenance">maintenance</option>
               </select>
             </div>
 
             <!-- Poin tidak bisa diubah maupun dikurangi, hanya bisa didapat melalui hasil operasional hotel -->
-            <input type="hidden" name="poin" value="<?= $p->poin; ?>">
+            <input type="hidden" name="poin" value="<?= $tl4->poin; ?>">
           </div>
 
           <!-- memunculkan notifikasi modal -->
@@ -212,12 +212,12 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($petugas as $p) : ?>
-  <div id="lihat<?= $p->id_petugas; ?>" class="modal fade lihat" role="dialog">
+<?php foreach ($petugas as $tl4) : ?>
+  <div id="lihat<?= $tl4->id_petugas; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel4_alias ?> <?= $p->id_petugas; ?></h5>
+          <h5 class="modal-title"><?= $tabel4_alias ?> <?= $tl4->id_petugas; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -229,30 +229,30 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel4_field2_alias ?> : </label>
-              <p><?= $p->nama; ?></p>
+              <p><?= $tl4->nama; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel4_field3_alias ?> : </label>
-              <p><?= $p->email; ?></p>
+              <p><?= $tl4->email; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel4_field4_alias ?> : </label>
-              <p><?= $p->hp; ?></p>
+              <p><?= $tl4->hp; ?></p>
             </div>
             <hr>
 
             <div class="form-group">
-              <img src="img/petugas/<?= $p->img; ?>" width="300">
+              <img src="img/petugas/<?= $tl4->img; ?>" width="300">
             </div>
             <hr>
 
             <div class="form-group">
               <label><?= $tabel4_field6_alias ?> : </label>
-              <p><?= $p->role; ?></p>
+              <p><?= $tl4->role; ?></p>
             </div>
           </div>
 

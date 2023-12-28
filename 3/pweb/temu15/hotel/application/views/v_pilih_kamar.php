@@ -17,15 +17,15 @@
   </thead>
   <tbody>
     <form action="" method="get">
-      <?php foreach ($kamar as $km) : ?>
-        <?php foreach ($tipe_kamar as $tp) : ?>
-          <?php if ($km->id_tipe == $tp->id_tipe) { ?>
+      <?php foreach ($kamar as $tl5) : ?>
+        <?php foreach ($tipe_kamar as $tl6) : ?>
+          <?php if ($tl5->id_tipe == $tl6->id_tipe) { ?>
             <tr>
-              <td><?= $km->id_pesanan ?></td>
-              <td><?= $km->tipe ?></td>
-              <td><?= $km->status ?></td>
-              <td><?= $km->keterangan ?></td>
-              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $km->no_kamar; ?>">
+              <td><?= $tl5->id_pesanan ?></td>
+              <td><?= $tl5->tipe ?></td>
+              <td><?= $tl5->status ?></td>
+              <td><?= $tl5->keterangan ?></td>
+              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl5->no_kamar; ?>">
                   <i class="fas fa-eye"></i></a>
               </td>
             </tr>
@@ -48,12 +48,12 @@
 </table>
 
 <!-- Modal Lihat -->
-<?php foreach ($kamar as $km) : ?>
-  <div id="lihat<?= $km->no_kamar; ?>" class="modal fade lihat" role="dialog">
+<?php foreach ($kamar as $tl5) : ?>
+  <div id="lihat<?= $tl5->no_kamar; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Kamar <?= $km->no_kamar; ?></h5>
+          <h5 class="modal-title">Kamar <?= $tl5->no_kamar; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -64,15 +64,15 @@
           <div class="modal-body">
             <div class="form-group">
               <label>Tipe Kamar : </label>
-              <p><?= $km->tipe; ?></p>
+              <p><?= $tl5->tipe; ?></p>
             </div>
 
             <div class="form-group">
               <label>Nama Kamar : </label>
-              <p><?= $km->nama; ?></p>
+              <p><?= $tl5->nama; ?></p>
             </div>
 
-            <img src="img/kamar/<?= $km->img; ?>" width="450">
+            <img src="img/kamar/<?= $tl5->img; ?>" width="450">
           </div>
 
           <!-- memunculkan notifikasi modal -->

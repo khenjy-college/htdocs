@@ -7,7 +7,7 @@ class Tipe_kamar extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel6_m = 'tpk';
+	private $tabel6_m = 'tl6';
 
 	// deklarasi variabel views
 	private $tabel6_v1;
@@ -50,7 +50,7 @@ class Tipe_kamar extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel6_m = 'tpk';
+		$this->tabel6_m = 'tl6';
 
 		// deklarasi variabel views
 		$this->tabel6_v1 = 'v_' . $this->tabel6;
@@ -103,8 +103,8 @@ class Tipe_kamar extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel6_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -144,8 +144,8 @@ class Tipe_kamar extends Welcome
 
 		// $query = 'INSERT INTO tipe_kamar VALUES('.$data.')';
 
-		$simpan = $this->tpk->simpan($data);
-		// $simpan = $this->tpk->simpan($query);
+		$simpan = $this->tl6->simpan($data);
+		// $simpan = $this->tl6->simpan($query);
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_1);
@@ -181,7 +181,7 @@ class Tipe_kamar extends Welcome
 
 			// Di bawah ini adalah fitur untuk menghapus file lama
 			// Dipakai atau tidaknya fitur ini masih tergantung dari kebutuhan
-			$table = $this->tpk->ambil($this->tabel6_v_input1_post)->result();
+			$table = $this->tl6->ambil($this->tabel6_v_input1_post)->result();
 			$img = $table[0]->img;
 			unlink($this->tabel6_v_input3_upload_path . $img);
 
@@ -197,7 +197,7 @@ class Tipe_kamar extends Welcome
 			$this->tabel6_field5 => $this->tabel6_v_input5_post,
 		);
 
-		$update = $this->tpk->update($data, $where);
+		$update = $this->tl6->update($data, $where);
 
 		if ($update) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_3);
@@ -213,11 +213,11 @@ class Tipe_kamar extends Welcome
 	public function hapus($id_tipe = null)
 	{
 		$this->declare();
-		$tipe_kamar = $this->tpk->ambil($id_tipe)->result();
+		$tipe_kamar = $this->tl6->ambil($id_tipe)->result();
 		$img = $tipe_kamar[0]->img;
 
 		unlink($this->tabel6_v_input3_upload_path . $img);
-		$hapus = $this->tpk->hapus($id_tipe);
+		$hapus = $this->tl6->hapus($id_tipe);
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel6_v_flashdata1_msg_5);
@@ -237,8 +237,8 @@ class Tipe_kamar extends Welcome
 			$this->v_part1 => $this->tabel6_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->ptn->ambil($tabel7_field1)->result(),
-			$this->tabel6 => $this->tpk->ambildata()->result()
+			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			$this->tabel6 => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
