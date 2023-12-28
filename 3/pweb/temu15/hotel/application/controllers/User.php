@@ -147,7 +147,7 @@ class User extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel9_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl8->ambil($id)->result(),
+			'tabel7' => $this->tl7->ambil($id)->result(),
 			'tabel9' =>  $this->tl9->ambildata()->result()
 		);
 
@@ -266,7 +266,7 @@ class User extends Welcome
 			$this->v_part1 => $this->tabel9_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl8->ambil($id)->result(),
+			'tabel7' => $this->tl7->ambil($id)->result(),
 			'tabel9' =>  $this->tl9->ambildata()->result()
 		);
 
@@ -290,7 +290,7 @@ class User extends Welcome
 
 			$this->v_part3 => $this->v10,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
 			'tabel9' =>  $this->tl9->ambil($id_user)->result()
 		);
 
@@ -307,7 +307,7 @@ class User extends Welcome
 			$this->v_part1 => $this->v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
 		);
 
 		$this->declarew();
@@ -323,7 +323,7 @@ class User extends Welcome
 			$this->v_part1 => $this->v6_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
 		);
 
 		$this->declarew();
