@@ -110,8 +110,8 @@ class Petugas extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel4_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel4 => $this->tl4->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel4' =>  $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -216,8 +216,8 @@ class Petugas extends Welcome
 	{
 		$this->declare();
 		// mengambil data gambar di database
-		$petugas = $this->tl4->ambil($id_petugas)->result();
-		$img = $petugas[0]->img;
+		$tabel4 = $this->tl4->ambil($id_petugas)->result();
+		$img = $tabel4[0]->img;
 
 		// menghapus data dan gambar
 		unlink($this->tabel4_v_input5_upload_path . $img);
@@ -244,8 +244,8 @@ class Petugas extends Welcome
 			$this->v_part1 => $this->tabel4_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel4 => $this->tl4->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel4' =>  $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();

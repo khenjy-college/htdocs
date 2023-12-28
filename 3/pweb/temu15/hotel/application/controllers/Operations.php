@@ -108,9 +108,9 @@ class Operations extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel11_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel11 => $this->tl11->ambildata()->result(),
-			$this->tabel4 => $this->tl4->ambildata()->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel11' =>  $this->tl11->ambildata()->result(),
+			'tabel4' =>  $this->tl4->ambildata()->result(),
 		);
 
 		$this->declarew();
@@ -187,8 +187,8 @@ class Operations extends Welcome
 			$this->v_part1 => $this->tabel11_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel11 => $this->tl11->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel11' =>  $this->tl11->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -209,8 +209,8 @@ class Operations extends Welcome
 	// 		$this->v_part1 => $this->tabel11_v1_title,
 	// 		$this->v_part2 => $this->head,
 	// 		$this->v_part3 => $this->tabel11_v1,
-	// 		$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-	// 		$this->tabel11 => $this->tl11->ambil_id_user($where)->result()
+	// 		'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+	// 		'tabel11' =>  $this->tl11->ambil_id_user($where)->result()
 	// 	);
 
 	// 	$this->load->view($this->v7, $data);

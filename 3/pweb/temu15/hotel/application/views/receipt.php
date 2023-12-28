@@ -10,16 +10,16 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($pengaturan as $tl7) : ?>
+    <?php foreach ($tabel7 as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
       <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
       <p class="text-center"><?= $tl7->alamat; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
-    <?php foreach ($transaksi as $tl10) : ?>
-      <?php foreach ($pesanan as $tl8) : ?>
-        <?php foreach ($tipe_kamar as $tl6) : ?>
+    <?php foreach ($tabel10 as $tl10) : ?>
+      <?php foreach ($tabel8 as $tl8) : ?>
+        <?php foreach ($tabel6 as $tl6) : ?>
 
           <?php if ($tl10->id_pesanan === $tl8->id_pesanan && $tl8->id_tipe === $tl6->id_tipe) { ?>
 

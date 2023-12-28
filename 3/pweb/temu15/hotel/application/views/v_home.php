@@ -1,4 +1,4 @@
-<?php foreach ($pengaturan as $tl7) : ?>
+<?php foreach ($tabel7 as $tl7) : ?>
   <img src="img/<?= $tl7->foto ?>" class="img-fluid rounded">
 <?php endforeach; ?>
 
@@ -44,7 +44,7 @@
 
 
 
-<?php foreach ($pengaturan as $tl7) : ?>
+<?php foreach ($tabel7 as $tl7) : ?>
   <h1 class="text-center">Tentang Kami</h1>
   <hr>
   <div class="row">

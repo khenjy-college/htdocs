@@ -10,13 +10,13 @@
     <div class="row justify-content-center align-items-center h-100">
 
       <!-- mengecek apakah ada transaksi yang telah dilakukan -->
-      <?php if (isset($transaksi)) { ?>
+      <?php if (isset($tabel10)) { ?>
         <div class="col-md">
           <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-          <p class="text-center">Id Transaksi Anda adalah <?= $transaksi->id_transaksi ?></p>
+          <p class="text-center">Id Transaksi Anda adalah <?= $tabel10->id_transaksi ?></p>
 
           <div class="d-flex justify-content-center">
-            <a class="btn btn-success text-light" href="<?= site_url('transaksi/receipt/' . $transaksi->id_transaksi) ?>" target="_blank">
+            <a class="btn btn-success text-light" href="<?= site_url('transaksi/receipt/' . $tabel10->id_transaksi) ?>" target="_blank">
               Cetak Bukti Transaksi</i></a>
           </div>
 
@@ -40,14 +40,14 @@
         <!-- Sebenarnya lebih baik jika menggunakan tabel pesanan dan tabel detail pesanan -->
         <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
         <!-- Fitur ini akan diselesaikan ketika sudah ada pemahaman mengenai cara kerja array -->
-      <?php } elseif (isset($pesanan)) { ?>
+      <?php } elseif (isset($tabel8)) { ?>
         <!-- 
         $i = 1;
         do { s?> -->
 
         <div class="col-md">
           <h1 class="text-center">Pesanan Berhasil</h1>
-          <p class="text-center">Id Pesanan Anda adalah <?= $pesanan->id_pesanan ?></p>
+          <p class="text-center">Id Pesanan Anda adalah <?= $tabel8->id_pesanan ?></p>
           <p class="text-center">Cari data reservasi Anda dengan menggunakan <br>
             id pesanan dan email anda <br>
             untuk mencetak bukti reservasi</p>

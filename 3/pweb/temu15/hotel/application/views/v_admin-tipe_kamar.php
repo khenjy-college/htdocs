@@ -22,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($tipe_kamar as $tl6) : ?>
+      <?php foreach ($tabel6 as $tl6) : ?>
         <tr>
           <td><?= $tl6->id_tipe; ?></td>
           <td><?= $tl6->tipe ?></td>
@@ -105,7 +105,7 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel6 as $tl6) : ?>
   <div id="ubah<?= $tl6->id_tipe; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -155,7 +155,7 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel6 as $tl6) : ?>
   <div id="lihat<?= $tl6->id_tipe; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

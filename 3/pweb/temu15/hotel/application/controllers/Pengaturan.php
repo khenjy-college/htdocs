@@ -148,7 +148,7 @@ class Pengaturan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel7_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($id)->result(),
+			'tabel7' =>  $this->tl7->ambil($id)->result(),
 		);
 
 		$this->declarew();
@@ -208,7 +208,7 @@ class Pengaturan extends Welcome
 
 		// menggunakan nama khusus sama dengan konfigurasi
 		$data = array(
-			$this->tabel7_field3 => $this->tabel7_field3.'.png',
+			$this->tabel7_field3 => $this->tabel7_field3 . '.png',
 		);
 
 		$update = $this->tl7->update($data, $where);

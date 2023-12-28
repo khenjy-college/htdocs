@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- menampilkan data pengaturan sebagai p -->
-  <!-- <?php foreach ($pengaturan as $p) : ?> -->
+  <!-- <?php foreach ($tabel7 as $p) : ?> -->
   <!-- <title><?= $title ?> - <?= $p->nama ?></title> -->
 
   <!-- menampilkan favicon -->
@@ -114,7 +114,7 @@
                 <input class="form-control" type="email" required name="email" placeholder="Masukkan email Anda">
               </div>
             </div>
-            
+
             <!-- memunculkan notifikasi modal -->
             <p id="p_cari" class="small text-center text-danger"><?= $this->session->flashdata('pesan_cari') ?></p>
 
@@ -129,7 +129,7 @@
 
     <div class="konten" style="margin-top: 100px;">
       <!-- konten sesuai controller -->
-      <?php foreach ($pengaturan as $p) : ?>
+      <?php foreach ($tabel7 as $p) : ?>
         <!-- <img src="img/<?= $p->foto ?>" class="img-fluid rounded"> -->
       <?php endforeach; ?>
 
@@ -145,7 +145,7 @@
         </div>
       </form>
 
-      <?php foreach ($pengaturan as $p) : ?>
+      <?php foreach ($tabel7 as $p) : ?>
         <h1 class="text-center">Tentang Kami</h1>
         <hr>
         <div class="row">

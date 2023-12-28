@@ -54,7 +54,7 @@
     </thead>
 
     <tbody>
-      <?php foreach ($transaksi as $tl10) : ?>
+      <?php foreach ($tabel10 as $tl10) : ?>
         <tr>
           <td><?= $tl10->id_transaksi ?></td>
           <td><?= $tl10->id_pesanan ?></td>
@@ -88,9 +88,9 @@
 <!-- modal lihat -->
 <!-- Tabel transaksi dan tabel history literally sudah bergabung
 Jadi tidak perlu menambahkan foreach hitory lagi -->
-<?php foreach ($transaksi as $tl10) : ?>
+<?php foreach ($tabel10 as $tl10) : ?>
   <div id="lihat<?= $tl10->id_transaksi ?>" class="modal fade lihat" role="dialog">
-    <?php foreach ($tipe_kamar as $tl6) : ?>
+    <?php foreach ($tabel6 as $tl6) : ?>
       <?php if ($tl6->id_tipe === $tl10->id_tipe) { ?>
         <div class="modal-dialog">
           <div class="modal-content">

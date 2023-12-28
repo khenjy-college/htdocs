@@ -147,8 +147,8 @@ class User extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel9_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($id)->result(),
-			$this->tabel9 => $this->tl9->ambildata()->result()
+			'tabel7' => $this->tl8->ambil($id)->result(),
+			'tabel9' =>  $this->tl9->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -266,8 +266,8 @@ class User extends Welcome
 			$this->v_part1 => $this->tabel9_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($id)->result(),
-			$this->tabel9 => $this->tl9->ambildata()->result()
+			'tabel7' => $this->tl8->ambil($id)->result(),
+			'tabel9' =>  $this->tl9->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -275,8 +275,6 @@ class User extends Welcome
 
 		$this->load->view($this->tabel9_v3, $data);
 	}
-
-
 
 
 	public function profil($tabel7_field1 = 1)
@@ -292,8 +290,8 @@ class User extends Welcome
 
 			$this->v_part3 => $this->v10,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel9 => $this->tl9->ambil($id_user)->result()
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel9' =>  $this->tl9->ambil($id_user)->result()
 		);
 
 		$this->declarew();
@@ -309,7 +307,7 @@ class User extends Welcome
 			$this->v_part1 => $this->v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
 		);
 
 		$this->declarew();
@@ -325,7 +323,7 @@ class User extends Welcome
 			$this->v_part1 => $this->v6_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
 		);
 
 		$this->declarew();
@@ -380,8 +378,8 @@ class User extends Welcome
 
 		// mencari apakah jumlah data lebih dari 0
 		if ($cek_id->num_rows() > 0) {
-			$user = $cek_id->result();
-			$cekpass = $user[0]->password;
+			$tabel9 = $cek_id->result();
+			$cekpass = $tabel9[0]->password;
 
 			$old_password = $this->input->post('old_password');
 
@@ -492,16 +490,16 @@ class User extends Welcome
 
 		// // mencari apakah jumlah data kurang dari 0
 		// if ($cekemail->num_rows() > 0) {
-		// 	$user = $cekemail->result();
-		// 	$cekpass = $user[0]->password;
+		// 	$tabel9 = $cekemail->result();
+		// 	$cekpass = $tabel9[0]->password;
 
 		// 	// memverifikasi password dengan password di database
 		// 	if (password_verify($password, $cekpass)) {
-		// 		$id_user = $user[0]->id_user;
-		// 		$nama = $user[0]->nama;
-		// 		$email = $user[0]->email;
-		// 		$hp = $user[0]->hp;
-		// 		$level = $user[0]->level;
+		// 		$id_user = $tabel9[0]->id_user;
+		// 		$nama = $tabel9[0]->nama;
+		// 		$email = $tabel9[0]->email;
+		// 		$hp = $tabel9[0]->hp;
+		// 		$level = $tabel9[0]->level;
 
 		// 		$this->session->set_userdata('id_user', $id_user);
 		// 		$this->session->set_userdata('nama', $nama);

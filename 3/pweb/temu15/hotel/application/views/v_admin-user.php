@@ -23,7 +23,7 @@
     </thead>
 
     <tbody>
-      <?php foreach ($user as $tl9) : ?>
+      <?php foreach ($tabel9 as $tl9) : ?>
         <tr>
           <td><?= $tl9->id_user; ?></td>
           <td><?= $tl9->nama ?></td>
@@ -136,7 +136,7 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($user as $tl9) : ?>
+<?php foreach ($tabel9 as $tl9) : ?>
   <div id="ubah<?= $tl9->id_user; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -200,7 +200,7 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($user as $tl9) : ?>
+<?php foreach ($tabel9 as $tl9) : ?>
   <div id="lihat<?= $tl9->id_user; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

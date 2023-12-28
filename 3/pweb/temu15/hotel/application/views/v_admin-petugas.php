@@ -25,7 +25,7 @@
     </thead>
 
     <tbody>
-      <?php foreach ($petugas as $tl4) : ?>
+      <?php foreach ($tabel4 as $tl4) : ?>
         <tr>
           <td><?= $tl4->id_petugas; ?></td>
           <td><?= $tl4->nama ?></td>
@@ -133,7 +133,7 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($petugas as $tl4) : ?>
+<?php foreach ($tabel4 as $tl4) : ?>
   <div id="ubah<?= $tl4->id_petugas; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -212,7 +212,7 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($petugas as $tl4) : ?>
+<?php foreach ($tabel4 as $tl4) : ?>
   <div id="lihat<?= $tl4->id_petugas; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

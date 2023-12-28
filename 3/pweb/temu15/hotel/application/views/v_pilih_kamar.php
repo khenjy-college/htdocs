@@ -17,8 +17,8 @@
   </thead>
   <tbody>
     <form action="" method="get">
-      <?php foreach ($kamar as $tl5) : ?>
-        <?php foreach ($tipe_kamar as $tl6) : ?>
+      <?php foreach ($tabel5 as $tl5) : ?>
+        <?php foreach ($tabel6 as $tl6) : ?>
           <?php if ($tl5->id_tipe == $tl6->id_tipe) { ?>
             <tr>
               <td><?= $tl5->id_pesanan ?></td>
@@ -48,7 +48,7 @@
 </table>
 
 <!-- Modal Lihat -->
-<?php foreach ($kamar as $tl5) : ?>
+<?php foreach ($tabel5 as $tl5) : ?>
   <div id="lihat<?= $tl5->no_kamar; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

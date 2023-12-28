@@ -93,10 +93,10 @@ class Kamar extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel5_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel5 => $this->tl5->ambildata()->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
-			$this->tabel4 => $this->tl4->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel5' =>  $this->tl5->ambildata()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
+			'tabel4' =>  $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -175,8 +175,8 @@ class Kamar extends Welcome
 			$this->v_part1 => $this->tabel5_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel5 => $this->tl5->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel5' =>  $this->tl5->ambildata()->result()
 		);
 
 		$this->declarew();

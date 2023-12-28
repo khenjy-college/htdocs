@@ -103,8 +103,8 @@ class Tipe_kamar extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel6_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -213,8 +213,8 @@ class Tipe_kamar extends Welcome
 	public function hapus($id_tipe = null)
 	{
 		$this->declare();
-		$tipe_kamar = $this->tl6->ambil($id_tipe)->result();
-		$img = $tipe_kamar[0]->img;
+		$tabel6 = $this->tl6->ambil($id_tipe)->result();
+		$img = $tabel6[0]->img;
 
 		unlink($this->tabel6_v_input3_upload_path . $img);
 		$hapus = $this->tl6->hapus($id_tipe);
@@ -237,8 +237,8 @@ class Tipe_kamar extends Welcome
 			$this->v_part1 => $this->tabel6_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();

@@ -83,7 +83,7 @@
     </thead>
 
     <tbody>
-      <?php foreach ($pesanan as $tl8) : ?>
+      <?php foreach ($tabel8 as $tl8) : ?>
         <tr>
           <td><?= $tl8->tamu ?></td>
           <td><?= $tl8->cek_in ?></td>
@@ -134,9 +134,9 @@
 </div>
 
 <!-- modal ubah -->
-<?php foreach ($pesanan as $tl8) : ?>
+<?php foreach ($tabel8 as $tl8) : ?>
   <div id="ubah<?= $tl8->id_pesanan ?>" class="modal fade ubah">
-    <?php foreach ($tipe_kamar as $tl6) : ?>
+    <?php foreach ($tabel6 as $tl6) : ?>
       <?php if ($tl6->id_tipe === $tl8->id_tipe) { ?>
         <div class="modal-dialog">
           <div class="modal-content">
@@ -244,9 +244,9 @@
 <?php endforeach ?>
 
 <!-- modal book -->
-<?php foreach ($pesanan as $tl8) : ?>
+<?php foreach ($tabel8 as $tl8) : ?>
   <div id="book<?= $tl8->id_pesanan ?>" class="modal fade book">
-    <?php foreach ($tipe_kamar as $tl6) : ?>
+    <?php foreach ($tabel6 as $tl6) : ?>
       <?php if ($tl6->id_tipe === $tl8->id_tipe) { ?>
         <div class="modal-dialog">
           <div class="modal-content">
@@ -339,7 +339,7 @@
                         <!-- <option value="<?= $tl5->no_kamar ?>"><?= $tl5->no_kamar; ?> - <?= $tl6->tipe ?></option> -->
                         <!-- </select> -->
 
-                        <?php foreach ($kamar as $tl5) :
+                        <?php foreach ($tabel5 as $tl5) :
                           if ($tl8->id_tipe == $tl5->id_tipe) {
                             if ($tl5->id_tipe == $tl6->id_tipe) {
                               if ($tl5->status == 'Available') { ?>

@@ -22,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($operations as $tl11) : ?>
+      <?php foreach ($tabel11 as $tl11) : ?>
         <tr>
           <td><?= $tl11->id_operations ?></td>
           <td><?= $tl11->no_kamar ?></td>
@@ -55,7 +55,7 @@
 </div>
 
 <!-- modal lihat -->
-<?php foreach ($operations as $tl11) : ?>
+<?php foreach ($tabel11 as $tl11) : ?>
   <div id="lihat<?= $tl11->id_operations ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">

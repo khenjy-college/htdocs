@@ -197,9 +197,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->tl10->join_pesanan()->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel10' =>  $this->tl10->join_pesanan()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			// 'tgl_transaksi_min' => $param1,
@@ -230,9 +230,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2_alt,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->tl10->join_history()->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel10' =>  $this->tl10->join_history()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			// 'tgl_transaksi_min' => $param1,
@@ -344,7 +344,7 @@ class Transaksi extends Welcome
 	public function hapus($id_transaksi = null)
 	{
 		$this->declare();
-		$transaksi = $this->tl10->ambil($id_transaksi)->result();
+		$tabel10 = $this->tl10->ambil($id_transaksi)->result();
 		$hapus = $this->tl10->hapus($id_transaksi);
 
 		if ($hapus) {
@@ -365,10 +365,10 @@ class Transaksi extends Welcome
 			$this->v_part1 => $this->tabel10_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->tl10->ambildata()->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
-			$this->tabel8 => $this->tl8->ambildata()->result()
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel10' =>  $this->tl10->ambildata()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
+			'tabel8' =>  $this->tl8->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -386,9 +386,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v1,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->tl10->join_pesanan_tamu($where)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result()
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel10' =>  $this->tl10->join_pesanan_tamu($where)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -406,9 +406,9 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v1_alt,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->tl10->join_history_tamu($where)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result()
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel10' =>  $this->tl10->join_history_tamu($where)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -430,11 +430,11 @@ class Transaksi extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel10_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->tl10->join_pesanan($where)->result(),
-			$this->tabel10 => $this->tl10->filter($param1, $param2)->result(),
-			$this->tabel8 => $this->tl8->ambildata()->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel10' =>  $this->tl10->join_pesanan($where)->result(),
+			'tabel10' =>  $this->tl10->filter($param1, $param2)->result(),
+			'tabel8' =>  $this->tl8->ambildata()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			$this->tabel10_v_input7_filter1 => $param1,
@@ -456,10 +456,10 @@ class Transaksi extends Welcome
 			$this->v_part1 => $this->v1_title2,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
-			$this->tabel10 => $this->tl10->ambil_email($where)->last_row(),
+			'tabel10' =>  $this->tl10->ambil_email($where)->last_row(),
 		);
 
 		$this->declarew();
@@ -478,9 +478,9 @@ class Transaksi extends Welcome
 			$this->v_part1 => $this->v5_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl8->ambil($tabel7_field1)->result(),
-			$this->tabel10 => $this->tl10->ambil($id_transaksi)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result()
+			'tabel7' => $this->tl8->ambil($tabel7_field1)->result(),
+			'tabel10' =>  $this->tl10->ambil($id_transaksi)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 
@@ -496,13 +496,13 @@ class Transaksi extends Welcome
 
 		if ($method->num_rows() > 0) {
 			$data2 = array(
-				$this->tabel2 => $this->tl2->ambildata()->result(),
+				'tabel2' => $this->tl2->ambildata()->result(),
 			);
 			$data = array_merge($data1, $data2, $this->aliases);
 			$this->load->view($this->v12, $data);
 		} else {
 			$data2 = array(
-				$this->tabel8 => $this->tl8->ambildata()->result(),
+				'tabel8' =>  $this->tl8->ambildata()->result(),
 			);
 			$data = array_merge($data1, $data2, $this->aliases);
 			$this->load->view($this->v5, $data);

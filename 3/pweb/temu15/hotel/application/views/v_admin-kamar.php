@@ -22,8 +22,8 @@
     </thead>
 
     <tbody>
-      <?php foreach ($kamar as $tl5) : ?>
-        <?php foreach ($tipe_kamar as $tl6) : ?>
+      <?php foreach ($tabel5 as $tl5) : ?>
+        <?php foreach ($tabel6 as $tl6) : ?>
           <?php if ($tl6->id_tipe == $tl5->id_tipe) { ?>
             <tr>
               <td><?= $tl5->no_kamar; ?></td>
@@ -92,7 +92,7 @@
             <label><?= $tabel6_field2_alias ?></label>
             <select class="form-control" required name="id_tipe">
               <option selected hidden value="">Pilih Tipe Kamar...</option>
-              <?php foreach ($tipe_kamar as $tl6) : ?>
+              <?php foreach ($tabel6 as $tl6) : ?>
 
                 <!-- mengambil nilai tipe dari tipe kamar -->
                 <option value="<?= $tl6->id_tipe ?>"><?= $tl6->tipe; ?></option>
@@ -134,8 +134,8 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($kamar as $tl5) : ?>
-  <?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel5 as $tl5) : ?>
+  <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_tipe == $tl5->id_tipe) { ?>
       <div id="ubah<?= $tl5->no_kamar; ?>" class="modal fade ubah">
         <div class="modal-dialog">
@@ -167,7 +167,7 @@
                      menampilkan nilai tipe kamar yang aktif
                     <option selected hidden value="< $tl6->id_tipe ?>">< $tl6->tipe; ?></option>
 
-                    < foreach ($tipe_kamar as $tl6) : ?>
+                    < foreach ($tabel6 as $tl6) : ?>
                       <option value value="<$tl6->id_tipe ?>">< $tl6->tipe; ?></option>
                     < endforeach ?>
                   </select> -->
@@ -209,8 +209,8 @@
 <?php endforeach; ?>
 
 <!-- Modal Lihat -->
-<?php foreach ($kamar as $tl5) : ?>
-  <?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel5 as $tl5) : ?>
+  <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_tipe == $tl5->id_tipe) { ?>
 
       <div id="lihat<?= $tl5->no_kamar; ?>" class="modal fade lihat" role="dialog">
@@ -261,8 +261,8 @@
 
 
 <!-- modal clean -->
-<?php foreach ($kamar as $tl5) : ?>
-  <?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel5 as $tl5) : ?>
+  <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_tipe == $tl5->id_tipe) { ?>
       <div id="clean<?= $tl5->no_kamar ?>" class="modal fade clean">
         <div class="modal-dialog">
@@ -329,7 +329,7 @@
                         <!-- menampilkan petugas buat assign -->
                         <option selected hidden>Pilih <?= $tabel4_alias ?>...</option>
                         <?php
-                        foreach ($petugas as $tl4) :
+                        foreach ($tabel4 as $tl4) :
                           if ($tl4->role == 'cleaning') { ?>
                             <option value="<?= $tl4->id_petugas; ?>"><?= $tl4->nama; ?> - <?= $tl4->role; ?></option>
                         <?php }
@@ -368,8 +368,8 @@
 
 
 <!-- modal maintenance -->
-<?php foreach ($kamar as $tl5) : ?>
-  <?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel5 as $tl5) : ?>
+  <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_tipe == $tl5->id_tipe) { ?>
       <div id="maintenance<?= $tl5->no_kamar ?>" class="modal fade">
         <div class="modal-dialog">
@@ -438,7 +438,7 @@
                         <!-- menampilkan petugas buat assign -->
                         <option selected hidden>Pilih petugas...</option>
                         <?php
-                        foreach ($petugas as $tl4) :
+                        foreach ($tabel4 as $tl4) :
                           if ($tl4->role == 'maintenance') { ?>
                             <option value="<?= $tl4->id_petugas; ?>"><?= $tl4->nama; ?> - <?= $tl4->role; ?></option>
                         <?php }

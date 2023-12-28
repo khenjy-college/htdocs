@@ -2,12 +2,12 @@
 https://stackoverflow.com/questions/30531359/nested-foreach-in-codeigniter-view
 https://stackoverflow.com/questions/22354514/message-trying-to-get-property-of-non-object-in-codeigniter
 terima kasih pada link di atas -->
-<?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel6 as $tl6) : ?>
   <img src="img/tipe_kamar/<?= $tl6->img ?>" class="img-fluid rounded">
   <h2 class="pt-2">Tipe <?= $tl6->tipe; ?> (Rp <?= number_format($tl6->harga, '2', ',', '.') ?> per hari)</h2>
   <ul class="list-unstyled ml-2">
     <li><?= $tabel1_alias ?> : </li>
-    <?php foreach ($faskamar as $tl1) : ?>
+    <?php foreach ($tabel1 as $tl1) : ?>
       <?php if ($tl6->tipe === $tl1->tipe) { ?>
         <li><?= $tl1->nama ?></li>
       <?php } ?>

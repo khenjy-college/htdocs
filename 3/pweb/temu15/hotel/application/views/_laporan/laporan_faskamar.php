@@ -10,7 +10,7 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($pengaturan as $tl7) : ?>
+    <?php foreach ($tabel7 as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
       <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
       <p class="text-center"><?= $tl7->alamat; ?></p>
@@ -28,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($faskamar as $tl1) : ?>
+        <?php foreach ($tabel1 as $tl1) : ?>
           <tr>
             <td width="25%"><?= $tl1->id_faskamar ?></td>
             <td width="25%"><?= $tl1->tipe ?></a></td>

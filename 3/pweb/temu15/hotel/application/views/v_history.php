@@ -96,8 +96,8 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($history as $tl2) : ?>
-        <?php foreach ($tipe_kamar as $tl6) : ?>
+      <?php foreach ($tabel2 as $tl2) : ?>
+        <?php foreach ($tabel6 as $tl6) : ?>
           <?php if ($tl6->id_tipe === $tl2->id_tipe) { ?>
             <tr>
               <td><?= $tl2->id_pesanan ?></td>
@@ -129,8 +129,8 @@
 </div>
 
 <!-- modal lihat -->
-<?php foreach ($history as $tl2) : ?>
-  <?php foreach ($tipe_kamar as $tl6) : ?>
+<?php foreach ($tabel2 as $tl2) : ?>
+  <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_tipe == $tl2->id_tipe) { ?>
       <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
         <div class="modal-dialog">

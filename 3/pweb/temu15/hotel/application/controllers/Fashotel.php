@@ -110,17 +110,17 @@ class Fashotel extends Welcome
 
 	public function index($tabel7_field1 = 1)
 	{
-		
+
 		$this->declare();
 		$data1 = array(
 			$this->v_part1 => $this->tabel3_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel3_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel3 => $this->tl3->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel3' => $this->tl3->ambildata()->result()
 		);
-		
+
 		$this->declarew();
 		$data = array_merge($data1, $this->aliases);
 
@@ -159,7 +159,7 @@ class Fashotel extends Welcome
 			$this->tabel3_field4 => $gambar,
 		);
 
-		
+
 		$simpan = $this->tl3->simpan($data);
 
 		// menampilkan toast jika operasi berhasil
@@ -222,8 +222,8 @@ class Fashotel extends Welcome
 	{
 		$this->declare();
 		// mengambil data gambar di database
-		$fashotel = $this->tl3->ambil($id_fashotel)->result();
-		$img = $fashotel[0]->img;
+		$tabel3 = $this->tl3->ambil($id_fashotel)->result();
+		$img = $tabel3[0]->img;
 
 		// menghapus data dan gambar
 		unlink($this->tabel3_v_input4_upload_path . $img);
@@ -248,8 +248,8 @@ class Fashotel extends Welcome
 			$this->v_part1 => $this->tabel3_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel3 => $this->tl3->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel3' => $this->tl3->ambildata()->result()
 		);
 
 		$this->declarew();

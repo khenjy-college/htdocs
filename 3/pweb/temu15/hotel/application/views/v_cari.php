@@ -5,7 +5,7 @@ Fitur sedang tahap pengembangan
 <hr>
 
 <!-- modal bayar -->
-<?php foreach ($pesanan as $tl8) : ?>
+<?php foreach ($tabel8 as $tl8) : ?>
   <div id="bayar<?= $tl8->id_pesanan ?>" class="modal fade bayar">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -114,7 +114,7 @@ Fitur sedang tahap pengembangan
 <?php endforeach ?>
 
 <!-- modal lihat -->
-<?php foreach ($pesanan as $tl8) : ?>
+<?php foreach ($tabel8 as $tl8) : ?>
   <div id="lihat<?= $tl8->id_pesanan ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">

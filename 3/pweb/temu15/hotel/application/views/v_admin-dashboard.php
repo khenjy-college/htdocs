@@ -13,7 +13,7 @@
       <div class="card text-white bg-primary">
         <div class="card-body">
           <h5 class="card-title"><?= $tabel6_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tipe_kamar ?></p>
+          <p class="card-text" style="font-size: 32;"><?= $tabel6 ?></p>
           <a class="text-white" href="<?= site_url('tipe_kamar') ?>">Lihat Detail >></a>
         </div>
       </div>
@@ -23,7 +23,7 @@
       <div class="card text-white bg-secondary">
         <div class="card-body">
           <h5 class="card-title"><?= $tabel1_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $faskamar ?></p>
+          <p class="card-text" style="font-size: 32;"><?= $tabel1 ?></p>
           <a class="text-white" href="<?= site_url('faskamar') ?>">Lihat Detail >></a>
         </div>
       </div>
@@ -33,7 +33,7 @@
       <div class="card text-white bg-success">
         <div class="card-body">
           <h5 class="card-title"><?= $tabel3_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $fashotel ?></p>
+          <p class="card-text" style="font-size: 32;"><?= $tabel3 ?></p>
           <a class="text-white" href="<?= site_url('fashotel') ?>">Lihat Detail >></a>
         </div>
       </div>
@@ -43,7 +43,7 @@
       <div class="card text-white bg-danger">
         <div class="card-body">
           <h5 class="card-title"><?= $tabel9_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $user ?></p>
+          <p class="card-text" style="font-size: 32;"><?= $tabel9 ?></p>
           <a class="text-white" href="<?= site_url('user') ?>">Lihat Detail >></a>
         </div>
       </div>
@@ -53,7 +53,7 @@
       <div class="card text-white bg-danger">
         <div class="card-body">
           <h5 class="card-title"><?= $tabel4_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $petugas ?></p>
+          <p class="card-text" style="font-size: 32;"><?= $tabel4 ?></p>
           <a class="text-white" href="<?= site_url('petugas') ?>">Lihat Detail >></a>
         </div>
       </div>
@@ -65,7 +65,7 @@
       <div class="card text-white bg-primary">
         <div class="card-body">
           <h5 class="card-title"><?= $tabel8_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $pesanan ?></p>
+          <p class="card-text" style="font-size: 32;"><?= $tabel8 ?></p>
           <a class="text-white" href="<?= site_url('pesanan') ?>">Lihat Detail >></a>
         </div>
       </div>
@@ -76,7 +76,7 @@
       <div class="card text-white bg-success">
         <div class="card-body">
           <h5 class="card-title"><?= $tabel10_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $transaksi ?></p>
+          <p class="card-text" style="font-size: 32;"><?= $tabel10 ?></p>
           <a class="text-white" href="<?= site_url('transaksi') ?>">Lihat Detail >></a>
         </div>
       </div>
@@ -88,7 +88,7 @@
 
 <h2 class="mt-4">Detail Website</h2>
 <hr>
-<?php foreach ($pengaturan as $tl7) : ?>
+<?php foreach ($tabel7 as $tl7) : ?>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">

@@ -217,10 +217,10 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->tl8->ambildata()->result(),
-			$this->tabel5 => $this->tl5->ambildata()->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel8' =>  $this->tl8->ambildata()->result(),
+			'tabel5' =>  $this->tl5->ambildata()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
 			$this->tabel8_v_input10_filter1 => $param1,
@@ -238,11 +238,11 @@ class Pesanan extends Welcome
 	public function tambah()
 	{
 		$this->declare();
-		$param4 = $this->tabel8_v_input4_post; 
-		$param8 = $this->tabel8_v_input8_post; 
+		$param4 = $this->tabel8_v_input4_post;
+		$param8 = $this->tabel8_v_input8_post;
 
-		$param10 = $this->tabel8_v_input10_post;//cek in
-		$param11 = $this->tabel8_v_input11_post;//cek out
+		$param10 = $this->tabel8_v_input10_post; //cek in
+		$param11 = $this->tabel8_v_input11_post; //cek out
 
 		// di bawah ini adalah fungsi untuk memesan kamar hotel
 		$startTimeStamp = strtotime($param10);
@@ -252,10 +252,10 @@ class Pesanan extends Welcome
 		$numberdays = $timedif / 60 / 60 / 24; // 86400 seconds in one day
 
 		$where = $this->tabel8_v_input7_post;
-		$tipe_kamar = $this->tl6->ambil_harga($where)->result();
+		$tabel6 = $this->tl6->ambil_harga($where)->result();
 
 		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
-		$harga_total = ($numberdays * $tipe_kamar[0]->harga);
+		$harga_total = ($numberdays * $tabel6[0]->harga);
 
 		//mengecek apakah ada pesanan yang telah dilakukan -->
 		//Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pesanan yang telah dilakukan. -->
@@ -373,9 +373,9 @@ class Pesanan extends Welcome
 			$this->v_part1 => $this->tabel8_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->tl8->ambildata()->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel8' =>  $this->tl8->ambildata()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -394,10 +394,10 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->tl8->ambil_id_user($where)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
-			$this->tabel5 => $this->tl5->ambildata()->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel8' =>  $this->tl8->ambil_id_user($where)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
+			'tabel5' =>  $this->tl5->ambildata()->result(),
 
 		);
 
@@ -428,11 +428,11 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
 
 			// mencari dan menampilkan id pesanan berdasarkan id_pesanan yang telah diinput
-			$this->tabel8 => $this->tl8->cari($param1, $param4)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result(),
+			'tabel8' =>  $this->tl8->cari($param1, $param4)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 		);
 
@@ -494,10 +494,10 @@ class Pesanan extends Welcome
 			$this->v_part1 => $this->v1_title1,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
-			$this->tabel8 => $this->tl8->ambil_email($where)->last_row(),
+			'tabel8' =>  $this->tl8->ambil_email($where)->last_row(),
 		);
 
 		$this->declarew();
@@ -514,9 +514,9 @@ class Pesanan extends Welcome
 			$this->v_part1 => $this->v4_title1,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->tl8->ambil($id_pesanan)->result(),
-			$this->tabel6 => $this->tl6->ambildata()->result()
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel8' =>  $this->tl8->ambil($id_pesanan)->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -539,8 +539,8 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->tl8->filter($param1, $param2, $param3, $param4)->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel8' =>  $this->tl8->filter($param1, $param2, $param3, $param4)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
 			$this->tabel8_v_input10_filter1 => $param1,
@@ -571,8 +571,8 @@ class Pesanan extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v13,
 			$this->v_part4 => $this->v_part4_msg1,
-			$this->tabel7 => $this->tl7->ambil($tabel7_field1)->result(),
-			$this->tabel8 => $this->tl8->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel8' =>  $this->tl8->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
 			$this->tabel8_v_input10_filter1 => $param1,

@@ -23,7 +23,7 @@
     </thead>
 
     <tbody>
-      <?php foreach ($faskamar as $tl1) : ?>
+      <?php foreach ($tabel1 as $tl1) : ?>
         <tr>
           <td><?= $tl1->id_faskamar; ?></td>
           <td><?= $tl1->tipe ?></td>
@@ -72,7 +72,7 @@
             <label><?= $tabel1_field2_alias ?></label>
             <select class="form-control" required name="tipe">
               <option selected hidden value="">Pilih Tipe Kamar...</option>
-              <?php foreach ($tipe_kamar as $tl6) : ?>
+              <?php foreach ($tabel6 as $tl6) : ?>
 
                 <!-- mengambil nilai tipe dari tipe kamar -->
                 <option><?= $tl6->tipe; ?></option>
@@ -105,7 +105,7 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($faskamar as $tl1) : ?>
+<?php foreach ($tabel1 as $tl1) : ?>
   <div id="ubah<?= $tl1->id_faskamar; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -128,7 +128,7 @@
                 <!-- menampilkan nilai tipe kamar yang aktif -->
                 <option selected hidden><?= $tl1->tipe; ?></option>
 
-                <?php foreach ($tipe_kamar as $tl6) : ?>
+                <?php foreach ($tabel6 as $tl6) : ?>
                   <option><?= $tl6->tipe; ?></option>
                 <?php endforeach ?>
               </select>
@@ -166,7 +166,7 @@
 <?php endforeach; ?>
 
 <!-- Modal Lihat -->
-<?php foreach ($faskamar as $tl1) : ?>
+<?php foreach ($tabel1 as $tl1) : ?>
   <div id="lihat<?= $tl1->id_faskamar; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -15,7 +15,7 @@
 <body>
 
   <!-- menampilkan data pengaturan sebagai p -->
-  <?php foreach ($pengaturan as $tl7) : ?>
+  <?php foreach ($tabel7 as $tl7) : ?>
 
     <!-- toast -->
     <div class="toast fade" id="element" style="position: absolute; top: 80; right: 15; z-index: 1000" data-delay="5000">

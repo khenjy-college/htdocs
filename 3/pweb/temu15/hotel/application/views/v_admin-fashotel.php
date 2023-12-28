@@ -28,7 +28,7 @@
     <tbody>
 
       <!-- menampilkan setiap baris data fashotel sebagai fh dalam tabel -->
-      <?php foreach ($fashotel as $tl3) : ?>
+      <?php foreach ($tabel3 as $tl3) : ?>
         <tr>
           <td><?= $tl3->id_fashotel; ?></td>
           <td><?= $tl3->nama ?></td>
@@ -123,7 +123,7 @@
 </div>
 
 <!-- menampilkan data fashotel sebagai fh dalam modal -->
-<?php foreach ($fashotel as $tl3) : ?>
+<?php foreach ($tabel3 as $tl3) : ?>
 
   <!-- modal edit -->
   <div id="ubah<?= $tl3->id_fashotel; ?>" class="modal fade ubah">
@@ -193,7 +193,7 @@
 <?php endforeach; ?>
 
 <!-- menampilkan data fashotel sebagai fh dalam modal -->
-<?php foreach ($fashotel as $tl3) : ?>
+<?php foreach ($tabel3 as $tl3) : ?>
 
   <!-- modal lihat -->
   <div id="lihat<?= $tl3->id_fashotel; ?>" class="modal fade lihat" role="dialog">

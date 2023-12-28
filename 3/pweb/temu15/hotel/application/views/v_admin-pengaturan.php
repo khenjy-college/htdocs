@@ -8,7 +8,7 @@
   <div class="col-md-6">
 
     <!-- form edit favicon, logo, dan foto -->
-    <?php foreach ($pengaturan as $tl7) : ?>
+    <?php foreach ($tabel7 as $tl7) : ?>
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon<?= $tl7->id ?>">
         <i class="fas fa-edit"></i> <?= $tabel7_field3_alias ?></a>
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#logo<?= $tl7->id ?>">
@@ -66,7 +66,7 @@
 
 
 <!-- modal edit favicon-->
-<?php foreach ($pengaturan as $tl7) : ?>
+<?php foreach ($tabel7 as $tl7) : ?>
   <div id="favicon<?= $tl7->id; ?>" class="modal fade favicon">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -107,7 +107,7 @@
 <?php endforeach; ?>
 
 <!-- modal edit logo-->
-<?php foreach ($pengaturan as $tl7) : ?>
+<?php foreach ($tabel7 as $tl7) : ?>
   <div id="logo<?= $tl7->id; ?>" class="modal fade logo">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -149,7 +149,7 @@
 <?php endforeach; ?>
 
 <!-- modal edit foto-->
-<?php foreach ($pengaturan as $tl7) : ?>
+<?php foreach ($tabel7 as $tl7) : ?>
   <div id="foto<?= $tl7->id; ?>" class="modal fade foto">
     <div class="modal-dialog">
       <div class="modal-content">

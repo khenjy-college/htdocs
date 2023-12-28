@@ -2,7 +2,7 @@
 <hr>
 <div class="row">
   <div class="col-md-6">
-    <?php foreach ($user as $tl9) : ?>
+    <?php foreach ($tabel9 as $tl9) : ?>
 
       <!-- tombol untuk memunculkan modal memperbaiki password -->
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $tl9->id_user ?>">
@@ -41,7 +41,7 @@
 
 
 <!-- modal edit password-->
-<?php foreach ($user as $tl9) : ?>
+<?php foreach ($tabel9 as $tl9) : ?>
   <div id="password<?= $tl9->id_user ?>" class="modal fade password">
     <div class="modal-dialog">
       <div class="modal-content">
