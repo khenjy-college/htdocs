@@ -139,35 +139,35 @@ class Pesanan extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel8_v_input1_post = $this->input->post($this->tabel8_field1);
+		$this->tabel8_v_input1_post = $_POST($this->tabel8_field1);
 		$this->tabel8_v_input1_get = $this->input->get($this->tabel8_field1);
 		$this->tabel8_v_input1_alt = '';
-		$this->tabel8_v_input2_post = $this->input->post($this->tabel8_field2);
-		$this->tabel8_v_input3_post = $this->input->post($this->tabel8_field3);
+		$this->tabel8_v_input2_post = $_POST($this->tabel8_field2);
+		$this->tabel8_v_input3_post = $_POST($this->tabel8_field3);
 		$this->tabel8_v_input3_get = $this->input->get($this->tabel8_field3);
-		$this->tabel8_v_input4_post = $this->input->post($this->tabel8_field4);
+		$this->tabel8_v_input4_post = $_POST($this->tabel8_field4);
 		$this->tabel8_v_input4_get = $this->input->get($this->tabel8_field4);
-		$this->tabel8_v_input5_post = $this->input->post($this->tabel8_field5);
-		$this->tabel8_v_input6_post = $this->input->post($this->tabel8_field6);
-		$this->tabel8_v_input7_post = $this->input->post($this->tabel8_field7);
-		$this->tabel8_v_input8_post = $this->input->post($this->tabel8_field8);
-		$this->tabel8_v_input9_post = $this->input->post($this->tabel8_field9);
+		$this->tabel8_v_input5_post = $_POST($this->tabel8_field5);
+		$this->tabel8_v_input6_post = $_POST($this->tabel8_field6);
+		$this->tabel8_v_input7_post = $_POST($this->tabel8_field7);
+		$this->tabel8_v_input8_post = $_POST($this->tabel8_field8);
+		$this->tabel8_v_input9_post = $_POST($this->tabel8_field9);
 		$this->tabel8_v_input10 = $this->tabel8_field10;
 		$this->tabel8_v_input10_get = $this->input->get($this->tabel8_v_input10);
-		$this->tabel8_v_input10_post = $this->input->post($this->tabel8_v_input10);
+		$this->tabel8_v_input10_post = $_POST($this->tabel8_v_input10);
 		$this->tabel8_v_input10_filter1 = $this->tabel8_v_input10 . '_min';
 		$this->tabel8_v_input10_filter1_get = $this->input->get($this->tabel8_v_input10_filter1);
 		$this->tabel8_v_input10_filter2 = $this->tabel8_v_input10 . '_max';
 		$this->tabel8_v_input10_filter2_get = $this->input->get($this->tabel8_v_input10_filter2);
 		$this->tabel8_v_input11 = $this->tabel8_field11;
 		$this->tabel8_v_input11_get = $this->input->get($this->tabel8_v_input11);
-		$this->tabel8_v_input11_post = $this->input->post($this->tabel8_v_input11);
+		$this->tabel8_v_input11_post = $_POST($this->tabel8_v_input11);
 		$this->tabel8_v_input11_filter1 = $this->tabel8_v_input11 . '_min';
 		$this->tabel8_v_input11_filter1_get = $this->input->get($this->tabel8_v_input11_filter1);
 		$this->tabel8_v_input11_filter2 = $this->tabel8_v_input11 . '_max';
 		$this->tabel8_v_input11_filter2_get = $this->input->get($this->tabel8_v_input11_filter2);
-		$this->tabel8_v_input12_post = $this->input->post($this->tabel8_field12);
-		$this->tabel8_v_input13_post = $this->input->post($this->tabel8_field13);
+		$this->tabel8_v_input12_post = $_POST($this->tabel8_field12);
+		$this->tabel8_v_input13_post = $_POST($this->tabel8_field13);
 
 
 		// deklarasi variabel bagian v_flashdata
@@ -447,19 +447,19 @@ class Pesanan extends Welcome
 	// hal ini ditujukan untuk keperluan penelitian penggunaan array
 	public function update_status()
 	{
-		$where = $this->input->post('id_pesanan');
+		$where = $_POST('id_pesanan');
 		$data = array(
-			'status' => $this->input->post('status')
+			'status' => $_POST('status')
 		);
 
 		// jika status pesanan cek in
-		if ($this->input->post('status') == 'cek in') {
+		if ($_POST('status') == 'cek in') {
 
 			// hanya merubah status pesanan
 			$update = $this->tl8->update($data, $where);
 
 			// jika status pesanan cek out
-		} elseif ($this->input->post('status') == 'cek out') {
+		} elseif ($_POST('status') == 'cek out') {
 
 			// menghapus data pesanan supaya trigger tambah_kamar dapat berjalan
 			$hapus = $this->tl8->hapus($where);

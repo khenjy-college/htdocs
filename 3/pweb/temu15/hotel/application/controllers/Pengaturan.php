@@ -94,27 +94,27 @@ class Pengaturan extends Welcome
 		$this->tabel7_c5 = $this->tabel7 . '/laporan';
 
 		// tabel bagian input
-		$this->tabel7_v_input1_post = $this->input->post($this->tabel7_field1);
+		$this->tabel7_v_input1_post = $_POST($this->tabel7_field1);
 		$this->tabel7_v_input1_alt = '';
-		$this->tabel7_v_input2_post = $this->input->post($this->tabel7_field2);
+		$this->tabel7_v_input2_post = $_POST($this->tabel7_field2);
 		$this->tabel7_v_input3 = $this->tabel7_field3;
 		$this->tabel7_v_input3_upload_path = './assets/img/';
-		$this->tabel7_v_input3_post = $this->input->post($this->tabel7_v_input3);
-		$this->tabel7_v_input3_alt = $this->input->post('txt' . $this->tabel7_v_input3);
+		$this->tabel7_v_input3_post = $_POST($this->tabel7_v_input3);
+		$this->tabel7_v_input3_alt = $_POST('txt' . $this->tabel7_v_input3);
 		$this->tabel7_v_input4 = $this->tabel7_field4;
 		$this->tabel7_v_input4_upload_path = './assets/img/';
-		$this->tabel7_v_input4_post = $this->input->post($this->tabel7_v_input4);
-		$this->tabel7_v_input4_alt = $this->input->post('txt' . $this->tabel7_v_input4);
+		$this->tabel7_v_input4_post = $_POST($this->tabel7_v_input4);
+		$this->tabel7_v_input4_alt = $_POST('txt' . $this->tabel7_v_input4);
 		$this->tabel7_v_input5 = $this->tabel7_field5;
 		$this->tabel7_v_input5_upload_path =  './assets/img/';
-		$this->tabel7_v_input5_post = $this->input->post($this->tabel7_v_input5);
-		$this->tabel7_v_input5_alt = $this->input->post('txt' . $this->tabel7_v_input5);
-		$this->tabel7_v_input6_post = $this->input->post($this->tabel7_field6);
-		$this->tabel7_v_input7_post = $this->input->post($this->tabel7_field7);
-		$this->tabel7_v_input8_post = $this->input->post($this->tabel7_field8);
-		$this->tabel7_v_input9_post = $this->input->post($this->tabel7_field9);
-		$this->tabel7_v_input10_post = $this->input->post($this->tabel7_field10);
-		$this->tabel7_v_input11_post = $this->input->post($this->tabel7_field11);
+		$this->tabel7_v_input5_post = $_POST($this->tabel7_v_input5);
+		$this->tabel7_v_input5_alt = $_POST('txt' . $this->tabel7_v_input5);
+		$this->tabel7_v_input6_post = $_POST($this->tabel7_field6);
+		$this->tabel7_v_input7_post = $_POST($this->tabel7_field7);
+		$this->tabel7_v_input8_post = $_POST($this->tabel7_field8);
+		$this->tabel7_v_input9_post = $_POST($this->tabel7_field9);
+		$this->tabel7_v_input10_post = $_POST($this->tabel7_field10);
+		$this->tabel7_v_input11_post = $_POST($this->tabel7_field11);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel7_v_flashdata1_msg_1 = 'Data ' . $this->tabel7_alias . ' berhasil disimpan!';

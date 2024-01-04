@@ -135,14 +135,14 @@ class Transaksi extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel10_v_input1_post = $this->input->post($this->tabel10_field1);
+		$this->tabel10_v_input1_post = $_POST($this->tabel10_field1);
 		$this->tabel10_v_input1_alt = '';
-		$this->tabel10_v_input2_post = $this->input->post($this->tabel10_field2);
-		$this->tabel10_v_input3_post = $this->input->post($this->tabel10_field3);
-		$this->tabel10_v_input4_post = $this->input->post($this->tabel10_field4);
-		$this->tabel10_v_input5_post = $this->input->post($this->tabel10_field5);
-		$this->tabel10_v_input6_post = $this->input->post($this->tabel10_field6);
-		$this->tabel10_v_input7_post = $this->input->post($this->tabel10_field7);
+		$this->tabel10_v_input2_post = $_POST($this->tabel10_field2);
+		$this->tabel10_v_input3_post = $_POST($this->tabel10_field3);
+		$this->tabel10_v_input4_post = $_POST($this->tabel10_field4);
+		$this->tabel10_v_input5_post = $_POST($this->tabel10_field5);
+		$this->tabel10_v_input6_post = $_POST($this->tabel10_field6);
+		$this->tabel10_v_input7_post = $_POST($this->tabel10_field7);
 		$this->tabel10_v_input7_filter1 = $this->tabel10_field7 . '_min';
 		$this->tabel10_v_input7_filter1_get = $this->input->get($this->tabel10_v_input7_filter1);
 		$this->tabel10_v_input7_filter2 = $this->tabel10_field7 . '_max';
@@ -179,7 +179,7 @@ class Transaksi extends Welcome
 		$this->tabel9_tempdata6 = $this->tabel9_field6;
 
 		$this->tabel10_tempdata3 = $this->tabel9_field3 . '_' . $this->tabel10;
-		$this->tabel8_input12_post = $this->input->post($this->tabel8_field12);
+		$this->tabel8_input12_post = $_POST($this->tabel8_field12);
 	}
 
 

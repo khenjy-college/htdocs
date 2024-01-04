@@ -193,10 +193,10 @@ $config['directory_trigger'] = 'd';
 
 /*
 |--------------------------------------------------------------------------
-| Allow $_GET array
+| Allow $this->input->get array
 |--------------------------------------------------------------------------
 |
-| By default CodeIgniter enables access to the $_GET array.  If for some
+| By default CodeIgniter enables access to the $this->input->get array.  If for some
 | reason you would like to disable it, set 'allow_get_array' to FALSE.
 |
 | WARNING: This feature is DEPRECATED and currently available only

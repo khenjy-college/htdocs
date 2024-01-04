@@ -1,9 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 class M_fashotel extends CI_Model
 {
-
 	private $tabel = 'fashotel';
 
 	public function ambildata()

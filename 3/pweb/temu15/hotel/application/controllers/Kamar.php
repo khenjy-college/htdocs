@@ -63,12 +63,12 @@ class Kamar extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel5_v_input1_post = $this->input->post($this->tabel5_field1);
+		$this->tabel5_v_input1_post = $_POST($this->tabel5_field1);
 		$this->tabel5_v_input1_alt = '';
-		$this->tabel5_v_input2_post = $this->input->post($this->tabel5_field2);
-		$this->tabel5_v_input3_post = $this->input->post($this->tabel5_field3);
-		$this->tabel5_v_input4_post = $this->input->post($this->tabel5_field4);
-		$this->tabel5_v_input5_post = $this->input->post($this->tabel5_field5);
+		$this->tabel5_v_input2_post = $_POST($this->tabel5_field2);
+		$this->tabel5_v_input3_post = $_POST($this->tabel5_field3);
+		$this->tabel5_v_input4_post = $_POST($this->tabel5_field4);
+		$this->tabel5_v_input5_post = $_POST($this->tabel5_field5);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel5_v_flashdata1_msg_1 = 'Data ' . $this->tabel5_alias . ' berhasil disimpan!';

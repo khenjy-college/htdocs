@@ -73,13 +73,13 @@ class Operations extends Welcome
 		$this->tabel11_c5 = $this->tabel11 . '/laporan';
 
 		// tabel bagian input
-		$this->tabel11_v_input1_post = $this->input->post($this->tabel11_field1);
+		$this->tabel11_v_input1_post = $_POST($this->tabel11_field1);
 		$this->tabel11_v_input1_alt = '';
-		$this->tabel11_v_input2_post = $this->input->post($this->tabel11_field2);
-		$this->tabel11_v_input3_post = $this->input->post($this->tabel11_field3);
-		$this->tabel11_v_input4_post = $this->input->post($this->tabel11_field4);
-		$this->tabel11_v_input5_post = $this->input->post($this->tabel11_field5);
-		$this->tabel11_v_input6_post = $this->input->post($this->tabel11_field6);
+		$this->tabel11_v_input2_post = $_POST($this->tabel11_field2);
+		$this->tabel11_v_input3_post = $_POST($this->tabel11_field3);
+		$this->tabel11_v_input4_post = $_POST($this->tabel11_field4);
+		$this->tabel11_v_input5_post = $_POST($this->tabel11_field5);
+		$this->tabel11_v_input6_post = $_POST($this->tabel11_field6);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel11_v_flashdata1_msg_1 = 'Data ' . $this->tabel11_alias . ' berhasil disimpan!';
@@ -94,7 +94,7 @@ class Operations extends Welcome
 		$this->tabel11_v_flashdata4_msg_1 = '';
 
 		$this->tabel5_c1 = $this->tabel5;
-		$this->tabel5_v_input5_post = $this->input->post($this->tabel5_field4);
+		$this->tabel5_v_input5_post = $_POST($this->tabel5_field4);
 	}
 
 
@@ -223,17 +223,17 @@ class Operations extends Welcome
 	// 	$this->declare();
 	// 	$where = $this->tabel11_v_input1_post;
 	// 	$data = array(
-	// 		'status' => $this->input->post('status')
+	// 		'status' => $_POST('status')
 	// 	);
 
 	// 	// jika status pesanan cek in
-	// 	if ($this->input->post('status') == 'cek in') {
+	// 	if ($_POST('status') == 'cek in') {
 
 	// 		// hanya merubah status pesanan
 	// 		$update = $this->tl11->update($data, $where);
 
 	// 		// jika status pesanan cek out
-	// 	} elseif ($this->input->post('status') == 'cek out') {
+	// 	} elseif ($_POST('status') == 'cek out') {
 
 	// 		// menghapus data pesanan supaya trigger tambah_kamar dapat berjalan
 	// 		$hapus = $this->tl11->hapus($where);

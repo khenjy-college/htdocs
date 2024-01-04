@@ -104,13 +104,13 @@ class User extends Welcome
 		$this->tabel9_v_menu5 = 'menu_' . $this->tabel9_field6_value5;
 
 		// tabel bagian input
-		$this->tabel9_v_input1_post = $this->input->post($this->tabel9_field1);
+		$this->tabel9_v_input1_post = $_POST($this->tabel9_field1);
 		$this->tabel9_v_input1_alt = '';
-		$this->tabel9_v_input2_post = $this->input->post($this->tabel9_field2);
-		$this->tabel9_v_input3_post = $this->input->post($this->tabel9_field3);
-		$this->tabel9_v_input4_post = $this->input->post($this->tabel9_field4);
-		$this->tabel9_v_input5_post = $this->input->post($this->tabel9_field5);
-		$this->tabel9_v_input6_post = $this->input->post($this->tabel9_field6);
+		$this->tabel9_v_input2_post = $_POST($this->tabel9_field2);
+		$this->tabel9_v_input3_post = $_POST($this->tabel9_field3);
+		$this->tabel9_v_input4_post = $_POST($this->tabel9_field4);
+		$this->tabel9_v_input5_post = $_POST($this->tabel9_field5);
+		$this->tabel9_v_input6_post = $_POST($this->tabel9_field6);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel9_v_flashdata1_msg_1 = 'Data ' . $this->tabel9_alias . ' berhasil disimpan!';
@@ -169,7 +169,7 @@ class User extends Welcome
 		if ($method2->num_rows() < 1) {
 
 			// jika input konfirm sama dengan input password
-			if ($this->input->post('konfirm') === $param4) {
+			if ($_POST('konfirm') === $param4) {
 				$this->load->library('encryption');
 
 				$data = array(
@@ -381,14 +381,14 @@ class User extends Welcome
 			$tabel9 = $cek_id->result();
 			$cekpass = $tabel9[0]->password;
 
-			$old_password = $this->input->post('old_password');
+			$old_password = $_POST('old_password');
 
 			// memverifikasi password lama dengan password di database
 			if (password_verify($old_password, $cekpass)) {
 				$param4 = $this->tabel9_v_input4_post;
 
 				// jika konfirmasi password sama dengan password baru
-				if ($this->input->post('konfirm') === $param4) {
+				if ($_POST('konfirm') === $param4) {
 					$this->load->library('encryption');
 
 					$data = array(

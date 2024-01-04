@@ -73,18 +73,18 @@ class Petugas extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel4_v_input1_post = $this->input->post($this->tabel4_field1);
+		$this->tabel4_v_input1_post = $_POST($this->tabel4_field1);
 		$this->tabel4_v_input1_alt = '';
-		$this->tabel4_v_input2_post = $this->input->post($this->tabel4_field2);
-		$this->tabel4_v_input3_post = $this->input->post($this->tabel4_field3);
-		$this->tabel4_v_input4_post = $this->input->post($this->tabel4_field4);
+		$this->tabel4_v_input2_post = $_POST($this->tabel4_field2);
+		$this->tabel4_v_input3_post = $_POST($this->tabel4_field3);
+		$this->tabel4_v_input4_post = $_POST($this->tabel4_field4);
 		$this->tabel4_v_input5 = $this->tabel4_field5;
 		$this->tabel4_v_input5_upload_path = './assets/' . $this->tabel4_field5 . '/' . $this->tabel4 . '/';
-		$this->tabel4_v_input5_post = $this->input->post($this->tabel4_v_input5);
+		$this->tabel4_v_input5_post = $_POST($this->tabel4_v_input5);
 		$this->tabel4_v_input5_alt = 'txt' . $this->tabel4_v_input5;
 
-		$this->tabel4_v_input6_post = $this->input->post($this->tabel4_field6);
-		$this->tabel4_v_input7_post = $this->input->post($this->tabel4_field7);
+		$this->tabel4_v_input6_post = $_POST($this->tabel4_field6);
+		$this->tabel4_v_input7_post = $_POST($this->tabel4_field7);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel4_v_flashdata1_msg_1 = 'Data ' . $this->tabel4_alias . ' berhasil disimpan!';
@@ -174,7 +174,7 @@ class Petugas extends Welcome
 		$this->load->library('upload', $config);
 
 		if (!$this->upload->do_upload($this->tabel4_v_input5)) {
-			$gambar = $this->input->post($this->tabel4_v_input5_alt);
+			$gambar = $_POST($this->tabel4_v_input5_alt);
 		} else {
 			$table = $this->tl4->ambil($this->tabel4_v_input1_post)->result();
 			$img = $table[0]->img;

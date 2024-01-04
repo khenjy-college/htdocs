@@ -114,34 +114,34 @@ class History extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel2_v_input1_post = $this->input->post($this->tabel2_field1);
+		$this->tabel2_v_input1_post = $_POST($this->tabel2_field1);
 		$this->tabel2_v_input1_alt = '';
-		$this->tabel2_v_input2_post = $this->input->post($this->tabel2_field2);
-		$this->tabel2_v_input3_post = $this->input->post($this->tabel2_field3);
-		$this->tabel2_v_input4_post = $this->input->post($this->tabel2_field4);
-		$this->tabel2_v_input5_post = $this->input->post($this->tabel2_field5);
-		$this->tabel2_v_input6_post = $this->input->post($this->tabel2_field6);
-		$this->tabel2_v_input7_post = $this->input->post($this->tabel2_field7);
-		$this->tabel2_v_input8_post = $this->input->post($this->tabel2_field8);
-		$this->tabel2_v_input9_post = $this->input->post($this->tabel2_field9);
-		$this->tabel2_v_input10_post = $this->input->post($this->tabel2_field10);
+		$this->tabel2_v_input2_post = $_POST($this->tabel2_field2);
+		$this->tabel2_v_input3_post = $_POST($this->tabel2_field3);
+		$this->tabel2_v_input4_post = $_POST($this->tabel2_field4);
+		$this->tabel2_v_input5_post = $_POST($this->tabel2_field5);
+		$this->tabel2_v_input6_post = $_POST($this->tabel2_field6);
+		$this->tabel2_v_input7_post = $_POST($this->tabel2_field7);
+		$this->tabel2_v_input8_post = $_POST($this->tabel2_field8);
+		$this->tabel2_v_input9_post = $_POST($this->tabel2_field9);
+		$this->tabel2_v_input10_post = $_POST($this->tabel2_field10);
 		// ini adalah filter
 		$this->tabel2_v_input11 = $this->tabel2_field11;
-		$this->tabel2_v_input11_post = $this->input->post($this->tabel2_field11);
+		$this->tabel2_v_input11_post = $_POST($this->tabel2_field11);
 		$this->tabel2_v_input11_filter1 = $this->tabel2_v_input11 . '_min';
 		$this->tabel2_v_input11_filter1_get = $this->input->get($this->tabel2_v_input11_filter1);
 		$this->tabel2_v_input11_filter2 = $this->tabel2_v_input11 . '_max';
 		$this->tabel2_v_input11_filter2_get = $this->input->get($this->tabel2_v_input11_filter2);
 		//ini adalah filter
 		$this->tabel2_v_input12 = $this->tabel2_field12;
-		$this->tabel2_v_input12_post = $this->input->post($this->tabel2_field12);
+		$this->tabel2_v_input12_post = $_POST($this->tabel2_field12);
 		$this->tabel2_v_input12_filter1 = $this->tabel2_v_input12 . '_min';
 		$this->tabel2_v_input12_filter1_get = $this->input->get($this->tabel2_v_input12_filter1);
 		$this->tabel2_v_input12_filter2 = $this->tabel2_v_input12 . '_max';
 		$this->tabel2_v_input12_filter2_get = $this->input->get($this->tabel2_v_input12_filter2);
-		$this->tabel2_v_input13_post = $this->input->post($this->tabel2_field13);
-		$this->tabel2_v_input14_post = $this->input->post($this->tabel2_field14);
-		$this->tabel2_v_input15_post = $this->input->post($this->tabel2_field15);
+		$this->tabel2_v_input13_post = $_POST($this->tabel2_field13);
+		$this->tabel2_v_input14_post = $_POST($this->tabel2_field14);
+		$this->tabel2_v_input15_post = $_POST($this->tabel2_field15);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel2_v_flashdata1_msg_1 = 'Data ' . $this->tabel2_alias . ' berhasil disimpan!';

@@ -69,16 +69,16 @@ class Tipe_kamar extends Welcome
 
 
 		// tabel bagian input
-		$this->tabel6_v_input1_post = $this->input->post($this->tabel6_field1);
+		$this->tabel6_v_input1_post = $_POST($this->tabel6_field1);
 		$this->tabel6_v_input1_alt = '';
-		$this->tabel6_v_input2_post = $this->input->post($this->tabel6_field2);
+		$this->tabel6_v_input2_post = $_POST($this->tabel6_field2);
 		$this->tabel6_v_input3 = $this->tabel6_field3;
 		$this->tabel6_v_input3_upload_path = './assets/' . $this->tabel6_field3 . '/' . $this->tabel6 . '/';
-		$this->tabel6_v_input3_post = $this->input->post($this->tabel6_v_input3_post);
+		$this->tabel6_v_input3_post = $_POST($this->tabel6_v_input3_post);
 		$this->tabel6_v_input3_alt = 'txt' . $this->tabel6_v_input3;
 
-		$this->tabel6_v_input4_post = $this->input->post($this->tabel6_field4);
-		$this->tabel6_v_input5_post = $this->input->post($this->tabel6_field5);
+		$this->tabel6_v_input4_post = $_POST($this->tabel6_field4);
+		$this->tabel6_v_input5_post = $_POST($this->tabel6_field5);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel6_v_flashdata1_msg_1 = 'Data ' . $this->tabel6_alias . ' berhasil disimpan!';
@@ -176,7 +176,7 @@ class Tipe_kamar extends Welcome
 		$this->load->library('upload', $config);
 
 		if (!$this->upload->do_upload($this->tabel6_v_input3)) {
-			$gambar = $this->input->post($this->tabel6_v_input3_alt);
+			$gambar = $_POST($this->tabel6_v_input3_alt);
 		} else {
 
 			// Di bawah ini adalah fitur untuk menghapus file lama

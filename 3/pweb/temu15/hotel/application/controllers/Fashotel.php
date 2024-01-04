@@ -81,15 +81,15 @@ class Fashotel extends Welcome
 		$this->tabel3_c5 = $this->tabel3 . '/laporan';
 
 		// tabel bagian input
-		$this->tabel3_v_input1_post = $this->input->post($this->tabel3_field1);
+		$this->tabel3_v_input1_post = $_POST($this->tabel3_field1);
 		$this->tabel3_v_input1_alt = '';
-		$this->tabel3_v_input2_post = $this->input->post($this->tabel3_field2);
-		$this->tabel3_v_input3_post = $this->input->post($this->tabel3_field3);
+		$this->tabel3_v_input2_post = $_POST($this->tabel3_field2);
+		$this->tabel3_v_input3_post = $_POST($this->tabel3_field3);
 
 		$this->tabel3_v_input4 = $this->tabel3_field4;
 		$this->tabel3_v_input4_upload_path = './assets/' . $this->tabel3_field4 . '/' . $this->tabel3 . '/';
-		// $this->tabel3_v_input4_post = $this->input->post($this->tabel3_v_input4);
-		$this->tabel3_v_input4_alt = $this->input->post('txt' . $this->tabel3_v_input4);
+		// $this->tabel3_v_input4_post = $_POST($this->tabel3_v_input4);
+		$this->tabel3_v_input4_alt = $_POST('txt' . $this->tabel3_v_input4);
 		// $this->tabel3_v_input4_upload = $this->upload->do_upload($this->tabel3_v_input4);
 
 		// deklarasi variabel bagian v_flashdata

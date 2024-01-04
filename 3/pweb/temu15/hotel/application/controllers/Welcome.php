@@ -624,21 +624,21 @@ class Welcome extends CI_Controller
 
 		// deklarasi input pada halaman publik
 		$this->tabel8_v_input8 = $this->tabel8_field8;
-		$this->tabel8_v_input8_get = $this->input->get($this->tabel8_v_input8);
+		$this->tabel8_v_input8_get = $_GET($this->tabel8_v_input8);
 		$this->tabel8_v_input10 = $this->tabel8_field10;
-		$this->tabel8_v_input10_get = $this->input->get($this->tabel8_v_input10);
-		$this->tabel8_v_input10_post = $this->input->post($this->tabel8_v_input10);
+		$this->tabel8_v_input10_get = $_GET($this->tabel8_v_input10);
+		$this->tabel8_v_input10_post = $_POST($this->tabel8_v_input10);
 		$this->tabel8_v_input10_filter1 = $this->tabel8_v_input10 . '_min';
-		$this->tabel8_v_input10_filter1_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input10_filter1_get = $_GET($this->tabel8_v_input10_filter1);
 		$this->tabel8_v_input10_filter2 = $this->tabel8_v_input10 . '_max';
-		$this->tabel8_v_input10_filter2_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input10_filter2_get = $_GET($this->tabel8_v_input10_filter1);
 		$this->tabel8_v_input11 = $this->tabel8_field11;
-		$this->tabel8_v_input11_get = $this->input->get($this->tabel8_v_input11);
-		$this->tabel8_v_input11_post = $this->input->post($this->tabel8_v_input11);
+		$this->tabel8_v_input11_get = $_GET($this->tabel8_v_input11);
+		$this->tabel8_v_input11_post = $_POST($this->tabel8_v_input11);
 		$this->tabel8_v_input11_filter1 = $this->tabel8_v_input11 . '_min';
-		$this->tabel8_v_input11_filter1_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input11_filter1_get = $_GET($this->tabel8_v_input10_filter1);
 		$this->tabel8_v_input11_filter2 = $this->tabel8_v_input11 . '_max';
-		$this->tabel8_v_input11_filter2_get = $this->input->get($this->tabel8_v_input10_filter1);
+		$this->tabel8_v_input11_filter2_get = $_GET($this->tabel8_v_input10_filter1);
 
 
 		// deklarasi session
