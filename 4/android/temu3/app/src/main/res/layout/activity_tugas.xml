@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".tugas">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perhitungan Jasa"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="97dp" />
+
+    <EditText
+        android:id="@+id/editHargaEmas"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Harga Emas / gram"/>
+
+    <EditText
+        android:id="@+id/editNilaiKarat"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Nilai Karat Emas"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editJlhEmas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/tombol3"
+        android:ems="10"
+        android:hint="Jumlah Emas / gram"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editBiaya"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Biaya / Upah pengrajin"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="10dp">
+
+        <Button
+            android:id="@+id/hitung"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:text="Hitung" />
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="220dp"
+            android:text="Reset"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editHarga"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Harga"/>
+
+    <EditText
+        android:id="@+id/editJlh"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Jumlah Emas"/>
+
+    <EditText
+        android:id="@+id/editTotal"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Total"/>
+</LinearLayout >
+

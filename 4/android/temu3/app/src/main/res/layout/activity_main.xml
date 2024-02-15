@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="20dp"
+        android:text="Teknik Perangkat Lunak"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="10dp">
+
+        <Button
+            android:id="@+id/hitungnilai"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:text="Perhitungan Nilai"
+            android:backgroundTint="@color/tombol2"/>
+
+        <Button
+            android:id="@+id/webtpl"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="220dp"
+            android:text="Webview TPL"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="10dp">
+
+        <Button
+            android:id="@+id/dsn"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:text="Dosen" />
+
+        <Button
+            android:id="@+id/mhs"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="220dp"
+            android:text="Mahasiswa"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+
+</LinearLayout>
