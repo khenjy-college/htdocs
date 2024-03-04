@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama:"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewNama"
+        android:hint="Masukkan Nama"/>
+
+    <TextView
+        android:id="@+id/textViewGajiPokok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gaji Pokok:"
+        android:layout_below="@id/editTextNama"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextGajiPokok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewGajiPokok"
+        android:inputType="numberDecimal"
+        android:hint="Masukkan Gaji Pokok"/>
+
+    <TextView
+        android:id="@+id/textViewTunjangan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tunjangan:"
+        android:layout_below="@id/editTextGajiPokok"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextTunjangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTunjangan"
+        android:inputType="numberDecimal"
+        android:hint="Masukkan Tunjangan"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTunjangan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Hitung Gaji"
+        android:onClick="hitungGaji"/>
+
+    <TextView
+        android:id="@+id/textViewTotalGaji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTunjangan"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>
