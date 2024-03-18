@@ -2,10 +2,9 @@ package com.example.uts_2022133005
 
 import android.os.Bundle
 import android.widget.GridLayout
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-class ScrollViewActivity : AppCompatActivity() {
+public final class Scrollview : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

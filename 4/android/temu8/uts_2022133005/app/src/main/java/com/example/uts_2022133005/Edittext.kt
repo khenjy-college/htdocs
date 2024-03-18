@@ -6,7 +6,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class EditTextActivity : AppCompatActivity() {
+public final class Edittext : AppCompatActivity() {
 
     private lateinit var editTextNama: EditText
     private lateinit var editTextGajiPokok: EditText
