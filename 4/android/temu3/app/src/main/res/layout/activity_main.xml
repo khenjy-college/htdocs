@@ -1,74 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:id="@+id/main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="20dp"
-        android:text="Teknik Perangkat Lunak"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="10dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <Button
-            android:id="@+id/hitungnilai"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:text="Perhitungan Nilai"
-            android:backgroundTint="@color/tombol2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="20dp"
+            android:text="Teknik Perangkat Lunak"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/webtpl"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="220dp"
-            android:text="Webview TPL"/>
-    </RelativeLayout>
+        <!-- Pertemuan 3 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pertemuan 3"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/dsn"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:text="Dosen" />
+            <Button
+                android:id="@+id/kebun_binatang"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="App Kebun Binatang"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
 
-        <Button
-            android:id="@+id/mhs"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="220dp"
-            android:text="Mahasiswa"/>
+            <Button
+                android:id="@+id/squad_soccer"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="App Squad Soccer"
+                android:layout_toEndOf="@id/kebun_binatang"
+                android:backgroundTint="@color/tombol2"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/hitung_umur"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="App Hitung Umur"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <!-- You can add another button here if needed -->
+
+        </RelativeLayout>
+
+        <!-- Pertemuan 4 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pertemuan 4"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-</LinearLayout>
+
+            <Button
+                android:id="@+id/hitung_nilai"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Hitung Nilai"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <Button
+                android:id="@+id/hitung_emas"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Hitung Emas"
+                android:layout_toEndOf="@id/hitung_nilai"
+                android:backgroundTint="@color/tombol2"/>
+
+            <!-- You can add another button here if needed -->
+
+        </RelativeLayout>
+
+        <!-- Pertemuan 5 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pertemuan 5"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/webview_tpl"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="WebView TPL"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <Button
+                android:id="@+id/toast_demo"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="ToastDemo"
+                android:layout_toEndOf="@id/webview_tpl"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/alert_dialog"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Alert Dialog"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <!-- You can add another button here if needed -->
+
+        </RelativeLayout>
+
+        <!-- Lainnya -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lainnya"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/dosen"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Dosen"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <Button
+                android:id="@+id/mahasiswa"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Mahasiswa"
+                android:layout_toEndOf="@id/dosen"
+                android:backgroundTint="@color/tombol2"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,33 +1,43 @@
 package com.example.uts_2022133005
 
-// WebViewActivity.kt
-import android.os.Bundle
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
+import androidx.annotation.RequiresApi
 
-public final class Webview : AppCompatActivity() {
+class Webview : AppCompatActivity() {
+
+    private lateinit var webview: WebView
+    private lateinit var back: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_webview)
 
-        val webView: WebView = findViewById(R.id.webView)
-        webView.webViewClient = WebViewClient()
+        webview = findViewById(R.id.webView)
 
-        val webSettings = webView.settings
-        webSettings.javaScriptEnabled = true
+        webviewsetup()
 
-        // Load alamat web yang ditentukan
-        webView.loadUrl("http://www.uvers.ac.id")
-    }
-
-    override fun onBackPressed() {
-        val webView: WebView = findViewById(R.id.webView)
-        // Kembali ke halaman sebelumnya dalam WebView jika ada, jika tidak, kembali ke activity sebelumnya
-        if (webView.canGoBack()) {
-            webView.goBack()
-        } else {
-            super.onBackPressed()
+        back = findViewById(R.id.backButton)
+        back.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
+
+    private fun webviewsetup(){
+        webview.webViewClient = WebViewClient()
+        webview.apply {
+            loadUrl("http://uvers.ac.id")
+            settings.javaScriptEnabled = true
+            settings.safeBrowsingEnabled = true
+        }
+    }
+
+
+
+
 }
