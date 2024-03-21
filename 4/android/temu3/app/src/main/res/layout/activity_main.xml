@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main">
+    android:id="@+id/main"
+    tools:context=".MainActivity">>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,6 +28,7 @@
             android:text="Pertemuan 3"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"/>
 
         <RelativeLayout
@@ -181,6 +183,79 @@
                 android:text="Mahasiswa"
                 android:layout_toEndOf="@id/dosen"
                 android:backgroundTint="@color/tombol2"/>
+
+        </RelativeLayout>
+
+
+        <!-- References -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="References"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/hello_world"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Hello World"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <Button
+                android:id="@+id/guess_number"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Guess A Number"
+                android:layout_toEndOf="@id/hello_world"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/greeting_app"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Greeting App"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <Button
+                android:id="@+id/smart_home_client"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Smart Home Client"
+                android:layout_toEndOf="@id/greeting_app"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/parts_list"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Parts List"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/tombol2"/>
+
+            <!-- You can add another button here if needed -->
 
         </RelativeLayout>
 

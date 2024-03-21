@@ -1,10 +1,11 @@
-package com.example.temu3
+package com.example.temu3.temu4
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.temu3.R
 
 class HitungEmasActivity : AppCompatActivity() {
     private lateinit var hargaEmasEditText: EditText

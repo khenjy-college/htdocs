@@ -1,9 +1,10 @@
-package com.example.temu3
+package com.example.temu3.temu4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.example.temu3.R
 
 class HitungNilaiActivity : AppCompatActivity() {
     private lateinit var nilait:EditText
