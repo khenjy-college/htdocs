@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.temu9.API.APIRequestData;
 import com.example.temu9.API.RetroServer;
 import com.example.temu9.R;
-import com.example.temu9.ResponseModel;
+import com.example.temu9.Model.ResponseModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;

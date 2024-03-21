@@ -9,10 +9,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.temu9.APIRequestData;
+import com.example.temu9.API.APIRequestData;
+import com.example.temu9.API.RetroServer;
+import com.example.temu9.Model.ResponseModel;
 import com.example.temu9.R;
-import com.example.temu9.ResponseModel;
-import com.example.temu9.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,7 +58,7 @@ public class UbahActivity extends AppCompatActivity {
     }
 
     private void updateData(int xId, String yNama, String yAlamat, String yTelepon) {
-        APIRequestData ardData = RetrofitClient.konekRetrofit().create(APIRequestData.class);
+        APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
         Call<ResponseModel> ubahData = ardData.ardUpdateData(xId, yNama, yAlamat, yTelepon);
         ubahData.enqueue(new Callback<ResponseModel>() {
             @Override

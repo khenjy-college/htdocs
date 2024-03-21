@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.temu9.API.APIRequestData;
 import com.example.temu9.API.RetroServer;
+import com.example.temu9.Activity.MainActivity;
+import com.example.temu9.Activity.UbahActivity;
 import com.example.temu9.Model.DataModel;
 import com.example.temu9.R;
-import com.example.temu9.ResponseModel;
+import com.example.temu9.Model.ResponseModel;
 
 import java.util.List;
 
@@ -26,11 +28,13 @@ import retrofit2.Response;
 
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
     private Context ctx;
-    private List<DataModel> listHotel;
+    private List<DataModel> listData;
+    private UbahActivity ubahActivity;
 
-    public AdapterData(Context ctx, List<DataModel> listHotel) {
+    public AdapterData(Context ctx, List<DataModel> listData) {
         this.ctx = ctx;
-        this.listHotel = listHotel;
+        this.listData = listData;
+        this.ubahActivity = ubahActivity;
     }
 
     @NonNull
@@ -42,7 +46,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
-        DataModel dm = listHotel.get(position);
+        DataModel dm = listData.get(position);
         holder.tvId.setText(String.valueOf(dm.getId()));
         holder.tvNama.setText(dm.getNama());
         holder.tvAlamat.setText(dm.getAlamat());
@@ -51,7 +55,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     @Override
     public int getItemCount() {
-        return listHotel.size();
+        return listData.size();
     }
 
     public class HolderData extends RecyclerView.ViewHolder {
@@ -78,13 +82,12 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             deleteData(idLaundry);
                             dialogInterface.dismiss();
-                            ((MainActivity) ctx).retrieveData();
                         }
                     });
                     dialogPesan.setNegativeButton("Ubah", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            getData();
+                            // You can implement update functionality here
                             dialogInterface.dismiss();
                         }
                     });
@@ -104,6 +107,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
                         int kode = response.body().getKode();
                         String pesan = response.body().getPesan();
                         Toast.makeText(ctx, "Kode: " + kode + " | Pesan: " + pesan, Toast.LENGTH_SHORT).show();
+                        ((MainActivity) ctx).retrieveData(); // Refresh data after deletion
                     }
                 }
 
