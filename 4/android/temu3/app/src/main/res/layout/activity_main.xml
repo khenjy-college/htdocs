@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
-    tools:context=".MainActivity">>
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,249 +15,252 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_columnWeight="2"
             android:layout_gravity="center"
             android:paddingTop="20dp"
             android:text="Teknik Perangkat Lunak"
             android:textSize="30dp"
             android:textStyle="bold" />
 
+
         <!-- Pertemuan 3 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="Pertemuan 3"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
-        <RelativeLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/kebun_binatang"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="App Kebun Binatang"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Kebun Binatang" />
 
             <Button
                 android:id="@+id/squad_soccer"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="App Squad Soccer"
+                android:layout_columnWeight="1"
                 android:layout_toEndOf="@id/kebun_binatang"
-                android:backgroundTint="@color/tombol2"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:backgroundTint="@color/tombol2"
+                android:text="Squad Soccer" />
 
             <Button
                 android:id="@+id/hitung_umur"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="App Hitung Umur"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Hitung Umur" />
 
-            <!-- You can add another button here if needed -->
+        </GridLayout>
 
-        </RelativeLayout>
 
         <!-- Pertemuan 4 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="Pertemuan 4"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
-        <RelativeLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/hitung_nilai"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hitung Nilai"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Hitung Nilai" />
 
             <Button
                 android:id="@+id/hitung_emas"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hitung Emas"
+                android:layout_columnWeight="1"
                 android:layout_toEndOf="@id/hitung_nilai"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Hitung Emas" />
 
-            <!-- You can add another button here if needed -->
+        </GridLayout>
 
-        </RelativeLayout>
 
         <!-- Pertemuan 5 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="Pertemuan 5"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
-        <RelativeLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/webview_tpl"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="WebView TPL"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="WebView TPL" />
 
             <Button
                 android:id="@+id/toast_demo"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="ToastDemo"
-                android:layout_toEndOf="@id/webview_tpl"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:layout_toEndOf="@id/webview_tpl"
+                android:backgroundTint="@color/tombol2"
+                android:text="ToastDemo" />
 
             <Button
                 android:id="@+id/alert_dialog"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Alert Dialog"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Alert Dialog" />
 
-            <!-- You can add another button here if needed -->
+        </GridLayout>
 
-        </RelativeLayout>
 
         <!-- Lainnya -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="Lainnya"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
-        <RelativeLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/dosen"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Dosen"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Dosen" />
 
             <Button
                 android:id="@+id/mahasiswa"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Mahasiswa"
+                android:layout_columnWeight="1"
                 android:layout_toEndOf="@id/dosen"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Mahasiswa" />
 
-        </RelativeLayout>
+        </GridLayout>
 
 
         <!-- References -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="References"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
-        <RelativeLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/hello_world"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hello World"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Hello World" />
 
             <Button
                 android:id="@+id/guess_number"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Guess A Number"
-                android:layout_toEndOf="@id/hello_world"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:layout_toEndOf="@id/hello_world"
+                android:backgroundTint="@color/tombol2"
+                android:text="Guess A Number" />
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/greeting_app"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Greeting App"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Greeting App" />
 
             <Button
                 android:id="@+id/smart_home_client"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Smart Home Client"
-                android:layout_toEndOf="@id/greeting_app"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:layout_toEndOf="@id/greeting_app"
+                android:backgroundTint="@color/tombol2"
+                android:text="Smart Home Client" />
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/parts_list"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Parts List"
+                android:layout_columnWeight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/tombol2"/>
+                android:backgroundTint="@color/tombol2"
+                android:text="Parts List" />
 
-            <!-- You can add another button here if needed -->
-
-        </RelativeLayout>
+        </GridLayout>
 
     </LinearLayout>
 </ScrollView>

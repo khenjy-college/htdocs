@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.temu3.R
 
 class HitungNilaiActivity : AppCompatActivity() {
@@ -19,7 +21,11 @@ class HitungNilaiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hitung_nilai)
-
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         namamhs = findViewById(R.id.editNamaMahasiswa)
         nilait = findViewById(R.id.editNilaiTugas)
@@ -28,6 +34,8 @@ class HitungNilaiActivity : AppCompatActivity() {
         totalnilai = findViewById(R.id.editTotal)
         nilaihuruf = findViewById(R.id.editNilaiHuruf)
         hasilnama = findViewById(R.id.editNama)
+        hitung = findViewById(R.id.dsn) // Initialize hitung button
+        kembali = findViewById(R.id.mhs) // Initialize kembali button
 
         hitung.setOnClickListener {
             val nt = nilait.text.toString()
@@ -47,7 +55,7 @@ class HitungNilaiActivity : AppCompatActivity() {
             hasilnama.setText(namamhs.toString())
             totalnilai.setText(nilaitotal.toString())
         }
-
     }
+
 
 }

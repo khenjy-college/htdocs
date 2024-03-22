@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.temu3.lainnya.DosenActivity
+import com.example.temu3.lainnya.MahasiswaActivity
 import com.example.temu3.references.GreetingActivity
 import com.example.temu3.references.GuessNumberActivity
 import com.example.temu3.references.HelloWorldActivity
@@ -16,6 +18,8 @@ import com.example.temu3.temu3.HitungUmurActivity
 import com.example.temu3.temu3.KebunBinatangActivity
 import com.example.temu3.temu3.SquadSoccerActivity
 import com.example.temu3.temu4.HitungEmasActivity
+import com.example.temu3.temu4.HitungNilaiActivity
+import com.example.temu3.temu5.AlertDialogActivity
 import com.example.temu3.temu5.ToastDemoActivity
 import com.example.temu3.temu5.WebViewActivity
 
@@ -58,6 +62,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Pertemuan 4 buttons
+        val hitungNilaiButton = findViewById<Button>(R.id.hitung_nilai)
+        hitungNilaiButton.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                HitungNilaiActivity::class.java
+            )
+            startActivity(intent)
+        }
+
         val hitungEmasButton = findViewById<Button>(R.id.hitung_emas)
         hitungEmasButton.setOnClickListener {
             val intent = Intent(
@@ -81,6 +94,32 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(
                 this@MainActivity,
                 ToastDemoActivity::class.java
+            )
+            startActivity(intent)
+        }
+        val alertDialogButton = findViewById<Button>(R.id.alert_dialog)
+        alertDialogButton.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                AlertDialogActivity::class.java
+            )
+            startActivity(intent)
+        }
+
+        // Lainnya buttons
+        val dosenButton = findViewById<Button>(R.id.dosen)
+        dosenButton.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                DosenActivity::class.java
+            )
+            startActivity(intent)
+        }
+        val mahasiswaButton = findViewById<Button>(R.id.mahasiswa)
+        mahasiswaButton.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                MahasiswaActivity::class.java
             )
             startActivity(intent)
         }

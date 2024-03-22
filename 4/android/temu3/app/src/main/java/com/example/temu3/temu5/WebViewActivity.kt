@@ -22,6 +22,6 @@ class WebViewActivity : AppCompatActivity() {
 
         val webView: WebView = findViewById(R.id.webView)
         webView.webViewClient = WebViewClient() // To prevent the default browser opening
-        webView.loadUrl("https://www.youtube.com") // Load your desired URL here
+        webView.loadUrl("https://uvers.ac.id/uvers/prodi/tpl/") // Load your desired URL here
     }
 }
