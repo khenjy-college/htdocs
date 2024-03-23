@@ -1,21 +1,44 @@
 package com.example.temu3.lainnya
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.temu3.R
+import java.util.Arrays
 
 class MahasiswaActivity : AppCompatActivity() {
+    // Data yang Akan dimasukan Pada ListView
+    private val mahasiswa = arrayOf(
+        "Wildan",
+        "Taufan",
+        "Adibil",
+        "Hari",
+        "Adam",
+        "Hermawan",
+        "Indra",
+        "Widi",
+        "Anisa",
+        "Hani"
+    )
+
+    // ArrayList digunakan Untuk menampung Data mahasiswa
+    private var data: ArrayList<String>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_mahasiswa)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        val listView = findViewById<ListView>(R.id.list)
+        data = ArrayList()
+        getData()
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1, data!!
+        )
+        listView.setAdapter(adapter)
+    }
+
+    private fun getData() {
+        // Memasukan Semua Data mahasiswa kedalam ArrayList
+        data!!.addAll(Arrays.asList(*mahasiswa))
     }
 }
