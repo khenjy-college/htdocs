@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata('level')) {
-  case 'administrator':
-  case 'petugas':
+  case $tabel9_field6_value3:
+  case $tabel9_field6_value4:
     break;
 
   default:
@@ -25,7 +25,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Masukkan</span>
           </div>
-          <input type="text" class="form-control" name="nisn" value="<?= $nisn ?>">
+          <input type="text" class="form-control" name="<?= $tabel8_field3 ?>" value="<?= $nisn ?>">
         </div>
       </td>
       <td>
@@ -210,8 +210,8 @@
                     <div class="form-group">
                       <label><?= $tabel4_field1_alias ?></label>
                       <p><?= $tl4->nisn ?></p>
-                      <input type="hidden" name="nisn" value="<?= $tl4->nisn ?>">
-                      <input type="hidden" name="id_petugas" value="<?= $this->session->userdata('id_petugas') ?>">
+                      <input type="hidden" name="<?= $tabel4_field1 ?>" value="<?= $tl4->nisn ?>">
+                      <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $this->session->userdata($tabel9_field1) ?>">
                     </div>
                     <hr>
 
@@ -253,7 +253,7 @@
                     <div class="form-group">
                       <label><?= $tabel6_field2_alias ?></label>
                       <p><?= $tl6->tahun ?></p>
-                      <input type="hidden" name="id_spp" value="<?= $tl6->id_spp ?>">
+                      <input type="hidden" name="<?= $tabel6_field2 ?>" value="<?= $tl6->id_spp ?>">
                     </div>
                     <hr>
 
@@ -268,12 +268,12 @@
                     <!-- Di bawah ini adalah form input pembayaran -->
                     <div class="form-group">
                       <label><?= $tabel8_field4_alias ?> </label>
-                      <input class="form-control" type="date" required name="tgl_bayar" min="<?= date('Y-m-d'); ?>">
+                      <input class="form-control" type="date" required name="<?= $tabel8_field4 ?>" min="<?= date('Y-m-d'); ?>">
                     </div>
 
                     <div class="form-group">
                       <label><?= $tabel8_field5_alias ?> </label>
-                      <select class="form-control" required name="bulan_dibayar">
+                      <select class="form-control" required name="<?= $tabel8_field5 ?>">
                         <option value="" selected hidden>Pilih <?= $tabel8_field5_alias ?></option>
                         <option value="Januari">Januari</option>
                         <option value="Februari">Februari</option>
@@ -292,12 +292,12 @@
 
                     <div class="form-group">
                       <label><?= $tabel8_field6_alias ?> </label>
-                      <input class="form-control" type="number" required name="tahun_dibayar" value="<?= $tl6->tahun ?>" placeholder="Masukkan <?= $tabel8_field6_alias ?>">
+                      <input class="form-control" type="number" required name="<?= $tabel8_field6 ?>" value="<?= $tl6->tahun ?>" placeholder="Masukkan <?= $tabel8_field6_alias ?>">
                     </div>
 
                     <div class="form-group">
                       <label><?= $tabel8_field8_alias ?> </label>
-                      <input class="form-control" readonly type="number" required name="jumlah_bayar" placeholder="Masukkan <?= $tabel8_field8_alias ?>" value="<?= $tl6->nominal ?>">
+                      <input class="form-control" readonly type="number" required name="<?= $tabel8_field8 ?>" placeholder="Masukkan <?= $tabel8_field8_alias ?>" value="<?= $tl6->nominal ?>">
                     </div>
                   </div>
 

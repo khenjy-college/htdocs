@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata('level')) {
-  case 'administrator':
-    // case 'petugas':
+  case $tabel9_field6_value3:
+    // case 'tabel9_field6_value4_alias':
     break;
 
   default:
@@ -85,12 +85,12 @@
 
           <div class="form-group">
             <label><?= $tabel6_field2_alias ?></label>
-            <input class="form-control" type="number" required name="tahun" value="2010" placeholder="Masukkan <?= $tabel6_field2_alias ?>">
+            <input class="form-control" type="number" required name="<?= $tabel6_field2 ?>" value="2010" placeholder="Masukkan <?= $tabel6_field2_alias ?>">
           </div>
 
           <div class="form-group">
             <label><?= $tabel6_field3_alias ?></label>
-            <input class="form-control" type="number" required name="nominal" value="300000" placeholder="Masukkan <?= $tabel6_field3_alias ?>">
+            <input class="form-control" type="number" required name="<?= $tabel6_field3 ?>" value="300000" placeholder="Masukkan <?= $tabel6_field3_alias ?>">
           </div>
 
           <!-- Keterangan tabel yang menjelaskan tentang id spp ditunda dulu karena malas -->
@@ -161,18 +161,18 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel6_field1_alias ?></label>
-              <input class="form-control" type="number" required name="id_spp" value="<?= $tl6->id_spp; ?>">
-              <input type="hidden" name="id_spp" value="<?= $tl6->id_spp; ?>">
+              <input class="form-control" type="number" required name="<?= $tabel6_field1 ?>" value="<?= $tl6->id_spp; ?>">
+              <input type="hidden" name="<?= $tabel6_field1 ?>" value="<?= $tl6->id_spp; ?>">
             </div>
 
             <div class="form-group">
               <label><?= $tabel6_field2_alias ?></label>
-              <input class="form-control" type="number" required name="tahun" value="<?= $tl6->tahun; ?>">
+              <input class="form-control" type="number" required name="<?= $tabel6_field2 ?>" value="<?= $tl6->tahun; ?>">
             </div>
 
             <div class="form-group">
               <label><?= $tabel6_field3_alias ?></label>
-              <input class="form-control" type="number" required name="nominal" value="<?= $tl6->nominal; ?>">
+              <input class="form-control" type="number" required name="<?= $tabel6_field3 ?>" value="<?= $tl6->nominal; ?>">
             </div>
           </div>
 

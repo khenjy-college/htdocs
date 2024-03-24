@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata('level')) {
-  case 'administrator':
-    // case 'petugas':
+  case $tabel9_field6_value3:
+    // case 'tabel9_field6_value4_alias':
     break;
 
   default:
@@ -25,38 +25,38 @@
       <form action="<?= site_url('pengaturan/update') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label><?= $tabel7_field2_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="nama" value="<?= $tl7->nama; ?>">
-          <input type="hidden" name="id" value="<?= $tl7->id; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field2 ?>" value="<?= $tl7->nama; ?>">
+          <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field6_alias ?></label>
-          <textarea class="form-control pengaturan" required name="alamat" rows="3"><?= $tl7->alamat; ?></textarea>
+          <textarea class="form-control pengaturan" required name="<?= $tabel7_field6 ?>" rows="3"><?= $tl7->alamat; ?></textarea>
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field7_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="email" value="<?= $tl7->email; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field7 ?>" value="<?= $tl7->email; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field8_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="hp" value="<?= $tl7->hp; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field8 ?>" value="<?= $tl7->hp; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field9_alias ?></label>
-          <textarea class="form-control pengaturan" required name="metadesc" rows="5"><?= $tl7->metadesc; ?></textarea>
+          <textarea class="form-control pengaturan" required name="<?= $tabel7_field9 ?>" rows="5"><?= $tl7->metadesc; ?></textarea>
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field10_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="fb" placeholder="Masukkan <?= $tabel7_field10_alias ?>" value="<?= $tl7->fb; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field10 ?>" placeholder="Masukkan <?= $tabel7_field10_alias ?>" value="<?= $tl7->fb; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field11_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="ig" placeholder="Masukkan <?= $tabel7_field11_alias ?>" value="<?= $tl7->ig; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field11 ?>" placeholder="Masukkan <?= $tabel7_field11_alias ?>" value="<?= $tl7->ig; ?>">
         </div>
 
         <div class="form-group">
@@ -84,7 +84,7 @@
           </button>
         </div>
 
-        <form action="<?= site_url('pengaturan/update_favicon') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url('pengaturan/update_'.$tabel7_field3) ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">
@@ -94,17 +94,17 @@
 
             <div class="form-group">
               <label>Ubah <?= $tabel7_field3_alias ?></label>
-              <input class="form-control-file" required type="file" name="favicon">
-              <input type="hidden" name="id" value="<?= $tl7->id; ?>">
-              <input type="hidden" name="txtfavicon" value="<?= $tl7->favicon; ?>">
+              <input class="form-control-file" required type="file" name="<?= $tabel7_field3 ?>">
+              <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txt<?= $tabel7_field3 ?>" value="<?= $tl7->favicon; ?>">
             </div>
           </div>
 
           <!-- memunculkan notifikasi modal -->
-          <p id="p_favicon" class="small text-center text-danger"><?= $this->session->flashdata('pesan_favicon') ?></p>
+          <p id="p_<?= $tabel7_field3 ?>" class="small text-center text-danger"><?= $this->session->flashdata('pesan_'.$tabel7_field3) ?></p>
 
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah favicon?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah <?= $tabel7_field3 ?>?')" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>
@@ -125,7 +125,7 @@
           </button>
         </div>
 
-        <form action="<?= site_url('pengaturan/update_logo') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url('pengaturan/update_'.$tabel7_field4) ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">
@@ -136,17 +136,17 @@
 
             <div class="form-group">
               <label>Ubah <?= $tabel7_field4_alias ?></label>
-              <input class="form-control-file" required type="file" name="logo">
-              <input type="hidden" name="id" value="<?= $tl7->id; ?>">
-              <input type="hidden" name="txtlogo" value="<?= $tl7->logo; ?>">
+              <input class="form-control-file" required type="file" name="<?= $tabel7_field4 ?>">
+              <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txt<?= $tabel7_field4 ?>" value="<?= $tl7->logo; ?>">
             </div>
           </div>
 
           <!-- memunculkan notifikasi modal -->
-          <p id="p_logo" class="small text-center text-danger"><?= $this->session->flashdata('pesan_logo') ?></p>
+          <p id="p_<?= $tabel7_field4 ?>" class="small text-center text-danger"><?= $this->session->flashdata('pesan_'.$tabel7_field4) ?></p>
 
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah logo website?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah '.$tabel7_field4)" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>
@@ -167,7 +167,7 @@
           </button>
         </div>
 
-        <form action="<?= site_url('pengaturan/update_foto') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url('pengaturan/update_'.$tabel7_field5) ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">
@@ -177,17 +177,17 @@
 
             <div class="form-group">
               <label>Ubah <?= $tabel7_field5_alias ?></label>
-              <input class="form-control-file" required type="file" name="foto">
-              <input type="hidden" name="id" value="<?= $tl7->id; ?>">
-              <input type="hidden" name="txtfoto" value="<?= $tl7->foto; ?>">
+              <input class="form-control-file" required type="file" name="<?= $tabel7_field5 ?>">
+              <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txt<?= $tabel7_field5 ?>" value="<?= $tl7->foto; ?>">
             </div>
           </div>
 
           <!-- memunculkan notifikasi modal -->
-          <p id="p_foto" class="small text-center text-danger"><?= $this->session->flashdata('pesan_foto') ?></p>
+          <p id="p_<?= $tabel7_field5 ?>" class="small text-center text-danger"><?= $this->session->flashdata('pesan_'.$tabel7_field5) ?></p>
 
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah foto website?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah '.$tabel7_field5)" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>

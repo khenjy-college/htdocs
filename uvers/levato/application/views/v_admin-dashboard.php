@@ -1,7 +1,7 @@
 <!-- mengarahkan ke no_level jika user tidak memiliki level -->
 <?php switch ($this->session->userdata('level')) {
-  case 'administrator':
-  case 'petugas':
+  case $tabel9_field6_value3:
+  case $tabel9_field6_value4:
     break;
 
   default:
@@ -16,7 +16,7 @@
   <!-- menampilkan data untuk administrator -->
 
   <?php switch ($this->session->userdata('level')) {
-    case 'administrator': ?>
+    case $tabel9_field6_value3: ?>
       <div class="col-lg-3 mt-2">
         <div class="card text-white bg-primary">
           <div class="card-body">
@@ -58,7 +58,7 @@
       </div>
     <?php break;
 
-    case 'petugas': ?>
+    case $tabel9_field6_value4: ?>
       <div class="col-lg-2 mt-2">
         <div class="card text-white bg-primary">
           <div class="card-body">
@@ -70,7 +70,7 @@
       </div>
     <?php break;
 
-    case 'accounting': ?>
+    case $tabel9_field6_value2: ?>
       <div class="col-lg-2 mt-2">
         <div class="card text-white bg-success">
           <div class="card-body">

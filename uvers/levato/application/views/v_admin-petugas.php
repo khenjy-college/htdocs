@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata('level')) {
-  case 'administrator':
-    // case 'petugas':
+  case $tabel9_field6_value3:
+    // case 'tabel9_field6_value4_alias':
     break;
 
   default:
@@ -82,14 +82,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama">
+            <input class="form-control" type="text" required name="<?= $tabel9_field2 ?>" placeholder="Masukkan <?= $tabel9_field2_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input class="form-control" type="email" required name="email" placeholder="Masukkan email">
+            <input class="form-control" type="email" required name="<?= $tabel9_field3 ?>" placeholder="Masukkan <?= $tabel9_field3_alias ?>">
           </div>
 
           <!-- administrator dapat menentukan password untuk akun baru -->
@@ -97,21 +97,21 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input class="form-control" type="password" required name="password" placeholder="Masukkan password">
+            <input class="form-control" type="password" required name="<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi password">
+            <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi <?= $tabel9_field4_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-phone"></i></span>
             </div>
-            <input class="form-control" type="text" required name="hp" placeholder="Masukkan hp">
+            <input class="form-control" type="text" required name="<?= $tabel9_field5 ?>" placeholder="Masukkan <?= $tabel9_field5_alias ?>">
           </div>
 
           <div class="input-group">
@@ -120,12 +120,12 @@
             </div>
 
             <!-- hanya admin yang bisa menentukan level user -->
-            <select class="form-control" required name="level">
+            <select class="form-control" required name="<?= $tabel9_field6 ?>">
               <option value="" selected hidden>Pilih <?= $tabel9_field6_alias ?></option>
-              <option value="siswa">siswa</option>
-              <option value="petugas">petugas</option>
-              <option value="accounting">accounting</option>
-              <option value="administrator">administrator</option>
+              <option value="<?= $tabel9_field6_value5 ?>"><?= $tabel9_field6_value5_alias ?></option>
+              <option value="<?= $tabel9_field6_value4 ?>"><?= $tabel9_field6_value4_alias ?></option>
+              <option value="<?= $tabel9_field6_value2 ?>"><?= $tabel9_field6_value2_alias ?></option>
+              <option value="<?= $tabel9_field6_value3 ?>"><?= $tabel9_field6_value3_alias ?></option>
             </select>
           </div>
         </div>
@@ -161,34 +161,34 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input class="form-control" type="text" required name="nama" value="<?= $tl9->nama; ?>">
-              <input type="hidden" name="id_petugas" value="<?= $tl9->id_petugas; ?>">
+              <input class="form-control" type="text" required name="<?= $tabel9_field2 ?>" value="<?= $tl9->nama; ?>">
+              <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->id_petugas; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
               </div>
-              <input class="form-control" type="email" required name="email" value="<?= $tl9->email; ?>">
+              <input class="form-control" type="email" required name="<?= $tabel9_field3 ?>" value="<?= $tl9->email; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
               </div>
-              <input class="form-control" type="text" required name="hp" value="<?= $tl9->hp; ?>">
+              <input class="form-control" type="text" required name="<?= $tabel9_field5 ?>" value="<?= $tl9->hp; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-users"></i></span>
               </div>
-              <select class="form-control" required name="level">
+              <select class="form-control" required name="<?= $tabel9_field6 ?>">
                 <option selected hidden><?= $tl9->level; ?></option>
-                <option value="siswa">siswa</option>
-                <option value="petugas">petugas</option>
-                <option value="accounting">accounting</option>
-                <option value="administrator">administrator</option>
+                <option value="<?= $tabel9_field6_value5 ?>"><?= $tabel9_field6_value5_alias ?></option>
+              <option value="<?= $tabel9_field6_value4 ?>"><?= $tabel9_field6_value4_alias ?></option>
+              <option value="<?= $tabel9_field6_value2 ?>"><?= $tabel9_field6_value2_alias ?></option>
+              <option value="<?= $tabel9_field6_value3 ?>"><?= $tabel9_field6_value3_alias ?></option>
               </select>
             </div>
           </div>

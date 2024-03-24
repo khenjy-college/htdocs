@@ -558,10 +558,19 @@ class Welcome extends CI_Controller
 			'tabel9_field6' => 'level',
 			'tabel9_field6_alias' => 'Level User',
 			'tabel9_field6_value1' => '',
+
 			'tabel9_field6_value2' => 'accounting',
+			'tabel9_field6_value2_alias' => 'Accounting',
+			
 			'tabel9_field6_value3' => 'administrator',
+			'tabel9_field6_value3_alias' => 'Administrator',
+			
 			'tabel9_field6_value4' => 'petugas',
+			'tabel9_field6_value4_alias' => 'Petugas',
+			
 			'tabel9_field6_value5' => 'siswa',
+			'tabel9_field6_value5_alias' => 'Siswa',
+			
 			'tabel9_field7' => 'login_count',
 			'tabel9_field7_alias' => 'Jumlah Login',
 		);

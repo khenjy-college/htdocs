@@ -37,7 +37,7 @@ Fitur sedang tahap pengembangan
                   <p><?= $tl8->email ?></p>
 
                   <!-- Email ini digunakan untuk menambahkan sesi temporer untuk konfirmasi transaksi -->
-                  <input type="hidden" name="email" value="<?= $tl8->email ?>">
+                  <input type="hidden" name="<?= $tabel8_field4 ?>" value="<?= $tl8->email ?>">
                 </div>
 
                 <div class="form-group">

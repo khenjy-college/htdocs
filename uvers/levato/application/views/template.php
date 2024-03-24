@@ -80,12 +80,12 @@ switch (true) {
               <div class="modal-body">
                 <div class="form-group">
                   <label><?= $tabel8_field1_alias ?></label>
-                  <input class="form-control" type="text" required name="id_pembayaran" placeholder="Masukkan id pembayaran">
+                  <input class="form-control" type="text" required name="<?= $tabel8_field1 ?>" placeholder="Masukkan <?= $tabel8_field1_alias ?>">
                 </div>
 
                 <div class="form-group">
                   <label><?= $tabel8_field4_alias ?></label>
-                  <input class="form-control" type="email" required name="email" placeholder="Masukkan email Anda">
+                  <input class="form-control" type="email" required name="<?= $tabel8_field4 ?>" placeholder="Masukkan <?= $tabel8_field4_alias ?> Anda">
                 </div>
               </div>
 
@@ -116,9 +116,9 @@ switch (true) {
 
         <!-- menampilkan footer khusus jika level adalah petugas, admin, dan sebagainya  -->
         <?php switch ($this->session->userdata('level')) {
-          case 'administrator':
-          case 'petugas':
-          case 'accounting':
+          case $tabel9_field6_value3:
+          case $tabel9_field6_value4:
+          case $tabel9_field6_value2:
         ?>
             <div class="row justify-content-center align-content-center">
               <p class="pt-2">@2017-2022 | <?= $tl7->nama ?></p>

@@ -12,18 +12,18 @@
       <form action="<?= site_url($tabel9.'/update_profil') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label><?= $tabel9_field2_alias ?></label>
-          <input class="form-control pengaturan" type="text" name="nama" value="<?= $tl9->nama; ?>">
-          <input type="hidden" name="id_petugas" value="<?= $tl9->id_petugas; ?>">
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field2 ?>" value="<?= $tl9->nama; ?>">
+          <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->id_petugas; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel9_field3_alias ?>*</label>
-          <input class="form-control pengaturan" type="text" name="email" value="<?= $tl9->email; ?>">
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field3 ?>" value="<?= $tl9->email; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel9_field5_alias ?></label>
-          <input class="form-control pengaturan" type="text" name="hp" value="<?= $tl9->hp; ?>">
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field5 ?>" value="<?= $tl9->hp; ?>">
         </div>
 
         <div class="form-group">
@@ -52,29 +52,29 @@
             <span>&times;</span>
           </button>
         </div>
-        <form action="<?= site_url($tabel9.'/update_password') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel9.'/update_'.$tabel9_field4) ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input class="form-control" type="password" required name="old_password" placeholder="Masukkan password lama">
-              <input type="hidden" name="id_petugas" value="<?= $tl9->id_petugas; ?>">
+              <input class="form-control" type="password" required name="old_<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?> lama">
+              <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->id_petugas; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input class="form-control" type="password" required name="password" placeholder="Masukkan password baru">
+              <input class="form-control" type="password" required name="<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>" baru">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi password baru">
+              <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi <?= $tabel9_field4_alias ?>" baru">
             </div>
           </div>
 
@@ -83,7 +83,7 @@
           <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah password?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah <?= $tabel9_field4_alias ?>?')" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>

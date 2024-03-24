@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata('level')) {
-  case 'administrator':
-  case 'petugas':
+  case $tabel9_field6_value3:
+  case $tabel9_field6_value4:
     break;
 
   default:

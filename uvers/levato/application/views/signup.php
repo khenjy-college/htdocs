@@ -25,36 +25,36 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama">
-            <input type="hidden" name="level" value="siswa">
+            <input class="form-control" type="text" required name="<?= $tabel9_field2 ?>" placeholder="Masukkan <?= $tabel9_field2_alias ?>">
+            <input type="hidden" name="<?= $tabel9_field6 ?>" value="<?= $tabel9_field6_value5 ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input class="form-control" type="email" required name="email" placeholder="Masukkan email">
+            <input class="form-control" type="email" required name="<?= $tabel9_field3 ?>" placeholder="Masukkan <?= $tabel9_field3_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input class="form-control" type="password" required name="password" placeholder="Masukkan password">
+            <input class="form-control" type="password" required name="<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi password">
+            <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi <?= $tabel9_field4_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-phone"></i></span>
             </div>
-            <input class="form-control" type="text" required name="hp" placeholder="Masukkan hp">
+            <input class="form-control" type="text" required name="<?= $tabel9_field5 ?>" placeholder="Masukkan <?= $tabel9_field5_alias ?>">
           </div>
 
           <!-- pesan untuk pengguna yang signup -->

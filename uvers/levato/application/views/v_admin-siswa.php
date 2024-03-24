@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata('level')) {
-  case 'administrator':
-  case 'petugas':
+  case $tabel9_field6_value3:
+  case $tabel9_field6_value4:
     break;
 
   default:
@@ -88,14 +88,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" required name="nisn" placeholder="Masukkan nisn">
+            <input class="form-control" type="text" required name="<?= $tabel4_field1 ?>" placeholder="Masukkan <?= $tabel4_field1_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" required name="nis" placeholder="Masukkan nis">
+            <input class="form-control" type="text" required name="<?= $tabel4_field2 ?>" placeholder="Masukkan <?= $tabel4_field2_alias ?>">
           </div>
 
           <!-- administrator dapat menentukan password untuk akun baru -->
@@ -103,7 +103,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama">
+            <input class="form-control" type="text" required name="<?= $tabel4_field3 ?>" placeholder="Masukkan <?= $tabel4_field3_alias ?>">
           </div>
 
           <div class="input-group">
@@ -112,7 +112,7 @@
             </div>
 
             <!-- hanya admin yang bisa menentukan level user -->
-            <select class="form-control" required name="id_kelas">
+            <select class="form-control" required name="<?= $tabel4_field4 ?>">
               <option value="" selected hidden>Pilih <?= $tabel4_field4_alias ?></option>
               <?php foreach ($tbl5 as $tl5) : ?>
                 <option value="<?= $tl5->id_kelas ?>"><?= $tl5->nama_kelas ?></option>
@@ -124,14 +124,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
             </div>
-            <textarea class="form-control" name="alamat" id="inputAlamat" placeholder="Masukkan alamat"></textarea>
+            <textarea class="form-control" name="<?= $tabel4_field5 ?>" id="inputAlamat" placeholder="Masukkan <?= $tabel4_field5_alias ?>"></textarea>
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-phone"></i></span>
             </div>
-            <input class="form-control" type="text" required name="no_telp" placeholder="Masukkan nomor telepon">
+            <input class="form-control" type="text" required name="<?= $tabel4_field6 ?>" placeholder="Masukkan <?= $tabel4_field6_alias ?>">
           </div>
 
           <div class="input-group">
@@ -140,7 +140,7 @@
             </div>
 
             <!-- hanya admin yang bisa menentukan level user -->
-            <select class="form-control" required name="id_spp">
+            <select class="form-control" required name="<?= $tabel4_field7 ?>">
               <option value="" selected hidden>Pilih <?= $tabel4_field7_alias ?></option>
               <?php foreach ($tbl6 as $tl6) : ?>
                 <option value="<?= $tl6->id_spp ?>"><?= $tl6->tahun ?> - Rp <?= number_format($tl6->nominal, '2', ',', '.') ?></option>
@@ -182,9 +182,9 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input class="form-control" type="text" required name="nis" placeholder="Masukkan nis" value="<?= $tl4->nis ?>">
-              <input type="hidden" name="nisn" value="<?= $tl4->nisn ?>">
-              <input type="hidden" name="id_spp" value="<?= $tl4->id_spp ?>">
+              <input class="form-control" type="text" required name="<?= $tabel4_field2 ?>" placeholder="Masukkan <?= $tabel4_field2_alias ?>" value="<?= $tl4->nis ?>">
+              <input type="hidden" name="<?= $tabel4_field1 ?>" value="<?= $tl4->nisn ?>">
+              <input type="hidden" name="<?= $tabel4_field7 ?>" value="<?= $tl4->id_spp ?>">
             </div>
 
             <!-- administrator dapat menentukan password untuk akun baru -->
@@ -192,7 +192,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama" value="<?= $tl4->nama ?>">
+              <input class="form-control" type="text" required name="<?= $tabel4_field3 ?>" placeholder="Masukkan <?= $tabel4_field3_alias ?>" value="<?= $tl4->nama ?>">
             </div>
 
             <div class="input-group">
@@ -201,7 +201,7 @@
               </div>
 
               <!-- hanya admin yang bisa menentukan level user -->
-              <select class="form-control" required name="id_kelas">
+              <select class="form-control" required name="<?= $tabel5_field1 ?>">
                 <?php foreach ($tbl5 as $tl5) :
                   if ($tl4->id_kelas == $tl5->id_kelas) { ?>
                     <option value="<?= $tl4->id_kelas ?>" selected hidden><?= $tl5->nama_kelas ?></option>
@@ -218,14 +218,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
               </div>
-              <textarea class="form-control" name="alamat" id="inputAlamat" placeholder="Masukkan alamat"><?= $tl4->alamat ?></textarea>
+              <textarea class="form-control" name="<?= $tabel4_field5 ?>" id="inputAlamat" placeholder="Masukkan <?= $tabel4_field5_alias ?>"><?= $tl4->alamat ?></textarea>
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
               </div>
-              <input class="form-control" type="text" required name="no_telp" placeholder="Masukkan nomor telepon" value="<?= $tl4->no_telp ?>">
+              <input class="form-control" type="text" required name="<?= $tabel4_field6 ?>" placeholder="Masukkan <?= $tabel4_field6_alias ?>" value="<?= $tl4->no_telp ?>">
             </div>
           </div>
 
