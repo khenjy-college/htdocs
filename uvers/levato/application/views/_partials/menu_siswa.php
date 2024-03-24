@@ -15,16 +15,16 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Pembayaran</h6>
-        <a class="dropdown-item" href="<?= site_url('pembayaran/daftar') ?>">Daftar Pembayaran</a>
+        <a class="dropdown-item" href="<?= site_url($tabel8.'/daftar') ?>">Daftar Pembayaran</a>
 
         <!-- <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">History</h6>
         <a class="dropdown-item" href="<?= site_url('history/daftar') ?>">History Pembayaran</a> -->
 
         <div class="dropdown-divider"></div>
-        <!-- <a class="dropdown-item" href="<?= site_url('siswa/profil') ?>">Profil</a> -->
+        <!-- <a class="dropdown-item" href="<?= site_url($tabel4.'/profil') ?>">Profil</a> -->
         <!-- <a id="introBaru" type="button" class="dropdown-item">Quick Tour</a> -->
-        <a class="dropdown-item" href="<?= site_url('siswa/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url($tabel4.'/logout') ?>">Logout</a>
       </div>
     </div>
   </li>

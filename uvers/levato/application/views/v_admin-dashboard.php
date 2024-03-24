@@ -20,7 +20,7 @@
       <div class="col-lg-3 mt-2">
         <div class="card text-white bg-primary">
           <div class="card-body">
-            <h5 class="card-title"><?= $tabel6_alias ?></h5>
+            <h5 class="card-title"><?= $this->aliases['tabel6_alias'] ?></h5>
             <p class="card-text" style="font-size: 32;"><?= $tbl6 ?></p>
             <a class="text-white" href="<?= site_url($tabel6) ?>">Lihat Detail >></a>
           </div>

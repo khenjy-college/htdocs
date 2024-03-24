@@ -12,7 +12,7 @@
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
-<a class="btn btn-info mb-4" href="<?= site_url('spp/laporan') ?>" target="_blank">
+<a class="btn btn-info mb-4" href="<?= site_url($tabel6.'/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
 <div class="table-responsive">
@@ -43,7 +43,7 @@
             Namun use case tersebut saat ini masih belum bisa ditentukan
             Entah itu mau menghapus data yang berada di tabel child, atau meng-NULL kan data di child table
             Hal itu perlu didiskusikan lebih lanjut supaya tidak ada bug yang tidak diinginkan -->
-            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kelas?')" href="<?= site_url('spp/hapus/' . $tl6->id_spp) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus data tipe kelas?')" href="<?= site_url($tabel6.'/hapus/' . $tl6->id_spp) ?>">
             <i class="fas fa-trash"></i></a> -->
 
           </td>
@@ -74,7 +74,7 @@
           <span>&times;</span>
         </button>
       </div>
-      <form action="<?= site_url('spp/tambah') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url($tabel6.'/tambah') ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
 
           <!-- Rencananya adalah untuk membuat style khusus untuk masing-masing id spp (ditunda) -->
@@ -157,7 +157,7 @@
           </button>
         </div>
 
-        <form action="<?= site_url('spp/update') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel6.'/update') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel6_field1_alias ?></label>

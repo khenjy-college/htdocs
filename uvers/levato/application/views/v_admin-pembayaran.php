@@ -16,7 +16,7 @@
 
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
   <!-- Mengecek data menggunakan tanggal cek in -->
-  <form action="<?= site_url('pembayaran') ?>" method="get">
+  <form action="<?= site_url($tabel8.'') ?>" method="get">
     <tr>
 
       <td class="pr-2"><?= $tabel8_field3_alias ?></td>
@@ -32,7 +32,7 @@
         <button class="btn btn-success" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-danger" type="button" href="<?= site_url('pembayaran') ?>">
+        <a class="btn btn-danger" type="button" href="<?= site_url($tabel8.'') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
 
@@ -148,7 +148,7 @@
                break;
 
               case 'cek out': ?>
-                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url('pembayaran/hapus/' . $tl8->id_pembayaran) ?>">
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url($tabel8.'/hapus/' . $tl8->id_pembayaran) ?>">
                   <i class="fas fa-trash"></i></a>
                break;
 
@@ -159,7 +159,7 @@
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-                <a class="btn btn-light text-info" href="<?= site_url('pembayaran/print/' . $tl8->id_pembayaran) ?>" target="_blank">
+                <a class="btn btn-light text-info" href="<?= site_url($tabel8.'/print/' . $tl8->id_pembayaran) ?>" target="_blank">
                   <i class="fas fa-print"></i></a>
 
               </td>
@@ -197,7 +197,7 @@
         </button>
       </div>
 
-      <form action="<?= site_url('pembayaran/tambah') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url($tabel8.'/tambah') ?>" method="post" enctype="multipart/form-data">
 
         <div class="modal-body">
           <div class="row">

@@ -253,7 +253,7 @@ class Welcome extends CI_Controller
 	public $head = '_partials/head';
 
 	// Di bawah ini adalah fungsi config
-	public $file_type1 = 'jpg|png|jpeg|gif|svg|webp';
+	public $file_type1 = 'png|jpg|jpeg';
 	public $file_type2 = 'pdf';
 
 	// Di bawah ini adalah bagian part dari views
@@ -429,12 +429,16 @@ class Welcome extends CI_Controller
 			'tabel2_alias' => 'History Pemesanan',
 			'tabel2_field1' => 'id_history',
 			'tabel2_field1_alias' => 'ID History',
+
 			'tabel2_field2' => 'id_pesanan',
 			'tabel2_field2_alias' => 'ID Pesanan',
+
 			'tabel2_field3' => 'id_user',
 			'tabel2_field3_alias' => 'ID User',
+
 			'tabel2_field4' => 'nama',
 			'tabel2_field4_alias' => 'Nama Pemesan',
+
 			'tabel2_field5' => 'email',
 			'tabel2_field5_alias' => 'Email',
 			'tabel2_field6' => 'hp',
@@ -553,164 +557,15 @@ class Welcome extends CI_Controller
 			'tabel9_field5_alias' => 'No Hp',
 			'tabel9_field6' => 'level',
 			'tabel9_field6_alias' => 'Level User',
+			'tabel9_field6_value1' => '',
+			'tabel9_field6_value2' => 'accounting',
+			'tabel9_field6_value3' => 'administrator',
+			'tabel9_field6_value4' => 'petugas',
+			'tabel9_field6_value5' => 'siswa',
 			'tabel9_field7' => 'login_count',
 			'tabel9_field7_alias' => 'Jumlah Login',
 		);
-
-		// Deklarasi controller
-		$this->controllers = array(
-			'c1' => 'welcome',
-			'c2' => 'welcome/pemesanan',
-			'c3' => 'welcome/spp',
-			'c4' => 'welcome/fasilitas',
-			'c5' => 'welcome/dashboard',
-			'c6' => 'welcome/no_level',
-		);
-	
-		// Deklarasi views
-		$this->views = array(
-			'v1' => 'konfirmasi',
-			'v2' => 'login',
-			'v3' => 'no-level',
-			'v4' => 'print',
-			'v5' => 'receipt',
-			'v6' => 'signup',
-			'v7' => 'template',
-			'v8' => 'v_home',
-			'v9' => 'v_pemesanan',
-			'v10' => 'v_profil',
-			'v11' => 'v_pembayaran',
-			'v12' => 'receipt_history',
-			'v13' => 'v_history',
-			'v14' => 'v_admin-dashboard',
-			'v15' => 'v_fasilitas',
-			'v16' => 'v_spp',
-			'v17' => 'login_siswa',
-		);
-
-		// Deklarasi view fields
-		$this->viewFields = array(
-			'v_field1',
-			'v_field2',
-			'v_field3',
-			'v_field4',
-			'v_field5',
-			'v_field6',
-			'v_field7',
-			'v_field8',
-			'v_field9',
-			'v_field10',
-			'v_field11',
-			'v_field12',
-			'v_field13',
-			'v_field14',
-			'v_field15',
-		);
-
-		// Deklarasi view parts
-		$this->viewParts = array(
-			'v_part1' => 'title',
-			'v_part2' => 'head',
-			'v_part3' => 'konten',
-			'v_part4' => 'phase',
-			'v_part4_msg0' => '<br><span class="h6"> (phase pre-alpha feature)</span>',
-			'v_part4_msg1' => '<br><span class="h6"> (phase alpha feature)</span>',
-			'v_part4_msg2' => '<br><span class="h6"> (phase beta feature)</span>',
-			'v_part4_msg3' => '<br><span class="h6"> (release candidate feature)</span>',
-			'v_part4_msg4' => '',  // feature released
-		);
-	
-		// Deklarasi flashdata
-		$this->flashdata = array(
-			'v_flashdata1' => 'pesan',
-			'v9_flashdata1' => 'pesan',
-			'v_flashdata2' => 'notifikasi',
-			'v_flashdata3' => 'pesan_tambah',
-			'v_flashdata4' => 'pesan_ubah',
-			'v_flashdata5' => 'pesan_lihat',
-			'v_flashdata6' => 'pesan_cari',
-			'v_flashdata7' => 'pesan_maintenance',
-			'v_flashdata8' => 'pesan_cleaning',
-			'v_flashdata9' => 'pesan_book',
-			'v_flashdata10' => 'pesan_bayar',
-			'v_flashdata11' => 'pesan_favicon',
-			'v_flashdata12' => 'pesan_logo',
-			'v_flashdata13' => 'pesan_foto',
-			'v_flashdata14' => 'pesan_quickTour',
-		);
-
-		// Deklarasi flashdata functions
-		$this->flashdataFunctions = array(
-			'v_flashdata_a_func1' => '$("#element").toast("show")',
-			'v_flashdata_b_func1' => '$(".password").modal("show")',
-			'v_flashdata_c_func1' => '$(".tambah").modal("show")',
-			'v_flashdata_d_func1' => '$(".ubah").modal("show")',
-			'v_flashdata_e_func1' => '$(".lihat").modal("show")',
-			'v_flashdata_f_func1' => '$(".cari").modal("show")',
-			'v_flashdata_g_func1' => '$(".maintenance").modal("show")',
-			'v_flashdata_h_func1' => '$(".clean").modal("show")',
-			'v_flashdata_i_func1' => '$(".book").modal("show")',
-			'v_flashdata_j_func1' => '$(".bayar").modal("show")',
-			'v_flashdata_k_func1' => '$(".favicon").modal("show")',
-			'v_flashdata_l_func1' => '$(".logo").modal("show")',
-			'v_flashdata_m_func1' => '$(".foto").modal("show")',
-			'v_flashdata_n_func1' => '$("#quickTour").modal("show")',
-		);
-
-		// Deklarasi flashdata messages
-		$this->flashdataMessages = array(
-			'v_flashdata1_msg1',
-			'v9_flashdata1_msg2',
-			'v_flashdata2_msg1',
-			'v_flashdata2_msg2',
-			'v_flashdata3_msg1',
-			'v_flashdata3_msg2',
-			'v_flashdata4_msg1',
-			'v_flashdata4_msg2',
-			'v_flashdata5_msg1',
-			'v_flashdata5_msg2',
-			'v_flashdata6_msg1',
-			'v_flashdata6_msg2',
-			'v_flashdata7_msg1',
-			'v_flashdata7_msg2',
-			'v_flashdata8_msg1',
-			'v_flashdata8_msg2',
-			'v_flashdata9_msg1',
-			'v_flashdata9_msg2',
-			'v_flashdata10_msg1',
-			'v_flashdata10_msg2',
-			'v_flashdata11_msg1',
-			'v_flashdata11_msg2',
-			'v_flashdata12_msg1',
-			'v_flashdata12_msg2',
-			'v_flashdata13_msg1',
-			'v_flashdata13_msg2',
-			'v_flashdata14_msg1' => "Anda hanya akan mendapatkan quick tour ini sebanyak 2 kali",
-		);
-	
-		// Deklarasi views parts
-		$this->parts = array(
-			'head' => '_partials/head',
-			// Add other parts here...
-		);
-	
-		// Deklarasi session
-		$this->sessionVariables = array(
-			'tabel9_userdata1',
-			'tabel9_tempdata1',
-			'tabel9_userdata2',
-			'tabel9_tempdata2',
-			'tabel9_userdata3',
-			'tabel9_tempdata3',
-			'tabel9_userdata4',
-			'tabel9_tempdata4',
-			'tabel9_userdata5',
-			'tabel9_tempdata5',
-			'tabel9_userdata6',
-			'tabel9_tempdata6',
-			'tabel9_userdata7',
-			'tabel9_tempdata7',
-		);
+		
 	
 
 		// deklarasi session
@@ -739,6 +594,11 @@ class Welcome extends CI_Controller
 	public function index($id = 1)
 	{
 		$this->declarew();
+		// Cache control headers
+        header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+
 		// mengarahkan pengguna ke halaman masing-masing sesuai level
 		switch ($this->session->userdata($this->tabel9_userdata6)) {
 			case $this->tabel9_field6_value2:

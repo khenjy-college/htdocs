@@ -1,7 +1,7 @@
 <img src="img/hotel.jpg" class="img-fluid rounded">
 
 
-<form action="<?= site_url('pembayaran/tambah') ?>" method="post">
+<form action="<?= site_url($tabel8.'/tambah') ?>" method="post">
 
   <!-- form ini berisi data yang sudah diinput sebelumnya dari halaman home -->
   <div class="row justify-content-center align-items-end mt-2">

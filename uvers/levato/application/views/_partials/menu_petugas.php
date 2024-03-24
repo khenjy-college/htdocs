@@ -12,10 +12,10 @@
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Entri Pembayaran</h6>
-        <a class="dropdown-item" href="<?= site_url('siswa') ?>"><?= $tabel4_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel4.'') ?>"><?= $tabel4_alias ?></a>
 
         <h6 class="dropdown-header">Pembayaran</h6>
-        <a class="dropdown-item" href="<?= site_url('pembayaran') ?>"><?= $tabel8_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel8.'') ?>"><?= $tabel8_alias ?></a>
         <!-- <a class="dropdown-item" href="<?= site_url('history') ?>"><?= $tabel2_alias ?></a> -->
       </div>
     </div>
@@ -30,8 +30,8 @@
         <h4><i class="fas fa-user"></i> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="<?= site_url('petugas/profil') ?>">Profil</a>
-        <a class="dropdown-item" href="<?= site_url('petugas/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url($tabel9.'/profil') ?>">Profil</a>
+        <a class="dropdown-item" href="<?= site_url($tabel9.'/logout') ?>">Logout</a>
       </div>
     </div>
   </li>

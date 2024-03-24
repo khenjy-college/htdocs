@@ -18,7 +18,7 @@
         <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
 
         <!-- form login -->
-        <form action="<?= site_url('siswa/ceklogin') ?>" method="post">
+        <form action="<?= site_url($tabel4.'/ceklogin') ?>" method="post">
           <!-- <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -30,17 +30,17 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-id-card"></i></span>
             </div>
-            <input class="form-control" type="text" name="nisn" placeholder="Masukkan NISN">
+            <input class="form-control" type="text" name="<?= $tabel4_field1 ?>" placeholder="Masukkan <?= $tabel4_field1_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input class="form-control" type="password" name="password" placeholder="Masukkan password">
+            <input class="form-control" type="password" name="<?= $tabel4_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>">
           </div>
 
-          <p class="text-center"><a class="text-decoration-none" href="<?= site_url('petugas/login') ?>">Login sebagai Petugas</a></p>
+          <p class="text-center"><a class="text-decoration-none" href="<?= site_url($tabel9.'/login') ?>">Login sebagai <?= $tabel9_alias ?></a></p>
 
           <!-- pesan untuk pengguna yang login -->
           <p class="small text-center text-danger"><?= $this->session->flashdata($this->v_flashdata1) ?></p>

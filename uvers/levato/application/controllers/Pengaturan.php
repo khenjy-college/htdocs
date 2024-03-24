@@ -160,7 +160,7 @@ class Pengaturan extends Welcome
 	public function update()
 	{
 		$this->declare();
-		$where = $this->tabel7_v_input1_alt;
+		$where = $this->tabel7_v_input1_post;
 		$data = array(
 			$this->tabel7_field2 => $this->tabel7_v_input2_post,
 			$this->tabel7_field6 => $this->tabel7_v_input6_post,

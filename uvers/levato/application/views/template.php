@@ -76,7 +76,7 @@ switch (true) {
             </div>
 
             <!-- form mencari data pembayaran, method get utk menampilkan apa yg diinput pengguna di halaman tujuan -->
-            <form action="<?= site_url('pembayaran/cari') ?>" method="get">
+            <form action="<?= site_url($tabel8.'/cari') ?>" method="get">
               <div class="modal-body">
                 <div class="form-group">
                   <label><?= $tabel8_field1_alias ?></label>

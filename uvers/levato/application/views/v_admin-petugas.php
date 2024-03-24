@@ -12,7 +12,7 @@
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
-<a class="btn btn-info mb-4" href="<?= site_url('petugas/laporan') ?>" target="_blank">
+<a class="btn btn-info mb-4" href="<?= site_url($tabel9.'/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
 <div class="table-responsive">
@@ -43,7 +43,7 @@
 
             <!-- Sebelumnya saya sudah membahas ini di v_admin_spp
           Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
-            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('petugas/hapus/' . $tl9->id_petugas) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url($tabel9.'/hapus/' . $tl9->id_petugas) ?>">
             <i class="fas fa-trash"></i></a> -->
 
           </td>
@@ -76,7 +76,7 @@
         </button>
       </div>
 
-      <form action="<?= site_url('petugas/tambah') ?>" method="post">
+      <form action="<?= site_url($tabel9.'/tambah') ?>" method="post">
         <div class="modal-body">
           <div class="input-group">
             <div class="input-group-prepend">
@@ -155,7 +155,7 @@
         </div>
 
         <!-- administrator tidak dapat mengubah password akun lain -->
-        <form action="<?= site_url('petugas/update') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel9.'/update') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="input-group">
               <div class="input-group-prepend">

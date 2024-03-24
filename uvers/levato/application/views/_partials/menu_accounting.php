@@ -9,7 +9,7 @@
 
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Transaksi</h6>
-        <a class="dropdown-item" href="<?= site_url('pembayaran') ?>"><?= $tabel8_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel8.'') ?>"><?= $tabel8_alias ?></a>
       </div>
     </div>
   </li>
@@ -24,8 +24,8 @@
         <h4><i class="fas fa-user-tie"></i> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="<?= site_url('petugas/profil') ?>">Profil</a>
-        <a class="dropdown-item" href="<?= site_url('petugas/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url($tabel9.'/profil') ?>">Profil</a>
+        <a class="dropdown-item" href="<?= site_url($tabel9.'/logout') ?>">Logout</a>
       </div>
     </div>
   </li>

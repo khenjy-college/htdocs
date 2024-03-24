@@ -10,6 +10,6 @@ semoga suatu saat akan berhasil :) -->
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome') ?>">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('petugas/login') ?>">Login</a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url($tabel9.'/login') ?>">Login</a>
   </li>
 </ul>

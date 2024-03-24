@@ -521,14 +521,14 @@ class Siswa extends Welcome
 		// 	} else {
 
 		// 		$this->session->set_flashdata($this->v_flashdata1, 'Password Salah!');
-		// 		redirect(site_url('petugas/login'));
+		// 		redirect(site_url($tabel9.'/login'));
 		// 	}
 
 		// 	// jika jumlah data lebih dari 0
 		// } else {
 
 		// 	$this->session->set_flashdata($this->v_flashdata1, 'Email tidak tersedia!');
-		// 	redirect(site_url('petugas/login'));
+		// 	redirect(site_url($tabel9.'/login'));
 		// }
 
 

@@ -10,14 +10,14 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Pembayaran</h6>
-        <a class="dropdown-item" href="<?= site_url('spp') ?>"><?= $tabel6_alias ?></a>
-        <a class="dropdown-item" href="<?= site_url('pembayaran') ?>"><?= $tabel8_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel6.'') ?>"><?= $tabel6_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel8.'') ?>"><?= $tabel8_alias ?></a>
 
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Operasional Sekolah</h6>
-        <a class="dropdown-item" href="<?= site_url('siswa') ?>"><?= $tabel4_alias ?></a>
-        <a class="dropdown-item" href="<?= site_url('kelas') ?>"><?= $tabel5_alias ?></a>
-        <a class="dropdown-item" href="<?= site_url('petugas') ?>"><?= $tabel9_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel4.'') ?>"><?= $tabel4_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel5.'') ?>"><?= $tabel5_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url($tabel9.'') ?>"><?= $tabel9_alias ?></a>
       </div>
     </div>
   </li>
@@ -33,8 +33,8 @@
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item" href="<?= site_url('pengaturan') ?>">Pengaturan</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="<?= site_url('petugas/profil') ?>">Profil</a>
-        <a class="dropdown-item" href="<?= site_url('petugas/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url($tabel9.'/profil') ?>">Profil</a>
+        <a class="dropdown-item" href="<?= site_url($tabel9.'/logout') ?>">Logout</a>
       </div>
     </div>
   </li>
