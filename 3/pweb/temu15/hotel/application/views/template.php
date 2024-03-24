@@ -35,7 +35,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
       <a class="navbar-brand font-weight-bold" href="<?= site_url('welcome') ?>">
-        <img src="img/<?= $tl7->logo; ?>" height="50">
+        <img src="img/<?= $tl7->logo ?>" height="50">
       </a>
 
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarku">
