@@ -81,28 +81,28 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama">
+            <input class="form-control" type="text" required name="<?= $tabel4_field2 ?>" placeholder="Masukkan <?= $tabel4_field2_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input class="form-control" type="email" required name="email" placeholder="Masukkan email">
+            <input class="form-control" type="email" required name="<?= $tabel4_field3 ?>" placeholder="Masukkan <?= $tabel4_field3_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-phone"></i></span>
             </div>
-            <input class="form-control" type="text" required name="hp" placeholder="Masukkan hp">
+            <input class="form-control" type="text" required name="<?= $tabel4_field4 ?>" placeholder="Masukkan <?= $tabel4_field4_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-image"></i></span>
             </div>
-            <input class="form-control form-control-file" type="file" required name="img">
+            <input class="form-control form-control-file" type="file" required name="<?= $tabel4_field5 ?>">
           </div>
 
 
@@ -167,7 +167,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
               </div>
-              <input class="form-control" type="text" required name="hp" value="<?= $tl4->hp; ?>">
+              <input class="form-control" type="text" required name="<?= $tabel4_field4 ?>" placeholder="Masukkan <?= $tabel4_field4_alias ?>">
             </div>
 
             <div class="form-group">
@@ -179,8 +179,8 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-users"></i></span>
               </div>
-              <input class="form-control form-control-file" type="file" name="img">
-              <input type="hidden" name="txtimg" value="<?= $tl4->img; ?>">
+              <input class="form-control form-control-file" type="file" required name="<?= $tabel4_field5 ?>">
+              <input type="hidden" name="txt<?= $tabel4_field5 ?>" value="<?= $tl4->img; ?>">
             </div>
 
             <div class="input-group">

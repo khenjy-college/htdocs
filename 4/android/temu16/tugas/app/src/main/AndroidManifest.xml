@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Tugas"
+        tools:targetApi="31">
+        <activity
+            android:name=".tabel1.Tabel1UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel1.Tabel1MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel1.Tabel1DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel1.Tabel1CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel10.Tabel10UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel10.Tabel10MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel10.Tabel10DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel10.Tabel10CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel11.Tabel11UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel11.Tabel11MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel11.Tabel11DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel11.Tabel11CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel2.Tabel2UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel2.Tabel2MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel2.Tabel2DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel2.Tabel2CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel9.Tabel9UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel9.Tabel9MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel9.Tabel9DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel9.Tabel9CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel8.Tabel8UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel8.Tabel8MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel8.Tabel8DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel8.Tabel8CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel7.Tabel7UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel7.Tabel7MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel7.Tabel7DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel7.Tabel7CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel6.Tabel6UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel6.Tabel6MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel6.Tabel6DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel6.Tabel6CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel3.Tabel3UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel3.Tabel3MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel3.Tabel3DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel3.Tabel3CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel4.Tabel4_UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel4.Tabel4MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel4.Tabel4DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel4.Tabel4CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel5.Tabel5MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel5.Tabel5DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel5.Tabel5UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tabel5.Tabel5CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

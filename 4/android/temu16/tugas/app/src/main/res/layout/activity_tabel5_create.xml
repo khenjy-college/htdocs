@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context=".tabel5.Tabel5CreateActivity">
+
+    <TextView
+        android:id="@+id/tabel5_field1Judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel5_field1_alias"
+        android:textSize="24dp"/>
+
+    <EditText
+        android:id="@+id/tabel5_field1"
+        android:layout_below="@id/tabel5_field1Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tabel5_field2Judul"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tabel5_field1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel5_field2_alias"
+        android:textSize="24dp"/>
+
+    <EditText
+        android:id="@+id/tabel5_field2"
+        android:layout_below="@id/tabel5_field2Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tabel5_field3Judul"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tabel5_field2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel5_field3_alias"
+        android:textSize="24dp"/>
+
+    <EditText
+        android:id="@+id/tabel5_field3"
+        android:layout_below="@id/tabel5_field3Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tabel5_field4Judul"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tabel5_field3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel5_field4_alias"
+        android:textSize="24dp"/>
+
+    <EditText
+        android:id="@+id/tabel5_field4"
+        android:layout_below="@id/tabel5_field4Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tabel5_field5Judul"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tabel5_field4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel5_field5_alias"
+        android:textSize="24dp"/>
+
+    <EditText
+        android:id="@+id/tabel5_field5"
+        android:layout_below="@id/tabel5_field5Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSimpan"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tabel5_field5"
+        android:text="Simpan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
