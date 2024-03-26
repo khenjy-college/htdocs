@@ -121,7 +121,7 @@
             android:name=".tabel3.Tabel3CreateActivity"
             android:exported="false" />
         <activity
-            android:name=".tabel4.Tabel4_UpdateActivity"
+            android:name=".tabel4.Tabel4UpdateActivity"
             android:exported="false" />
         <activity
             android:name=".tabel4.Tabel4MainActivity"

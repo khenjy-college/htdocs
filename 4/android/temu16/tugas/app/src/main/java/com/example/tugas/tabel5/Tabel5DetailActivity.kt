@@ -15,11 +15,11 @@ class Tabel5DetailActivity : AppCompatActivity() {
 
     private lateinit var database: Database
 
-    private lateinit var tabel5Field1: TextView
-    private lateinit var tabel5Field2: TextView
-    private lateinit var tabel5Field3: TextView
-    private lateinit var tabel5Field4: TextView
-    private lateinit var tabel5Field5: TextView
+    private lateinit var tabel5_field1: TextView
+    private lateinit var tabel5_field2: TextView
+    private lateinit var tabel5_field3: TextView
+    private lateinit var tabel5_field4: TextView
+    private lateinit var tabel5_field5: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +31,11 @@ class Tabel5DetailActivity : AppCompatActivity() {
             insets
         }
         database = Database(this)
-        tabel5Field1 = findViewById(R.id.tabel5_field1)
-        tabel5Field2 = findViewById(R.id.tabel5_field2)
-        tabel5Field3 = findViewById(R.id.tabel5_field3)
-        tabel5Field4 = findViewById(R.id.tabel5_field4)
-        tabel5Field5 = findViewById(R.id.tabel5_field5)
+        tabel5_field1 = findViewById(R.id.tabel5_field1)
+        tabel5_field2 = findViewById(R.id.tabel5_field2)
+        tabel5_field3 = findViewById(R.id.tabel5_field3)
+        tabel5_field4 = findViewById(R.id.tabel5_field4)
+        tabel5_field5 = findViewById(R.id.tabel5_field5)
 
         val db = database.readableDatabase
         val fieldExtra = intent.getStringExtra(getString(R.string.tabel5_field1))
@@ -44,11 +44,11 @@ class Tabel5DetailActivity : AppCompatActivity() {
             arrayOf(fieldExtra)
         )
         if (cursor.moveToFirst()) {
-            tabel5Field1.text = cursor.getString(0)
-            tabel5Field2.text = cursor.getString(1)
-            tabel5Field3.text = cursor.getString(2)
-            tabel5Field4.text = cursor.getString(3)
-            tabel5Field5.text = cursor.getString(4)
+            tabel5_field1.text = cursor.getString(0)
+            tabel5_field2.text = cursor.getString(1)
+            tabel5_field3.text = cursor.getString(2)
+            tabel5_field4.text = cursor.getString(3)
+            tabel5_field5.text = cursor.getString(4)
         }
     }
 }

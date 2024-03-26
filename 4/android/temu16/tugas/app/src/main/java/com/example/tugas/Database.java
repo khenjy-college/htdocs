@@ -18,13 +18,18 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String sql1 = "";
+
+        String sql2 = "";
+
+        String sql3 = "";
+
         String sql4 = "CREATE TABLE " + context.getString(R.string.tabel4) + " (" +
                 context.getString(R.string.tabel4_field1) + " TEXT, " +
                 context.getString(R.string.tabel4_field2) + " TEXT, " +
                 context.getString(R.string.tabel4_field3) + " TEXT, " +
                 context.getString(R.string.tabel4_field4) + " TEXT, " +
                 context.getString(R.string.tabel4_field5) + " TEXT);";
-
 
         String sql5 = "CREATE TABLE " + context.getString(R.string.tabel5) + " (" +
                 context.getString(R.string.tabel5_field1) + " TEXT, " +
@@ -52,18 +57,40 @@ public class Database extends SQLiteOpenHelper {
                 context.getString(R.string.tabel7_field10) + " TEXT, " +
                 context.getString(R.string.tabel7_field11) + " TEXT, ";
 
+        String sql8 = "";
+
+        String sql9 = "";
+
+        String sql10 = "";
+
+        String sql11 = "";
 
 
         // Add more table creations using other string resources as needed
 
+        Log.d("Data", "onCreate: " + sql1);
+        Log.d("Data", "onCreate: " + sql2);
+        Log.d("Data", "onCreate: " + sql3);
         Log.d("Data", "onCreate: " + sql4);
         Log.d("Data", "onCreate: " + sql5);
         Log.d("Data", "onCreate: " + sql6);
         Log.d("Data", "onCreate: " + sql7);
+        Log.d("Data", "onCreate: " + sql8);
+        Log.d("Data", "onCreate: " + sql9);
+        Log.d("Data", "onCreate: " + sql10);
+        Log.d("Data", "onCreate: " + sql11);
 
+        db.execSQL(sql1);
+        db.execSQL(sql2);
+        db.execSQL(sql3);
         db.execSQL(sql4);
         db.execSQL(sql5);
         db.execSQL(sql6);
+        db.execSQL(sql7);
+        db.execSQL(sql8);
+        db.execSQL(sql9);
+        db.execSQL(sql10);
+        db.execSQL(sql11);
     }
 
     @Override

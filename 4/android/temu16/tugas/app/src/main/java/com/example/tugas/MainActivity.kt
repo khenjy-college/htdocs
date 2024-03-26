@@ -11,10 +11,6 @@ import com.example.tugas.tabel5.Tabel5MainActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mahasiswa: Button
-    private lateinit var phonebook: Button
-    private lateinit var tabel5: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,20 +21,26 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        mahasiswa=findViewById(R.id.buttonMahasiswa)
-        phonebook=findViewById(R.id.buttonPhonebook)
-        tabel5 = findViewById(R.id.buttonTabel5)
+        // Find all buttons
+        val buttons = arrayOf(
+            R.id.buttonTabel1, R.id.buttonTabel2, R.id.buttonTabel3,
+            R.id.buttonTabel4, R.id.buttonTabel5, R.id.buttonTabel6,
+            R.id.buttonTabel7, R.id.buttonTabel8, R.id.buttonTabel9,
+            R.id.buttonTabel10, R.id.buttonTabel11
+        )
 
-        mahasiswa.setOnClickListener {
-            startActivity(Intent(this, MahasiswaMainActivity::class.java))
+        // Set click listeners for all buttons
+        buttons.forEach { buttonId ->
+            findViewById<Button>(buttonId).setOnClickListener {
+                handleButtonClick(buttonId)
+            }
         }
+    }
 
-        phonebook.setOnClickListener {
-            startActivity(Intent(this, PhonebookMainActivity::class.java))
-        }
-
-        tabel5.setOnClickListener{
-            startActivity(Intent(this, Tabel5MainActivity::class.java))
-        }
+    // Function to handle button clicks
+    private fun handleButtonClick(buttonId: Int) {
+        val tableName = resources.getResourceEntryName(buttonId).replace("button", "tabel")
+        val intent = Intent(this, Class.forName("com.example.tugas.$tableName.${tableName.capitalize()}MainActivity"))
+        startActivity(intent)
     }
 }

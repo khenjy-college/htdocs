@@ -8,7 +8,7 @@
     tools:context=".tabel5.Tabel5MainActivity">
 
     <ListView
-        android:id="@+id/listViewBookmaster"
+        android:id="@+id/listViewTabel5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true">
@@ -16,7 +16,7 @@
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabBookmaster"
+        android:id="@+id/fabTabel5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

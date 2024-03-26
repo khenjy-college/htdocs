@@ -6,17 +6,40 @@
     <string name="tabel1_alias"></string>
     <string name="tabel1_field1"></string>
     <string name="tabel1_field1_alias"></string>
-
+    <string name="tabel1_field2"></string>
+    <string name="tabel1_field2_alias"></string>
+    <string name="tabel1_field3"></string>
+    <string name="tabel1_field3_alias"></string>
+    <string name="tabel1_field4"></string>
+    <string name="tabel1_field4_alias"></string>
+    <string name="tabel1_field5"></string>
+    <string name="tabel1_field5_alias"></string>
 
     <string name="tabel2"></string>
     <string name="tabel2_alias"></string>
     <string name="tabel2_field1"></string>
     <string name="tabel2_field1_alias"></string>
+    <string name="tabel2_field2"></string>
+    <string name="tabel2_field2_alias"></string>
+    <string name="tabel2_field3"></string>
+    <string name="tabel2_field3_alias"></string>
+    <string name="tabel2_field4"></string>
+    <string name="tabel2_field4_alias"></string>
+    <string name="tabel2_field5"></string>
+    <string name="tabel2_field5_alias"></string>
 
     <string name="tabel3"></string>
     <string name="tabel3_alias"></string>
     <string name="tabel3_field1"></string>
     <string name="tabel3_field1_alias"></string>
+    <string name="tabel3_field2"></string>
+    <string name="tabel3_field2_alias"></string>
+    <string name="tabel3_field3"></string>
+    <string name="tabel3_field3_alias"></string>
+    <string name="tabel3_field4"></string>
+    <string name="tabel3_field4_alias"></string>
+    <string name="tabel3_field5"></string>
+    <string name="tabel3_field5_alias"></string>
 
     <string name="tabel4">tb_member</string>
     <string name="tabel4_alias">Member</string>
@@ -151,5 +174,13 @@
     <string name="tabel11_alias"></string>
     <string name="tabel11_field1"></string>
     <string name="tabel11_field1_alias"></string>
+    <string name="tabel11_field2"></string>
+    <string name="tabel11_field2_alias"></string>
+    <string name="tabel11_field3"></string>
+    <string name="tabel11_field3_alias"></string>
+    <string name="tabel11_field4"></string>
+    <string name="tabel11_field4_alias"></string>
+    <string name="tabel11_field5"></string>
+    <string name="tabel11_field5_alias"></string>
 
 </resources>

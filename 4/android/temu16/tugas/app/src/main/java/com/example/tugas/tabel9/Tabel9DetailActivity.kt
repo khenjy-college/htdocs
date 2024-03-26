@@ -1,13 +1,26 @@
 package com.example.tugas.tabel9
 
+import android.database.Cursor
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tugas.Database
 import com.example.tugas.R
 
 class Tabel9DetailActivity : AppCompatActivity() {
+    protected lateinit var cursor: Cursor
+
+    private lateinit var database: Database
+
+    private lateinit var tabel9_field1: TextView
+    private lateinit var tabel9_field2: TextView
+    private lateinit var tabel9_field3: TextView
+    private lateinit var tabel9_field4: TextView
+    private lateinit var tabel9_field5: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,6 +29,26 @@ class Tabel9DetailActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        database = Database(this)
+        tabel9_field1 = findViewById(R.id.tabel9_field1)
+        tabel9_field2 = findViewById(R.id.tabel9_field2)
+        tabel9_field3 = findViewById(R.id.tabel9_field3)
+        tabel9_field4 = findViewById(R.id.tabel9_field4)
+        tabel9_field5 = findViewById(R.id.tabel9_field5)
+
+        val db = database.readableDatabase
+        val fieldExtra = intent.getStringExtra(getString(R.string.tabel9_field1))
+        cursor = db.rawQuery(
+            "SELECT * FROM ${getString(R.string.tabel9)} WHERE ${getString(R.string.tabel9_field1)} = ?",
+            arrayOf(fieldExtra)
+        )
+        if (cursor.moveToFirst()) {
+            tabel9_field1.text = cursor.getString(0)
+            tabel9_field2.text = cursor.getString(1)
+            tabel9_field3.text = cursor.getString(2)
+            tabel9_field4.text = cursor.getString(3)
+            tabel9_field5.text = cursor.getString(4)
         }
     }
 }

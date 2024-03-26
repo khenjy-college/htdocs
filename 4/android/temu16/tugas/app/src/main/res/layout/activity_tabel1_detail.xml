@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,4 +7,82 @@
     android:layout_height="match_parent"
     tools:context=".tabel1.Tabel1DetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tabel1_field1Judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel1_field1_alias"
+        android:textSize="24dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field1"
+        android:layout_below="@id/tabel1_field1Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field2Judul"
+        android:layout_below="@id/tabel1_field1"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel1_field2_alias"
+        android:textSize="24dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field2"
+        android:layout_below="@id/tabel1_field2Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field3Judul"
+        android:layout_below="@id/tabel1_field2"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel1_field3_alias"
+        android:textSize="24dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field3"
+        android:layout_below="@id/tabel1_field3Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field4Judul"
+        android:layout_below="@id/tabel1_field3"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel1_field4_alias"
+        android:textSize="24dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field4"
+        android:layout_below="@id/tabel1_field4Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field5Judul"
+        android:layout_below="@id/tabel1_field4"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tabel1_field5_alias"
+        android:textSize="24dp"/>
+
+    <TextView
+        android:id="@+id/tabel1_field5"
+        android:layout_below="@id/tabel1_field5Judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+</RelativeLayout>

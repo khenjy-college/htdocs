@@ -36,7 +36,7 @@ class Tabel5MainActivity : AppCompatActivity() {
             insets
         }
 
-        val fab: FloatingActionButton = findViewById(R.id.fabBookmaster)
+        val fab: FloatingActionButton = findViewById(R.id.fabTabel5)
         fab.setOnClickListener {
             val pindah = Intent(this@Tabel5MainActivity, Tabel5CreateActivity::class.java)
             startActivity(pindah)
@@ -44,7 +44,7 @@ class Tabel5MainActivity : AppCompatActivity() {
 
         ma = this
         database = Database(this)
-        listview = findViewById(R.id.listViewBookmaster)
+        listview = findViewById(R.id.listViewTabel5)
         RefreshList()
     }
 
