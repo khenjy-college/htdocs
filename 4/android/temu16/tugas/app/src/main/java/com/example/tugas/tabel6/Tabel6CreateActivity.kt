@@ -18,7 +18,6 @@ class Tabel6CreateActivity : AppCompatActivity() {
     private lateinit var tabel6_field2: EditText
     private lateinit var tabel6_field3: EditText
     private lateinit var tabel6_field4: EditText
-    private lateinit var tabel6_field5: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,6 @@ class Tabel6CreateActivity : AppCompatActivity() {
         tabel6_field2 = findViewById(R.id.tabel6_field2)
         tabel6_field3 = findViewById(R.id.tabel6_field3)
         tabel6_field4 = findViewById(R.id.tabel6_field4)
-        tabel6_field5 = findViewById(R.id.tabel6_field5)
         btnSimpan = findViewById(R.id.btnSimpan)
         btnSimpan.setOnClickListener {
             val db = database.writableDatabase
@@ -43,15 +41,15 @@ class Tabel6CreateActivity : AppCompatActivity() {
             val tabel6_field2Text = tabel6_field2.text.toString()
             val tabel6_field3Text = tabel6_field3.text.toString()
             val tabel6_field4Text = tabel6_field4.text.toString()
-            val tabel6_field5Text = tabel6_field5.text.toString()
             val tableName = getString(R.string.tabel6)
-            db.execSQL("INSERT INTO $tableName (" +
-                    "${getString(R.string.tabel6_field1)}, " +
-                    "${getString(R.string.tabel6_field2)}, " +
-                    "${getString(R.string.tabel6_field3)}, " +
-                    "${getString(R.string.tabel6_field4)}, " +
-                    "${getString(R.string.tabel6_field5)}) " +
-                    "VALUES ('$tabel6_field1Text', '$tabel6_field2Text', '$tabel6_field3Text', '$tabel6_field4Text', '$tabel6_field5Text')")
+            db.execSQL(
+                "INSERT INTO $tableName (" +
+                        "${getString(R.string.tabel6_field1)}, " +
+                        "${getString(R.string.tabel6_field2)}, " +
+                        "${getString(R.string.tabel6_field3)}, " +
+                        "${getString(R.string.tabel6_field4)}, " +
+                        "VALUES ('$tabel6_field1Text', '$tabel6_field2Text', '$tabel6_field3Text', '$tabel6_field4Text')"
+            )
             Toast.makeText(this@Tabel6CreateActivity, "Data tersimpan", Toast.LENGTH_SHORT).show()
             Tabel6MainActivity.ma.RefreshList()
             finish()

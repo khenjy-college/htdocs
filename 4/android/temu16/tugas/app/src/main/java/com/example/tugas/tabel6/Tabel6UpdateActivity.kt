@@ -16,7 +16,6 @@ class Tabel6UpdateActivity : AppCompatActivity() {
     private lateinit var tabel6_field2: EditText
     private lateinit var tabel6_field3: EditText
     private lateinit var tabel6_field4: EditText
-    private lateinit var tabel6_field5: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +26,6 @@ class Tabel6UpdateActivity : AppCompatActivity() {
         tabel6_field2 = findViewById(R.id.tabel6_field2)
         tabel6_field3 = findViewById(R.id.tabel6_field3)
         tabel6_field4 = findViewById(R.id.tabel6_field4)
-        tabel6_field5 = findViewById(R.id.tabel6_field5)
         btnSimpan = findViewById(R.id.btn_simpan)
 
         val db = database.readableDatabase
@@ -43,7 +41,6 @@ class Tabel6UpdateActivity : AppCompatActivity() {
             tabel6_field2.setText(cursor.getString(1))
             tabel6_field3.setText(cursor.getString(2))
             tabel6_field4.setText(cursor.getString(3))
-            tabel6_field5.setText(cursor.getString(4))
         }
         cursor.close()
 
@@ -53,7 +50,6 @@ class Tabel6UpdateActivity : AppCompatActivity() {
             val tabel6_field2Text = tabel6_field2.text.toString()
             val tabel6_field3Text = tabel6_field3.text.toString()
             val tabel6_field4Text = tabel6_field4.text.toString()
-            val tabel6_field5Text = tabel6_field5.text.toString()
 
             dbWrite.execSQL(
                 "UPDATE ${getString(R.string.tabel6)} SET " +
@@ -61,7 +57,6 @@ class Tabel6UpdateActivity : AppCompatActivity() {
                         "${getString(R.string.tabel6_field2)} = '$tabel6_field2Text', " +
                         "${getString(R.string.tabel6_field3)} = '$tabel6_field3Text', " +
                         "${getString(R.string.tabel6_field4)} = '$tabel6_field4Text', " +
-                        "${getString(R.string.tabel6_field5)} = '$tabel6_field5Text' " +
                         "WHERE ${getString(R.string.tabel6_field1)} = ?",
                 arrayOf(isbnExtra)
             )

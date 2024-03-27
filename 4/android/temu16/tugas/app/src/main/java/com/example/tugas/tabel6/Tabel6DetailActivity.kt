@@ -19,7 +19,6 @@ class Tabel6DetailActivity : AppCompatActivity() {
     private lateinit var tabel6_field2: TextView
     private lateinit var tabel6_field3: TextView
     private lateinit var tabel6_field4: TextView
-    private lateinit var tabel6_field5: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,6 @@ class Tabel6DetailActivity : AppCompatActivity() {
         tabel6_field2 = findViewById(R.id.tabel6_field2)
         tabel6_field3 = findViewById(R.id.tabel6_field3)
         tabel6_field4 = findViewById(R.id.tabel6_field4)
-        tabel6_field5 = findViewById(R.id.tabel6_field5)
 
         val db = database.readableDatabase
         val fieldExtra = intent.getStringExtra(getString(R.string.tabel6_field1))
@@ -48,7 +46,6 @@ class Tabel6DetailActivity : AppCompatActivity() {
             tabel6_field2.text = cursor.getString(1)
             tabel6_field3.text = cursor.getString(2)
             tabel6_field4.text = cursor.getString(3)
-            tabel6_field5.text = cursor.getString(4)
         }
     }
 }

@@ -20,7 +20,12 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql1 = "";
 
-        String sql2 = "";
+        String sql2 = "CREATE TABLE " + context.getString(R.string.tabel2) + " (" +
+                context.getString(R.string.tabel2_field1) + " TEXT, " +
+                context.getString(R.string.tabel2_field2) + " TEXT, " +
+                context.getString(R.string.tabel2_field3) + " TEXT, " +
+                context.getString(R.string.tabel2_field4) + " TEXT, " +
+                context.getString(R.string.tabel2_field5) + " TEXT);";
 
         String sql3 = "";
 
@@ -57,11 +62,36 @@ public class Database extends SQLiteOpenHelper {
                 context.getString(R.string.tabel7_field10) + " TEXT, " +
                 context.getString(R.string.tabel7_field11) + " TEXT, ";
 
-        String sql8 = "";
+        String sql8 = "CREATE TABLE " + context.getString(R.string.tabel8) + " (" +
+                context.getString(R.string.tabel8_field1) + " TEXT, " +
+                context.getString(R.string.tabel8_field2) + " TEXT, " +
+                context.getString(R.string.tabel8_field3) + " TEXT, " +
+                context.getString(R.string.tabel8_field4) + " TEXT, " +
+                context.getString(R.string.tabel8_field5) + " TEXT, " +
+                context.getString(R.string.tabel8_field6) + " TEXT, " +
+                context.getString(R.string.tabel8_field7) + " TEXT, " +
+                context.getString(R.string.tabel8_field8) + " TEXT, " +
+                context.getString(R.string.tabel8_field9) + " TEXT, " +
+                context.getString(R.string.tabel8_field10) + " TEXT, " +
+                context.getString(R.string.tabel8_field11) + " TEXT, " +
+                context.getString(R.string.tabel8_field12) + " TEXT, " +
+                context.getString(R.string.tabel8_field13) + " TEXT, ";
 
-        String sql9 = "";
+        String sql9 = "CREATE TABLE " + context.getString(R.string.tabel9) + " (" +
+                context.getString(R.string.tabel8_field1) + " TEXT, " +
+                context.getString(R.string.tabel8_field2) + " TEXT, " +
+                context.getString(R.string.tabel8_field3) + " TEXT, " +
+                context.getString(R.string.tabel8_field4) + " TEXT, " +
+                context.getString(R.string.tabel8_field5) + " TEXT, " +
+                context.getString(R.string.tabel8_field6) + " TEXT, " +
+                context.getString(R.string.tabel8_field7) + " TEXT, ";
 
-        String sql10 = "";
+        String sql10 = "CREATE TABLE " + context.getString(R.string.tabel10) + " (" +
+                context.getString(R.string.tabel10_field1) + " TEXT, " +
+                context.getString(R.string.tabel10_field2) + " TEXT, " +
+                context.getString(R.string.tabel10_field3) + " TEXT, " +
+                context.getString(R.string.tabel10_field4) + " TEXT, " +
+                context.getString(R.string.tabel10_field5) + " TEXT);";
 
         String sql11 = "";
 

@@ -21,25 +21,54 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Find all buttons
-        val buttons = arrayOf(
-            R.id.buttonTabel1, R.id.buttonTabel2, R.id.buttonTabel3,
-            R.id.buttonTabel4, R.id.buttonTabel5, R.id.buttonTabel6,
-            R.id.buttonTabel7, R.id.buttonTabel8, R.id.buttonTabel9,
-            R.id.buttonTabel10, R.id.buttonTabel11
-        )
+        // Set click listeners for each button
+        findViewById<Button>(R.id.buttonTabel1).setOnClickListener {
+            handleButtonClick("tabel1")
+        }
 
-        // Set click listeners for all buttons
-        buttons.forEach { buttonId ->
-            findViewById<Button>(buttonId).setOnClickListener {
-                handleButtonClick(buttonId)
-            }
+        findViewById<Button>(R.id.buttonTabel2).setOnClickListener {
+            handleButtonClick("tabel2")
+        }
+
+        findViewById<Button>(R.id.buttonTabel3).setOnClickListener {
+            handleButtonClick("tabel3")
+        }
+
+        findViewById<Button>(R.id.buttonTabel4).setOnClickListener {
+            handleButtonClick("tabel4")
+        }
+
+        findViewById<Button>(R.id.buttonTabel5).setOnClickListener {
+            handleButtonClick("tabel5")
+        }
+
+        findViewById<Button>(R.id.buttonTabel6).setOnClickListener {
+            handleButtonClick("tabel6")
+        }
+
+        findViewById<Button>(R.id.buttonTabel7).setOnClickListener {
+            handleButtonClick("tabel7")
+        }
+
+        findViewById<Button>(R.id.buttonTabel8).setOnClickListener {
+            handleButtonClick("tabel8")
+        }
+
+        findViewById<Button>(R.id.buttonTabel9).setOnClickListener {
+            handleButtonClick("tabel9")
+        }
+
+        findViewById<Button>(R.id.buttonTabel10).setOnClickListener {
+            handleButtonClick("tabel10")
+        }
+
+        findViewById<Button>(R.id.buttonTabel11).setOnClickListener {
+            handleButtonClick("tabel11")
         }
     }
 
     // Function to handle button clicks
-    private fun handleButtonClick(buttonId: Int) {
-        val tableName = resources.getResourceEntryName(buttonId).replace("button", "tabel")
+    private fun handleButtonClick(tableName: String) {
         val intent = Intent(this, Class.forName("com.example.tugas.$tableName.${tableName.capitalize()}MainActivity"))
         startActivity(intent)
     }
