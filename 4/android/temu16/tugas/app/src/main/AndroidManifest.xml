@@ -13,18 +13,6 @@
         android:theme="@style/Theme.Tugas"
         tools:targetApi="31">
         <activity
-            android:name=".tabel1.Tabel1UpdateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel1.Tabel1MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel1.Tabel1DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel1.Tabel1CreateActivity"
-            android:exported="false" />
-        <activity
             android:name=".tabel10.Tabel10UpdateActivity"
             android:exported="false" />
         <activity
@@ -35,30 +23,6 @@
             android:exported="false" />
         <activity
             android:name=".tabel10.Tabel10CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel11.Tabel11UpdateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel11.Tabel11MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel11.Tabel11DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel11.Tabel11CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel2.Tabel2UpdateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel2.Tabel2MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel2.Tabel2DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel2.Tabel2CreateActivity"
             android:exported="false" />
         <activity
             android:name=".tabel9.Tabel9UpdateActivity"
@@ -107,18 +71,6 @@
             android:exported="false" />
         <activity
             android:name=".tabel6.Tabel6CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel3.Tabel3UpdateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel3.Tabel3MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel3.Tabel3DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel3.Tabel3CreateActivity"
             android:exported="false" />
         <activity
             android:name=".tabel4.Tabel4UpdateActivity"

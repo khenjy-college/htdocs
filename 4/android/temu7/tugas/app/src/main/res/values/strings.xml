@@ -1,4 +1,136 @@
 <resources>
     <string name="app_name">tugas</string>
     <string name="add_mahasiswa">Tambah Mahasiswa</string>
+
+
+    <string name="tabel4">bookmaster</string>
+    <string name="tabel4_alias">Bookmaster</string>
+    <string name="tabel4_field1">id_member</string>
+    <string name="tabel4_field1_alias">ID Member</string>
+    <string name="tabel4_field2">nama</string>
+    <string name="tabel4_field2_alias">Nama</string>
+    <string name="tabel4_field3">alamat</string>
+    <string name="tabel4_field3_alias">Alamat</string>
+    <string name="tabel4_field4">jenis_kelamin</string>
+    <string name="tabel4_field4_alias">Jenis Kelamin</string>
+    <string name="tabel4_field5">tlp</string>
+    <string name="tabel4_field5_alias">Telepon</string>
+
+    <string name="tabel5">tb_paket</string>
+    <string name="tabel5_alias">Paket</string>
+    <string name="tabel5_field1">id_paket</string>
+    <string name="tabel5_field1_alias">ID Paket</string>
+    <string name="tabel5_field2">id_outlet</string>
+    <string name="tabel5_field2_alias">ID Outlet</string>
+    <string name="tabel5_field3">jenis</string>
+    <string name="tabel5_field3_alias">Jenis Paket</string>
+    <string name="tabel5_field4">nama_paket</string>
+    <string name="tabel5_field4_alias">Nama Paket</string>
+    <string name="tabel5_field5">harga</string>
+    <string name="tabel5_field5_alias">Harga</string>
+
+    <string name="tabel6">tb_outlet</string>
+    <string name="tabel6_alias">Outlet</string>
+    <string name="tabel6_field1">id_outlet</string>
+    <string name="tabel6_field1_alias">ID Outlet</string>
+    <string name="tabel6_field2">nama</string>
+    <string name="tabel6_field2_alias">Nama Barang</string>
+    <string name="tabel6_field3">alamat</string>
+    <string name="tabel6_field3_alias">Alamat</string>
+    <string name="tabel6_field4">harga_awal</string>
+    <string name="tabel6_field4_alias">Harga Awal</string>
+
+    <string name="tabel7">pengaturan</string>
+    <string name="tabel7_alias">Pengaturan Website</string>
+    <string name="tabel7_field1">id</string>
+    <string name="tabel7_field1_alias">ID Website</string>
+    <string name="tabel7_field2">nama</string>
+    <string name="tabel7_field2_alias">Nama Website</string>
+    <string name="tabel7_field3">favicon</string>
+    <string name="tabel7_field3_alias">Favicon</string>
+    <string name="tabel7_field4">logo</string>
+    <string name="tabel7_field4_alias">Logo</string>
+    <string name="tabel7_field5">foto</string>
+    <string name="tabel7_field5_alias">Foto</string>
+    <string name="tabel7_field6">alamat</string>
+    <string name="tabel7_field6_alias">Alamat</string>
+    <string name="tabel7_field7">email</string>
+    <string name="tabel7_field7_alias">Email</string>
+    <string name="tabel7_field8">hp</string>
+    <string name="tabel7_field8_alias">No HP</string>
+    <string name="tabel7_field9">metadesc</string>
+    <string name="tabel7_field9_alias">Metadesc</string>
+    <string name="tabel7_field10">fb</string>
+    <string name="tabel7_field10_alias">Akun Facebook</string>
+    <string name="tabel7_field11">ig</string>
+    <string name="tabel7_field11_alias">Akun Instagram</string>
+
+    <string name="tabel8">tb_transaksi</string>
+    <string name="tabel8_alias">Transaksi</string>
+    <string name="tabel8_field1">id_transaksi</string>
+    <string name="tabel8_field1_alias">ID Transaksi</string>
+    <string name="tabel8_field2">id_outlet</string>
+    <string name="tabel8_field2_alias">ID Outlet</string>
+    <string name="tabel8_field3">kode_invoice</string>
+    <string name="tabel8_field3_alias">Kode Invoice</string>
+    <string name="tabel8_field4">id_member</string>
+    <string name="tabel8_field4_alias">ID Member</string>
+    <string name="tabel8_field5">tgl</string>
+    <string name="tabel8_field5_alias">Tanggal</string>
+    <string name="tabel8_field6">batas_waktu</string>
+    <string name="tabel8_field6_alias">Batas Waktu</string>
+    <string name="tabel8_field7">tgl_bayar</string>
+    <string name="tabel8_field7_alias">tgl_bayar</string>
+    <string name="tabel8_field8">biaya_tambahan</string>
+    <string name="tabel8_field8_alias">Biaya Tambahan</string>
+    <string name="tabel8_field9">diskon</string>
+    <string name="tabel8_field9_alias">Diskon</string>
+    <string name="tabel8_field10">pajak</string>
+    <string name="tabel8_field10_alias">Pajak</string>
+    <string name="tabel8_field11">status</string>
+    <string name="tabel8_field11_alias">Status</string>
+    <string name="tabel8_field12">dibayar</string>
+    <string name="tabel8_field12_alias">Dibayar</string>
+    <string name="tabel8_field13">id_user</string>
+    <string name="tabel8_field13_alias">ID User</string>
+
+    <string name="tabel9">tb_user</string>
+    <string name="tabel9_alias">User</string>
+    <string name="tabel9_field1">id_user</string>
+    <string name="tabel9_field1_alias">ID User</string>
+    <string name="tabel9_field2">nama</string>
+    <string name="tabel9_field2_alias">Nama</string>
+    <string name="tabel9_field3">username</string>
+    <string name="tabel9_field3_alias">Username</string>
+    <string name="tabel9_field4">password</string>
+    <string name="tabel9_field4_alias">Password</string>
+    <string name="tabel9_field5">id_outlet</string>
+    <string name="tabel9_field5_alias">ID Outlet</string>
+    <string name="tabel9_field6">role</string>
+    <string name="tabel9_field6_alias">Role User</string>
+    <string name="tabel9_field6_value1"></string>
+    <string name="tabel9_field6_value1_alias"></string>
+    <string name="tabel9_field6_value2">accounting</string>
+    <string name="tabel9_field6_value2_alias">Accounting</string>
+    <string name="tabel9_field6_value3">admin</string>
+    <string name="tabel9_field6_value3_alias">Administrator</string>
+    <string name="tabel9_field6_value4">kasir</string>
+    <string name="tabel9_field6_value4_alias">Kasir</string>
+    <string name="tabel9_field6_value5">member</string>
+    <string name="tabel9_field6_value5_alias">Member</string>
+
+    <string name="tabel10">tb_detail_transaksi</string>
+    <string name="tabel10_alias">Detail Transaksi</string>
+    <string name="tabel10_field1">id_detail</string>
+    <string name="tabel10_field1_alias">ID Detail</string>
+    <string name="tabel10_field2">id_transaksi</string>
+    <string name="tabel10_field2_alias">ID Transaksi</string>
+    <string name="tabel10_field3">id_paket</string>
+    <string name="tabel10_field3_alias">ID Paket</string>
+    <string name="tabel10_field4">qty</string>
+    <string name="tabel10_field4_alias">Qty</string>
+    <string name="tabel10_field5">keterangan</string>
+    <string name="tabel10_field5_alias">Keterangan</string>
+
+
 </resources>

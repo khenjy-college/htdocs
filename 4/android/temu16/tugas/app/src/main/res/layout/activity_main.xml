@@ -25,58 +25,23 @@
                 android:text="Aplikasi"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel1"
-                app:layout_constraintEnd_toEndOf="@+id/buttonTabel1"
-                app:layout_constraintStart_toStartOf="@+id/buttonTabel1"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/buttonTabel1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel1_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel2"
+                app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text" />
+                app:layout_constraintTop_toTopOf="@+id/buttonTabel4" />
 
-            <Button
-                android:id="@+id/buttonTabel2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel2_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel1" />
-
-            <Button
-                android:id="@+id/buttonTabel3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel3_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel2" />
 
             <Button
                 android:id="@+id/buttonTabel4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="100dp"
                 android:text="@string/tabel4_alias"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/buttonTabel5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel3" />
+                app:layout_constraintTop_toBottomOf="@id/buttonTabel4" />
 
             <Button
                 android:id="@+id/buttonTabel5"
@@ -145,21 +110,11 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/tabel10_alias"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel11"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/buttonTabel9" />
 
-            <Button
-                android:id="@+id/buttonTabel11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel11_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

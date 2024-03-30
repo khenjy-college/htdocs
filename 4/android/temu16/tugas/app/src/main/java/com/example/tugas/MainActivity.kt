@@ -7,9 +7,23 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tugas.tabel10.Tabel10MainActivity
+import com.example.tugas.tabel4.Tabel4MainActivity
 import com.example.tugas.tabel5.Tabel5MainActivity
+import com.example.tugas.tabel6.Tabel6MainActivity
+import com.example.tugas.tabel7.Tabel7MainActivity
+import com.example.tugas.tabel8.Tabel8MainActivity
+import com.example.tugas.tabel9.Tabel9MainActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var button4: Button
+    private lateinit var button5: Button
+    private lateinit var button6: Button
+    private lateinit var button7: Button
+    private lateinit var button8: Button
+    private lateinit var button9: Button
+    private lateinit var button10: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,55 +35,46 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Set click listeners for each button
-        findViewById<Button>(R.id.buttonTabel1).setOnClickListener {
-            handleButtonClick("tabel1")
+        button4 = findViewById(R.id.buttonTabel4)
+        button4.setOnClickListener {
+            val pindah = Intent(this@MainActivity, Tabel4MainActivity::class.java)
+            startActivity(pindah)
         }
 
-        findViewById<Button>(R.id.buttonTabel2).setOnClickListener {
-            handleButtonClick("tabel2")
+        button5 = findViewById(R.id.buttonTabel5)
+        button5.setOnClickListener {
+            val pindah = Intent(this@MainActivity, Tabel5MainActivity::class.java)
+            startActivity(pindah)
         }
 
-        findViewById<Button>(R.id.buttonTabel3).setOnClickListener {
-            handleButtonClick("tabel3")
+        button6 = findViewById(R.id.buttonTabel6)
+        button6.setOnClickListener {
+            val pindah = Intent(this@MainActivity, Tabel6MainActivity::class.java)
+            startActivity(pindah)
         }
 
-        findViewById<Button>(R.id.buttonTabel4).setOnClickListener {
-            handleButtonClick("tabel4")
+        button7 = findViewById(R.id.buttonTabel7)
+        button7.setOnClickListener {
+            val pindah = Intent(this@MainActivity, Tabel7MainActivity::class.java)
+            startActivity(pindah)
         }
 
-        findViewById<Button>(R.id.buttonTabel5).setOnClickListener {
-            handleButtonClick("tabel5")
+        button8 = findViewById(R.id.buttonTabel8)
+        button8.setOnClickListener {
+            val pindah = Intent(this@MainActivity, Tabel8MainActivity::class.java)
+            startActivity(pindah)
         }
 
-        findViewById<Button>(R.id.buttonTabel6).setOnClickListener {
-            handleButtonClick("tabel6")
+        button9 = findViewById(R.id.buttonTabel9)
+        button9.setOnClickListener {
+            val pindah = Intent(this@MainActivity, Tabel9MainActivity::class.java)
+            startActivity(pindah)
         }
 
-        findViewById<Button>(R.id.buttonTabel7).setOnClickListener {
-            handleButtonClick("tabel7")
+        button10 = findViewById(R.id.buttonTabel10)
+        button10.setOnClickListener {
+            val pindah = Intent(this@MainActivity, Tabel10MainActivity::class.java)
+            startActivity(pindah)
         }
-
-        findViewById<Button>(R.id.buttonTabel8).setOnClickListener {
-            handleButtonClick("tabel8")
-        }
-
-        findViewById<Button>(R.id.buttonTabel9).setOnClickListener {
-            handleButtonClick("tabel9")
-        }
-
-        findViewById<Button>(R.id.buttonTabel10).setOnClickListener {
-            handleButtonClick("tabel10")
-        }
-
-        findViewById<Button>(R.id.buttonTabel11).setOnClickListener {
-            handleButtonClick("tabel11")
-        }
-    }
-
-    // Function to handle button clicks
-    private fun handleButtonClick(tableName: String) {
-        val intent = Intent(this, Class.forName("com.example.tugas.$tableName.${tableName.capitalize()}MainActivity"))
-        startActivity(intent)
     }
 }
