@@ -1,8 +1,8 @@
 <?php foreach ($tbl7 as $tl7) : ?>
-  <img src="img/<?= $tl7->foto ?>" class="img-fluid rounded">
+  <img src="img/<?= $tl7->$tabel7_field5 ?>" class="img-fluid rounded">
 <?php endforeach; ?>
 
-<?php switch ($this->session->userdata('level')) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case 'nothing': ?>
   
     <!-- method get supaya nilai dari form bisa tampil nanti (tidak langsung masuk ke database) -->
@@ -46,7 +46,7 @@
   <hr>
   <div class="row">
     <div class="col-md-6">
-      <p><?= $tl7->metadesc ?></p>
+      <p><?= $tl7->$tabel7_field9 ?></p>
     </div>
 
     <div class="col-md-6">

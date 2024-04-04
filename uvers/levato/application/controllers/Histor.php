@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 include 'Welcome.php';
 
-class Kelas extends Welcome
+class Lisensi extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
@@ -122,25 +122,25 @@ class Kelas extends Welcome
 	{
 		$this->declare();
 		// nilai min dan max di sini belum ada
-		$param1 = $this->tabel2_v_input11_filter1_get;
-		$param2 = $this->tabel2_v_input11_filter2_get;
-		$param3 = $this->tabel2_v_input12_filter1_get;
-		$param4 = $this->tabel2_v_input12_filter2_get;
+		$tabel2_field11_filter1 = $this->tabel2_v_input11_filter1_get;
+		$tabel2_field11_filter2 = $this->tabel2_v_input11_filter2_get;
+		$tabel2_field12_filter1 = $this->tabel2_v_input12_filter1_get;
+		$tabel2_field12_filter2 = $this->tabel2_v_input12_filter2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->tabel2_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl2' =>  $this->tl2->ambildata()->result(),
-			'tabel6' =>  $this->tl6->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl2' => $this->tl2->ambildata()->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel2_v_input11_filter1 => $param1,
-			$this->tabel2_v_input11_filter2 => $param2,
-			$this->tabel2_v_input12_filter1 => $param3,
-			$this->tabel2_v_input12_filter2 => $param4,
+			$this->tabel2_v_input11_filter1 => $tabel2_field11_filter1,
+			$this->tabel2_v_input11_filter2 => $tabel2_field11_filter2,
+			$this->tabel2_v_input12_filter1 => $tabel2_field12_filter1,
+			$this->tabel2_v_input12_filter2 => $tabel2_field12_filter2,
 		);
 
 		$this->declarew();
@@ -155,25 +155,25 @@ class Kelas extends Welcome
 		$where = $this->tabel9_userdata1;
 
 		// nilai min dan max di sini belum ada
-		$param1 = $this->tabel2_v_input11_filter1_get;
-		$param2 = $this->tabel2_v_input11_filter2_get;
-		$param3 = $this->tabel2_v_input12_filter1_get;
-		$param4 = $this->tabel2_v_input12_filter2_get;
+		$tabel2_field11_filter1 = $this->tabel2_v_input11_filter1_get;
+		$tabel2_field11_filter2 = $this->tabel2_v_input11_filter2_get;
+		$tabel2_field12_filter1 = $this->tabel2_v_input12_filter1_get;
+		$tabel2_field12_filter2 = $this->tabel2_v_input12_filter2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->tabel2_v1_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl2' => $this->tl2->ambil_id_petugas($where)->result(),
-			'tabel6' =>  $this->tl6->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl2' => $this->tl2->ambil_tabel9_field1($where)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input11_filter1 => $param1,
-			$this->tabel2_v_input11_filter2 => $param2,
-			$this->tabel2_v_input12_filter1 => $param3,
-			$this->tabel2_v_input12_filter2 => $param4,
+			$this->tabel2_v_input11_filter1 => $tabel2_field11_filter1,
+			$this->tabel2_v_input11_filter2 => $tabel2_field11_filter2,
+			$this->tabel2_v_input12_filter1 => $tabel2_field12_filter1,
+			$this->tabel2_v_input12_filter2 => $tabel2_field12_filter2,
 		);
 
 		$this->declarew();
@@ -186,25 +186,25 @@ class Kelas extends Welcome
 	{
 		$this->declare();
 		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input11_filter1_get;
-		$param2 = $this->tabel2_v_input11_filter2_get;
-		$param3 = $this->tabel2_v_input12_filter1_get;
-		$param4 = $this->tabel2_v_input12_filter2_get;
+		$tabel2_field11_filter1 = $this->tabel2_v_input11_filter1_get;
+		$tabel2_field11_filter2 = $this->tabel2_v_input11_filter2_get;
+		$tabel2_field12_filter1 = $this->tabel2_v_input12_filter1_get;
+		$tabel2_field12_filter2 = $this->tabel2_v_input12_filter2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->tabel2_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl2' => $this->tl2->filter($param1, $param2, $param3, $param4)->result(),
-			'tabel6' =>  $this->tl6->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl2' => $this->tl2->filter($tabel2_field11_filter1, $tabel2_field11_filter2, $tabel2_field12_filter1, $tabel2_field12_filter2)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input11_filter1 => $param1,
-			$this->tabel2_v_input11_filter2 => $param2,
-			$this->tabel2_v_input12_filter1 => $param3,
-			$this->tabel2_v_input12_filter2 => $param4,
+			$this->tabel2_v_input11_filter1 => $tabel2_field11_filter1,
+			$this->tabel2_v_input11_filter2 => $tabel2_field11_filter2,
+			$this->tabel2_v_input12_filter1 => $tabel2_field12_filter1,
+			$this->tabel2_v_input12_filter2 => $tabel2_field12_filter2,
 		);
 
 		$this->declarew();
@@ -213,30 +213,30 @@ class Kelas extends Welcome
 		$this->load->view($this->v7, $data);
 	}
 
-	public function filter_siswa($tabel7_field1 = 1)
+	public function filter_tabel4($tabel7_field1 = 1)
 	{
 		$this->declare();
 		$where = $this->tabel9_userdata1;
 		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input11_filter1_get;
-		$param2 = $this->tabel2_v_input11_filter2_get;
-		$param3 = $this->tabel2_v_input12_filter1_get;
-		$param4 = $this->tabel2_v_input12_filter2_get;
+		$tabel2_field11_filter1 = $this->tabel2_v_input11_filter1_get;
+		$tabel2_field11_filter2 = $this->tabel2_v_input11_filter2_get;
+		$tabel2_field12_filter1 = $this->tabel2_v_input12_filter1_get;
+		$tabel2_field12_filter2 = $this->tabel2_v_input12_filter2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->v11_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl2' => $this->tl2->filter_siswa($param1, $param2, $param3, $param4, $where)->result(),
-			'tabel6' =>  $this->tl6->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl2' => $this->tl2->filter_tabel4($tabel2_field11_filter1, $tabel2_field11_filter2, $tabel2_field12_filter1, $tabel2_field12_filter2, $where)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input11_filter1 => $param1,
-			$this->tabel2_v_input11_filter2 => $param2,
-			$this->tabel2_v_input12_filter1 => $param3,
-			$this->tabel2_v_input12_filter2 => $param4,
+			$this->tabel2_v_input11_filter1 => $tabel2_field11_filter1,
+			$this->tabel2_v_input11_filter2 => $tabel2_field11_filter2,
+			$this->tabel2_v_input12_filter1 => $tabel2_field12_filter1,
+			$this->tabel2_v_input12_filter2 => $tabel2_field12_filter2,
 		);
 
 		$this->declarew();
@@ -267,10 +267,10 @@ class Kelas extends Welcome
 		redirect(site_url($this->tabel2_c1));
 	}
 
-	public function hapus($id_kelas = null)
+	public function hapus($tabel2_field1 = null)
 	{
 		$this->declare();
-		$hapus = $this->tl2->hapus($id_kelas);
+		$hapus = $this->tl2->hapus($tabel2_field1);
 
 		if ($hapus) {
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel2_v_flashdata1_msg_5);
@@ -290,9 +290,9 @@ class Kelas extends Welcome
 			$this->v_part1 => $this->tabel2_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl2' =>  $this->tl2->ambildata()->result(),
-			'tabel6' =>  $this->tl6->ambildata()->result()
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl2' => $this->tl2->ambildata()->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();

@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata('level')) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
     break;
@@ -29,16 +29,16 @@
     <tbody>
       <?php foreach ($tbl2 as $tl2) :
         foreach ($tbl6 as $tl6) :
-          if ($tl6->id_spp == $tl2->id_spp) { ?>
+          if ($tl6->$tabel6_field1 == $tl2->id_spp) { ?>
             <tr>
-              <td><?= $tl2->id_pembayaran ?></td>
-              <td><?= $tl2->id_petugas ?></td>
-              <td><?= $tl2->nisn ?></td>
-              <td><?= $tl2->tgl_bayar ?></td>
-              <td><?= $tl2->bulan_dibayar ?></td>
-              <td><?= $tl2->tahun_dibayar ?></td>
-              <td><?= $tl2->id_spp ?></td>
-              <td><?= $tl2->jumlah_bayar ?></td>
+              <td><?= $tl2->$tabel2_field2 ?></td>
+              <td><?= $tl2->$tabel2_field3 ?></td>
+              <td><?= $tl2->$tabel2_field4 ?></td>
+              <td><?= $tl2->$tabel2_field5 ?></td>
+              <td><?= $tl2->$tabel2_field6 ?></td>
+              <td><?= $tl2->$tabel2_field7 ?></td>
+              <td><?= $tl2->$tabel2_field8 ?></td>
+              <td><?= $tl2->$tabel2_field9 ?></td>
               <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl2->id_history ?>">
                   <i class="fas fa-eye"></i></a>
                 <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $tl2->id_history) ?>">
@@ -69,7 +69,7 @@
 <!-- modal lihat -->
 <?php foreach ($tbl2 as $tl2) :
   foreach ($tbl6 as $tl6) :
-    if ($tl6->id_spp == $tl2->id_spp) { ?>
+    if ($tl6->$tabel6_field1 == $tl2->id_spp) { ?>
 
       <!-- <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
         <div class="modal-dialog">
@@ -118,7 +118,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel2_field7_alias ?></label>
-                    <p><?= $tl2->siswa ?></p>
+                    <p><?= $tl2->tamu ?></p>
                   </div>
                   <hr>
 

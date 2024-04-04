@@ -1,178 +1,275 @@
-<?php if ($this->session->userdata('akses') <> 'resepsionis') {
-  redirect(site_url('welcome/no_akses'));
-} ?>
+<?php switch ($this->session->userdata($tabel9_field6)) {
+  case $tabel9_field6_value3:
+  case $tabel9_field6_value4:
+    break;
 
-<h1>Daftar Pesanan</h1>
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
+
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
-<!-- tabel fiter pesanan -->
-<table class="mb-4">
+<!-- tabel fiter history -->
+<table class="mb-8">
 
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
-  <form action="<?= site_url('pesanan/filter') ?>" method="get">
+  <!-- Mengecek data menggunakan tanggal cek in -->
+  <form action="<?= site_url($tabel8.'') ?>" method="get">
     <tr>
-      <td>Filter Tanggal Cek In</td>
-    </tr>
-    <tr>
-      <td class="pr-2">Dari</td>
-      <td class="pr-2">Ke</td>
-    </tr>
-    <tr>
+
+      <td class="pr-2"><?= $tabel8_field3_alias ?></td>
       <td class="pr-2">
-        <input type="date" class="form-control" required name="min">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Masukkan</span>
+          </div>
+          <input type="text" class="form-control" name="<?= $tabel8_field3 ?>" value="<?= $tabel8_v_input3 ?>">
+        </div>
       </td>
-      <td class="pr-2">
-        <input type="date" class="form-control" required name="max">
+      <td>
+        <button class="btn btn-success" type="submit">
+          <a type="submit"><i class="fas fa-search"></i></a>
+        </button>
+        <a class="btn btn-danger" type="button" href="<?= site_url($tabel8.'') ?>">
+          <i class="fas fa-redo"></i></a>
       </td>
-      <td><button type="submit" class="btn btn-primary">Cari</button></td>
+
     </tr>
+
+    <!-- Mengecek data menggunakan tanggal cek out -->
+    <!-- method get supaya nilai dari filter bisa tampil nanti -->
   </form>
 </table>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Tamu</th>
-      <th>Tanggal Cek In</th>
-      <th>Tanggal Cek Out</th>
-      <th>Status</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
+<?php foreach ($tbl4 as $tl4) :
+  if ($tl4->$tabel4_field1 == '') { ?> <?php } else { ?>
 
-  <tbody>
-    <?php foreach ($pesanan as $ps) : ?>
-      <tr>
-        <td><?= $ps->tamu ?></td>
-        <td><?= $ps->cek_in ?></td>
-        <td><?= $ps->cek_out ?></td>
-        <td><?= $ps->status ?></td>
+    <h1>Biodata <?= $tabel4_alias ?><?= $phase ?></h1>
+    <hr>
 
-        <td>
+    <div class="table-responsive">
+      <table class="table table-light" id="data">
+        <thead></thead>
+        <tbody>
+          <?php foreach ($tbl4 as $tl4) : ?>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field1_alias ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field1 ?></td>
+            </tr>
 
-          <!-- tombol yang akan muncul berdasarkan nilai dari status -->
-          <?php if ($ps->status == 'menunggu') { ?>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
-              <i class="fas fa-edit"></i></a>
-          <?php } elseif ($ps->status == 'cek in') { ?>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $ps->id_pesanan ?>">
-              <i class="fas fa-edit"></i></a>
-          <?php } elseif ($ps->status == 'cek out') { ?>
-            <a class="btn btn-light text-danger" onclick="return confirm('Hapus pesanan?')" href="<?= site_url('pesanan/hapus/' . $ps->id_pesanan) ?>">
-              <i class="fas fa-trash"></i></a>
-          <?php } ?>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field2_alias ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field2 ?></td>
+            </tr>
 
-          <!-- tombol print, hasil print akan muncul di tab baru 
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field3_alias ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field3 ?></td>
+            </tr>
+
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field4_alias ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field4 ?></td>
+            </tr>
+
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field5_alias ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field5 ?></td>
+            </tr>
+
+          <?php endforeach ?>
+        </tbody>
+        <tfoot></tfoot>
+      </table>
+    </div>
+
+    <br><br>
+    <h1>Pesanan SPP<?= $phase ?></h1>
+    <hr>
+
+    <div class="table-responsive">
+      <table class="table table-light" id="data">
+        <thead class="thead-light">
+          <tr class="table-info text-center">
+            <td colspan="9">
+              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#entri">
+                + Tambah Entri</a>
+            </td>
+          </tr>
+          <tr>
+            <th><?= $tabel8_field1_alias ?></th>
+            <th><?= $tabel8_field2_alias ?></th>
+            <th><?= $tabel8_field3_alias ?></th>
+            <th><?= $tabel8_field4_alias ?></th>
+            <th><?= $tabel8_field5_alias ?></th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <?php foreach ($tbl8 as $tl8) : ?>
+            <tr>
+              <td><?= $tl8->$tabel8_field1 ?></td>
+              <td><?= $tl8->$tabel8_field2 ?></td>
+              <td><?= $tl8->$tabel8_field3 ?></td>
+              <td><?= $tl8->$tabel8_field4 ?></td>
+              <td><?= $tl8->$tabel8_field5 ?></td>
+
+              <td>
+
+                <!-- tombol yang akan muncul berdasarkan nilai dari status -->
+                <!-- switch ($tl8->status) {
+              case 'pending': ?>
+                <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->$tabel8_field1 ?>">
+                  <i class="fas fa-bell-concierge"></i></a>
+               break;
+
+              case 'menungggu': ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->$tabel8_field1 ?>">
+                  <i class="fas fa-edit"></i></a>
+               break;
+
+              case 'cek in': ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->$tabel8_field1 ?>">
+                  <i class="fas fa-edit"></i></a>
+               break;
+
+              case 'cek out': ?>
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pesanan?')" href="<?= site_url($tabel8.'/hapus/' . $tl8->$tabel8_field1) ?>">
+                  <i class="fas fa-trash"></i></a>
+               break;
+
+              default: ?>
+             } ?> -->
+
+                <!-- tombol print, hasil print akan muncul di tab baru 
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-          <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $ps->id_pesanan) ?>" target="_blank">
-            <i class="fas fa-print"></i></a>
+                <a class="btn btn-light text-info" href="<?= site_url($tabel8.'/print/' . $tl8->$tabel8_field1) ?>" target="_blank">
+                  <i class="fas fa-print"></i></a>
 
-        </td>
+              </td>
 
-      </tr>
-    <?php endforeach ?>
-  </tbody>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
 
-  <tfoot>
-    <tr>
-      <th>Tamu</th>
-      <th>Tanggal Cek In</th>
-      <th>Tanggal Cek Out</th>
-      <th>Status</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+        <tfoot>
+          <tr>
+            <th><?= $tabel8_field1_alias ?></th>
+            <th><?= $tabel8_field2_alias ?></th>
+            <th><?= $tabel8_field3_alias ?></th>
+            <th><?= $tabel8_field4_alias ?></th>
+            <th><?= $tabel8_field5_alias ?></th>
+            <th>Aksi</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  <?php } ?>
+<?php endforeach; ?>
 
-<!-- modal ubah -->
-<?php foreach ($pesanan as $ps) : ?>
-  <div id="ubah<?= $ps->id_pesanan ?>" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Pesanan <?= $ps->id_pesanan ?></h5>
+<div id="entri" class="modal fade bayar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Entri</h5>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+
+      <form action="<?= site_url($tabel8.'/tambah') ?>" method="post" enctype="multipart/form-data">
+
+        <div class="modal-body">
+          <div class="row">
+
+            <!-- Data tamu -->
+            <?php foreach ($tbl4 as $tl4) : ?>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><?= $tabel4_field1_alias ?></label>
+                      <p><?= $tl4->$tabel4_field1 ?></p>
+                      <input type="hidden" name="<?= $tabel4_field1 ?>" value="<?= $tl4->$tabel4_field1 ?>">
+                      <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $this->session->userdata($tabel9_field1) ?>">
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel4_field2_alias ?></label>
+                      <p><?= $tl4->$tabel4_field2 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel4_field3_alias ?></label>
+                      <p><?= $tl4->$tabel4_field3 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel4_field4_alias ?></label>
+                      <p><?= $tl4->$tabel4_field4 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel4_field5_alias ?></label>
+                      <p><?= $tl4->$tabel4_field5 ?></p>
+                    </div>
+                    <hr>
+
+                  </div>
+
+
+                  
+
+
+
+                    <!-- Di bawah ini adalah form input pesanan -->
+                    <div class="form-group">
+                      <label><?= $tabel8_field4_alias ?> </label>
+                      <input class="form-control" type="date" required name="<?= $tabel8_field4 ?>" min="<?= date('Y-m-d'); ?>">
+                    </div>
+
+                    <div class="form-group">
+                      <label><?= $tabel8_field5_alias ?> </label>
+                      <select class="form-control" required name="<?= $tabel8_field5 ?>">
+                        <option value="" selected hidden>Pilih <?= $tabel8_field5_alias ?></option>
+                        <option value="Januari">Januari</option>
+                        <option value="Februari">Februari</option>
+                        <option value="Maret">Maret</option>
+                        <option value="April">April</option>
+                        <option value="Mei">Mei</option>
+                        <option value="Juni">Juni</option>
+                        <option value="Juli">Juli</option>
+                        <option value="Agustus">Agustus</option>
+                        <option value="September">September</option>
+                        <option value="Oktober">Oktober</option>
+                        <option value="November">November</option>
+                        <option value="Desember">Desember</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+              <?php endforeach; ?>
+          </div>
         </div>
 
-        <!-- form untuk mengubah nilai status sebuah pesanan -->
-        <form action="<?= site_url('pesanan/update_status') ?>" method="post">
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Id Pesanan</label>
-                  <p><?= $ps->id_pesanan ?></p>
-                  <input type="hidden" name="id_pesanan" value="<?= $ps->id_pesanan; ?>">
-                  <input type="hidden" name="tipe" value="<?= $ps->tipe; ?>">
+        <!-- pesan untuk pengguna yang sedang merubah password -->
+        <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
 
-                  <!-- input status berdasarkan nilai status -->
-                  <?php if ($ps->status == 'menunggu') { ?>
-                    <input type="hidden" name="status" value="cek in">
-                  <?php } elseif ($ps->status == 'cek in') { ?>
-                    <input type="hidden" name="status" value="cek out">
-                  <?php } ?>
+        <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Bayar</button>
+        </div>
+      </form>
 
-                </div>
-
-                <div class="form-group">
-                  <label>Pemesan</label>
-                  <p><?= $ps->pemesan ?></p>
-                </div>
-
-                <div class="form-group">
-                  <label>Email</label>
-                  <p><?= $ps->email ?></p>
-                </div>
-
-                <div class="form-group">
-                  <label>Nomor Telepon</label>
-                  <p><?= $ps->hp ?></p>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Nama Tamu</label>
-                  <p><?= $ps->tamu ?></p>
-                </div>
-
-                <div class="form-group">
-                  <label>Tipe Kamar</label>
-                  <p><?= $ps->tipe ?></p>
-                </div>
-
-                <div class="form-group">
-                  <label>Tanggal Cek In</label>
-                  <p><?= $ps->cek_in ?></p>
-                </div>
-
-                <div class="form-group">
-                  <label>Tanggal Cek Out</label>
-                  <p><?= $ps->cek_out ?></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal-footer">
-
-            <!-- pesan yg muncul berdasarkan nilai status -->
-            <?php if ($ps->status == 'menunggu') { ?>
-              <p>Ubah Status Menjadi Cek In?</p>
-            <?php } elseif ($ps->status == 'cek in') { ?>
-              <p>Ubah Status Menjadi Cek Out?</p>
-            <?php } ?>
-
-            <button class="btn btn-success" type="submit">Ya</button>
-          </div>
-        </form>
-
-      </div>
     </div>
   </div>
-<?php endforeach ?>
+</div>

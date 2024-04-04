@@ -1,91 +1,86 @@
-<?php if ($this->session->userdata('akses') <> 'administrator') {
-  redirect(site_url('welcome/no_akses'));
-} ?>
+<?php switch ($this->session->userdata($tabel9_field6)) {
+  case $tabel9_field6_value3:
+    // case $tabel9_field6_value4:
+    break;
 
-<h1>Daftar Fasilitas Kamar</h1>
+  default:
+    redirect(site_url() . 'welcome/no_level');
+}
+?>
+
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
+
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
+<a class="btn btn-info mb-4" href="<?= site_url() . $tabel1 . '/laporan' ?>" target="_blank">
+  <i class="fas fa-print"></i> Cetak Laporan</a>
 
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id</th>
-      <th>Tipe Kamar</th>
-      <th>Nama Fasilitas</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php foreach ($faskamar as $fk) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $fk->id_faskamar; ?></td>
-        <td><?= $fk->tipe ?></td>
-        <td><?= $fk->nama ?></td>
-        <td><img src="img/faskamar/<?= $fk->img ?>" width="100"></td>
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $fk->id_faskamar; ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $fk->id_faskamar; ?>">
-            <i class="fas fa-edit"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus data fasilitas?')" href="<?= site_url('faskamar/hapus/' . $fk->id_faskamar) ?>">
-            <i class="fas fa-trash"></i></a>
-        </td>
+        <th><?= $tabel1_field1_alias ?></th>
+        <th><?= $tabel1_field2_alias ?></th>
+        <th><?= $tabel1_field3_alias ?></th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
+    </thead>
 
-  <tfoot>
-    <tr>
-      <th>Id Fasilitas</th>
-      <th>Tipe Kamar</th>
-      <th>Nama Fasilitas</th>
-      <th>Image</th>
-      <th>Aksi</th>
-    </tr>
-  </tfoot>
-</table>
+    <tbody>
+      <?php foreach ($tbl1 as $tl1) : ?>
+        <tr>
+          <td><?= $tl1->$tabel1_field1; ?></td>
+          <td><?= $tl1->$tabel1_field2 ?></td>
+          <td><?= $tl1->$tabel1_field3 ?></td>
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl1->$tabel1_field1; ?>">
+              <i class="fas fa-eye"></i></a>
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl1->$tabel1_field1; ?>">
+              <i class="fas fa-edit"></i></a>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th><?= $tabel1_field1_alias ?></th>
+        <th><?= $tabel1_field2_alias ?></th>
+        <th><?= $tabel1_field3_alias ?></th>
+        <th>Aksi</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade">
+<div id="tambah" class="modal fade tambah">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah Fasilitas</h5>
+        <h5 class="modal-title">Tambah <?= $tabel1_alias ?></h5>
 
         <button class="close" data-dismiss="modal">
           <span>&times;</span>
         </button>
       </div>
 
-      <form action="<?= site_url('faskamar/tambah') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url() . $tabel1 . '/tambah' ?>" method="post">
         <div class="modal-body">
-
-          <!-- memilih salah satu tipe kamar yang ada -->
           <div class="form-group">
-            <label>Tipe Kamar</label>
-            <select class="form-control" required name="tipe">
-              <option selected hidden value="">Pilih Tipe Kamar...</option>
-              <?php foreach ($tipe_kamar as $k) : ?>
-
-                <!-- mengambil nilai tipe dari tipe kamar -->
-                <option><?= $k->tipe; ?></option>
-
-              <?php endforeach ?>
-
-            </select>
+            <label><?= $tabel1_field2_alias ?></label>
+            <input class="form-control" type="text" required name="<?= $tabel1_field2 ?>" placeholder="Masukkan <?= $tabel1_field2_alias ?>">
           </div>
 
           <div class="form-group">
-            <label>Nama Fasilitas</label>
-            <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama fasilitas">
+            <label><?= $tabel1_field3_alias ?></label>
+            <input class="form-control" type="text" required name="<?= $tabel1_field3 ?>" placeholder="Masukkan <?= $tabel1_field3_alias ?>">
           </div>
 
-          <div class="form-group">
-            <label>Tambah Gambar</label>
-            <input class="form-control-file" type="file" required name="img">
-          </div>
+
         </div>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
+
         <div class="modal-footer">
           <button class="btn btn-success" type="submit">Simpan</button>
         </div>
@@ -95,50 +90,36 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($faskamar as $fk) : ?>
-  <div id="ubah<?= $fk->id_faskamar; ?>" class="modal fade">
+<?php foreach ($tbl1 as $tl1) : ?>
+  <div id="ubah<?= $tl1->$tabel1_field1; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Fasilitas <?= $fk->id_faskamar; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel1_alias ?> <?= $tl1->$tabel1_field1; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
 
-        <form action="<?= site_url('faskamar/update') ?>" method="post" enctype="multipart/form-data">
+        <!-- administrator tidak dapat mengubah password akun lain -->
+        <form action="<?= site_url() . $tabel1 . '/update' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="form-group">
-
-              <!-- memilih salah satu tipe kamar yang ada -->
-              <label>Tipe Kamar</label>
-              <select class="form-control" required name="tipe">
-
-                <!-- menampilkan nilai tipe kamar yang aktif -->
-                <option selected hidden><?= $fk->tipe; ?></option>
-
-                <?php foreach ($tipe_kamar as $k) : ?>
-                  <option><?= $k->tipe; ?></option>
-                <?php endforeach ?>
-              </select>
+              <label><?= $tabel1_field2_alias ?></label>
+              <input class="form-control" type="text" required name="<?= $tabel1_field2 ?>" value="<?= $tl1->$tabel1_field2; ?>">
+              <input type="hidden" name="<?= $tabel1_field1 ?>" value="<?= $tl1->$tabel1_field1; ?>">
             </div>
 
             <div class="form-group">
-              <label>Nama Fasilitas</label>
-              <input class="form-control" type="text" required name="nama" value="<?= $fk->nama; ?>">
-              <input type="hidden" name="id_faskamar" value="<?= $fk->id_faskamar; ?>">
-            </div>
-
-            <img src="img/faskamar/<?= $fk->img; ?>" width="300">
-            <hr>
-
-            <div class="form-group">
-              <label>Ubah Gambar</label>
-              <input class="form-control-file" type="file" name="img">
-              <input type="hidden" name="txtimg" value="<?= $fk->img; ?>">
+              <label><?= $tabel1_field3_alias ?></label>
+              <input class="form-control" type="text" required name="<?= $tabel1_field3 ?>" value="<?= $tl1->$tabel1_field3; ?>">
             </div>
           </div>
+
+
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-success" type="submit">Simpan Perubahan</button>
@@ -149,38 +130,48 @@
   </div>
 <?php endforeach; ?>
 
-<!-- Modal Lihat -->
-<?php foreach ($faskamar as $fk) : ?>
-  <div id="lihat<?= $fk->id_faskamar; ?>" class="modal fade" role="dialog">
+<!-- modal lihat -->
+<?php foreach ($tbl1 as $tl1) : ?>
+  <div id="lihat<?= $tl1->$tabel1_field1; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Fasilitas <?= $fk->id_faskamar; ?></h5>
+          <h5 class="modal-title"><?= $tabel1_alias ?> <?= $tl1->$tabel1_field1; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
-        
+
+        <!-- administrator tidak bisa melihat password user lain -->
         <form>
           <div class="modal-body">
             <div class="form-group">
-              <label>Tipe Kamar : </label>
-              <p><?= $fk->tipe; ?></p>
+              <label><?= $tabel1_field1_alias ?> : </label>
+              <p><?= $tl1->$tabel1_field1; ?></p>
             </div>
+            <hr>
 
             <div class="form-group">
-              <label>Nama Fasilitas : </label>
-              <p><?= $fk->nama; ?></p>
+              <label><?= $tabel1_field2_alias ?> : </label>
+              <p><?= $tl1->$tabel1_field2; ?></p>
             </div>
+            <hr>
 
-            <img src="img/faskamar/<?= $fk->img; ?>" width="450">
+            <div class="form-group">
+              <label><?= $tabel1_field3_alias ?> : </label>
+              <p><?= $tl1->$tabel1_field3; ?></p>
+            </div>
           </div>
+
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
           </div>
         </form>
+
       </div>
     </div>
   </div>

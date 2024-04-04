@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata('level')) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
     break;
@@ -25,7 +25,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Masukkan</span>
           </div>
-          <input type="text" class="form-control" name="<?= $tabel8_field3 ?>" value="<?= $nisn ?>">
+          <input type="text" class="form-control" name="<?= $tabel8_field3 ?>" value="<?= $tabel8_v_input3 ?>">
         </div>
       </td>
       <td>
@@ -44,9 +44,9 @@
 </table>
 
 <?php foreach ($tbl4 as $tl4) :
-  if ($tl4->nisn == '') { ?> <?php } else { ?>
+  if ($tl4->$tabel4_field1 == '') { ?> <?php } else { ?>
 
-    <h1>Biodata Siswa<?= $phase ?></h1>
+    <h1>Biodata <?= $tabel4_alias ?><?= $phase ?></h1>
     <hr>
 
     <div class="table-responsive">
@@ -56,33 +56,29 @@
           <?php foreach ($tbl4 as $tl4) : ?>
             <tr>
               <td class="table-secondary table-active"><?= $tabel4_field1_alias ?></td>
-              <td class="table-light"><?= $tl4->nisn ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field1 ?></td>
             </tr>
 
             <tr>
               <td class="table-secondary table-active"><?= $tabel4_field2_alias ?></td>
-              <td class="table-light"><?= $tl4->nis ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field2 ?></td>
             </tr>
 
             <tr>
               <td class="table-secondary table-active"><?= $tabel4_field3_alias ?></td>
-              <td class="table-light"><?= $tl4->nama ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field3 ?></td>
             </tr>
 
             <tr>
               <td class="table-secondary table-active"><?= $tabel4_field4_alias ?></td>
-              <td class="table-light"><?= $tl4->id_kelas ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field4 ?></td>
             </tr>
 
             <tr>
               <td class="table-secondary table-active"><?= $tabel4_field5_alias ?></td>
-              <td class="table-light"><?= $tl4->alamat ?></td>
+              <td class="table-light"><?= $tl4->$tabel4_field5 ?></td>
             </tr>
 
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel4_field6_alias ?></td>
-              <td class="table-light"><?= $tl4->no_telp ?></td>
-            </tr>
           <?php endforeach ?>
         </tbody>
         <tfoot></tfoot>
@@ -108,9 +104,6 @@
             <th><?= $tabel8_field3_alias ?></th>
             <th><?= $tabel8_field4_alias ?></th>
             <th><?= $tabel8_field5_alias ?></th>
-            <th><?= $tabel8_field6_alias ?></th>
-            <th><?= $tabel8_field7_alias ?></th>
-            <th><?= $tabel8_field8_alias ?></th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -119,36 +112,33 @@
 
           <?php foreach ($tbl8 as $tl8) : ?>
             <tr>
-              <td><?= $tl8->id_pembayaran ?></td>
-              <td><?= $tl8->id_petugas ?></td>
-              <td><?= $tl8->nisn ?></td>
-              <td><?= $tl8->tgl_bayar ?></td>
-              <td><?= $tl8->bulan_dibayar ?></td>
-              <td><?= $tl8->tahun_dibayar ?></td>
-              <td><?= $tl8->id_spp ?></td>
-              <td>Rp <?= number_format($tl8->jumlah_bayar, '2', ',', '.') ?></td>
+              <td><?= $tl8->$tabel8_field1 ?></td>
+              <td><?= $tl8->$tabel8_field2 ?></td>
+              <td><?= $tl8->$tabel8_field3 ?></td>
+              <td><?= $tl8->$tabel8_field4 ?></td>
+              <td><?= $tl8->$tabel8_field5 ?></td>
 
               <td>
 
                 <!-- tombol yang akan muncul berdasarkan nilai dari status -->
                 <!-- switch ($tl8->status) {
               case 'pending': ?>
-                <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->id_pembayaran ?>">
+                <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->$tabel8_field1 ?>">
                   <i class="fas fa-bell-concierge"></i></a>
                break;
 
               case 'menungggu': ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->$tabel8_field1 ?>">
                   <i class="fas fa-edit"></i></a>
                break;
 
               case 'cek in': ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->$tabel8_field1 ?>">
                   <i class="fas fa-edit"></i></a>
                break;
 
               case 'cek out': ?>
-                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url($tabel8.'/hapus/' . $tl8->id_pembayaran) ?>">
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url($tabel8.'/hapus/' . $tl8->$tabel8_field1) ?>">
                   <i class="fas fa-trash"></i></a>
                break;
 
@@ -159,7 +149,7 @@
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-                <a class="btn btn-light text-info" href="<?= site_url($tabel8.'/print/' . $tl8->id_pembayaran) ?>" target="_blank">
+                <a class="btn btn-light text-info" href="<?= site_url($tabel8.'/print/' . $tl8->$tabel8_field1) ?>" target="_blank">
                   <i class="fas fa-print"></i></a>
 
               </td>
@@ -175,9 +165,6 @@
             <th><?= $tabel8_field3_alias ?></th>
             <th><?= $tabel8_field4_alias ?></th>
             <th><?= $tabel8_field5_alias ?></th>
-            <th><?= $tabel8_field6_alias ?></th>
-            <th><?= $tabel8_field7_alias ?></th>
-            <th><?= $tabel8_field8_alias ?></th>
             <th>Aksi</th>
           </tr>
         </tfoot>
@@ -202,66 +189,45 @@
         <div class="modal-body">
           <div class="row">
 
-            <!-- Data siswa -->
+            <!-- Data tamu -->
             <?php foreach ($tbl4 as $tl4) : ?>
-              <?php foreach ($tbl6 as $tl6) : ?>
-                <?php if ($tl4->id_spp == $tl6->id_spp) { ?>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel4_field1_alias ?></label>
-                      <p><?= $tl4->nisn ?></p>
-                      <input type="hidden" name="<?= $tabel4_field1 ?>" value="<?= $tl4->nisn ?>">
+                      <p><?= $tl4->$tabel4_field1 ?></p>
+                      <input type="hidden" name="<?= $tabel4_field1 ?>" value="<?= $tl4->$tabel4_field1 ?>">
                       <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $this->session->userdata($tabel9_field1) ?>">
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel4_field2_alias ?></label>
-                      <p><?= $tl4->nis ?></p>
+                      <p><?= $tl4->$tabel4_field2 ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel4_field3_alias ?></label>
-                      <p><?= $tl4->nama ?></p>
+                      <p><?= $tl4->$tabel4_field3 ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel4_field4_alias ?></label>
-                      <p><?= $tl4->id_kelas ?></p>
+                      <p><?= $tl4->$tabel4_field4 ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
                       <label><?= $tabel4_field5_alias ?></label>
-                      <p><?= $tl4->alamat ?></p>
+                      <p><?= $tl4->$tabel4_field5 ?></p>
                     </div>
                     <hr>
 
-                    <div class="form-group">
-                      <label><?= $tabel4_field6_alias ?></label>
-                      <p><?= $tl4->no_telp ?></p>
-                    </div>
-                    <hr>
                   </div>
 
 
-                  <!-- Data SPP -->
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label><?= $tabel6_field2_alias ?></label>
-                      <p><?= $tl6->tahun ?></p>
-                      <input type="hidden" name="<?= $tabel6_field2 ?>" value="<?= $tl6->id_spp ?>">
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel6_field3_alias ?></label>
-                      <p>Rp <?= number_format($tl6->nominal, '2', ',', '.') ?></p>
-                    </div>
-                    <hr>
+                  
 
 
 
@@ -290,20 +256,9 @@
                       </select>
                     </div>
 
-                    <div class="form-group">
-                      <label><?= $tabel8_field6_alias ?> </label>
-                      <input class="form-control" type="number" required name="<?= $tabel8_field6 ?>" value="<?= $tl6->tahun ?>" placeholder="Masukkan <?= $tabel8_field6_alias ?>">
-                    </div>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field8_alias ?> </label>
-                      <input class="form-control" readonly type="number" required name="<?= $tabel8_field8 ?>" placeholder="Masukkan <?= $tabel8_field8_alias ?>" value="<?= $tl6->nominal ?>">
-                    </div>
                   </div>
 
-                <?php } ?>
               <?php endforeach; ?>
-            <?php endforeach; ?>
           </div>
         </div>
 

@@ -6,25 +6,25 @@ Fitur sedang tahap pengembangan
 
 <!-- modal bayar -->
 <?php foreach ($tbl8 as $tl8) : ?>
-  <div id="bayar<?= $tl8->id_pembayaran ?>" class="modal fade bayar">
+  <div id="bayar<?= $tl8->$tabel8_field1 ?>" class="modal fade bayar">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Transaksi untuk Pesanan <?= $tl8->id_pembayaran ?></h5>
+          <h5 class="modal-title">Transaksi untuk Pembayaran <?= $tl8->$tabel8_field1 ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
 
-        <form action="<?= site_url('transaksi/tambah') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel8.'/tambah') ?>" method="post" enctype="multipart/form-data">
 
           <div class="modal-body">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label><?= $tabel8_field1_alias ?></label>
-                  <p><?= $tl8->id_pembayaran ?></p>
+                  <p><?= $tl8->$tabel8_field1 ?></p>
                 </div>
 
                 <div class="form-group">
@@ -49,11 +49,11 @@ Fitur sedang tahap pengembangan
               <div class="col-md-6">
                 <div class="form-group">
                   <label><?= $tabel8_field6_alias ?></label>
-                  <p><?= $tl8->siswa ?></p>
+                  <p><?= $tl8->tamu ?></p>
                 </div>
 
                 <div class="form-group">
-                  <label>Tipe Kamar</label>
+                  <label>Tipe Lisensi</label>
                   <p><?= $tl8->tipe ?></p>
                 </div>
 
@@ -77,7 +77,7 @@ Fitur sedang tahap pengembangan
                 <div class="form-group">
                   <label><?= $tabel8_field9_alias ?></label>
                   <p><?= $tl8->harga_total ?></p>
-                  <input type="hidden" name="id_pembayaran" value="<?= $tl8->id_pembayaran ?>">
+                  <input type="hidden" name="id_pembayaran" value="<?= $tl8->$tabel8_field1 ?>">
                 </div>
 
                 <div class="form-group">
@@ -115,11 +115,11 @@ Fitur sedang tahap pengembangan
 
 <!-- modal lihat -->
 <?php foreach ($tbl8 as $tl8) : ?>
-  <div id="lihat<?= $tl8->id_pembayaran ?>" class="modal fade lihat">
+  <div id="lihat<?= $tl8->$tabel8_field1 ?>" class="modal fade lihat">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pembayaran ?></h5>
+          <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->$tabel8_field1 ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -131,7 +131,7 @@ Fitur sedang tahap pengembangan
             <div class="col-md-6">
               <div class="form-group">
                 <label><?= $tabel8_field1_alias ?></label>
-                <p><?= $tl8->id_pembayaran ?></p>
+                <p><?= $tl8->$tabel8_field1 ?></p>
               </div>
 
               <div class="form-group">
@@ -153,7 +153,7 @@ Fitur sedang tahap pengembangan
             <div class="col-md-6">
               <div class="form-group">
                 <label><?= $tabel8_field6_alias ?></label>
-                <p><?= $tl8->siswa ?></p>
+                <p><?= $tl8->tamu ?></p>
               </div>
 
               <div class="form-group">

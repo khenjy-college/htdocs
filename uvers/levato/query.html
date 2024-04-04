@@ -1,26 +1,26 @@
-INSERT INTO faskamar (id_faskamar, tipe, nama, img) VALUES('', '', '', '');
+INSERT INTO pembaruan (id_pembaruan, tipe, nama, img) VALUES('', '', '', '');
 
-INSERT INTO fashotel (nama, keterangan, img) VALUES ('Kolam Renang', 'Berada di lantai 3 dengan luas 50m persegi',
+INSERT INTO pendaftaran (nama, keterangan, img) VALUES ('Kolam Renang', 'Berada di lantai 3 dengan luas 50m persegi',
 'kolam.jpg');
-INSERT INTO fashotel (nama, keterangan, img) VALUES ('Makan Siang', 'Berada di teras hotel dengan luas 5m x 10m',
+INSERT INTO pendaftaran (nama, keterangan, img) VALUES ('Makan Siang', 'Berada di teras hotel dengan luas 5m x 10m',
 'lunch.jpg');
-INSERT INTO fashotel (nama, keterangan, img) VALUES ('Kolam Renang', 'Berada di tengah-tengah hotel dengan luas 20m
+INSERT INTO pendaftaran (nama, keterangan, img) VALUES ('Kolam Renang', 'Berada di tengah-tengah hotel dengan luas 20m
 persegi ', 'dinner.jpg');
 
-INSERT INTO faskamar (tipe, nama, img) VALUES ('superior', 'Kamar berukuran luas 32m2', 'size.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('superior', 'Kamar mandi shower', 'shower.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('superior', 'Coffee Maker', 'coffeemaker.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('superior', 'AC', 'ac.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('superior', 'LED TV 32 inch', 'tv.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('deluxe', 'Kamar berukuran luas 45m2', 'size.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('deluxe', 'Kamar mandi shower', 'bath.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('deluxe', 'Coffee Maker', 'coffeemaker.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('deluxe', 'Sofa', 'sofa.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('deluxe', 'LED TV 40 inch', 'tv.jpg');
-INSERT INTO faskamar (tipe, nama, img) VALUES ('deluxe', 'AC', 'ac.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('superior', 'Lisensi berukuran luas 32m2', 'size.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('superior', 'Lisensi mandi shower', 'shower.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('superior', 'Coffee Maker', 'coffeemaker.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('superior', 'AC', 'ac.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('superior', 'LED TV 32 inch', 'tv.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('deluxe', 'Lisensi berukuran luas 45m2', 'size.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('deluxe', 'Lisensi mandi shower', 'bath.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('deluxe', 'Coffee Maker', 'coffeemaker.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('deluxe', 'Sofa', 'sofa.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('deluxe', 'LED TV 40 inch', 'tv.jpg');
+INSERT INTO pembaruan (tipe, nama, img) VALUES ('deluxe', 'AC', 'ac.jpg');
 
-INSERT INTO kamar (tipe, img, jlh) VALUES ('Superior', 'superior.jpg', '40');
-INSERT INTO kamar (tipe, img, jlh) VALUES ('Deluxe', 'deluxe.jpg', '32');
+INSERT INTO lisensi (tipe, img, jlh) VALUES ('Superior', 'superior.jpg', '40');
+INSERT INTO lisensi (tipe, img, jlh) VALUES ('Deluxe', 'deluxe.jpg', '32');
 
 INSERT INTO pengaturan (nama, favicon, logo, alamat, email, hp, metadesc, fb, ig) VALUES ('HOTEL HEBAT', 'favicon.png',
 'logo.png', 'Jl Peternakan Dlm III 36, Dki Jakarta', 'hotelhebat@gmail.com', '0-21-541-3829', 'Lepaskan diri Anda ke
@@ -36,20 +36,20 @@ INSERT INTO user (nama, email, password, hp, level) VALUES ('Khenjy', 'khenjy@gm
 INSERT INTO user (nama, email, password, hp, level) VALUES ('Ehren', 'ehren@gmail.com',
 '$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', ' 081234567890', 'resepsionis');
 INSERT INTO user (nama, email, password, hp, level) VALUES ('Billy', 'billy@gmail.com',
-'$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', ' 081234567890', 'siswa');
+'$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', ' 081234567890', 'tamu');
 INSERT INTO user (nama, email, password, hp, level) VALUES ('Jovan', 'jovan@gmail.com',
-'$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', ' 081234567890', 'siswa');
+'$2y$10$GbildcAQnSpLsXP3eUfwdOE8K62QTg9C.I8cAVt2W39/jzji6EInm', ' 081234567890', 'tamu');
 
 
 
-CREATE TRIGGER kurang_kamar AFTER INSERT ON pesanan FOR EACH ROW BEGIN UPDATE kamar SET stok = stok - NEW.jlh WHERE tipe
+CREATE TRIGGER kurang_lisensi AFTER INSERT ON pembayaran FOR EACH ROW BEGIN UPDATE lisensi SET stok = stok - NEW.jlh WHERE tipe
 = NEW.tipe; END;
 
 
-CREATE TRIGGER tambah_kamar AFTER DELETE ON pesanan BEGIN
-UPDATE kamar SET stok = stok + OLD.jlh WHERE tipe = OLD.tipe; END;
+CREATE TRIGGER tambah_lisensi AFTER DELETE ON pembayaran BEGIN
+UPDATE lisensi SET stok = stok + OLD.jlh WHERE tipe = OLD.tipe; END;
 
-INSERT INTO history (id_pembayaran, id_petugas, pemesan, email, hp, siswa, tipe, jlh, cek_in, cek out, status) VALUES
-(OLD.id_pembayaran, OLD.id_petugas, OLD.pemesan, OLD.email, OLD.hp, OLD.siswa, OLD.tipe, OLD.jlh, OLD.cek_in, OLD.cek
+INSERT INTO history (id_pembayaran, id_user, pemesan, email, hp, tamu, tipe, jlh, cek_in, cek out, status) VALUES
+(OLD.id_pembayaran, OLD.id_user, OLD.pemesan, OLD.email, OLD.hp, OLD.tamu, OLD.tipe, OLD.jlh, OLD.cek_in, OLD.cek
 out,
 OLD.status) END;

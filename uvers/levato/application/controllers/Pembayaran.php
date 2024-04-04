@@ -2,10 +2,10 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 // Masih banyak fitur-fitur yang kurang pada fitur pembayaran seperti fitur cancel pembayaran.
-// Dan juga seharusnya ketika user melakukan pembayaran seharusnya stok kelas tidak langsung berkurang
-// // Melainkan harus menunggu petugas membooking kelas untuk customer terlebih dulu
-// Saya baru berpikir untuk mengubah juga query sql pada trigger tambah kelas
-// Yaitu untuk menambah stok kelas dan input ke history jika status pesannanya NOT IN (pending)
+// Dan juga seharusnya ketika user melakukan pembayaran seharusnya stok lisensi tidak langsung berkurang
+// // Melainkan harus menunggu tamu membooking lisensi untuk customer terlebih dulu
+// Saya baru berpikir untuk mengubah juga query sql pada trigger tambah lisensi
+// Yaitu untuk menambah stok lisensi dan input ke history jika status pesannanya NOT IN (pending)
 // Hal ini akan diperbaiki pada waktu-waktu mendatang. 
 
 include 'Welcome.php';
@@ -46,9 +46,9 @@ class Pembayaran extends Welcome
 	private $tabel8_v_input1_alt;
 	private $tabel8_v_input1_get;
 	private $tabel8_v_input2_post;
+	private $tabel8_v_input2_get;
+	private $tabel8_v_input2;
 	private $tabel8_v_input3_post;
-	private $tabel8_v_input3_get;
-	private $tabel8_v_input3;
 	private $tabel8_v_input4_post;
 	private $tabel8_v_input4_get;
 	private $tabel8_v_input5_post;
@@ -97,83 +97,83 @@ class Pembayaran extends Welcome
 
 	declare()
 	{
+		$this->declarew();
 		// deklarasi variabel mvc
 		// deklarasi variabel model
 		$this->tabel8_m = 'tl8';
 
 		// deklarasi variabel views
-		$this->tabel8_v1 = 'v_' . $this->tabel8;
-		$this->tabel8_v1_title = 'Daftar ' . $this->tabel8_alias;
-		$this->tabel8_v2 = 'v_admin-' . $this->tabel8;
-		$this->tabel8_v2_title = 'Data ' . $this->tabel8_alias;
-		$this->tabel8_v3 = '_laporan/laporan_' . $this->tabel8;
-		$this->tabel8_v3_title = 'Laporan ' . $this->tabel8_alias;
+		$this->tabel8_v1 = 'v_' . $this->aliases['tabel8'];
+		$this->tabel8_v1_title = 'Daftar ' . $this->aliases['tabel8_alias'];
+		$this->tabel8_v2 = 'v_admin-' . $this->aliases['tabel8'];
+		$this->tabel8_v2_title = 'Data ' . $this->aliases['tabel8_alias'];
+		$this->tabel8_v3 = '_laporan/laporan_' . $this->aliases['tabel8'];
+		$this->tabel8_v3_title = 'Laporan ' . $this->aliases['tabel8_alias'];
 
 		// deklarasi variabel controller
-		$this->tabel8_c1 = $this->tabel8;
-		$this->tabel8_c2 = $this->tabel8 . '/tambah';
-		$this->tabel8_c3 = $this->tabel8 . '/update';
-		$this->tabel8_c4 = $this->tabel8 . '/hapus';
-		$this->tabel8_c5 = $this->tabel8 . '/laporan';
-		$this->tabel8_c6 = $this->tabel8 . '/daftar';
-		$this->tabel8_c7 = $this->tabel8 . '/cari';
-		$this->tabel8_c8 = $this->tabel8 . '/update_status';
-		$this->tabel8_c9 = $this->tabel8 . '/konfirmasi';
-		$this->tabel8_c10 = $this->tabel8 . '/print';
-		$this->tabel8_c11 = $this->tabel8 . '/filter';
-		$this->tabel8_c12 = $this->tabel8 . '/filter_siswa';
-		$this->tabel8_c13 = $this->tabel8 . '/book';
+		$this->tabel8_c1 = $this->aliases['tabel8'];
+		$this->tabel8_c2 = $this->aliases['tabel8'] . '/tambah';
+		$this->tabel8_c3 = $this->aliases['tabel8'] . '/update';
+		$this->tabel8_c4 = $this->aliases['tabel8'] . '/hapus';
+		$this->tabel8_c5 = $this->aliases['tabel8'] . '/laporan';
+		$this->tabel8_c6 = $this->aliases['tabel8'] . '/daftar';
+		$this->tabel8_c7 = $this->aliases['tabel8'] . '/cari';
+		$this->tabel8_c8 = $this->aliases['tabel8'] . '/update_tabel8_field11';
+		$this->tabel8_c9 = $this->aliases['tabel8'] . '/konfirmasi';
+		$this->tabel8_c10 = $this->aliases['tabel8'] . '/print';
+		$this->tabel8_c11 = $this->aliases['tabel8'] . '/filter';
+		$this->tabel8_c12 = $this->aliases['tabel8'] . '/filter_tabel4';
+		$this->tabel8_c13 = $this->aliases['tabel8'] . '/book';
 
 
 		// tabel bagian input
-		$this->tabel8_v_input1_post = $this->input->post($this->tabel8_field1);
-		$this->tabel8_v_input1_get = $this->input->get($this->tabel8_field1);
+		$this->tabel8_v_input1_post = $this->input->post($this->aliases['tabel8_field1']);
+		$this->tabel8_v_input1_get = $this->input->get($this->aliases['tabel8_field1']);
 		$this->tabel8_v_input1_alt = '';
-		$this->tabel8_v_input1 = $this->tabel8_field1;
-		$this->tabel8_v_input2_post = $this->input->post($this->tabel8_field2);
-		$this->tabel8_v_input3_post = $this->input->post($this->tabel8_field3);
-		$this->tabel8_v_input3_get = $this->input->get($this->tabel8_field3);
-		$this->tabel8_v_input3 = $this->tabel8_field3;
-		$this->tabel8_v_input4_post = $this->input->post($this->tabel8_field4);
-		$this->tabel8_v_input4_get = $this->input->get($this->tabel8_field4);
-		$this->tabel8_v_input5_post = $this->input->post($this->tabel8_field5);
-		$this->tabel8_v_input6_post = $this->input->post($this->tabel8_field6);
-		$this->tabel8_v_input7_post = $this->input->post($this->tabel8_field7);
-		$this->tabel8_v_input8_post = $this->input->post($this->tabel8_field8);
+		$this->tabel8_v_input1 = $this->aliases['tabel8_field1'];
+		
+		$this->tabel8_v_input2_post = $this->input->post($this->aliases['tabel8_field2']);
+		$this->tabel8_v_input2_get = $this->input->get($this->aliases['tabel8_field2']);
+		$this->tabel8_v_input2 = $this->aliases['tabel8_field2'];
+
+		$this->tabel8_v_input3_post = $this->input->post($this->aliases['tabel8_field3']);
+		$this->tabel8_v_input4_post = $this->input->post($this->aliases['tabel8_field4']);
+		$this->tabel8_v_input4_get = $this->input->get($this->aliases['tabel8_field4']);
+		$this->tabel8_v_input5_post = $this->input->post($this->aliases['tabel8_field5']);
 
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel8_v_flashdata1_msg_1 = 'Data ' . $this->tabel8_alias . ' berhasil disimpan!';
-		$this->tabel8_v_flashdata1_msg_2 = 'Data ' . $this->tabel8_alias . ' gagal disimpan!';
-		$this->tabel8_v_flashdata1_msg_3 = 'Data ' . $this->tabel8_alias . ' berhasil diubah!';
-		$this->tabel8_v_flashdata1_msg_4 = 'Data ' . $this->tabel8_alias . ' gagal diubah!';
-		$this->tabel8_v_flashdata1_msg_5 = 'Data ' . $this->tabel8_alias . ' berhasil dihapus!';
-		$this->tabel8_v_flashdata1_msg_6 = 'Data ' . $this->tabel8_alias . ' gagal dihapus!';
-		$this->tabel8_v_flashdata1_msg_7 = 'Status ' . $this->tabel8_alias . ' berhasil diubah!';
-		$this->tabel8_v_flashdata1_msg_8 = 'Status ' . $this->tabel8_alias . ' gagal diubah!';
+		$this->tabel8_v_flashdata1_msg_1 = 'Data ' . $this->aliases['tabel8_alias'] . ' berhasil disimpan!';
+		$this->tabel8_v_flashdata1_msg_2 = 'Data ' . $this->aliases['tabel8_alias'] . ' gagal disimpan!';
+		$this->tabel8_v_flashdata1_msg_3 = 'Data ' . $this->aliases['tabel8_alias'] . ' berhasil diubah!';
+		$this->tabel8_v_flashdata1_msg_4 = 'Data ' . $this->aliases['tabel8_alias'] . ' gagal diubah!';
+		$this->tabel8_v_flashdata1_msg_5 = 'Data ' . $this->aliases['tabel8_alias'] . ' berhasil dihapus!';
+		$this->tabel8_v_flashdata1_msg_6 = 'Data ' . $this->aliases['tabel8_alias'] . ' gagal dihapus!';
+		$this->tabel8_v_flashdata1_msg_7 = 'Status ' . $this->aliases['tabel8_alias'] . ' berhasil diubah!';
+		$this->tabel8_v_flashdata1_msg_8 = 'Status ' . $this->aliases['tabel8_alias'] . ' gagal diubah!';
 
 		// deklarasi menggunakan nilai tabel lain
 		// deklarasi session
 		$this->tabel8_userdata1 = $this->tabel8_v_input1_get;
-		$this->tabel8_userdata3 = $this->tabel8_v_input3_get;
+		$this->tabel8_userdata3 = $this->tabel8_v_input2_get;
 
 		//deklarasi session tabel 4
-		$this->tabel4_userdata1 = $this->tabel4_field1;
-		$this->tabel4_tempdata1 = $this->tabel4_field1;
+		$this->tabel4_userdata1 = $this->aliases['tabel4_field1'];
+		$this->tabel4_tempdata1 = $this->aliases['tabel4_field1'];
 
 		// deklarasi session tabel 9
-		$this->tabel9_userdata1 = $this->tabel9_field1;
-		$this->tabel9_tempdata1 = $this->tabel9_field1;
-		$this->tabel9_userdata2 = $this->tabel9_field2;
-		$this->tabel9_tempdata2 = $this->tabel9_field2;
-		$this->tabel9_userdata3 = $this->tabel9_field3;
-		$this->tabel9_tempdata3 = $this->tabel9_field3 . '_' . $this->tabel8;
-		$this->tabel9_userdata4 = $this->tabel9_field4;
-		$this->tabel9_tempdata4 = $this->tabel9_field4;
-		$this->tabel9_userdata5 = $this->tabel9_field5;
-		$this->tabel9_tempdata5 = $this->tabel9_field5;
-		$this->tabel9_userdata6 = $this->tabel9_field6;
-		$this->tabel9_tempdata6 = $this->tabel9_field6;
+		$this->tabel9_userdata1 = $this->aliases['tabel9_field1'];
+		$this->tabel9_tempdata1 = $this->aliases['tabel9_field1'];
+		$this->tabel9_userdata2 = $this->aliases['tabel9_field2'];
+		$this->tabel9_tempdata2 = $this->aliases['tabel9_field2'];
+		$this->tabel9_userdata3 = $this->aliases['tabel9_field3'];
+		$this->tabel9_tempdata3 = $this->aliases['tabel9_field3'] . '_' . $this->aliases['tabel8'];
+		$this->tabel9_userdata4 = $this->aliases['tabel9_field4'];
+		$this->tabel9_tempdata4 = $this->aliases['tabel9_field4'];
+		$this->tabel9_userdata5 = $this->aliases['tabel9_field5'];
+		$this->tabel9_tempdata5 = $this->aliases['tabel9_field5'];
+		$this->tabel9_userdata6 = $this->aliases['tabel9_field6'];
+		$this->tabel9_tempdata6 = $this->aliases['tabel9_field6'];
 	}
 
 
@@ -183,21 +183,21 @@ class Pembayaran extends Welcome
 		$this->declare();
 
 		// nilai min dan max di sini belum ada
-		$param1 = $this->tabel8_v_input3_get;
+		$param1 = $this->tabel8_v_input2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->tabel8_v2_title,
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl8' =>  $this->tl8->ambil_nisn($param1)->result(),
-			// 'tbl9' =>  $this->tl9->ambildata()->result(),  // session sudah cukup
-			'tbl4' =>  $this->tl4->ambil($param1)->result(),
-			'tbl6' =>  $this->tl6->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl8' => $this->tl8->ambil_tabel8_field2($param1)->result(),
+			// 'tbl9' => $this->tl9->ambildata()->result(),  // session sudah cukup
+			'tbl4' => $this->tl4->ambil_tabel4_field1($param1)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel8_v_input3 => $param1,
+			'tabel8_v_input3' => $param1,
 		);
 
 		$this->declarew();
@@ -209,23 +209,20 @@ class Pembayaran extends Welcome
 	public function tambah()
 	{
 		$this->declare();
-		$param4 = $this->tabel8_v_input4_post;
-		$param8 = $this->tabel8_v_input8_post;
+		$param2 = $this->tabel8_v_input2_post;
+		$param5 = $this->tabel8_v_input5_post;
 
 		$data = array(
-			$this->tabel8_field1 => $this->tabel8_v_input1_alt,
-			$this->tabel8_field2 => $this->tabel8_v_input2_post,
-			$this->tabel8_field3 => $this->tabel8_v_input3_post,
-			$this->tabel8_field4 => $param4,
-			$this->tabel8_field5 => $this->tabel8_v_input5_post,
-			$this->tabel8_field6 => $this->tabel8_v_input6_post,
-			$this->tabel8_field7 => $this->tabel8_v_input7_post,
-			$this->tabel8_field8 => $param8,
+			$this->aliases['tabel8_field1'] => $this->tabel8_v_input1_alt,
+			$this->aliases['tabel8_field2'] => $param2,
+			$this->aliases['tabel8_field3'] => $this->tabel8_v_input3_post,
+			$this->aliases['tabel8_field4'] => $this->tabel8_v_input4_post,
+			$this->aliases['tabel8_field5'] => $param5,
 
 		);
 
 		// membuat session supaya nilainya dapat digunakan selama waktu yang ditentukan dalam detik
-		$this->session->set_tempdata($this->tabel9_tempdata3, $param4, 300);
+		$this->session->set_tempdata($this->tabel9_tempdata3, $param2, 300);
 
 		$simpan = $this->tl8->simpan($data);
 
@@ -248,10 +245,10 @@ class Pembayaran extends Welcome
 	}
 
 
-	public function hapus($id_pembayaran = null)
+	public function hapus($tabel8_field1 = null)
 	{
 		$this->declare();
-		$hapus = $this->tl8->hapus($id_pembayaran);
+		$hapus = $this->tl8->hapus($tabel8_field1);
 
 		if ($hapus) {
 
@@ -274,9 +271,9 @@ class Pembayaran extends Welcome
 			$this->v_part1 => $this->tabel8_v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl8' =>  $this->tl8->ambildata()->result(),
-			'tbl6' =>  $this->tl6->ambildata()->result()
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl8' => $this->tl8->ambildata()->result(),
+			// // 'tbl6' => $this->tl6->ambildata()->result() // bagian ini tidak digunakan sama sekali
 		);
 
 		$this->declarew();
@@ -295,10 +292,10 @@ class Pembayaran extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl8' =>  $this->tl8->ambil_nisn($where)->result(),
-			'tbl6' =>  $this->tl6->ambildata()->result(),
-			'tbl5' =>  $this->tl5->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl8' => $this->tl8->ambil_tabel8_field2($where)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
+			'tbl5' => $this->tl5->ambildata()->result(),
 
 		);
 
@@ -329,11 +326,11 @@ class Pembayaran extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v11,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 
 			// mencari dan menampilkan id pembayaran berdasarkan id_pembayaran yang telah diinput
-			'tbl8' =>  $this->tl8->cari($param1, $param4)->result(),
-			'tbl6' =>  $this->tl6->ambildata()->result(),
+			'tbl8' => $this->tl8->cari($param1, $param4)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
 
 		);
 
@@ -344,16 +341,16 @@ class Pembayaran extends Welcome
 	}
 
 
-	public function print($id_pembayaran = null, $tabel7_field1 = 1)
+	public function print($tabel8_field1 = null, $tabel7_field1 = 1)
 	{
 		$this->declare();
 		$data1 = array(
 			$this->v_part1 => $this->v4_title1,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tbl8' =>  $this->tl8->ambil($id_pembayaran)->result(),
-			'tbl6' =>  $this->tl6->ambildata()->result()
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl8' => $this->tl8->ambil_tabel8_field1($tabel8_field1)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();

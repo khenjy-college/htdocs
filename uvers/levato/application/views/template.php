@@ -5,9 +5,9 @@
 <!-- memastikan user memiliki id  -->
 <?php 
 switch (true) {
-    case ($this->session->userdata('id_petugas')):
+    case ($this->session->userdata($tabel9_field1)):
       break;
-    case ($this->session->userdata('nisn')):
+    case ($this->session->userdata($tabel4_field1)):
       break;
     default:
       session_destroy();
@@ -31,8 +31,8 @@ switch (true) {
     <!-- toast -->
     <div class="toast fade" id="element" style="position: absolute; top: 80; right: 15; z-index: 1000" data-delay="5000">
       <div class="toast-header">
-        <img class="rounded mr-2" src="img/<?= $tl7->favicon ?>" width="15px" draggable="false">
-        <strong class="mr-auto"><?= $tl7->nama ?></strong>
+        <img class="rounded mr-2" src="img/<?= $tl7->$tabel7_field3 ?>" width="15px" draggable="false">
+        <strong class="mr-auto"><?= $tl7->$tabel7_field2 ?></strong>
         <button type="button" class="close" data-dismiss="toast">
           <span>&times;</span>
         </button>
@@ -46,7 +46,7 @@ switch (true) {
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
       <a class="navbar-brand font-weight-bold" href="<?= site_url('welcome') ?>">
-        <img src="img/<?= $tl7->logo; ?>" height="50">
+        <img src="img/<?= $tl7->$tabel7_field4; ?>" height="50">
       </a>
 
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarku">
@@ -55,7 +55,7 @@ switch (true) {
 
       <!-- menu navbar berdasarkan level user -->
       <div class="collapse navbar-collapse" id="navbarku">
-        <?php $this->load->view('_partials/menu_' . $this->session->userdata('level')); ?>
+        <?php $this->load->view('_partials/menu_' . $this->session->userdata($tabel9_field6)); ?>
       </div>
 
     </nav>
@@ -114,14 +114,14 @@ switch (true) {
     <div class="container-fluid bg-light border" style="bottom: 0; margin-top: 20px">
       <div class="container">
 
-        <!-- menampilkan footer khusus jika level adalah petugas, admin, dan sebagainya  -->
-        <?php switch ($this->session->userdata('level')) {
+        <!-- menampilkan footer khusus jika level adalah tamu, admin, dan sebagainya  -->
+        <?php switch ($this->session->userdata($tabel9_field6)) {
           case $tabel9_field6_value3:
           case $tabel9_field6_value4:
           case $tabel9_field6_value2:
         ?>
             <div class="row justify-content-center align-content-center">
-              <p class="pt-2">@2017-2022 | <?= $tl7->nama ?></p>
+              <p class="pt-2">@2017-2022 | <?= $tl7->$tabel7_field2 ?></p>
             </div>
           <?php break;
 
@@ -130,15 +130,14 @@ switch (true) {
             <!-- menampilkan footer untuk umum  -->
             <div class="row justify-content-center">
               <div class="col-lg-4 pt-3">
-                <img src="img/<?= $tl7->logo; ?>" height="50">
-                <p class="small pt-2">@2017-2022 <?= $tl7->nama ?>. All Rights Reserved.</p>
+                <img src="img/<?= $tl7->$tabel7_field4; ?>" height="50">
+                <p class="small pt-2">@2017-2022 <?= $tl7->$tabel7_field2 ?>. All Rights Reserved.</p>
               </div>
 
               <div class="col-lg-3 pt-3">
                 <h3>Jelajahi</h3>
                 <ul class="list-unstyled">
                   <li>
-                    <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/spp') ?>"><?= $tabel6_alias ?></a><br>
                   </li>
                 </ul>
               </div>
@@ -147,13 +146,13 @@ switch (true) {
                 <h3>Alamat</h3>
                 <ul class="list-unstyled">
                   <li>
-                    <?= $tl7->hp ?>
+                    <?= $tl7->$tabel7_field8 ?>
                   </li>
                   <li>
-                    <?= $tl7->email ?>
+                    <?= $tl7->$tabel7_field7 ?>
                   </li>
                   <li>
-                    <?= $tl7->alamat ?>
+                    <?= $tl7->$tabel7_field6 ?>
                   </li>
                 </ul>
               </div>
@@ -162,10 +161,10 @@ switch (true) {
                 <h3>Ikuti</h3>
                 <ul class="list-unstyled">
                   <li>
-                    <a class="text-decoration-none text-primary" href="<?= $tl7->fb ?>" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a class="text-decoration-none text-primary" href="<?= $tl7->$tabel7_field10 ?>" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
                   </li>
                   <li>
-                    <a class="text-decoration-none text-danger" href="<?= $tl7->ig ?>" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a class="text-decoration-none text-danger" href="<?= $tl7->$tabel7_field11 ?>" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
                   </li>
                 </ul>
               </div>
@@ -226,7 +225,7 @@ switch (true) {
     1. Membuat guided tour yang bisa pergi ke halaman lain -->
 
 
-    <!-- Fitur di bawah ini adalah fitur oboarding yang berfungsi mengarahkan siswa untuk mengetahui fitur-fitur yang berhubungan dengan pembayaran -->
+    <!-- Fitur di bawah ini adalah fitur oboarding yang berfungsi mengarahkan tamu untuk mengetahui fitur-fitur yang berhubungan dengan pembayaran -->
 
     <!-- Intro user publik -->
     <script>
@@ -254,13 +253,13 @@ switch (true) {
       });
     </script>
 
-    <!-- Intro user siswa -->
+    <!-- Intro user tamu -->
     <script>
       // Initialize Intro.js
       // Wait for the DOM to be ready
 
       // Bind a click event to the button
-      $("#introsiswa").on("click", function() {
+      $("#introTamu").on("click", function() {
         var intro = introJs();
         intro.setOptions({
           steps: [
@@ -276,7 +275,7 @@ switch (true) {
             },
             {
               element: document.getElementById('tour2'),
-              intro: 'Anda bisa memesan kelas di sini.',
+              intro: 'Anda bisa memesan lisensi di sini.',
               position: 'top'
             }
 

@@ -1,19 +1,26 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_tipe_kamar extends CI_Model {
+class M_tipe_kamar extends CI_Model
+{
 
-  private $tabel = 'tipe_kamar';
+	private $tabel6 = 'tipe_kamar';
 
 	public function ambildata()
 	{
-		return $this->db->get($this->tabel);
+		return $this->db->get($this->tabel6);
 	}
 
-	public function ambil($where)
+	public function ambil_ambil_tabel6_field1($tabel6_field1)
 	{
-    $this->db->where('id_tipe', $where);
-		return $this->db->get($this->tabel);
+		$this->db->where('id_tipe', $tabel6_field1);
+		return $this->db->get($this->tabel6);
+	}
+
+	public function ambil_harga($tabel6_field1)
+	{
+		$this->db->where('id_tipe', $tabel6_field1);
+		return $this->db->get($this->tabel6);
 	}
 
 	public function simpan($data)
@@ -21,18 +28,18 @@ class M_tipe_kamar extends CI_Model {
 	{
 		// include "application/config/database.php";
 		// return mysqli_query($db(''), $query);
-		return $this->db->insert($this->tabel, $data);
+		return $this->db->insert($this->tabel6, $data);
 	}
 
-	public function update($data, $where)
+	public function update($data, $tabel6_field1)
 	{
-    $this->db->where('id_tipe', $where);
-		return $this->db->update($this->tabel, $data);
+		$this->db->where('id_tipe', $tabel6_field1);
+		return $this->db->update($this->tabel6, $data);
 	}
 
-	public function hapus($where)
-	{
-    $this->db->where('id_tipe', $where);
-		return $this->db->delete($this->tabel);
-	}
+	// public function hapus($where)
+	// {
+	// 	$this->db->where('id_tipe', $where);
+	// 	return $this->db->delete($this->tabel6);
+	// }
 }

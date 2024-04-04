@@ -1,56 +1,62 @@
-<?php if ($this->session->userdata('akses') <> 'administrator') {
-  redirect(site_url('welcome/no_akses'));
-} ?>
+<?php switch ($this->session->userdata($tabel9_field6)) {
+  case $tabel9_field6_value3:
+    // case 'tabel9_field6_value4_alias':
+    break;
 
-<h1>Pengaturan Website</h1>
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
+
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 <div class="row">
   <div class="col-md-6">
 
-  <!-- form edit favicon, logo, dan foto -->
-    <?php foreach ($pengaturan as $p) : ?>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#favicon<?= $p->id; ?>">
-        <i class="fas fa-edit"></i> Favicon</a>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#logo<?= $p->id; ?>">
-        <i class="fas fa-edit"></i> Logo</a>
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#foto<?= $p->id; ?>">
-        <i class="fas fa-edit"></i> Foto</a>
+    <!-- form edit favicon, logo, dan foto -->
+    <?php foreach ($tbl7 as $tl7) : ?>
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#<?= $tabel7_field3 . $tl7->id ?>">
+        <i class="fas fa-edit"></i> <?= $tabel7_field3_alias ?></a>
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#<?= $tabel7_field4 . $tl7->id ?>">
+        <i class="fas fa-edit"></i> <?= $tabel7_field4_alias ?></a>
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#<?= $tabel7_field5 . $tl7->id ?>">
+        <i class="fas fa-edit"></i> <?= $tabel7_field5_alias ?></a>
 
-      <form action="<?= site_url('pengaturan/update') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url($tabel7.'/update') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label>Nama</label>
-          <input class="form-control pengaturan" required type="text" name="nama" value="<?= $p->nama; ?>">
-          <input type="hidden" name="id" value="<?= $p->id; ?>">
+          <label><?= $tabel7_field2_alias ?></label>
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field2 ?>" value="<?= $tl7->$tabel7_field2; ?>">
+          <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
         </div>
 
         <div class="form-group">
-          <label>Alamat</label>
-          <textarea class="form-control pengaturan" required name="alamat" rows="3"><?= $p->alamat; ?></textarea>
+          <label><?= $tabel7_field6_alias ?></label>
+          <textarea class="form-control pengaturan" required name="<?= $tabel7_field6 ?>" rows="3"><?= $tl7->$tabel7_field6; ?></textarea>
         </div>
 
         <div class="form-group">
-          <label>Email</label>
-          <input class="form-control pengaturan" required type="text" name="email" value="<?= $p->email; ?>">
+          <label><?= $tabel7_field7_alias ?></label>
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field7 ?>" value="<?= $tl7->$tabel7_field7; ?>">
         </div>
 
         <div class="form-group">
-          <label>Nomor Telepon</label>
-          <input class="form-control pengaturan" required type="text" name="hp" value="<?= $p->hp; ?>">
+          <label><?= $tabel7_field8_alias ?></label>
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field8 ?>" value="<?= $tl7->$tabel7_field8; ?>">
         </div>
 
         <div class="form-group">
-          <label>Metadesc / Deskripsi Website</label>
-          <textarea class="form-control pengaturan" required name="metadesc" rows="5"><?= $p->metadesc; ?></textarea>
+          <label><?= $tabel7_field9_alias ?></label>
+          <textarea class="form-control pengaturan" required name="<?= $tabel7_field9 ?>" rows="5"><?= $tl7->$tabel7_field9; ?></textarea>
         </div>
 
         <div class="form-group">
-          <label>Link Akun Facebook</label>
-          <input class="form-control pengaturan" required type="text" name="fb" value="<?= $p->fb; ?>">
+          <label><?= $tabel7_field10_alias ?></label>
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field10 ?>" placeholder="Masukkan <?= $tabel7_field10_alias ?>" value="<?= $tl7->$tabel7_field10; ?>">
         </div>
 
         <div class="form-group">
-          <label>Link Akun Instagram</label>
-          <input class="form-control pengaturan" required type="text" name="ig" value="<?= $p->ig; ?>">
+          <label><?= $tabel7_field11_alias ?></label>
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field11 ?>" placeholder="Masukkan <?= $tabel7_field11_alias ?>" value="<?= $tl7->$tabel7_field11; ?>">
         </div>
 
         <div class="form-group">
@@ -66,33 +72,39 @@
 
 
 <!-- modal edit favicon-->
-<?php foreach ($pengaturan as $p) : ?>
-  <div id="favicon<?= $p->id; ?>" class="modal fade">
+<?php foreach ($tbl7 as $tl7) : ?>
+  <div id="<?= $tabel7_field3 . $tl7->id; ?>" class="modal fade favicon">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Favicon <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field3_alias ?> <?= $tl7->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
 
-        <form action="<?= site_url('pengaturan/update_favicon') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel7.'/update_tabel7_field3') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <img src="img/<?= $p->favicon; ?>" width="300">
+
+            <div class="form-group">
+              <img src="img/<?= $tl7->$tabel7_field3; ?>" width="300">
+            </div>
             <hr>
 
             <div class="form-group">
-              <label>Ubah Favicon</label>
-              <input class="form-control-file" required type="file" name="favicon">
-              <input type="hidden" name="id" value="<?= $p->id; ?>">
-              <input type="hidden" name="txtfavicon" value="<?= $p->favicon; ?>">
+              <label>Ubah <?= $tabel7_field3_alias ?></label>
+              <input class="form-control-file" required type="file" name="<?= $tabel7_field3 ?>">
+              <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txt<?= $tabel7_field3 ?>" value="<?= $tl7->$tabel7_field3; ?>">
             </div>
           </div>
 
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_<?= $tabel7_field3 ?>" class="small text-center text-danger"><?= $this->session->flashdata('pesan_'.$tabel7_field3) ?></p>
+
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah favicon?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah <?= $tabel7_field3 ?>?')" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>
@@ -101,33 +113,40 @@
 <?php endforeach; ?>
 
 <!-- modal edit logo-->
-<?php foreach ($pengaturan as $p) : ?>
-  <div id="logo<?= $p->id; ?>" class="modal fade">
+<?php foreach ($tbl7 as $tl7) : ?>
+  <div id="<?= $tabel7_field4 . $tl7->id; ?>" class="modal fade logo">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Logo <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field4_alias ?> <?= $tl7->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
 
-        <form action="<?= site_url('pengaturan/update_logo') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel7.'/update_tabel7_field4') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <img src="img/<?= $p->logo; ?>" width="300">
-            <hr>
 
             <div class="form-group">
-              <label>Ubah Logo</label>
-              <input class="form-control-file" required type="file" name="logo">
-              <input type="hidden" name="id" value="<?= $p->id; ?>">
-              <input type="hidden" name="txtlogo" value="<?= $p->logo; ?>">
+              <img src="img/<?= $tl7->$tabel7_field4; ?>" width="300">
+            </div>
+            <hr>
+
+
+            <div class="form-group">
+              <label>Ubah <?= $tabel7_field4_alias ?></label>
+              <input class="form-control-file" required type="file" name="<?= $tabel7_field4 ?>">
+              <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txt<?= $tabel7_field4 ?>" value="<?= $tl7->$tabel7_field4; ?>">
             </div>
           </div>
 
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_<?= $tabel7_field4 ?>" class="small text-center text-danger"><?= $this->session->flashdata('pesan_'.$tabel7_field4) ?></p>
+
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah logo website?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah '.$tabel7_field4)" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>
@@ -136,33 +155,39 @@
 <?php endforeach; ?>
 
 <!-- modal edit foto-->
-<?php foreach ($pengaturan as $p) : ?>
-  <div id="foto<?= $p->id; ?>" class="modal fade">
+<?php foreach ($tbl7 as $tl7) : ?>
+  <div id="<?= $tabel7_field5 . $tl7->id; ?>" class="modal fade foto">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Foto <?= $p->id; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel7_field5_alias ?> <?= $tl7->id; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
 
-        <form action="<?= site_url('pengaturan/update_foto') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel7.'/update_tabel7_field5') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <img src="img/<?= $p->foto; ?>" width="300">
+
+            <div class="form-group">
+              <img src="img/<?= $tl7->$tabel7_field5; ?>" width="300">
+            </div>
             <hr>
 
             <div class="form-group">
-              <label>Ubah Foto</label>
-              <input class="form-control-file" required type="file" name="foto">
-              <input type="hidden" name="id" value="<?= $p->id; ?>">
-              <input type="hidden" name="txtfoto" value="<?= $p->foto; ?>">
+              <label>Ubah <?= $tabel7_field5_alias ?></label>
+              <input class="form-control-file" required type="file" name="<?= $tabel7_field5 ?>">
+              <input type="hidden" name="<?= $tabel7_field1 ?>" value="<?= $tl7->id; ?>">
+              <input type="hidden" name="txt<?= $tabel7_field5 ?>" value="<?= $tl7->$tabel7_field5; ?>">
             </div>
           </div>
-          
+
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_<?= $tabel7_field5 ?>" class="small text-center text-danger"><?= $this->session->flashdata('pesan_'.$tabel7_field5) ?></p>
+
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah foto website?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah '.$tabel7_field5)" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>

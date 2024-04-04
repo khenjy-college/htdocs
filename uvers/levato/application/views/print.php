@@ -12,14 +12,14 @@
   <div class="container" style="border-style: dashed;">
     <?php foreach ($tbl7 as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
-      <p class="text-center"><?= $tl7->alamat; ?></p>
+      <p class="text-center"><?= $tl7->$tabel7_field2; ?> | <?= $tl7->$tabel7_field8; ?> | <?= $tl7->$tabel7_field7; ?></p>
+      <p class="text-center"><?= $tl7->$tabel7_field6; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pembayaran sebagai ps -->
     <?php foreach ($tbl8 as $tl8) :
       foreach ($tbl6 as $tl6) :
-        if ($tl6->id_spp == $tl8->id_spp) { ?>
+        if ($tl6->$tabel6_field1 == $tl8->$tabel8_field7) { ?>
 
           <!-- menampilkan data pemesan -->
           <table class="table">
@@ -33,31 +33,25 @@
             </thead>
             <tbody>
               <tr>
-                <td width="25%"><?= $tl8->id_pembayaran ?></td>
-                <td width="25%"><?= $tl8->id_petugas ?></td>
-                <td width="25%"><?= $tl8->nisn ?></td>
-                <td width="25%"><?= $tl8->tgl_bayar ?></td>
+                <td width="25%"><?= $tl8->$tabel8_field1 ?></td>
+                <td width="25%"><?= $tl8->$tabel8_field2 ?></td>
+                <td width="25%"><?= $tl8->$tabel8_field3 ?></td>
+                <td width="25%"><?= $tl8->$tabel8_field4 ?></td>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <!-- menampilkan data siswa -->
+          <!-- menampilkan data tamu -->
           <table class="table">
             <thead class="thead">
               <tr>
                 <th><?= $tabel8_field5_alias ?></th>
-                <th><?= $tabel8_field6_alias ?></th>
-                <th><?= $tabel8_field7_alias ?></th>
-                <th><?= $tabel8_field8_alias ?></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td width="25%"><?= $tl8->bulan_dibayar ?></td>
-                <td width="25%"><?= $tl8->tahun_dibayar ?></td>
-                <td width="25%"><?= $tl8->id_spp ?></td>
-                <td width="25%">Rp <?= number_format($tl8->jumlah_bayar, '2', ',', '.') ?></td>
+                <td width="25%"><?= $tl8->$tabel8_field5 ?></td>
               </tr>
             </tbody>
           </table>

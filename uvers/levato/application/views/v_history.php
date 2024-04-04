@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata('level')) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value3:
     // case $tabel9_field6_value4:
     break;
@@ -15,7 +15,7 @@
 
 <!-- method get supaya nilai dari filter bisa tampil nanti -->
 <!-- tabel fiter history -->
-<form action="<?= site_url('history/filter_siswa') ?>" method="get">
+<form action="<?= site_url($tabel2.'/filter_tabel4') ?>" method="get">
 
   <div class="row">
     <div class="col-md-auto">
@@ -108,16 +108,16 @@
     <tbody>
       <?php foreach ($tbl2 as $tl2) : ?>
         <?php foreach ($tbl6 as $tl6) : ?>
-          <?php if ($tl6->id_spp === $tl2->id_spp) { ?>
+          <?php if ($tl6->$tabel6_field1 === $tl2->$tabel6_field1) { ?>
             <tr>
-              <td><?= $tl2->id_pembayaran ?></td>
-              <td><?= $tl2->id_petugas ?></td>
-              <td><?= $tl2->nisn ?></td>
-              <td><?= $tl2->tgl_bayar ?></td>
-              <td><?= $tl2->bulan_dibayar ?></td>
-              <td><?= $tl2->tahun_dibayar ?></td>
-              <td><?= $tl2->id_spp ?></td>
-              <td><?= $tl2->jumlah_bayar ?></td>
+              <td><?= $tl2->$tabel2_field2 ?></td>
+              <td><?= $tl2->$tabel2_field3 ?></td>
+              <td><?= $tl2->$tabel2_field4 ?></td>
+              <td><?= $tl2->$tabel2_field5 ?></td>
+              <td><?= $tl2->$tabel2_field6 ?></td>
+              <td><?= $tl2->$tabel2_field7 ?></td>
+              <td><?= $tl2->$tabel2_field8 ?></td>
+              <td><?= $tl2->$tabel2_field9?></td>
               <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl2->id_history ?>">
                   <i class="fas fa-eye"></i></a>
               </td>
@@ -145,7 +145,7 @@
 <!-- modal lihat -->
 <?php foreach ($tbl2 as $tl2) : ?>
   <?php foreach ($tbl6 as $tl6) : ?>
-    <?php if ($tl6->id_spp == $tl2->id_spp) { ?>
+    <?php if ($tl6->$tabel6_field1 == $tl2->id_spp) { ?>
       <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -187,7 +187,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel2_field7_alias ?></label>
-                    <p><?= $tl2->siswa ?></p>
+                    <p><?= $tl2->tamu ?></p>
                   </div>
                   <hr>
 

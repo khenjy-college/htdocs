@@ -8,29 +8,29 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class M_history extends CI_Model
 {
 
-	private $tabel = 'history';
+	private $tabel2 = 'history';
 
 	public function ambildata()
 	{
-		return $this->db->get($this->tabel);
+		return $this->db->get($this->tabel2);
 	}
 
-	public function ambil($where)
+	public function ambil_tabel2_field1($where)
 	{
 		$this->db->where('id_history', $where);
-		return $this->db->get($this->tabel);
+		return $this->db->get($this->tabel2);
 	}
 
-	public function ambil_id_petugas($where)
+	public function ambil_tabel9_field1($where)
 	{
-		$this->db->where('id_petugas', $where);
-		return $this->db->get($this->tabel);
+		$this->db->where('id_user', $where);
+		return $this->db->get($this->tabel2);
 	}
 
-	public function ambil_id_pembayaran($where)
+	public function ambil_tabel8_field1($where)
 	{
 		$this->db->where('id_pembayaran', $where);
-		return $this->db->get($this->tabel);
+		return $this->db->get($this->tabel2);
 	}
 
 
@@ -52,10 +52,10 @@ class M_history extends CI_Model
 		return $this->db->query($filter);
 	}
 
-	public function filter_siswa($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max, $where)
+	public function filter_tabel4($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max, $where)
 	{
 		$filter = "SELECT * FROM history WHERE 
-		id_petugas IN ('" . $where . "') AND
+		id_pemilik IN ('" . $where . "') AND
 		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
 		OR
 		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
@@ -65,24 +65,24 @@ class M_history extends CI_Model
 
 	public function simpan($data)
 	{
-		return $this->db->insert($this->tabel, $data);
+		return $this->db->insert($this->tabel2, $data);
 	}
 
 	public function update($data, $where)
 	{
 		$this->db->where('id_history', $where);
-		return $this->db->update($this->tabel, $data);
+		return $this->db->update($this->tabel2, $data);
 	}
 
 	public function update_history($data, $where)
 	{
 		$this->db->where('id_pembayaran', $where);
-		return $this->db->update($this->tabel, $data);
+		return $this->db->update($this->tabel2, $data);
 	}
 
 	public function hapus($where)
 	{
 		$this->db->where('id_history', $where);
-		return $this->db->delete($this->tabel);
+		return $this->db->delete($this->tabel2);
 	}
 }

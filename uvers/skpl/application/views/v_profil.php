@@ -1,29 +1,29 @@
-<h1>Profil User</h1>
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 <div class="row">
   <div class="col-md-6">
-    <?php foreach ($user as $u) : ?>
+    <?php foreach ($tbl9 as $tl9) : ?>
 
       <!-- tombol untuk memunculkan modal memperbaiki password -->
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $u->id_user; ?>">
-        <i class="fas fa-edit"></i> Ubah Password</a>
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $tl9->$tabel9_field1 ?>">
+        <i class="fas fa-edit"></i> Ubah <?= $tabel9_field4_alias ?></a>
 
       <!-- form ini terpisah dengan form ubah password untuk keamanan sesama :) -->
-      <form action="<?= site_url('user/update_profil') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url($tabel9.'/update_profil') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label>Nama</label>
-          <input class="form-control pengaturan" type="text" name="nama" value="<?= $u->nama; ?>">
-          <input type="hidden" name="id_user" value="<?= $u->id_user; ?>">
+          <label><?= $tabel9_field2_alias ?></label>
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field2 ?>" value="<?= $tl9->$tabel9_field2; ?>">
+          <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->$tabel9_field1; ?>">
         </div>
 
         <div class="form-group">
-          <label>Email*</label>
-          <input class="form-control pengaturan" type="text" name="email" value="<?= $u->email; ?>">
+          <label><?= $tabel9_field3_alias ?>*</label>
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field3 ?>" value="<?= $tl9->$tabel9_field3; ?>">
         </div>
 
         <div class="form-group">
-          <label>Nomor Telepon</label>
-          <input class="form-control pengaturan" type="text" name="hp" value="<?= $u->hp; ?>">
+          <label><?= $tabel9_field5_alias ?></label>
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field5 ?>" value="<?= $tl9->$tabel9_field5; ?>">
         </div>
 
         <div class="form-group">
@@ -41,48 +41,49 @@
 
 
 <!-- modal edit password-->
-<?php foreach ($user as $u) : ?>
-  <div id="password<?= $u->id_user; ?>" class="modal fade">
+<?php foreach ($tbl9 as $tl9) : ?>
+  <div id="password<?= $tl9->$tabel9_field1 ?>" class="modal fade password">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ubah Password Anda</h5>
+          <h5 class="modal-title">Ubah <?= $tabel9_field4_alias ?> Anda</h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
-        <form action="<?= site_url('user/update_password') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel9.'/update_tabel9_field4') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input class="form-control" type="password" required name="old_password" placeholder="Masukkan password lama">
-              <input type="hidden" name="id_user" value="<?= $u->id_user; ?>">
+              <input class="form-control" type="password" required name="old_<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?> lama">
+              <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->$tabel9_field1; ?>">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input class="form-control" type="password" required name="password" placeholder="Masukkan password baru">
+              <input class="form-control" type="password" required name="<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>" baru">
             </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi password baru">
+              <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi <?= $tabel9_field4_alias ?>" baru">
             </div>
           </div>
 
           <!-- pesan untuk pengguna yang sedang merubah password -->
-          <p class="small text-center text-danger"><?= $this->session->flashdata('pesan') ?></p>
+          <!-- untuk bagian ini akan kuubah nanti -->
+          <p class="small text-center text-danger"><?= $this->session->flashdata('notifikasi') ?></p>
 
           <div class="modal-footer">
-            <button class="btn btn-success" onclick="return confirm('Ubah password?')" type="submit">Simpan Perubahan</button>
+            <button class="btn btn-success" onclick="return confirm('Ubah <?= $tabel9_field4_alias ?>?')" type="submit">Simpan Perubahan</button>
           </div>
         </form>
       </div>

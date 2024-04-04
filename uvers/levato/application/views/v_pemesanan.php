@@ -29,7 +29,7 @@
 
     <div class="col-md-2">
       <div class="form-group">
-        <label>Jumlah Kamar</label>
+        <label>Jumlah Lisensi</label>
         <input class="form-control" readonly type="number" required name="jlh" min="1" max="10" value="<?= $jlh ?>">
       </div>
     </div>
@@ -45,13 +45,13 @@
 
   </div>
 
-  <h2>Pesan Kamar Anda</h2>
+  <h2>Pesan Lisensi Anda</h2>
 
 
   <hr>
 
   <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pembayaran yang telah dilakukan. -->
-  <!-- Dengan fitur ini, siswa dapat memesan lebih dari satu kelas  -->
+  <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu lisensi  -->
   <!-- dan mendapatkan pembayaran yang terpisah masing-masing -->
   <!-- Sebenarnya lebih baik jika menggunakan tabel pembayaran dan tabel detail pembayaran -->
   <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
@@ -59,23 +59,23 @@
   <!-- 
   $i = 1;
   do { ?> -->
-  <!-- <h2>Pesanan  $i ?></h2> -->
+  <!-- <h2>Pembayaran  $i ?></h2> -->
   <div class="row justify-content-start mt-4">
     <hr>
 
 
     <div class="col-md-6">
 
-      <!-- menentukan id_petugas jika user sudah membuat akun atau belum -->
+      <!-- menentukan id_user jika user sudah membuat akun atau belum -->
       <div class="form-group">
         <label>Pemesan</label>
-        <input class="form-control" type="text" required name="pemesan" placeholder="Masukkan nama pemesan" value="<?= $this->session->userdata('nama') ?>">
-        <?php if ($this->session->userdata('id_petugas')) { ?>
-          <input type="hidden" name="id_petugas" value="<?= $this->session->userdata('id_petugas') ?>">
+        <input class="form-control" type="text" required name="pemesan" placeholder="Masukkan nama pemesan" value="<?= $this->session->userdata($tabel9_field2) ?>">
+        <?php if ($this->session->userdata($tabel9_field1)) { ?>
+          <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $this->session->userdata($tabel9_field1) ?>">
         <?php } else { ?>
 
-          <!-- value 0 di id_petugas untuk pengguna tanpa akun -->
-          <input type="hidden" name="id_petugas" value="0">
+          <!-- value 0 di id_user untuk pengguna tanpa akun -->
+          <input type="hidden" name="<?= $tabel9_field1 ?>" value="0">
 
         <?php } ?>
       </div>
@@ -92,8 +92,8 @@
       </div>
 
       <div class="form-group">
-        <label>siswa</label>
-        <input class="form-control" type="text" required name="siswa" placeholder="Masukkan nama siswa">
+        <label>tamu</label>
+        <input class="form-control" type="text" required name="tamu" placeholder="Masukkan nama tamu">
       </div>
 
       <div class="form-group">
@@ -101,7 +101,7 @@
         <select class="form-control" required name="id_spp">
           <option selected hidden value="">Pilih <?= $tabel6_field2_alias ?>...</option>
           <?php foreach ($tbl6 as $tl6) : ?>
-            <option value="<?= $tl6->id_spp; ?>"><?= $tl6->tipe ?></option>
+            <option value="<?= $tl6->$tabel6_field1; ?>"><?= $tl6->tipe ?></option>
           <?php endforeach ?>
         </select>
       </div>
@@ -128,7 +128,7 @@
 
 
       <div class="form-group">
-        <button class="btn btn-success" onclick="return confirm('Apakah Anda Ingin Memesan Kamar?')" type="submit">Konfirmasi Pesanan</button>
+        <button class="btn btn-success" onclick="return confirm('Apakah Anda Ingin Memesan Lisensi?')" type="submit">Konfirmasi Pembayaran</button>
         <a class="btn btn-danger" type="button" href="<?= site_url('welcome') ?>">Batal</a>
       </div>
     </div>
@@ -142,7 +142,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Ubah Jumlah Kamar</h5>
+        <h5 class="modal-title">Ubah Jumlah Lisensi</h5>
 
         <button class="close" data-dismiss="modal">
           <span>&times;</span>
@@ -152,7 +152,7 @@
       <form action="<?= site_url('welcome/pemesanan') ?>" method="get">
         <div class="modal-body">
           <div class="form-group">
-            <label>Jumlah Kamar</label>
+            <label>Jumlah Lisensi</label>
             <input class="form-control" type="number" value="<?= $jlh ?>" required name="jlh" min="1" max="10" value="1">
             <input type="hidden" name="cek_in" value="<?= $cek_in ?>">
             <input type="hidden" name="cek_out" value="<?= $cek_out ?>">

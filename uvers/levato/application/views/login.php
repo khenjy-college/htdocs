@@ -30,7 +30,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" name="<?= $tabel9_field2 ?>" placeholder="Masukkan <?= $tabel9_field2_alias ?>">
+            <input class="form-control" type="text" name="<?= $tabel9_field3 ?>" placeholder="Masukkan <?= $tabel9_field3_alias ?>">
           </div>
 
           <div class="input-group">
@@ -40,7 +40,7 @@
             <input class="form-control" type="password" name="<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>">
           </div>
 
-          <p class="text-center"><a class="text-decoration-none" href="<?= site_url($tabel4.'/login') ?>">Login sebagai <?= $tabel4 ?></a></p>
+          <p class="text-center"><a class="text-decoration-none" href="<?= site_url($tabel4.'/login') ?>">Login sebagai <?= $tabel4_alias ?></a></p>
           
           <!-- pesan untuk pengguna yang login -->
           <p class="small text-center text-danger"><?= $this->session->flashdata($this->v_flashdata1) ?></p>
@@ -48,7 +48,7 @@
           <!-- tombol login dan signup -->
           <div class="form-group d-flex justify-content-around">
             <button class="btn btn-success login" type="submit">Login</button>
-            <a class="btn btn-secondary login" type="button" href="<?= site_url($tabel9.'/signup') ?>">Sign Up</a>
+            <!-- <a class="btn btn-secondary login" type="button" href="<?= site_url($tabel9.'/signup') ?>">Sign Up</a> -->
           </div>
 
         </form>

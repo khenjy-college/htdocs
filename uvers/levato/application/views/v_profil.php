@@ -5,25 +5,25 @@
     <?php foreach ($tbl9 as $tl9) : ?>
 
       <!-- tombol untuk memunculkan modal memperbaiki password -->
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $tl9->id_petugas ?>">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $tl9->$tabel9_field1 ?>">
         <i class="fas fa-edit"></i> Ubah <?= $tabel9_field4_alias ?></a>
 
       <!-- form ini terpisah dengan form ubah password untuk keamanan sesama :) -->
       <form action="<?= site_url($tabel9.'/update_profil') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label><?= $tabel9_field2_alias ?></label>
-          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field2 ?>" value="<?= $tl9->nama; ?>">
-          <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->id_petugas; ?>">
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field2 ?>" value="<?= $tl9->$tabel9_field2; ?>">
+          <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->$tabel9_field1; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel9_field3_alias ?>*</label>
-          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field3 ?>" value="<?= $tl9->email; ?>">
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field3 ?>" value="<?= $tl9->$tabel9_field3; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel9_field5_alias ?></label>
-          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field5 ?>" value="<?= $tl9->hp; ?>">
+          <input class="form-control pengaturan" type="text" name="<?= $tabel9_field5 ?>" value="<?= $tl9->$tabel9_field5; ?>">
         </div>
 
         <div class="form-group">
@@ -42,7 +42,7 @@
 
 <!-- modal edit password-->
 <?php foreach ($tbl9 as $tl9) : ?>
-  <div id="password<?= $tl9->id_petugas ?>" class="modal fade password">
+  <div id="password<?= $tl9->$tabel9_field1 ?>" class="modal fade password">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -52,7 +52,7 @@
             <span>&times;</span>
           </button>
         </div>
-        <form action="<?= site_url($tabel9.'/update_'.$tabel9_field4) ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel9.'/update_tabel9_field4') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="input-group">
@@ -60,7 +60,7 @@
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
               <input class="form-control" type="password" required name="old_<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?> lama">
-              <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->id_petugas; ?>">
+              <input type="hidden" name="<?= $tabel9_field1 ?>" value="<?= $tl9->$tabel9_field1; ?>">
             </div>
 
             <div class="input-group">

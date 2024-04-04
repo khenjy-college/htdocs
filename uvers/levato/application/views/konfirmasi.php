@@ -13,10 +13,10 @@
       <?php if (isset($tbl10)) { ?>
         <div class="col-md">
           <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-          <p class="text-center">Id Transaksi Anda adalah <?= $tbl10->id_transaksi ?></p>
+          <p class="text-center">Id Transaksi Anda adalah <?= $tbl10->$tabel10_field1 ?></p>
 
           <div class="d-flex justify-content-center">
-            <a class="btn btn-success text-light" href="<?= site_url('transaksi/receipt/' . $tbl10->id_transaksi) ?>" target="_blank">
+            <a class="btn btn-success text-light" href="<?= site_url($tabel10.'/receipt/' . $tbl10->$tabel10_field1) ?>" target="_blank">
               Cetak Bukti Transaksi</i></a>
           </div>
 
@@ -35,7 +35,7 @@
 
         <!-- mengecek apakah ada pembayaran yang telah dilakukan -->
         <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pembayaran yang telah dilakukan. -->
-        <!-- Dengan fitur ini, siswa dapat memesan lebih dari satu kelas  -->
+        <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu lisensi  -->
         <!-- dan mendapatkan pembayaran yang terpisah masing-masing -->
         <!-- Sebenarnya lebih baik jika menggunakan tabel pembayaran dan tabel detail pembayaran -->
         <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
@@ -46,8 +46,8 @@
         do { s?> -->
 
         <div class="col-md">
-          <h1 class="text-center">Pesanan Berhasil</h1>
-          <p class="text-center">Id Pesanan Anda adalah <?= $tbl8->id_pembayaran ?></p>
+          <h1 class="text-center">Pembayaran Berhasil</h1>
+          <p class="text-center">Id Pembayaran Anda adalah <?= $tbl8->id_pembayaran ?></p>
           <p class="text-center">Cari data pembayaran Anda dengan menggunakan <br>
             id pembayaran dan email anda <br>
             untuk mencetak bukti pembayaran</p>

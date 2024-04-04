@@ -12,8 +12,8 @@
   <div class="container" style="border-style: dashed;">
     <?php foreach ($tbl7 as $tl7) : ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $tl7->nama; ?> | <?= $tl7->hp; ?> | <?= $tl7->email; ?></p>
-      <p class="text-center"><?= $tl7->alamat; ?></p>
+      <p class="text-center"><?= $tl7->$tabel7_field2; ?> | <?= $tl7->$tabel7_field8; ?> | <?= $tl7->$tabel7_field7; ?></p>
+      <p class="text-center"><?= $tl7->$tabel7_field6; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pembayaran sebagai ps -->
@@ -21,7 +21,7 @@
       <?php foreach ($tbl8 as $tl8) : ?>
         <?php foreach ($tbl6 as $tl6) : ?>
 
-          <?php if ($tl10->id_pembayaran === $tl8->id_pembayaran && $tl8->id_spp === $tl6->id_spp) { ?>
+          <?php if ($tl10->id_pembayaran === $tl8->$tabel8_field1 && $tl8->$tabel8_field7 === $tl6->$tabel6_field1) { ?>
 
             <!-- menampilkan data pemesan -->
             <table class="table">
@@ -35,7 +35,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td width="25%"><?= $tl8->id_pembayaran ?></td>
+                  <td width="25%"><?= $tl8->$tabel8_field1 ?></td>
                   <td width="25%"><?= $tl8->pemesan ?></a>
                   <td width="25%"><?= $tl8->email ?></td>
                   <td width="25%"><?= $tl8->hp ?></td>
@@ -44,11 +44,10 @@
               </tbody>
             </table>
 
-            <!-- menampilkan data siswa -->
+            <!-- menampilkan data tamu -->
             <table class="table">
               <thead class="thead">
                 <tr>
-                  <th><?= $tabel8_field6_alias ?></th>
                   <th><?= $tabel6_field2_alias ?></th>
                   <th><?= $tabel8_field10_alias ?></th>
                   <th><?= $tabel8_field11_alias ?></th>
@@ -56,7 +55,6 @@
               </thead>
               <tbody>
                 <tr>
-                  <td width="25%"><?= $tl8->siswa ?></td>
                   <td width="25%"><?= $tl6->tipe ?></a>
                   <td width="25%"><?= $tl8->cek_in ?></td>
                   <td width="25%"><?= $tl8->cek_out ?></td>
@@ -94,10 +92,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <td width="25%"><?= $tl10->id_transaksi ?></td>
-                  <td width="25%"><?= $tl10->metode ?></a>
-                  <td width="25%">Rp <?= number_format($tl10->bayar, '2', ',', '.') ?></td>
-                  <td width="25%"><?= $tl10->tgl_transaksi ?></td>
+                  <td width="25%"><?= $tl10->$tabel10_field1 ?></td>
+                  <td width="25%"><?= $tl10->$tabel10_field5 ?></a>
+                  <td width="25%">Rp <?= number_format($tl10->$tabel10_field6, '2', ',', '.') ?></td>
+                  <td width="25%"><?= $tl10->$tabel10_field7 ?></td>
                   </td>
                 </tr>
               </tbody>

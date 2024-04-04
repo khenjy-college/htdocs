@@ -22,36 +22,36 @@
 
           <?php foreach ($tbl8 as $tl8) : ?>
             <tr>
-              <td><?= $tl8->id_pembayaran ?></td>
-              <td><?= $tl8->id_petugas ?></td>
-              <td><?= $tl8->nisn ?></td>
-              <td><?= $tl8->tgl_bayar ?></td>
-              <td><?= $tl8->bulan_dibayar ?></td>
-              <td><?= $tl8->tahun_dibayar ?></td>
-              <td><?= $tl8->id_spp ?></td>
-              <td>Rp <?= number_format($tl8->jumlah_bayar, '2', ',', '.') ?></td>
+              <td><?= $tl8->$tabel8_field1 ?></td>
+              <td><?= $tl8->$tabel8_field2 ?></td>
+              <td><?= $tl8->$tabel8_field3 ?></td>
+              <td><?= $tl8->$tabel8_field4 ?></td>
+              <td><?= $tl8->$tabel8_field5 ?></td>
+              <td><?= $tl8->$tabel8_field6 ?></td>
+              <td><?= $tl8->$tabel8_field7 ?></td>
+              <td>Rp <?= number_format($tl8->$tabel8_field8, '2', ',', '.') ?></td>
 
               <td>
 
                 <!-- tombol yang akan muncul berdasarkan nilai dari status -->
                 <!-- switch ($tl8->status) {
               case 'pending': ?>
-                <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->id_pembayaran ?>">
+                <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->$tabel8_field1 ?>">
                   <i class="fas fa-bell-concierge"></i></a>
                break;
 
               case 'menungggu': ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->$tabel8_field1 ?>">
                   <i class="fas fa-edit"></i></a>
                break;
 
               case 'cek in': ?>
-                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->$tabel8_field1 ?>">
                   <i class="fas fa-edit"></i></a>
                break;
 
               case 'cek out': ?>
-                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url($tabel8.'/hapus/' . $tl8->id_pembayaran) ?>">
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url($tabel8.'/hapus/' . $tl8->$tabel8_field1) ?>">
                   <i class="fas fa-trash"></i></a>
                break;
 
@@ -62,7 +62,7 @@
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-                <a class="btn btn-light text-info" href="<?= site_url($tabel8.'/print/' . $tl8->id_pembayaran) ?>" target="_blank">
+                <a class="btn btn-light text-info" href="<?= site_url($tabel8.'/print/' . $tl8->$tabel8_field1) ?>" target="_blank">
                   <i class="fas fa-print"></i></a>
 
               </td>
@@ -90,40 +90,40 @@
 <!-- modal bayar -->
 <?php foreach ($tbl8 as $tl8) : ?>
 
-  <div id="bayar<?= $tl8->id_pembayaran ?>" class="modal fade bayar">
+  <div id="bayar<?= $tl8->$tabel8_field1 ?>" class="modal fade bayar">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Transaksi untuk Pesanan <?= $tl8->id_pembayaran ?></h5>
+          <h5 class="modal-title">Transaksi untuk Pembayaran <?= $tl8->$tabel8_field1 ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
         </div>
 
-        <form action="<?= site_url('transaksi/tambah') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel8.'/tambah') ?>" method="post" enctype="multipart/form-data">
 
           <div class="modal-body">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label><?= $tabel8_field1_alias ?></label>
-                  <p><?= $tl8->id_pembayaran ?></p>
+                  <p><?= $tl8->$tabel8_field1 ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel8_field2_alias ?></label>
+                  <p><?= $tl8->tabel8_field2 ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
                   <label><?= $tabel8_field3_alias ?></label>
-                  <p><?= $tl8->pemesan ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel8_field4_alias ?></label>
-                  <p><?= $tl8->email ?></p>
+                  <p><?= $tl8->tabel8_field3 ?></p>
 
                   <!-- Email ini digunakan untuk menambahkan sesi temporer untuk konfirmasi transaksi -->
-                  <input type="hidden" name="email" value="<?= $tl8->email ?>">
+                  <input type="hidden" name="<?= $tabel8_field3 ?>" value="<?= $tl8->$tabel8_field3 ?>">
                 </div>
                 <hr>
 
@@ -136,14 +136,14 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label><?= $tabel8_field6_alias ?></label>
-                  <p><?= $tl8->siswa ?></p>
+                  <p><?= $tl8->tamu ?></p>
                 </div>
                 <hr>
 
                 <div class="form-group">
                   <label><?= $tabel6_field2_alias ?></label>
                   <?php foreach ($tbl6 as $tl6) :
-                    if ($tl6->id_spp === $tl8->id_spp) { ?>
+                    if ($tl6->$tabel6_field1 === $tl8->$tabel8_field7) { ?>
                       <p><?= $tl6->tipe ?></p>
                     <?php } ?>
                   <?php endforeach ?>
@@ -172,7 +172,7 @@
                 <div class="form-group">
                   <label><?= $tabel8_field9_alias ?></label>
                   <p>Rp <?= number_format($tl8->harga_total, '2', ',', '.') ?></p>
-                  <input type="hidden" name="id_pembayaran" value="<?= $tl8->id_pembayaran ?>">
+                  <input type="hidden" name="id_pembayaran" value="<?= $tl8->$tabel8_field1 ?>">
                 </div>
 
                 <div class="form-group">
@@ -211,13 +211,13 @@
 <!-- modal lihat -->
 <?php foreach ($tbl8 as $tl8) :
   foreach ($tbl6 as $tl6) :
-    if ($tl6->id_spp == $tl8->id_spp) { ?>
+    if ($tl6->$tabel6_field1 == $tl8->$tabel8_field7) { ?>
 
-      <div id="lihat<?= $tl8->id_pembayaran ?>" class="modal fade lihat">
+      <div id="lihat<?= $tl8->$tabel8_field1 ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pembayaran ?></h5>
+              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->$tabel8_field1 ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -229,7 +229,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel8_field1_alias ?></label>
-                    <p><?= $tl8->id_pembayaran ?></p>
+                    <p><?= $tl8->$tabel8_field1 ?></p>
                   </div>
                   <hr>
 
@@ -254,7 +254,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel8_field6_alias ?></label>
-                    <p><?= $tl8->siswa ?></p>
+                    <p><?= $tl8->tamu ?></p>
                   </div>
                   <hr>
 
@@ -292,18 +292,18 @@
 endforeach ?>
 
 
-<!-- modal lihat kelas -->
-<!-- Aku ingin merubah modal ini menjadi modal yang memberikan informasi khusus mengenai kelas yang sudah dipesan -->
+<!-- modal lihat lisensi -->
+<!-- Aku ingin merubah modal ini menjadi modal yang memberikan informasi khusus mengenai lisensi yang sudah dipesan -->
 <!-- Aku mau yang ada di sini isinya bagus dan interaktif -->
 <?php foreach ($tbl8 as $tl8) :
   foreach ($tbl6 as $tl6) :
-    if ($tl6->id_spp == $tl8->id_spp) { ?>
+    if ($tl6->$tabel6_field1 == $tl8->$tabel8_field7) { ?>
 
-      <div id="kelas<?= $tl8->id_pembayaran ?>" class="modal fade lihat">
+      <div id="lisensi<?= $tl8->$tabel8_field1 ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pembayaran ?></h5>
+              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->$tabel8_field1 ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -315,7 +315,7 @@ endforeach ?>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel8_field1_alias ?></label>
-                    <p><?= $tl8->id_pembayaran ?></p>
+                    <p><?= $tl8->$tabel8_field1 ?></p>
                   </div>
                   <hr>
 
@@ -339,7 +339,7 @@ endforeach ?>
 
                   <div class="form-group">
                     <label><?= $tabel8_field6_alias ?></label>
-                    <p><?= $tl8->siswa ?></p>
+                    <p><?= $tl8->tamu ?></p>
                   </div>
                   <hr>
 
@@ -351,11 +351,11 @@ endforeach ?>
 
                 <div class="col-md-6">
                   <?php foreach ($tbl5 as $tl5) : ?>
-                    <?php if ($tl8->id_pembayaran == $tl5->id_pembayaran) { ?>
+                    <?php if ($tl8->$tabel8_field1 == $tl5->id_pembayaran) { ?>
 
                       <div class="form-group">
                         <label><?= $tabel5_field1_alias ?></label>
-                        <p><?= $tl5->id_kelas ?></p>
+                        <p><?= $tl5->$tabel5_field1 ?></p>
                       </div>
                       <hr>
 

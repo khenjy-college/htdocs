@@ -36,163 +36,6 @@ class Welcome extends CI_Controller
 	// Controller yang ada di aplikasi ini, dengan begitu, aku tidak perlu khawatir jika ingin memulai projek baru
 	// Dan ingin mengubah konten di dalamnya dalam waktu yang singkat
 
-	public $tabel1 = 't1';
-	// deklarasi variabel bagian field
-
-	// deklarasi tabel 2
-	public $tabel2 = 'history';
-	public $tabel2_alias = 'History Pembayaran';
-	// deklarasi variabel bagian field
-	public $tabel2_field1 = 'id_history';
-	public $tabel2_field1_alias = 'ID History';
-	public $tabel2_field2 = 'id_pembayaran';
-	public $tabel2_field2_alias = 'ID Pembayaran';
-	public $tabel2_field3 = 'id_petugas';
-	public $tabel2_field3_alias = 'ID Petugas';
-	public $tabel2_field4 = 'NISN';
-	public $tabel2_field4_alias = 'NISN';
-	public $tabel2_field5 = 'tgl_bayar';
-	public $tabel2_field5_alias = 'Tanggal Bayar';
-	public $tabel2_field6 = 'bulan_dibayar';
-	public $tabel2_field6_alias = 'Bulan Dibayar';
-	public $tabel2_field7 = 'tahun_dibayar';
-	public $tabel2_field7_alias = 'Tahun Dibayar';
-	public $tabel2_field8 = 'id_spp';
-	public $tabel2_field8_alias = 'ID SPP';
-	public $tabel2_field9 = 'jumlah_bayar';
-	public $tabel2_field9_alias = 'Jumlah Bayar';
-	public $tabel2_field15 = 'user_aktif';
-	public $tabel2_field15_alias = 'User Aktif';
-
-
-	// deklarasi tabel 3
-	public $tabel3 = 't3';
-
-
-	// deklarasi tabel 4
-	public $tabel4 = 'siswa';
-	public $tabel4_alias = 'Siswa';
-	// deklarasi variabel bagian field
-	public $tabel4_field1 = 'nisn';
-	public $tabel4_field1_alias = 'NISN';
-	public $tabel4_field2 = 'nis';
-	public $tabel4_field2_alias = 'NIS';
-	public $tabel4_field3 = 'nama';
-	public $tabel4_field3_alias = 'Nama';
-	public $tabel4_field4 = 'id_kelas';
-	public $tabel4_field4_alias = 'ID Kelas';
-	public $tabel4_field5 = 'alamat';
-	public $tabel4_field5_alias = 'Alamat';
-	public $tabel4_field6 = 'no_telp';
-	public $tabel4_field6_alias = 'No HP';
-	public $tabel4_field7 = 'id_spp';
-	public $tabel4_field7_alias = 'ID SPP';
-	public $tabel4_field8 = 'password';
-	public $tabel4_field8_alias = 'Password';
-	public $tabel4_field9 = 'level';
-	public $tabel4_field9_alias = 'Level';
-
-
-
-	// deklarasi tabel 6
-	public $tabel6 = 'spp';
-	public $tabel6_alias = 'SPP';
-	// deklarasi variabel bagian field
-	public $tabel6_field1 = 'id_spp';
-	public $tabel6_field1_alias = 'ID SPP';
-	public $tabel6_field2 = 'tahun';
-	public $tabel6_field2_alias = 'Tahun';
-	public $tabel6_field3 = 'nominal';
-	public $tabel6_field3_alias = 'Nominal';
-
-
-	// deklarasi tabel 7
-	public $tabel7 = 'pengaturan';
-	public $tabel7_alias = 'Pengaturan Website';
-	// deklarasi variabel bagian field
-	public $tabel7_field1 = 'id';
-	public $tabel7_field1_alias = 'ID';
-	public $tabel7_field2 = 'nama';
-	public $tabel7_field2_alias = 'Nama Website';
-	public $tabel7_field3 = 'favicon';
-	public $tabel7_field3_alias = 'Favicon';
-	public $tabel7_field4 = 'logo';
-	public $tabel7_field4_alias = 'Logo';
-	public $tabel7_field5 = 'foto';
-	public $tabel7_field5_alias = 'Foto';
-	public $tabel7_field6 = 'alamat';
-	public $tabel7_field6_alias = 'Alamat';
-	public $tabel7_field7 = 'email';
-	public $tabel7_field7_alias = 'Email';
-	public $tabel7_field8 = 'hp';
-	public $tabel7_field8_alias = 'No HP';
-	public $tabel7_field9 = 'metadesc';
-	public $tabel7_field9_alias = 'Metadesc';
-	public $tabel7_field10 = 'fb';
-	public $tabel7_field10_alias = 'Akun Facebook';
-	public $tabel7_field11 = 'ig';
-	public $tabel7_field11_alias = 'Akun Instagram';
-
-
-	// deklarasi tabel 8
-	public $tabel8 = 'pembayaran';
-	public $tabel8_alias = 'Pembayaran';
-	// deklarasi variabel bagian field
-	public $tabel8_field1 = 'id_pembayaran';
-	public $tabel8_field1_alias = 'ID Pembayaran';
-	public $tabel8_field2 = 'id_petugas';
-	public $tabel8_field2_alias = 'ID Petugas';
-	public $tabel8_field3 = 'nisn';
-	public $tabel8_field3_alias = 'NISN';
-	public $tabel8_field4 = 'tgl_bayar';
-	public $tabel8_field4_alias = 'Tanggal Bayar';
-	public $tabel8_field5 = 'bulan_dibayar';
-	public $tabel8_field5_alias = 'Bulan Dibayar';
-	public $tabel8_field6 = 'tahun_dibayar';
-	public $tabel8_field6_alias = 'Tahun Dibayar';
-	public $tabel8_field7 = 'id_spp';
-	public $tabel8_field7_alias = 'ID SPP';
-	public $tabel8_field8 = 'jumlah_bayar';
-	public $tabel8_field8_alias = 'Jumlah Bayar';
-
-
-	// deklarasi tabel 9
-	public $tabel9 = 'petugas';
-	public $tabel9_alias = 'Petugas';
-	// deklarasi variabel bagian field
-	public $tabel9_field1 = 'id_petugas';
-	public $tabel9_field1_alias = 'ID User';
-	public $tabel9_field2 = 'nama';
-	public $tabel9_field2_alias = 'Nama';
-	public $tabel9_field3 = 'email';
-	public $tabel9_field3_alias = 'Email';
-	public $tabel9_field4 = 'password';
-	public $tabel9_field4_alias = 'Password';
-	public $tabel9_field5 = 'hp';
-	public $tabel9_field5_alias = 'No HP';
-	public $tabel9_field6 = 'level';
-	public $tabel9_field6_alias = 'Level User';
-	public $tabel9_field6_value1 = '';
-	public $tabel9_field6_value2 = 'accounting';
-	public $tabel9_field6_value3 = 'administrator';
-	public $tabel9_field6_value4 = 'petugas';
-	public $tabel9_field6_value5 = 'siswa';
-	public $tabel9_field7 = 'login_count';
-	public $tabel9_field7_alias = 'Jumlah Login';
-
-
-	// deklarasi tabel 10
-	// deklarasi variabel per tabel
-	// deklarasi tabel 1
-	public $tabel10 = 't10';
-
-
-	// deklarasi tabel 11
-	// deklarasi variabel per tabel
-
-
-	public $tabel11 = 't11';
-
 
 	// deklarasi mvc
 	// deklarasi model
@@ -248,7 +91,7 @@ class Welcome extends CI_Controller
 
 
 	// deklarasi views yang saat ini belum terhubung ke basis data
-	// Ada rencana untuk menggunakan _alias dari untuk membuat title kelas semakin cantik dan interaktif
+	// Ada rencana untuk menggunakan _alias dari untuk membuat title lisensi semakin cantik dan interaktif
 	// Namun hal itu saat ini digunakan di halaman admin saja untuk konsistensi
 	public $head = '_partials/head';
 
@@ -266,7 +109,6 @@ class Welcome extends CI_Controller
 	public $v_part4_msg2 = '<br><span class="h6"> (phase beta feature)</span>';
 	public $v_part4_msg3 = '<br><span class="h6"> (release candidate feature)</span>';
 	public $v_part4_msg4 = '';  // feature released
-
 	public $v1 = 'konfirmasi';
 	public $v1_title1 = 'Pembayaran Berhasil';
 	public $v1_title2 = 'Transaksi Berhasil';
@@ -298,9 +140,9 @@ class Welcome extends CI_Controller
 	public $v15 = 'v_fasilitas';
 	public $v15_title = 'Daftar Fasilitas';
 	public $v16 = 'v_spp';
-	public $v16_title = 'Daftar Tipe Kamar';
-	public $v17 = 'login_siswa';
-	public $v17_title = 'Login Sebagai Siswa';
+	public $v16_title = 'Daftar Tipe Lisensi';
+	public $v17 = 'login_pemilik';
+	public $v17_title = 'Login Sebagai Pemilik Bisnis';
 
 	// Di bawah ini adalah deklarasi field tabel yang akan menggunakan alias dari masing2, dua atau lebih alias field tabel
 	// Dengan adanya variabel ini, perencanaan tampilan tabel bisa menjadi lebih fleksibel dan lebih terorganisir karena
@@ -425,26 +267,35 @@ class Welcome extends CI_Controller
 	declarew()
 	{
 		$this->aliases = array(
+			'tabel1' => 'pembaruan',
+			'tabel1_alias' => 'Pembaruan',
+			'tabel1_field1' => 'id_pembaruan',
+			'tabel1_field1_alias' => 'ID Pembaruan',
+			'tabel1_field2' => 'id_lisensi',
+			'tabel1_field2_alias' => 'ID Lisensi',
+			'tabel1_field3' => 'diminta_oleh',
+			'tabel1_field3_alias' => 'Diminta Oleh',
+			'tabel1_field4' => 'tgl_kedaluarsa_baru',
+			'tabel1_field4_alias' => 'Tanggal Kedaluarsa Baru',
+			'tabel1_field5' => 'tgl_pembaruan',
+			'tabel1_field5_alias' => 'Tanggal Pembaruan',
+
 			'tabel2' => 'history',
 			'tabel2_alias' => 'History Pemesanan',
 			'tabel2_field1' => 'id_history',
 			'tabel2_field1_alias' => 'ID History',
-
-			'tabel2_field2' => 'id_pesanan',
-			'tabel2_field2_alias' => 'ID Pesanan',
-
+			'tabel2_field2' => 'id_pembayaran',
+			'tabel2_field2_alias' => 'ID Pembayaran',
 			'tabel2_field3' => 'id_user',
 			'tabel2_field3_alias' => 'ID User',
-
 			'tabel2_field4' => 'nama',
 			'tabel2_field4_alias' => 'Nama Pemesan',
-
 			'tabel2_field5' => 'email',
 			'tabel2_field5_alias' => 'Email',
 			'tabel2_field6' => 'hp',
 			'tabel2_field6_alias' => 'No HP',
-			'tabel2_field7' => 'id_petugas',
-			'tabel2_field7_alias' => 'ID Petugas',
+			'tabel2_field7' => 'id_user',
+			'tabel2_field7_alias' => 'ID User',
 			'tabel2_field8' => 'tipe',
 			'tabel2_field8_alias' => 'Tipe',
 			'tabel2_field9' => 'jumlah',
@@ -455,49 +306,74 @@ class Welcome extends CI_Controller
 			'tabel2_field11_alias' => 'Cek In',
 			'tabel2_field12' => 'cek_out',
 			'tabel2_field12_alias' => 'Cek Out',
-			'tabel2_field13' => 'no_kamar',
-			'tabel2_field13_alias' => 'No Kamar',
+			'tabel2_field13' => 'id_lisensi',
+			'tabel2_field13_alias' => 'No Lisensi',
 			'tabel2_field14' => 'tgl_perubahan',
 			'tabel2_field14_alias' => 'Tgl Perubahan',
 			'tabel2_field15' => 'user_aktif',
 			'tabel2_field15_alias' => 'User Aktif',
 
-			'tabel4' => 'siswa',
-			'tabel4_alias' => 'Siswa',
-			'tabel4_field1' => 'nisn',
-			'tabel4_field1_alias' => 'NISN',
-			'tabel4_field2' => 'nis',
-			'tabel4_field2_alias' => 'NIS',
-			'tabel4_field3' => 'nama',
-			'tabel4_field3_alias' => 'Nama',
-			'tabel4_field4' => 'id_kelas',
-			'tabel4_field4_alias' => 'ID Kelas',
-			'tabel4_field5' => 'alamat',
-			'tabel4_field5_alias' => 'Alamat',
-			'tabel4_field6' => 'no_telp',
-			'tabel4_field6_alias' => 'No HP',
-			'tabel4_field7' => 'id_spp',
-			'tabel4_field7_alias' => 'ID SPP',
-			'tabel4_field8' => 'id_spp',
-			'tabel4_field8_alias' => 'password',
+			'tabel3' => 'pendaftaran',
+			'tabel3_alias' => 'Pendaftaran',
+			'tabel3_field1' => 'id_pendaftaran',
+			'tabel3_field1_alias' => 'ID Pendaftaran',
+			'tabel3_field2' => 'id_lisensi',
+			'tabel3_field2_alias' => 'ID Lisensi',
+			'tabel3_field3' => 'diajukan_oleh',
+			'tabel3_field3_alias' => 'Diajukan Oleh',
+			'tabel3_field4' => 'deskripsi',
+			'tabel3_field4_alias' => 'Deskripsi',
+			'tabel3_field5' => 'tgl_pengajuan',
+			'tabel3_field5_alias' => 'Tanggal Pengajuan',
 
-			'tabel5' => 'kelas',
-			'tabel5_alias' => 'Kelas',
-			'tabel5_field1' => 'id_kelas',
-			'tabel5_field1_alias' => 'ID Kelas',
-			'tabel5_field2' => 'nama_kelas',
-			'tabel5_field2_alias' => 'Nama Kelas',
-			'tabel5_field3' => 'kompetensi_keahlian',
-			'tabel5_field3_alias' => 'Kompetensi Keahlian',
+			'tabel4' => 'pemilik',
+			'tabel4_alias' => 'Pemilik',
+			'tabel4_field1' => 'id_pemilik',
+			'tabel4_field1_alias' => 'ID Pemilik',
+			'tabel4_field2' => 'nama',
+			'tabel4_field2_alias' => 'Nama',
+			'tabel4_field3' => 'email',
+			'tabel4_field3_alias' => 'Email',
+			'tabel4_field4' => 'password',
+			'tabel4_field4_alias' => 'Password',
+			'tabel4_field5' => 'hp',
+			'tabel4_field5_alias' => 'No Telepon',
+			'tabel4_field6' => 'level',
+			'tabel4_field6_alias' => 'Level',
 
-			'tabel6' => 'spp',
-			'tabel6_alias' => 'SPP',
-			'tabel6_field1' => 'id_spp',
-			'tabel6_field1_alias' => 'ID SPP',
-			'tabel6_field2' => 'tahun',
-			'tabel6_field2_alias' => 'Tahun',
-			'tabel6_field3' => 'nominal',
-			'tabel6_field3_alias' => 'Nominal',
+			'tabel5' => 'lisensi',
+			'tabel5_alias' => 'Lisensi',
+			'tabel5_field1' => 'id_lisensi',
+			'tabel5_field1_alias' => 'ID Lisensi',
+			'tabel5_field2' => 'id_usaha',
+			'tabel5_field2_alias' => 'ID Usaha',
+			'tabel5_field3' => 'jenis',
+			'tabel5_field3_alias' => 'Jenis',
+			'tabel5_field4' => 'status',
+			'tabel5_field4_alias' => 'Status',
+			'tabel5_field5' => 'tgl_aplikasi',
+			'tabel5_field5_alias' => 'Tanggal Aplikasi',
+			'tabel5_field6' => 'tgl_persetujuan',
+			'tabel5_field6_alias' => 'Tanggal Persetujuan',
+			'tabel5_field7' => 'tgl_kedaluarsa',
+			'tabel5_field7_alias' => 'Tanggal kedaluarsa',
+
+			'tabel6' => 'bisnis',
+			'tabel6_alias' => 'Bisnis',
+			'tabel6_field1' => 'id_usaha',
+			'tabel6_field1_alias' => 'ID Usaha',
+			'tabel6_field2' => 'nama',
+			'tabel6_field2_alias' => 'Nama',
+			'tabel6_field3' => 'id_pemilik',
+			'tabel6_field3_alias' => 'ID Pemilik',
+			'tabel6_field4' => 'lokasi',
+			'tabel6_field4_alias' => 'Lokasi',
+			'tabel6_field5' => 'detail_kontak',
+			'tabel6_field5_alias' => 'Detail Kontak',
+			'tabel6_field6' => 'no_regis',
+			'tabel6_field6_alias' => 'No Registrasi',
+			'tabel6_field7' => 'status',
+			'tabel6_field7_alias' => 'Status',
 
 			'tabel7' => 'pengaturan',
 			'tabel7_alias' => 'Pengaturan Website',
@@ -528,23 +404,23 @@ class Welcome extends CI_Controller
 			'tabel8_alias' => 'Pembayaran',
 			'tabel8_field1' => 'id_pembayaran',
 			'tabel8_field1_alias' => 'ID Pembayaran',
-			'tabel8_field2' => 'id_petugas',
-			'tabel8_field2_alias' => 'ID Petugas',
-			'tabel8_field3' => 'nisn',
-			'tabel8_field3_alias' => 'NISN',
+			'tabel8_field2' => 'id_user',
+			'tabel8_field2_alias' => 'ID User',
+			'tabel8_field3' => 'id_bisnis',
+			'tabel8_field3_alias' => 'ID Bisnis',
 			'tabel8_field4' => 'tgl_bayar',
 			'tabel8_field4_alias' => 'Tanggal Bayar',
 			'tabel8_field5' => 'bulan_dibayar',
 			'tabel8_field5_alias' => 'Bulan Dibayar',
 			'tabel8_field6' => 'tahun_dibayar',
 			'tabel8_field6_alias' => 'Tahun Dibayar',
-			'tabel8_field7' => 'id_spp',
-			'tabel8_field7_alias' => 'ID SPP',
-			'tabel8_field8' => 'password',
-			'tabel8_field8_alias' => 'Password',
+			'tabel8_field7' => 'id_lisensi',
+			'tabel8_field7_alias' => 'ID Lisensi',
+			'tabel8_field8' => 'jumlah_bayar',
+			'tabel8_field8_alias' => 'Jumlah Bayar',
 
-			'tabel9' => 'petugas',
-			'tabel9_alias' => 'Petugas',
+			'tabel9' => 'user',
+			'tabel9_alias' => 'User',
 			'tabel9_field1' => 'id_user',
 			'tabel9_field1_alias' => 'ID User',
 			'tabel9_field2' => 'nama',
@@ -554,44 +430,79 @@ class Welcome extends CI_Controller
 			'tabel9_field4' => 'password',
 			'tabel9_field4_alias' => 'Password',
 			'tabel9_field5' => 'hp',
-			'tabel9_field5_alias' => 'No Hp',
+			'tabel9_field5_alias' => 'No Handphone',
 			'tabel9_field6' => 'level',
-			'tabel9_field6_alias' => 'Level User',
+			'tabel9_field6_alias' => 'Level',
 			'tabel9_field6_value1' => '',
 
 			'tabel9_field6_value2' => 'accounting',
 			'tabel9_field6_value2_alias' => 'Accounting',
 			
-			'tabel9_field6_value3' => 'administrator',
+			'tabel9_field6_value3' => 'admin',
 			'tabel9_field6_value3_alias' => 'Administrator',
 			
 			'tabel9_field6_value4' => 'petugas',
+
 			'tabel9_field6_value4_alias' => 'Petugas',
 			
-			'tabel9_field6_value5' => 'siswa',
-			'tabel9_field6_value5_alias' => 'Siswa',
+			'tabel9_field6_value5' => 'tamu',
+			'tabel9_field6_value5_alias' => 'Tamu',
 			
 			'tabel9_field7' => 'login_count',
 			'tabel9_field7_alias' => 'Jumlah Login',
+
+			'tabel10' => 'transaksi',
+			'tabel10_alias' => 'Transaksi',
+			'tabel10_field1' => 'id_transaksi',
+			'tabel10_field1_alias' => 'ID Transaksi',
+			'tabel10_field2' => 'id_user',
+			'tabel10_field2_alias' => 'ID User',
+			'tabel10_field3' => 'email',
+			'tabel10_field3_alias' => 'Email',
+			'tabel10_field4' => 'id_pembayaran',
+			'tabel10_field4_alias' => 'ID Pembayaran',
+			'tabel10_field5' => 'metode',
+			'tabel10_field5_alias' => 'Metode',
+			'tabel10_field6' => 'bayar',
+			'tabel10_field6_alias' => 'Jumlah Bayar',
+			'tabel10_field7' => 'tgl_transaksi',
+			'tabel10_field7_alias' => 'Tanggal Transaksi',
+
+			'tabel11' => 'operations',
+			'tabel11_alias' => 'Operasional Hotel',
+			'tabel11_field1' => 'id_operasional',
+			'tabel11_field1_alias' => 'ID Operasional',
+			'tabel11_field2' => 'id_lisensi',
+			'tabel11_field2_alias' => 'No Lisensi',
+			'tabel11_field3' => 'id_user',
+			'tabel11_field3_alias' => 'ID User',
+			'tabel11_field4' => 'id_petugas',
+			'tabel11_field4_alias' => 'ID Petugas',
+			'tabel11_field5' => 'status',
+			'tabel11_field5_alias' => 'Status',
+			'tabel11_field6' => 'keterangan',
+			'tabel11_field6_alias' => 'Keterangan',
+			'tabel11_field7' => 'tgl_perubahan',
+			'tabel11_field7_alias' => 'Tanggal Perubahan',
 		);
 		
 	
 
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->aliases['tabel9_field1'];
-		$this->tabel9_tempdata1 = $this->tabel9_field1;
-		$this->tabel9_userdata2 = $this->tabel9_field2;
-		$this->tabel9_tempdata2 = $this->tabel9_field2;
-		$this->tabel9_userdata3 = $this->tabel9_field3;
-		$this->tabel9_tempdata3 = $this->tabel9_field3;
-		$this->tabel9_userdata4 = $this->tabel9_field4;
-		$this->tabel9_tempdata4 = $this->tabel9_field4;
-		$this->tabel9_userdata5 = $this->tabel9_field5;
-		$this->tabel9_tempdata5 = $this->tabel9_field5;
-		$this->tabel9_userdata6 = $this->tabel9_field6;
-		$this->tabel9_tempdata6 = $this->tabel9_field6;
-		$this->tabel9_userdata7 = $this->tabel9_field7;
-		$this->tabel9_tempdata7 = $this->tabel9_field7;
+		$this->tabel9_tempdata1 = $this->aliases['tabel9_field1'];
+		$this->tabel9_userdata2 = $this->aliases['tabel9_field2'];
+		$this->tabel9_tempdata2 = $this->aliases['tabel9_field2'];
+		$this->tabel9_userdata3 = $this->aliases['tabel9_field3'];
+		$this->tabel9_tempdata3 = $this->aliases['tabel9_field3'];
+		$this->tabel9_userdata4 = $this->aliases['tabel9_field4'];
+		$this->tabel9_tempdata4 = $this->aliases['tabel9_field4'];
+		$this->tabel9_userdata5 = $this->aliases['tabel9_field5'];
+		$this->tabel9_tempdata5 = $this->aliases['tabel9_field5'];
+		$this->tabel9_userdata6 = $this->aliases['tabel9_field6'];
+		$this->tabel9_tempdata6 = $this->aliases['tabel9_field6'];
+		$this->tabel9_userdata7 = $this->aliases['tabel9_field7'];
+		$this->tabel9_tempdata7 = $this->aliases['tabel9_field7'];
 
 		$this->v_flashdata1_msg1 = 'Selamat datang ' . $this->session->userdata($this->tabel9_userdata6) . ' ' . $this->session->userdata($this->tabel9_userdata2) . '!';
 
@@ -600,7 +511,7 @@ class Welcome extends CI_Controller
 
 
 	// fungsi pertama yang akan diload oleh website
-	public function index($id = 1)
+	public function index($tabel7_field1 = 1)
 	{
 		$this->declarew();
 		// Cache control headers
@@ -610,9 +521,9 @@ class Welcome extends CI_Controller
 
 		// mengarahkan pengguna ke halaman masing-masing sesuai level
 		switch ($this->session->userdata($this->tabel9_userdata6)) {
-			case $this->tabel9_field6_value2:
-			case $this->tabel9_field6_value3:
-			case $this->tabel9_field6_value4:
+			case $this->aliases['tabel9_field6_value2']:
+			case $this->aliases['tabel9_field6_value3']:
+			case $this->aliases['tabel9_field6_value4']:
 
 				$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
 				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
@@ -638,7 +549,7 @@ class Welcome extends CI_Controller
 					$this->v_part3 => $this->v8,
 					$this->v_part2 => $this->head,
 					$this->v_part4 => $this->v_part4_msg1,
-					'tbl7' => $this->tl7->ambil($id)->result(),
+					'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 				);
 
 				$data = array_merge($data1, $this->aliases);
@@ -647,17 +558,17 @@ class Welcome extends CI_Controller
 		}
 	}
 
-	public function pemesanan($id = 1)
+	public function pemesanan($tabel7_field1 = 1)
 	{
 		$this->declarew();
 		switch ($this->session->userdata($this->tabel9_userdata6)) {
-			case $this->tabel9_field6_value5:
+			case $this->aliases['tabel9_field6_value5']:
 				$data1 = array(
 					$this->v_part1 => $this->v9_title,
 					$this->v_part2 => $this->head,
 					$this->v_part3 => $this->v9,
-					'tbl7' => $this->tl7->ambil($id)->result(),
-					'tbl6' =>  $this->tl6->ambildata()->result(),
+					'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+					// 'tbl6' => $this->tl6->ambildata()->result(),
 					$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
 					$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
 					$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
@@ -671,7 +582,7 @@ class Welcome extends CI_Controller
 					$this->v_part1 => $this->v2_title,
 					$this->v_part2 => $this->head,
 					$this->v_part4 => $this->v_part4_msg1,
-					'tbl7' => $this->tl7->ambil($id)->result()
+					'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result()
 
 				);
 				$halaman = $this->v2;
@@ -686,7 +597,7 @@ class Welcome extends CI_Controller
 		$this->load->view($halaman, $data);
 	}
 
-	public function spp($id = 1)
+	public function spp($tabel7_field1 = 1)
 	{
 		$this->declarew();
 		$data1 = array(
@@ -694,8 +605,8 @@ class Welcome extends CI_Controller
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v16,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($id)->result(),
-			'tbl6' =>  $this->tl6->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result(),
 			// 'tbl1' => $this->tl1->ambildata()->result()
 		);
 
@@ -705,7 +616,7 @@ class Welcome extends CI_Controller
 		$this->load->view($this->v7, $data);
 	}
 
-	public function fasilitas($id = 1)
+	public function fasilitas($tabel7_field1 = 1)
 	{
 		$this->declarew();
 		$data1 = array(
@@ -713,8 +624,8 @@ class Welcome extends CI_Controller
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v15,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($id)->result(),
-			// 'tabel3' => $this->tl3->ambildata()->result()
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			// 'tbl3' => $this->tl3->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -723,7 +634,7 @@ class Welcome extends CI_Controller
 		$this->load->view($this->v7, $data);
 	}
 
-	public function dashboard($id = 1)
+	public function dashboard($tabel7_field1 = 1)
 	{
 		$this->declarew();
 		$data1 = array(
@@ -731,15 +642,15 @@ class Welcome extends CI_Controller
 			$this->v_part2 => $this->head,
 			$this->v_part3 => $this->v14,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($id)->result(),
-			// 'tabel3' => $this->tl3->ambildata()->num_rows(),
-			// 'tbl1' => $this->tl1->ambildata()->num_rows(),
-			'tbl6' =>  $this->tl6->ambildata()->num_rows(),
-			'tbl8' =>  $this->tl8->ambildata()->num_rows(),
-			// 'tabel10' =>  $this->tl10->ambildata()->num_rows(),
-			'tbl4' =>  $this->tl4->ambildata()->num_rows(),
-			'tbl5' =>  $this->tl5->ambildata()->num_rows(),
-			'tbl9' =>  $this->tl9->ambildata()->num_rows(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl3' => $this->tl3->ambildata()->num_rows(),
+			'tbl1' => $this->tl1->ambildata()->num_rows(),
+			'tbl6' => $this->tl6->ambildata()->num_rows(),
+			'tbl8' => $this->tl8->ambildata()->num_rows(),
+			// 'tbl10' => $this->tl10->ambildata()->num_rows(),
+			'tbl4' => $this->tl4->ambildata()->num_rows(),
+			'tbl5' => $this->tl5->ambildata()->num_rows(),
+			'tbl9' => $this->tl9->ambildata()->num_rows(),
 			$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
 			$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
 			$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
@@ -752,14 +663,14 @@ class Welcome extends CI_Controller
 	}
 
 	// fungsi ketika pengguna mengunjungi halaman yang tidak sesuai dengan level
-	public function no_level($id = 1)
+	public function no_level($tabel7_field1 = 1)
 	{
 		$this->declarew();
 		$data1 = array(
 			$this->v_part1 => $this->v3_title,
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil($id)->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
 		$this->declarew();

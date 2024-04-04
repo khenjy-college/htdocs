@@ -1,35 +1,36 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_kamar extends CI_Model {
+class M_kamar extends CI_Model
+{
 
-  private $tabel = 'kamar';
+	private $tabel5 = 'kamar';
 
 	public function ambildata()
 	{
-		return $this->db->get($this->tabel);
+		return $this->db->get($this->tabel5);
 	}
 
-	public function ambil($where)
+	public function ambil_tabel5_field1($tabel5_field1)
 	{
-    $this->db->where('no_kamar', $where);
-		return $this->db->get($this->tabel);
+		$this->db->where('no_kamar', $tabel5_field1);
+		return $this->db->get($this->tabel5);
 	}
 
 	public function simpan($data)
 	{
-		return $this->db->insert($this->tabel, $data);
+		return $this->db->insert($this->tabel5, $data);
 	}
 
-	public function update($data, $where)
+	public function update($data, $tabel5_field1)
 	{
-    $this->db->where('no_kamar', $where);
-		return $this->db->update($this->tabel, $data);
+		$this->db->where('no_kamar', $tabel5_field1);
+		return $this->db->update($this->tabel5, $data);
 	}
 
-	public function hapus($where)
+	public function hapus($tabel5_field1)
 	{
-    $this->db->where('no_kamar', $where);
-		return $this->db->delete($this->tabel);
+		$this->db->where('no_kamar', $tabel5_field1);
+		return $this->db->delete($this->tabel5);
 	}
 }

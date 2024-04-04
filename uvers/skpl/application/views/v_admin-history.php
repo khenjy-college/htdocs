@@ -1,146 +1,162 @@
-<?php if ($this->session->userdata('akses') <> 'resepsionis') {
-  redirect(site_url('welcome/no_akses'));
-} ?>
+<?php switch ($this->session->userdata($tabel9_field6)) {
+  case $tabel9_field6_value3:
+  case $tabel9_field6_value4:
+    break;
 
-<h1>Daftar History</h1>
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
+
+<h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
-<!-- tabel fiter history -->
-<table class="mb-4">
-
-  <!-- method get supaya nilai dari filter bisa tampil nanti -->
-  <form action="<?= site_url('history/filter') ?>" method="get">
-    <tr>
-      <td>Filter Tanggal Cek In</td>
-    </tr>
-    <tr>
-      <td class="pr-2">Dari</td>
-      <td class="pr-2">Ke</td>
-    </tr>
-    <tr>
-      <td class="pr-2">
-        <input type="date" class="form-control" required name="min" value="<?= $min ?>">
-      </td>
-      <td class="pr-2">
-        <input type="date" class="form-control" required name="max" value="<?= $max ?>">
-      </td>
-      <td><button type="submit" class="btn btn-primary">Cari</button></td>
-    </tr>
-  </form>
-</table>
-
-<table class="table table-light" id="data">
-  <thead class="thead-light">
-    <tr>
-      <th>Id Pesanan</th>
-      <th>Tamu</th>
-      <th>Tipe</th>
-      <th>Cek In</th>
-      <th>Cek Out</th>
-      <th>Tanggal Perubahan</th>
-      <th>Resepsionis</th>
-      <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($history as $h) : ?>
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead class="thead-light">
       <tr>
-        <td><?= $h->id_pesanan ?></td>
-        <td><?= $h->tamu ?></td>
-        <td><?= $h->tipe ?></td>
-        <td><?= $h->cek_in ?></td>
-        <td><?= $h->cek_out ?></td>
-        <td><?= $h->tgl_perubahan ?></td>
-        <td><?= $h->user_aktif ?></td>
-        <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $h->id_history; ?>">
-            <i class="fas fa-eye"></i></a>
-          <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $h->id_history) ?>">
-            <i class="fas fa-trash"></i></a>
-        </td>
+        <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field3_alias ?></th>
+        <th><?= $tabel2_field4_alias ?></th>
+        <th><?= $tabel2_field5_alias ?></th>
+        <th><?= $tabel2_field6_alias ?></th>
+        <th><?= $tabel2_field7_alias ?></th>
+        <th><?= $tabel2_field8_alias ?></th>
+        <th><?= $tabel2_field9_alias ?></th>
+        <th>Aksi</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Id Pesanan</th>
-      <th>Tamu</th>
-      <th>Tipe</th>
-      <th>Cek In</th>
-      <th>Cek Out</th>
-      <th>Tanggal Perubahan</th>
-      <th>Aksi</th>
-      <th>Resepsionis</th>
-    </tr>
-  </tfoot>
+    </thead>
+    <tbody>
+      <?php foreach ($tbl2 as $tl2) :
+        foreach ($tbl6 as $tl6) :
+          if ($tl6->$tabel6_field1 == $tl2->id_spp) { ?>
+            <tr>
+              <td><?= $tl2->$tabel2_field2 ?></td>
+              <td><?= $tl2->$tabel2_field3 ?></td>
+              <td><?= $tl2->$tabel2_field4 ?></td>
+              <td><?= $tl2->$tabel2_field5 ?></td>
+              <td><?= $tl2->$tabel2_field6 ?></td>
+              <td><?= $tl2->$tabel2_field7 ?></td>
+              <td><?= $tl2->$tabel2_field8 ?></td>
+              <td><?= $tl2->$tabel2_field9 ?></td>
+              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl2->id_history ?>">
+                  <i class="fas fa-eye"></i></a>
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $tl2->id_history) ?>">
+                  <i class="fas fa-trash"></i></a>
+              </td>
+            </tr>
+      <?php }
+        endforeach;
+      endforeach; ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field3_alias ?></th>
+        <th><?= $tabel2_field4_alias ?></th>
+        <th><?= $tabel2_field5_alias ?></th>
+        <th><?= $tabel2_field6_alias ?></th>
+        <th><?= $tabel2_field7_alias ?></th>
+        <th><?= $tabel2_field8_alias ?></th>
+        <th><?= $tabel2_field9_alias ?></th>
+      </tr>
+    </tfoot>
 
 
-</table>
+  </table>
+</div>
 
 <!-- modal lihat -->
-<?php foreach ($history as $h) : ?>
-  <div id="lihat<?= $h->id_history ?>" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">History <?= $h->id_history ?></h5>
+<?php foreach ($tbl2 as $tl2) :
+  foreach ($tbl6 as $tl6) :
+    if ($tl6->$tabel6_field1 == $tl2->id_spp) { ?>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
+      <!-- <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><?= $tabel2_alias ?> <?= $tl2->id_history ?></h5>
 
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Id Pesanan</label>
-                <p><?= $h->id_pesanan ?></p>
-              </div>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
 
-              <div class="form-group">
-                <label>Pemesan</label>
-                <p><?= $h->pemesan ?></p>
-              </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><?= $tabel2_field2_alias ?></label>
+                    <p><?= $tl2->id_pesanan ?></p>
+                  </div>
+                  <hr>
 
-              <div class="form-group">
-                <label>Email</label>
-                <p><?= $h->email ?></p>
-              </div>
+                  <div class="form-group">
+                    <label><?= $tabel2_field4_alias ?></label>
+                    <p><?= $tl2->pemesan ?></p>
+                  </div>
+                  <hr>
 
-              <div class="form-group">
-                <label>Nomor Telepon</label>
-                <p><?= $h->hp ?></p>
+                  <div class="form-group">
+                    <label><?= $tabel2_field5_alias ?></label>
+                    <p><?= $tl2->email ?></p>
+                  </div>
+                  <hr>
+
+                  <div class="form-group">
+                    <label><?= $tabel2_field6_alias ?></label>
+                    <p><?= $tl2->hp ?></p>
+                  </div>
+                  <hr>
+
+                  <div class="form-group">
+                    <label><?= $tabel2_field9_alias ?></label>
+                    <p><?= $tl2->jlh ?></p>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><?= $tabel2_field7_alias ?></label>
+                    <p><?= $tl2->tamu ?></p>
+                  </div>
+                  <hr>
+
+                  <div class="form-group">
+                    <label><?= $tabel6_field2_alias ?></label>
+                    <p><?= $tl6->tipe ?></p>
+                  </div>
+                  <hr>
+
+                  <div class="form-group">
+                    <label><?= $tabel2_field11_alias ?></label>
+                    <p><?= $tl2->cek_in ?></p>
+                  </div>
+                  <hr>
+
+                  <div class="form-group">
+                    <label><?= $tabel2_field12_alias ?></label>
+                    <p><?= $tl2->cek_out ?></p>
+                  </div>
+                  <hr>
+
+                  <div class="form-group">
+                    <label><?= $tabel2_field10_alias ?></label>
+                    <p>Rp <?= number_format($tl2->harga_total, '2', ',', '.') ?></p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Nama Tamu</label>
-                <p><?= $h->tamu ?></p>
-              </div>
+            memunculkan notifikasi modal -->
+      <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
-              <div class="form-group">
-                <label>Tipe Kamar</label>
-                <p><?= $h->tipe ?></p>
-              </div>
-
-              <div class="form-group">
-                <label>Tanggal Cek In</label>
-                <p><?= $h->cek_in ?></p>
-              </div>
-
-              <div class="form-group">
-                <label>Tanggal Cek Out</label>
-                <p><?= $h->cek_out ?></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-        </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
       </div>
-    </div>
-  </div>
-<?php endforeach ?>
+      </div>
+      </div>
+      <!-- </div> -->
+<?php }
+  endforeach;
+endforeach; ?>

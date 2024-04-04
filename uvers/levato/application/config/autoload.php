@@ -133,15 +133,15 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array(
-  // 'M_t1' => 'tl1',
+  'M_pembaruan' => 'tl1',
   'M_history' => 'tl2',
-  // 'M_t3' => 'tl3',
-  'M_siswa' => 'tl4',
-  'M_kelas' => 'tl5',
-  'M_spp' => 'tl6',
+  'M_pendaftaran' => 'tl3',
+  'M_pemilik' => 'tl4',
+  'M_lisensi' => 'tl5',
+  'M_bisnis' => 'tl6',
   'M_pengaturan' => 'tl7',
   'M_pembayaran' => 'tl8',
-  'M_petugas' => 'tl9',
-  // 'M_t10' => 'tl10',
-  // 'M_t11' => 'tl11',
+  'M_user' => 'tl9',
+  // 'M_transaksi' => 'tl10',
+  // 'M_operations' => 'tl11',
 );
