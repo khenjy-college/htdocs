@@ -133,13 +133,13 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array(
-  'M_faskamar' => 'tl1',
-  'M_history' => 'tl2',
-  'M_fashotel' => 'tl3',
-  'M_petugas' => 'tl4',
-  'M_kamar' => 'tl5',
-  'M_tipe_kamar' => 'tl6',
-  'M_pengaturan' => 'tl7',
+  'M_faskamar' => 'tl1', // value3
+  'M_history' => 'tl2', // value4
+  'M_fashotel' => 'tl3', //value3
+  'M_petugas' => 'tl4', //value3
+  'M_kamar' => 'tl5', //value4
+  'M_tipe_kamar' => 'tl6', //
+  'M_pengaturan' => 'tl7', 
   'M_pesanan' => 'tl8',
   'M_user' => 'tl9',
   'M_transaksi' => 'tl10',
