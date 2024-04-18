@@ -1,7 +1,9 @@
 package com.example.tugas.tabel7
 
+import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,17 +11,19 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tugas.Database
 import com.example.tugas.R
+import com.example.tugas.tabel6.Tabel6MainActivity
 
-class Tabel7DetailActivity : AppCompatActivity() {
-    protected lateinit var cursor: Cursor
+open class Tabel7DetailActivity : AppCompatActivity() {
+    private lateinit var cursor: Cursor
 
     private lateinit var database: Database
 
-    private lateinit var tabel7_field1: TextView
-    private lateinit var tabel7_field2: TextView
-    private lateinit var tabel7_field3: TextView
-    private lateinit var tabel7_field4: TextView
-    private lateinit var tabel7_field5: TextView
+    private lateinit var tabel7field1: TextView
+    private lateinit var tabel7field2: TextView
+    private lateinit var tabel7field3: TextView
+    private lateinit var tabel7field4: TextView
+
+    private lateinit var back: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +34,17 @@ class Tabel7DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        back = findViewById(R.id.backButton)
+        back.setOnClickListener {
+            startActivity(Intent(this, Tabel7MainActivity::class.java))
+        }
+
         database = Database(this)
-        tabel7_field1 = findViewById(R.id.tabel7_field1)
-        tabel7_field2 = findViewById(R.id.tabel7_field2)
-        tabel7_field3 = findViewById(R.id.tabel7_field3)
-        tabel7_field4 = findViewById(R.id.tabel7_field4)
-        tabel7_field5 = findViewById(R.id.tabel7_field5)
+        tabel7field1 = findViewById(R.id.tabel7_field1)
+        tabel7field2 = findViewById(R.id.tabel7_field2)
+        tabel7field3 = findViewById(R.id.tabel7_field3)
+        tabel7field4 = findViewById(R.id.tabel7_field4)
 
         val db = database.readableDatabase
         val fieldExtra = intent.getStringExtra(getString(R.string.tabel7_field1))
@@ -44,11 +53,10 @@ class Tabel7DetailActivity : AppCompatActivity() {
             arrayOf(fieldExtra)
         )
         if (cursor.moveToFirst()) {
-            tabel7_field1.text = cursor.getString(0)
-            tabel7_field2.text = cursor.getString(1)
-            tabel7_field3.text = cursor.getString(2)
-            tabel7_field4.text = cursor.getString(3)
-            tabel7_field5.text = cursor.getString(4)
+            tabel7field1.text = cursor.getString(0)
+            tabel7field2.text = cursor.getString(1)
+            tabel7field3.text = cursor.getString(2)
+            tabel7field4.text = cursor.getString(3)
         }
     }
 }

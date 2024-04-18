@@ -8,116 +8,115 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aplikasi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/app_name"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/buttonTabel4" />
+                android:textStyle="bold" />
+        </LinearLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
 
-            <Button
-                android:id="@+id/buttonTabel4"
-                android:layout_width="wrap_content"
+            <GridLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:text="@string/tabel4_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel4" />
+                android:columnCount="1"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-            <Button
-                android:id="@+id/buttonTabel5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel5_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel4" />
+                <TextView
+                    android:id="@+id/userDataTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Data"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:padding="8dp"/>
 
-            <Button
-                android:id="@+id/buttonTabel6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel6_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel5" />
 
-            <Button
-                android:id="@+id/buttonTabel7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel7_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel6" />
+                <Button
+                    android:id="@+id/buttonTabel5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel5_alias"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonTabel6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text" />
 
-            <Button
-                android:id="@+id/buttonTabel8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel8_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel7" />
+                <Button
+                    android:id="@+id/buttonTabel6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel6_alias"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonTabel7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonTabel5" />
 
-            <Button
-                android:id="@+id/buttonTabel9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel9_alias"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTabel10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel8" />
+                <Button
+                    android:id="@+id/buttonTabel7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel7_alias"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonTabel8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonTabel6" />
 
-            <Button
-                android:id="@+id/buttonTabel10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel10_alias"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonTabel9" />
+                <Button
+                    android:id="@+id/buttonTabel8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel8_alias"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonTabel9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonTabel7" />
 
-/>
+                <Button
+                    android:id="@+id/buttonTabel9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel9_alias"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonTabel8" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+
+            </GridLayout>
+        </ScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

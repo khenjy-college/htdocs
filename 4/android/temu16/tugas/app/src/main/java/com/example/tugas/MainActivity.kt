@@ -1,80 +1,54 @@
 package com.example.tugas
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.tugas.tabel10.Tabel10MainActivity
-import com.example.tugas.tabel4.Tabel4MainActivity
-import com.example.tugas.tabel5.Tabel5MainActivity
-import com.example.tugas.tabel6.Tabel6MainActivity
-import com.example.tugas.tabel7.Tabel7MainActivity
-import com.example.tugas.tabel8.Tabel8MainActivity
-import com.example.tugas.tabel9.Tabel9MainActivity
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var button4: Button
-    private lateinit var button5: Button
-    private lateinit var button6: Button
-    private lateinit var button7: Button
-    private lateinit var button8: Button
-    private lateinit var button9: Button
-    private lateinit var button10: Button
-
+    private var mDatabase: DatabaseReference? = null
+    private var userDataTextView: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        userDataTextView = findViewById<TextView>(R.id.userDataTextView)
 
-        button4 = findViewById(R.id.buttonTabel4)
-        button4.setOnClickListener {
-            val pindah = Intent(this@MainActivity, Tabel4MainActivity::class.java)
-            startActivity(pindah)
-        }
+        // Initialize Firebase Database
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users")
 
-        button5 = findViewById(R.id.buttonTabel5)
-        button5.setOnClickListener {
-            val pindah = Intent(this@MainActivity, Tabel5MainActivity::class.java)
-            startActivity(pindah)
-        }
+        // Read data from Firebase Database
+        mDatabase!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val userData = StringBuilder()
+                for (snapshot in dataSnapshot.children) {
+                    val username = snapshot.child("username").getValue(String::class.java)
+                    val email = snapshot.child("email").getValue(String::class.java)
+                    val age = snapshot.child("age").getValue(Int::class.java)!!
+                    userData.append("Username: ").append(username).append("\n")
+                    userData.append("Email: ").append(email).append("\n")
+                    userData.append("Age: ").append(age).append("\n\n")
+                }
+                userDataTextView?.text = userData.toString()
+            }
 
-        button6 = findViewById(R.id.buttonTabel6)
-        button6.setOnClickListener {
-            val pindah = Intent(this@MainActivity, Tabel6MainActivity::class.java)
-            startActivity(pindah)
-        }
 
-        button7 = findViewById(R.id.buttonTabel7)
-        button7.setOnClickListener {
-            val pindah = Intent(this@MainActivity, Tabel7MainActivity::class.java)
-            startActivity(pindah)
-        }
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
+    }
 
-        button8 = findViewById(R.id.buttonTabel8)
-        button8.setOnClickListener {
-            val pindah = Intent(this@MainActivity, Tabel8MainActivity::class.java)
-            startActivity(pindah)
-        }
-
-        button9 = findViewById(R.id.buttonTabel9)
-        button9.setOnClickListener {
-            val pindah = Intent(this@MainActivity, Tabel9MainActivity::class.java)
-            startActivity(pindah)
-        }
-
-        button10 = findViewById(R.id.buttonTabel10)
-        button10.setOnClickListener {
-            val pindah = Intent(this@MainActivity, Tabel10MainActivity::class.java)
-            startActivity(pindah)
-        }
+    companion object {
+        private const val TAG = "MainActivity"
     }
 }
+

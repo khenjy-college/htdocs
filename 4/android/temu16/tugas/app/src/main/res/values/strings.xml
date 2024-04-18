@@ -3,6 +3,8 @@
     <string name="app_name">UAS</string>
 
     <!--    UI Texts-->
+    <string name="hint">Input Here...</string>
+
     <string name="btnAdd">ADD</string>
     <string name="btnBack">BACK</string>
     <string name="btnSave">SAVE</string>
@@ -25,65 +27,79 @@
     <string name="tabel5_alias">Kamar</string>
     <string name="tabel5_field1">no_kamar</string>
     <string name="tabel5_field1_alias">Nomor Kamar</string>
+    <string name="tabel5_field1_hint">Masukkan nomor kamar</string> <!-- Input hint for Nomor Kamar field -->
     <string name="tabel5_field2">id_tipe</string>
     <string name="tabel5_field2_alias">ID Tipe Kamar</string>
+    <string name="tabel5_field2_hint">Masukkan ID tipe kamar</string> <!-- Input hint for ID Tipe Kamar field -->
     <string name="tabel5_field3">id_pesanan</string>
     <string name="tabel5_field3_alias">ID Pesanan</string>
+    <string name="tabel5_field3_hint">Masukkan ID pesanan</string> <!-- Input hint for ID Pesanan field -->
     <string name="tabel5_field4">status</string>
     <string name="tabel5_field4_alias">Status</string>
-    <string name="tabel5_field4_value1">0</string>
-    <string name="tabel5_field4_value2">Available</string>
-    <string name="tabel5_field4_value2_alias">Available</string>
-    <string name="tabel5_field4_value3">Unavailable</string>
-    <string name="tabel5_field4_value3_alias">Unavailable</string>
-    <string name="tabel5_field4_value4">Dirty</string>
-    <string name="tabel5_field4_value4_alias">Dirty</string>
-    <string name="tabel5_field4_value5">Damaged</string>
-    <string name="tabel5_field4_value5_alias">Damaged</string>
+    <string name="tabel5_field4_hint">Pilih status: Available, Unavailable, Dirty, Damaged</string> <!-- Input hint for Status field -->
     <string name="tabel5_field5">keterangan</string>
     <string name="tabel5_field5_alias">Keterangan</string>
+    <string name="tabel5_field5_hint">Masukkan keterangan (opsional)</string> <!-- Input hint for Keterangan field -->
 
     <!-- Table 6 -->
     <string name="tabel6">tipe_kamar</string>
     <string name="tabel6_alias">Tipe Kamar</string>
     <string name="tabel6_field1">id_tipe</string>
     <string name="tabel6_field1_alias">ID Tipe</string>
+    <string name="tabel6_field1_hint">Masukkan ID tipe kamar</string> <!-- Input hint for ID Tipe field -->
     <string name="tabel6_field2">tipe</string>
     <string name="tabel6_field2_alias">Tipe</string>
+    <string name="tabel6_field2_hint">Masukkan tipe kamar</string> <!-- Input hint for Tipe field -->
     <string name="tabel6_field3">img</string>
     <string name="tabel6_field3_alias">Foto</string>
+    <string name="tabel6_field3_hint">Masukkan URL foto kamar</string> <!-- Input hint for Foto field -->
     <string name="tabel6_field4">stok</string>
     <string name="tabel6_field4_alias">Stok</string>
+    <string name="tabel6_field4_hint">Masukkan jumlah stok kamar</string> <!-- Input hint for Stok field -->
     <string name="tabel6_field5">harga</string>
     <string name="tabel6_field5_alias">Harga</string>
+    <string name="tabel6_field5_hint">Masukkan harga kamar</string> <!-- Input hint for Harga field -->
 
     <!-- For tabel7 -->
     <string name="tabel7">pengaturan</string>
     <string name="tabel7_alias">Pengaturan Website</string>
     <string name="tabel7_field1">id</string>
     <string name="tabel7_field1_alias">ID Website</string>
+    <string name="tabel7_field1_hint">Masukkan ID website</string> <!-- Input hint for ID Website field -->
     <string name="tabel7_field2">nama</string>
     <string name="tabel7_field2_alias">Nama Website</string>
+    <string name="tabel7_field2_hint">Masukkan nama website</string> <!-- Input hint for Nama Website field -->
     <string name="tabel7_field3">favicon</string>
     <string name="tabel7_field3_alias">Favicon</string>
+    <string name="tabel7_field3_hint">Masukkan URL favicon</string> <!-- Input hint for Favicon field -->
     <string name="tabel7_field4">logo</string>
     <string name="tabel7_field4_alias">Logo</string>
+    <string name="tabel7_field4_hint">Masukkan URL logo</string> <!-- Input hint for Logo field -->
     <string name="tabel7_field5">foto</string>
     <string name="tabel7_field5_alias">Foto</string>
+    <string name="tabel7_field5_hint">Masukkan URL foto website</string> <!-- Input hint for Foto field -->
     <string name="tabel7_field6">alamat</string>
     <string name="tabel7_field6_alias">Alamat</string>
+    <string name="tabel7_field6_hint">Masukkan alamat website</string> <!-- Input hint for Alamat field -->
     <string name="tabel7_field7">email</string>
     <string name="tabel7_field7_alias">Email</string>
+    <string name="tabel7_field7_hint">Masukkan email website</string> <!-- Input hint for Email field -->
     <string name="tabel7_field8">hp</string>
     <string name="tabel7_field8_alias">No HP</string>
+    <string name="tabel7_field8_hint">Masukkan nomor HP website</string> <!-- Input hint for No HP field -->
     <string name="tabel7_field9">metadesc</string>
     <string name="tabel7_field9_alias">Metadesc</string>
+    <string name="tabel7_field9_hint">Masukkan meta deskripsi website (opsional)</string> <!-- Input hint for Metadesc field -->
     <string name="tabel7_field10">fb</string>
     <string name="tabel7_field10_alias">Akun Facebook</string>
+    <string name="tabel7_field10_hint">Masukkan URL akun Facebook</string> <!-- Input hint for Akun Facebook field -->
     <string name="tabel7_field11">ig</string>
     <string name="tabel7_field11_alias">Akun Instagram</string>
+    <string name="tabel7_field11_hint">Masukkan URL akun Instagram</string> <!-- Input hint for Akun Instagram field -->
     <string name="tabel7_field12">id_event</string>
     <string name="tabel7_field12_alias">ID Event</string>
+    <string name="tabel7_field12_hint">Masukkan ID event website (opsional)</string> <!-- Input hint for ID Event field -->
+
 
     <!-- Table 8 -->
     <string name="tabel8">pesanan</string>
@@ -154,25 +170,4 @@
     <string name="tabel9_field7">login_count</string>
     <string name="tabel9_field7_alias">Jumlah Login</string>
 
-    <!-- For tabel10 -->
-    <string name="tabel10">transaksi</string>
-    <string name="tabel10_alias">Transaksi</string>
-    <string name="tabel10_field1">id_transaksi</string>
-    <string name="tabel10_field1_alias">ID Transaksi</string>
-    <string name="tabel10_field2">id_user</string>
-    <string name="tabel10_field2_alias">ID User</string>
-    <string name="tabel10_field3">email</string>
-    <string name="tabel10_field3_alias">Email</string>
-    <string name="tabel10_field4">id_pesanan</string>
-    <string name="tabel10_field4_alias">ID Pesanan</string>
-    <string name="tabel10_field5">metode</string>
-    <string name="tabel10_field5_alias">Metode</string>
-    <string name="tabel10_field5_value1">debit</string>
-    <string name="tabel10_field5_value1_alias">Debit</string>
-    <string name="tabel10_field5_value2">kredit</string>
-    <string name="tabel10_field5_value2_alias">Kredit</string>
-    <string name="tabel10_field6">bayar</string>
-    <string name="tabel10_field6_alias">Jumlah Bayar</string>
-    <string name="tabel10_field7">tgl_transaksi</string>
-    <string name="tabel10_field7_alias">Tanggal Transaksi</string>
 </resources>

@@ -1,88 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/background"
     tools:context=".tabel8.Tabel8DetailActivity">
 
-    <TextView
-        android:id="@+id/tabel8_field1Judul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tabel8_field1_alias"
-        android:textSize="24dp"/>
-
-    <TextView
-        android:id="@+id/tabel8_field1"
-        android:layout_below="@id/tabel8_field1Judul"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tabel8_field2Judul"
-        android:layout_below="@id/tabel8_field1"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tabel8_field2_alias"
-        android:textSize="24dp"/>
 
-    <TextView
-        android:id="@+id/tabel8_field2"
-        android:layout_below="@id/tabel8_field2Judul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tabel8_field3Judul"
-        android:layout_below="@id/tabel8_field2"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tabel8_field3_alias"
-        android:textSize="24dp"/>
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnBack" />
 
-    <TextView
-        android:id="@+id/tabel8_field3"
-        android:layout_below="@id/tabel8_field3Judul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tabel8_alias"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tabel8_field4Judul"
-        android:layout_below="@id/tabel8_field3"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tabel8_field4_alias"
-        android:textSize="24dp"/>
 
-    <TextView
-        android:id="@+id/tabel8_field4"
-        android:layout_below="@id/tabel8_field4Judul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tabel8_field5Judul"
-        android:layout_below="@id/tabel8_field4"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tabel8_field5_alias"
-        android:textSize="24dp"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tabel8_field5"
-        android:layout_below="@id/tabel8_field5Judul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/tabel8_field1Judul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tabel8_field1_alias"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field2Judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel8_field2_alias"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field3Judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel8_field3_alias"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field4Judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel8_field4_alias"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field5Judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tabel8_field5_alias"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tabel8_field5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+
+            </GridLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

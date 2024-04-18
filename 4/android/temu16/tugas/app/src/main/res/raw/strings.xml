@@ -4,7 +4,7 @@
 
 <!--    UI Texts-->
     <string name="btnBack">BACK</string>
-    <string name="btnSave">Simpan</string>
+    <string name="btnSave">Save</string>
 
 
     <!-- Environment ID -->
@@ -20,83 +20,141 @@
     <string name="base_url">http://localhost/school/ukk/hotel</string>
 
     <!-- Table 5 -->
-    <string name="table5">kamar</string>
-    <string name="table5_alias">Kamar</string>
-    <string name="table5_field1">no_kamar</string>
-    <string name="table5_field1_alias">Nomor Kamar</string>
-    <string name="table5_field2">id_tipe</string>
-    <string name="table5_field2_alias">ID Tipe Kamar</string>
-    <string name="table5_field3">id_pesanan</string>
-    <string name="table5_field3_alias">ID Pesanan</string>
-    <string name="table5_field4">status</string>
-    <string name="table5_field4_alias">Status</string>
-    <string name="table5_field4_value1">0</string>
-    <string name="table5_field4_value2">Available</string>
-    <string name="table5_field4_value2_alias">Available</string>
-    <string name="table5_field4_value3">Unavailable</string>
-    <string name="table5_field4_value3_alias">Unavailable</string>
-    <string name="table5_field4_value4">Dirty</string>
-    <string name="table5_field4_value4_alias">Dirty</string>
-    <string name="table5_field4_value5">Damaged</string>
-    <string name="table5_field4_value5_alias">Damaged</string>
-    <string name="table5_field5">keterangan</string>
-    <string name="table5_field5_alias">Keterangan</string>
+    <string name="tabel5">kamar</string>
+    <string name="tabel5_alias">Kamar</string>
+    <string name="tabel5_field1">no_kamar</string>
+    <string name="tabel5_field1_alias">Nomor Kamar</string>
+    <string name="tabel5_field2">id_tipe</string>
+    <string name="tabel5_field2_alias">ID Tipe Kamar</string>
+    <string name="tabel5_field3">id_pesanan</string>
+    <string name="tabel5_field3_alias">ID Pesanan</string>
+    <string name="tabel5_field4">status</string>
+    <string name="tabel5_field4_alias">Status</string>
+    <string name="tabel5_field4_value1">0</string>
+    <string name="tabel5_field4_value2">Available</string>
+    <string name="tabel5_field4_value2_alias">Available</string>
+    <string name="tabel5_field4_value3">Unavailable</string>
+    <string name="tabel5_field4_value3_alias">Unavailable</string>
+    <string name="tabel5_field4_value4">Dirty</string>
+    <string name="tabel5_field4_value4_alias">Dirty</string>
+    <string name="tabel5_field4_value5">Damaged</string>
+    <string name="tabel5_field4_value5_alias">Damaged</string>
+    <string name="tabel5_field5">keterangan</string>
+    <string name="tabel5_field5_alias">Keterangan</string>
 
     <!-- Table 6 -->
-    <string name="table6">tipe_kamar</string>
-    <string name="table6_alias">Tipe Kamar</string>
-    <string name="table6_field1">id_tipe</string>
-    <string name="table6_field1_alias">ID Tipe</string>
-    <string name="table6_field2">tipe</string>
-    <string name="table6_field2_alias">Tipe</string>
-    <string name="table6_field3">img</string>
-    <string name="table6_field3_alias">Foto</string>
-    <string name="table6_field4">stok</string>
-    <string name="table6_field4_alias">Stok</string>
-    <string name="table6_field5">harga</string>
-    <string name="table6_field5_alias">Harga</string>
+    <string name="tabel6">tipe_kamar</string>
+    <string name="tabel6_alias">Tipe Kamar</string>
+    <string name="tabel6_field1">id_tipe</string>
+    <string name="tabel6_field1_alias">ID Tipe</string>
+    <string name="tabel6_field2">tipe</string>
+    <string name="tabel6_field2_alias">Tipe</string>
+    <string name="tabel6_field3">img</string>
+    <string name="tabel6_field3_alias">Foto</string>
+    <string name="tabel6_field4">stok</string>
+    <string name="tabel6_field4_alias">Stok</string>
+    <string name="tabel6_field5">harga</string>
+    <string name="tabel6_field5_alias">Harga</string>
+
+    <!-- For tabel7 -->
+    <string name="tabel7">pengaturan</string>
+    <string name="tabel7_alias">Pengaturan Website</string>
+    <string name="tabel7_field1">id</string>
+    <string name="tabel7_field1_alias">ID Website</string>
+    <string name="tabel7_field2">nama</string>
+    <string name="tabel7_field2_alias">Nama Website</string>
+    <string name="tabel7_field3">favicon</string>
+    <string name="tabel7_field3_alias">Favicon</string>
+    <string name="tabel7_field4">logo</string>
+    <string name="tabel7_field4_alias">Logo</string>
+    <string name="tabel7_field5">foto</string>
+    <string name="tabel7_field5_alias">Foto</string>
+    <string name="tabel7_field6">alamat</string>
+    <string name="tabel7_field6_alias">Alamat</string>
+    <string name="tabel7_field7">email</string>
+    <string name="tabel7_field7_alias">Email</string>
+    <string name="tabel7_field8">hp</string>
+    <string name="tabel7_field8_alias">No HP</string>
+    <string name="tabel7_field9">metadesc</string>
+    <string name="tabel7_field9_alias">Metadesc</string>
+    <string name="tabel7_field10">fb</string>
+    <string name="tabel7_field10_alias">Akun Facebook</string>
+    <string name="tabel7_field11">ig</string>
+    <string name="tabel7_field11_alias">Akun Instagram</string>
+    <string name="tabel7_field12">id_event</string>
+    <string name="tabel7_field12_alias">ID Event</string>
 
     <!-- Table 8 -->
-    <string name="table8">pesanan</string>
-    <string name="table8_alias">Pesanan</string>
-    <string name="table8_field1">id_pesanan</string>
-    <string name="table8_field1_alias">ID Pesanan</string>
-    <string name="table8_field2">id_user</string>
-    <string name="table8_field2_alias">ID User</string>
-    <string name="table8_field3">pemesan</string>
-    <string name="table8_field3_alias">Pemesan</string>
-    <string name="table8_field4">email</string>
-    <string name="table8_field4_alias">Email</string>
-    <string name="table8_field5">hp</string>
-    <string name="table8_field5_alias">No Hp</string>
-    <string name="table8_field6">tamu</string>
-    <string name="table8_field6_alias">Tamu</string>
-    <string name="table8_field7">id_tipe</string>
-    <string name="table8_field7_alias">ID Tipe Kamar</string>
-    <string name="table8_field8">jlh</string>
-    <string name="table8_field8_alias">Jumlah</string>
-    <string name="table8_field9">harga_total</string>
-    <string name="table8_field9_alias">Harga Total</string>
-    <string name="table8_field10">cek_in</string>
-    <string name="table8_field10_alias">Cek In</string>
-    <string name="table8_field10_filter1">cek_in_min</string>
-    <string name="table8_field10_filter2">cek_in_max</string>
-    <string name="table8_field11">cek_out</string>
-    <string name="table8_field11_alias">Cek Out</string>
-    <string name="table8_field12">status</string>
-    <string name="table8_field12_alias">Status</string>
-    <string name="table8_field12_value1">pending</string>
-    <string name="table8_field12_value1_alias">Pending</string>
-    <string name="table8_field12_value2">belum bayar</string>
-    <string name="table8_field12_value2_alias">Belum Bayar</string>
-    <string name="table8_field12_value3">menunggu</string>
-    <string name="table8_field12_value3_alias">Menunggu</string>
-    <string name="table8_field12_value4">cek in</string>
-    <string name="table8_field12_value4_alias">Cek In</string>
-    <string name="table8_field12_value5">cek out</string>
-    <string name="table8_field12_value5_alias">Cek Out</string>
-    <string name="table8_field13">no_kamar</string>
-    <string name="table8_field13_alias">No Kamar</string>
+    <string name="tabel8">pesanan</string>
+    <string name="tabel8_alias">Pesanan</string>
+    <string name="tabel8_field1">id_pesanan</string>
+    <string name="tabel8_field1_alias">ID Pesanan</string>
+    <string name="tabel8_field2">id_user</string>
+    <string name="tabel8_field2_alias">ID User</string>
+    <string name="tabel8_field3">pemesan</string>
+    <string name="tabel8_field3_alias">Pemesan</string>
+    <string name="tabel8_field4">email</string>
+    <string name="tabel8_field4_alias">Email</string>
+    <string name="tabel8_field5">hp</string>
+    <string name="tabel8_field5_alias">No Hp</string>
+    <string name="tabel8_field6">tamu</string>
+    <string name="tabel8_field6_alias">Tamu</string>
+    <string name="tabel8_field7">id_tipe</string>
+    <string name="tabel8_field7_alias">ID Tipe Kamar</string>
+    <string name="tabel8_field8">jlh</string>
+    <string name="tabel8_field8_alias">Jumlah</string>
+    <string name="tabel8_field9">harga_total</string>
+    <string name="tabel8_field9_alias">Harga Total</string>
+    <string name="tabel8_field10">cek_in</string>
+    <string name="tabel8_field10_alias">Cek In</string>
+    <string name="tabel8_field10_filter1">cek_in_min</string>
+    <string name="tabel8_field10_filter2">cek_in_max</string>
+    <string name="tabel8_field11">cek_out</string>
+    <string name="tabel8_field11_alias">Cek Out</string>
+    <string name="tabel8_field12">status</string>
+    <string name="tabel8_field12_alias">Status</string>
+    <string name="tabel8_field12_value1">pending</string>
+    <string name="tabel8_field12_value1_alias">Pending</string>
+    <string name="tabel8_field12_value2">belum bayar</string>
+    <string name="tabel8_field12_value2_alias">Belum Bayar</string>
+    <string name="tabel8_field12_value3">menunggu</string>
+    <string name="tabel8_field12_value3_alias">Menunggu</string>
+    <string name="tabel8_field12_value4">cek in</string>
+    <string name="tabel8_field12_value4_alias">Cek In</string>
+    <string name="tabel8_field12_value5">cek out</string>
+    <string name="tabel8_field12_value5_alias">Cek Out</string>
+    <string name="tabel8_field13">no_kamar</string>
+    <string name="tabel8_field13_alias">No Kamar</string>
+
+
+    <!-- For tabel9 -->
+    <string name="tabel9">user</string>
+    <string name="tabel9_alias">User</string>
+    <string name="tabel9_field1">id_user</string>
+    <string name="tabel9_field1_alias">ID User</string>
+    <string name="tabel9_field2">nama</string>
+    <string name="tabel9_field2_alias">Nama</string>
+    <string name="tabel9_field3">email</string>
+    <string name="tabel9_field3_alias">Email</string>
+    <string name="tabel9_field4">password</string>
+    <string name="tabel9_field4_alias">Password</string>
+    <string name="tabel9_field5">hp</string>
+    <string name="tabel9_field5_alias">No Handphone</string>
+    <string name="tabel9_field6">level</string>
+    <string name="tabel9_field6_alias">Level</string>
+    <string name="tabel9_field6_value1">0</string>
+    <string name="tabel9_field6_value2">accounting</string>
+    <string name="tabel9_field6_value2_alias">Accounting</string>
+    <string name="tabel9_field6_value3">administrator</string>
+    <string name="tabel9_field6_value3_alias">Administrator</string>
+    <string name="tabel9_field6_value4">resepsionis</string>
+    <string name="tabel9_field6_value4_alias">Resepsionis</string>
+    <string name="tabel9_field6_value5">tamu</string>
+    <string name="tabel9_field6_value5_alias">Tamu</string>
+    <string name="tabel9_field7">login_count</string>
+    <string name="tabel9_field7_alias">Jumlah Login</string>
+
+
 
     <!-- Postman Exported Details -->
     <string name="postman_exported_at">2024-04-03T14:13:55.349Z</string>

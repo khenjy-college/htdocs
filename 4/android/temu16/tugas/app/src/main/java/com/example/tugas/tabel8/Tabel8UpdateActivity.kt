@@ -1,34 +1,48 @@
 package com.example.tugas.tabel8
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.tugas.Database
 import com.example.tugas.R
+import com.example.tugas.tabel6.Tabel6MainActivity
 
 class Tabel8UpdateActivity : AppCompatActivity() {
     private lateinit var database: Database
-    private lateinit var btnSimpan: Button
+    private lateinit var btnSave: Button
 
-    private lateinit var tabel8_field1: EditText
-    private lateinit var tabel8_field2: EditText
-    private lateinit var tabel8_field3: EditText
-    private lateinit var tabel8_field4: EditText
-    private lateinit var tabel8_field5: EditText
+    private lateinit var tabel8field1: EditText
+    private lateinit var tabel8field2: EditText
+    private lateinit var tabel8field3: EditText
+    private lateinit var tabel8field4: EditText
+
+    private lateinit var back: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabel8_update)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        back = findViewById(R.id.backButton)
+        back.setOnClickListener {
+            startActivity(Intent(this, Tabel8MainActivity::class.java))
+        }
 
         database = Database(this)
-        tabel8_field1 = findViewById(R.id.tabel8_field1)
-        tabel8_field2 = findViewById(R.id.tabel8_field2)
-        tabel8_field3 = findViewById(R.id.tabel8_field3)
-        tabel8_field4 = findViewById(R.id.tabel8_field4)
-        tabel8_field5 = findViewById(R.id.tabel8_field5)
-        btnSimpan = findViewById(R.id.btn_simpan)
+        tabel8field1 = findViewById(R.id.tabel8_field1)
+        tabel8field2 = findViewById(R.id.tabel8_field2)
+        tabel8field3 = findViewById(R.id.tabel8_field3)
+        tabel8field4 = findViewById(R.id.tabel8_field4)
+        btnSave = findViewById(R.id.btn_Save)
 
         val db = database.readableDatabase
         val isbnExtra = intent.getStringExtra(getString(R.string.tabel8_field1)) // Retrieve the Field passed from the intent
@@ -39,40 +53,37 @@ class Tabel8UpdateActivity : AppCompatActivity() {
 
         if (cursor.count > 0) {
             cursor.moveToFirst()
-            tabel8_field1.setText(cursor.getString(0))
-            tabel8_field2.setText(cursor.getString(1))
-            tabel8_field3.setText(cursor.getString(2))
-            tabel8_field4.setText(cursor.getString(3))
-            tabel8_field5.setText(cursor.getString(4))
+            tabel8field1.setText(cursor.getString(0))
+            tabel8field2.setText(cursor.getString(1))
+            tabel8field3.setText(cursor.getString(2))
+            tabel8field4.setText(cursor.getString(3))
         }
         cursor.close()
 
-        btnSimpan.setOnClickListener {
+        btnSave.setOnClickListener {
             val dbWrite = database.writableDatabase
-            val tabel8_field1Text = tabel8_field1.text.toString()
-            val tabel8_field2Text = tabel8_field2.text.toString()
-            val tabel8_field3Text = tabel8_field3.text.toString()
-            val tabel8_field4Text = tabel8_field4.text.toString()
-            val tabel8_field5Text = tabel8_field5.text.toString()
+            val tabel8field1Text = tabel8field1.text.toString()
+            val tabel8field2Text = tabel8field2.text.toString()
+            val tabel8field3Text = tabel8field3.text.toString()
+            val tabel8field4Text = tabel8field4.text.toString()
 
             dbWrite.execSQL(
                 "UPDATE ${getString(R.string.tabel8)} SET " +
-                        "${getString(R.string.tabel8_field1)} = '$tabel8_field1Text', " +
-                        "${getString(R.string.tabel8_field2)} = '$tabel8_field2Text', " +
-                        "${getString(R.string.tabel8_field3)} = '$tabel8_field3Text', " +
-                        "${getString(R.string.tabel8_field4)} = '$tabel8_field4Text', " +
-                        "${getString(R.string.tabel8_field5)} = '$tabel8_field5Text' " +
+                        "${getString(R.string.tabel8_field1)} = '$tabel8field1Text', " +
+                        "${getString(R.string.tabel8_field2)} = '$tabel8field2Text', " +
+                        "${getString(R.string.tabel8_field3)} = '$tabel8field3Text', " +
+                        "${getString(R.string.tabel8_field4)} = '$tabel8field4Text'" +
                         "WHERE ${getString(R.string.tabel8_field1)} = ?",
                 arrayOf(isbnExtra)
             )
 
             Toast.makeText(
                 this@Tabel8UpdateActivity,
-                "Data berhasil diupdate",
+                "Data Updated",
                 Toast.LENGTH_SHORT
             ).show()
 
-            Tabel8MainActivity.ma.RefreshList()
+            Tabel8MainActivity.ma.refreshList()
 
             finish()
         }

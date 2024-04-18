@@ -10,19 +10,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Tugas"
+        android:theme="@style/Theme.UAS"
         tools:targetApi="31">
         <activity
-            android:name=".tabel10.Tabel10UpdateActivity"
+            android:name=".tabel8.Tabel8UpdateActivity"
             android:exported="false" />
         <activity
-            android:name=".tabel10.Tabel10MainActivity"
+            android:name=".tabel8.Tabel8MainActivity"
             android:exported="false" />
         <activity
-            android:name=".tabel10.Tabel10DetailActivity"
+            android:name=".tabel8.Tabel8DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".tabel10.Tabel10CreateActivity"
+            android:name=".tabel8.Tabel8CreateActivity"
             android:exported="false" />
         <activity
             android:name=".tabel9.Tabel9UpdateActivity"
@@ -37,30 +37,6 @@
             android:name=".tabel9.Tabel9CreateActivity"
             android:exported="false" />
         <activity
-            android:name=".tabel8.Tabel8UpdateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel8.Tabel8MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel8.Tabel8DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel8.Tabel8CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel7.Tabel7UpdateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel7.Tabel7MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel7.Tabel7DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel7.Tabel7CreateActivity"
-            android:exported="false" />
-        <activity
             android:name=".tabel6.Tabel6UpdateActivity"
             android:exported="false" />
         <activity
@@ -71,18 +47,6 @@
             android:exported="false" />
         <activity
             android:name=".tabel6.Tabel6CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel4.Tabel4UpdateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel4.Tabel4MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel4.Tabel4DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".tabel4.Tabel4CreateActivity"
             android:exported="false" />
         <activity
             android:name=".tabel5.Tabel5MainActivity"
