@@ -43,7 +43,7 @@ class Tabel5UpdateActivity : AppCompatActivity() {
         tabel5field3 = findViewById(R.id.tabel5field3)
         tabel5field4 = findViewById(R.id.tabel5field4)
         tabel5field5 = findViewById(R.id.tabel5field5)
-        btnSave = findViewById(R.id.btn_Save)
+        btnSave = findViewById(R.id.btnSave)
 
         val db = database.readableDatabase
         val isbnExtra = intent.getStringExtra(getString(R.string.tabel5field1)) // Retrieve the Field passed from the intent

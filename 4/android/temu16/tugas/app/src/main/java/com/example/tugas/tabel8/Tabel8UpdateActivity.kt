@@ -42,7 +42,7 @@ class Tabel8UpdateActivity : AppCompatActivity() {
         tabel8field2 = findViewById(R.id.tabel8field2)
         tabel8field3 = findViewById(R.id.tabel8field3)
         tabel8field4 = findViewById(R.id.tabel8field4)
-        btnSave = findViewById(R.id.btn_Save)
+        btnSave = findViewById(R.id.btnSave)
 
         val db = database.readableDatabase
         val isbnExtra = intent.getStringExtra(getString(R.string.tabel8field1)) // Retrieve the Field passed from the intent

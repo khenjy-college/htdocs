@@ -8,7 +8,6 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    android:background="@drawable/background"
     tools:context=".tabel6.Tabel6MainActivity">
 
 
@@ -51,9 +50,19 @@
             <ListView
                 android:id="@+id/listViewTabel6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </ListView>
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:background="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:clipToPadding="false"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical"/>
 
         </LinearLayout>
     </LinearLayout>

@@ -57,12 +57,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tabel9field1_alias"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/tabel9field1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_marginTop="8dp" />
 
                 <TextView
@@ -71,12 +73,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/tabel9field2_alias"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/tabel9field2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_marginTop="8dp" />
 
                 <TextView
@@ -85,12 +89,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/tabel9field3_alias"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/tabel9field3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_marginTop="8dp" />
 
                 <TextView
@@ -99,12 +105,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/tabel9field4_alias"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/tabel9field4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_marginTop="8dp" />
 
                 <TextView
@@ -113,12 +121,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/tabel9field5_alias"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/tabel9field5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_marginTop="8dp" />
 
             </GridLayout>

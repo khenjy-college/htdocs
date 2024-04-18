@@ -38,10 +38,10 @@ class Tabel6CreateActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel6field1 = findViewById(R.id.tabel6_field1)
-        tabel6field2 = findViewById(R.id.tabel6_field2)
-        tabel6field3 = findViewById(R.id.tabel6_field3)
-        tabel6field4 = findViewById(R.id.tabel6_field4)
+        tabel6field1 = findViewById(R.id.tabel6field1)
+        tabel6field2 = findViewById(R.id.tabel6field2)
+        tabel6field3 = findViewById(R.id.tabel6field3)
+        tabel6field4 = findViewById(R.id.tabel6field4)
         btnSave = findViewById(R.id.btnSave)
         btnSave.setOnClickListener {
             val db = database.writableDatabase
@@ -50,25 +50,15 @@ class Tabel6CreateActivity : AppCompatActivity() {
             val tabel6field3Text = tabel6field3.text.toString()
             val tabel6field4Text = tabel6field4.text.toString()
             val tableName = getString(R.string.tabel6)
-
-            try {
-                val insertQuery = "INSERT INTO $tableName (" +
-                        "${getString(R.string.tabel6_field1)}, " +
-                        "${getString(R.string.tabel6_field2)}, " +
-                        "${getString(R.string.tabel6_field3)}, " +
-                        "${getString(R.string.tabel6_field4)}) " +
-                        "VALUES ('$tabel6field1Text', '$tabel6field2Text', '$tabel6field3Text', '$tabel6field4Text')"
-
-                db.execSQL(insertQuery)
-                Toast.makeText(this@Tabel6CreateActivity, "Data Saved", Toast.LENGTH_SHORT).show()
-                Tabel6MainActivity.ma.refreshList()
-                finish()
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(this@Tabel6CreateActivity, "Error saving data", Toast.LENGTH_SHORT).show()
-            } finally {
-                db.close()
-            }
+            db.execSQL("INSERT INTO $tableName (" +
+                    "${getString(R.string.tabel6field1)}, " +
+                    "${getString(R.string.tabel6field2)}, " +
+                    "${getString(R.string.tabel6field3)}, " +
+                    "${getString(R.string.tabel6field4)} " +
+                    "VALUES ('$tabel6field1Text', '$tabel6field2Text', '$tabel6field3Text', '$tabel6field4Text')")
+            Toast.makeText(this@Tabel6CreateActivity, "Data Saved", Toast.LENGTH_SHORT).show()
+            Tabel6MainActivity.ma.refreshList()
+            finish()
         }
     }
 
