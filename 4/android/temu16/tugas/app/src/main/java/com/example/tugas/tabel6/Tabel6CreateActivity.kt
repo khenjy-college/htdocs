@@ -47,7 +47,7 @@ class Tabel6CreateActivity : AppCompatActivity() {
                         "${getString(R.string.tabel6_field1)}, " +
                         "${getString(R.string.tabel6_field2)}, " +
                         "${getString(R.string.tabel6_field3)}, " +
-                        "${getString(R.string.tabel6_field4)}, " +
+                        "${getString(R.string.tabel6_field4)}) " +
                         "VALUES ('$tabel6_field1Text', '$tabel6_field2Text', '$tabel6_field3Text', '$tabel6_field4Text')"
             )
             Toast.makeText(this@Tabel6CreateActivity, "Data tersimpan", Toast.LENGTH_SHORT).show()
