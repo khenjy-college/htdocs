@@ -44,15 +44,6 @@
                 android:orientation="horizontal"
                 android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/userDataTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="User Data"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:padding="8dp"/>
-
 
                 <Button
                     android:id="@+id/buttonTabel5"

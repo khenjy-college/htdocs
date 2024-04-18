@@ -53,70 +53,70 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tabel9_field1Judul"
+                    android:id="@+id/tabel9field1Judul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tabel9_field1_alias"
+                    android:text="@string/tabel9field1_alias"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field1"
+                    android:id="@+id/tabel9field1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field2Judul"
+                    android:id="@+id/tabel9field2Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/tabel9_field2_alias"
+                    android:text="@string/tabel9field2_alias"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field2"
+                    android:id="@+id/tabel9field2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field3Judul"
+                    android:id="@+id/tabel9field3Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/tabel9_field3_alias"
+                    android:text="@string/tabel9field3_alias"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field3"
+                    android:id="@+id/tabel9field3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field4Judul"
+                    android:id="@+id/tabel9field4Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/tabel9_field4_alias"
+                    android:text="@string/tabel9field4_alias"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field4"
+                    android:id="@+id/tabel9field4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field5Judul"
+                    android:id="@+id/tabel9field5Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/tabel9_field5_alias"
+                    android:text="@string/tabel9field5_alias"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/tabel9_field5"
+                    android:id="@+id/tabel9field5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />

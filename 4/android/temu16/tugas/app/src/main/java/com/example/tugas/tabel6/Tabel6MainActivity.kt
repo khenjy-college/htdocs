@@ -86,20 +86,20 @@ class Tabel6MainActivity : AppCompatActivity() {
                     0 -> {
                         val intent =
                             Intent(applicationContext, Tabel6DetailActivity::class.java)
-                        intent.putExtra(getString(R.string.tabel6_field1), selection)
+                        intent.putExtra(getString(R.string.tabel6field1), selection)
                         startActivity(intent)
                     }
 
                     1 -> {
                         val intent =
                             Intent(applicationContext, Tabel6UpdateActivity::class.java)
-                        intent.putExtra(getString(R.string.tabel6_field1), selection)
+                        intent.putExtra(getString(R.string.tabel6field1), selection)
                         startActivity(intent)
                     }
 
                     2 -> {
                         val db = database.writableDatabase
-                        db.execSQL("DELETE FROM ${getString(R.string.tabel6)} WHERE ${getString(R.string.tabel6_field1)} = '$selection'")
+                        db.execSQL("DELETE FROM ${getString(R.string.tabel6)} WHERE ${getString(R.string.tabel6field1)} = '$selection'")
                         refreshList()
                     }
                 }

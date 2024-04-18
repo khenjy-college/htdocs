@@ -41,15 +41,15 @@ open class Tabel7DetailActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel7field1 = findViewById(R.id.tabel7_field1)
-        tabel7field2 = findViewById(R.id.tabel7_field2)
-        tabel7field3 = findViewById(R.id.tabel7_field3)
-        tabel7field4 = findViewById(R.id.tabel7_field4)
+        tabel7field1 = findViewById(R.id.tabel7field1)
+        tabel7field2 = findViewById(R.id.tabel7field2)
+        tabel7field3 = findViewById(R.id.tabel7field3)
+        tabel7field4 = findViewById(R.id.tabel7field4)
 
         val db = database.readableDatabase
-        val fieldExtra = intent.getStringExtra(getString(R.string.tabel7_field1))
+        val fieldExtra = intent.getStringExtra(getString(R.string.tabel7field1))
         cursor = db.rawQuery(
-            "SELECT * FROM ${getString(R.string.tabel7)} WHERE ${getString(R.string.tabel7_field1)} = ?",
+            "SELECT * FROM ${getString(R.string.tabel7)} WHERE ${getString(R.string.tabel7field1)} = ?",
             arrayOf(fieldExtra)
         )
         if (cursor.moveToFirst()) {

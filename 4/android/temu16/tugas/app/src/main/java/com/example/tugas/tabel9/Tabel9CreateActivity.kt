@@ -39,10 +39,10 @@ class Tabel9CreateActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel9field1 = findViewById(R.id.tabel9_field1)
-        tabel9field2 = findViewById(R.id.tabel9_field2)
-        tabel9field3 = findViewById(R.id.tabel9_field3)
-        tabel9field4 = findViewById(R.id.tabel9_field4)
+        tabel9field1 = findViewById(R.id.tabel9field1)
+        tabel9field2 = findViewById(R.id.tabel9field2)
+        tabel9field3 = findViewById(R.id.tabel9field3)
+        tabel9field4 = findViewById(R.id.tabel9field4)
         btnSave = findViewById(R.id.btnSave)
         btnSave.setOnClickListener {
             val db = database.writableDatabase
@@ -52,10 +52,10 @@ class Tabel9CreateActivity : AppCompatActivity() {
             val tabel9field4Text = tabel9field4.text.toString()
             val tableName = getString(R.string.tabel9)
             db.execSQL("INSERT INTO $tableName (" +
-                    "${getString(R.string.tabel9_field1)}, " +
-                    "${getString(R.string.tabel9_field2)}, " +
-                    "${getString(R.string.tabel9_field3)}, " +
-                    "${getString(R.string.tabel9_field4)} " +
+                    "${getString(R.string.tabel9field1)}, " +
+                    "${getString(R.string.tabel9field2)}, " +
+                    "${getString(R.string.tabel9field3)}, " +
+                    "${getString(R.string.tabel9field4)} " +
                     "VALUES ('$tabel9field1Text', '$tabel9field2Text', '$tabel9field3Text', '$tabel9field4Text')")
             Toast.makeText(this@Tabel9CreateActivity, "Data Saved", Toast.LENGTH_SHORT).show()
             Tabel9MainActivity.ma.refreshList()

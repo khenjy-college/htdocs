@@ -19,10 +19,8 @@ class Tabel5CreateActivity : AppCompatActivity() {
     private lateinit var tabel5field2: EditText
     private lateinit var tabel5field3: EditText
     private lateinit var tabel5field4: EditText
-    private lateinit var tabel5field5: EditText
 
     private lateinit var back: Button
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +38,10 @@ class Tabel5CreateActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel5field1 = findViewById(R.id.tabel5_field1)
-        tabel5field2 = findViewById(R.id.tabel5_field2)
-        tabel5field3 = findViewById(R.id.tabel5_field3)
-        tabel5field4 = findViewById(R.id.tabel5_field4)
-        tabel5field5 = findViewById(R.id.tabel5_field5)
+        tabel5field1 = findViewById(R.id.tabel5field1)
+        tabel5field2 = findViewById(R.id.tabel5field2)
+        tabel5field3 = findViewById(R.id.tabel5field3)
+        tabel5field4 = findViewById(R.id.tabel5field4)
         btnSave = findViewById(R.id.btnSave)
         btnSave.setOnClickListener {
             val db = database.writableDatabase
@@ -52,18 +49,26 @@ class Tabel5CreateActivity : AppCompatActivity() {
             val tabel5field2Text = tabel5field2.text.toString()
             val tabel5field3Text = tabel5field3.text.toString()
             val tabel5field4Text = tabel5field4.text.toString()
-            val tabel5field5Text = tabel5field5.text.toString()
             val tableName = getString(R.string.tabel5)
-            db.execSQL("INSERT INTO $tableName (" +
-                    "${getString(R.string.tabel5_field1)}, " +
-                    "${getString(R.string.tabel5_field2)}, " +
-                    "${getString(R.string.tabel5_field3)}, " +
-                    "${getString(R.string.tabel5_field4)}, " +
-                    "${getString(R.string.tabel5_field5)}) " +
-                    "VALUES ('$tabel5field1Text', '$tabel5field2Text', '$tabel5field3Text', '$tabel5field4Text', '$tabel5field5Text')")
-            Toast.makeText(this@Tabel5CreateActivity, "Data Saved", Toast.LENGTH_SHORT).show()
-            Tabel5MainActivity.ma.refreshList()
-            finish()
+
+            try {
+                val insertQuery = "INSERT INTO $tableName (" +
+                        "${getString(R.string.tabel5field1)}, " +
+                        "${getString(R.string.tabel5field2)}, " +
+                        "${getString(R.string.tabel5field3)}, " +
+                        "${getString(R.string.tabel5field4)}) " +
+                        "VALUES ('$tabel5field1Text', '$tabel5field2Text', '$tabel5field3Text', '$tabel5field4Text')"
+
+                db.execSQL(insertQuery)
+                Toast.makeText(this@Tabel5CreateActivity, "Data Saved", Toast.LENGTH_SHORT).show()
+                Tabel5MainActivity.ma.refreshList()
+                finish()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this@Tabel5CreateActivity, "Error saving data", Toast.LENGTH_SHORT).show()
+            } finally {
+                db.close()
+            }
         }
     }
 

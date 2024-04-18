@@ -54,14 +54,14 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tabel5_field1Judul"
+                    android:id="@+id/tabel5field1Judul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tabel5_field1_alias"
+                    android:text="@string/tabel5field1_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel5_field1"
+                    android:id="@+id/tabel5field1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
@@ -69,31 +69,31 @@
                     tools:ignore="LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel5_field2Judul"
+                    android:id="@+id/tabel5field2Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel5_field2_alias"
+                    android:text="@string/tabel5field2_alias"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/tabel5_field2"
+                    android:id="@+id/tabel5field2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     tools:ignore="Autofill,LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel5_field3Judul"
+                    android:id="@+id/tabel5field3Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel5_field3_alias"
+                    android:text="@string/tabel5field3_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel5_field3"
+                    android:id="@+id/tabel5field3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
@@ -101,15 +101,15 @@
                     tools:ignore="LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel5_field4Judul"
+                    android:id="@+id/tabel5field4Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel5_field4_alias"
+                    android:text="@string/tabel5field4_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel5_field4"
+                    android:id="@+id/tabel5field4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
@@ -117,15 +117,15 @@
                     tools:ignore="LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel5_field5Judul"
+                    android:id="@+id/tabel5field5Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel5_field5_alias"
+                    android:text="@string/tabel5field5_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel5_field5"
+                    android:id="@+id/tabel5field5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="no"

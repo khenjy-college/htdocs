@@ -14,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnBack"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,8 +23,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/tabel5_alias"
-        android:gravity="center_horizontal"
         android:textColor="@color/black"
+        android:gravity="center_horizontal"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,55 +47,97 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/tabel5_field1Judul"
+                android:id="@+id/tabel5field1Judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tabel5_field1_alias"
+                android:text="@string/tabel5field1_alias"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/tabel5_field1"
+                android:id="@+id/tabel5field1"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:autofillHints="no"
-                android:hint="@string/tabel5_field1_hint"
+                android:hint="@string/tabel5field1_hint"
                 android:inputType="text"
+                android:textColor="@color/black"
                 android:paddingTop="21dp"
                 android:paddingBottom="11dp" />
 
             <TextView
-                android:id="@+id/tabel5_field2Judul"
+                android:id="@+id/tabel5field2Judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel5_field2_alias"
+                android:text="@string/tabel5field2_alias"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/tabel5_field2"
+                android:id="@+id/tabel5field2"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:autofillHints="no"
-                android:hint="@string/tabel5_field2_hint"
+                android:hint="@string/tabel5field2_hint"
                 android:inputType="text"
+                android:textColor="@color/black"
                 android:paddingTop="21dp"
                 android:paddingBottom="11dp" />
 
             <TextView
-                android:id="@+id/tabel5_field3Judul"
+                android:id="@+id/tabel5field3Judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tabel5_field3_alias"
+                android:text="@string/tabel5field3_alias"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/tabel5_field3"
+                android:id="@+id/tabel5field3"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:autofillHints="no"
-                android:hint="@string/tabel5_field3_hint"
+                android:hint="@string/tabel5field3_hint"
                 android:inputType="text"
+                android:textColor="@color/black"
+                android:paddingTop="21dp"
+                android:paddingBottom="11dp" />
+
+            <TextView
+                android:id="@+id/tabel5field4Judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tabel5field4_alias"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/tabel5field4"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:hint="@string/tabel5field4_hint"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:paddingTop="21dp"
+                android:paddingBottom="11dp" />
+
+            <TextView
+                android:id="@+id/tabel5field5Judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tabel5field5_alias"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/tabel5field5"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:hint="@string/tabel5field5_hint"
+                android:inputType="text"
+                android:textColor="@color/black"
                 android:paddingTop="21dp"
                 android:paddingBottom="11dp" />
 
@@ -107,7 +150,8 @@
                 android:layout_columnSpan="2"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:text="@string/btnSave" />
+                android:text="@string/btnSave"
+                android:textColor="@color/black" />
 
         </GridLayout>
 

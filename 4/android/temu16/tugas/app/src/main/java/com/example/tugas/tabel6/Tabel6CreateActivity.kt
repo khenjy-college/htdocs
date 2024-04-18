@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tugas.Database
 import com.example.tugas.R
-import com.example.tugas.tabel5.Tabel5MainActivity
 
 class Tabel6CreateActivity : AppCompatActivity() {
     private lateinit var database: Database
@@ -33,7 +32,6 @@ class Tabel6CreateActivity : AppCompatActivity() {
             insets
         }
 
-
         back = findViewById(R.id.backButton)
         back.setOnClickListener {
             startActivity(Intent(this, Tabel6MainActivity::class.java))
@@ -52,15 +50,25 @@ class Tabel6CreateActivity : AppCompatActivity() {
             val tabel6field3Text = tabel6field3.text.toString()
             val tabel6field4Text = tabel6field4.text.toString()
             val tableName = getString(R.string.tabel6)
-            db.execSQL("INSERT INTO $tableName (" +
-                    "${getString(R.string.tabel6_field1)}, " +
-                    "${getString(R.string.tabel6_field2)}, " +
-                    "${getString(R.string.tabel6_field3)}, " +
-                    "${getString(R.string.tabel6_field4)} " +
-                    "VALUES ('$tabel6field1Text', '$tabel6field2Text', '$tabel6field3Text', '$tabel6field4Text')")
-            Toast.makeText(this@Tabel6CreateActivity, "Data Saved", Toast.LENGTH_SHORT).show()
-            Tabel6MainActivity.ma.refreshList()
-            finish()
+
+            try {
+                val insertQuery = "INSERT INTO $tableName (" +
+                        "${getString(R.string.tabel6_field1)}, " +
+                        "${getString(R.string.tabel6_field2)}, " +
+                        "${getString(R.string.tabel6_field3)}, " +
+                        "${getString(R.string.tabel6_field4)}) " +
+                        "VALUES ('$tabel6field1Text', '$tabel6field2Text', '$tabel6field3Text', '$tabel6field4Text')"
+
+                db.execSQL(insertQuery)
+                Toast.makeText(this@Tabel6CreateActivity, "Data Saved", Toast.LENGTH_SHORT).show()
+                Tabel6MainActivity.ma.refreshList()
+                finish()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this@Tabel6CreateActivity, "Error saving data", Toast.LENGTH_SHORT).show()
+            } finally {
+                db.close()
+            }
         }
     }
 

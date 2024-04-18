@@ -53,14 +53,14 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tabel7_field1Judul"
+                    android:id="@+id/tabel7field1Judul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tabel7_field1_alias"
+                    android:text="@string/tabel7field1_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel7_field1"
+                    android:id="@+id/tabel7field1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
@@ -68,15 +68,15 @@
                     tools:ignore="LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel7_field2Judul"
+                    android:id="@+id/tabel7field2Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel7_field2_alias"
+                    android:text="@string/tabel7field2_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel7_field2"
+                    android:id="@+id/tabel7field2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
@@ -84,15 +84,15 @@
                     tools:ignore="LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel7_field3Judul"
+                    android:id="@+id/tabel7field3Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel7_field3_alias"
+                    android:text="@string/tabel7field3_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel7_field3"
+                    android:id="@+id/tabel7field3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
@@ -100,15 +100,15 @@
                     tools:ignore="LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel7_field4Judul"
+                    android:id="@+id/tabel7field4Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel7_field4_alias"
+                    android:text="@string/tabel7field4_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel7_field4"
+                    android:id="@+id/tabel7field4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="no"
@@ -116,15 +116,15 @@
                     tools:ignore="LabelFor" />
 
                 <TextView
-                    android:id="@+id/tabel7_field5Judul"
+                    android:id="@+id/tabel7field5Judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="@string/tabel7_field5_alias"
+                    android:text="@string/tabel7field5_alias"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/tabel7_field5"
+                    android:id="@+id/tabel7field5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints=""

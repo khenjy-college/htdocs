@@ -42,15 +42,15 @@ open class Tabel6DetailActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel6field1 = findViewById(R.id.tabel6_field1)
-        tabel6field2 = findViewById(R.id.tabel6_field2)
-        tabel6field3 = findViewById(R.id.tabel6_field3)
-        tabel6field4 = findViewById(R.id.tabel6_field4)
+        tabel6field1 = findViewById(R.id.tabel6field1)
+        tabel6field2 = findViewById(R.id.tabel6field2)
+        tabel6field3 = findViewById(R.id.tabel6field3)
+        tabel6field4 = findViewById(R.id.tabel6field4)
 
         val db = database.readableDatabase
-        val fieldExtra = intent.getStringExtra(getString(R.string.tabel6_field1))
+        val fieldExtra = intent.getStringExtra(getString(R.string.tabel6field1))
         cursor = db.rawQuery(
-            "SELECT * FROM ${getString(R.string.tabel6)} WHERE ${getString(R.string.tabel6_field1)} = ?",
+            "SELECT * FROM ${getString(R.string.tabel6)} WHERE ${getString(R.string.tabel6field1)} = ?",
             arrayOf(fieldExtra)
         )
         if (cursor.moveToFirst()) {

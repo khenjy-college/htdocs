@@ -38,17 +38,17 @@ class Tabel5UpdateActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel5field1 = findViewById(R.id.tabel5_field1)
-        tabel5field2 = findViewById(R.id.tabel5_field2)
-        tabel5field3 = findViewById(R.id.tabel5_field3)
-        tabel5field4 = findViewById(R.id.tabel5_field4)
-        tabel5field5 = findViewById(R.id.tabel5_field5)
+        tabel5field1 = findViewById(R.id.tabel5field1)
+        tabel5field2 = findViewById(R.id.tabel5field2)
+        tabel5field3 = findViewById(R.id.tabel5field3)
+        tabel5field4 = findViewById(R.id.tabel5field4)
+        tabel5field5 = findViewById(R.id.tabel5field5)
         btnSave = findViewById(R.id.btn_Save)
 
         val db = database.readableDatabase
-        val isbnExtra = intent.getStringExtra(getString(R.string.tabel5_field1)) // Retrieve the Field passed from the intent
+        val isbnExtra = intent.getStringExtra(getString(R.string.tabel5field1)) // Retrieve the Field passed from the intent
         val cursor = db.rawQuery(
-            "SELECT * FROM ${getString(R.string.tabel5)} WHERE ${getString(R.string.tabel5_field1)} = ?",
+            "SELECT * FROM ${getString(R.string.tabel5)} WHERE ${getString(R.string.tabel5field1)} = ?",
             arrayOf(isbnExtra)
         )
 
@@ -72,12 +72,12 @@ class Tabel5UpdateActivity : AppCompatActivity() {
 
             dbWrite.execSQL(
                 "UPDATE ${getString(R.string.tabel5)} SET " +
-                        "${getString(R.string.tabel5_field1)} = '$tabel5field1Text', " +
-                        "${getString(R.string.tabel5_field2)} = '$tabel5field2Text', " +
-                        "${getString(R.string.tabel5_field3)} = '$tabel5field3Text', " +
-                        "${getString(R.string.tabel5_field4)} = '$tabel5field4Text', " +
-                        "${getString(R.string.tabel5_field5)} = '$tabel5field5Text' " +
-                        "WHERE ${getString(R.string.tabel5_field1)} = ?",
+                        "${getString(R.string.tabel5field1)} = '$tabel5field1Text', " +
+                        "${getString(R.string.tabel5field2)} = '$tabel5field2Text', " +
+                        "${getString(R.string.tabel5field3)} = '$tabel5field3Text', " +
+                        "${getString(R.string.tabel5field4)} = '$tabel5field4Text', " +
+                        "${getString(R.string.tabel5field5)} = '$tabel5field5Text' " +
+                        "WHERE ${getString(R.string.tabel5field1)} = ?",
                 arrayOf(isbnExtra)
             )
 

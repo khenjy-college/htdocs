@@ -38,16 +38,16 @@ class Tabel7UpdateActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel7field1 = findViewById(R.id.tabel7_field1)
-        tabel7field2 = findViewById(R.id.tabel7_field2)
-        tabel7field3 = findViewById(R.id.tabel7_field3)
-        tabel7field4 = findViewById(R.id.tabel7_field4)
+        tabel7field1 = findViewById(R.id.tabel7field1)
+        tabel7field2 = findViewById(R.id.tabel7field2)
+        tabel7field3 = findViewById(R.id.tabel7field3)
+        tabel7field4 = findViewById(R.id.tabel7field4)
         btnSave = findViewById(R.id.btn_Save)
 
         val db = database.readableDatabase
-        val isbnExtra = intent.getStringExtra(getString(R.string.tabel7_field1)) // Retrieve the Field passed from the intent
+        val isbnExtra = intent.getStringExtra(getString(R.string.tabel7field1)) // Retrieve the Field passed from the intent
         val cursor = db.rawQuery(
-            "SELECT * FROM ${getString(R.string.tabel7)} WHERE ${getString(R.string.tabel7_field1)} = ?",
+            "SELECT * FROM ${getString(R.string.tabel7)} WHERE ${getString(R.string.tabel7field1)} = ?",
             arrayOf(isbnExtra)
         )
 
@@ -69,11 +69,11 @@ class Tabel7UpdateActivity : AppCompatActivity() {
 
             dbWrite.execSQL(
                 "UPDATE ${getString(R.string.tabel7)} SET " +
-                        "${getString(R.string.tabel7_field1)} = '$tabel7field1Text', " +
-                        "${getString(R.string.tabel7_field2)} = '$tabel7field2Text', " +
-                        "${getString(R.string.tabel7_field3)} = '$tabel7field3Text', " +
-                        "${getString(R.string.tabel7_field4)} = '$tabel7field4Text'" +
-                        "WHERE ${getString(R.string.tabel7_field1)} = ?",
+                        "${getString(R.string.tabel7field1)} = '$tabel7field1Text', " +
+                        "${getString(R.string.tabel7field2)} = '$tabel7field2Text', " +
+                        "${getString(R.string.tabel7field3)} = '$tabel7field3Text', " +
+                        "${getString(R.string.tabel7field4)} = '$tabel7field4Text'" +
+                        "WHERE ${getString(R.string.tabel7field1)} = ?",
                 arrayOf(isbnExtra)
             )
 

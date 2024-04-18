@@ -41,16 +41,16 @@ open class Tabel5DetailActivity : AppCompatActivity() {
         }
 
         database = Database(this)
-        tabel5field1 = findViewById(R.id.tabel5_field1)
-        tabel5field2 = findViewById(R.id.tabel5_field2)
-        tabel5field3 = findViewById(R.id.tabel5_field3)
-        tabel5field4 = findViewById(R.id.tabel5_field4)
-        tabel5field5 = findViewById(R.id.tabel5_field5)
+        tabel5field1 = findViewById(R.id.tabel5field1)
+        tabel5field2 = findViewById(R.id.tabel5field2)
+        tabel5field3 = findViewById(R.id.tabel5field3)
+        tabel5field4 = findViewById(R.id.tabel5field4)
+        tabel5field5 = findViewById(R.id.tabel5field5)
 
         val db = database.readableDatabase
-        val fieldExtra = intent.getStringExtra(getString(R.string.tabel5_field1))
+        val fieldExtra = intent.getStringExtra(getString(R.string.tabel5field1))
         cursor = db.rawQuery(
-            "SELECT * FROM ${getString(R.string.tabel5)} WHERE ${getString(R.string.tabel5_field1)} = ?",
+            "SELECT * FROM ${getString(R.string.tabel5)} WHERE ${getString(R.string.tabel5field1)} = ?",
             arrayOf(fieldExtra)
         )
         if (cursor.moveToFirst()) {
