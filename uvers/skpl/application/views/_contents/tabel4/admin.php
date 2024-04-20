@@ -23,7 +23,6 @@
         <th><?= $tabel4_field1_alias ?></th>
         <th><?= $tabel4_field2_alias ?></th>
         <th><?= $tabel4_field3_alias ?></th>
-        <th><?= $tabel4_field4_alias ?></th>
         <th><?= $tabel4_field5_alias ?></th>
         <th>Aksi</th>
       </tr>
@@ -36,7 +35,6 @@
           <td><?= $tl4->$tabel4_field1; ?></td>
           <td><?= $tl4->$tabel4_field2 ?></td>
           <td><?= $tl4->$tabel4_field3 ?></td>
-          <td><?= $tl4->$tabel4_field4 ?></td>
           <td><?= $tl4->$tabel4_field5 ?></td>
           <td><a class="btn btn-light text-info" type="button" data-toggle="modal"
               data-target="#lihat<?= $tl4->$tabel4_field1; ?>">
@@ -81,51 +79,36 @@
 
           <div class="form-group">
             <label><?= $tabel4_field2_alias ?></label>
-            <input class="form-control" type="text" required name="<?= $tabel4_v_input2 ?>"
-              placeholder="Masukkan <?= $tabel4_field2_alias ?>">
+            <input class="form-control" type="text" required name="<?= $tabel4_field2_input ?>" placeholder="Masukkan <?= $tabel4_field2_alias ?>">
           </div>
 
           <!-- administrator dapat menentukan password untuk akun baru -->
           <div class="form-group">
             <label><?= $tabel4_field3_alias ?></label>
-            <input class="form-control" type="email" required name="<?= $tabel4_v_input3 ?>"
-              placeholder="Masukkan <?= $tabel4_field3_alias ?>">
+            <input class="form-control" type="email" required name="<?= $tabel4_field3_input ?>" placeholder="Masukkan <?= $tabel4_field3_alias ?>">
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label><?= $tabel4_field4_alias ?></label>
-            <input class="form-control" type="text" required name="<?= $tabel4_v_input4 ?>"
-              placeholder="Masukkan <?= $tabel4_field4_alias ?>">
-          </div>
+            <input class="form-control" type="text" required name="<?= $tabel4_field4_input ?>" placeholder="Masukkan <?= $tabel4_field4_alias ?>">
+          </div> -->
 
           <!-- Di bawah ini adalah penginputan password dan konfirmasi password untuk tabel4, sangat opsional -->
-          <!-- <div class="input-group">
+          <div class="input-group">
           <label><?= $tabel4_field4_alias ?></label>
-            <input class="form-control" type="password" required name="<?= $tabel4_v_input4 ?>" placeholder="Masukkan <?= $tabel4_field4_alias ?>">
+            <input class="form-control" type="password" required name="<?= $tabel4_field4_input ?>" placeholder="Masukkan <?= $tabel4_field4_alias ?>">
           </div>
 
           <div class="input-group">
           <label>Konfirmasi <?= $tabel4_field4_alias ?></label>
             <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi <?= $tabel4_field4_alias ?>">
-          </div> -->
+          </div>
 
 
           <div class="form-group">
             <label><?= $tabel4_field5_alias ?></label>
-            <input class="form-control-file" name="<?= $tabel4_v_input5 ?>" type="file">
+            <input class="form-control-file" name="<?= $tabel4_field5_input ?>" type="file">
           </div>
-
-
-
-          <div class="form-group">
-            <label><?= $tabel4_field6_alias ?></label>
-            <select class="form-control" required name="<?= $tabel4_v_input6 ?>">
-              <option value="" selected hidden>Pilih <?= $tabel4_field6_alias ?></option>
-              <option value="<?= $tabel4_field6_value1 ?>"><?= $tabel4_field6_value1_alias ?></option>
-              <option value="<?= $tabel4_field6_value2 ?>"><?= $tabel4_field6_value2_alias ?></option>
-            </select>
-          </div>
-
 
         </div>
 
@@ -158,22 +141,14 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel4_field2_alias ?></label>
-              <input class="form-control" type="text" required name="<?= $tabel4_v_input2 ?>"
-                placeholder="Masukkan <?= $tabel4_field2_alias ?>" value="<?= $tl4->$tabel4_field2 ?>">
-              <input type="hidden" name="<?= $tabel4_v_input1 ?>" value="<?= $tl4->$tabel4_field1 ?>">
+              <input class="form-control" type="text" required name="<?= $tabel4_field2_input ?>" placeholder="Masukkan <?= $tabel4_field2_alias ?>" value="<?= $tl4->$tabel4_field2 ?>">
+              <input type="hidden" name="<?= $tabel4_field1_input ?>" value="<?= $tl4->$tabel4_field1 ?>">
             </div>
 
             <!-- administrator dapat menentukan password untuk akun baru -->
             <div class="form-group">
               <label><?= $tabel4_field3_alias ?></label>
-              <input class="form-control" type="email" required name="<?= $tabel4_v_input3 ?>"
-                placeholder="Masukkan <?= $tabel4_field3_alias ?>" value="<?= $tl4->$tabel4_field3 ?>">
-            </div>
-
-            <div class="form-group">
-              <label><?= $tabel4_field4_alias ?></label>
-              <input class="form-control" type="text" required name="<?= $tabel4_v_input4 ?>"
-                placeholder="Masukkan <?= $tabel4_field4_alias ?>" value="<?= $tl4->$tabel4_field4 ?>">
+              <input class="form-control" type="email" required name="<?= $tabel4_field3_input ?>" placeholder="Masukkan <?= $tabel4_field3_alias ?>" value="<?= $tl4->$tabel4_field3 ?>">
             </div>
 
             <div class="form-group">
@@ -183,17 +158,8 @@
 
             <div class="form-group">
               <label>Ubah <?= $tabel4_field5_alias ?></label>
-              <input class="form-control-file" type="file" name="<?= $tabel4_v_input5 ?>">
-              <input type="hidden" name="<?= $tabel4_v_input5_alt ?>" value="<?= $tl4->$tabel4_field5; ?>">
-            </div>
-
-            <div class="form-group">
-              <label><?= $tabel4_field6_alias ?></label>
-              <select class="form-control" required name="<?= $tabel4_v_input6 ?>">
-                <option value="<?= $tl4->$tabel4_field6 ?>" selected hidden><?= $tl4->$tabel4_field6 ?></option>
-                <option value="<?= $tabel4_field6_value1 ?>"><?= $tabel4_field6_value1_alias ?></option>
-                <option value="<?= $tabel4_field6_value2 ?>"><?= $tabel4_field6_value2_alias ?></option>
-              </select>
+              <input class="form-control-file" type="file" name="<?= $tabel4_field5_input ?>">
+              <input type="hidden" name="<?= $tabel4_field5_alt ?>" value="<?= $tl4->$tabel4_field5; ?>">
             </div>
 
           </div>
@@ -237,12 +203,6 @@
                 <div class="form-group">
                   <label><?= $tabel4_field3_alias ?> : </label>
                   <p><?= $tl4->$tabel4_field3; ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel4_field4_alias ?> : </label>
-                  <p><?= $tl4->$tabel4_field4; ?></p>
                 </div>
                 <hr>
               </div>

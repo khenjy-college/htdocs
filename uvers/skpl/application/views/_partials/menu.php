@@ -6,11 +6,6 @@
                 <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome') ?>">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('tabel6/' . $tabel6) ?>">
-                    <?= $tabel6_alias ?>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('tabel9/login') ?>">Login</a>
             </li>
             <?php break;
@@ -45,23 +40,18 @@
 
                                     case $tabel9_field6_value3:
                                         ?>
-                                        <h6 class="dropdown-header">Data</h6>
-                                        <a class="dropdown-item" href="<?= site_url('tabel6') ?>">
-                                            <?= $tabel6_alias ?>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
                                         <h6 class="dropdown-header">Operasional</h6>
-                                        <a class="dropdown-item" href="<?= site_url('tabel4') ?>">
+                                        <a class="dropdown-item" href="<?= site_url('tabel4/admin') ?>">
                                             <?= $tabel4_alias ?>
                                         </a>
-                                        <a class="dropdown-item" href="<?= site_url('tabel5') ?>">
+                                        <a class="dropdown-item" href="<?= site_url('tabel5/admin') ?>">
                                             <?= $tabel5_alias ?>
                                         </a>
-                                        <a class="dropdown-item" href="<?= site_url('tabel9') ?>">
+                                        <a class="dropdown-item" href="<?= site_url('tabel9/admin') ?>">
                                             <?= $tabel9_alias ?>
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="<?= site_url('tabel7') ?>">
+                                        <a class="dropdown-item" href="<?= site_url('tabel7/admin') ?>">
                                             <?= $tabel7_alias ?>
                                         </a>
                                         <?php break;
@@ -69,20 +59,11 @@
                                         ?>
 
                                         <h6 class="dropdown-header">Kelola</h6>
-                                        <a class="dropdown-item" href="<?= site_url('tabel5') ?>">
+                                        <a class="dropdown-item" href="<?= site_url('tabel5/admin') ?>">
                                             <?= $tabel5_alias ?>
                                         </a>
-                                        <a class="dropdown-item" href="<?= site_url('tabel8') ?>">
+                                        <a class="dropdown-item" href="<?= site_url('tabel8/admin') ?>">
                                             <?= $tabel8_alias ?>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <h6 class="dropdown-header">Operasional</h6>
-                                        <a class="dropdown-item" href="<?= site_url('tabel11') ?>">
-                                            <?= $tabel11_alias ?>
-                                        </a>
-                                        <h6 class="dropdown-header">Data</h6>
-                                        <a class="dropdown-item" href="<?= site_url('tabel6') ?>">
-                                            <?= $tabel6_alias ?>
                                         </a>
 
                                         <?php break;
@@ -137,20 +118,21 @@
                                 ?>
                                 <h6 class="dropdown-header">Jelajahi</h6>
                                 <a class="dropdown-item" href="<?= site_url('welcome') ?>">Pesan Sekarang</a>
-                                <a class="dropdown-item" href="<?= site_url('tabel6/' . $tabel6) ?>">
-                                    <?= $tabel6_alias ?>
-                                </a>
                                 <div class="dropdown-divider"></div>
                                 <h6 class="dropdown-header">Reservasi</h6>
                                 <a class="dropdown-item" href="<?= site_url('tabel8/daftar') ?>">Daftar
                                     <?= $tabel8_alias ?>
                                 </a>
+                                </a>
+
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?= site_url('tabel4/profil') ?>">Profil</a>
                                 <?php break;
                             case $tabel9_field6_value2:
                             case $tabel9_field6_value3:
                             case $tabel9_field6_value4:
                                 ?>
+                                <a class="dropdown-item" href="<?= site_url('tabel9/profil') ?>">Profil</a>
                                 <?php break;
                             default:
                                 ?>
@@ -158,7 +140,6 @@
                                 <?php break;
                         } ?>
 
-                        <a class="dropdown-item" href="<?= site_url('tabel9/profil') ?>">Profil</a>
                         <a class="dropdown-item" href="<?= site_url('tabel9/logout') ?>">Logout</a>
 
 

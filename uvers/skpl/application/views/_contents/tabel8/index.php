@@ -8,363 +8,170 @@
 }
 ?>
 
-<h1><?= $title ?><?= $phase ?></h1>
-<hr>
+<?php foreach ($tbl7 as $tl7): ?>
+  <img src="img/tabel7/<?= $tl7->$tabel7_field5 ?>" class="img-fluid rounded">
+<?php endforeach; ?>
+
+<form action="<?= site_url('tabel8/tambah') ?>" method="post">
+
+  <!-- form ini berisi data yang sudah diinput sebelumnya dari halaman home -->
+  <div class="row justify-content-center align-items-end mt-2">
+    <div class="col-md-2">
+      <div class="form-group">
+        <label><?= $tabel8_field10_alias ?></label>
+        <input class="form-control" type="date" required name="<?= $tabel8_field10_input ?>" value="<?= $tabel8_field10_value ?>" min="<?= date('Y-m-d'); ?>">
+      </div>
+    </div>
+
+    <!-- Seperti di bawah bentuk input array ke depannya cman itu perlu dipending dulu -->
+    <!-- <div class="col-md-2">
+      <div class="form-group">
+        <label>Tanggal Cek Out</label>
+        <input class="form-control" type="date" required name="<?= $tabel8_field11_input ?>" value=" $cek_out ?>">
+      </div>
+    </div> -->
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label><?= $tabel8_field11_alias ?></label>
+        <input class="form-control" type="date" required name="<?= $tabel8_field11_input ?>" value="<?= $tabel8_field11_value ?>" min="<?= date('Y-m-d', strtotime("+1 day")); ?>">
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label><?= $tabel8_field8_alias ?></label>
+        <input class="form-control" readonly type="number" required name="<?= $tabel8_field8_input ?>" min="1" max="10" value="<?= $tabel8_field8_value ?>">
+      </div>
+    </div>
 
 
-<div class="table-responsive">
-  <table class="table table-light" id="data">
-    <thead class="thead-light">
-      <tr>
-        <th>No</th>
-        <th><?= $tabel8_field6_alias ?></th>
-        <th><?= $tabel8_field10_alias ?></th>
-        <th><?= $tabel8_field11_alias ?></th>
-        <th><?= $tabel8_field12_alias ?></th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <?php foreach ($tbl8 as $tl8) : ?>
-        <tr>
-          <td></td>
-          <td><?= $tl8->$tabel8_field6 ?></td>
-          <td><?= $tl8->$tabel8_field10 ?></td>
-          <td><?= $tl8->$tabel8_field11 ?></td>
-          <td><?= $tl8->$tabel8_field12 ?></td>
-          <td>
-            <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tl8->$tabel8_field1 ?>" href="#">
-              <i class="fas fa-eye"></i>
-            </a>
-
-            <?php foreach ($tbl5 as $tl5) : ?>
-              <?php if ($tl8->$tabel8_field1 == $tl5->$tabel8_field1) { ?>
-                <a class="btn btn-light text-info" data-toggle="modal" data-target="#<?= $tabel5 . $tl8->$tabel8_field1 ?>" href="#">
-                  <i class="fas fa-bed"></i>
-                </a>
-                <?php break; } endforeach ?>
-
-            <?php switch ($tl8->$tabel8_field12) {
-              case $tabel8_field12_value2: ?>
-                <a class="btn btn-danger text-light" data-toggle="modal" data-target="#<?= $tabel10_field6 . $tl8->$tabel8_field1 ?>" href="#">
-                  <i class="fas fa-shopping-cart"></i>
-                </a>
-              <?php break;
-              case $tabel8_field12_value3:
-              case $tabel8_field12_value4: ?>
-                <a class="btn btn-light text-info" href="<?= site_url('tabel8/print/' . $tl8->$tabel8_field1) ?>" target="_blank">
-                  <i class="fas fa-print"></i>
-                </a>
-            <?php break;
-            } ?>
-          </td>
-
-        </tr>
-      <?php endforeach ?>
-    </tbody>
-
-  </table>
-</div>
-
-<!-- modal bayar -->
-<?php foreach ($tbl8 as $tl8) : ?>
-
-  <div id="<?= $tabel10_field6 . $tl8->$tabel8_field1 ?>" class="modal fade tabel10_field6">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel10_alias ?> untuk <?= $tabel8_alias ?> <?= $tl8->$tabel8_field1 ?></h5>
-
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-
-        <form action="<?= site_url('tabel10/tambah') ?>" method="post" enctype="multipart/form-data">
-
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label><?= $tabel8_field1_alias ?></label>
-                  <p><?= $tl8->$tabel8_field1 ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel8_field3_alias ?></label>
-                  <p><?= $tl8->$tabel8_field3 ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel8_field4_alias ?></label>
-                  <p><?= $tl8->$tabel8_field4 ?></p>
-
-                  <!-- Email ini digunakan untuk menambahkan sesi temporer untuk konfirmasi transaksi -->
-                  <input type="hidden" name="<?= $tabel8_v_input4 ?>" value="<?= $tl8->$tabel8_field4 ?>">
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel8_field5_alias ?></label>
-                  <p><?= $tl8->$tabel8_field5 ?></p>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label><?= $tabel8_field6_alias ?></label>
-                  <p><?= $tl8->$tabel8_field6 ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel6_field2_alias ?></label>
-                  <?php foreach ($tbl6 as $tl6) :
-                    if ($tl6->$tabel6_field1 === $tl8->$tabel6_field1) { ?>
-                      <p><?= $tl6->$tabel6_field2 ?></p>
-                    <?php } ?>
-                  <?php endforeach ?>
-
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel8_field10_alias ?></label>
-                  <p><?= $tl8->$tabel8_field10 ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel8_field11_alias ?></label>
-                  <p><?= $tl8->$tabel8_field11 ?></p>
-                </div>
-              </div>
+    <div class="col-md-1">
+      <div class="form-group">
+        <a class="btn btn-primary" type="button" data-toggle="modal" data-target="#ubah">
+          Ubah</a>
+      </div>
+    </div>
 
 
-              <!-- Input metode pembayaran -->
+  </div>
 
-              <div class="col-md-12">
+  <h2>Pesan <?= $tabel5_alias ?> Anda</h2>
 
 
-                <div class="form-group">
-                  <label><?= $tabel8_field9_alias ?></label>
-                  <p>Rp <?= number_format($tl8->$tabel8_field9, '2', ',', '.') ?></p>
-                  <input type="hidden" name="<?= $tabel8_v_input1 ?>" value="<?= $tl8->$tabel8_field1 ?>">
-                </div>
+  <hr>
 
-                <div class="form-group">
-                  <label><?= $tabel10_field5_alias ?></label>
-                  <select class="form-control" required name="<?= $tabel10_v_input5 ?>">
-                    <option selected hidden value="">Pilih <?= $tabel10_field5_alias ?>...</option>
-                    <option value="<?= $tabel10_field5_value1 ?>"><?= $tabel10_field5_value1_alias ?></option>
-                    <option value="<?= $tabel10_field5_value2 ?>"><?= $tabel10_field5_value2_alias ?></option>
-                  </select>
-                </div>
+  <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pesanan yang telah dilakukan. -->
+  <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu kamar  -->
+  <!-- dan mendapatkan pesanan yang terpisah masing-masing -->
+  <!-- Sebenarnya lebih baik jika menggunakan tabel pesanan dan tabel detail pesanan -->
+  <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
+  <!-- Fitur ini akan diselesaikan ketika sudah ada pemahaman mengenai cara kerja array -->
+  <!-- 
+  $i = 1;
+  do { ?> -->
+  <!-- <h2>Pesanan  $i ?></h2> -->
+  <div class="row justify-content-start mt-4">
+    <hr>
 
-                <div class="form-group">
-                  <label><?= $tabel10_field6_alias ?></label>
-                  <input class="form-control" readonly type="number" required name="<?= $tabel10_v_input6 ?>" placeholder="Masukkan <?= $tabel10_field6_alias ?>" value="<?= $tl8->$tabel8_field9 ?>">
-                  <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value3 ?>">
 
-                </div>
-              </div>
+    <div class="col-md-6">
 
-            </div>
-          </div>
+      <!-- menentukan id_user jika user sudah membuat akun atau belum -->
+      <div class="form-group">
+        <label><?= $tabel8_field3_alias ?></label>
+        <input class="form-control" type="text" required name="<?= $tabel8_field3_input ?>" placeholder="Masukkan <?= $tabel8_field3_alias ?>" value="<?= $this->session->userdata($tabel9_field2) ?>">
+        <?php if ($this->session->userdata($tabel9_field1)) { ?>
+          <input type="hidden" name="<?= $tabel9_field1_input ?>" value="<?= $this->session->userdata($tabel9_field1) ?>">
+        <?php } else { ?>
 
-          <!-- pesan untuk pengguna yang sedang merubah password -->
-          <p id="p_<?= $tabel10_field6 ?>" class="small text-center text-danger"><?= $this->session->flashdata('pesan_'.$tabel10_field6) ?></p>
+          <!-- value 0 di id_user untuk pengguna tanpa akun -->
+          <input type="hidden" name="<?= $tabel9_field1_input ?>" value="0">
 
-          <div class="modal-footer">
-            <button class="btn btn-success" type="submit">Bayar</button>
-          </div>
-        </form>
+        <?php } ?>
+      </div>
 
+      <!-- keterangan * di bawah -->
+      <div class="form-group">
+        <label><?= $tabel8_field4_alias ?>*</label>
+        <input class="form-control" type="email" required name="<?= $tabel8_field4_input ?>" placeholder="Masukkan <?= $tabel8_field4_alias ?>" value="<?= $this->session->userdata($tabel9_field3) ?>">
+      </div>
+
+      <div class="form-group">
+        <label><?= $tabel8_field5_alias ?></label>
+        <input class="form-control" type="text" required name="<?= $tabel8_field5_input ?>" placeholder="Masukkan <?= $tabel8_field5_alias ?>" value="<?= $this->session->userdata($tabel9_field5) ?>">
+      </div>
+
+      <div class="form-group">
+        <label><?= $tabel8_field6_alias ?></label>
+        <input class="form-control" type="text" required name="<?= $tabel8_field6_input ?>" placeholder="Masukkan <?= $tabel8_field6_alias ?>">
+      </div>
+      <!-- keterangan * -->
+      <small>*<?= $tabel8_field4_alias ?> dibutuhkan untuk melakukan <?= $tabel8_alias ?> dan <?= $tabel10_alias ?></small>
+
+    </div>
+    <div class="col-md-6">
+    <?php foreach ($dekor as $dk): ?>
+  <img src="img/tabel12/<?= $dk->$tabel12_field3 ?>" class="img-fluid rounded">
+<?php endforeach ?>
+    </div>
+
+  </div>
+
+
+  <hr>
+
+  <!-- $i++;
+  } while ($i <= $jlh) ?> -->
+
+
+
+  <div class="row justify-content-start mt-4">
+    <div class="col-md6">
+
+
+      <div class="form-group">
+        <button class="btn btn-success" onclick="return confirm('Apakah Anda Ingin Memesan <?= $tabel5_alias ?>?')" type="submit">Konfirmasi <?= $tabel8_alias ?></button>
+        <a class="btn btn-danger" type="button" href="<?= site_url('welcome') ?>">Batal</a>
       </div>
     </div>
   </div>
-<?php endforeach ?>
+</form>
 
-<!-- modal lihat -->
-<?php foreach ($tbl8 as $tl8) :
-  foreach ($tbl6 as $tl6) :
-    if ($tl6->$tabel6_field1 == $tl8->$tabel6_field1) { ?>
 
-      <div id="lihat<?= $tl8->$tabel8_field1 ?>" class="modal fade lihat">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->$tabel8_field1 ?></h5>
 
-              <button class="close" data-dismiss="modal">
-                <span>&times;</span>
-              </button>
-            </div>
+<!-- modal edit -->
+<div id="ubah" class="modal fade ubah">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ubah <?= $tabel8_field8_alias ?></h5>
 
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label><?= $tabel8_field1_alias ?></label>
-                    <p><?= $tl8->$tabel8_field1 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field3_alias ?></label>
-                    <p><?= $tl8->$tabel8_field3 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field4_alias ?></label>
-                    <p><?= $tl8->$tabel8_field4 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field5_alias ?></label>
-                    <p><?= $tl8->$tabel8_field5 ?></p>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label><?= $tabel8_field6_alias ?></label>
-                    <p><?= $tl8->$tabel8_field6 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel6_field2_alias ?></label>
-                    <p><?= $tl6->$tabel6_field2 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field10_alias ?></label>
-                    <p><?= $tl8->$tabel8_field10 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field11_alias ?></label>
-                    <p><?= $tl8->$tabel8_field11 ?></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- memunculkan notifikasi modal -->
-            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
-
-            <div class="modal-footer">
-              <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            </div>
-          </div>
-        </div>
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
       </div>
-<?php }
-  endforeach;
-endforeach ?>
 
+      <form action="<?= site_url('tabel8') ?>" method="get">
+        <div class="modal-body">
+          <div class="form-group">
+            <label><?= $tabel8_field8_alias ?></label>
+            <input class="form-control" type="number" value="<?= $tabel8_field8_value ?>" required name="<?= $tabel8_field8_input ?>" min="1" max="10" value="1">
+            <input type="hidden" name="<?= $tabel8_field10_input ?>" value="<?= $tabel8_field10_value ?>">
+            <input type="hidden" name="<?= $tabel8_field11_input ?>" value="<?= $tabel8_field11_value ?>">
 
-<!-- modal lihat kamar -->
-<!-- Aku ingin merubah modal ini menjadi modal yang memberikan informasi khusus mengenai kamar yang sudah dipesan -->
-<!-- Aku mau yang ada di sini isinya bagus dan interaktif -->
-<?php foreach ($tbl8 as $tl8) :
-  foreach ($tbl6 as $tl6) :
-    if ($tl6->$tabel6_field1 == $tl8->$tabel6_field1) { ?>
-
-      <div id="<?= $tabel5 . $tl8->$tabel8_field1 ?>" class="modal fade lihat">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->$tabel8_field1 ?></h5>
-
-              <button class="close" data-dismiss="modal">
-                <span>&times;</span>
-              </button>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label><?= $tabel8_field1_alias ?></label>
-                    <p><?= $tl8->$tabel8_field1 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field3_alias ?></label>
-                    <p><?= $tl8->$tabel8_field3 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field4_alias ?></label>
-                    <p><?= $tl8->$tabel8_field4 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field5_alias ?></label>
-                    <p><?= $tl8->$tabel8_field5 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field6_alias ?></label>
-                    <p><?= $tl8->$tabel8_field6 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel6_field2_alias ?></label>
-                    <p><?= $tl6->$tabel6_field2 ?></p>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <?php foreach ($tbl5 as $tl5) : ?>
-                    <?php if ($tl8->$tabel8_field1 == $tl5->$tabel8_field1) { ?>
-
-                      <div class="form-group">
-                        <label><?= $tabel5_field1_alias ?></label>
-                        <p><?= $tl5->$tabel5_field1 ?></p>
-                      </div>
-                      <hr>
-
-                  <?php }
-                  endforeach ?>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field10_alias ?></label>
-                    <p><?= $tl8->$tabel8_field10 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field11_alias ?></label>
-                    <p><?= $tl8->$tabel8_field11 ?></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- memunculkan notifikasi modal -->
-            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
-
-            <div class="modal-footer">
-              <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            </div>
           </div>
+
+
         </div>
-      </div>
-<?php }
-  endforeach;
-endforeach ?>
+
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

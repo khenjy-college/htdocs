@@ -47,7 +47,7 @@ Fitur sedang tahap pengembangan
                   <p><?= $tl8->$tabel8_field4 ?></p>
 
                   <!-- Email ini digunakan untuk menambahkan sesi temporer untuk konfirmasi transaksi -->
-                  <input type="hidden" name="<?= $tabel8_v_input4 ?>" value="<?= $tl8->$tabel8_field4 ?>">
+                  <input type="hidden" name="<?= $tabel8_field4_input ?>" value="<?= $tl8->$tabel8_field4 ?>">
                 </div>
 
                 <div class="form-group">
@@ -60,11 +60,6 @@ Fitur sedang tahap pengembangan
                 <div class="form-group">
                   <label><?= $tabel8_field6_alias ?></label>
                   <p><?= $tl8->$tabel8_field6 ?></p>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <label><?= $tabel6_field2_alias ?></label>
-                  <p><?= $tl6->$tabel6_field2 ?></p>
                 </div>
                 <hr>
                 <div class="form-group">
@@ -88,12 +83,12 @@ Fitur sedang tahap pengembangan
                 <div class="form-group">
                   <label><?= $tabel8_field9_alias ?></label>
                   <p>Rp <?= number_format($tl8->$tabel8_field9, '2', ',', '.') ?></p>
-                  <input type="hidden" name="<?= $tabel8_v_input1 ?>" value="<?= $tl8->$tabel8_field1 ?>">
+                  <input type="hidden" name="<?= $tabel8_field1_input ?>" value="<?= $tl8->$tabel8_field1 ?>">
                 </div>
 
                 <div class="form-group">
                   <label><?= $tabel10_field5_alias ?></label>
-                  <select class="form-control" required name="<?= $tabel10_v_input5 ?>">
+                  <select class="form-control" required name="<?= $tabel10_field5_input ?>">
                     <option selected hidden value="">Pilih <?= $tabel10_field5_alias ?>...</option>
                     <option value="<?= $tabel10_field5_value1 ?>"><?= $tabel10_field5_value1_alias ?></option>
                     <option value="<?= $tabel10_field5_value2 ?>"><?= $tabel10_field5_value2_alias ?></option>
@@ -102,8 +97,8 @@ Fitur sedang tahap pengembangan
 
                 <div class="form-group">
                   <label><?= $tabel10_field6_alias ?></label>
-                  <input class="form-control" readonly type="number" required name="<?= $tabel10_v_input6 ?>" placeholder="Masukkan <?= $tabel10_field6_alias ?>" value="<?= $tl8->$tabel8_field9 ?>">
-                  <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value3 ?>">
+                  <input class="form-control" readonly type="number" required name="<?= $tabel10_field6_input ?>" placeholder="Masukkan <?= $tabel10_field6_alias ?>" value="<?= $tl8->$tabel8_field9 ?>">
+                  <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value3 ?>">
 
                 </div>
               </div>
@@ -167,12 +162,6 @@ Fitur sedang tahap pengembangan
               <div class="form-group">
                 <label><?= $tabel8_field6_alias ?></label>
                 <p><?= $tl8->$tabel8_field6 ?></p>
-              </div>
-              <hr>
-
-              <div class="form-group">
-                <label><?= $tabel6_field2_alias ?></label>
-                <p><?= $tl6->$tabel6_field2 ?></p>
               </div>
               <hr>
 

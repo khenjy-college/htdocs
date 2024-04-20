@@ -5,23 +5,30 @@ include 'Welcome.php';
 
 class Tabel4 extends Welcome
 {
-	public function index($tabel7_field1 = 1)
+	// Halaman publik
+
+
+	// Halaman khusus akun
+	
+
+	// Halaman admin
+	public function admin($tabel7_field1 = 1)
 	{
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel4_v2_title'],
+			$this->v_part1 => $this->views_v3_title['tabel4_alias'],
 			$this->v_part2 => $this->head,
-			$this->v_part3 => $this->views['tabel4_v2'],
+			$this->v_part3 => $this->views_v3['tabel4'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl4' => $this->tl4->ambildata()->result(),
 			'tbl5' => $this->tl5->ambildata()->result(),
-			'tbl6' => $this->tl6->ambildata()->result()
+			// 'tbl6' => $this->tl6->ambildata()->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v1'], $data);
 	}
@@ -30,8 +37,8 @@ class Tabel4 extends Welcome
 	{
 		$this->declarew();
 
-		$param2 = $this->views['tabel4_v_input2_post'];
-		// $param8 = $this->views['tabel4_v_input8_post'];
+		$param2 = $this->views_post['tabel4_field2'];
+		$param4 = $this->views_post['tabel4_field4'];
 
 		$method2 = $this->tl4->cek_tabel4_field2($param2);
 
@@ -39,40 +46,41 @@ class Tabel4 extends Welcome
 		if ($method2->num_rows() < 1) {
 
 			// jika input konfirm sama dengan input password
-			// if ($this->input->post('konfirm') === $param8) {
-			// $this->load->library('encryption');
+			if ($this->input->post('konfirm') === $param4) {
+			$this->load->library('encryption');
 
 			$data = array(
-				$this->aliases['tabel4_field1'] => $this->views['tabel4_v_input1_post'],
+				$this->aliases['tabel4_field1'] => $this->views_post['tabel4_field1'],
 				$this->aliases['tabel4_field2'] => $param2,
-				$this->aliases['tabel4_field3'] => $this->views['tabel4_v_input3_post'],
-				$this->aliases['tabel4_field4'] => $this->views['tabel4_v_input4_post'],
-				$this->aliases['tabel4_field6'] => $this->views['tabel4_v_input6_post'],
+				$this->aliases['tabel4_field3'] => $this->views_post['tabel4_field3'],
+				// $this->aliases['tabel4_field4'] => $this->views_post['tabel4_field4'],
+				$this->aliases['tabel4_field5'] => $this->views_post['tabel4_field5'],
+				// $this->aliases['tabel4_field6'] => $this->views_post['tabel4_field6'],
 
 				// mengubah password menjadi password berenkripsi
-				// $this->aliases['tabel4_field4'] => password_hash($param8, PASSWORD_DEFAULT),
+				$this->aliases['tabel4_field4'] => password_hash($param4, PASSWORD_DEFAULT),
 
 			);
 
 			$simpan = $this->tl4->simpan($data);
 
 			// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
-			if ($this->session->userdata($this->aliases['tabel4_field3'])) {
+			if ($this->session->userdata($this->aliases['tabel9_field3'])) {
 
-				redirect(site_url('tabel4'));
+				redirect(site_url('tabel4/admin'));
 			} else {
 
 				redirect(site_url('tabel4/login'));
 			}
 
 			// jika input konfirm tidak sama dengan input password
-			// } else {
+			} else {
 
 			// menampilkan flashdata dalam bentuk teks
-			// $this->session->set_flashdata($this->flashdatas['v_flashdata1'], 'Konfirmasi ' . $this->aliases['tabel4_field4'] . ' salah!');
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], 'Konfirmasi ' . $this->aliases['tabel4_field4'] . ' salah!');
 
-			// redirect($_SERVER['HTTP_REFERER']);
-			// }
+			redirect($_SERVER['HTTP_REFERER']);
+			}
 
 			// jika jumlah data lebih dari 0
 		} else {
@@ -92,27 +100,27 @@ class Tabel4 extends Welcome
 
 		$this->declarew();
 
-		$tabel4_field1 = $this->views['tabel4_v_input1_post'];
+		$tabel4_field1 = $this->views_post['tabel4_field1'];
 		
 		$data = array(
-			$this->aliases['tabel4_field1'] => $this->views['tabel4_v_input1_post'],
-			$this->aliases['tabel4_field2'] => $this->views['tabel4_v_input2_post'],
-			$this->aliases['tabel4_field3'] => $this->views['tabel4_v_input3_post'],
-			$this->aliases['tabel4_field4'] => $this->views['tabel4_v_input5_post'],
-			$this->aliases['tabel4_field6'] => $this->views['tabel4_v_input6_post'],
+			$this->aliases['tabel4_field1'] => $this->views_post['tabel4_field1'],
+			$this->aliases['tabel4_field2'] => $this->views_post['tabel4_field2'],
+			$this->aliases['tabel4_field3'] => $this->views_post['tabel4_field3'],
+			$this->aliases['tabel4_field5'] => $this->views_post['tabel4_field5'],
+			// $this->aliases['tabel4_field6'] => $this->views_post['tabel4_field6'],
 		);
 
 		$update = $this->tl4->update($data, $tabel4_field1);
 
 		if ($update) {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel4_v_flashdata1_msg_3']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel4_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel4_v_flashdata1_msg_4']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_2['tabel4_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel4'));
+		redirect(site_url('tabel4/admin'));
 	}
 
 	public function hapus($tabel4_field1 = null)
@@ -122,22 +130,23 @@ class Tabel4 extends Welcome
 		$hapus = $this->tl4->hapus($tabel4_field1);
 
 		if ($hapus) {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel4_v_flashdata1_msg_5']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_3['tabel4_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel4_v_flashdata1_msg_6']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_4['tabel4_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel4'));
+		redirect(site_url('tabel4/admin'));
 	}
 
+	// Cetak semua data
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel4_v3_title'],
+			$this->v_part1 => $this->views_v4_title['tabel4_alias'],
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
@@ -145,28 +154,27 @@ class Tabel4 extends Welcome
 			'tbl4' => $this->tl4->ambildata()->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
-		$this->load->view($this->views['tabel4_v3'], $data);
+		$this->load->view($this->views_v4['tabel4'], $data);
 	}
 
 	public function profil($tabel7_field1 = 1)
 	{
 		$this->declarew();
 
-		$tabel4_field1 = $this->session->userdata($this->aliases['tabel4_field1']);
+		$tabel4_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel9_v1_title'],
+			$this->v_part1 => $this->views_v2_title['tabel4_alias2'],
 			$this->v_part2 => $this->head,
-
-			$this->v_part3 => $this->views['tabel9_v1'],
-			$this->v_part5 => $this->tl12->dekor('tabel9')->result(),
+			$this->v_part3 => $this->views_v2['tabel4'],
+			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
 			$this->v_part4 => $this->v_part4_msg1,
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
-			'tbl9' => $this->tl4->ambil_tabel4_field1($tabel4_field1)->result()
+			'tbl4' => $this->tl4->ambil_tabel4_field1($tabel4_field1)->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v1'], $data);
 	}
@@ -176,16 +184,16 @@ class Tabel4 extends Welcome
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel4_v4_title'],
+			$this->v_part1 => $this->views['tabel4_v9_title'],
 			$this->v_part2 => $this->head,
 			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
 			$this->v_part4 => $this->v_part4_msg1,
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
-		$this->load->view($this->views['tabel4_v4'], $data);
+		$this->load->view($this->views['tabel4_v9'], $data);
 	}
 
 	public function signup($tabel7_field1 = 1)
@@ -200,7 +208,7 @@ class Tabel4 extends Welcome
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v3'], $data);
 	}
@@ -209,13 +217,13 @@ class Tabel4 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel4_field1 = $this->views['tabel4_v_input1_post'];
+		$tabel4_field1 = $this->views_post['tabel4_field1'];
 
 		$data = array(
-			$this->aliases['tabel4_field2'] => $this->views['tabel4_v_input2_post'],
-			$this->aliases['tabel4_field3'] => $this->views['tabel4_v_input3_post'],
-			$this->aliases['tabel4_field4'] => $this->views['tabel4_v_input4_post'],
-			$this->aliases['tabel4_field6'] => $this->views['tabel4_v_input6_post'],
+			$this->aliases['tabel4_field2'] => $this->views_post['tabel4_field2'],
+			$this->aliases['tabel4_field3'] => $this->views_post['tabel4_field3'],
+			$this->aliases['tabel4_field5'] => $this->views_post['tabel4_field5'],
+			// $this->aliases['tabel4_field6'] => $this->views_post['tabel4_field6'],
 		);
 
 		$update = $this->tl4->update($data, $tabel4_field1);
@@ -233,16 +241,14 @@ class Tabel4 extends Welcome
 		// mengambil data profil yang baru dirubah
 		$tabel4 = $this->tl4->ambil_tabel4_field1($tabel4_field1)->result();
 
-		$tabel4_field2 = $tabel4[0]->nama;
-		$tabel4_field3 = $tabel4[0]->email;
-		$tabel4_field4 = $tabel4[0]->hp;
-		$tabel4_field6 = $tabel4[0]->role;
+		$tabel9_field2 = $tabel4[0]->nama;
+		$tabel9_field3 = $tabel4[0]->username;
+		$tabel9_field5 = $tabel4[0]->telp;
 
 		// membuat session baru berdasarkan data yang telah diupdate
-		$this->session->set_userdata($this->aliases['tabel4_field2'], $tabel4_field2);
-		$this->session->set_userdata($this->aliases['tabel4_field3'], $tabel4_field3);
-		$this->session->set_userdata($this->aliases['tabel4_field4'], $tabel4_field4);
-		$this->session->set_userdata($this->aliases['tabel4_field6'], $tabel4_field6);
+		$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
+		$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
+		$this->session->set_userdata($this->aliases['tabel9_field5'], $tabel9_field5);
 
 		// kembali ke halaman sebelumnya sesuai dengan masing-masing petugas dengan level yang berbeda
 		redirect($_SERVER['HTTP_REFERER']);
@@ -252,7 +258,7 @@ class Tabel4 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel4_field1 = $this->views['tabel4_v_input1_post'];
+		$tabel4_field1 = $this->views_post['tabel4_field1'];
 
 		$cek_id = $this->tl4->ambil_tabel4_field1($tabel4_field1);
 
@@ -265,16 +271,16 @@ class Tabel4 extends Welcome
 
 			// memverifikasi password lama dengan password di database
 			if (password_verify($old_tabel4_field4, $cek_tabel4_field4)) {
-				$param8 = $this->views['tabel4_v_input8_post'];
+				$param4 = $this->views_post['tabel4_field4'];
 
 				// jika konfirmasi password sama dengan password baru
-				if ($this->input->post('konfirm') === $param8) {
+				if ($this->input->post('konfirm') === $param4) {
 					$this->load->library('encryption');
 
 					$data = array(
 
 						// mengubah password menjadi password berenkripsi
-						$this->aliases['tabel4_field4'] => password_hash($param8, PASSWORD_DEFAULT),
+						$this->aliases['tabel4_field4'] => password_hash($param4, PASSWORD_DEFAULT),
 					);
 
 					$update = $this->tl4->update($data, $tabel4_field1);
@@ -310,10 +316,10 @@ class Tabel4 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel4_field1 = $this->views['tabel4_v_input1_post'];
-		$param8 = $this->views['tabel4_v_input8_post'];
+		$tabel4_field3 = $this->views_post['tabel4_field3'];
+		$param4 = $this->views_post['tabel4_field4'];
 
-		$method1 = $this->tl4->cek_tabel4_field1($tabel4_field1);
+		$method1 = $this->tl4->cek_tabel4_field3($tabel4_field3);
 
 		// mencari apakah jumlah data kurang dari 0
 		if ($method1->num_rows() > 0) {
@@ -321,24 +327,38 @@ class Tabel4 extends Welcome
 			$method8 = $tabel4[0]->password;
 
 			// memverifikasi password dengan password di database
-			if (password_verify($param8, $method8)) {
-				$tabel4_field1 = $tabel4[0]->id_petugas;
-				$tabel4_field2 = $tabel4[0]->nama;
-				$tabel4_field3 = $tabel4[0]->email;
-				$tabel4_field4 = $tabel4[0]->hp;
-				$tabel4_field6 = $tabel4[0]->level;
+			if (password_verify($param4, $method8)) {
+				$tabel9_field1 = $tabel4[0]->nik;
+				$tabel9_field2 = $tabel4[0]->nama;
+				$tabel9_field3 = $tabel4[0]->username;
+				$tabel9_field5 = $tabel4[0]->telp;
+				$tabel9_field6 = $this->aliases['tabel9_field6_value5'];
 
-				$this->session->set_userdata($this->aliases['tabel4_field1'], $tabel4_field1);
-				$this->session->set_userdata($this->aliases['tabel4_field2'], $tabel4_field2);
-				$this->session->set_userdata($this->aliases['tabel4_field3'], $tabel4_field3);
-				$this->session->set_userdata($this->aliases['tabel4_field4'], $tabel4_field4);
-				$this->session->set_userdata($this->aliases['tabel4_field6'], $tabel4_field6);
+				$this->session->set_userdata($this->aliases['tabel9_field1'], $tabel9_field1);
+				$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
+				$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
+				$this->session->set_userdata($this->aliases['tabel9_field5'], $tabel9_field5);
+				$this->session->set_userdata($this->aliases['tabel9_field6'], $tabel9_field6);
 
 
 				redirect(site_url('welcome'));
 
 				// jika password salah
 			} else {
+
+				// Selama ini hal yang menampilkan pesan hanyalah toast
+				// Di sini aku akan mencoba menerapkan menampilkan modal secara otomatis ketika password salah
+				// Namun nanti hanya ketika password salah saja, melainkan semua proses yang melibatkan elemen modal
+				// Kemungkinan ke depannya bakal ada yang lain juga selain modal dan toast 
+				// Hal ini tentunya akan menggunakan beberapa file diantara lain
+				// Welcome.php, halaman template bagian javascript, dan masing-masing halaman tujuan
+				// Selain itu aku ingin mencoba menerapkannya juga pada button notifikasi jika ada nanti
+				// Supaya bisa menyimpan proses apa saja yang telah selesai dilakukan
+
+				// Dan terakhir, aku perlu menambahkan fungsi flashdata baru selain 'panggil'
+				// Alasannya karena ada banyak sekali jenis pesan yang tidak boleh digunakan dalam satu tempat
+				// Kalau tidak bisa merusak experience dari petugas
+
 
 				$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->aliases['tabel4_field4_alias'] . ' salah!');
 				redirect(site_url('tabel4/login'));
@@ -347,7 +367,7 @@ class Tabel4 extends Welcome
 			// jika jumlah data lebih dari 0
 		} else {
 
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->aliases['tabel4_field1_alias'] . ' tidak tersedia!');
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->aliases['tabel4_field3_alias'] . ' tidak tersedia!');
 			redirect(site_url('tabel4/login'));
 		}
 

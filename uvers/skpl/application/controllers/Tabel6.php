@@ -5,21 +5,45 @@ include 'Welcome.php';
 
 class Tabel6 extends Welcome
 {
+	// Halaman publik
 	public function index($tabel7_field1 = 1)
 	{
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel6_v2_title'],
+			$this->v_part1 => $this->views_v1_title['tabel6_alias'],
 			$this->v_part2 => $this->head,
-			$this->v_part3 => $this->views['tabel6_v2'],
+			$this->v_part3 => $this->views_v1['tabel6'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
-			'tbl6' => $this->tl6->ambildata()->result()
+			// 'tbl6' => $this->tl6->ambildata()->result(),
+			// 'tbl1' => $this->tl1->ambildata()->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
+
+		$this->load->view($this->views['v1'], $data);
+	}
+
+	// Halaman khusus akun
+
+	// Halaman admin
+	public function admin($tabel7_field1 = 1)
+	{
+		$this->declarew();
+
+		$data1 = array(
+			$this->v_part1 => $this->views_v3_title['tabel6_alias'],
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->views_v3['tabel6'],
+			$this->v_part4 => $this->v_part4_msg1,
+			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			// 'tbl6' => $this->tl6->ambildata()->result()
+		);
+
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v1'], $data);
 	}
@@ -29,9 +53,9 @@ class Tabel6 extends Welcome
 		$this->declarew();
 
 		$data = array(
-			$this->aliases['tabel6_field1'] => $this->views['tabel6_v_input1_alt'],
-			$this->aliases['tabel6_field2'] => $this->views['tabel6_v_input2_post'],
-			$this->aliases['tabel6_field3'] => $this->views['tabel6_v_input3_post'],
+			$this->aliases['tabel6_field1'] => '',
+			$this->aliases['tabel6_field2'] => $this->views_post['tabel6_field2'],
+			$this->aliases['tabel6_field3'] => $this->views_post['tabel6_field3'],
 		);
 
 		// $query = 'INSERT INTO tipe_kamar VALUES('.$data.')';
@@ -40,14 +64,14 @@ class Tabel6 extends Welcome
 		// $simpan = $this->tl6->simpan($query);
 
 		if ($simpan) {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel6_v_flashdata1_msg_1']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel6_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel6_v_flashdata1_msg_2']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_2['tabel6_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel6'));
+		redirect(site_url('tabel6/admin'));
 	}
 
 	public function update()
@@ -60,23 +84,23 @@ class Tabel6 extends Welcome
 
 		$this->declarew();
 
-		$tabel6_field1 = $this->views['tabel6_v_input1_post'];
+		$tabel6_field1 = $this->views_post['tabel6_field1'];
 		$data = array(
-			$this->aliases['tabel6_field2'] => $this->views['tabel6_v_input2_post'],
-			$this->aliases['tabel6_field3'] => $this->views['tabel6_v_input3_post'],
+			$this->aliases['tabel6_field2'] => $this->views_post['tabel6_field2'],
+			$this->aliases['tabel6_field3'] => $this->views_post['tabel6_field3'],
 		);
 
 		$update = $this->tl6->update($data, $tabel6_field1);
 
 		if ($update) {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel6_v_flashdata1_msg_3']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_3['tabel6_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel6_v_flashdata1_msg_4']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_4['tabel6_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel6'));
+		redirect(site_url('tabel6/admin'));
 	}
 
 	public function hapus($tabel6_field1 = null)
@@ -86,57 +110,38 @@ class Tabel6 extends Welcome
 		$tabel6 = $this->tl6->ambil_tabel6_field1($tabel6_field1)->result();
 		$tabel6_field3 = $tabel6[0]->img;
 
-		unlink($this->views['tabel6_v_input3_upload_path'] . $tabel6_field3);
+		unlink($this->views['tabel6_field3_upload_path'] . $tabel6_field3);
 		$hapus = $this->tl6->hapus($tabel6_field1);
 
 		if ($hapus) {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel6_v_flashdata1_msg_5']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_5['tabel6_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel6_v_flashdata1_msg_6']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_6['tabel6_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel6'));
+		redirect(site_url('tabel6/admin'));
 	}
 
+	// Cetak semua data
 	public function laporan($tabel7_field1 = 1)
 	{
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel6_v3_title'],
+			$this->v_part1 => $this->views_v4_title['tabel6_alias'],
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
-			'tbl6' => $this->tl6->ambildata()->result()
+			// 'tbl6' => $this->tl6->ambildata()->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
-		$this->load->view($this->views['tabel6_v3'], $data);
+		$this->load->view($this->views_v4['tabel6'], $data);
 	}
 
-	public function tipe_kamar($tabel7_field1 = 1)
-	{
-		$this->declarew();
-
-		$data1 = array(
-			$this->v_part1 => $this->views['tabel6_v1_title'],
-			$this->v_part2 => $this->head,
-			$this->v_part3 => $this->views['tabel6_v1'],
-			$this->v_part4 => $this->v_part4_msg1,
-			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
-			'tbl6' => $this->tl6->ambildata()->result(),
-			'tbl1' => $this->tl1->ambildata()->result()
-		);
-
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
-
-		$this->load->view($this->views['v1'], $data);
-	}
-
-
+	// Cetak satu data
 }

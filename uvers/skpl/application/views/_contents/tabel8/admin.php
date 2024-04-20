@@ -24,7 +24,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Dari</span>
           </div>
-          <input type="date" class="form-control" name="<?= $tabel8_v_input10_filter1 ?>" value="<?= $tabel8_v_input10_filter1_value ?>">
+          <input type="date" class="form-control" name="<?= $tabel8_field10_filter1 ?>" value="<?= $tabel8_field10_filter1_value ?>">
         </div>
       </td>
       <td class="pr-2">
@@ -32,7 +32,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Ke</span>
           </div>
-          <input type="date" class="form-control" name="<?= $tabel8_v_input10_filter2 ?>" value="<?= $tabel8_v_input10_filter2_value ?>">
+          <input type="date" class="form-control" name="<?= $tabel8_field10_filter2 ?>" value="<?= $tabel8_field10_filter2_value ?>">
         </div>
       </td>
 
@@ -40,7 +40,7 @@
         <button class="btn btn-success" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-danger" type="button" href="<?= site_url('tabel8') ?>">
+        <a class="btn btn-danger" type="button" href="<?= site_url('tabel8/admin') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
 
@@ -57,7 +57,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Dari</span>
           </div>
-          <input type="date" class="form-control" name="<?= $tabel8_v_input11_filter1 ?>" value="<?= $tabel8_v_input11_filter1_value ?>">
+          <input type="date" class="form-control" name="<?= $tabel8_field11_filter1 ?>" value="<?= $tabel8_field11_filter1_value ?>">
 
         </div>
       </td>
@@ -66,7 +66,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Ke</span>
           </div>
-          <input type="date" class="form-control" name="<?= $tabel8_v_input11_filter2 ?>" value="<?= $tabel8_v_input11_filter2_value ?>">
+          <input type="date" class="form-control" name="<?= $tabel8_field11_filter2 ?>" value="<?= $tabel8_field11_filter2_value ?>">
         </div>
 
       </td>
@@ -158,20 +158,20 @@
                     <div class="form-group">
                       <label><?= $tabel8_field1_alias ?></label>
                       <p><?= $tl8->$tabel8_field1 ?></p>
-                      <input type="hidden" name="<?= $tabel8_v_input1 ?>" value="<?= $tl8->$tabel8_field1; ?>">
-                      <input type="hidden" name="<?= $tabel8_v_input7 ?>" value="<?= $tl8->$tabel8_field7; ?>">
+                      <input type="hidden" name="<?= $tabel8_field1_input ?>" value="<?= $tl8->$tabel8_field1; ?>">
+                      <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl8->$tabel8_field7; ?>">
 
                       <!-- input status berdasarkan nilai status -->
                       <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
                       <?php switch ($tl8->$tabel8_field12) {
                         case $tabel8_field12_value2: ?>
-                          <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value3 ?>">
+                          <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value3 ?>">
                         <?php break;
                         case $tabel8_field12_value3: ?>
-                          <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value4 ?>">
+                          <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value4 ?>">
                         <?php break;
                         case $tabel8_field12_value4: ?>
-                          <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value5 ?>">
+                          <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value5 ?>">
                       <?php break;
                       } ?>
 
@@ -201,12 +201,6 @@
                     <div class="form-group">
                       <label><?= $tabel8_field6_alias ?></label>
                       <p><?= $tl8->$tabel8_field6 ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel6_field2_alias ?></label>
-                      <p><?= $tl6->$tabel6_field2 ?></p>
                     </div>
                     <hr>
 
@@ -276,22 +270,22 @@
                     <div class="form-group">
                       <label><?= $tabel8_field1_alias ?></label>
                       <p><?= $tl8->$tabel8_field1 ?></p>
-                      <input type="hidden" name="<?= $tabel8_v_input1 ?>" value="<?= $tl8->$tabel8_field1; ?>">
-                      <input type="hidden" name="<?= $tabel8_v_input7 ?>" value="<?= $tl8->$tabel8_field7; ?>">
+                      <input type="hidden" name="<?= $tabel8_field1_input ?>" value="<?= $tl8->$tabel8_field1; ?>">
+                      <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl8->$tabel8_field7; ?>">
 
                       <!-- input status berdasarkan nilai status -->
                       <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pesanan -->
                       <?php switch ($tl8->$tabel8_field12) {
                         case $tabel8_field12_value2: ?>
-                          <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value3 ?>">
+                          <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value3 ?>">
 
                         <?php break;
                         case $tabel8_field12_value3: ?>
-                          <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value4 ?>">
+                          <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value4 ?>">
 
                         <?php break;
                         case $tabel8_field12_value4: ?>
-                          <input type="hidden" name="<?= $tabel8_v_input12 ?>" value=<?= $tabel8_field12_value5 ?>>
+                          <input type="hidden" name="<?= $tabel8_field12_input ?>" value=<?= $tabel8_field12_value5 ?>>
 
                       <?php break;
                       } ?>
@@ -324,13 +318,6 @@
                       <p><?= $tl8->$tabel8_field6 ?></p>
                     </div>
                     <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel6_field2_alias ?></label>
-                      <p><?= $tl6->$tabel6_field2 ?></p>
-                    </div>
-                    <hr>
-
                     <div class="form-group">
                       <label><?= $tabel8_field10_alias ?></label>
                       <p><?= $tl8->$tabel8_field10 ?></p>
@@ -351,12 +338,6 @@
 
                       <div class="row">
 
-                        <!-- <select class="form-control" required name="<?= $tabel8_v_input13 ?>"> -->
-                        <!-- menampilkan nilai id_tipe kamar yang aktif -->
-                        <!-- <option selected hidden value="">Pilih <?= $tabel5_field1_alias ?>:</option> -->
-                        <!-- <option value="<?= $tl5->$tabel8_field13 ?>"><?= $tl5->$tabel8_field13; ?> - <?= $tl6->$tabel6_field2 ?></option> -->
-                        <!-- </select> -->
-
                         <?php foreach ($tbl5 as $tl5) :
                           if ($tl8->$tabel8_field7 == $tl5->$tabel8_field7) {
                             if ($tl5->$tabel8_field7 == $tl6->$tabel8_field7) {
@@ -373,7 +354,7 @@
                                         <div class="btn-group-toggle" data-toggle="buttons">
                                           <label class="btn btn-primary">
 
-                                            <input type="checkbox" name="<?= $tabel8_v_input13 ?>" id="option1" 
+                                            <input type="checkbox" name="<?= $tabel8_field13_input ?>" id="option1" 
                                             class="checkbox-option form-control-lg" 
                                             value="<?= $tl5->$tabel5_field1 ?>" required>
 
@@ -383,7 +364,7 @@
                                       </div>
 
                                       <!-- <div style="margin-bottom: 20px;" class="form-check d-flex justify-content-center">
-                                        <input class="custom-radio form-check-input" type="radio" id="radio_1" name="<?= $tabel8_v_input13 ?>" value="<?= $tl5->$tabel8_field13 ?>" required>
+                                        <input class="custom-radio form-check-input" type="radio" id="radio_1" name="<?= $tabel8_field13_input ?>" value="<?= $tl5->$tabel8_field13 ?>" required>
                                       </div> -->
 
                                     </div>
@@ -401,7 +382,7 @@
 
 
                       <p>*Jika tidak ada, berarti semua <?= $tabel5_alias ?> full</p>
-                      <input type="hidden" name="<?= $tabel8_v_input12 ?>" value="<?= $tabel8_field12_value2 ?>">
+                      <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value2 ?>">
                     </div>
                   </div>
                 </div>

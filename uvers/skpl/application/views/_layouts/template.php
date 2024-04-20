@@ -84,7 +84,7 @@ switch (true) {
                   <label>
                     <?= $tabel8_field1_alias ?>
                   </label>
-                  <input class="form-control" type="text" required name="<?= $tabel8_v_input1 ?>"
+                  <input class="form-control" type="text" required name="<?= $tabel8_field1_input ?>"
                     placeholder="Masukkan <?= $tabel8_field1_alias ?>">
                 </div>
 
@@ -92,7 +92,7 @@ switch (true) {
                   <label>
                     <?= $tabel8_field4_alias ?>
                   </label>
-                  <input class="form-control" type="email" required name="<?= $tabel8_v_input4 ?>"
+                  <input class="form-control" type="email" required name="<?= $tabel8_field4_input ?>"
                     placeholder="Masukkan <?= $tabel8_field4_alias ?> Anda">
                 </div>
               </div>
@@ -156,8 +156,8 @@ switch (true) {
                 <ul class="list-unstyled">
                   <li>
                     <a type="button" id="nextPage" class="text-decoration-none text-dark"
-                      href="<?= site_url('tabel6/' . $tabel6) ?>">
-                      <?= $tabel6_alias ?>
+                      href="<?= site_url('tabel5/admin') ?>">
+                      <?= $tabel5_alias ?>
                     </a>
                   </li>
                 </ul>
@@ -247,7 +247,6 @@ switch (true) {
         <?= $this->session->flashdata('maintenance') ?>
         <?= $this->session->flashdata('clean') ?>
         <?= $this->session->flashdata('book') ?>
-        <?= $this->session->flashdata($tabel10_field6) ?>
         <?= $this->session->flashdata('cari') ?>
         //  $this->session->flashdata('quickTour') ?>
 
@@ -382,39 +381,6 @@ switch (true) {
       });
     </script>
 
-    <script>
-      var ctx = document.getElementById('myChart_tabel8_tabel2').getContext('2d');
-      var chartDataTabel8 = <?= $chart_tabel8 ?> // Data passed from controller
-
-      var labelsTabel8 = chartDataTabel8.map(function (item) {
-        return item.label;
-      });
-
-      var valuesTabel8 = chartDataTabel8.map(function (item) {
-        return item.value;
-      });
-
-      var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labelsTabel8,
-          datasets: [{
-            label: 'Jumlah <?= $tabel8_alias ?> Aktif',
-            data: valuesTabel8,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-    </script>
 
     <!-- JavaScript for toggling chatbot visibility -->
     <script>
