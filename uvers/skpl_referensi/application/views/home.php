@@ -6,20 +6,20 @@
   case $tabel9_field6_value5: ?>
 
     <!-- method get supaya nilai dari form bisa tampil nanti (tidak langsung masuk ke database) -->
-    <form action="<?= site_url('tabel8/pemesanan') ?>" method="get">
+    <!-- <form action="<?= site_url('tabel8') ?>" method="get">
       <div id="tour2" class="row justify-content-center align-items-end mt-2">
         <div class="col-md-2">
           <div class="form-group">
             <label><?= $tabel8_field10_alias ?></label>
-            <input id="<?= $$tabel8_field10 ?>_date" class="form-control" type="date" required oninput="myFunction()"
-              name="<?= $tabel8_v_input10 ?>" min="<?= date('Y-m-d'); ?>">
+            <input id="<?= $tabel8_field10 ?>_date" class="form-control" type="date" required oninput="myFunction()"
+              name="<?= $tabel8_field10_input ?>" min="<?= date('Y-m-d'); ?>">
           </div>
         </div>
 
         <div class="col-md-2">
           <div class="form-group">
             <label><?= $tabel8_field11_alias ?></label>
-            <input id="<?= $tabel8_field11 ?>_date" class="form-control" type="date" required name="<?= $tabel8_v_input11 ?>"
+            <input id="<?= $tabel8_field11 ?>_date" class="form-control" type="date" required name="<?= $tabel8_field11_input ?>"
               min="<?= date('Y-m-d', strtotime("+1 day")); ?>">
           </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="col-md-2">
           <div class="form-group">
             <label><?= $tabel8_field8_alias ?></label>
-            <input class="form-control" readonly type="number" required name="<?= $tabel8_v_input8 ?>" min="1" max="10"
+            <input class="form-control" readonly type="number" required name="<?= $tabel8_field8_input ?>" min="1" max="10"
               value="1">
           </div>
         </div>
@@ -38,7 +38,7 @@
           </div>
         </div>
       </div>
-    </form>
+    </form> -->
     <?php break;
 
   default: ?>
@@ -95,7 +95,7 @@ Tapi ketika user sudah login saja, jika tidak, maka menampilkan tombol login -->
 
 <script>
   function myFunction() {
-    let x = document.getElementById("<?= $$tabel8_field10 ?>_date").value;
+    let x = document.getElementById("<?= $tabel8_field10 ?>_date").value;
 
     // Create a Date object with the value from cek_in_date
     let startDate = new Date(x);
@@ -107,8 +107,8 @@ Tapi ketika user sudah login saja, jika tidak, maka menampilkan tombol login -->
     let formattedDate = startDate.toISOString().split('T')[0];
 
 
-    document.getElementById("<?= $$tabel8_field11 ?>_date").min = formattedDate;
-    document.getElementById("<?= $$tabel8_field11 ?>_date").value = formattedDate;
+    document.getElementById("<?= $tabel8_field11 ?>_date").min = formattedDate;
+    document.getElementById("<?= $tabel8_field11 ?>_date").value = formattedDate;
 
   }
 </script>

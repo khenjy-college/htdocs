@@ -4,21 +4,22 @@ include 'Welcome.php';
 
 class Tabel9 extends Welcome
 {
-	public function index($tabel7_field1 = 1)
+	// Halaman admin
+	public function admin($tabel7_field1 = 1)
 	{
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel9_v2_title'],
+			$this->v_part1 => $this->views_v3_title['tabel9_alias'],
 			$this->v_part2 => $this->head,
-			$this->v_part3 => $this->views['tabel9_v2'],
+			$this->v_part3 => $this->views_v3['tabel9'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel9')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl9' => $this->tl9->ambildata()->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v1'], $data);
 	}
@@ -27,8 +28,8 @@ class Tabel9 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel9_field3 = $this->views['tabel9_v_input3_post'];
-		$tabel9_field4 = $this->views['tabel9_v_input4_post'];
+		$tabel9_field3 = $this->views_post['tabel9_field3'];
+		$tabel9_field4 = $this->views_post['tabel9_field4'];
 
 		$method3 = $this->tl9->cek_tabel9_field3($tabel9_field3);
 
@@ -40,14 +41,15 @@ class Tabel9 extends Welcome
 				$this->load->library('encryption');
 
 				$data = array(
-					$this->aliases['tabel9_field2'] => $this->views['tabel9_v_input2_post'],
-					$this->aliases['tabel9_field3'] => $this->views['tabel9_v_input3_post'],
+					$this->aliases['tabel9_field1'] => '',
+					$this->aliases['tabel9_field2'] => $this->views_post['tabel9_field2'],
+					$this->aliases['tabel9_field3'] => $this->views_post['tabel9_field3'],
 
 					// mengubah password menjadi password berenkripsi
 					$this->aliases['tabel9_field4'] => password_hash($tabel9_field4, PASSWORD_DEFAULT),
 
-					$this->aliases['tabel9_field5'] => $this->views['tabel9_v_input5_post'],
-					$this->aliases['tabel9_field6'] => $this->views['tabel9_v_input6_post'],
+					$this->aliases['tabel9_field5'] => $this->views_post['tabel9_field5'],
+					$this->aliases['tabel9_field6'] => $this->views_post['tabel9_field6'],
 				);
 
 				$simpan = $this->tl9->simpan($data);
@@ -55,7 +57,7 @@ class Tabel9 extends Welcome
 				// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
 				if ($this->session->userdata($this->aliases['tabel9_field3'])) {
 
-					redirect(site_url('tabel9'));
+					redirect(site_url('tabel9/admin'));
 				} else {
 
 					redirect(site_url('tabel9/login'));
@@ -82,22 +84,22 @@ class Tabel9 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->views['tabel9_v_input1_post'];
+		$tabel9_field1 = $this->views_post['tabel9_field1'];
 		$data = array(
-			$this->aliases['tabel9_field2'] => $this->views['tabel9_v_input2_post'],
-			$this->aliases['tabel9_field3'] => $this->views['tabel9_v_input3_post'],
-			$this->aliases['tabel9_field5'] => $this->views['tabel9_v_input5_post'],
+			$this->aliases['tabel9_field2'] => $this->views_post['tabel9_field2'],
+			$this->aliases['tabel9_field3'] => $this->views_post['tabel9_field3'],
+			$this->aliases['tabel9_field5'] => $this->views_post['tabel9_field5'],
 		);
 
 		$update = $this->tl9->update($data, $tabel9_field1);
 
 		if ($update) {
 
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel9_v_flashdata1_msg_3']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_3['tabel9_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
 
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel9_v_flashdata1_msg_4']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_4['tabel9_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
@@ -114,16 +116,16 @@ class Tabel9 extends Welcome
 
 		if ($hapus) {
 
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel9_v_flashdata1_msg_5']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_5['tabel9_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
 
-			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel9_v_flashdata1_msg_6']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_6['tabel9_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
 
-		redirect(site_url('tabel9'));
+		redirect(site_url('tabel9/admin'));
 	}
 
 
@@ -132,7 +134,7 @@ class Tabel9 extends Welcome
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel9_v3_title'],
+			$this->v_part1 => $this->views_v4_title['tabel9_alias'],
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel9')->result(),
@@ -140,9 +142,9 @@ class Tabel9 extends Welcome
 			'tbl9' => $this->tl9->ambildata()->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
-		$this->load->view($this->views['tabel9_v3'], $data);
+		$this->load->view($this->views_v4['tabel9'], $data);
 	}
 
 
@@ -152,16 +154,16 @@ class Tabel9 extends Welcome
 
 		$tabel9_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
 		$data1 = array(
-			$this->v_part1 => $this->views['tabel9_v1_title'],
+			$this->v_part1 => $this->views_v2_title['tabel9_alias2'],
 			$this->v_part2 => $this->head,
-			$this->v_part3 => $this->views['tabel9_v1'],
+			$this->v_part3 => $this->views_v2['tabel9'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel9')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl9' => $this->tl9->ambil_tabel9_field1($tabel9_field1)->result()
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v1'], $data);
 	}
@@ -171,14 +173,14 @@ class Tabel9 extends Welcome
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['v2_title'],
+			$this->v_part1 => $this->views['v2'],
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('v2')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v2'], $data);
 	}
@@ -188,14 +190,14 @@ class Tabel9 extends Welcome
 		$this->declarew();
 
 		$data1 = array(
-			$this->v_part1 => $this->views['v2_title'],
+			$this->v_part1 => $this->views['v2'],
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('v2')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
-		$data = array_merge($data1, $this->aliases, $this->views, $this->flashdatas);
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v2'], $data);
 	}
@@ -204,11 +206,11 @@ class Tabel9 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->views['tabel9_v_input1_post'];
+		$tabel9_field1 = $this->views_post['tabel9_field1'];
 		$data = array(
-			$this->aliases['tabel9_field2'] => $this->views['tabel9_v_input2_post'],
-			$this->aliases['tabel9_field3'] => $this->views['tabel9_v_input3_post'],
-			$this->aliases['tabel9_field5'] => $this->views['tabel9_v_input5_post'],
+			$this->aliases['tabel9_field2'] => $this->views_post['tabel9_field2'],
+			$this->aliases['tabel9_field3'] => $this->views_post['tabel9_field3'],
+			$this->aliases['tabel9_field5'] => $this->views_post['tabel9_field5'],
 		);
 
 		$update = $this->tl9->update($data, $tabel9_field1);
@@ -226,13 +228,15 @@ class Tabel9 extends Welcome
 		// mengambil data profil yang baru dirubah
 		$tabel9 = $this->tl9->ambil_tabel9_field1($tabel9_field1)->result();
 		$tabel9_field2 = $tabel9[0]->nama;
-		$tabel9_field3 = $tabel9[0]->username;
-		$tabel9_field5 = $tabel9[0]->id_outlet;
+		$tabel9_field3 = $tabel9[0]->nohp;
+		$tabel9_field5 = $tabel9[0]->kd_transaksi;
+		$tabel9_field8 = $tabel9[0]->alamat;
 
 		// membuat session baru berdasarkan data yang telah diupdate
 		$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
 		$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
 		$this->session->set_userdata($this->aliases['tabel9_field5'], $tabel9_field5);
+		$this->session->set_userdata($this->aliases['tabel9_field8'], $tabel9_field8);
 
 		// kembali ke halaman sebelumnya sesuai dengan masing-masing user dengan level yang berbeda
 		redirect($_SERVER['HTTP_REFERER']);
@@ -242,7 +246,7 @@ class Tabel9 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->views['tabel9_v_input1_post'];
+		$tabel9_field1 = $this->views_post['tabel9_field1'];
 
 		$cek_id = $this->tl9->ambil_tabel9_field1($tabel9_field1);
 
@@ -251,11 +255,11 @@ class Tabel9 extends Welcome
 			$tabel9 = $cek_id->result();
 			$cek_tabel9_field4 = $tabel9[0]->password;
 
-			$old_tabel9_field4 = $this->views['tabel9_v_input4_old_post'];
+			$old_tabel9_field4 = $this->views_post['tabel9_field4_old'];
 
 			// memverifikasi password lama dengan password di database
 			if (password_verify($old_tabel9_field4, $cek_tabel9_field4)) {
-				$tabel9_field4 = $this->views['tabel9_v_input4_post'];
+				$tabel9_field4 = $this->views_post['tabel9_field4'];
 
 				// jika konfirmasi password sama dengan password baru
 				if ($this->input->post('konfirm') === $tabel9_field4) {
@@ -300,8 +304,8 @@ class Tabel9 extends Welcome
 	{
 		$this->declarew();
 
-		$tabel9_field3 = $this->views['tabel9_v_input3_post'];
-		$tabel9_field4 = $this->views['tabel9_v_input4_post'];
+		$tabel9_field3 = $this->views_post['tabel9_field3'];
+		$tabel9_field4 = $this->views_post['tabel9_field4'];
 
 		$method3 = $this->tl9->cek_tabel9_field3($tabel9_field3);
 
@@ -312,11 +316,12 @@ class Tabel9 extends Welcome
 
 			// memverifikasi password dengan password di database
 			if (password_verify($tabel9_field4, $method4)) {
-				$tabel9_field1 = $tabel9[0]->id_user;
+				$tabel9_field1 = $tabel9[0]->kd_karyawan;
 				$tabel9_field2 = $tabel9[0]->nama;
-				$tabel9_field3 = $tabel9[0]->username;
-				$tabel9_field5 = $tabel9[0]->id_outlet;
+				$tabel9_field3 = $tabel9[0]->nohp;
+				$tabel9_field5 = $tabel9[0]->kd_transaksi;
 				$tabel9_field6 = $tabel9[0]->role;
+				$tabel9_field8 = $tabel9[0]->alamat;
 
 				$updateCount = $this->tl9->updateCount($tabel9_field1);
 
@@ -325,11 +330,25 @@ class Tabel9 extends Welcome
 				$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
 				$this->session->set_userdata($this->aliases['tabel9_field5'], $tabel9_field5);
 				$this->session->set_userdata($this->aliases['tabel9_field6'], $tabel9_field6);
+				$this->session->set_userdata($this->aliases['tabel9_field8'], $tabel9_field8);
 
 				redirect(site_url('welcome'));
 
 				// jika password salah
 			} else {
+
+				// Selama ini hal yang menampilkan pesan hanyalah toast
+				// Di sini aku akan mencoba menerapkan menampilkan modal secara otomatis ketika password salah
+				// Namun nanti hanya ketika password salah saja, melainkan semua proses yang melibatkan elemen modal
+				// Kemungkinan ke depannya bakal ada yang lain juga selain modal dan toast 
+				// Hal ini tentunya akan menggunakan beberapa file diantara lain
+				// Welcome.php, halaman template bagian javascript, dan masing-masing halaman tujuan
+				// Selain itu aku ingin mencoba menerapkannya juga pada button notifikasi jika ada nanti
+				// Supaya bisa menyimpan proses apa saja yang telah selesai dilakukan
+
+				// Dan terakhir, aku perlu menambahkan fungsi flashdata baru selain 'panggil'
+				// Alasannya karena ada banyak sekali jenis pesan yang tidak boleh digunakan dalam satu tempat
+				// Kalau tidak bisa merusak experience dari user
 
 				$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->aliases['tabel9_field4'] . ' salah!');
 				redirect(site_url('tabel9/login'));

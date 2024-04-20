@@ -14,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tugas.Database
+import com.example.tugas.MainActivity
 import com.example.tugas.R
-import com.example.tugas.tabel6.Tabel6MainActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 @Suppress("NAME_SHADOWING")
@@ -45,7 +45,7 @@ class Tabel7MainActivity : AppCompatActivity() {
 
         back = findViewById(R.id.backButton)
         back.setOnClickListener {
-            startActivity(Intent(this, Tabel7MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         val fab: FloatingActionButton = findViewById(R.id.fabTabel7)

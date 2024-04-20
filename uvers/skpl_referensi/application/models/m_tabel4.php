@@ -23,9 +23,9 @@ class M_tabel4 extends CI_Model
 		return $this->db->get($this->aliases['tabel4']);
 	}
 
-	public function cek_tabel4_field2($param1)
+	public function cek_tabel4_field3($param1)
 	{
-		$this->db->where($this->aliases['tabel4_field2'], $param1);
+		$this->db->where($this->aliases['tabel4_field3'], $param1);
 		$this->db->order_by($this->aliases['tabel4_field1'], 'DESC');
 		return $this->db->get($this->aliases['tabel4']);
 	}

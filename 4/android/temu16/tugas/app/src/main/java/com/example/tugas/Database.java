@@ -1,159 +1,93 @@
 package com.example.tugas;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class Database extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "YourDatabaseName.db";
+    private static final String DATABASE_NAME = "uas.db";
     private static final int DATABASE_VERSION = 1;
+    private final Context context;
 
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Table 5: kamar
-        String createTableKamar = "CREATE TABLE kamar (" +
-                "no_kamar TEXT," +
-                "id_tipe INTEGER," +
-                "id_pesanan INTEGER," +
-                "status TEXT," +
-                "keterangan TEXT" +
-                ")";
-        db.execSQL(createTableKamar);
 
-        // Table 6: tipe_kamar
-        String createTableTipeKamar = "CREATE TABLE tipe_kamar (" +
-                "id_tipe INTEGER," +
-                "tipe TEXT," +
-                "img TEXT," +
-                "stok INTEGER," +
-                "harga REAL" +
-                ")";
-        db.execSQL(createTableTipeKamar);
+        String sql5 = "CREATE TABLE " + context.getString(R.string.tabel5) + " (" +
+                context.getString(R.string.tabel5field1) + " INTEGER, " +
+                context.getString(R.string.tabel5field2) + " INTEGER, " +
+                context.getString(R.string.tabel5field3) + " INTEGER, " +
+                context.getString(R.string.tabel5field4) + " TEXT, " +
+                context.getString(R.string.tabel5field5) + " TEXT);";
 
-        // Table 7: pengaturan
-        String createTablePengaturan = "CREATE TABLE pengaturan (" +
-                "id INTEGER," +
-                "nama TEXT," +
-                "favicon TEXT," +
-                "logo TEXT," +
-                "foto TEXT," +
-                "alamat TEXT," +
-                "email TEXT," +
-                "hp TEXT," +
-                "metadesc TEXT," +
-                "fb TEXT," +
-                "ig TEXT," +
-                "id_event INTEGER" +
-                ")";
-        db.execSQL(createTablePengaturan);
+        String sql6 = "CREATE TABLE " + context.getString(R.string.tabel6) + " (" +
+                context.getString(R.string.tabel6field1) + " INTEGER, " +
+                context.getString(R.string.tabel6field2) + " TEXT, " +
+                context.getString(R.string.tabel6field3) + " TEXT, " +
+                context.getString(R.string.tabel6field4) + " TEXT);";
 
-        // Table 8: pesanan
-        String createTablePesanan = "CREATE TABLE pesanan (" +
-                "id_pesanan INTEGER," +
-                "id_user INTEGER," +
-                "pemesan TEXT," +
-                "email TEXT," +
-                "hp TEXT," +
-                "tamu INTEGER," +
-                "id_tipe_kamar INTEGER," +
-                "jlh INTEGER," +
-                "harga_total REAL," +
-                "cek_in TEXT," +
-                "cek_out TEXT," +
-                "status TEXT," +
-                "no_kamar TEXT" +
-                ")";
-        db.execSQL(createTablePesanan);
+        String sql7 = "CREATE TABLE " + context.getString(R.string.tabel7) + " (" +
+                context.getString(R.string.tabel7field1) + " INTEGER, " +
+                context.getString(R.string.tabel7field2) + " TEXT, " +
+                context.getString(R.string.tabel7field3) + " TEXT, " +
+                context.getString(R.string.tabel7field4) + " TEXT, " +
+                context.getString(R.string.tabel7field5) + " TEXT, " +
+                context.getString(R.string.tabel7field6) + " TEXT, " +
+                context.getString(R.string.tabel7field7) + " TEXT, " +
+                context.getString(R.string.tabel7field8) + " TEXT, " +
+                context.getString(R.string.tabel7field9) + " TEXT, " +
+                context.getString(R.string.tabel7field10) + " TEXT, " +
+                context.getString(R.string.tabel7field11) + " TEXT, " +
+                context.getString(R.string.tabel7field12) + " TEXT);";
 
-        // Table 9: user
-        String createTableUser = "CREATE TABLE user (" +
-                "id_user INTEGER," +
-                "nama TEXT," +
-                "email TEXT," +
-                "password TEXT," +
-                "hp TEXT," +
-                "level INTEGER," +
-                "login_count INTEGER" +
-                ")";
-        db.execSQL(createTableUser);
+        String sql8 = "CREATE TABLE " + context.getString(R.string.tabel8) + " (" +
+                context.getString(R.string.tabel8field1) + " INTEGER, " +
+                context.getString(R.string.tabel8field2) + " INTEGER, " +
+                context.getString(R.string.tabel8field3) + " TEXT, " +
+                context.getString(R.string.tabel8field4) + " TEXT, " +
+                context.getString(R.string.tabel8field5) + " TEXT, " +
+                context.getString(R.string.tabel8field6) + " TEXT, " +
+                context.getString(R.string.tabel8field7) + " INTEGER, " +
+                context.getString(R.string.tabel8field8) + " TEXT, " +
+                context.getString(R.string.tabel8field9) + " TEXT, " +
+                context.getString(R.string.tabel8field10) + " TEXT, " +
+                context.getString(R.string.tabel8field11) + " TEXT, " +
+                context.getString(R.string.tabel8field12) + " TEXT, " +
+                context.getString(R.string.tabel8field13) + " TEXT);";
 
+        String sql9 = "CREATE TABLE " + context.getString(R.string.tabel9) + " (" +
+                context.getString(R.string.tabel8field1) + " INTEGER, " +
+                context.getString(R.string.tabel8field2) + " INTEGER, " +
+                context.getString(R.string.tabel8field3) + " TEXT, " +
+                context.getString(R.string.tabel8field4) + " TEXT, " +
+                context.getString(R.string.tabel8field5) + " TEXT, " +
+                context.getString(R.string.tabel8field6) + " TEXT, " +
+                context.getString(R.string.tabel8field7) + " INTEGER);";
+
+
+        // Add more table creations using other string resources as needed
+
+        Log.d("Data", "onCreate: " + sql5);
+        Log.d("Data", "onCreate: " + sql6);
+        Log.d("Data", "onCreate: " + sql7);
+        Log.d("Data", "onCreate: " + sql8);
+        Log.d("Data", "onCreate: " + sql9);
+
+        db.execSQL(sql5);
+        db.execSQL(sql6);
+        db.execSQL(sql7);
+        db.execSQL(sql8);
+        db.execSQL(sql9);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop older tables if existed
-        db.execSQL("DROP TABLE IF EXISTS kamar");
-        db.execSQL("DROP TABLE IF EXISTS tipe_kamar");
-        db.execSQL("DROP TABLE IF EXISTS pengaturan");
-        db.execSQL("DROP TABLE IF EXISTS pesanan");
-        db.execSQL("DROP TABLE IF EXISTS user");
-
-
-        // Create tables again
-        onCreate(db);
-    }
-
-    // Example method to demonstrate how to call insert methods
-    public void insertDataIntoTables(Context context) {
-        // Create an instance of your Database class
-        Database database = new Database(context);
-
-        // Open the database for writing
-        SQLiteDatabase db = database.getWritableDatabase();
-
-        // Insert data into the kamar table
-        long kamarRowId = database.insertDataIntoKamar("101", 1, 1, "available", "Standard room");
-        // Check if insertion was successful
-        if (kamarRowId != -1) {
-            // Data inserted successfully
-        } else {
-            // Failed to insert data
-        }
-
-        // Insert data into the tipe_kamar table
-        long tipeKamarRowId = database.insertDataIntoTipeKamar(1, "Standard", "standard_img.jpg", 10, 50.0);
-        // Check if insertion was successful
-        if (tipeKamarRowId != -1) {
-            // Data inserted successfully
-        } else {
-            // Failed to insert data
-        }
-
-        // Close the database connection
-        db.close();
-    }
-
-    // Method to insert data into kamar table
-    public long insertDataIntoKamar(String noKamar, int idTipe, int idPesanan, String status, String keterangan) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("no_kamar", noKamar);
-        values.put("id_tipe", idTipe);
-        values.put("id_pesanan", idPesanan);
-        values.put("status", status);
-        values.put("keterangan", keterangan);
-        long newRowId = db.insert("kamar", null, values);
-        db.close();
-        return newRowId;
-    }
-
-    // Method to insert data into tipe_kamar table
-    public long insertDataIntoTipeKamar(int idTipe, String tipe, String img, int stok, double harga) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("id_tipe", idTipe);
-        values.put("tipe", tipe);
-        values.put("img", img);
-        values.put("stok", stok);
-        values.put("harga", harga);
-        long newRowId = db.insert("tipe_kamar", null, values);
-        db.close();
-        return newRowId;
+        // Implement if needed
     }
 }

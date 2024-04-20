@@ -30,14 +30,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" name="<?= $tabel9_v_input3 ?>" placeholder="Masukkan <?= $tabel9_field3_alias ?>">
+            <input class="form-control" type="text" name="<?= $tabel9_field3_input ?>" placeholder="Masukkan <?= $tabel9_field3_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input class="form-control" type="password" name="<?= $tabel9_v_input4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>">
+            <input class="form-control" type="password" name="<?= $tabel9_field4_input ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>">
           </div>
 
           <!-- <p class="text-center"><a class="text-decoration-none" href="<?= site_url('tabel4/login') ?>">Login sebagai <?= $tabel4_alias ?></a></p> -->

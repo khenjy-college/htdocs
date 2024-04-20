@@ -84,7 +84,7 @@ switch (true) {
                   <label>
                     <?= $tabel8_field1_alias ?>
                   </label>
-                  <input class="form-control" type="text" required name="<?= $tabel8_v_input1 ?>"
+                  <input class="form-control" type="text" required name="<?= $tabel8_field1_input ?>"
                     placeholder="Masukkan <?= $tabel8_field1_alias ?>">
                 </div>
 
@@ -92,7 +92,7 @@ switch (true) {
                   <label>
                     <?= $tabel8_field4_alias ?>
                   </label>
-                  <input class="form-control" type="email" required name="<?= $tabel8_v_input4 ?>"
+                  <input class="form-control" type="email" required name="<?= $tabel8_field4_input ?>"
                     placeholder="Masukkan <?= $tabel8_field4_alias ?> Anda">
                 </div>
               </div>
@@ -155,8 +155,7 @@ switch (true) {
                 <h3>Jelajahi</h3>
                 <ul class="list-unstyled">
                   <li>
-                    <a type="button" id="nextPage" class="text-decoration-none text-dark"
-                      href="<?= site_url('tabel6/' . $tabel6) ?>">
+                    <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('tabel6/admin') ?>">
                       <?= $tabel6_alias ?>
                     </a>
                   </li>
@@ -247,7 +246,6 @@ switch (true) {
         <?= $this->session->flashdata('maintenance') ?>
         <?= $this->session->flashdata('clean') ?>
         <?= $this->session->flashdata('book') ?>
-        <?= $this->session->flashdata($tabel10_field6) ?>
         <?= $this->session->flashdata('cari') ?>
         //  $this->session->flashdata('quickTour') ?>
 
@@ -382,78 +380,42 @@ switch (true) {
       });
     </script>
 
-    <script>
-      var ctx = document.getElementById('myChart_tabel8_tabel2').getContext('2d');
-      var chartDataTabel2 = <?= $chart_tabel2 ?> // Data passed from controller
-      var chartDataTabel8 = <?= $chart_tabel8 ?> // Data passed from controller
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+  import { Firestore, collection, getDocs } from 'firebase/firestore';
 
-      var labelsTabel2 = chartDataTabel2.map(function (item) {
-        return item.label;
-      });
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyALlbSVTpW2s332vrOR-j7n_Iedm4pr6Ok",
+    authDomain: "project-44c5c.firebaseapp.com",
+    projectId: "project-44c5c",
+    storageBucket: "project-44c5c.appspot.com",
+    messagingSenderId: "892255247703",
+    appId: "1:892255247703:web:2e99bd457e84b50215b212",
+    measurementId: "G-3QM881SVEE"
+  };
 
-      var valuesTabel2 = chartDataTabel2.map(function (item) {
-        return item.value;
-      });
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
-      var labelsTabel8 = chartDataTabel8.map(function (item) {
-        return item.label;
-      });
+  // Initialize Firestore with the app instance
+  const db = Firestore(app);
 
-      var valuesTabel8 = chartDataTabel8.map(function (item) {
-        return item.value;
-      });
+  // Collection Reference
+  const colRef = collection(db, 'tipe_kamar')
 
-      var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labelsTabel8,
-          datasets: [{
-            label: 'Jumlah <?= $tabel8_alias ?> Aktif',
-            data: valuesTabel8,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-          },
-          {
-            label: 'Jumlah <?= $tabel2_alias ?>',
-            data: valuesTabel2,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-    </script>
+  // Get collection data
+  getDocs(colRef)
+    .then((snapshot) => {
+      console.log(snapshot.docs)
+    })
+</script>
 
-    <!-- JavaScript for toggling chatbot visibility -->
-    <script>
-      const chatbotContainer = document.getElementById('chatbot-container');
-      const summonButton = document.getElementById('summon-chatbot');
-      const closeButton = document.getElementById('close-chatbot');
 
-      // Function to show chatbot
-      function showChatbot() {
-        chatbotContainer.style.display = 'block';
-      }
-
-      // Function to hide chatbot
-      function hideChatbot() {
-        chatbotContainer.style.display = 'none';
-      }
-
-      // Event listener for summoning chatbot
-      summonButton.addEventListener('click', showChatbot);
-
-      // Event listener for closing chatbot
-      closeButton.addEventListener('click', hideChatbot);
-    </script>
 
 
 

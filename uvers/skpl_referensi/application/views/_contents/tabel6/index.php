@@ -17,7 +17,7 @@ terima kasih pada link di atas -->
 
 
 <!-- method get supaya nilai dari form bisa tampil nanti (tidak langsung masuk ke database) -->
-<!-- <form action="<?= site_url('tabel8/pemesanan') ?>" method="get">
+<!-- <form action="<?= site_url('tabel8') ?>" method="get">
   <div class="row justify-content-center align-items-end mt-2">
     <div class="col-md-1">
       <div class="form-group">

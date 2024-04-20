@@ -8,7 +8,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    tools:context=".tabel6.Tabel6MainActivity">
+    tools:context=".tabel6.Tabel6MainActivity"
+    android:background="@drawable/background">
 
 
     <LinearLayout

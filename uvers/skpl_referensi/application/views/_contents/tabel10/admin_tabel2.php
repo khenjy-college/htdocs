@@ -37,7 +37,7 @@
           <td>
             <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl10->$tabel10_field1 ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-info" href="<?= site_url('tabel10/receipt/' . $tl10->$tabel10_field1) ?>" target="_blank">
+            <a class="btn btn-light text-info" href="<?= site_url('tabel10/print/' . $tl10->$tabel10_field1) ?>" target="_blank">
               <i class="fas fa-receipt"></i></a>
           </td>
         </tr>

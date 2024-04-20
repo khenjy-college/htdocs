@@ -26,7 +26,7 @@
           <p class="text-center"><?= $tabel10_field1_alias ?> Anda adalah <?= $tbl10->$tabel10_field1 ?></p>
 
           <div class="d-flex justify-content-center">
-            <a class="btn btn-success text-light" href="<?= site_url('tabel10/receipt/' . $tbl10->$tabel10_field1) ?>" target="_blank">
+            <a class="btn btn-success text-light" href="<?= site_url('tabel10/print/' . $tbl10->$tabel10_field1) ?>" target="_blank">
               Cetak Bukti <?= $tabel10_alias ?></i></a>
           </div>
 
