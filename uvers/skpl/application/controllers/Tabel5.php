@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-include 'Welcome.php';
+include 'Omnitags.php';
 
-class Tabel5 extends Welcome
+class Tabel5 extends Omnitags
 {
 	// Halaman publik
 

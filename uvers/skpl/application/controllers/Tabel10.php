@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-include 'Welcome.php';
+include 'Omnitags.php';
 
 // Jujurly masih banyak bagian di controller ini yang masih menggunakan variabel biasa dan bukan menggunakan declare
 // Aku juga ingin membuat sebuah fitur history transaksi dimana pesanan yang sudah masuk history bakal masuk ke sana
@@ -15,7 +15,7 @@ include 'Welcome.php';
 // Jika data ada, maka akan ditampilkan, jika tidak akan muncul notifikasi data tidak ada
 // 2. Opsi kedua adalah untuk membiarkannya tidak menampilkan data 
 
-class Tabel10 extends Welcome
+class Tabel10 extends Omnitags
 {
 	// Halaman publik
 	

@@ -8,9 +8,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 // Yaitu untuk menambah stok kamar dan input ke history jika status pesannanya NOT IN (pending)
 // Hal ini akan diperbaiki pada waktu-waktu mendatang. 
 
-include 'Welcome.php';
+include 'Omnitags.php';
 session_write_close();
-class Tabel8 extends Welcome
+class Tabel8 extends Omnitags
 {
 	// Halaman publik/khusus akun
 	public function index($tabel7_field1 = 1)

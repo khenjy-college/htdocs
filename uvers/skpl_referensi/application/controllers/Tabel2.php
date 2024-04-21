@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-include 'Welcome.php';
+include 'Omnitags.php';
 
 
-class Tabel2 extends Welcome
+class Tabel2 extends Omnitags
 {
 	public function __construct()
 	{

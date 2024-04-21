@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-include 'Welcome.php';
+include 'Omnitags.php';
 
-class Tabel9 extends Welcome
+class Tabel9 extends Omnitags
 {
 	public function index($tabel7_field1 = 1)
 	{
