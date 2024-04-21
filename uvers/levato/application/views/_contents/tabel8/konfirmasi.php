@@ -1,6 +1,7 @@
 <?php switch ($this->session->userdata($tabel9_field6)) {
-    // case $tabel9_field6_value3:
-  case $tabel9_field6_value5:
+  // case $tabel9_field6_value3:
+  case $tabel9_field6_value4:
+    // case $tabel9_field6_value5:
     break;
 
   default:
@@ -28,9 +29,11 @@
         <div class="col-md">
           <h1 class="text-center"><?= $tabel8_alias ?> Berhasil</h1>
           <p class="text-center"><?= $tabel8_field1_alias ?> Anda adalah <?= $tbl8->$tabel8_field1 ?></p>
-          <p class="text-center">Cari data <?= $tabel8_alias ?> Anda dengan menggunakan <br>
-            <?= $tabel8_field1_alias ?> dan <?= $tabel9_field3 ?> anda <br>
-            untuk mencetak bukti <?= $tabel8_alias ?></p>
+          <div class="d-flex justify-content-center">
+            <a class="btn btn-success text-light" href="<?= site_url('tabel8/print/' . $tbl8->$tabel8_field1) ?>"
+              target="_blank">
+              Cetak Bukti <?= $tabel8_alias ?></i></a>
+          </div>
 
           <div class="d-flex justify-content-center">
             <a class="text-decoration-none" href="<?= site_url('welcome') ?>">

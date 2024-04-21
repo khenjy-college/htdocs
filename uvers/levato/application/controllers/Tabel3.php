@@ -51,19 +51,30 @@ class Tabel3 extends Omnitags
 	public function tambah()
 	{
 		$this->declarew();
+		$param1 = $this->views_post['tabel3_field2'];
+
+		$param2 = date("Y-m-d") . " " . date("h:m:s", time());
 
 		$data = array(
 			$this->aliases['tabel3_field1'] => '',
-			$this->aliases['tabel3_field2'] => $this->views_post['tabel3_field2'],
+			$this->aliases['tabel3_field2'] => $param1,
 			$this->aliases['tabel3_field3'] => $this->views_post['tabel3_field3'],
+			$this->aliases['tabel3_field4'] => $this->views_post['tabel3_field4'],
+			$this->aliases['tabel3_field5'] => $param2,
 		);
 
 		// $query = 'INSERT INTO tabel3 VALUES('.$data.')';
 
 		$simpan = $this->tl3->simpan($data);
+
+		$tgl = array(
+			$this->aliases['tabel5_field5'] => $param2
+		);
+		$update = $this->tl5->update($tgl, $param1);
+
 		// $simpan = $this->tl3->simpan($query);
 
-		if ($simpan) {
+		if ($simpan && $update) {
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel3_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {

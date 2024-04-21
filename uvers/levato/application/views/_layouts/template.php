@@ -405,6 +405,25 @@ switch (true) {
       closeButton.addEventListener('click', hideChatbot);
     </script>
 
+    <script>
+      function myFunction() {
+        let x = document.getElementById("<?= $tabel1_field4_input ?>_date").value;
+
+        // Create a Date object with the value from cek_in_date
+        let startDate = new Date(x);
+
+        // Add one day to the date
+        startDate.setDate(startDate.getDate() + 1);
+
+        // Format the date to YYYY-MM-DD (same as input type date)
+        let formattedDate = startDate.toISOString().split('T')[0];
+
+
+        document.getElementById("<?= $tabel1_field4_input ?>_date").value = formattedDate;
+
+      }
+    </script>
+
 
 
   <?php endforeach; ?>

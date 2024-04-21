@@ -28,11 +28,13 @@ class Omnitags extends CI_Controller
     public $views_v3;
     public $views_v4;
     public $views_v5;
+    public $views_v6;
     public $views_v1_title;
     public $views_v2_title;
     public $views_v3_title;
     public $views_v4_title;
     public $views_v5_title;
+    public $views_v6_title;
     public $views_input;
     public $views_post;
     public $views_get;
@@ -69,12 +71,14 @@ class Omnitags extends CI_Controller
             $this->views_v3[$item['key']] = '_contents/'. $item['key'].'/admin';
             $this->views_v4[$item['key']] = '_contents/'. $item['key'].'/laporan';
             $this->views_v5[$item['key']] = '_contents/'. $item['key'].'/print';
+            $this->views_v6[$item['key']] = '_contents/'. $item['key'].'/detail';
 
             $this->views_v1_title[$item['key']] = $item['value'];
             $this->views_v2_title[$item['key']] = 'Daftar ' . $item['value'];
             $this->views_v3_title[$item['key']] = 'Data ' . $item['value'];
             $this->views_v4_title[$item['key']] = 'Laporan ' . $item['value'];
             $this->views_v5_title[$item['key']] = 'Data ' . $item['value'];
+            $this->views_v6_title[$item['key']] = 'Detail ' . $item['value'];
 
             $this->flashdata1_msg_1[$item['key']] = 'Data ' . $item['value'] . ' berhasil disimpan!';
             $this->flashdata1_msg_2[$item['key']] = 'Data ' .  $item['value'] . ' gagal disimpan!';

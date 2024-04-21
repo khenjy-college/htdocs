@@ -40,7 +40,8 @@ class Tabel6 extends Omnitags
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
-			'tbl6' => $this->tl6->ambildata()->result()
+			'tbl6' => $this->tl6->ambildata()->result(),
+			'tbl4' => $this->tl4->ambildata()->result()
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
@@ -56,6 +57,10 @@ class Tabel6 extends Omnitags
 			$this->aliases['tabel6_field1'] => '',
 			$this->aliases['tabel6_field2'] => $this->views_post['tabel6_field2'],
 			$this->aliases['tabel6_field3'] => $this->views_post['tabel6_field3'],
+			$this->aliases['tabel6_field4'] => $this->views_post['tabel6_field4'],
+			$this->aliases['tabel6_field5'] => $this->views_post['tabel6_field5'],
+			$this->aliases['tabel6_field6'] => $this->views_post['tabel6_field6'],
+			$this->aliases['tabel6_field7'] => $this->views_post['tabel6_field7'],
 		);
 
 		// $query = 'INSERT INTO tipe_kamar VALUES('.$data.')';
@@ -88,6 +93,10 @@ class Tabel6 extends Omnitags
 		$data = array(
 			$this->aliases['tabel6_field2'] => $this->views_post['tabel6_field2'],
 			$this->aliases['tabel6_field3'] => $this->views_post['tabel6_field3'],
+			$this->aliases['tabel6_field4'] => $this->views_post['tabel6_field4'],
+			$this->aliases['tabel6_field5'] => $this->views_post['tabel6_field5'],
+			$this->aliases['tabel6_field6'] => $this->views_post['tabel6_field6'],
+			$this->aliases['tabel6_field7'] => $this->views_post['tabel6_field7'],
 		);
 
 		$update = $this->tl6->update($data, $tabel6_field1);

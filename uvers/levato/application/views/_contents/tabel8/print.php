@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata($tabel9_field6)) {
     // case $tabel9_field6_value3:
-  case $tabel9_field6_value5:
+  case $tabel9_field6_value4:
     break;
 
   default:
@@ -27,9 +27,7 @@
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
-    <?php foreach ($tbl8 as $tl8) :
-      foreach ($tbl6 as $tl6) :
-        if ($tl6->$tabel6_field1 == $tl8->$tabel8_field7) { ?>
+    <?php foreach ($tbl8 as $tl8) : ?>
 
           <!-- menampilkan data pemesan -->
           <table class="table">
@@ -65,9 +63,7 @@
               </tr>
             </tbody>
           </table>
-    <?php }
-      endforeach;
-    endforeach ?>
+    <?php endforeach ?>
   </div>
 
   <p class="text-center">Kirimkan bukti ini ke <?= $tabel9_field6_value4_alias ?> untuk diproses</p>

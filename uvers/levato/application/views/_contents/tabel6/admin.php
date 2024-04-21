@@ -28,15 +28,17 @@
     </thead>
 
     <tbody>
-      <?php foreach ($tbl6 as $tl6) : ?>
+      <?php foreach ($tbl6 as $tl6): ?>
         <tr>
           <td></td>
           <td><?= $tl6->$tabel6_field1; ?></td>
           <td><?= $tl6->$tabel6_field2 ?></td>
           <td><?= $tl6->$tabel6_field3 ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl6->$tabel6_field1; ?>">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal"
+              data-target="#lihat<?= $tl6->$tabel6_field1; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl6->$tabel6_field1; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal"
+              data-target="#ubah<?= $tl6->$tabel6_field1; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- Sebelumnya saya sudah membahas ini di v_admin_spp
@@ -66,27 +68,55 @@
 
       <form action="<?= site_url('tabel6/tambah') ?>" method="post">
         <div class="modal-body">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
-            </div>
-            <input class="form-control" type="text" required name="<?= $tabel6_field1_input ?>" placeholder="Masukkan <?= $tabel6_field1_alias ?>">
+          <div class="form-group">
+            <label><?= $tabel6_field2_alias ?></label>
+            <input class="form-control" type="text" required name="<?= $tabel6_field2_input ?>"
+              placeholder="Masukkan <?= $tabel6_field2_alias ?>">
           </div>
 
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
-            </div>
-            <input class="form-control" type="text" required name="<?= $tabel6_field2_input ?>" placeholder="Masukkan <?= $tabel6_field2_alias ?>">
+          <div class="form-group">
+            <label><?= $tabel6_field3_alias ?></label>
+            <select class="form-control" required name="<?= $tabel6_field3_input ?>">
+              <option selected hidden value="">Pilih <?= $tabel4_alias ?>...</option>
+              <?php foreach ($tbl4 as $tl4) : ?>
+
+                <!-- mengambil nilai tipe dari tipe kamar -->
+                <option value="<?= $tl4->$tabel4_field1 ?>"><?= $tl4->$tabel4_field2; ?></option>
+
+              <?php endforeach ?>
+
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label><?= $tabel6_field4_alias ?></label>
+            <input class="form-control" type="text" required name="<?= $tabel6_field4_input ?>"
+              placeholder="Masukkan <?= $tabel6_field4_alias ?>">
           </div>
 
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
-            </div>
-            <input class="form-control" type="text" required name="<?= $tabel6_field3_input ?>" placeholder="Masukkan <?= $tabel6_field3_alias ?>">
+          <div class="form-group">
+            <label><?= $tabel6_field5_alias ?></label>
+            <input class="form-control" type="text" required name="<?= $tabel6_field5_input ?>"
+              placeholder="Masukkan <?= $tabel6_field5_alias ?>">
           </div>
 
+          <div class="form-group">
+            <label><?= $tabel6_field6_alias ?></label>
+            <input class="form-control" type="text" required name="<?= $tabel6_field6_input ?>"
+              placeholder="Masukkan <?= $tabel6_field6_alias ?>">
+          </div>
+
+          <div class="form-group">
+            <label><?= $tabel6_field7_alias ?></label>
+            <select class="form-control" required name="<?= $tabel6_field7_input ?>">
+              <option selected hidden value="">Pilih <?= $tabel6_field7_alias ?>...</option>
+
+              <!-- memilih nilai status -->
+              <option value="<?= $tabel6_field7_value1 ?>"><?= $tabel6_field7_value1_alias ?></option>
+              <option value="<?= $tabel6_field7_value2 ?>"><?= $tabel6_field7_value2_alias ?></option>
+
+            </select>
+          </div>
 
         </div>
 
@@ -102,12 +132,12 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($tbl6 as $tl6) : ?>
+<?php foreach ($tbl6 as $tl6): ?>
   <div id="ubah<?= $tl6->$tabel6_field1; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel6_alias ?> <?= $tl6->$tabel6_field1; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel6_alias ?>   <?= $tl6->$tabel6_field1; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -117,20 +147,24 @@
         <!-- administrator tidak dapat mengubah password akun lain -->
         <form action="<?= site_url('tabel6/update') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
-              </div>
-              <input class="form-control" type="text" required name="<?= $tabel6_field2_input ?>" placeholder="Masukkan <?= $tabel6_field2_alias ?>" value="<?= $tl6->$tabel6_field2 ?>">
+            <div class="form-group">
+              <label><?= $tabel6_field1_alias ?></label>
+              <input class="form-control" type="text" required name="<?= $tabel6_field2_input ?>"
+                placeholder="Masukkan <?= $tabel6_field2_alias ?>" value="<?= $tl6->$tabel6_field2 ?>">
               <input type="hidden" name="<?= $tabel6_field1_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
             </div>
 
             <!-- administrator dapat menentukan password untuk akun baru -->
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
-              </div>
-              <input class="form-control" type="text" required name="<?= $tabel6_field3_input ?>" placeholder="Masukkan <?= $tabel6_field3_alias ?>" value="<?= $tl6->$tabel6_field3 ?>">
+            <div class="form-group">
+              <label><?= $tabel4_field2_alias ?></label>
+              <?php foreach ($tbl4 as $tl4) : ?>
+                <?php if($tl4->$tabel4_field1 == $tl6->$tabel6_field3) { ?> 
+                  <input class="form-control" disabled name="<?= $tabel6_field3_input ?>"
+                  value="<?= $tl4->$tabel4_field2 ?>">
+                  
+                  <?php } ?>
+
+               <?php endforeach ?>
             </div>
 
           </div>
@@ -148,12 +182,12 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($tbl6 as $tl6) : ?>
+<?php foreach ($tbl6 as $tl6): ?>
   <div id="lihat<?= $tl6->$tabel6_field1; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel6_alias ?> <?= $tl6->$tabel6_field1; ?></h5>
+          <h5 class="modal-title"><?= $tabel6_alias ?>   <?= $tl6->$tabel6_field1; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -166,6 +200,12 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
+                  <label><?= $tabel6_field1_alias ?> : </label>
+                  <p><?= $tl6->$tabel6_field1; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
                   <label><?= $tabel6_field2_alias ?> : </label>
                   <p><?= $tl6->$tabel6_field2; ?></p>
                 </div>
@@ -174,6 +214,32 @@
                 <div class="form-group">
                   <label><?= $tabel6_field3_alias ?> : </label>
                   <p><?= $tl6->$tabel6_field3; ?></p>
+                </div>
+                <hr>
+
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><?= $tabel6_field4_alias ?> : </label>
+                  <p><?= $tl6->$tabel6_field4; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel6_field5_alias ?> : </label>
+                  <p><?= $tl6->$tabel6_field5; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel6_field6_alias ?> : </label>
+                  <p><?= $tl6->$tabel6_field6; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel6_field7_alias ?> : </label>
+                  <p><?= $tl6->$tabel6_field7; ?></p>
                 </div>
                 <hr>
 

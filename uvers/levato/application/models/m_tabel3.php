@@ -9,6 +9,13 @@ class M_tabel3 extends CI_Model
 		return $this->db->get($this->aliases['tabel3']);
 	}
 
+	public function ambil_tabel5_field1($param1)
+	{
+		$this->db->where($this->aliases['tabel5_field1'], $param1);
+		$this->db->order_by($this->aliases['tabel3_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel3']);
+	}
+
 	public function ambil_tabel3_field1($param1)
 	{
 		$this->db->where($this->aliases['tabel3_field1'], $param1);

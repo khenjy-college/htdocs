@@ -11,71 +11,6 @@
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
-<!-- tabel fiter pesanan -->
-<table class="mb-4">
-
-  <!-- method get supaya nilai dari filter bisa tampil nanti -->
-  <form action="<?= site_url('tabel8/filter') ?>" method="get">
-    <tr>
-
-      <td class="pr-2"><?= $tabel8_field10_alias ?></td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Dari</span>
-          </div>
-          <input type="date" class="form-control" name="<?= $tabel8_field10_filter1 ?>" value="<?= $tabel8_field10_filter1_value ?>">
-        </div>
-      </td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Ke</span>
-          </div>
-          <input type="date" class="form-control" name="<?= $tabel8_field10_filter2 ?>" value="<?= $tabel8_field10_filter2_value ?>">
-        </div>
-      </td>
-
-      <td>
-        <button class="btn btn-success" type="submit">
-          <a type="submit"><i class="fas fa-search"></i></a>
-        </button>
-        <a class="btn btn-danger" type="button" href="<?= site_url('tabel8/admin') ?>">
-          <i class="fas fa-redo"></i></a>
-      </td>
-
-    </tr>
-
-
-    <!-- Mengecek data menggunakan tanggal cek out -->
-    <!-- method get supaya nilai dari filter bisa tampil nanti -->
-    <tr>
-
-      <td class="pr-2"><?= $tabel8_field11_alias ?></td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Dari</span>
-          </div>
-          <input type="date" class="form-control" name="<?= $tabel8_field11_filter1 ?>" value="<?= $tabel8_field11_filter1_value ?>">
-
-        </div>
-      </td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Ke</span>
-          </div>
-          <input type="date" class="form-control" name="<?= $tabel8_field11_filter2 ?>" value="<?= $tabel8_field11_filter2_value ?>">
-        </div>
-
-      </td>
-
-
-    </tr>
-  </form>
-</table>
-
 <div class="table-responsive">
   <table class="table table-light" id="data">
     <thead class="thead-light">
@@ -83,9 +18,6 @@
         <th>No</th>
         <th><?= $tabel8_field1_alias ?></th>
         <th><?= $tabel8_field6_alias ?></th>
-        <th><?= $tabel8_field10_alias ?></th>
-        <th><?= $tabel8_field11_alias ?></th>
-        <th><?= $tabel8_field12_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -96,9 +28,6 @@
           <td></td>
           <td><?= $tl8->$tabel8_field1 ?></td>
           <td><?= $tl8->$tabel8_field6 ?></td>
-          <td><?= $tl8->$tabel8_field10 ?></td>
-          <td><?= $tl8->$tabel8_field11 ?></td>
-          <td><?= $tl8->$tabel8_field12 ?></td>
 
           <td>
             <?php switch ($tl8->$tabel8_field12) {
@@ -209,17 +138,6 @@
                       <p><?= $tl6->$tabel6_field2 ?></p>
                     </div>
                     <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field10_alias ?></label>
-                      <p><?= $tl8->$tabel8_field10 ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field11_alias ?></label>
-                      <p><?= $tl8->$tabel8_field11 ?></p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -330,17 +248,6 @@
                       <p><?= $tl6->$tabel6_field2 ?></p>
                     </div>
                     <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field10_alias ?></label>
-                      <p><?= $tl8->$tabel8_field10 ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field11_alias ?></label>
-                      <p><?= $tl8->$tabel8_field11 ?></p>
-                    </div>
                   </div>
                 </div>
                 <hr>
@@ -351,12 +258,6 @@
 
                       <div class="row">
 
-                        <!-- <select class="form-control" required name="<?= $tabel8_field13_input ?>"> -->
-                        <!-- menampilkan nilai id_tipe kamar yang aktif -->
-                        <!-- <option selected hidden value="">Pilih <?= $tabel5_field1_alias ?>:</option> -->
-                        <!-- <option value="<?= $tl5->$tabel8_field13 ?>"><?= $tl5->$tabel8_field13; ?> - <?= $tl6->$tabel6_field2 ?></option> -->
-                        <!-- </select> -->
-
                         <?php foreach ($tbl5 as $tl5) :
                           if ($tl8->$tabel8_field7 == $tl5->$tabel8_field7) {
                             if ($tl5->$tabel8_field7 == $tl6->$tabel8_field7) {
@@ -366,21 +267,6 @@
 
                                   <div class="card bg-light">
                                     <div class="card-body text-center">
-
-                                      <div class="checkbox-group">
-                                        <p class="card-text"><?= $tl5->$tabel8_field13; ?></p>
-
-                                        <div class="btn-group-toggle" data-toggle="buttons">
-                                          <label class="btn btn-primary">
-
-                                            <input type="checkbox" name="<?= $tabel8_field13_input ?>" id="option1" 
-                                            class="checkbox-option form-control-lg" 
-                                            value="<?= $tl5->$tabel5_field1 ?>" required>
-
-
-                                          </label>
-                                        </div>
-                                      </div>
 
                                       <!-- <div style="margin-bottom: 20px;" class="form-check d-flex justify-content-center">
                                         <input class="custom-radio form-check-input" type="radio" id="radio_1" name="<?= $tabel8_field13_input ?>" value="<?= $tl5->$tabel8_field13 ?>" required>
@@ -401,7 +287,6 @@
 
 
                       <p>*Jika tidak ada, berarti semua <?= $tabel5_alias ?> full</p>
-                      <input type="hidden" name="<?= $tabel8_field12_input ?>" value="<?= $tabel8_field12_value2 ?>">
                     </div>
                   </div>
                 </div>

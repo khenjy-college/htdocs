@@ -53,9 +53,9 @@
 <!-- Tabel transaksi dan tabel history literally sudah bergabung
 Jadi tidak perlu menambahkan foreach hitory lagi -->
 <?php foreach ($tbl10 as $tl10) : ?>
-  <div id="lihat<?= $tl10->tabel10_field1 ?>" class="modal fade lihat" role="dialog">
+  <div id="lihat<?= $tl10->$tabel10_field1 ?>" class="modal fade lihat" role="dialog">
     <?php foreach ($tbl6 as $tl6) : ?>
-      <?php if ($tl6->tabel6_field1 === $tl10->tabel6_field1) { ?>
+      <?php if ($tl6->$tabel6_field1 === $tl10->$tabel6_field1) { ?>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

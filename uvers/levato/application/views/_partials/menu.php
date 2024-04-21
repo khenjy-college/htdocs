@@ -59,6 +59,9 @@
                                         ?>
 
                                         <h6 class="dropdown-header">Kelola</h6>
+                                        <a class="dropdown-item" href="<?= site_url('tabel6/admin') ?>">
+                                            <?= $tabel6_alias ?>
+                                        </a>
                                         <a class="dropdown-item" href="<?= site_url('tabel5/admin') ?>">
                                             <?= $tabel5_alias ?>
                                         </a>

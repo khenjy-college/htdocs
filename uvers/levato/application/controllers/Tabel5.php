@@ -23,15 +23,84 @@ class Tabel5 extends Omnitags
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel5')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
-			'tbl5' => $this->tl5->ambildata()->result(),
+			'tbl4' => $this->tl4->ambildata()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
-			'tbl4' => $this->tl4->ambildata()->result()
+			'tbl5' => $this->tl5->ambildata()->result(),
+			'tbl3' => $this->tl3->ambildata()->result(),
+			'tbl8' => $this->tl8->ambildata()->result(),
+			'tbl1' => $this->tl1->ambildata()->result()
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views['v1'], $data);
 	}
+
+	// Halaman detail
+	public function detail($tabel5_field1 = null, $tabel7_field1 = 1)
+	{
+		$this->declarew();
+
+		$tabel5 = $this->tl5->ambil_tabel5_field1($tabel5_field1)->result();
+
+		$param4 = "30";
+		
+		switch($tabel5[0]->status) {
+			case $this->aliases['tabel5_field4_value0']:
+				$value = '';
+
+				break;
+
+			case $this->aliases['tabel5_field4_value1']:
+				$value = '';
+
+				break;
+			case $this->aliases['tabel5_field4_value2']:
+
+				$value = ($param4 * 3000);
+
+				break;
+			case $this->aliases['tabel5_field4_value3']:
+				$value = '';
+
+				break;
+			case $this->aliases['tabel5_field4_value4']:
+				$value = '';
+				break;
+			case $this->aliases['tabel5_field4_value5']:
+				$value = '';
+				break;
+			default:
+				$value = 'tidak valid';
+		}
+
+
+		
+		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
+
+		$data1 = array(
+			$this->v_part1 => $this->views_v6_title['tabel5_alias'],
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->views_v6['tabel5'],
+			$this->v_part4 => $this->v_part4_msg1,
+			$this->v_part5 => $this->tl12->dekor('tabel5')->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl5' => $this->tl5->ambil_tabel5_field1($tabel5_field1)->result(),
+			'tbl4' => $this->tl4->ambildata()->result(),
+			'tbl6' => $this->tl6->ambildata()->result(),
+			'tbl3' => $this->tl3->ambil_tabel5_field1($tabel5_field1)->result(),
+			'tbl8' => $this->tl8->ambil_tabel5_field1($tabel5_field1)->result(),
+			'tbl1' => $this->tl1->ambil_tabel5_field1($tabel5_field1)->result(),
+
+			// Value ini adalah nilai unik yang dapat digunakan untuk masing-masing proses
+			'valueku' => $value
+		);
+
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
+
+		$this->load->view($this->views['v1'], $data);
+	}
+
 
 	public function tambah()
 	{
@@ -40,6 +109,7 @@ class Tabel5 extends Omnitags
 		$data = array(
 			$this->aliases['tabel5_field1'] => '',
 			$this->aliases['tabel5_field2'] => $this->views_post['tabel5_field2'],
+			$this->aliases['tabel5_field3'] => $this->views_post['tabel5_field3'],
 			$this->aliases['tabel5_field4'] => $this->views_post['tabel5_field4'],
 		);
 
@@ -77,8 +147,35 @@ class Tabel5 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_4['tabel5_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
-		-
+		
 			redirect(site_url('tabel5/admin'));
+	}
+
+	public function update_status()
+	{
+		$this->declarew();
+
+		$param1 = $this->views_post['tabel5_field1'];
+		$param2 = date("Y-m-d") . " " . date("h:m:s", time());
+		
+		$data = array(
+			$this->aliases['tabel5_field4'] => $this->views_post['tabel5_field4'],
+			$this->aliases['tabel5_field6'] => $param2,
+		);
+
+		$update = $this->tl5->update($data, $param1);
+
+		if ($update) {
+
+			$this->session->set_flashdata('pesan', 'Status pesanan berhasil diubah!');
+			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+		} else {
+
+			$this->session->set_flashdata('pesan', 'Status pesanan gagal diubah!');
+			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+		}
+
+		redirect(site_url('tabel5/admin'));
 	}
 
 	public function hapus($tabel5_field1 = null)

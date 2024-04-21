@@ -116,12 +116,6 @@ class Tabel8 extends Omnitags
 	{
 		$this->declarew();
 
-		// nilai min dan max di sini belum ada
-		$param1 = $this->views['tabel8_field10_filter1_get'];
-		$param2 = $this->views['tabel8_field10_filter2_get'];
-		$param3 = $this->views['tabel8_field11_filter1_get'];
-		$param4 = $this->views['tabel8_field11_filter2_get'];
-
 		$data1 = array(
 			$this->v_part1 => $this->views_v3_title['tabel8_alias'],
 			$this->v_part2 => $this->head,
@@ -132,12 +126,6 @@ class Tabel8 extends Omnitags
 			'tbl8' => $this->tl8->ambildata()->result(),
 			'tbl5' => $this->tl5->ambildata()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
-
-			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			'tabel8_field10_filter1_value' => $param1,
-			'tabel8_field10_filter2_value' => $param2,
-			'tabel8_field11_filter1_value' => $param3,
-			'tabel8_field11_filter2_value' => $param4
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
@@ -149,50 +137,46 @@ class Tabel8 extends Omnitags
 	{
 		$this->declarew();
 
-		$param4 = $this->views_post['tabel8_field4'];
-		$param8 = $this->views_post['tabel8_field8'];
-
-		$param10 = $this->views_post['tabel8_field10']; //cek in
-		$param11 = $this->views_post['tabel8_field11']; //cek out
+		$param1 = date("Y-m-d H:i:s");
+		$param2 = $this->views_post['tabel8_field7'];
+		$param3 = $this->views_post['tabel8_field2'];
+		$param4 = date("Y-m-d H:i:s", strtotime($param1 . " +30 days"));
 
 		// di bawah ini adalah fungsi untuk tabel8
-		$startTimeStamp = strtotime($param10);
-		$endTimeStamp = strtotime($param11);
+		$startDate = new DateTime($param1);
 
-		$timedif = $endTimeStamp - $startTimeStamp;
-		$numberdays = $timedif / 60 / 60 / 24; // 86400 seconds in one day
-
-		$tabel6_field1 = $this->views_post['tabel8_field7'];
-		$tabel6 = $this->tl6->ambil_tabel6_field1($tabel6_field1)->result();
+		$numberMonths = $startDate->format('m');
+		$numberYears = $startDate->format('Y');
 
 		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
-		$harga_total = ($numberdays * $tabel6[0]->harga);
 
 		$data = array(
 			$this->aliases['tabel8_field1'] => '',
-			$this->aliases['tabel8_field2'] => $this->views_post['tabel8_field2'],
+			$this->aliases['tabel8_field2'] => $param3,
 			$this->aliases['tabel8_field3'] => $this->views_post['tabel8_field3'],
-			$this->aliases['tabel8_field4'] => $param4,
-			$this->aliases['tabel8_field5'] => $this->views_post['tabel8_field5'],
-			$this->aliases['tabel8_field6'] => $this->views_post['tabel8_field6'],
-			$this->aliases['tabel8_field7'] => $this->views_post['tabel8_field7'],
-			$this->aliases['tabel8_field8'] => $param8,
-			$this->aliases['tabel8_field9'] => $harga_total,
-			$this->aliases['tabel8_field10'] => $this->views_post['tabel8_field10'],
-			$this->aliases['tabel8_field11'] => $this->views_post['tabel8_field11'],
+			$this->aliases['tabel8_field4'] => $param1,
+			$this->aliases['tabel8_field5'] => $numberMonths,
+			$this->aliases['tabel8_field6'] => $numberYears,
+			$this->aliases['tabel8_field7'] => $param2,
+			$this->aliases['tabel8_field8'] => $this->views_post['tabel8_field8'],
 
-			// status akan kuubah menjadi pending karena resepsionis wajib memilihkan kamar untuk user
-			$this->aliases['tabel8_field12'] => $this->aliases['tabel8_field12_value1'],
 			// 'status' => "belum bayar"
 
 		);
 
 		// membuat session supaya nilainya dapat digunakan selama waktu yang ditentukan dalam detik
-		$this->session->set_tempdata($this->aliases['tabel9_field3'] . '_' . $this->aliases['tabel8'], $param4, 300);
+		$this->session->set_tempdata($this->aliases['tabel9_field1'] . '_' . $this->aliases['tabel8'], $param3, 300);
 
 		$simpan = $this->tl8->simpan($data);
 
-		if ($simpan) {
+		$status = array (
+			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value3'],
+			$this->aliases['tabel5_field7'] => $param4,
+		);
+
+		$update_status = $this->tl5->update($status, $param2);
+
+		if ($simpan && $update_status) {
 
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel8_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
@@ -352,7 +336,6 @@ class Tabel8 extends Omnitags
 			$this->v_part5 => $this->tl12->dekor('tabel8')->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl8' => $this->tl8->ambil_tabel8_field1($tabel8_field1)->result(),
-			'tbl6' => $this->tl6->ambildata()->result()
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
@@ -406,7 +389,7 @@ class Tabel8 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel9_field3 = $this->session->tempdata($this->aliases['tabel9_field3'] . '_' . $this->aliases['tabel8']);
+		$tabel9_field1 = $this->session->tempdata($this->aliases['tabel9_field1'] . '_' . $this->aliases['tabel8']);
 		$data1 = array(
 			$this->v_part1 => $this->views['tabel8_v6_title'],
 			$this->v_part2 => $this->head,
@@ -415,7 +398,7 @@ class Tabel8 extends Omnitags
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
-			'tbl8' => $this->tl8->ambil_tabel9_field3($tabel9_field3)->last_row(),
+			'tbl8' => $this->tl8->ambil_tabel9_field1($tabel9_field1)->last_row(),
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);

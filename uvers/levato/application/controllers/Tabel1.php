@@ -35,16 +35,31 @@ class Tabel1 extends Omnitags
 	{
 		$this->declarew();
 
+		$param1 = $this->views_post['tabel1_field4'];
+
+		$param2 = date("Y-m-d") . " " . date("h:m:s", time());
+
+		$param3 = $this->views_post['tabel1_field2'];
+
 		$data = array(
 			$this->aliases['tabel1_field1'] => '',
-			$this->aliases['tabel1_field2'] => $this->views_post['tabel1_field2'],
+			$this->aliases['tabel1_field2'] => $param3,
 			$this->aliases['tabel1_field3'] => $this->views_post['tabel1_field3'],
+			$this->aliases['tabel1_field4'] => $param1,
+			$this->aliases['tabel1_field5'] => $param2,
 		);
 
 		// $query = 'INSERT INTO tabel1 VALUES('.$data.')';
 
 		$simpan = $this->tl1->simpan($data);
 		// $simpan = $this->tl1->simpan($query);
+
+		$data2 = array(
+			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value5'],
+			$this->aliases['tabel5_field7'] => $param1,
+		);
+
+		$update = $this->tl5->update($data2, $param3)
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel1_alias']);

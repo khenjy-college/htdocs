@@ -5,40 +5,53 @@ class M_tabel8 extends CI_Model
 {
 	public function ambildata()
 	{
-		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC'); return $this->db->get($this->aliases['tabel8']);
+		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel8']);
+	}
+
+	public function ambil_tabel5_field1($param1)
+	{
+		$this->db->where($this->aliases['tabel5_field1'], $param1);
+		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel8']);
 	}
 
 	public function ambil_tabel8_field1($param1)
 	{
 		$this->db->where($this->aliases['tabel8_field1'], $param1);
-		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC'); return $this->db->get($this->aliases['tabel8']);
+		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel8']);
 	}
 
 	public function ambil_tabel8_field2($param1)
 	{
 		$this->db->where($this->aliases['tabel5_field1'], $param1);
-		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC'); return $this->db->get($this->aliases['tabel8']);
+		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel8']);
 	}
 
 	public function ambil_tabel9_field1($param1)
 	{
 		$this->db->where($this->aliases['tabel9_field1'], $param1);
-		$this->db->order_by($this->aliases['tabel9_field1'], 'DESC'); return $this->db->get($this->aliases['tabel8']);
+		$this->db->order_by($this->aliases['tabel9_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel8']);
 	}
 
 	public function ambil_tabel9_field3($param1)
 	{
 		$this->db->where($this->aliases['tabel9_field3'], $param1);
-		$this->db->order_by($this->aliases['tabel9_field1'], 'DESC'); return $this->db->get($this->aliases['tabel8']);
+		$this->db->order_by($this->aliases['tabel9_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel8']);
 	}
 
 	public function cari($param1, $param2)
 	{
 		$this->db->where($this->aliases['tabel8_field1'], $param1);
 		$this->db->where($this->aliases['tabel9_field3'], $param2);
-		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC'); return $this->db->get($this->aliases['tabel8']);
+		$this->db->order_by($this->aliases['tabel8_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel8']);
 	}
-	
+
 
 	public function simpan($data)
 	{
