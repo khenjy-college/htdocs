@@ -22,43 +22,41 @@
       <table class="table table-light" id="data">
         <thead></thead>
         <tbody>
-          <?php foreach ($tbl5 as $tl5): ?>
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel5_field1_alias ?></td>
-              <td class="table-light"><?= $tl5->$tabel5_field1 ?></td>
-            </tr>
+          <tr>
+            <td class="table-secondary table-active"><?= $tabel5_field1_alias ?></td>
+            <td class="table-light"><?= $tl5->$tabel5_field1 ?></td>
+          </tr>
 
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel5_field2_alias ?></td>
-              <td class="table-light"><?= $tl5->$tabel5_field2 ?></td>
-            </tr>
+          <tr>
+            <td class="table-secondary table-active"><?= $tabel5_field2_alias ?></td>
+            <td class="table-light"><?= $tl5->$tabel5_field2 ?></td>
+          </tr>
 
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel5_field3_alias ?></td>
-              <td class="table-light"><?= $tl5->$tabel5_field3 ?></td>
-            </tr>
+          <tr>
+            <td class="table-secondary table-active"><?= $tabel5_field3_alias ?></td>
+            <td class="table-light"><?= $tl5->$tabel5_field3 ?></td>
+          </tr>
 
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel5_field4_alias ?></td>
-              <td class="table-light"><?= $tl5->$tabel5_field4 ?></td>
-            </tr>
+          <tr>
+            <td class="table-secondary table-active"><?= $tabel5_field4_alias ?></td>
+            <td class="table-light"><?= $tl5->$tabel5_field4 ?></td>
+          </tr>
 
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel5_field5_alias ?></td>
-              <td class="table-light"><?= $tl5->$tabel5_field5 ?></td>
-            </tr>
+          <tr>
+            <td class="table-secondary table-active"><?= $tabel5_field5_alias ?></td>
+            <td class="table-light"><?= $tl5->$tabel5_field5 ?></td>
+          </tr>
 
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel5_field6_alias ?></td>
-              <td class="table-light"><?= $tl5->$tabel5_field6 ?></td>
-            </tr>
+          <tr>
+            <td class="table-secondary table-active"><?= $tabel5_field6_alias ?></td>
+            <td class="table-light"><?= $tl5->$tabel5_field6 ?></td>
+          </tr>
 
-            <tr>
-              <td class="table-secondary table-active"><?= $tabel5_field7_alias ?></td>
-              <td class="table-light"><?= $tl5->$tabel5_field7 ?></td>
-            </tr>
+          <tr>
+            <td class="table-secondary table-active"><?= $tabel5_field7_alias ?></td>
+            <td class="table-light"><?= $tl5->$tabel5_field7 ?></td>
+          </tr>
 
-          <?php endforeach ?>
         </tbody>
         <tfoot></tfoot>
       </table>
@@ -77,8 +75,14 @@
             <thead class="thead-light">
               <tr class="table-info text-center">
                 <td colspan="9">
-                  <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel3">
-                    + Tambah Entri</a>
+                  <?php if (!$tbl3) { ?>
+                    <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel3">
+                      + Tambah Entri</a>
+                  <?php } else { ?>
+
+                  <?php } ?>
+
+
                 </td>
               </tr>
               <tr>
@@ -326,32 +330,28 @@
             <div class="row">
 
               <!-- Data siswa -->
-              <?php foreach ($tbl5 as $tl5): ?>
-                <?php foreach ($tbl6 as $tl6): ?>
-                  <div class="col-md-6">
-                    <input type="hidden" name="<?= $tabel3_field2_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
-                    <?php foreach ($tbl4 as $tl4): ?>
-                      <input type="hidden" name="<?= $tabel3_field3_input ?>" value="<?= $tl4->$tabel4_field1 ?>">
-                    <?php endforeach ?>
+              <div class="col-md-6">
+                <input type="hidden" name="<?= $tabel3_field2_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
+                <?php foreach ($tbl4 as $tl4): ?>
+                  <input type="hidden" name="<?= $tabel3_field3_input ?>" value="<?= $tl4->$tabel4_field1 ?>">
+                <?php endforeach ?>
 
-                    <div class="form-group">
-                      <label><?= $tabel3_field4_alias ?></label>
-                      <textarea class="form-control" name="<?= $tabel3_field4_input ?>" rows="3"></textarea>
-                    </div>
+                <div class="form-group">
+                  <label><?= $tabel3_field4_alias ?></label>
+                  <textarea class="form-control" name="<?= $tabel3_field4_input ?>" rows="3"></textarea>
+                </div>
 
-                    <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value1 ?>">
+                <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value1 ?>">
 
-                    <div class="form-group">
-                      <label><?= $tabel3_field5_alias ?> </label>
-                      <input class="form-control" type="datetime-local" required name="<?= $tabel3_field5_input ?>"
-                        value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>"
-                        min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>">
-                    </div>
+                <div class="form-group">
+                  <label><?= $tabel3_field5_alias ?> </label>
+                  <input class="form-control" type="datetime-local" required name="<?= $tabel3_field5_input ?>"
+                    value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>"
+                    min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>">
+                </div>
 
-                  </div>
+              </div>
 
-                <?php endforeach; ?>
-              <?php endforeach; ?>
             </div>
           </div>
 
@@ -381,11 +381,247 @@
         <form action="<?= site_url('tabel8/tambah') ?>" method="post" enctype="multipart/form-data">
 
           <div class="modal-body">
+
+            <?php foreach ($tbl6 as $tl6): ?>
+              <?php if ($tl6->$tabel6_field1 == $tl5->$tabel6_field1) { ?>
+                <div class="row">
+
+                  <!-- Data siswa -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><?= $tabel5_field1_alias ?></label>
+                      <p><?= $tl5->$tabel5_field1 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field2_alias ?></label>
+                      <p><?= $tl5->$tabel5_field2 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field3_alias ?></label>
+                      <p><?= $tl5->$tabel5_field3 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field5_alias ?></label>
+                      <p><?= $tl5->$tabel5_field5 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel6_field2_alias ?></label>
+                      <p><?= $tl6->$tabel6_field2 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel6_field3_alias ?></label>
+                      <p><?= $tl6->$tabel6_field3 ?></p>
+                    </div>
+                    <hr>
+
+
+                  </div>
+
+
+                  <!-- Data SPP -->
+
+                  <div class="col-md-6">
+
+                    <input type="hidden" name="<?= $tabel8_field2_input ?>"
+                      value="<?= $this->session->userdata($tabel9_field1) ?>">
+                    <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
+
+
+                    <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
+
+                    <input id="tabel5_field6_input_date" class="form-control" type="datetime-local"
+                      name="<?= $tabel8_field6_input ?>" value="<?= $tl5->$tabel5_field6 ?>">
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field7_alias ?></label>
+                      <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
+                        id="tabel5_field7_input_date" value="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>"
+                        min="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>">
+                    </div>
+
+                    <div class="form-group">
+                      <label><?= $tabel8_field8_alias ?> </label>
+                      <input id="tabel8_field8_input_cost" class="form-control" readonly type="text" required
+                        name="<?= $tabel8_field8_input ?>" value="">
+                    </div>
+                  </div>
+
+                <?php }
+            endforeach; ?>
+            </div>
+          </div>
+
+          <!-- pesan untuk pengguna yang sedang merubah password -->
+          <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
+
+          <div class="modal-footer">
+            <button class="btn btn-success" type="submit">Bayar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="tabel1" class="modal fade tabel1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Entri</h5>
+
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <form action="<?= site_url('tabel1/tambah') ?>" method="post" enctype="multipart/form-data">
+
+          <div class="modal-body">
             <div class="row">
 
               <!-- Data siswa -->
-              <?php foreach ($tbl5 as $tl5): ?>
-                <?php foreach ($tbl6 as $tl6): ?>
+              <?php foreach ($tbl6 as $tl6): ?>
+                <?php if ($tl6->$tabel6_field1 == $tl5->$tabel6_field1) { ?>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><?= $tabel5_field1_alias ?></label>
+                      <p><?= $tl5->$tabel5_field1 ?></p>
+                      <input type="hidden" name="<?= $tabel5_field1_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
+                      <input type="hidden" name="<?= $tabel9_field1_input ?>"
+                        value="<?= $this->session->userdata($tabel9_field1) ?>">
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field2_alias ?></label>
+                      <p><?= $tl5->$tabel5_field2 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field3_alias ?></label>
+                      <p><?= $tl5->$tabel5_field3 ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field5_alias ?></label>
+                      <p><?= $tl5->$tabel5_field5 ?></p>
+                    </div>
+                    <hr>
+
+                  </div>
+
+
+                  <div class="col-md-6">
+
+                    <input type="hidden" name="<?= $tabel1_field2_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
+
+
+                    <input type="hidden" name="<?= $tabel1_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
+
+
+
+
+                    <div class="form-group">
+                      <label><?= $tabel1_field4_alias ?></label>
+                      <input class="form-control" type="datetime-local" name="<?= $tabel1_field4_input ?>"
+                        value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit2")) ?>"
+                        min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit2")) ?>" required>
+                    </div>
+
+
+                  </div>
+                <?php }
+              endforeach; ?>
+            </div>
+          </div>
+
+          <!-- pesan untuk pengguna yang sedang merubah password -->
+          <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
+
+          <div class="modal-footer">
+            <button class="btn btn-success" type="submit">Bayar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div id="ubah<?= $tl5->$tabel5_field1 ?>" class="modal fade ubah">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lisensi <?= $tl5->$tabel5_field1 ?></h5>
+
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <!-- form untuk mengubah nilai status sebuah pesanan -->
+        <form action="<?= site_url('tabel5/update_status') ?>" method="post">
+          <div class="modal-body">
+            <input type="hidden" name="<?= $tabel5_field1_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
+            <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value2 ?>">
+
+            <div class="form-group">
+              <label><?= $tabel5_field7_alias ?></label>
+              <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
+                value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>"
+                min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>">
+            </div>
+          </div>
+
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+
+          <div class="modal-footer">
+            <!-- pesan yg muncul berdasarkan nilai status -->
+
+            <p>Setujui Pendaftaran?</p>
+            <button class="btn btn-success" type="submit">Ya</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div id="tabel8baru" class="modal fade tabel8">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Entri Baru</h5>
+
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <form action="<?= site_url('tabel8/tambah_baru') ?>" method="post" enctype="multipart/form-data">
+
+          <div class="modal-body">
+            <div class="row">
+
+              <!-- Data siswa -->
+              <?php foreach ($tbl6 as $tl6): ?>
+                <?php if ($tl6->$tabel6_field1 == $tl5->$tabel6_field1) { ?>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel5_field1_alias ?></label>
@@ -429,124 +665,26 @@
                   <!-- Data SPP -->
 
                   <div class="col-md-6">
+                    <input type="hidden" name="<?= $tabel5_field7_input ?>" value="<?= $value2 ?>">
 
                     <input type="hidden" name="<?= $tabel8_field2_input ?>"
                       value="<?= $this->session->userdata($tabel9_field1) ?>">
 
-                    <?php foreach ($tbl6 as $tl6):
-                      if ($tl6->$tabel6_field1 == $tl5->$tabel6_field1) { ?>
-                        <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
 
-                      <?php }endforeach; ?>
+                    <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
+
 
                     <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
 
-                    <input id="tabel5_field6_input_date" class="form-control" type="datetime-local"
-                      name="<?= $tabel8_field6_input ?>" value="<?= $tl5->$tabel5_field6 ?>">
-
-                    <div class="form-group">
-                      <label><?= $tabel5_field7_alias ?></label>
-                      <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
-                        id="tabel5_field7_input_date" value="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>"
-                        min="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>">
-                    </div>
 
                     <div class="form-group">
                       <label><?= $tabel8_field8_alias ?> </label>
-                      <input id="tabel8_field8_input_cost" class="form-control" readonly type="text" required
-                        name="<?= $tabel8_field8_input ?>" value="">
+                      <input type="hidden" name="<?= $tabel8_field8_input ?>" required value="<?= $valueku ?>">
+                      <input class="form-control" readonly type="text"
+                        value="Rp<?= number_format($valueku, '2', ',', '.') ?>">
                     </div>
                   </div>
-
-                <?php endforeach; ?>
-              <?php endforeach; ?>
-            </div>
-          </div>
-
-          <!-- pesan untuk pengguna yang sedang merubah password -->
-          <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
-
-          <div class="modal-footer">
-            <button class="btn btn-success" type="submit">Bayar</button>
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </div>
-
-  <div id="tabel1" class="modal fade tabel1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Tambah Entri</h5>
-
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-
-        <form action="<?= site_url('tabel1/tambah') ?>" method="post" enctype="multipart/form-data">
-
-          <div class="modal-body">
-            <div class="row">
-
-              <!-- Data siswa -->
-              <?php foreach ($tbl5 as $tl5): ?>
-                <?php foreach ($tbl6 as $tl6): ?>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label><?= $tabel5_field1_alias ?></label>
-                      <p><?= $tl5->$tabel5_field1 ?></p>
-                      <input type="hidden" name="<?= $tabel5_field1_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
-                      <input type="hidden" name="<?= $tabel9_field1_input ?>"
-                        value="<?= $this->session->userdata($tabel9_field1) ?>">
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel5_field2_alias ?></label>
-                      <p><?= $tl5->$tabel5_field2 ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel5_field3_alias ?></label>
-                      <p><?= $tl5->$tabel5_field3 ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel5_field5_alias ?></label>
-                      <p><?= $tl5->$tabel5_field5 ?></p>
-                    </div>
-                    <hr>
-
-                  </div>
-
-
-                  <div class="col-md-6">
-
-                    <input type="hidden" name="<?= $tabel1_field2_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
-
-                    <?php foreach ($tbl6 as $tl6):
-                      if ($tl6->$tabel6_field1 == $tl5->$tabel6_field1) { ?>
-                        <input type="hidden" name="<?= $tabel1_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
-
-                      <?php }endforeach; ?>
-
-
-                    <div class="form-group">
-                      <label><?= $tabel1_field4_alias ?></label>
-                      <input class="form-control" type="datetime-local" name="<?= $tabel1_field4_input ?>"
-                        value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit2")) ?>"
-                        min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit2")) ?>" required>
-                    </div>
-
-
-                  </div>
-
-                <?php endforeach; ?>
+                <?php } ?>
               <?php endforeach; ?>
             </div>
           </div>
@@ -564,147 +702,6 @@
   </div>
 <?php endforeach; ?>
 
-<?php foreach ($tbl5 as $tl5): ?>
-  <div id="ubah<?= $tl5->$tabel5_field1 ?>" class="modal fade ubah">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Lisensi <?= $tl5->$tabel5_field1 ?></h5>
-
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-
-        <!-- form untuk mengubah nilai status sebuah pesanan -->
-        <form action="<?= site_url('tabel5/update_status') ?>" method="post">
-          <div class="modal-body">
-            <input type="hidden" name="<?= $tabel5_field1_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
-            <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value2 ?>">
-
-            <div class="form-group">
-              <label><?= $tabel5_field7_alias ?></label>
-              <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
-                value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>"
-                min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>">
-            </div>
-          </div>
-
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
-
-          <div class="modal-footer">
-            <!-- pesan yg muncul berdasarkan nilai status -->
-
-            <p>Setujui Pendaftaran?</p>
-            <button class="btn btn-success" type="submit">Ya</button>
-          </div>
-
-        </form>
-
-      </div>
-    </div>
-  </div>
-<?php endforeach; ?>
-
-
-<div id="tabel8baru" class="modal fade tabel8">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Tambah Entri Baru</h5>
-
-        <button class="close" data-dismiss="modal">
-          <span>&times;</span>
-        </button>
-      </div>
-
-      <form action="<?= site_url('tabel8/tambah_baru') ?>" method="post" enctype="multipart/form-data">
-
-        <div class="modal-body">
-          <div class="row">
-
-            <!-- Data siswa -->
-            <?php foreach ($tbl5 as $tl5): ?>
-              <?php foreach ($tbl6 as $tl6): ?>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label><?= $tabel5_field1_alias ?></label>
-                    <p><?= $tl5->$tabel5_field1 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel5_field2_alias ?></label>
-                    <p><?= $tl5->$tabel5_field2 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel5_field3_alias ?></label>
-                    <p><?= $tl5->$tabel5_field3 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel5_field5_alias ?></label>
-                    <p><?= $tl5->$tabel5_field5 ?></p>
-                  </div>
-                  <hr>
-                  <div class="form-group">
-                    <label><?= $tabel6_field2_alias ?></label>
-                    <p><?= $tl6->$tabel6_field2 ?></p>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label><?= $tabel6_field3_alias ?></label>
-                    <p><?= $tl6->$tabel6_field3 ?></p>
-                  </div>
-                  <hr>
-
-
-                </div>
-
-
-                <!-- Data SPP -->
-
-                <div class="col-md-6">
-                  <input type="hidden" name="<?= $tabel5_field7_input ?>" value="<?= $value2 ?>">
-
-                  <input type="hidden" name="<?= $tabel8_field2_input ?>"
-                    value="<?= $this->session->userdata($tabel9_field1) ?>">
-
-                    <?php if ($tl6->$tabel6_field1 == $tl5->$tabel6_field1) { ?>
-                      <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
-                    <?php } ?>
-
-                  <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
-
-
-                  <div class="form-group">
-                    <label><?= $tabel8_field8_alias ?> </label>
-                    <input type="hidden" name="<?= $tabel8_field8_input ?>" required value="<?= $valueku ?>">
-                    <input class="form-control" readonly type="text" value="Rp<?= number_format($valueku, '2', ',', '.') ?>">
-                  </div>
-                </div>
-
-              <?php endforeach; ?>
-            <?php endforeach; ?>
-          </div>
-        </div>
-
-        <!-- pesan untuk pengguna yang sedang merubah password -->
-        <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
-
-        <div class="modal-footer">
-          <button class="btn btn-success" type="submit">Bayar</button>
-        </div>
-      </form>
-
-    </div>
-  </div>
-</div>
 
 <script>
   // Trigger the calculation function on change of input values

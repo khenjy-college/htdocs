@@ -23,6 +23,10 @@
         <th><?= $tabel6_field1_alias ?></th>
         <th><?= $tabel6_field2_alias ?></th>
         <th><?= $tabel6_field3_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel6_field5_alias ?></th>
+        <th><?= $tabel6_field6_alias ?></th>
+        <th><?= $tabel6_field7_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -34,6 +38,10 @@
           <td><?= $tl6->$tabel6_field1; ?></td>
           <td><?= $tl6->$tabel6_field2 ?></td>
           <td><?= $tl6->$tabel6_field3 ?></td>
+          <td><?= $tl6->$tabel6_field4 ?></td>
+          <td><?= $tl6->$tabel6_field5 ?></td>
+          <td><?= $tl6->$tabel6_field6 ?></td>
+          <td><?= $tl6->$tabel6_field7 ?></td>
           <td><a class="btn btn-light text-info" type="button" data-toggle="modal"
               data-target="#lihat<?= $tl6->$tabel6_field1; ?>">
               <i class="fas fa-eye"></i></a>
@@ -78,7 +86,7 @@
             <label><?= $tabel6_field3_alias ?></label>
             <select class="form-control" required name="<?= $tabel6_field3_input ?>">
               <option selected hidden value="">Pilih <?= $tabel4_alias ?>...</option>
-              <?php foreach ($tbl4 as $tl4) : ?>
+              <?php foreach ($tbl4 as $tl4): ?>
 
                 <!-- mengambil nilai tipe dari tipe kamar -->
                 <option value="<?= $tl4->$tabel4_field1 ?>"><?= $tl4->$tabel4_field2; ?></option>
@@ -87,7 +95,7 @@
 
             </select>
           </div>
-          
+
           <div class="form-group">
             <label><?= $tabel6_field4_alias ?></label>
             <input class="form-control" type="text" required name="<?= $tabel6_field4_input ?>"
@@ -148,24 +156,57 @@
         <form action="<?= site_url('tabel6/update') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="form-group">
-              <label><?= $tabel6_field1_alias ?></label>
+              <label><?= $tabel6_field2_alias ?></label>
               <input class="form-control" type="text" required name="<?= $tabel6_field2_input ?>"
                 placeholder="Masukkan <?= $tabel6_field2_alias ?>" value="<?= $tl6->$tabel6_field2 ?>">
               <input type="hidden" name="<?= $tabel6_field1_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
+
             </div>
 
-            <!-- administrator dapat menentukan password untuk akun baru -->
             <div class="form-group">
-              <label><?= $tabel4_field2_alias ?></label>
-              <?php foreach ($tbl4 as $tl4) : ?>
-                <?php if($tl4->$tabel4_field1 == $tl6->$tabel6_field3) { ?> 
-                  <input class="form-control" disabled name="<?= $tabel6_field3_input ?>"
-                  value="<?= $tl4->$tabel4_field2 ?>">
-                  
-                  <?php } ?>
+              <label><?= $tabel6_field3_alias ?></label>
+              <select class="form-control" required name="<?= $tabel6_field3_input ?>">
+                <option selected hidden value="<?= $tl6->$tabel6_field3 ?>"><?= $tl6->$tabel6_field3 ?></option>
+                <?php foreach ($tbl4 as $tl4): ?>
 
-               <?php endforeach ?>
+                  <!-- mengambil nilai tipe dari tipe kamar -->
+                  <option value="<?= $tl4->$tabel4_field1 ?>"><?= $tl4->$tabel4_field1 . " - " .$tl4->$tabel4_field2; ?></option>
+
+                <?php endforeach ?>
+
+              </select>
             </div>
+
+            <div class="form-group">
+              <label><?= $tabel6_field4_alias ?></label>
+              <input class="form-control" type="text" required name="<?= $tabel6_field4_input ?>"
+                placeholder="Masukkan <?= $tabel6_field4_alias ?>" value="<?= $tl6->$tabel6_field4 ?>">
+            </div>
+
+            <div class="form-group">
+              <label><?= $tabel6_field5_alias ?></label>
+              <input class="form-control" type="text" required name="<?= $tabel6_field5_input ?>"
+                placeholder="Masukkan <?= $tabel6_field5_alias ?>" value="<?= $tl6->$tabel6_field5 ?>">
+            </div>
+
+            <div class="form-group">
+              <label><?= $tabel6_field6_alias ?></label>
+              <input class="form-control" type="text" required name="<?= $tabel6_field6_input ?>"
+                placeholder="Masukkan <?= $tabel6_field6_alias ?>" value="<?= $tl6->$tabel6_field6 ?>">
+            </div>
+
+            <div class="form-group">
+              <label><?= $tabel6_field7_alias ?></label>
+              <select class="form-control" required name="<?= $tabel6_field7_input ?>">
+                <option selected hidden value="<?= $tl6->$tabel6_field7 ?>"><?= $tl6->$tabel6_field7 ?></option>
+
+                <!-- memilih nilai status -->
+                <option value="<?= $tabel6_field7_value1 ?>"><?= $tabel6_field7_value1_alias ?></option>
+                <option value="<?= $tabel6_field7_value2 ?>"><?= $tabel6_field7_value2_alias ?></option>
+
+              </select>
+            </div>
+
 
           </div>
 

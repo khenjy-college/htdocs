@@ -37,10 +37,10 @@ class Tabel4 extends Omnitags
 	{
 		$this->declarew();
 
-		$param2 = $this->views_post['tabel4_field2'];
+		$param1 = $this->views_post['tabel4_field3'];
 		$param4 = $this->views_post['tabel4_field4'];
 
-		$method2 = $this->tl4->cek_tabel4_field2($param2);
+		$method2 = $this->tl4->cek_tabel4_field3($param1);
 
 		// mencari apakah jumlah data kurang dari 1
 		if ($method2->num_rows() < 1) {
@@ -51,11 +51,10 @@ class Tabel4 extends Omnitags
 
 			$data = array(
 				$this->aliases['tabel4_field1'] => $this->views_post['tabel4_field1'],
-				$this->aliases['tabel4_field2'] => $param2,
-				$this->aliases['tabel4_field3'] => $this->views_post['tabel4_field3'],
-				// $this->aliases['tabel4_field4'] => $this->views_post['tabel4_field4'],
+				$this->aliases['tabel4_field2'] => $this->views_post['tabel4_field2'],
+				$this->aliases['tabel4_field3'] => $param1,
 				$this->aliases['tabel4_field5'] => $this->views_post['tabel4_field5'],
-				// $this->aliases['tabel4_field6'] => $this->views_post['tabel4_field6'],
+				// $this->aliases['tabel4_field6'] => $this->views_post['tabel9_field6_value5'],
 
 				// mengubah password menjadi password berenkripsi
 				$this->aliases['tabel4_field4'] => password_hash($param4, PASSWORD_DEFAULT),

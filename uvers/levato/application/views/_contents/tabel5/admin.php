@@ -109,7 +109,7 @@
             </select>
           </div>
 
-          <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value1 ?>">
+          <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value0 ?>">
 
         </div>
 

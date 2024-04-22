@@ -48,6 +48,11 @@ class Tabel5 extends Omnitags
 
 		switch ($tabel5[0]->status) {
 			case $this->aliases['tabel5_field4_value0']:
+				$data2 = array(
+					$this->aliases['tabel5_field6'] => NULL,
+					$this->aliases['tabel5_field7'] => NULL
+				);
+				$update = $this->tl5->update($data2, $tabel5_field1);
 				$delete = $this->tl3->hapus_tabel5_field1($tabel5_field1);
 				$value = '';
 				$value2 = '';
@@ -227,7 +232,7 @@ class Tabel5 extends Omnitags
 			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
 		}
 
-		redirect(site_url('tabel5/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function hapus($tabel5_field1 = null)

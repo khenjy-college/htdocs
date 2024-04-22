@@ -59,14 +59,25 @@
                                         ?>
 
                                         <h6 class="dropdown-header">Kelola</h6>
+                                        <a class="dropdown-item" href="<?= site_url('tabel4/admin') ?>">
+                                            <?= $tabel4_alias ?>
+                                        </a>
                                         <a class="dropdown-item" href="<?= site_url('tabel6/admin') ?>">
                                             <?= $tabel6_alias ?>
                                         </a>
                                         <a class="dropdown-item" href="<?= site_url('tabel5/admin') ?>">
                                             <?= $tabel5_alias ?>
                                         </a>
+
+                                        <h6 class="dropdown-header">Data</h6>
+                                        <a class="dropdown-item" href="<?= site_url('tabel3/admin') ?>">
+                                            <?= $tabel3_alias ?>
+                                        </a>
                                         <a class="dropdown-item" href="<?= site_url('tabel8/admin') ?>">
                                             <?= $tabel8_alias ?>
+                                        </a>
+                                        <a class="dropdown-item" href="<?= site_url('tabel1/admin') ?>">
+                                            <?= $tabel1_alias ?>
                                         </a>
 
                                         <?php break;
