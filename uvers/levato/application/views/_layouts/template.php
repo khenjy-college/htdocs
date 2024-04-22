@@ -404,24 +404,41 @@ switch (true) {
       // Event listener for closing chatbot
       closeButton.addEventListener('click', hideChatbot);
     </script>
-
     <script>
-      function myFunction() {
-        let x = document.getElementById("<?= $tabel1_field4_input ?>_date").value;
+      function calculateCost() {
+        console.log("calculateCost function called");
+
+        let x = document.getElementById("tabel5_field6_input_date").value;
+        let y = document.getElementById("tabel5_field7_input_date").value;
+
+        console.log("x:", x);
+        console.log("y:", y);
 
         // Create a Date object with the value from cek_in_date
-        let startDate = new Date(x);
+        let startDateX = new Date(x).getTime();
+        let startDateY = new Date(y).getTime();
 
-        // Add one day to the date
-        startDate.setDate(startDate.getDate() + 1);
+        console.log("startDateX:", startDateX);
+        console.log("startDateY:", startDateY);
 
-        // Format the date to YYYY-MM-DD (same as input type date)
-        let formattedDate = startDate.toISOString().split('T')[0];
+        let timeStamp = startDateY - startDateX;
 
+        console.log("timeStamp:", timeStamp);
 
-        document.getElementById("<?= $tabel1_field4_input ?>_date").value = formattedDate;
+        let numberDays = timeStamp / (1000 * 3600 * 24);
 
+        console.log("numberDays:", numberDays);
+
+        let valueku = numberDays * <?= $tabel8_field8_value1 ?>;
+
+        console.log("valueku:", valueku);
+
+        document.getElementById("tabel8_field8_input_cost").value = valueku.toFixed(2); // Adjust if needed
       }
+
+      // Trigger the calculation function on change of input values
+      document.getElementById("tabel5_field6_input_date").addEventListener("change", calculateCost);
+      document.getElementById("tabel5_field7_input_date").addEventListener("change", calculateCost);
     </script>
 
 

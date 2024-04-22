@@ -36,8 +36,8 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <a class="text-decoration-none" href="<?= site_url('welcome') ?>">
-              Kembali ke beranda
+            <a class="text-decoration-none" href="<?= site_url('tabel5/detail/' . $tbl8->$tabel8_field7) ?>">
+              Kembali ke Halaman Sebelumnya
             </a>
 
           </div>

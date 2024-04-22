@@ -43,39 +43,88 @@ class Tabel5 extends Omnitags
 
 		$tabel5 = $this->tl5->ambil_tabel5_field1($tabel5_field1)->result();
 
-		$param4 = "30";
-		
-		switch($tabel5[0]->status) {
+		$param1 = $tabel5[0]->tgl_persetujuan;
+		$param2 = $tabel5[0]->tgl_kedaluwarsa;
+
+		switch ($tabel5[0]->status) {
 			case $this->aliases['tabel5_field4_value0']:
+				$delete = $this->tl3->hapus_tabel5_field1($tabel5_field1);
 				$value = '';
+				$value2 = '';
 
 				break;
 
 			case $this->aliases['tabel5_field4_value1']:
 				$value = '';
+				$value2 = '';
 
 				break;
 			case $this->aliases['tabel5_field4_value2']:
 
-				$value = ($param4 * 3000);
+				if ($param2 < date('Y-m-d H:i:s')) {
+					$data2 = array(
+						$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value0'],
+						$this->aliases['tabel5_field6'] => NULL,
+						$this->aliases['tabel5_field7'] => NULL
+					);
+					$delete = $this->tl3->hapus_tabel5_field1($tabel5_field1);
+					$update = $this->tl5->update($data2, $tabel5_field1);
+
+					$value = '';
+					$value2 = '';
+				} else {
+					$StartTimeStamp = strtotime($param1);
+					$EndTimeStamp = strtotime($param2);
+
+					$TimeStamp = $EndTimeStamp - $StartTimeStamp;
+
+					$numberdays = $TimeStamp / 60 / 60 / 24;
+
+					$value = ($numberdays * $this->aliases['tabel8_field8_value1']);
+					$value2 = '';
+				}
 
 				break;
 			case $this->aliases['tabel5_field4_value3']:
-				$value = '';
+				if ($param2 < date('Y-m-d H:i:s')) {
+					$data2 = array(
+						$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value4'],
+					);
+					$update = $this->tl5->update($data2, $tabel5_field1);
+
+					$value = '';
+					$value2 = '';
+				} else {
+					$value = '';
+					$value2 = '';
+				}
 
 				break;
 			case $this->aliases['tabel5_field4_value4']:
 				$value = '';
+				$value2 = '';
 				break;
 			case $this->aliases['tabel5_field4_value5']:
-				$value = '';
+
+				$tabel1 = $this->tl1->ambil_tabel5_field1($tabel5_field1)->result();
+				$param5 = $tabel1[0]->tgl_kedaluwarsa_baru;
+				$StartTimeStamp = strtotime($param2);
+				$EndTimeStamp = strtotime($param5);
+
+				$TimeStamp = $EndTimeStamp - $StartTimeStamp;
+
+				$numberdays = $TimeStamp / 60 / 60 / 24;
+
+				$value = ($numberdays * $this->aliases['tabel8_field8_value1']);
+				$value2 = $param5;
 				break;
 			default:
 				$value = 'tidak valid';
+				$value2 = '';
 		}
 
 
-		
+
 		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
 
 		$data1 = array(
@@ -93,7 +142,8 @@ class Tabel5 extends Omnitags
 			'tbl1' => $this->tl1->ambil_tabel5_field1($tabel5_field1)->result(),
 
 			// Value ini adalah nilai unik yang dapat digunakan untuk masing-masing proses
-			'valueku' => $value
+			'valueku' => $value,
+			'value2' => $value2
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
@@ -147,8 +197,8 @@ class Tabel5 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_4['tabel5_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
-		
-			redirect(site_url('tabel5/admin'));
+
+		redirect(site_url('tabel5/admin'));
 	}
 
 	public function update_status()
@@ -156,11 +206,13 @@ class Tabel5 extends Omnitags
 		$this->declarew();
 
 		$param1 = $this->views_post['tabel5_field1'];
-		$param2 = date("Y-m-d") . " " . date("h:m:s", time());
-		
+
+		$param2 = date("Y-m-d") . " " . date("H:i:s", time());
+
 		$data = array(
 			$this->aliases['tabel5_field4'] => $this->views_post['tabel5_field4'],
 			$this->aliases['tabel5_field6'] => $param2,
+			$this->aliases['tabel5_field7'] => $this->views_post['tabel5_field7']
 		);
 
 		$update = $this->tl5->update($data, $param1);
@@ -215,5 +267,5 @@ class Tabel5 extends Omnitags
 	}
 
 	// Cetak satu data
-	
+
 }

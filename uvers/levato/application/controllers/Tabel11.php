@@ -37,6 +37,7 @@ class Tabel11 extends Omnitags
 		$this->declarew();
 
 		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
+		date_default_timezone_set('Asia/Jakarta');
 		$tabel11_field6 = date("Y-m-d") . " " . date("h:m:s", time());
 
 		$tabel11_field2 = $this->views_post['tabel11_field2'];

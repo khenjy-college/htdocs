@@ -140,7 +140,6 @@ class Tabel8 extends Omnitags
 		$param1 = date("Y-m-d H:i:s");
 		$param2 = $this->views_post['tabel8_field7'];
 		$param3 = $this->views_post['tabel8_field2'];
-		$param4 = date("Y-m-d H:i:s", strtotime($param1 . " +30 days"));
 
 		// di bawah ini adalah fungsi untuk tabel8
 		$startDate = new DateTime($param1);
@@ -171,7 +170,61 @@ class Tabel8 extends Omnitags
 
 		$status = array (
 			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value3'],
-			$this->aliases['tabel5_field7'] => $param4,
+		);
+
+		$update_status = $this->tl5->update($status, $param2);
+
+		if ($simpan && $update_status) {
+
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel8_alias']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
+		} else {
+
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_2['tabel8_alias']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
+		}
+
+		redirect(site_url('tabel8/konfirmasi'));
+	}
+
+	public function tambah_baru()
+	{
+		$this->declarew();
+
+		$param1 = date("Y-m-d H:i:s");
+		$param2 = $this->views_post['tabel8_field7'];
+		$param3 = $this->views_post['tabel8_field2'];
+
+		// di bawah ini adalah fungsi untuk tabel8
+		$startDate = new DateTime($param1);
+
+		$numberMonths = $startDate->format('m');
+		$numberYears = $startDate->format('Y');
+
+		// rumus harga total pesanan (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
+
+		$data = array(
+			$this->aliases['tabel8_field1'] => '',
+			$this->aliases['tabel8_field2'] => $param3,
+			$this->aliases['tabel8_field3'] => $this->views_post['tabel8_field3'],
+			$this->aliases['tabel8_field4'] => $param1,
+			$this->aliases['tabel8_field5'] => $numberMonths,
+			$this->aliases['tabel8_field6'] => $numberYears,
+			$this->aliases['tabel8_field7'] => $param2,
+			$this->aliases['tabel8_field8'] => $this->views_post['tabel8_field8'],
+
+			// 'status' => "belum bayar"
+
+		);
+
+		// membuat session supaya nilainya dapat digunakan selama waktu yang ditentukan dalam detik
+		$this->session->set_tempdata($this->aliases['tabel9_field1'] . '_' . $this->aliases['tabel8'], $param3, 300);
+
+		$simpan = $this->tl8->simpan($data);
+
+		$status = array (
+			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value3'],
+			$this->aliases['tabel5_field7'] => $this->views_post['tabel5_field7'],
 		);
 
 		$update_status = $this->tl5->update($status, $param2);

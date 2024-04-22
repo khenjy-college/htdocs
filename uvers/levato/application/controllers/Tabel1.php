@@ -37,6 +37,8 @@ class Tabel1 extends Omnitags
 
 		$param1 = $this->views_post['tabel1_field4'];
 
+		date_default_timezone_set('Asia/Jakarta');
+
 		$param2 = date("Y-m-d") . " " . date("h:m:s", time());
 
 		$param3 = $this->views_post['tabel1_field2'];
@@ -56,10 +58,9 @@ class Tabel1 extends Omnitags
 
 		$data2 = array(
 			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value5'],
-			$this->aliases['tabel5_field7'] => $param1,
 		);
 
-		$update = $this->tl5->update($data2, $param3)
+		$update = $this->tl5->update($data2, $param3);
 
 		if ($simpan) {
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel1_alias']);
@@ -69,7 +70,7 @@ class Tabel1 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel1/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function tambah_versi_aman()

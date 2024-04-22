@@ -135,6 +135,7 @@ class Tabel10 extends Omnitags
 		$tabel10_field6 = $this->views_post['tabel10_field6'];
 
 		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
+		date_default_timezone_set('Asia/Jakarta');
 		$tabel10_field7 = date("Y-m-d") . " " . date("h:m:s", time());
 
 		// $kembalian = $this->tl8->get('harga_total') - $bayar;
@@ -202,6 +203,7 @@ class Tabel10 extends Omnitags
 		$tabel10_field1 = $this->views_post['tabel10_field1'];
 
 		// seharusnya fitur ini menggunakan trigger cman saya tidak bisa melakukannya
+		date_default_timezone_set('Asia/Jakarta');
 		$tabel10_field7 = date("Y-m-d") . " " . date("h:m:s", time());
 
 		$data = array(

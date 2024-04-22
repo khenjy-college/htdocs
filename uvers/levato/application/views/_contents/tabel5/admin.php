@@ -111,11 +111,6 @@
 
           <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value1 ?>">
 
-          <div class="form-group">
-            <label><?= $tabel5_field5_alias ?></label>
-            <input type="date" name="<?= $tabel5_field5_input ?>" class="form-control date">
-          </div>
-
         </div>
 
         <!-- memunculkan notifikasi modal -->

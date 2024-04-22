@@ -49,7 +49,6 @@ class Omnitags extends CI_Controller
 
     public function declarew()
     {
-
         $jsonData1 = file_get_contents(site_url('assets/json/college_uvers_levato.postman_environment.json'));
         $myData1 = json_decode($jsonData1, true)['values'];
 
@@ -87,6 +86,8 @@ class Omnitags extends CI_Controller
             $this->flashdata1_msg_5[$item['key']] = 'Data ' .  $item['value'] . ' berhasil dihapus!';
             $this->flashdata1_msg_6[$item['key']] = 'Data ' .  $item['value'] . ' gagal dihapus!';
         }
+
+        date_default_timezone_set($this->aliases['timezone']);
 
         $this->views = array(
             'v1' => '_layouts/template',

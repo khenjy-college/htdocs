@@ -51,9 +51,10 @@ class Tabel3 extends Omnitags
 	public function tambah()
 	{
 		$this->declarew();
+
 		$param1 = $this->views_post['tabel3_field2'];
 
-		$param2 = date("Y-m-d") . " " . date("h:m:s", time());
+		$param2 = $this->views_post['tabel3_field5'];
 
 		$data = array(
 			$this->aliases['tabel3_field1'] => '',
@@ -68,6 +69,7 @@ class Tabel3 extends Omnitags
 		$simpan = $this->tl3->simpan($data);
 
 		$tgl = array(
+			$this->aliases['tabel5_field4'] => $this->views_post['tabel5_field4'],
 			$this->aliases['tabel5_field5'] => $param2
 		);
 		$update = $this->tl5->update($tgl, $param1);
@@ -82,7 +84,7 @@ class Tabel3 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel3/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function update()
