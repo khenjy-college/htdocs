@@ -241,9 +241,9 @@ class Tabel4 extends Omnitags
 		$tabel4 = $this->tl4->ambil_tabel4_field1($tabel4_field1)->result();
 
 		// Menggunakan tabel9 supaya menu lebih simpel
-		$tabel9_field2 = $tabel4[0]->nama_lengkap;
-		$tabel9_field3 = $tabel4[0]->username;
-		$tabel9_field5 = $tabel4[0]->telp;
+		$tabel9_field2 = $tabel4[0]->nama;
+		$tabel9_field3 = $tabel4[0]->email;
+		$tabel9_field5 = $tabel4[0]->hp;
 
 		// membuat session baru berdasarkan data yang telah diupdate
 		$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
@@ -328,10 +328,10 @@ class Tabel4 extends Omnitags
 
 			// memverifikasi password dengan password di database
 			if (password_verify($param4, $method8)) {
-				$tabel9_field1 = $tabel4[0]->id_user;
-				$tabel9_field2 = $tabel4[0]->nama_lengkap;
-				$tabel9_field3 = $tabel4[0]->username;
-				$tabel9_field5 = $tabel4[0]->telp;
+				$tabel9_field1 = $tabel4[0]->id_pemilik;
+				$tabel9_field2 = $tabel4[0]->nama;
+				$tabel9_field3 = $tabel4[0]->email;
+				$tabel9_field5 = $tabel4[0]->hp;
 				$tabel9_field6 = $this->aliases['tabel9_field6_value5'];
 
 				$this->session->set_userdata($this->aliases['tabel9_field1'], $tabel9_field1);

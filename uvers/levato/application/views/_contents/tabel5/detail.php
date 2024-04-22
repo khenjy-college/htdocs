@@ -11,13 +11,11 @@
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
-<a class="btn btn-info mb-4" href="<?= site_url('tabel5/laporan') ?>" target="_blank">
-  <i class="fas fa-print"></i> Cetak Laporan</a>
-
-
 <?php foreach ($tbl5 as $tl5):
   if ($tl5->$tabel5_field1 == '') { ?>   <?php } else { ?>
 
+    <a class="btn btn-info mb-4" href="<?= site_url('tabel5/print/' . $tl5->$tabel5_field1) ?>" target="_blank">
+      <i class="fas fa-print"></i> Print</a>
     <div class="table-responsive">
       <table class="table table-light" id="data">
         <thead></thead>
@@ -53,8 +51,33 @@
           </tr>
 
           <tr>
-            <td class="table-secondary table-active"><?= $tabel5_field7_alias ?></td>
+            <?php switch ($tl5->$tabel5_field4) {
+              case $tabel5_field4_value0:
+              case $tabel5_field4_value1:
+              case $tabel5_field4_value3:
+              case $tabel5_field4_value4:
+              case $tabel5_field4_value5: ?>
+                <td class="table-secondary table-active"><?= $tabel5_field7_alias ?></td>
+                <?php break;
+
+              case $tabel5_field4_value2: ?>
+                <td class="table-secondary table-active"><?= $tabel5_field7_alias ?>         <?= $tabel8_alias ?></td>
+                <?php break;
+
+              default: ?>
+                <?php break;
+            } ?>
             <td class="table-light"><?= $tl5->$tabel5_field7 ?></td>
+          </tr>
+
+          <tr>
+            <td class="table-secondary table-active">Jumlah <?= $tabel1_alias ?></td>
+            <td class="table-light"><?= $count1 ?></td>
+          </tr>
+
+          <tr>
+            <td class="table-secondary table-active">Jumlah <?= $tabel8_alias ?></td>
+            <td class="table-light"><?= $count8 ?></td>
           </tr>
 
         </tbody>
@@ -198,7 +221,7 @@
         <?php break;
       case $tabel5_field4_value4: ?>
         <br><br>
-        <h1><?= $tabel1_alias ?><?= $phase ?></h1>
+        <h1>Butuh <?= $tabel1_alias ?><?= $phase ?></h1>
         <hr>
 
         <div class="table-responsive"><!-- proses di tabel 1 -->
@@ -344,7 +367,7 @@
                 <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value1 ?>">
 
                 <div class="form-group">
-                  <label><?= $tabel3_field5_alias ?> </label>
+                  <label><?= $tabel3_field5_alias ?></label>
                   <input class="form-control" type="datetime-local" required name="<?= $tabel3_field5_input ?>"
                     value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>"
                     min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>">
@@ -359,7 +382,7 @@
           <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
 
           <div class="modal-footer">
-            <button class="btn btn-success" type="submit">Bayar</button>
+            <button class="btn btn-success" type="submit">Perbaharui</button>
           </div>
         </form>
 
@@ -440,8 +463,8 @@
 
                     <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
 
-                    <input id="tabel5_field6_input_date" class="form-control" type="datetime-local"
-                      name="<?= $tabel8_field6_input ?>" value="<?= $tl5->$tabel5_field6 ?>">
+                    <input id="tabel5_field6_input_date" type="hidden" name="<?= $tabel8_field6_input ?>"
+                      value="<?= $tl5->$tabel5_field6 ?>">
 
                     <div class="form-group">
                       <label><?= $tabel5_field7_alias ?></label>
@@ -530,16 +553,18 @@
 
 
                     <input type="hidden" name="<?= $tabel1_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
-
+<!-- 
 
 
 
                     <div class="form-group">
                       <label><?= $tabel1_field4_alias ?></label>
-                      <input class="form-control" type="datetime-local" name="<?= $tabel1_field4_input ?>"
-                        value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit2")) ?>"
-                        min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit2")) ?>" required>
-                    </div>
+                      <input class="form-control" type="datetime-local" name="<?= $tabel1_field4_input ?>" id=""
+                        value="<?= date("Y-m-d\TH:i:s", strtotime(" $tabel5_field7_limit1")) ?>"
+                        min="<?= date("Y-m-d\TH:i:s", strtotime(" $tabel5_field7_limit1")) ?>" required>
+                      <p>*Harga akhir akan dikalkulasi sejak formulir ini dikumpulkan</p>
+                      <p>*Harap selesaikan pembayaran sebelum <?= $tabel1_field4_alias ?></p>
+                    </div> -->
 
 
                   </div>
@@ -552,7 +577,7 @@
           <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
 
           <div class="modal-footer">
-            <button class="btn btn-success" type="submit">Bayar</button>
+            <button class="btn btn-success" type="submit">Daftar</button>
           </div>
         </form>
 
@@ -578,12 +603,6 @@
             <input type="hidden" name="<?= $tabel5_field1_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
             <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value2 ?>">
 
-            <div class="form-group">
-              <label><?= $tabel5_field7_alias ?></label>
-              <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
-                value="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>"
-                min="<?= date("Y-m-d H:i:s", strtotime(" $tabel5_field7_limit1")) ?>">
-            </div>
           </div>
 
           <!-- memunculkan notifikasi modal -->
@@ -669,19 +688,25 @@
 
                     <input type="hidden" name="<?= $tabel8_field2_input ?>"
                       value="<?= $this->session->userdata($tabel9_field1) ?>">
-
-
                     <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
 
 
                     <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
 
+                    <input id="tabel5_field6_input_date" type="text" name="<?= $tabel8_field6_input ?>"
+                      value="<?= $tl5->$tabel5_field6 ?>">
+
+                    <div class="form-group">
+                      <label><?= $tabel5_field7_alias ?></label>
+                      <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
+                        id="tabel5_field7_input_date" value="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>"
+                        min="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>">
+                    </div>
 
                     <div class="form-group">
                       <label><?= $tabel8_field8_alias ?> </label>
-                      <input type="hidden" name="<?= $tabel8_field8_input ?>" required value="<?= $valueku ?>">
-                      <input class="form-control" readonly type="text"
-                        value="Rp<?= number_format($valueku, '2', ',', '.') ?>">
+                      <input id="tabel8_field8_input_cost" class="form-control" readonly type="text" required
+                        name="<?= $tabel8_field8_input ?>" value="">
                     </div>
                   </div>
                 <?php } ?>

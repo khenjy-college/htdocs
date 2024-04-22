@@ -35,19 +35,16 @@ class Tabel1 extends Omnitags
 	{
 		$this->declarew();
 
-		$param1 = $this->views_post['tabel1_field4'];
-
-		date_default_timezone_set('Asia/Jakarta');
-
-		$param2 = date("Y-m-d") . " " . date("h:m:s", time());
-
+		$param2 = date("Y-m-d") . " " . date("H:i:s", time());
 		$param3 = $this->views_post['tabel1_field2'];
 
+		$limit = date("Y-m-d\TH:i:s", strtotime(" ". $this->aliases['tabel5_field7_limit1']));
+		
 		$data = array(
 			$this->aliases['tabel1_field1'] => '',
 			$this->aliases['tabel1_field2'] => $param3,
 			$this->aliases['tabel1_field3'] => $this->views_post['tabel1_field3'],
-			$this->aliases['tabel1_field4'] => $param1,
+			$this->aliases['tabel1_field4'] => NULL,
 			$this->aliases['tabel1_field5'] => $param2,
 		);
 
@@ -58,6 +55,8 @@ class Tabel1 extends Omnitags
 
 		$data2 = array(
 			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value5'],
+			$this->aliases['tabel5_field6'] => $param2,
+			$this->aliases['tabel5_field7'] => $limit,
 		);
 
 		$update = $this->tl5->update($data2, $param3);
@@ -203,4 +202,22 @@ class Tabel1 extends Omnitags
 
 		$this->load->view($this->views_v4['tabel1'], $data);
 	}
+
+	public function print($tabel1_field1 = null, $tabel7_field1 = 1)
+	{
+		$this->declarew();
+
+		$data1 = array(
+			$this->v_part1 => $this->views_v5_title['tabel1'],
+			$this->v_part2 => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
+			$this->v_part5 => $this->tl12->dekor('tabel1')->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl1' => $this->tl1->ambil_tabel1_field1($tabel1_field1)->result(),
+		);
+
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
+
+		$this->load->view($this->views_v5['tabel1'], $data);
+	}	
 }

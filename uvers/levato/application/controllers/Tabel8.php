@@ -194,6 +194,7 @@ class Tabel8 extends Omnitags
 		$param1 = date("Y-m-d H:i:s");
 		$param2 = $this->views_post['tabel8_field7'];
 		$param3 = $this->views_post['tabel8_field2'];
+		$param4 = $this->views_post['tabel5_field7'];
 
 		// di bawah ini adalah fungsi untuk tabel8
 		$startDate = new DateTime($param1);
@@ -224,12 +225,18 @@ class Tabel8 extends Omnitags
 
 		$status = array (
 			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value3'],
-			$this->aliases['tabel5_field7'] => $this->views_post['tabel5_field7'],
+			$this->aliases['tabel5_field7'] => $param4,
 		);
 
 		$update_status = $this->tl5->update($status, $param2);
 
-		if ($simpan && $update_status) {
+		$tgl = array(
+			$this->aliases['tabel1_field4'] => $param4
+		);
+
+		$update_tgl = $this->tl1->update($tgl, $param2);
+
+		if ($simpan && $update_status && $update_tgl) {
 
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel8_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);

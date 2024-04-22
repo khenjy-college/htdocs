@@ -157,6 +157,23 @@ class Tabel3 extends Omnitags
 	}
 
 	// Cetak satu data
+	public function print($tabel3_field1 = null, $tabel7_field1 = 1)
+	{
+		$this->declarew();
+
+		$data1 = array(
+			$this->v_part1 => $this->views_v5_title['tabel3'],
+			$this->v_part2 => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
+			$this->v_part5 => $this->tl12->dekor('tabel3')->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl3' => $this->tl3->ambil_tabel3_field1($tabel3_field1)->result(),
+		);
+
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
+
+		$this->load->view($this->views_v5['tabel3'], $data);
+	}	
 
 
 }
