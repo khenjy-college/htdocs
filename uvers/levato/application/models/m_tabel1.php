@@ -37,9 +37,16 @@ class M_tabel1 extends CI_Model
 		return $this->db->update($this->aliases['tabel1'], $data);
 	}
 
-	// public function hapus($param1)
-	// {
-	// 	$this->db->where($this->aliases['tabel1_field1'], $param1);
-	// 	return $this->db->delete($this->aliases['tabel1']);
-	// }
+	public function update_tabel5_field7($data, $param1, $param2)
+	{
+		$this->db->where($this->aliases['tabel1_field2'], $param1);
+		$this->db->where($this->aliases['tabel1_field5'], $param2);
+		return $this->db->update($this->aliases['tabel1'], $data);
+	}
+
+	public function hapus($param1)
+	{
+		$this->db->where($this->aliases['tabel1_field1'], $param1);
+		return $this->db->delete($this->aliases['tabel1']);
+	}
 }

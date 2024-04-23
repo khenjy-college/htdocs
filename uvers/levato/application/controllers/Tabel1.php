@@ -35,14 +35,15 @@ class Tabel1 extends Omnitags
 	{
 		$this->declarew();
 
-		$param2 = date("Y-m-d") . " " . date("H:i:s", time());
-		$param3 = $this->views_post['tabel1_field2'];
+		$param1 = $this->views_post['tabel1_field2'];
+		$param2 = date("Y-m-d\TH:i:s");
+		$param3 = $this->views_post['tabel5_field4'];
 
 		$limit = date("Y-m-d\TH:i:s", strtotime(" ". $this->aliases['tabel5_field7_limit1']));
 		
 		$data = array(
 			$this->aliases['tabel1_field1'] => '',
-			$this->aliases['tabel1_field2'] => $param3,
+			$this->aliases['tabel1_field2'] => $param1,
 			$this->aliases['tabel1_field3'] => $this->views_post['tabel1_field3'],
 			$this->aliases['tabel1_field4'] => NULL,
 			$this->aliases['tabel1_field5'] => $param2,
@@ -54,22 +55,23 @@ class Tabel1 extends Omnitags
 		// $simpan = $this->tl1->simpan($query);
 
 		$data2 = array(
-			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value5'],
+			$this->aliases['tabel5_field4'] => $param3,
 			$this->aliases['tabel5_field6'] => $param2,
 			$this->aliases['tabel5_field7'] => $limit,
 		);
 
-		$update = $this->tl5->update($data2, $param3);
+		$update = $this->tl5->update($data2, $param1);
 
-		if ($simpan) {
+		if ($simpan && $update) {
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_1['tabel1_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		} else {
 			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdata1_msg_2['tabel1_alias']);
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
+			redirect($_SERVER['HTTP_REFERER']);
 		}
+		redirect(site_url('tabel5/admin'));
 
-		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function tambah_versi_aman()

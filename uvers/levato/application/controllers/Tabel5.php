@@ -110,32 +110,27 @@ class Tabel5 extends Omnitags
 				$value2 = '';
 				break;
 			case $this->aliases['tabel5_field4_value5']:
-				if ($param2 < date('Y-m-d\TH:i:s')) {
-					$tabel1 = $this->tl1->ambil_tabel5_field1($tabel5_field1)->last_row();
-					$tabel1_field1 = $tabel1[0]->id_pembaruan;
-
+				if ($param2 < date('Y-m-d H:i:s')) {
 					$data2 = array(
-						$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value4'],
+						$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value0'],
 						$this->aliases['tabel5_field6'] => NULL,
 						$this->aliases['tabel5_field7'] => NULL
 					);
+					$delete = $this->tl1->hapus_tabel5_field1($tabel5_field1);
 					$update = $this->tl5->update($data2, $tabel5_field1);
-					$hapus = $this->tl1->hapus($tabel1_field1);
 
 					$value = '';
 					$value2 = '';
 				} else {
-					$tabel1 = $this->tl1->ambil_tabel5_field1($tabel5_field1)->result();
-					$param5 = $tabel1[0]->tgl_kedaluwarsa_baru;
 					$StartTimeStamp = strtotime($param1);
-					$EndTimeStamp = strtotime($param5);
+					$EndTimeStamp = strtotime($param2);
 
 					$TimeStamp = $EndTimeStamp - $StartTimeStamp;
 
 					$numberdays = $TimeStamp / 60 / 60 / 24;
 
 					$value = ($numberdays * $this->aliases['tabel8_field8_value1']);
-					$value2 = $param5;
+					$value2 = '';
 				}
 
 

@@ -52,9 +52,11 @@ class Tabel3 extends Omnitags
 	{
 		$this->declarew();
 
+		
+		
 		$param1 = $this->views_post['tabel3_field2'];
-
-		$param2 = $this->views_post['tabel3_field5'];
+		
+		$param2 = date("Y-m-d\TH:i:s");
 
 		$data = array(
 			$this->aliases['tabel3_field1'] => '',

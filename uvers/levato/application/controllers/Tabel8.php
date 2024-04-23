@@ -137,7 +137,7 @@ class Tabel8 extends Omnitags
 	{
 		$this->declarew();
 
-		$param1 = date("Y-m-d H:i:s");
+		$param1 = date("Y-m-d\TH:i:s");
 		$param2 = $this->views_post['tabel8_field7'];
 		$param3 = $this->views_post['tabel8_field2'];
 
@@ -168,7 +168,7 @@ class Tabel8 extends Omnitags
 
 		$simpan = $this->tl8->simpan($data);
 
-		$status = array (
+		$status = array(
 			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value3'],
 		);
 
@@ -223,18 +223,24 @@ class Tabel8 extends Omnitags
 
 		$simpan = $this->tl8->simpan($data);
 
-		$status = array (
+		$status = array(
 			$this->aliases['tabel5_field4'] => $this->aliases['tabel5_field4_value3'],
 			$this->aliases['tabel5_field7'] => $param4,
 		);
 
 		$update_status = $this->tl5->update($status, $param2);
 
+		$tabel5 = $this->tl5->ambil_tabel5_field1($param2)->result();
+		$tabel5_field6 = $tabel5[0]->tgl_persetujuan;
+
+
 		$tgl = array(
 			$this->aliases['tabel1_field4'] => $param4
 		);
 
-		$update_tgl = $this->tl1->update($tgl, $param2);
+		$update_tgl = $this->tl1->update_tabel5_field7($tgl, $param2, $tabel5_field6);
+
+
 
 		if ($simpan && $update_status && $update_tgl) {
 
@@ -261,7 +267,7 @@ class Tabel8 extends Omnitags
 		$this->declarew();
 
 		$tabel8_field1 = $this->views_post['tabel8_field1'];
-		
+
 		$data = array(
 			$this->aliases['tabel8_field12'] => $this->views_post['tabel8_field12post'],
 		);
@@ -299,7 +305,7 @@ class Tabel8 extends Omnitags
 
 		redirect(site_url('tabel8/admin'));
 	}
-	
+
 
 	public function hapus($tabel8_field1 = null)
 	{
@@ -401,12 +407,12 @@ class Tabel8 extends Omnitags
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
 
 		$this->load->view($this->views_v5['tabel8'], $data);
-	}	
+	}
 
 
 
 	// Fungsi khusus
-	
+
 	// Di bawah ini adalah fitur yang ingin kutambahkan ketika ingin memasukkan fitur filter di halaman daftar
 	// Jika user menggunakan tombol cari untuk mencari pesanan, namun pada views masih menggunakan v_pesanan, 
 	// maka fitur ini dibutuhkan untuk membedakan user mana yang sedang mencari daftar pesanan/history/transaksi 

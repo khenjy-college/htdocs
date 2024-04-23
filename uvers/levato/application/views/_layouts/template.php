@@ -436,9 +436,44 @@ switch (true) {
         document.getElementById("tabel8_field8_input_cost").value = valueku.toFixed(2); // Adjust if needed
       }
 
+
+      function calculateCost2() {
+        console.log("calculateCost function called");
+
+        let x = document.getElementById("tabel5_field6_input2_date").value;
+        let y = document.getElementById("tabel5_field7_input2_date").value;
+
+        console.log("x:", x);
+        console.log("y:", y);
+
+        // Create a Date object with the value from cek_in_date
+        let startDateX = new Date(x).getTime();
+        let startDateY = new Date(y).getTime();
+
+        console.log("startDateX:", startDateX);
+        console.log("startDateY:", startDateY);
+
+        let timeStamp = startDateY - startDateX;
+
+        console.log("timeStamp:", timeStamp);
+
+        let numberDays = timeStamp / (1000 * 3600 * 24);
+
+        console.log("numberDays:", numberDays);
+
+        let valueku = numberDays * <?= $tabel8_field8_value1 ?>;
+
+        console.log("valueku:", valueku);
+
+        document.getElementById("tabel8_field8_input2_cost").value = valueku.toFixed(2); // Adjust if needed
+      }
+
       // Trigger the calculation function on change of input values
       document.getElementById("tabel5_field6_input_date").addEventListener("change", calculateCost);
       document.getElementById("tabel5_field7_input_date").addEventListener("change", calculateCost);
+
+      document.getElementById("tabel5_field6_input2_date").addEventListener("change", calculateCost2);
+      document.getElementById("tabel5_field7_input2_date").addEventListener("change", calculateCost2);
     </script>
 
 
