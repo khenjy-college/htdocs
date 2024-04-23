@@ -137,22 +137,6 @@
       </div>
       <?php break;
 
-    case $tabel9_field6_value2: ?>
-      <div class="col-lg-3 mt-2">
-        <div class="card text-white bg-success">
-          <div class="card-body">
-            <h5 class="card-title">
-              <?= $tabel10_alias ?>
-            </h5>
-            <p class="card-text" style="font-size: 32;">
-              <?= $tbl10 ?>
-            </p>
-            <a class="text-white" href="<?= site_url('tabel10/admin') ?>">Lihat Detail >></a>
-          </div>
-        </div>
-      </div>
-      <?php break;
-
 
     default: ?>
 

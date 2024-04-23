@@ -251,7 +251,6 @@ switch (true) {
         <?= $this->session->flashdata('maintenance') ?>
         <?= $this->session->flashdata('clean') ?>
         <?= $this->session->flashdata('book') ?>
-        <?= $this->session->flashdata($tabel10_field6) ?>
         <?= $this->session->flashdata('cari') ?>
         //  $this->session->flashdata('quickTour') ?>
 

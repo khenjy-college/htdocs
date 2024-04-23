@@ -42,15 +42,6 @@
                                 <?php switch ($this->session->userdata($tabel9_field6)) {
                                     case $tabel9_field6_value2:
                                         ?>
-                                        <h6 class="dropdown-header">
-                                            <?= $tabel10_alias ?>
-                                        </h6>
-                                        <a class="dropdown-item" href="<?= site_url('tabel10/admin') ?>">
-                                            <?= $tabel10_alias ?> Aktif
-                                        </a>
-                                        <a class="dropdown-item" href="<?= site_url('tabel10/history') ?>">
-                                            <?= $tabel10_alias ?> History
-                                        </a>
                                         <?php break;
 
                                     case $tabel9_field6_value3:
@@ -166,17 +157,6 @@
                                 <h6 class="dropdown-header">Reservasi</h6>
                                 <a class="dropdown-item" href="<?= site_url('tabel8/daftar') ?>">Daftar
                                     <?= $tabel8_alias ?>
-                                </a>
-                                <a class="dropdown-item" href="<?= site_url('tabel10/daftar') ?>">Daftar
-                                    <?= $tabel10_alias ?>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">History</h6>
-                                <a class="dropdown-item" href="<?= site_url('tabel2/daftar') ?>">
-                                    <?= $tabel2_alias ?>
-                                </a>
-                                <a class="dropdown-item" href="<?= site_url('tabel10/daftar_history') ?>">History
-                                    <?= $tabel10_alias ?>
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <?php break;

@@ -1,39 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-// Ke depannya aku akan menerapkan lebih banyak fitur lagi ke website ini supaya terlihat lebih hidup
-// Tentunya hal ini akan lebih possible dan mudah jika aku sudah mulai menggunakan fitur api dan container
-// Dan masih ada banyak lagi yang ingin kuterapkan supaya website ini sudah layak untuk menjadi template
-// Template yang bisa digunakan untuk membuat website yang lainnya
-// Masih ada banyak projek yang perlu dikembangkan di bagian backend, dan tentunya hal itu perlu kontrol yang jelas
-// Tidak hanya asal mengikuti tutorial saja
-
-// Masing-masing ide website memiliki kebutuhan yang berbeda-beda, namun aku akan mencoba menerapkan hal itu di website ini
-// terlebih dahulu, karena jika kedepannya ingin mengembangkan lagi, tinggal menggunakan template ini dan mengubah
-// variabel-variabel dan fungsnya sesuai dengan kebutuhan saja.
-
-// Aku juga benar-benar ingin menerapkan seluruh fungsi yang ada di Codeigniter ini supaya aku lebih dapat banyak
-// wawasan mengenai web development, masih ada banyak yang belum kuterapkan seperti helpers, libraries, hooks, languages,
-// dan lain-lain.
-
-// Dengan mempelajari hal tersebut, maka mempelajari framework lain yang lebih terkenal seperti react js tentu lebih mudah
-
-// Aku juga harus sering menerapkan fitur html yang diperlihatkan oleh pak ilwan melalui excel
-// Pak Ilwan bisa membuat sebuah print melalui excel yang diexport ke html, dan diubah menjadi php 
-// Masih banyak lagi yang bisa diexport ke html selain excel, dan aku tidak ingin menyia2kan kesempatan itu tentunya
-
-// Selain itu aku juga perlu menerapkan github lebih sering, karena banyak tools2 yang berguna dan bisa kugunakan di sana
-
 class Omnitags extends CI_Controller
 {
-    // Di bawah ini aku berencana untuk membuat sebuah array yang menampung semua jenis alias dari field dan nama tabel
-    // Dan aku akan membuat array itu merge dengan array yang akan diload ke halaman view pada setiap
-    // Controller yang ada di aplikasi ini, dengan begitu, aku tidak perlu khawatir jika ingin memulai projek baru
-    // Dan ingin mengubah konten di dalamnya dalam waktu yang singkat
-
-    // Aku ada rencana untuk menggunakan Toastr untuk menampilkan notifikasi toast
-    // Ini adalah link : https://codeseven.github.io/toastr/demo.html
-
     public $head = '_partials/head';
 
     // Di bawah ini adalah fungsi config
@@ -79,7 +48,7 @@ class Omnitags extends CI_Controller
     public function declarew()
     {
 
-        $jsonData1 = file_get_contents(site_url('assets/json/college_3_pbasdat_hr.postman_environment.json'));
+        $jsonData1 = file_get_contents(site_url('assets/json/college_2_basdat_inventory.postman_environment.json'));
         $myData1 = json_decode($jsonData1, true)['values'];
 
         // Create variables dynamically
@@ -90,7 +59,7 @@ class Omnitags extends CI_Controller
             $this->views_get[$item['key']] = $this->input->get('txt_'.$item['value']);
         }
 
-        $jsonData2 = file_get_contents(site_url('assets/json/college_3_pbasdat_hr_tables.postman_environment.json'));
+        $jsonData2 = file_get_contents(site_url('assets/json/college_2_basdat_inventory.postman_environment.json'));
         $myData2 = json_decode($jsonData2, true)['values'];
 
         // Create variables dynamically
@@ -130,7 +99,6 @@ class Omnitags extends CI_Controller
             'v6_title' => 'Selamat Datang',
 
 
-
             'tabel4_v9' => '_contents/tabel4/login',
             'tabel4_v9_title' => 'Login Sebagai ' . $this->aliases['tabel4_alias'],
 
@@ -154,8 +122,6 @@ class Omnitags extends CI_Controller
 
             'tabel9_field4_old' => $this->aliases['tabel9_field4'] . '_old',
             'tabel9_field4_old_post' => $this->input->post('old_' . $this->aliases['tabel9_field4'] . '_old'),
-
-            'tabel10_v6' => '_contents/tabel8/konfirmasi',
 
 
 
@@ -193,10 +159,10 @@ class Omnitags extends CI_Controller
             'v6_flashdata1_msg1' => 'Selamat datang ' . $this->session->userdata($this->aliases['tabel9_field6']) . ' ' . $this->session->userdata($this->aliases['tabel9_field2']) . '!',
             'tabel8_v_flashdata1_msg2' => 'Ayo kita lanjutkan ke pemesanan, ' . $this->session->userdata($this->aliases['tabel9_field6']) . ' ' . $this->session->userdata($this->aliases['tabel9_field2']) . '!',
 
-            'tabel4_v_flashdata1_msg_-1' => $this->aliases['tabel9_field4'] . ' salah!',
-            'tabel4_v_flashdata1_msg_0' => $this->aliases['tabel9_field3'] . ' tidak tersedia!',
-            'tabel9_v_flashdata1_msg_-1' => $this->aliases['tabel9_field4'] . ' salah!',
-            'tabel9_v_flashdata1_msg_0' => $this->aliases['tabel9_field3'] . ' tidak tersedia!',
+            'tabel4_v_flashdata1_msg_-1' => $this->aliases['tabel4_field4'] . ' salah!',
+            'tabel4_v_flashdata1_msg_0' => $this->aliases['tabel4_field3'] . ' tidak tersedia!',
+            'tabel9_v_flashdata1_msg_-1' => $this->aliases['tabel4_field4'] . ' salah!',
+            'tabel9_v_flashdata1_msg_0' => $this->aliases['tabel4_field3'] . ' tidak tersedia!',
 
 
             // Data Manupulation Flashdatas
@@ -205,8 +171,9 @@ class Omnitags extends CI_Controller
             'v_flashdata3_msg2' => '',
             'v_flashdata_c' => 'tambah',
             'v_flashdata_c_func1' => '$(".tambah").modal("show")',
-            'tabel2_v_flashdata3_msg_1' => '',
-            'tabel11_v_flashdata3_msg_1' => '',
+            // 'tabel2_v_flashdata3_msg_1' => '',
+            // 'tabel10_v_flashdata3_msg_1' => $this->aliases['tabel3_field4_alias'] . ' ' . $this->aliases['tabel3_alias'] . ' tidak bisa diupload',
+            // 'tabel11_v_flashdata3_msg_1' => '',
             'tabel12_v_flashdata3_msg_1' => $this->aliases['tabel12_field3_alias'] . ' ' . $this->aliases['tabel12_alias'] . ' tidak bisa diupload',
             'tabel13_v_flashdata3_msg_1' => $this->aliases['tabel13_field4_alias'] . ' ' . $this->aliases['tabel13_alias'] . ' tidak bisa diupload',
             'tabel4_v_flashdata3_msg_1' => 'Konfirmasi ' . $this->aliases['tabel9_field4'] . ' tidak sesuai!',
@@ -219,14 +186,15 @@ class Omnitags extends CI_Controller
             'v_flashdata4_msg2' => '',
             'v_flashdata_d' => 'ubah',
             'v_flashdata_d_func1' => '$(".ubah").modal("show")',
-            'tabel2_v_flashdata4_msg_1' => '',
+            // 'tabel2_v_flashdata4_msg_1' => '',
             'tabel4_v_flashdata4_msg_1' => 'Konfirmasi ' . $this->aliases['tabel9_field4'] . ' tidak sesuai!',
             'tabel4_v_flashdata4_msg_2' => $this->aliases['tabel9_field4'] . ' lama salah!',
             'tabel4_v_flashdata4_msg_3' => 'Akun tidak tersedia!',
             'tabel9_v_flashdata4_msg_1' => 'Konfirmasi ' . $this->aliases['tabel9_field4'] . ' tidak sesuai!',
             'tabel9_v_flashdata4_msg_2' => $this->aliases['tabel9_field4'] . ' lama salah!',
             'tabel9_v_flashdata4_msg_3' => 'Akun tidak tersedia!',
-            'tabel11_v_flashdata4_msg_1' => '',
+            // 'tabel10_v_flashdata4_msg_1' => $this->aliases['tabel3_field4_alias'] . ' ' . $this->aliases['tabel3_alias'] . ' tidak bisa diupload',
+            // 'tabel11_v_flashdata4_msg_1' => '',
             'tabel12_v_flashdata4_msg_1' => $this->aliases['tabel12_field3_alias'] . ' ' . $this->aliases['tabel12_alias'] . ' tidak bisa diupload',
             'tabel13_v_flashdata4_msg_1' => $this->aliases['tabel13_field4_alias'] . ' ' . $this->aliases['tabel13_alias'] . ' tidak bisa diupload',
 

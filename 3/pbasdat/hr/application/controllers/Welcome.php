@@ -61,8 +61,8 @@ class Welcome extends Omnitags
 	{
 		$this->declarew();
 		
-		$chart_tabel2 = $this->tl6->getChartTabel2();
-		$chart_tabel8 = $this->tl6->getChartTabel8();
+		// $chart_tabel2 = $this->tl6->getChartTabel2();
+		// $chart_tabel8 = $this->tl6->getChartTabel8();
 
 		$data1 = array(
 			$this->v_part1 => $this->views['v5_title'],
@@ -78,10 +78,10 @@ class Welcome extends Omnitags
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl8' => $this->tl8->ambildata()->num_rows(),
 			'tbl9' => $this->tl9->ambildata()->num_rows(),
-			'tbl10' => $this->tl10->ambildata()->num_rows(),
+			// 'tbl10' => $this->tl10->ambildata()->num_rows(),
 
-			'chart_tabel2' => json_encode($chart_tabel2),
-			'chart_tabel8' => json_encode($chart_tabel8),
+			// 'chart_tabel2' => json_encode($chart_tabel2),
+			// 'chart_tabel8' => json_encode($chart_tabel8),
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
