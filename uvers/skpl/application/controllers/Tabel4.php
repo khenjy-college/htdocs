@@ -65,7 +65,7 @@ class Tabel4 extends Omnitags
 			$simpan = $this->tl4->simpan($data);
 
 			// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
-			if ($this->session->userdata($this->aliases['tabel9_field3'])) {
+			if ($this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field3'])) {
 
 				redirect(site_url('tabel4/admin'));
 			} else {
@@ -163,7 +163,7 @@ class Tabel4 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel4_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
+		$tabel4_field1 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
 		$data1 = array(
 			$this->v_part1 => $this->views_v2_title['tabel4_alias2'],
 			$this->v_part2 => $this->head,
@@ -241,14 +241,18 @@ class Tabel4 extends Omnitags
 		// mengambil data profil yang baru dirubah
 		$tabel4 = $this->tl4->ambil_tabel4_field1($tabel4_field1)->result();
 
-		$tabel9_field2 = $tabel4[0]->nama;
-		$tabel9_field3 = $tabel4[0]->username;
-		$tabel9_field5 = $tabel4[0]->telp;
+		$tabel9_field2 = $tabel4[0]->nama_mahasiswa;
+		$tabel9_field3 = $tabel4[0]->nim;
+		$tabel9_field5 = $tabel4[0]->email;
+		$tabel4_field6 = $tabel4[0]->jenis_kelamin;
+		$tabel4_field7 = $tabel4[0]->tgl_lahir;
 
 		// membuat session baru berdasarkan data yang telah diupdate
-		$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
-		$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
-		$this->session->set_userdata($this->aliases['tabel9_field5'], $tabel9_field5);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field2'], $tabel9_field2);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field3'], $tabel9_field3);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field5'], $tabel9_field5);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field6'], $tabel4_field6);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field7'], $tabel4_field7);
 
 		// kembali ke halaman sebelumnya sesuai dengan masing-masing petugas dengan level yang berbeda
 		redirect($_SERVER['HTTP_REFERER']);
@@ -328,17 +332,21 @@ class Tabel4 extends Omnitags
 
 			// memverifikasi password dengan password di database
 			if (password_verify($param4, $method8)) {
-				$tabel9_field1 = $tabel4[0]->nik;
-				$tabel9_field2 = $tabel4[0]->nama;
-				$tabel9_field3 = $tabel4[0]->username;
-				$tabel9_field5 = $tabel4[0]->telp;
+				$tabel9_field1 = $tabel4[0]->id_mahasiswa;
+				$tabel9_field2 = $tabel4[0]->nama_mahasiswa;
+				$tabel9_field3 = $tabel4[0]->nim;
+				$tabel9_field5 = $tabel4[0]->email;
 				$tabel9_field6 = $this->aliases['tabel9_field6_value5'];
+				$tabel4_field6 = $tabel4[0]->jenis_kelamin;
+				$tabel4_field7 = $tabel4[0]->tgl_lahir;
 
-				$this->session->set_userdata($this->aliases['tabel9_field1'], $tabel9_field1);
-				$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
-				$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
-				$this->session->set_userdata($this->aliases['tabel9_field5'], $tabel9_field5);
-				$this->session->set_userdata($this->aliases['tabel9_field6'], $tabel9_field6);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1'], $tabel9_field1);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field2'], $tabel9_field2);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field3'], $tabel9_field3);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field5'], $tabel9_field5);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field6'], $tabel9_field6);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field6'], $tabel4_field6);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field7'], $tabel4_field7);
 
 
 				redirect(site_url('welcome'));

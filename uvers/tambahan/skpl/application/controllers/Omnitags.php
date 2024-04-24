@@ -679,8 +679,8 @@ class Omnitags extends CI_Controller
             'v_flashdata_a_func1' => '$("#element").toast("show")',
 
             // Pesan di bawah ini sudah boleh diubah
-            'v6_flashdata1_msg1' => 'Selamat datang ' . $this->session->userdata($tabel9_field6) . ' ' . $this->session->userdata($tabel9_field2) . '!',
-            'tabel8_v_flashdata1_msg2' => 'Ayo kita lanjutkan ke pemesanan, ' . $this->session->userdata($tabel9_field6) . ' ' . $this->session->userdata($tabel9_field2) . '!',
+            'v6_flashdata1_msg1' => 'Selamat datang ' . $this->session->userdata($base_url . $tabel9_field6) . ' ' . $this->session->userdata($base_url . $tabel9_field2) . '!',
+            'tabel8_v_flashdata1_msg2' => 'Ayo kita lanjutkan ke pemesanan, ' . $this->session->userdata($base_url . $tabel9_field6) . ' ' . $this->session->userdata($base_url . $tabel9_field2) . '!',
 
             'tabel4_v_flashdata1_msg_-1' => $tabel9_field4 . ' salah!',
             'tabel4_v_flashdata1_msg_0' => $tabel9_field3 . ' tidak tersedia!',

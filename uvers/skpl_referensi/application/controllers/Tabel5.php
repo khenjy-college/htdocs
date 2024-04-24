@@ -65,7 +65,6 @@ class Tabel5 extends Omnitags
 			$this->aliases['tabel5_field2'] => $this->views_post['tabel5_field2'],
 			$this->aliases['tabel5_field3'] => $this->views_post['tabel5_field3'],
 			$this->aliases['tabel5_field4'] => $this->views_post['tabel5_field4'],
-			$this->aliases['tabel5_field5'] => $this->views_post['tabel5_field5'],
 		);
 
 		$update = $this->tl5->update($data, $tabel5_field1);

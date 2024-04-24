@@ -57,7 +57,7 @@ class Tabel4 extends Omnitags
 			$simpan = $this->tl4->simpan($data);
 
 			// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
-			if ($this->session->userdata($this->aliases['tabel4_field3'])) {
+			if ($this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel4_field3'])) {
 
 				redirect(site_url('tabel4'));
 			} else {
@@ -154,7 +154,7 @@ class Tabel4 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel4_field1 = $this->session->userdata($this->aliases['tabel4_field1']);
+		$tabel4_field1 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel4_field1']);
 		$data1 = array(
 			$this->v_part1 => $this->views['tabel9_v1_title'],
 			$this->v_part2 => $this->head,
@@ -239,10 +239,10 @@ class Tabel4 extends Omnitags
 		$tabel4_field6 = $tabel4[0]->role;
 
 		// membuat session baru berdasarkan data yang telah diupdate
-		$this->session->set_userdata($this->aliases['tabel4_field2'], $tabel4_field2);
-		$this->session->set_userdata($this->aliases['tabel4_field3'], $tabel4_field3);
-		$this->session->set_userdata($this->aliases['tabel4_field4'], $tabel4_field4);
-		$this->session->set_userdata($this->aliases['tabel4_field6'], $tabel4_field6);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field2'], $tabel4_field2);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field3'], $tabel4_field3);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field4'], $tabel4_field4);
+		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field6'], $tabel4_field6);
 
 		// kembali ke halaman sebelumnya sesuai dengan masing-masing petugas dengan level yang berbeda
 		redirect($_SERVER['HTTP_REFERER']);
@@ -328,11 +328,11 @@ class Tabel4 extends Omnitags
 				$tabel4_field4 = $tabel4[0]->hp;
 				$tabel4_field6 = $tabel4[0]->level;
 
-				$this->session->set_userdata($this->aliases['tabel4_field1'], $tabel4_field1);
-				$this->session->set_userdata($this->aliases['tabel4_field2'], $tabel4_field2);
-				$this->session->set_userdata($this->aliases['tabel4_field3'], $tabel4_field3);
-				$this->session->set_userdata($this->aliases['tabel4_field4'], $tabel4_field4);
-				$this->session->set_userdata($this->aliases['tabel4_field6'], $tabel4_field6);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field1'], $tabel4_field1);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field2'], $tabel4_field2);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field3'], $tabel4_field3);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field4'], $tabel4_field4);
+				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel4_field6'], $tabel4_field6);
 
 
 				redirect(site_url('welcome'));

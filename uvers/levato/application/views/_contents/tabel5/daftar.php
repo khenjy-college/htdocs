@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata($tabel9_field6)) {
+<?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
   case $tabel9_field6_value5:
     break;
 
@@ -456,7 +456,7 @@
                   <div class="col-md-6">
 
                     <input type="hidden" name="<?= $tabel8_field2_input ?>"
-                      value="<?= $this->session->userdata($tabel9_field1) ?>">
+                      value="<?= $this->session->userdata($base_url . $tabel9_field1) ?>">
                     <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
 
 
@@ -521,7 +521,7 @@
                       <p><?= $tl5->$tabel5_field1 ?></p>
                       <input type="hidden" name="<?= $tabel5_field1_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
                       <input type="hidden" name="<?= $tabel9_field1_input ?>"
-                        value="<?= $this->session->userdata($tabel9_field1) ?>">
+                        value="<?= $this->session->userdata($base_url . $tabel9_field1) ?>">
                     </div>
                     <hr>
 
@@ -650,7 +650,7 @@
                     <input type="hidden" name="<?= $tabel5_field7_input ?>" value="<?= $value2 ?>">
 
                     <input type="hidden" name="<?= $tabel8_field2_input ?>"
-                      value="<?= $this->session->userdata($tabel9_field1) ?>">
+                      value="<?= $this->session->userdata($base_url . $tabel9_field1) ?>">
                     <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
 
 

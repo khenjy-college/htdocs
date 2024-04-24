@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata($tabel9_field6)) {
+<?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
     break;
@@ -79,13 +79,15 @@
 
           <div class="form-group">
             <label><?= $tabel4_field2_alias ?></label>
-            <input class="form-control" type="text" required name="<?= $tabel4_field2_input ?>" placeholder="Masukkan <?= $tabel4_field2_alias ?>">
+            <input class="form-control" type="text" required name="<?= $tabel4_field2_input ?>"
+              placeholder="Masukkan <?= $tabel4_field2_alias ?>">
           </div>
 
           <!-- administrator dapat menentukan password untuk akun baru -->
           <div class="form-group">
             <label><?= $tabel4_field3_alias ?></label>
-            <input class="form-control" type="email" required name="<?= $tabel4_field3_input ?>" placeholder="Masukkan <?= $tabel4_field3_alias ?>">
+            <input class="form-control" type="email" required name="<?= $tabel4_field3_input ?>"
+              placeholder="Masukkan <?= $tabel4_field3_alias ?>">
           </div>
 
           <!-- <div class="form-group">
@@ -94,14 +96,16 @@
           </div> -->
 
           <!-- Di bawah ini adalah penginputan password dan konfirmasi password untuk tabel4, sangat opsional -->
-          <div class="input-group">
-          <label><?= $tabel4_field4_alias ?></label>
-            <input class="form-control" type="password" required name="<?= $tabel4_field4_input ?>" placeholder="Masukkan <?= $tabel4_field4_alias ?>">
+          <div class="form-group">
+            <label><?= $tabel4_field4_alias ?></label>
+            <input class="form-control" type="password" required name="<?= $tabel4_field4_input ?>"
+              placeholder="Masukkan <?= $tabel4_field4_alias ?>">
           </div>
 
-          <div class="input-group">
-          <label>Konfirmasi <?= $tabel4_field4_alias ?></label>
-            <input class="form-control" type="password" required name="konfirm" placeholder="Konfirmasi <?= $tabel4_field4_alias ?>">
+          <div class="form-group">
+            <label>Konfirmasi <?= $tabel4_field4_alias ?></label>
+            <input class="form-control" type="password" required name="konfirm"
+              placeholder="Konfirmasi <?= $tabel4_field4_alias ?>">
           </div>
 
 
@@ -141,14 +145,16 @@
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel4_field2_alias ?></label>
-              <input class="form-control" type="text" required name="<?= $tabel4_field2_input ?>" placeholder="Masukkan <?= $tabel4_field2_alias ?>" value="<?= $tl4->$tabel4_field2 ?>">
+              <input class="form-control" type="text" required name="<?= $tabel4_field2_input ?>"
+                placeholder="Masukkan <?= $tabel4_field2_alias ?>" value="<?= $tl4->$tabel4_field2 ?>">
               <input type="hidden" name="<?= $tabel4_field1_input ?>" value="<?= $tl4->$tabel4_field1 ?>">
             </div>
 
             <!-- administrator dapat menentukan password untuk akun baru -->
             <div class="form-group">
               <label><?= $tabel4_field3_alias ?></label>
-              <input class="form-control" type="email" required name="<?= $tabel4_field3_input ?>" placeholder="Masukkan <?= $tabel4_field3_alias ?>" value="<?= $tl4->$tabel4_field3 ?>">
+              <input class="form-control" type="email" required name="<?= $tabel4_field3_input ?>"
+                placeholder="Masukkan <?= $tabel4_field3_alias ?>" value="<?= $tl4->$tabel4_field3 ?>">
             </div>
 
             <div class="form-group">

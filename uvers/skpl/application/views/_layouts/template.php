@@ -5,9 +5,9 @@
 <!-- memastikan user memiliki id  -->
 <?php
 switch (true) {
-  case ($this->session->userdata($tabel9_field1)):
+  case ($this->session->userdata($base_url . $tabel9_field1)):
     break;
-  case ($this->session->userdata($tabel4_field1)):
+  case ($this->session->userdata($base_url . $tabel4_field1)):
     break;
   default:
     session_destroy();
@@ -87,14 +87,6 @@ switch (true) {
                   <input class="form-control" type="text" required name="<?= $tabel8_field1_input ?>"
                     placeholder="Masukkan <?= $tabel8_field1_alias ?>">
                 </div>
-
-                <div class="form-group">
-                  <label>
-                    <?= $tabel8_field4_alias ?>
-                  </label>
-                  <input class="form-control" type="email" required name="<?= $tabel8_field4_input ?>"
-                    placeholder="Masukkan <?= $tabel8_field4_alias ?> Anda">
-                </div>
               </div>
 
               <!-- memunculkan notifikasi modal -->
@@ -125,7 +117,7 @@ switch (true) {
       <div class="container">
 
         <!-- menampilkan footer khusus jika level adalah tamu, admin, dan sebagainya  -->
-        <?php switch ($this->session->userdata($tabel9_field6)) {
+        <?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
           case $tabel9_field6_value3:
           case $tabel9_field6_value4:
           case $tabel9_field6_value2:
