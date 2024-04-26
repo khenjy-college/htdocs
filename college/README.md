@@ -1,2 +1,0 @@
-# hotel
- Website hotel
