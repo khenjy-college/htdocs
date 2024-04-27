@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
     // case $tabel9_field6_value3:
   case $tabel9_field6_value5:
     break;
@@ -80,9 +80,9 @@
       <!-- menentukan id_user jika user sudah membuat akun atau belum -->
       <div class="form-group">
         <label><?= $tabel8_field3_alias ?></label>
-        <input class="form-control" type="text" required name="<?= $tabel8_field3_input ?>" placeholder="Masukkan <?= $tabel8_field3_alias ?>" value="<?= $this->session->userdata($base_url . $tabel9_field2) ?>">
-        <?php if ($this->session->userdata($base_url . $tabel9_field1)) { ?>
-          <input type="hidden" name="<?= $tabel9_field1_input ?>" value="<?= $this->session->userdata($base_url . $tabel9_field1) ?>">
+        <input class="form-control" type="text" required name="<?= $tabel8_field3_input ?>" placeholder="Masukkan <?= $tabel8_field3_alias ?>" value="<?= $this->session->userdata($tabel9_field2) ?>">
+        <?php if ($this->session->userdata($tabel9_field1)) { ?>
+          <input type="hidden" name="<?= $tabel9_field1_input ?>" value="<?= $this->session->userdata($tabel9_field1) ?>">
         <?php } else { ?>
 
           <!-- value 0 di id_user untuk pengguna tanpa akun -->
@@ -94,12 +94,12 @@
       <!-- keterangan * di bawah -->
       <div class="form-group">
         <label><?= $tabel8_field4_alias ?>*</label>
-        <input class="form-control" type="email" required name="<?= $tabel8_field4_input ?>" placeholder="Masukkan <?= $tabel8_field4_alias ?>" value="<?= $this->session->userdata($base_url . $tabel9_field3) ?>">
+        <input class="form-control" type="email" required name="<?= $tabel8_field4_input ?>" placeholder="Masukkan <?= $tabel8_field4_alias ?>" value="<?= $this->session->userdata($tabel9_field3) ?>">
       </div>
 
       <div class="form-group">
         <label><?= $tabel8_field5_alias ?></label>
-        <input class="form-control" type="text" required name="<?= $tabel8_field5_input ?>" placeholder="Masukkan <?= $tabel8_field5_alias ?>" value="<?= $this->session->userdata($base_url . $tabel9_field5) ?>">
+        <input class="form-control" type="text" required name="<?= $tabel8_field5_input ?>" placeholder="Masukkan <?= $tabel8_field5_alias ?>" value="<?= $this->session->userdata($tabel9_field5) ?>">
       </div>
 
       <div class="form-group">

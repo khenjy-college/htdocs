@@ -16,7 +16,7 @@ class Welcome extends Omnitags
 		header("Expires: 0"); // Proxies.
 
 		// mengarahkan pengguna ke halaman masing-masing sesuai level
-		switch ($this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field6'])) {
+		switch ($this->session->userdata($this->aliases['tabel9_field6'])) {
 			case $this->aliases['tabel9_field6_value2']:
 			case $this->aliases['tabel9_field6_value3']:
 			case $this->aliases['tabel9_field6_value4']:
@@ -33,7 +33,7 @@ class Welcome extends Omnitags
 
 				// When you're the one who's developing this app, it's quite annoying to see this message over and over again.\
 				// The feature below isn't working as expected
-				// if ($this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field7']) < 2) {
+				// if ($this->session->userdata($this->aliases['tabel9_field7']) < 2) {
 				// 	$this->session->set_flashdata($this->flashdatas['v_flashdata14, $this->flashdatas['v_flashdata14_msg1);
 				// 	$this->session->set_flashdata($this->flashdatas['v_flashdata_n, $this->flashdatas['v_flashdata_n_func1']);
 				// } else {

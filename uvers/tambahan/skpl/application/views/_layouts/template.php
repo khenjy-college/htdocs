@@ -5,9 +5,9 @@
 <!-- memastikan user memiliki id  -->
 <?php
 switch (true) {
-  case ($this->session->userdata($base_url . $tabel9_field1)):
+  case ($this->session->userdata($tabel9_field1)):
     break;
-  case ($this->session->userdata($base_url . $tabel4_field1)):
+  case ($this->session->userdata($tabel4_field1)):
     break;
   default:
     session_destroy();
@@ -125,7 +125,7 @@ switch (true) {
       <div class="container">
 
         <!-- menampilkan footer khusus jika level adalah tamu, admin, dan sebagainya  -->
-        <?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+        <?php switch ($this->session->userdata($tabel9_field6)) {
           case $tabel9_field6_value3:
           case $tabel9_field6_value4:
           case $tabel9_field6_value2:

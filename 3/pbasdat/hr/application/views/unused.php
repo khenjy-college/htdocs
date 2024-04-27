@@ -14,7 +14,7 @@
                 <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_quickTour') ?></p>
                 <div class="modal-footer">
                     <?php
-                    $userType = $this->session->userdata($base_url . $tabel9_field6);
+                    $userType = $this->session->userdata($tabel9_field6);
                     switch ($userType) {
                         case $tabel9_field6_value5:
                             ?>

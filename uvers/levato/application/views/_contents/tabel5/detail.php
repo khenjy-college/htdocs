@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
     break;
@@ -435,9 +435,8 @@
                   <div class="col-md-6">
 
                     <input type="hidden" name="<?= $tabel8_field2_input ?>"
-                      value="<?= $this->session->userdata($base_url . $tabel9_field1) ?>">
+                      value="<?= $this->session->userdata($tabel9_field1) ?>">
                     <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
-
 
                     <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
 
@@ -446,7 +445,7 @@
 
                     <div class="form-group">
                       <label><?= $tabel5_field7_alias ?></label>
-                      <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
+                      <input class="form-control" type="datetime-local" name="<?= $tabel5_field7_input ?>"
                         id="tabel5_field7_input_date" value="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>"
                         min="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>">
                     </div>
@@ -500,7 +499,7 @@
                       <p><?= $tl5->$tabel5_field1 ?></p>
                       <input type="hidden" name="<?= $tabel5_field1_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
                       <input type="hidden" name="<?= $tabel9_field1_input ?>"
-                        value="<?= $this->session->userdata($base_url . $tabel9_field1) ?>">
+                        value="<?= $this->session->userdata($tabel9_field1) ?>">
                     </div>
                     <hr>
 
@@ -533,9 +532,9 @@
 
                   <div class="col-md-6">
 
-                    <input type="text" name="<?= $tabel1_field2_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
-                    <input type="text" name="<?= $tabel1_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
-                    <input type="text" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value5 ?>">
+                    <input type="hidden" name="<?= $tabel1_field2_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
+                    <input type="hidden" name="<?= $tabel1_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
+                    <input type="hidden" name="<?= $tabel5_field4_input ?>" value="<?= $tabel5_field4_value5 ?>">
 
 
                   </div>
@@ -658,18 +657,18 @@
                     <input type="hidden" name="<?= $tabel5_field7_input ?>" value="<?= $value2 ?>">
 
                     <input type="hidden" name="<?= $tabel8_field2_input ?>"
-                      value="<?= $this->session->userdata($base_url . $tabel9_field1) ?>">
+                      value="<?= $this->session->userdata($tabel9_field1) ?>">
                     <input type="hidden" name="<?= $tabel8_field3_input ?>" value="<?= $tl6->$tabel6_field1 ?>">
 
 
                     <input type="hidden" name="<?= $tabel8_field7_input ?>" value="<?= $tl5->$tabel5_field1 ?>">
 
-                    <input id="tabel5_field6_input2_date" type="text" name="<?= $tabel8_field6_input ?>"
+                    <input id="tabel5_field6_input2_date" type="hidden" name="<?= $tabel8_field6_input ?>"
                       value="<?= $tl5->$tabel5_field6 ?>">
 
                     <div class="form-group">
                       <label><?= $tabel5_field7_alias ?></label>
-                      <input class="form-control" type="datetime-local" required name="<?= $tabel5_field7_input ?>"
+                      <input class="form-control" type="datetime-local" name="<?= $tabel5_field7_input ?>"
                         id="tabel5_field7_input2_date" value="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>"
                         min="<?= date("Y-m-d\TH:i:s", strtotime($tabel5_field7_limit2)) ?>">
                     </div>

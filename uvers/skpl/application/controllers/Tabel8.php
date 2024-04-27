@@ -17,7 +17,7 @@ class Tabel8 extends Omnitags
 	{
 		$this->declarew();
 
-		switch ($this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field6'])) {
+		switch ($this->session->userdata($this->aliases['tabel9_field6'])) {
 			case $this->aliases['tabel9_field6_value5']:
 				$data1 = array(
 					$this->v_part1 => $this->views_v1_title['tabel8'],
@@ -60,7 +60,7 @@ class Tabel8 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
+		$tabel9_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
 		$data1 = array(
 			$this->v_part1 => $this->views_v2_title['tabel8_alias'],
 			$this->v_part2 => $this->head,
@@ -83,7 +83,7 @@ class Tabel8 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
+		$tabel9_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
 		// nilai min dan max sudah diinput sebelumnya
 		$param1 = $this->views['tabel8_field10_filter1_get'];
 		$param2 = $this->views['tabel8_field10_filter2_get'];
@@ -236,7 +236,7 @@ class Tabel8 extends Omnitags
 
 			// memasukkan nama resepsionis yang melakukan operasi
 			$data = array(
-				$this->aliases['tabel2_field15'] => $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1'])
+				$this->aliases['tabel2_field15'] => $this->session->userdata($this->aliases['tabel9_field1'])
 			);
 
 			// mengupdate pesanan dengan nama user yang aktif
@@ -268,7 +268,7 @@ class Tabel8 extends Omnitags
 
 		// memasukkan nama resepsionis yang melakukan operasi
 		$data = array(
-			$this->aliases['tabel2_field14'] => $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field2'])
+			$this->aliases['tabel2_field14'] => $this->session->userdata($this->aliases['tabel9_field2'])
 		);
 
 		// mengupdate history dengan nama user yang aktif

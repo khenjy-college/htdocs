@@ -5,7 +5,7 @@
 
   <!-- menampilkan data pengaturan sebagai p -->
   <?php foreach ($tbl7 as $tl7): ?>
-    <title><?= $title ?> - <?= $tl7->$tabel7_field2 ?>   <?= $this->session->userdata($base_url . $tabel9_field6) ?></title>
+    <title><?= $title ?> - <?= $tl7->$tabel7_field2 ?>   <?= $this->session->userdata($tabel9_field6) ?></title>
 
     <!-- menampilkan favicon -->
     <link rel="icon" href="img/tabel7/<?= $tl7->$tabel7_field3 ?>" type="image/png">

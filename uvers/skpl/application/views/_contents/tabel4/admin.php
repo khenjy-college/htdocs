@@ -1,4 +1,4 @@
-<?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
     break;

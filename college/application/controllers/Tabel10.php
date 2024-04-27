@@ -25,7 +25,7 @@ class Tabel10 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
+		$tabel9_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
 		$data1 = array(
 			$this->v_part1 => $this->views_v2_title['tabel10_alias'],
 			$this->v_part2 => $this->head,
@@ -46,7 +46,7 @@ class Tabel10 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
+		$tabel9_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
 		$data1 = array(
 			$this->v_part1 => $this->views['tabel10_v2_alt_title'],
 			$this->v_part2 => $this->head,
@@ -141,7 +141,7 @@ class Tabel10 extends Omnitags
 
 		$data = array(
 			$this->aliases['tabel10_field1'] => '',
-			$this->aliases['tabel10_field2'] => $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']),
+			$this->aliases['tabel10_field2'] => $this->session->userdata($this->aliases['tabel9_field1']),
 			$this->aliases['tabel10_field3'] => $tabel10_field3,
 			$this->aliases['tabel10_field4'] => $this->views_post['tabel10_field4'],
 			$this->aliases['tabel10_field5'] => $this->views_post['tabel10_field5'],

@@ -55,7 +55,7 @@ class Tabel9 extends Omnitags
 				$simpan = $this->tl9->simpan($data);
 
 				// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
-				if ($this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field3'])) {
+				if ($this->session->userdata($this->aliases['tabel9_field3'])) {
 
 					redirect(site_url('tabel9/admin'));
 				} else {
@@ -152,7 +152,7 @@ class Tabel9 extends Omnitags
 	{
 		$this->declarew();
 
-		$tabel9_field1 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
+		$tabel9_field1 = $this->session->userdata($this->aliases['tabel9_field1']);
 		$data1 = array(
 			$this->v_part1 => $this->views_v2_title['tabel9_alias2'],
 			$this->v_part2 => $this->head,
@@ -232,8 +232,8 @@ class Tabel9 extends Omnitags
 		$tabel9_field4 = $tabel9[0]->hp;
 
 		// membuat session baru berdasarkan data yang telah diupdate
-		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field2'], $tabel9_field2);
-		$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field3'], $tabel9_field3);
+		$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
+		$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
 
 		// kembali ke halaman sebelumnya sesuai dengan masing-masing user dengan level yang berbeda
 		redirect($_SERVER['HTTP_REFERER']);
@@ -321,11 +321,11 @@ class Tabel9 extends Omnitags
 
 				$updateCount = $this->tl9->updateCount($tabel9_field1);
 
-				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1'], $tabel9_field1);
-				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field2'], $tabel9_field2);
-				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field3'], $tabel9_field3);
-				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field5'], $tabel9_field5);
-				$this->session->set_userdata($this->aliases['base_url'] . $this->aliases['tabel9_field6'], $tabel9_field6);
+				$this->session->set_userdata($this->aliases['tabel9_field1'], $tabel9_field1);
+				$this->session->set_userdata($this->aliases['tabel9_field2'], $tabel9_field2);
+				$this->session->set_userdata($this->aliases['tabel9_field3'], $tabel9_field3);
+				$this->session->set_userdata($this->aliases['tabel9_field5'], $tabel9_field5);
+				$this->session->set_userdata($this->aliases['tabel9_field6'], $tabel9_field6);
 
 				redirect(site_url('welcome'));
 

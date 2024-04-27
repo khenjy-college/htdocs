@@ -1,5 +1,5 @@
 <ul class="navbar-nav ml-auto">
-    <?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+    <?php switch ($this->session->userdata($tabel9_field6)) {
         case $tabel9_field6_value1:
             ?>
             <li class="nav-item">
@@ -18,7 +18,7 @@
         case $tabel9_field6_value4:
         case $tabel9_field6_value3:
 
-            switch ($this->session->userdata($base_url . $tabel9_field6)) {
+            switch ($this->session->userdata($tabel9_field6)) {
                 case $tabel9_field6_value2:
                 case $tabel9_field6_value3:
                 case $tabel9_field6_value4:
@@ -33,7 +33,7 @@
                             <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">Master Data <i
                                     class="fas fa-caret-down"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+                                <?php switch ($this->session->userdata($tabel9_field6)) {
                                     case $tabel9_field6_value2:
                                         ?>
                                         <?php break;
@@ -84,7 +84,7 @@
             <li class="nav-item">
                 <div class="dropdown">
                     <!-- tombol ini akan memunculkan dropdown tanpa menggunakan button: https://stackoverflow.com/questions/38576503/how-to-remove-the-arrow-in-dropdown-in-bootstrap- terimakasih pada link di atas -->
-                    <?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+                    <?php switch ($this->session->userdata($tabel9_field6)) {
                         case $tabel9_field6_value2:
                         case $tabel9_field6_value3:
                             ?>
@@ -103,7 +103,7 @@
                             ?>
                             <a type="button" class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">
                                 <h4>
-                                    <?= $this->session->userdata($base_url . $tabel9_field2) ?> <i class="fas fa-caret-down"></i>
+                                    <?= $this->session->userdata($tabel9_field2) ?> <i class="fas fa-caret-down"></i>
                                 </h4>
                             </a>
                             <?php break;
@@ -113,7 +113,7 @@
                             <?php break;
                     } ?>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+                        <?php switch ($this->session->userdata($tabel9_field6)) {
                             case $tabel9_field6_value5:
                                 ?>
                                 <h6 class="dropdown-header">Jelajahi</h6>

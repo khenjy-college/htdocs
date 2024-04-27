@@ -53,7 +53,7 @@ class Tabel2 extends Omnitags
 		$param3 = $this->views['tabel2_v_input12_filter1_get'];
 		$param4 = $this->views['tabel2_v_input12_filter2_get'];
 		
-		$param5 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
+		$param5 = $this->session->userdata($this->aliases['tabel9_field1']);
 
 		$data1 = array(
 			$this->v_part1 => $this->views['tabel2_v1_title'],
@@ -120,7 +120,7 @@ class Tabel2 extends Omnitags
 		$param3 = $this->views['tabel2_v_input12_filter1_get'];
 		$param4 = $this->views['tabel2_v_input12_filter2_get'];
 		
-		$param5 = $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field1']);
+		$param5 = $this->session->userdata($this->aliases['tabel9_field1']);
 
 		$data1 = array(
 			$this->v_part1 => $this->views['tabel2_v1_title'],

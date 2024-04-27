@@ -156,8 +156,8 @@ class Omnitags extends CI_Controller
             'v_flashdata_a_func1' => '$("#element").toast("show")',
 
             // Pesan di bawah ini sudah boleh diubah
-            'v6_flashdata1_msg1' => 'Selamat datang ' . $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field6']) . ' ' . $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field2']) . '!',
-            'tabel8_v_flashdata1_msg2' => 'Ayo kita lanjutkan ke pemesanan, ' . $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field6']) . ' ' . $this->session->userdata($this->aliases['base_url'] . $this->aliases['tabel9_field2']) . '!',
+            'v6_flashdata1_msg1' => 'Selamat datang ' . $this->session->userdata($this->aliases['tabel9_field6']) . ' ' . $this->session->userdata($this->aliases['tabel9_field2']) . '!',
+            'tabel8_v_flashdata1_msg2' => 'Ayo kita lanjutkan ke pemesanan, ' . $this->session->userdata($this->aliases['tabel9_field6']) . ' ' . $this->session->userdata($this->aliases['tabel9_field2']) . '!',
 
             'tabel4_v_flashdata1_msg_-1' => $this->aliases['tabel4_field4'] . ' salah!',
             'tabel4_v_flashdata1_msg_0' => $this->aliases['tabel4_field3'] . ' tidak tersedia!',

@@ -1,5 +1,5 @@
 <!-- mengarahkan ke no_level jika user tidak memiliki level -->
-<?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value2:
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
@@ -19,7 +19,7 @@
 
   <!-- menampilkan data untuk administrator -->
 
-  <?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+  <?php switch ($this->session->userdata($tabel9_field6)) {
     case $tabel9_field6_value3: ?>
 
       <div class="col-lg-3 mt-2">
@@ -123,7 +123,7 @@
 <!-- The charts shown will be different for each user level -->
 <h2 class="mt-4">Statistik</h2>
 <hr>
-<?php switch ($this->session->userdata($base_url . $tabel9_field6)) {
+<?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value2:
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
