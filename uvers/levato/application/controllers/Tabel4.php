@@ -22,7 +22,7 @@ class Tabel4 extends Omnitags
 			$this->v_part3 => $this->views_v3['tabel4'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl4' => $this->tl4->ambildata()->result(),
 			'tbl5' => $this->tl5->ambildata()->result(),
 			// 'tbl6' => $this->tl6->ambildata()->result()
@@ -149,7 +149,7 @@ class Tabel4 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl4' => $this->tl4->ambildata()->result()
 		);
 
@@ -169,7 +169,7 @@ class Tabel4 extends Omnitags
 			$this->v_part3 => $this->views_v2['tabel4'],
 			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl4' => $this->tl4->ambil_tabel4_field1($tabel4_field1)->result()
 		);
 
@@ -187,7 +187,7 @@ class Tabel4 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part5 => $this->tl12->dekor('tabel4')->result(),
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
@@ -204,7 +204,7 @@ class Tabel4 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part5 => $this->tl12->dekor('v3')->result(),
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);

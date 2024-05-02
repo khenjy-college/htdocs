@@ -9,7 +9,29 @@ class Tabel5 extends Omnitags
 
 
 	// Halaman khusus akun
+	public function daftar($tabel7_field1 = 1)
+	{
+		$this->declarew();
 
+		$data1 = array(
+			$this->v_part1 => $this->views_v2_title['tabel5_alias'],
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->views_v2['tabel5'],
+			$this->v_part4 => $this->v_part4_msg1,
+			$this->v_part5 => $this->tl12->dekor('tabel5')->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl4' => $this->tl4->ambildata()->result(),
+			'tbl5' => $this->tl5->ambil_tabel4_field1($this->session->userdata($this->aliases['tabel9_field1']))->result(),
+			'tbl6' => $this->tl6->ambil_tabel4_field1($this->session->userdata($this->aliases['tabel9_field1']))->result(),
+			'tbl3' => $this->tl3->ambildata()->result(),
+			'tbl8' => $this->tl8->ambildata()->result(),
+			'tbl1' => $this->tl1->ambildata()->result()
+		);
+
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
+
+		$this->load->view($this->views['v1'], $data);
+	}
 
 	// Halaman admin
 	public function admin($tabel7_field1 = 1)
@@ -22,7 +44,7 @@ class Tabel5 extends Omnitags
 			$this->v_part3 => $this->views_v3['tabel5'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel5')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl4' => $this->tl4->ambildata()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
 			'tbl5' => $this->tl5->ambildata()->result(),
@@ -117,6 +139,7 @@ class Tabel5 extends Omnitags
 						$this->aliases['tabel5_field7'] => NULL
 					);
 					$delete = $this->tl1->hapus_tabel5_field1($tabel5_field1);
+					$delete = $this->tl3->hapus_tabel5_field1($tabel5_field1);
 					$update = $this->tl5->update($data2, $tabel5_field1);
 
 					$value = '';
@@ -151,7 +174,7 @@ class Tabel5 extends Omnitags
 			$this->v_part3 => $this->views_v6['tabel5'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel5')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl5' => $this->tl5->ambil_tabel5_field1($tabel5_field1)->result(),
 			'tbl4' => $this->tl4->ambildata()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
@@ -194,7 +217,7 @@ class Tabel5 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel5/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function update()
@@ -219,7 +242,7 @@ class Tabel5 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel5/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function update_status()
@@ -267,7 +290,7 @@ class Tabel5 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel5/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	// Cetak semua data
@@ -280,7 +303,7 @@ class Tabel5 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel5')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl5' => $this->tl5->ambildata()->result()
 		);
 
@@ -299,7 +322,7 @@ class Tabel5 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel5')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl5' => $this->tl5->ambil_tabel5_field1($tabel5_field1)->result(),
 		);
 

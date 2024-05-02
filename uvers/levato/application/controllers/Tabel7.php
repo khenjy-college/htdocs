@@ -21,8 +21,9 @@ class Tabel7 extends Omnitags
 			$this->v_part3 => $this->views_v3['tabel7'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel7')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl13' => $this->tl13->ambildata()->result(),
+			'tbl23' => $this->tl23->ambildata()->result(),
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
@@ -37,7 +38,7 @@ class Tabel7 extends Omnitags
 		$tabel7_field1 = $this->views_post['tabel7_field1'];
 		$data = array(
 			$this->aliases['tabel7_field2'] => $this->views_post['tabel7_field2'],
-			$this->aliases['tabel7_field6'] => $this->views_post['tabel7_field6'],
+			$this->aliases['tabel7_field6'] => htmlspecialchars($this->views_post['tabel7_field6']),
 			$this->aliases['tabel7_field7'] => $this->views_post['tabel7_field7'],
 			$this->aliases['tabel7_field8'] => $this->views_post['tabel7_field8'],
 			$this->aliases['tabel7_field9'] => $this->views_post['tabel7_field9'],
@@ -65,6 +66,28 @@ class Tabel7 extends Omnitags
 		$tabel7_field1 = $this->views_post['tabel7_field1'];
 		$data = array(
 			$this->aliases['tabel7_field12'] => $this->views_post['tabel7_field12'],
+		);
+
+		$update = $this->tl7->update($data, $tabel7_field1);
+
+		if ($update) {
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel7_v_flashdata1_msg_13']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata_o'], $this->flashdatas['v_flashdata_o_func1']);
+		} else {
+			$this->session->set_flashdata($this->flashdatas['v_flashdata1'], $this->flashdatas['tabel7_v_flashdata1_msg_14']);
+			$this->session->set_flashdata($this->flashdatas['v_flashdata_o'], $this->flashdatas['v_flashdata_o_func1']);
+		}
+
+		redirect(site_url('tabel7/admin'));
+	}
+
+	public function update_tabel7_field13()
+	{
+		$this->declarew();
+
+		$tabel7_field1 = $this->views_post['tabel7_field1'];
+		$data = array(
+			$this->aliases['tabel7_field13'] => $this->views_post['tabel7_field13'],
 		);
 
 		$update = $this->tl7->update($data, $tabel7_field1);

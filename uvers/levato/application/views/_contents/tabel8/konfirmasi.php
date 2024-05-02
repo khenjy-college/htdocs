@@ -1,7 +1,7 @@
 <?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
-    // case $tabel9_field6_value5:
+  case $tabel9_field6_value5:
     break;
 
   default:

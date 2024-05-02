@@ -16,6 +16,7 @@ class Tabel6 extends Omnitags
 			$this->v_part3 => $this->views_v1['tabel6'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
+			'tbl23' => $this->tl23->ambildata()->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
 			// 'tbl1' => $this->tl1->ambildata()->result()
@@ -27,6 +28,26 @@ class Tabel6 extends Omnitags
 	}
 
 	// Halaman khusus akun
+	public function daftar($tabel7_field1 = 1)
+	{
+		$this->declarew();
+
+		$data1 = array(
+			$this->v_part1 => $this->views_v2_title['tabel6_alias'],
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->views_v2['tabel6'],
+			$this->v_part4 => $this->v_part4_msg1,
+			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
+			'tbl23' => $this->tl23->ambildata()->result(),
+			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl6' => $this->tl6->ambil_tabel4_field1($this->session->userdata($this->aliases['tabel9_field1']))->result(),
+			'tbl4' => $this->tl4->ambildata()->result()
+		);
+
+		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
+
+		$this->load->view($this->views['v1'], $data);
+	}
 
 	// Halaman admin
 	public function admin($tabel7_field1 = 1)
@@ -39,6 +60,7 @@ class Tabel6 extends Omnitags
 			$this->v_part3 => $this->views_v3['tabel6'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
+			'tbl23' => $this->tl23->ambildata()->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
 			'tbl4' => $this->tl4->ambildata()->result()
@@ -76,7 +98,7 @@ class Tabel6 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel6/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function update()
@@ -109,7 +131,7 @@ class Tabel6 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel6/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function hapus($tabel6_field1 = null)
@@ -130,7 +152,7 @@ class Tabel6 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 		}
 
-		redirect(site_url('tabel6/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	// Cetak semua data
@@ -143,6 +165,7 @@ class Tabel6 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel6')->result(),
+			'tbl23' => $this->tl23->ambildata()->result(),
 			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl6' => $this->tl6->ambildata()->result()
 		);

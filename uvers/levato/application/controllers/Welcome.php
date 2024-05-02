@@ -49,6 +49,7 @@ class Welcome extends Omnitags
 					$this->v_part5 => $this->tl12->dekor('v6')->result(),
 					'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 					'tbl13' => $this->tl13->ambildata()->result(),
+					'tbl23' => $this->tl23->ambildata()->result(),
 				);
 
 				$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);
@@ -75,7 +76,7 @@ class Welcome extends Omnitags
 			'tbl4' => $this->tl4->ambildata()->num_rows(),
 			'tbl5' => $this->tl5->ambildata()->num_rows(),
 			'tbl6' => $this->tl6->ambildata()->num_rows(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl8' => $this->tl8->ambildata()->num_rows(),
 			'tbl9' => $this->tl9->ambildata()->num_rows(),
 			// 'tbl10' => $this->tl10->ambildata()->num_rows(),
@@ -99,7 +100,7 @@ class Welcome extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('v4')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 		);
 
 		$data = array_merge($data1, $this->aliases, $this->views_input, $this->views, $this->flashdatas);

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Add item dialog -->
+    <LinearLayout
+        android:id="@+id/addItemDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Add item input fields -->
+        <EditText
+            android:id="@+id/addItemNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter item name"/>
+
+        <!-- Close button -->
+        <Button
+            android:id="@+id/closeButtonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"/>
+    </LinearLayout>
+
+    <!-- Edit item dialog -->
+    <LinearLayout
+        android:id="@+id/editItemDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Edit item input fields -->
+        <EditText
+            android:id="@+id/editItemNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter item name"/>
+
+        <!-- Close button -->
+        <Button
+            android:id="@+id/closeButtonEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"/>
+    </LinearLayout>
+
+    <!-- View item dialog -->
+    <LinearLayout
+        android:id="@+id/viewItemDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- View item details -->
+        <TextView
+            android:id="@+id/viewItemNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Item Name"/>
+
+        <!-- Close button -->
+        <Button
+            android:id="@+id/closeButtonView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"/>
+    </LinearLayout>
+
+    <!-- Buttons to switch between sections -->
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Item"
+        android:layout_below="@+id/viewItemDialog"/>
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Item"
+        android:layout_below="@id/addButton"/>
+
+    <Button
+        android:id="@+id/viewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Item"
+        android:layout_below="@id/editButton"/>
+
+    <!-- Button to perform action (add/edit/update) -->
+    <Button
+        android:id="@+id/actionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perform Action"
+        android:layout_below="@id/viewButton"/>
+
+</RelativeLayout>

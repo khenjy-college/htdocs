@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="fontawesome/css/all.min.css">
+  <script src="ckeditor/ckeditor.js"></script>
 
   <!-- css untuk datatables bertema bootstrap -->
   <link rel="stylesheet" href="datatables/datatables/css/dataTables.bootstrap4.min.css">

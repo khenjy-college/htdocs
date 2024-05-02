@@ -1,6 +1,7 @@
 <?php switch ($this->session->userdata($tabel9_field6)) {
   case $tabel9_field6_value3:
   case $tabel9_field6_value4:
+  case $tabel9_field6_value5:
     break;
 
   default:
@@ -51,8 +52,27 @@
           </tr>
 
           <tr>
-            <td class="table-secondary table-active"><?= $tabel5_field7_alias ?></td>
-                        <td class="table-light"><?= $tl5->$tabel5_field7 ?></td>
+            <?php switch ($tl5->$tabel5_field4) {
+              case $tabel5_field4_value0:
+              case $tabel5_field4_value1:
+              case $tabel5_field4_value3:
+              case $tabel5_field4_value4: ?>
+
+                <td class="table-secondary table-active"><?= $tabel5_field7_alias ?></td>
+                <td class="table-light"><?= $tl5->$tabel5_field7 ?></td>
+
+                <?php break;
+              case $tabel5_field4_value2:
+              case $tabel5_field4_value5: ?>
+
+                <td class="table-secondary table-active"><?= $tabel5_field7_alias ?> <?= $tabel8_alias ?></td>
+                <td class="table-light"><?= $tl5->$tabel5_field7 ?></td>
+
+                <?php break;
+              default: ?>
+                <p><?= $tabel5_field7_alias ?> tidak valid</p>
+                <?php break;
+            } ?>
           </tr>
 
           <tr>
@@ -74,6 +94,7 @@
     <?php switch ($tl5->$tabel5_field4) {
       case $tabel5_field4_value0:
       case $tabel5_field4_value1: ?>
+
         <br><br>
         <h1><?= $tabel3_alias ?><?= $phase ?></h1>
         <hr>
@@ -95,7 +116,6 @@
               </tr>
               <tr>
                 <th><?= $tabel3_field1_alias ?></th>
-                <th><?= $tabel3_field2_alias ?></th>
                 <th><?= $tabel3_field3_alias ?></th>
                 <th><?= $tabel3_field4_alias ?></th>
                 <th><?= $tabel3_field5_alias ?></th>
@@ -108,7 +128,6 @@
               <?php foreach ($tbl3 as $tl3): ?>
                 <tr>
                   <td><?= $tl3->$tabel3_field1 ?></td>
-                  <td><?= $tl3->$tabel3_field2 ?></td>
                   <td><?= $tl3->$tabel3_field3 ?></td>
                   <td><?= $tl3->$tabel3_field4 ?></td>
                   <td><?= $tl3->$tabel3_field5 ?></td>
@@ -119,9 +138,25 @@
                         <?php break;
                       case $tabel5_field4_value1: ?>
 
-                        <a class="btn btn-light text-success" type="button" data-toggle="modal"
-                          data-target="#ubah<?= $tl3->$tabel5_field1 ?>">
-                          Setujui</a>
+                        <?php switch ($this->session->userdata($tabel9_field6)) {
+                          case $tabel9_field6_value3:
+                          case $tabel9_field6_value4: ?>
+                            <a class="btn btn-light text-success" type="button" data-toggle="modal"
+                              data-target="#ubah<?= $tl3->$tabel5_field1 ?>">
+                              Setujui</a>
+                            <?php break;
+
+                          case $tabel9_field6_value5: ?>
+                            <p>Tunggu</p>
+                            <?php break;
+
+                          default:
+                            break;
+                        }
+                        ?>
+
+
+
 
 
                         <?php break;
@@ -143,59 +178,78 @@
 
         <?php break;
       case $tabel5_field4_value2: ?>
-        <br><br>
-        <h1><?= $tabel8_alias ?><?= $phase ?></h1>
-        <hr>
 
-        <div class="table-responsive"><!-- proses di tabel 8 -->
-          <table class="table table-light" id="data">
-            <thead class="thead-light">
-              <tr class="table-info text-center">
-                <td colspan="9">
-                  <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel8">
-                    + Tambah Entri</a>
-                </td>
-              </tr>
-              <tr>
-                <th><?= $tabel8_field1_alias ?></th>
-                <th><?= $tabel8_field2_alias ?></th>
-                <th><?= $tabel8_field3_alias ?></th>
-                <th><?= $tabel8_field4_alias ?></th>
-                <th><?= $tabel8_field5_alias ?></th>
-                <th><?= $tabel8_field6_alias ?></th>
-                <th><?= $tabel8_field7_alias ?></th>
-                <th><?= $tabel8_field8_alias ?></th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <?php foreach ($tbl8 as $tl8): ?>
-                <tr>
-                  <td><?= $tl8->$tabel8_field1 ?></td>
-                  <td><?= $tl8->$tabel8_field2 ?></td>
-                  <td><?= $tl8->$tabel8_field3 ?></td>
-                  <td><?= $tl8->$tabel8_field4 ?></td>
-                  <td><?= $tl8->$tabel8_field5 ?></td>
-                  <td><?= $tl8->$tabel8_field6 ?></td>
-                  <td><?= $tl8->$tabel8_field7 ?></td>
-                  <td>Rp <?= number_format($tl8->$tabel8_field8, '2', ',', '.') ?></td>
-
-                  <td>
-                    <a class="btn btn-light text-info" href="<?= site_url('tabel8/print/' . $tl8->$tabel8_field1) ?>"
-                      target="_blank">
-                      <i class="fas fa-print"></i></a>
-
-                  </td>
-
-                </tr>
-              <?php endforeach ?>
-            </tbody>
+        <?php switch ($this->session->userdata($tabel9_field6)) {
+          case $tabel9_field6_value2:
+          case $tabel9_field6_value3:
+          case $tabel9_field6_value4: ?>
 
 
-          </table>
-        </div>
+            <?php break;
+          case $tabel9_field6_value5: ?>
+
+            <br><br>
+            <h1><?= $tabel8_alias ?><?= $phase ?></h1>
+            <hr>
+
+            <div class="table-responsive"><!-- proses di tabel 8 -->
+              <table class="table table-light" id="data">
+                <thead class="thead-light">
+                  <tr class="table-info text-center">
+                    <td colspan="9">
+                      <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel8">
+                        + Tambah Entri</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><?= $tabel8_field1_alias ?></th>
+                    <th><?= $tabel8_field2_alias ?></th>
+                    <th><?= $tabel8_field3_alias ?></th>
+                    <th><?= $tabel8_field4_alias ?></th>
+                    <th><?= $tabel8_field5_alias ?></th>
+                    <th><?= $tabel8_field6_alias ?></th>
+                    <th><?= $tabel8_field7_alias ?></th>
+                    <th><?= $tabel8_field8_alias ?></th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <?php foreach ($tbl8 as $tl8): ?>
+                    <tr>
+                      <td><?= $tl8->$tabel8_field1 ?></td>
+                      <td><?= $tl8->$tabel8_field2 ?></td>
+                      <td><?= $tl8->$tabel8_field3 ?></td>
+                      <td><?= $tl8->$tabel8_field4 ?></td>
+                      <td><?= $tl8->$tabel8_field5 ?></td>
+                      <td><?= $tl8->$tabel8_field6 ?></td>
+                      <td><?= $tl8->$tabel8_field7 ?></td>
+                      <td>Rp <?= number_format($tl8->$tabel8_field8, '2', ',', '.') ?></td>
+
+                      <td>
+                        <a class="btn btn-light text-info" href="<?= site_url('tabel8/print/' . $tl8->$tabel8_field1) ?>"
+                          target="_blank">
+                          <i class="fas fa-print"></i></a>
+
+                      </td>
+
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+
+
+              </table>
+            </div>
+            <?php break;
+
+          default:
+            break;
+        }
+        ?>
+
+
+
 
 
         <?php break;
@@ -205,108 +259,145 @@
 
         <?php break;
       case $tabel5_field4_value4: ?>
-        <br><br>
-        <h1>Butuh <?= $tabel1_alias ?><?= $phase ?></h1>
-        <hr>
 
-        <div class="table-responsive"><!-- proses di tabel 1 -->
-          <table class="table table-light" id="data">
-            <thead class="thead-light">
-              <tr class="table-info text-center">
-                <td colspan="9">
-                  <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel1">
-                    + Tambah Entri</a>
-                </td>
-              </tr>
-              <tr>
-                <th><?= $tabel1_field1_alias ?></th>
-                <th><?= $tabel1_field2_alias ?></th>
-                <th><?= $tabel1_field3_alias ?></th>
-                <th><?= $tabel1_field4_alias ?></th>
-                <th><?= $tabel1_field5_alias ?></th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
 
-            <tbody>
+        <?php switch ($this->session->userdata($tabel9_field6)) {
+          case $tabel9_field6_value3:
+          case $tabel9_field6_value4: ?>
 
-              <?php foreach ($tbl1 as $tl1): ?>
-                <tr>
-                  <td><?= $tl1->$tabel1_field1 ?></td>
-                  <td><?= $tl1->$tabel1_field2 ?></td>
-                  <td><?= $tl1->$tabel1_field3 ?></td>
-                  <td><?= $tl1->$tabel1_field4 ?></td>
-                  <td><?= $tl1->$tabel1_field5 ?></td>
 
-                  <td>
-                    <a class="btn btn-light text-info" href="<?= site_url('tabel1/print/' . $tl1->$tabel1_field1) ?>"
-                      target="_blank">
-                      <i class="fas fa-print"></i></a>
+            <?php break;
+          case $tabel9_field6_value5: ?>
+            <br><br>
+            <h1>Butuh <?= $tabel1_alias ?><?= $phase ?></h1>
+            <hr>
 
-                  </td>
+            <div class="table-responsive"><!-- proses di tabel 1 -->
+              <table class="table table-light" id="data">
+                <thead class="thead-light">
+                  <tr class="table-info text-center">
+                    <td colspan="9">
+                      <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel1">
+                        + Tambah Entri</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><?= $tabel1_field1_alias ?></th>
+                    <th><?= $tabel1_field2_alias ?></th>
+                    <th><?= $tabel1_field3_alias ?></th>
+                    <th><?= $tabel1_field4_alias ?></th>
+                    <th><?= $tabel1_field5_alias ?></th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
 
-                </tr>
-              <?php endforeach ?>
-            </tbody>
-          </table>
-        </div>
+                <tbody>
+
+                  <?php foreach ($tbl1 as $tl1): ?>
+                    <tr>
+                      <td><?= $tl1->$tabel1_field1 ?></td>
+                      <td><?= $tl1->$tabel1_field2 ?></td>
+                      <td><?= $tl1->$tabel1_field3 ?></td>
+                      <td><?= $tl1->$tabel1_field4 ?></td>
+                      <td><?= $tl1->$tabel1_field5 ?></td>
+
+                      <td>
+                        <a class="btn btn-light text-info" href="<?= site_url('tabel1/print/' . $tl1->$tabel1_field1) ?>"
+                          target="_blank">
+                          <i class="fas fa-print"></i></a>
+
+                      </td>
+
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+              </table>
+            </div>
+
+            <?php break;
+
+          default:
+            break;
+        }
+        ?>
+
+
+
 
 
         <?php break;
       case $tabel5_field4_value5: ?>
-        <br><br>
-        <h1><?= $tabel8_alias ?><?= $phase ?></h1>
-        <hr>
-
-        <div class="table-responsive"><!-- proses di tabel 8 -->
-          <table class="table table-light" id="data">
-            <thead class="thead-light">
-              <tr class="table-info text-center">
-                <td colspan="9">
-                  <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel8baru">
-                    + Tambah Entri</a>
-                </td>
-              </tr>
-              <tr>
-                <th><?= $tabel8_field1_alias ?></th>
-                <th><?= $tabel8_field2_alias ?></th>
-                <th><?= $tabel8_field3_alias ?></th>
-                <th><?= $tabel8_field4_alias ?></th>
-                <th><?= $tabel8_field5_alias ?></th>
-                <th><?= $tabel8_field6_alias ?></th>
-                <th><?= $tabel8_field7_alias ?></th>
-                <th><?= $tabel8_field8_alias ?></th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <?php foreach ($tbl8 as $tl8): ?>
-                <tr>
-                  <td><?= $tl8->$tabel8_field1 ?></td>
-                  <td><?= $tl8->$tabel8_field2 ?></td>
-                  <td><?= $tl8->$tabel8_field3 ?></td>
-                  <td><?= $tl8->$tabel8_field4 ?></td>
-                  <td><?= $tl8->$tabel8_field5 ?></td>
-                  <td><?= $tl8->$tabel8_field6 ?></td>
-                  <td><?= $tl8->$tabel8_field7 ?></td>
-                  <td>Rp <?= number_format($tl8->$tabel8_field8, '2', ',', '.') ?></td>
-
-                  <td>
-                    <a class="btn btn-light text-info" href="<?= site_url('tabel8/print/' . $tl8->$tabel8_field1) ?>"
-                      target="_blank">
-                      <i class="fas fa-print"></i></a>
-
-                  </td>
-
-                </tr>
-              <?php endforeach ?>
-            </tbody>
+        <?php switch ($this->session->userdata($tabel9_field6)) {
+          case $tabel9_field6_value3:
+          case $tabel9_field6_value4: ?>
 
 
-          </table>
-        </div>
+            <?php break;
+          case $tabel9_field6_value5: ?>
+            <br><br>
+            <h1><?= $tabel8_alias ?><?= $phase ?></h1>
+            <hr>
+
+            <div class="table-responsive"><!-- proses di tabel 8 -->
+              <table class="table table-light" id="data">
+                <thead class="thead-light">
+                  <tr class="table-info text-center">
+                    <td colspan="9">
+                      <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#tabel8baru">
+                        + Tambah Entri</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><?= $tabel8_field1_alias ?></th>
+                    <th><?= $tabel8_field2_alias ?></th>
+                    <th><?= $tabel8_field3_alias ?></th>
+                    <th><?= $tabel8_field4_alias ?></th>
+                    <th><?= $tabel8_field5_alias ?></th>
+                    <th><?= $tabel8_field6_alias ?></th>
+                    <th><?= $tabel8_field7_alias ?></th>
+                    <th><?= $tabel8_field8_alias ?></th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <?php foreach ($tbl8 as $tl8): ?>
+                    <tr>
+                      <td><?= $tl8->$tabel8_field1 ?></td>
+                      <td><?= $tl8->$tabel8_field2 ?></td>
+                      <td><?= $tl8->$tabel8_field3 ?></td>
+                      <td><?= $tl8->$tabel8_field4 ?></td>
+                      <td><?= $tl8->$tabel8_field5 ?></td>
+                      <td><?= $tl8->$tabel8_field6 ?></td>
+                      <td><?= $tl8->$tabel8_field7 ?></td>
+                      <td>Rp <?= number_format($tl8->$tabel8_field8, '2', ',', '.') ?></td>
+
+                      <td>
+                        <a class="btn btn-light text-info" href="<?= site_url('tabel8/print/' . $tl8->$tabel8_field1) ?>"
+                          target="_blank">
+                          <i class="fas fa-print"></i></a>
+
+                      </td>
+
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+
+
+              </table>
+            </div>
+
+            <?php break;
+
+          default:
+            break;
+        }
+        ?>
+
+
+
+
 
 
         <?php break;
@@ -520,7 +611,7 @@
                       <p><?= $tl5->$tabel5_field5 ?></p>
                     </div>
                     <hr>
-                    
+
                     <div class="form-group">
                       <label><?= $tabel1_field3_alias ?></label>
                       <p><?= $tl6->$tabel6_field1 ?></p>

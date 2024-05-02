@@ -130,15 +130,11 @@
                         <?php switch ($this->session->userdata($tabel9_field6)) {
                             case $tabel9_field6_value5:
                                 ?>
-                                <h6 class="dropdown-header">Jelajahi</h6>
-                                <a class="dropdown-item" href="<?= site_url('welcome') ?>">Pesan Sekarang</a>
-                                <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">Reservasi</h6>
-                                <a class="dropdown-item" href="<?= site_url('tabel8/daftar') ?>">Daftar
-                                    <?= $tabel8_alias ?>
-                                </a>
-                                </a>
-                                
+                                <h6 class="dropdown-header">Kelola</h6>
+                                <a class="dropdown-item" href="<?= site_url('tabel5/daftar') ?>"><?= $tabel5_alias ?></a>
+                                <a class="dropdown-item" href="<?= site_url('tabel6/daftar') ?>"><?= $tabel6_alias ?></a>
+                                <a class="dropdown-item" href="<?= site_url('tabel8/daftar') ?>"><?= $tabel8_alias ?></a>
+                                                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= site_url('tabel4/profil') ?>">Profil</a>
                                 <?php break;

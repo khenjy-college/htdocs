@@ -145,6 +145,17 @@ switch (true) {
               <div class="col-lg-4 pt-3">
                 <img src="img/tabel7/<?= $tl7->$tabel7_field4; ?>" height="50">
                 <p class="small pt-2">
+
+                  <?php foreach ($tbl23 as $tl23):
+                    if ($tl7->$tabel7_field13 == $tl23->$tabel23_field1) { ?>
+
+
+                      <a class="text-decoration-none text-dark" href="<?= site_url('tabel23') ?>">
+                        <img src="img/tabel23/<?= $tl23->$tabel23_field4 ?>" height="25"></a><br>
+
+
+                    <?php }endforeach; ?>
+
                   <?= $year_code ?>
                   <?= $tl7->$tabel7_field2 ?>.
                   <?= $copyright_notices ?>
@@ -474,6 +485,10 @@ switch (true) {
 
       document.getElementById("tabel5_field6_input2_date").addEventListener("change", calculateCost2);
       document.getElementById("tabel5_field7_input2_date").addEventListener("change", calculateCost2);
+    </script>
+
+    <script>
+        CKEDITOR.replace('editor');
     </script>
 
 

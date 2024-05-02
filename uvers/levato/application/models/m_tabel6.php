@@ -48,6 +48,13 @@ class M_tabel6 extends CI_Model
 		return $this->db->get($this->aliases['tabel6']);
 	}
 
+	public function ambil_tabel4_field1($param1)
+	{
+		$this->db->where($this->aliases['tabel4_field1'], $param1);
+		$this->db->order_by($this->aliases['tabel6_field1'], 'DESC');
+		return $this->db->get($this->aliases['tabel6']);
+	}
+
 	public function simpan($data)
 	// public function simpan($query)
 	{

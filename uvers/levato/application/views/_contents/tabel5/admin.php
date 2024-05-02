@@ -180,7 +180,7 @@
 
                 <div class="form-group">
                   <label><?= $tabel5_field5_alias ?></label>
-                  <textarea class="form-control" name="<?= $tabel5__field5_input ?>" rows="3"><?= $tl5->$tabel5_field5; ?></textarea>
+                  <textarea class="form-control" name="<?= $tabel5_field5_input ?>" rows="3"><?= $tl5->$tabel5_field5; ?></textarea>
                 </div>
 
               </div>

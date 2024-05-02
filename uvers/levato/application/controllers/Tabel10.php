@@ -32,7 +32,7 @@ class Tabel10 extends Omnitags
 			$this->v_part3 => $this->views_v2['tabel10'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl10' => $this->tl10->join_tabel8_tamu($tabel9_field1)->result(),
 			'tbl6' => $this->tl6->ambildata()->result()
 		);
@@ -53,7 +53,7 @@ class Tabel10 extends Omnitags
 			$this->v_part3 => $this->views['tabel10_v2_alt'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl10' => $this->tl10->join_tabel2_tamu($tabel9_field1)->result(),
 			'tbl6' => $this->tl6->ambildata()->result()
 		);
@@ -78,7 +78,7 @@ class Tabel10 extends Omnitags
 			$this->v_part3 => $this->views_v3['tabel10'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl10' => $this->tl10->join_tabel8()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
 
@@ -111,7 +111,7 @@ class Tabel10 extends Omnitags
 			$this->v_part3 => $this->views['tabel10_v3_alt'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl10' => $this->tl10->join_tabel2()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
 
@@ -258,7 +258,7 @@ class Tabel10 extends Omnitags
 			$this->v_part3 => $this->views_v3['tabel10'],
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl10' => $this->tl10->filter($tabel10_field7_filter1, $tabel10_field7_filter2)->result(),
 			'tbl8' => $this->tl8->ambildata()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
@@ -283,7 +283,7 @@ class Tabel10 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl10' => $this->tl10->ambildata()->result(),
 			'tbl6' => $this->tl6->ambildata()->result(),
 			'tbl8' => $this->tl8->ambildata()->result()
@@ -307,7 +307,7 @@ class Tabel10 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl10' => $this->tl10->ambil_tabel10_field1($tabel10_field1)->result(),
 			'tbl6' => $this->tl6->ambildata()->result()
 		);
@@ -348,7 +348,7 @@ class Tabel10 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel10')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 
 			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
 			'tbl10' => $this->tl10->ambil_tabel9_field3($tabel10_field3)->last_row(),

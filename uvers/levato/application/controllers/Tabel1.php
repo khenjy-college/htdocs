@@ -22,7 +22,7 @@ class Tabel1 extends Omnitags
 			$this->v_part3 => $this->views_v3['tabel1'],
 			$this->v_part5 => $this->tl12->dekor('tabel1')->result(),
 			$this->v_part4 => $this->v_part4_msg1,
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl1' => $this->tl1->ambildata()->result()
 		);
 
@@ -70,7 +70,7 @@ class Tabel1 extends Omnitags
 			$this->session->set_flashdata($this->flashdatas['v_flashdata_a'], $this->flashdatas['v_flashdata_a_func1']);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
-		redirect(site_url('tabel5/admin'));
+		redirect($_SERVER['HTTP_REFERER']);
 
 	}
 
@@ -196,7 +196,7 @@ class Tabel1 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel1')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl1' => $this->tl1->ambildata()->result()
 		);
 
@@ -214,7 +214,7 @@ class Tabel1 extends Omnitags
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			$this->v_part5 => $this->tl12->dekor('tabel1')->result(),
-			'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
+			'tbl23' => $this->tl23->ambildata()->result(), 'tbl7' => $this->tl7->ambil_tabel7_field1($tabel7_field1)->result(),
 			'tbl1' => $this->tl1->ambil_tabel1_field1($tabel1_field1)->result(),
 		);
 

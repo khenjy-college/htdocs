@@ -1,6 +1,7 @@
 <?php switch ($this->session->userdata($tabel9_field6)) {
-    case $tabel9_field6_value3:
+  case $tabel9_field6_value3:
   case $tabel9_field6_value4:
+  case $tabel9_field6_value5:
     break;
 
   default:
@@ -20,50 +21,76 @@
 
   <!-- border garis putus-putus -->
   <div class="container" style="border-style: dashed;">
-    <?php foreach ($tbl7 as $tl7) : ?>
+    <?php foreach ($tbl7 as $tl7): ?>
       <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
-      <p class="text-center"><?= $tl7->$tabel7_field2; ?> | <?= $tl7->$tabel7_field8; ?> | <?= $tl7->$tabel7_field7; ?></p>
+      <p class="text-center"><?= $tl7->$tabel7_field2; ?> | <?= $tl7->$tabel7_field8; ?> | <?= $tl7->$tabel7_field7; ?>
+      </p>
       <p class="text-center"><?= $tl7->$tabel7_field6; ?></p>
     <?php endforeach; ?>
 
     <!-- menampilkan data pesanan sebagai ps -->
-    <?php foreach ($tbl8 as $tl8) : ?>
+    <?php foreach ($tbl8 as $tl8): ?>
 
-          <!-- menampilkan data pemesan -->
-          <table class="table">
-            <thead class="thead-">
-              <tr>
-                <th><?= $tabel8_field1_alias ?></th>
-                <th><?= $tabel8_field2_alias ?></th>
-                <th><?= $tabel8_field3_alias ?></th>
-                <th><?= $tabel8_field4_alias ?></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td width=""><?= $tl8->$tabel8_field1 ?></td>
-                <td width=""><?= $tl8->$tabel8_field2 ?></td>
-                <td width=""><?= $tl8->$tabel8_field3 ?></td>
-                <td width=""><?= $tl8->$tabel8_field4 ?></td>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- menampilkan data pemesan -->
+      <table class="table">
+        <thead class="thead-">
+          <tr>
+            <th><?= $tabel8_field1_alias ?></th>
+            <th><?= $tabel8_field2_alias ?></th>
+            <th><?= $tabel8_field3_alias ?></th>
+            <th><?= $tabel8_field4_alias ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width=""><?= $tl8->$tabel8_field1 ?></td>
+            <td width=""><?= $tl8->$tabel8_field2 ?></td>
+            <td width=""><?= $tl8->$tabel8_field3 ?></td>
+            <td width=""><?= $tl8->$tabel8_field4 ?></td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-          <!-- menampilkan data tamu -->
-          <table class="table">
-            <thead class="thead">
-              <tr>
-                <th><?= $tabel8_field5_alias ?></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td width=""><?= $tl8->$tabel8_field5 ?></td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- menampilkan data tamu -->
+      <table class="table">
+        <thead class="thead">
+          <tr>
+            <th><?= $tabel8_field5_alias ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width=""><?= $tl8->$tabel8_field5 ?></td>
+          </tr>
+        </tbody>
+      </table>
     <?php endforeach ?>
+
+
+    <?php foreach ($tbl5 as $tl5):
+      if ($tl5->$tabel5_field1 == $tl8->$tabel5_field1) { ?>
+
+        <!-- menampilkan data pemesan -->
+        <table class="table">
+          <thead class="thead-">
+            <tr>
+              <th><?= $tabel5_field1_alias ?></th>
+              <th><?= $tabel5_field3_alias ?></th>
+              <th><?= $tabel5_field5_alias ?></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width=""><?= $tl5->$tabel5_field1 ?></td>
+              <td width=""><?= $tl5->$tabel5_field3 ?></td>
+              <td width=""><?= $tl5->$tabel5_field5 ?></td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <?php }endforeach ?>
+
   </div>
 
   <p class="text-center">Kirimkan bukti ini ke <?= $tabel9_field6_value4_alias ?> untuk diproses</p>
