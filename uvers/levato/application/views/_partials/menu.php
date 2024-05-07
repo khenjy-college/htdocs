@@ -136,13 +136,13 @@
                                 <a class="dropdown-item" href="<?= site_url('tabel8/daftar') ?>"><?= $tabel8_alias ?></a>
                                                                 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?= site_url('tabel4/profil') ?>">Profil</a>
+                                <a class="dropdown-item" href="<?= site_url('tabel4/detail') ?>">Profil</a>
                                 <?php break;
                             case $tabel9_field6_value2:
                             case $tabel9_field6_value3:
                             case $tabel9_field6_value4:
                                 ?>
-                            <a class="dropdown-item" href="<?= site_url('tabel9/profil') ?>">Profil</a>
+                            <a class="dropdown-item" href="<?= site_url('tabel9/detail') ?>">Profil</a>
                                 <?php break;
                             default:
                                 ?>

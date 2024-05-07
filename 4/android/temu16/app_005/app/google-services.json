@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "344860274316",
+    "firebase_url": "https://testproject-8e5fd-default-rtdb.firebaseio.com",
+    "project_id": "testproject-8e5fd",
+    "storage_bucket": "testproject-8e5fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344860274316:android:af0519ea45f73231b795a9",
+        "android_client_info": {
+          "package_name": "com.example.app_05"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCitgokEDfYNO7GYzuU3J25TxtaEGQqFVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344860274316:android:1a18768aaa15df0db795a9",
+        "android_client_info": {
+          "package_name": "com.khenjy.fbasevideo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCitgokEDfYNO7GYzuU3J25TxtaEGQqFVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
