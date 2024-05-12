@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -34,9 +35,26 @@ public class MainActivity extends AppCompatActivity {
     MainAdapter mainAdapter;
     FloatingActionButton floatingActionButton;
 
+    private static final int BACK_PRESS_INTERVAL = 2000; // 2 seconds
+    private long backPressTime;
+
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
+
+    @Override
+    public void onBackPressed() {
+        if (backPressTime + BACK_PRESS_INTERVAL > System.currentTimeMillis()) {
+            // If backPressTime + interval is greater than the current time, exit the app
+            super.onBackPressed();
+            return;
+        } else {
+            // Inform the user to press back again to exit
+            Toast.makeText(this, "Press back again to exit.", Toast.LENGTH_SHORT).show();
+        }
+        // Update backPressTime to current time
+        backPressTime = System.currentTimeMillis();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +89,14 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
 
+        mainAdapter.notifyDataSetChanged();
+
         floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AddActivity.class));
+            public void onClick(View view) {
+                Intent move = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(move);
             }
         });
 
@@ -86,6 +107,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        mainAdapter.startListening();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         mainAdapter.startListening();
     }
 

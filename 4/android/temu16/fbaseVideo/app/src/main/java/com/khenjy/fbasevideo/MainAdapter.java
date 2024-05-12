@@ -51,7 +51,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.update_popup))
-                        .setExpanded(true, 1500)
+                        .setExpanded(true, 2000)
                         .create();
 
                 //dialogPlus.show();
@@ -135,6 +135,16 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
 
         // Create a new ViewHolder
         return new myViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(myViewHolder holder, int position) {
+        // Bind the data to the view holder here.
+    }
+
+    @Override
+    public int getItemCount() {
+        return .size();
     }
 
     class myViewHolder extends RecyclerView.ViewHolder {
