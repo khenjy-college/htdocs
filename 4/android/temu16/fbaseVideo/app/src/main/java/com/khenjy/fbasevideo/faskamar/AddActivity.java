@@ -1,4 +1,4 @@
-package com.khenjy.fbasevideo;
+package com.khenjy.fbasevideo.faskamar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
+import com.khenjy.fbasevideo.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.teachers_activity_add);
         name = (EditText) findViewById(R.id.txtName);
         course = (EditText) findViewById(R.id.txtCourse);
         email = (EditText) findViewById(R.id.txtEmail);

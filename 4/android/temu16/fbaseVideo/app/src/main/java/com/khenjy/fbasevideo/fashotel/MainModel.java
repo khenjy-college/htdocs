@@ -1,16 +1,6 @@
-package com.khenjy.fbasevideo;
+package com.khenjy.fbasevideo.fashotel;
 
-import static android.content.ContentValues.TAG;
-
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.IgnoreExtraProperties;
-import com.google.firebase.database.ValueEventListener;
 
 @IgnoreExtraProperties
 public class MainModel {

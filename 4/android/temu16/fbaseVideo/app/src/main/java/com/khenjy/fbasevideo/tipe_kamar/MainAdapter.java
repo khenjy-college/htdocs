@@ -1,4 +1,4 @@
-package com.khenjy.fbasevideo;
+package com.khenjy.fbasevideo.tipe_kamar;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -19,8 +19,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.Firebase;
 import com.google.firebase.database.FirebaseDatabase;
+import com.khenjy.fbasevideo.R;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -50,7 +50,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
-                        .setContentHolder(new ViewHolder(R.layout.update_popup))
+                        .setContentHolder(new ViewHolder(R.layout.teachers_update_popup))
                         .setExpanded(true, 2000)
                         .create();
 
@@ -131,7 +131,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
     public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.main_item, parent, false);
+                .inflate(R.layout.teachers_main_item, parent, false);
 
         // Create a new ViewHolder
         return new myViewHolder(view);
