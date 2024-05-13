@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     MainAdapter mainAdapter;
     FloatingActionButton floatingActionButton;
-
     private static final int BACK_PRESS_INTERVAL = 2000; // 2 seconds
     private long backPressTime;
 
@@ -89,12 +88,10 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
 
-        mainAdapter.notifyDataSetChanged();
-
         floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent move = new Intent(MainActivity.this, AddActivity.class);
                 startActivity(move);
             }
@@ -107,17 +104,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mainAdapter.startListening();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         mainAdapter.startListening();
     }
 

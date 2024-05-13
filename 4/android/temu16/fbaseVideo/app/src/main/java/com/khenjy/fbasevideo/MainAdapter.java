@@ -61,13 +61,13 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
                 EditText name = view.findViewById(R.id.txtName);
                 EditText course = view.findViewById(R.id.txtCourse);
                 EditText email = view.findViewById(R.id.txtEmail);
-                EditText surl = view.findViewById(R.id.txtImageUrl);
+                EditText turl = view.findViewById(R.id.txtImageUrl);
                 Button btnUpdate = view.findViewById(R.id.btnUpdate);
 
                 name.setText(model.getName());
                 course.setText(model.getCourse());
                 email.setText(model.getEmail());
-                surl.setText(model.getTurl());
+                turl.setText(model.getTurl());
                 dialogPlus.show();
 
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
                         map.put("name", name.getText().toString());
                         map.put("course", course.getText().toString());
                         map.put("email", email.getText().toString());
-                        map.put("surl", surl.getText().toString());
+                        map.put("turl", turl.getText().toString());
                         FirebaseDatabase.getInstance().getReference().child("teachers")
                                 .child(getRef(position).getKey()).updateChildren(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -135,16 +135,6 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
 
         // Create a new ViewHolder
         return new myViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(myViewHolder holder, int position) {
-        // Bind the data to the view holder here.
-    }
-
-    @Override
-    public int getItemCount() {
-        return .size();
     }
 
     class myViewHolder extends RecyclerView.ViewHolder {

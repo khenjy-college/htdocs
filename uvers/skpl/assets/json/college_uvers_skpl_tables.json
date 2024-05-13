@@ -1,0 +1,297 @@
+{
+	"id": "02203f9a-bf4a-4b7c-9cee-4a03a233d025",
+	"name": "college_uvers_skpl_tables",
+	"values": [
+		{
+			"key": "tabel_a1",
+			"value": "pengaturan",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_a1_alias",
+			"value": "Pengaturan Website",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b1",
+			"value": "decoration",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b1_alias",
+			"value": "Dekorasi Website",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b2",
+			"value": "events",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b2_alias",
+			"value": "Event Website",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b3",
+			"value": "migrations",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b3_alias",
+			"value": "Migrations",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b4",
+			"value": "failed_jobs",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b4_alias",
+			"value": "Failed Jobs",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b5",
+			"value": "website_licenses",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b5_alias",
+			"value": "License",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b6",
+			"value": "website_sosmed",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b6_alias",
+			"value": "Akun Sosial Media",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b7",
+			"value": "website_themes",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b7_alias",
+			"value": "Tema Website",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b8",
+			"value": "website_notif_type",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b8_alias",
+			"value": "Notification Types",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b9",
+			"value": "website_notifications",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_b9_alias",
+			"value": "Notifikasi",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_c1",
+			"value": "mahasiswa",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_c1_alias",
+			"value": "Mahasiswa",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_c1_alias2",
+			"value": "Profil",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_c2",
+			"value": "user",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_c2_alias",
+			"value": "User",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_c2_alias2",
+			"value": "Profil",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_d1",
+			"value": "personal_access_tokens",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_d1_alias",
+			"value": "Personal Access Token",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_d2",
+			"value": "password_resets",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_d2_alias",
+			"value": "Password Resets",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_d3",
+			"value": "login_histories",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_d3_alias",
+			"value": "Login Histories",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e1",
+			"value": "faskamar",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e1_alias",
+			"value": "Fasilitas Kamar",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e2",
+			"value": "fashotel",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e2_alias",
+			"value": "Fasilitas Hotel",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e3",
+			"value": "laptop",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e3_alias",
+			"value": "Laptop",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e4",
+			"value": "spesifikasi_laptop",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_e4_alias",
+			"value": "Spesifikasi Laptop",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f1",
+			"value": "history",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f1_alias",
+			"value": "History Pemesanan",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f2",
+			"value": "bookmark",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f2_alias",
+			"value": "Bookmark",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f3",
+			"value": "transaksi",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f3_alias",
+			"value": "Transaksi",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f4",
+			"value": "operations",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tabel_f4_alias",
+			"value": "Operasional Hotel",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-04-03T14:13:55.349Z",
+	"_postman_exported_using": "Postman/10.24.15"
+}

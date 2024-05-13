@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | There are three reserved routes:
 |
-|	$route['default_controller'] = 'welcome';
+|	$route['default_controller'] = 'home';
 |
 | This route indicates which controller class should be loaded if the
 | URI contains no data. In the above example, the "welcome" class
@@ -50,5 +50,144 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
-$route['404_override'] = '';
+$route['404_override'] = 'welcome/no_page';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['home'] = 'welcome';
+$route['no_level'] = 'welcome/no_level';
+$route['dashboard'] = 'welcome/dashboard';
+
+
+// Define routes dynamically based on JSON data
+$jsonData2 = file_get_contents(FCPATH . ('assets/json/college_uvers_skpl_tables.postman_environment.json'));
+$myData2 = json_decode($jsonData2, true)['values'];
+
+
+foreach ($myData2 as $item2) {
+    $route['assets/img/' . $item2['value'] . '/(:any)'] = 'Omnitags/serve_image/' . $item2['key'] . '/$1';
+
+    $prefix = 'c_' . $item2['key'];
+    $cachedControllers = [];
+
+    $routeKey = $item2['value'];
+    $controller = $prefix;
+
+    if (!isset($cachedControllers[$routeKey])) {
+        $cachedControllers[$routeKey] = class_exists($routeKey);
+    }
+
+    if (!$cachedControllers[$routeKey]) {
+        $route[$routeKey] = $controller;
+    } else {
+    }
+
+    // Define routes for different functionality groups
+
+    // View routes
+    $viewRoutes = [
+        'index' => 'index',
+        'daftar' => 'daftar',
+        'admin' => 'admin',
+        'laporan' => 'laporan',
+        'konfirmasi' => 'konfirmasi',
+        'profil' => 'profil'
+    ];
+
+    // Common function routes
+    $commonFunctionRoutes = [
+        'tambah' => 'tambah',
+        'update' => 'update',
+        'filter' => 'filter'
+    ];
+
+    $uncommonFunctionRoutes = [
+        'aktifkan' => 'aktifkan',
+        'nonaktifkan' => 'nonaktifkan',
+        'detail' => 'detail',
+        'lihat' => 'lihat',
+        'hapus' => 'hapus',
+        'print' => 'print',
+    ];
+
+    // Unique function routes
+    $uniqueFunctionRoutes = [
+        'login' => 'login',
+        'signup' => 'signup',
+        'logout' => 'logout',
+        'update_profil' => 'update_profil',
+        'update_pass' => 'update_password',
+        'update_id_event' => 'update_id_event',
+        'update_id_lisensi' => 'update_id_lisensi',
+        'update_id_tema' => 'update_id_tema',
+        'update_favicon' => 'update_favicon',
+        'update_logo' => 'update_logo',
+        'update_foto' => 'update_foto',
+        'ceklogin' => 'ceklogin',
+        'importExcel' => 'importExcel',
+        'cari' => 'cari',
+        'book' => 'book'
+    ];
+
+    // Assign routes for each group
+    // Check if any view routes don't exist
+
+    foreach ($viewRoutes as $key => $value) {
+        $routeKey1 = $item2['value'] . '/' . $key;
+        $controller1 = $prefix . '/' . $value;
+
+        if (!isset($cachedControllers[$routeKey1])) {
+            $cachedControllers[$routeKey1] = class_exists($routeKey1);
+        }
+
+        if (!$cachedControllers[$routeKey1]) {
+            $route[$routeKey1] = $controller1;
+        } else {
+            $route[$routeKey1] = 'welcome/no_page';
+        }
+    }
+
+    foreach ($commonFunctionRoutes as $key => $value) {
+        $routeKey1 = $item2['value'] . '/' . $key;
+        $controller1 = $prefix . '/' . $value;
+
+        if (!isset($cachedControllers[$routeKey1])) {
+            $cachedControllers[$routeKey1] = class_exists($routeKey1);
+        }
+
+        if (!$cachedControllers[$routeKey1]) {
+            $route[$routeKey1] = $controller1;
+        } else {
+            $route[$routeKey1] = 'welcome/no_page';
+        }
+    }
+
+    foreach ($uncommonFunctionRoutes as $key => $value) {
+        $routeKey1 = $item2['value'] . '/' . $key . '/(:num)';
+        $controller1 = $prefix . '/' . $value . '/$1';
+
+        if (!isset($cachedControllers[$routeKey1])) {
+            $cachedControllers[$routeKey1] = class_exists($routeKey1);
+        }
+
+        if (!$cachedControllers[$routeKey1]) {
+            $route[$routeKey1] = $controller1;
+        } else {
+            $route[$routeKey1] = 'welcome/no_page';
+        }
+    }
+
+    foreach ($uniqueFunctionRoutes as $key => $value) {
+        $routeKey1 = $item2['value'] . '/' . $key;
+        $controller1 = $prefix . '/' . $value;
+
+        if (!isset($cachedControllers[$routeKey1])) {
+            $cachedControllers[$routeKey1] = class_exists($routeKey1);
+        }
+
+        if (!$cachedControllers[$routeKey1]) {
+            $route[$routeKey1] = $controller1;
+        } else {
+            $route[$routeKey1] = 'welcome/no_page';
+        }
+    }
+}

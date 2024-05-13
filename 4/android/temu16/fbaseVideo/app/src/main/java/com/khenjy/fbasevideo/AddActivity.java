@@ -39,29 +39,14 @@ public class AddActivity extends AppCompatActivity {
             }
         });
 
-        mainAdapter = new MainAdapter(options);
-        recyclerView.setAdapter(mainAdapter);
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddActivity.this, MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
-
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mainAdapter.stopListening(); // Stop listening to Firebase database changes
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mainAdapter.startListening(); // Start listening to Firebase database changes
-    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

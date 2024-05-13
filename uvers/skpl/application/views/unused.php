@@ -1,4 +1,4 @@
-<div id="quickTour" class="modal fade">
+<div class="modal fade quickTour">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,19 +14,19 @@
                 <p class="small text-center text-danger"><?= $this->session->flashdata('pesan_quickTour') ?></p>
                 <div class="modal-footer">
                     <?php
-                    $userType = $this->session->userdata($tabel9_field6);
+                    $userType = $this->session->userdata($tabel_c2_field6);
                     switch ($userType) {
-                        case $tabel9_field6_value5:
+                        case $tabel_c2_field6_value5:
                             ?>
                             <a id="introTamu" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
                             <?php
                             break;
-                        case $tabel9_field6_value3:
+                        case $tabel_c2_field6_value3:
                             ?>
                             <a id="introAdministrator" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
                             <?php
                             break;
-                        case $tabel9_field6_value2:
+                        case $tabel_c2_field6_value2:
                             ?>
                             <a id="introAccounting" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
                             <?php
