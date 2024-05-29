@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.khenjy.fbasevideo.R;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,16 +46,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (backPressTime + BACK_PRESS_INTERVAL > System.currentTimeMillis()) {
-            // If backPressTime + interval is greater than the current time, exit the app
             super.onBackPressed();
-            return;
+            finishAffinity(); // Closes the app completely
         } else {
-            // Inform the user to press back again to exit
             Toast.makeText(this, "Press back again to exit.", Toast.LENGTH_SHORT).show();
         }
-        // Update backPressTime to current time
         backPressTime = System.currentTimeMillis();
     }
+
+    Button btnAbout; // Initialization moved here
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Initialization moved after setContentView
+        btnAbout = findViewById(R.id.btnAbout);
+
         myRef.child("teachers").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -76,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<MainModel> options =
@@ -87,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
 
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,8 +101,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Register the view (e.g., a TextView) for which you want to show the context menu
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DialogPlus dialogPlus = DialogPlus.newDialog(MainActivity.this)
+                        .setContentHolder(new ViewHolder(R.layout.teachers_about_popup))
+                        .setExpanded(true, 2000)
+                        .create();
 
+                //dialogPlus.show();
+
+                View view = dialogPlus.getHolderView();
+
+                dialogPlus.show();
+            }
+        });
+
+        // Register the view (e.g., a TextView) for which you want to show the context menu
     }
 
     @Override
