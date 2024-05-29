@@ -1,6 +1,7 @@
-package com.khenjy.hotelapp.screens;
+package com.khenjy.hotelapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -13,6 +14,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.khenjy.hotelapp.R;
 import com.khenjy.hotelapp.fragments.AboutUsFragment;
 import com.khenjy.hotelapp.fragments.HomeFragment;
+import com.khenjy.hotelapp.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
@@ -51,6 +53,13 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
             case R.id.menu_about_us:
                 fragment = new AboutUsFragment();
                 break;
+            case R.id.menu_profile:
+                fragment = new ProfileFragment();
+                break;
+            default:
+                // Handle unexpected menu item selection
+                Log.e("MainActivity", "Unknown menu item selected");
+                break;
         }
         return loadFragment(fragment);
     }
@@ -62,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                     .beginTransaction()
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
                     .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null) // Add this line for back stack behavior
                     .commit();
             return true;
         }

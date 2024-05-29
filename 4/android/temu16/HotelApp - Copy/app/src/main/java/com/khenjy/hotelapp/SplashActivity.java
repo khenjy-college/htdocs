@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.khenjy.hotelapp.screens.MainActivity;
 import com.khenjy.hotelapp.screens.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {

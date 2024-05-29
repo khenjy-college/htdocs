@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_grey"
-    tools:context=".screens.SignUpActivity">
+    tools:context=".screens.LoginActivity">
 
     <TextView
         android:id="@+id/welcome"
@@ -27,7 +27,7 @@
         android:layout_below="@+id/welcome"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Rental App"
+        android:text="EduManage"
         android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -59,21 +59,10 @@
                     android:layout_marginTop="38dp"
                     android:layout_marginEnd="16dp"
                     android:padding="16dp"
-                    android:text="Sign Up"
+                    android:text="Login"
                     android:textColor="@color/black"
                     android:textSize="26sp"
                     android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/user_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/edit_bg"
-                    android:hint="Name"
-                    android:padding="24dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
 
                 <EditText
                     android:id="@+id/user_email"
@@ -98,31 +87,19 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
-                <EditText
-                    android:id="@+id/user_confirm_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/edit_bg"
-                    android:hint="Confirm Password"
-                    android:inputType="textPassword"
-                    android:padding="24dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
-
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/sign_up_button"
+                    android:id="@+id/login_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@drawable/buttton_bg"
                     android:padding="16dp"
-                    android:text="Sign Up"
+                    android:text="Login"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
-                    <LinearLayout
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp">
@@ -131,24 +108,22 @@
                         android:id="@+id/desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Already have account? "
+                        android:text="Don't have account? "
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp"/>
 
                     <TextView
-                        android:id="@+id/have_account"
+                        android:id="@+id/dont_have_account"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@+id/desc"
-                        android:text="Login"
+                        android:text="Create account"
                         android:textColor="@color/purple_500"
                         android:textSize="20sp"
                         android:textStyle="italic" />
 
                 </LinearLayout>
-
-
 
             </LinearLayout>
 
