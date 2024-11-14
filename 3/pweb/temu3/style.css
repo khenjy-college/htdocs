@@ -1,0 +1,177 @@
+body{
+  font-family: sans-serif;
+  background: #89a688;
+  margin: 0;
+}
+
+
+
+article{
+  border: 1px solid #111;
+  border-style: solid;
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  width: auto;
+  margin-bottom: 0px;
+  color: black;
+  background: #7d987c;
+}
+
+aside{
+  border: 1px solid #111;
+  border-style: solid;
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  width: auto;
+  margin-bottom: 0px;
+  color: black;
+  background: #7d987c;
+}
+
+footer{
+  background-color: rgb(106, 165, 112);
+  color: #033803;
+  align-items: center;
+  align-content: center;
+  padding: 20px;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: green;
+}
+
+li{
+  float: left;
+}
+
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+  
+}
+
+li a:hover:not(:active){
+  background-color: red;
+}
+
+.active{
+  background: green;
+}
+
+input[type=text], select{
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=date] {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit]{
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover{
+  background-color: #45a049;
+}
+
+div{ 
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+div.searchkegiatan{
+  align-items: center;
+  align-content: center;
+  background-color: white;
+  width: 600px;
+  display: flex;
+  margin : 20px 100px;
+  padding: 0px 0px;
+}
+
+input.search-bar{
+  background-color: rgb(255, 255, 255);
+  display: block;
+  width: 400px;
+  border: none;
+  border-radius: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  margin-left: 430px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+table{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+input.download-pengumuman-btn{
+  width: 200px;
+  margin-left: 80%;
+  margin-bottom: 20px;
+}
+
+div.tentangkami{
+  display: grid;
+  padding-bottom: 20px;
+}
+
+div.photoside{
+  width: 250px;
+  height: 450px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: top;
+}
+div.photoform{
+  width: 150px;
+  height: 200px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+div.infoside{
+  width: 800px;
+  height: 450px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: top;
+}
